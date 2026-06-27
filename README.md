@@ -282,3 +282,7 @@ MIT License. 详见 [LICENSE](LICENSE)。
 
 - 架构设计参考 [reverse-skill](https://github.com/zhaoxuya520/reverse-skill)（zhaoxuya520）
 - 理论依据：《黄帝内经·素问》七篇大论
+
+## 友情链接
+
+[Linux.do](https://linux.do)是一个非常友好的社区。 感谢LINUX.DO的所有人给我灵感和勇气。
