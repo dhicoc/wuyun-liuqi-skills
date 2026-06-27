@@ -1,0 +1,169 @@
+{
+  "asset_id": "asset6_regional",
+  "asset_name": "地域运气修正数据库",
+  "asset_description": "中国不同地理区域的运气推算修正系数。同一运气格局在不同地区的实际气候表现差异显著，本库提供纬度、海拔、地貌等因素的修正参考。",
+  "data_source": "中医运气地域差异理论、中医地理学、现代气象医学文献",
+  "entry_count": 8,
+  "entries": [
+    {
+      "region_id": "regional_1",
+      "region_name": "东北地区（黑吉辽）",
+      "rag_key": "regional_northeast",
+      "latitude_range": "北纬 38°—53°",
+      "climate_characteristics": "寒温带、亚寒带大陆性季风气候，冬季严寒漫长，年均温低，冻土广布",
+      "wuyun_modifier": {
+        "description": "高寒环境助长寒水之气，抑制火气，五运中寒运（水运）的影响被放大",
+        "effect": "水运偏盛，火运偏衰",
+        "weight_adjustment": "寒水之运权重 +20%"
+      },
+      "liuqi_modifier": {
+        "description": "太阳寒水之气常年偏盛，少阳相火之气被抑制，客气中寒性客气影响增强",
+        "effect": "太阳寒水偏盛，少阳相火偏衰",
+        "weight_adjustment": "寒性客气权重 +20%"
+      },
+      "constitution_tendency": "腠理致密，阳气内敛，肾气偏盛而心气偏弱，易患寒痹、咳喘",
+      "clinical_notes": "东北地区适用辛温发散、温阳散寒之剂时需考虑其体质耐寒性，寒性客气司天时发病风险显著增高",
+      "source": "《素问·异法方宜论》、《中医地域医学概论》"
+    },
+    {
+      "region_id": "regional_2",
+      "region_name": "华北地区（京津冀晋）",
+      "rag_key": "regional_northchina",
+      "latitude_range": "北纬 34°—42°",
+      "climate_characteristics": "暖温带半湿润大陆性季风气候，春季干燥多风，夏季炎热，秋季凉爽，冬季干冷",
+      "wuyun_modifier": {
+        "description": "干燥气候助长燥金之气，抑制风木之气，金运影响增强",
+        "effect": "金运偏盛，木运偏衰",
+        "weight_adjustment": "燥金之运权重 +15%"
+      },
+      "liuqi_modifier": {
+        "description": "阳明燥金之气影响较他地更著，厥阴风木之气偏弱，客气燥性影响放大",
+        "effect": "阳明燥金偏盛，厥阴风木偏衰",
+        "weight_adjustment": "燥性客气权重 +15%"
+      },
+      "constitution_tendency": "腠理稍密，肺气偏盛而肝气偏弱，易患燥咳、鼻衄、便秘",
+      "clinical_notes": "华北地区当注意燥气伤肺，金运太过之年呼吸系统疾病高发，用药宜清润兼顾疏肝",
+      "source": "《素问·异法方宜论》、《运气学说的地域差异研究》"
+    },
+    {
+      "region_id": "regional_3",
+      "region_name": "西北地区（陕甘宁青新）",
+      "rag_key": "regional_northwest",
+      "latitude_range": "北纬 31°—49°",
+      "climate_characteristics": "温带大陆性气候，干旱少雨，昼夜温差大，冬季寒冷，风沙天气多，部分地区高海拔",
+      "wuyun_modifier": {
+        "description": "寒燥并存使金水二运偏盛，木火二运偏衰，寒与燥的叠加效应显著",
+        "effect": "金运、水运偏盛，木运、火运偏衰",
+        "weight_adjustment": "寒运与燥运权重各 +20%（叠加效应）"
+      },
+      "liuqi_modifier": {
+        "description": "太阳寒水与阳明燥金客气影响均增强，少阴君火与厥阴风木客气影响减弱",
+        "effect": "太阳寒水、阳明燥金偏盛",
+        "weight_adjustment": "寒性客气与燥性客气权重各 +20%"
+      },
+      "constitution_tendency": "皮毛坚固，肺肾之气偏盛而肝心之气偏弱，易患寒痹、肺燥、关节痛",
+      "clinical_notes": "西北地高气寒，辛温燥烈之药用量可适当增大，但需兼顾地域干燥特性防伤阴液",
+      "source": "《素问·异法方宜论》、《西北地区气候与中医体质关系研究》"
+    },
+    {
+      "region_id": "regional_4",
+      "region_name": "华东地区（江浙沪皖）",
+      "rag_key": "regional_eastchina",
+      "latitude_range": "北纬 28°—35°",
+      "climate_characteristics": "亚热带湿润季风气候，四季分明，雨量充沛，夏季高温多湿，梅雨季节湿气尤重",
+      "wuyun_modifier": {
+        "description": "湿润气候助长湿土之气，土运偏盛，水运受抑",
+        "effect": "土运偏盛，水运偏衰",
+        "weight_adjustment": "湿土之运权重 +10%"
+      },
+      "liuqi_modifier": {
+        "description": "太阴湿土客气影响增强，太阳寒水客气影响减弱",
+        "effect": "太阴湿土偏盛，太阳寒水偏衰",
+        "weight_adjustment": "湿性客气权重 +10%"
+      },
+      "constitution_tendency": "腠理疏松，脾湿偏盛而肾气偏弱，易患湿阻、水肿、痰饮",
+      "clinical_notes": "华东湿气较重，临证须兼顾化湿运脾，太阴湿土司天时脾胃病发病率明显升高",
+      "source": "《素问·异法方宜论》、《江浙地区运气特点与临床》"
+    },
+    {
+      "region_id": "regional_5",
+      "region_name": "华南地区（粤桂闽琼）",
+      "rag_key": "regional_southchina",
+      "latitude_range": "北纬 18°—27°",
+      "climate_characteristics": "热带、亚热带季风气候，全年高温多湿，夏季漫长，台风频发，湿热交蒸",
+      "wuyun_modifier": {
+        "description": "湿热环境助长火运与土运，火金二运偏颇明显",
+        "effect": "火运偏盛，金运偏衰",
+        "weight_adjustment": "火运权重 +20%，土运（湿）权重 +20%"
+      },
+      "liuqi_modifier": {
+        "description": "少阴君火、少阳相火与太阴湿土客气影响增强，阳明燥金客气影响减弱",
+        "effect": "少阴君火、少阳相火、太阴湿土偏盛，阳明燥金偏衰",
+        "weight_adjustment": "火性客气与湿性客气权重各 +20%"
+      },
+      "constitution_tendency": "腠理疏松多汗，心火偏盛而肺气偏弱，阳气易泄，易患湿热证、暑温",
+      "clinical_notes": "华南用药宜清化湿热、轻清宣透，忌过用辛温燥烈之品，少阳相火司天时热病大行",
+      "source": "《素问·异法方宜论》、《岭南医学与运气学说》"
+    },
+    {
+      "region_id": "regional_6",
+      "region_name": "华中地区（鄂湘赣豫）",
+      "rag_key": "regional_centralchina",
+      "latitude_range": "北纬 26°—36°",
+      "climate_characteristics": "亚热带湿润季风气候，四季分明，水网密布，湿度较高，夏季闷热，冬季湿冷",
+      "wuyun_modifier": {
+        "description": "水湿环境使土运偏盛，水运偏衰",
+        "effect": "土运偏盛，水运偏衰",
+        "weight_adjustment": "湿土之运权重 +15%"
+      },
+      "liuqi_modifier": {
+        "description": "太阴湿土客气影响增强，太阳寒水客气影响减弱",
+        "effect": "太阴湿土偏盛，太阳寒水偏衰",
+        "weight_adjustment": "湿性客气权重 +15%"
+      },
+      "constitution_tendency": "腠理较密，脾湿偏盛而肾气偏弱，易患湿阻中焦、痹证、水肿",
+      "clinical_notes": "华中地区湿邪偏重且四季分布均匀，临证须注重运脾化湿，湿土司天之年尤须防范",
+      "source": "《素问·异法方宜论》、《华中地区运气特点与疾病相关性》"
+    },
+    {
+      "region_id": "regional_7",
+      "region_name": "西南地区（川渝云贵）",
+      "rag_key": "regional_southwest",
+      "latitude_range": "北纬 21°—34°",
+      "climate_characteristics": "亚热带湿润季风气候，盆地多雾多湿，山地气候垂直差异大，日照少，阴雨天气多",
+      "wuyun_modifier": {
+        "description": "多雾多湿使土运偏盛，日照不足使火运偏衰",
+        "effect": "土运偏盛，火运偏衰",
+        "weight_adjustment": "湿土之运权重 +20%，火运权重 -10%"
+      },
+      "liuqi_modifier": {
+        "description": "太阴湿土客气影响增强，少阴君火与少阳相火客气影响减弱",
+        "effect": "太阴湿土偏盛，少阴君火、少阳相火偏衰",
+        "weight_adjustment": "湿性客气权重 +20%，寒性客气权重 -10%"
+      },
+      "constitution_tendency": "腠理致密，脾湿偏盛而阳气偏弱，易患寒湿痹痛、瘿瘤、咳喘",
+      "clinical_notes": "西南盆地湿重而阳微，温阳化湿为常用大法，山地居民又须考虑海拔因素的影响",
+      "source": "《素问·异法方宜论》、《四川盆地气候与中医体质》"
+    },
+    {
+      "region_id": "regional_8",
+      "region_name": "青藏高原（青藏）",
+      "rag_key": "regional_qingzang",
+      "latitude_range": "北纬 26°—39°",
+      "climate_characteristics": "高寒高原气候，海拔3000米以上，年均温极低，空气稀薄干燥，日照强烈，昼夜温差极大",
+      "wuyun_modifier": {
+        "description": "极寒极燥使水运与金运大幅偏盛，火运与土运严重偏衰",
+        "effect": "水运、金运偏盛，火运、土运偏衰",
+        "weight_adjustment": "寒运与燥运权重各 +25%"
+      },
+      "liuqi_modifier": {
+        "description": "太阳寒水与阳明燥金客气影响极大增强，少阴君火与太阴湿土客气影响极弱",
+        "effect": "太阳寒水、阳明燥金偏盛，少阴君火、太阴湿土偏衰",
+        "weight_adjustment": "寒性客气与燥性客气权重各 +25%"
+      },
+      "constitution_tendency": "腠理致密坚厚，肺肾之气偏盛而心脾之气偏弱，易患高原病、寒痹、肺燥",
+      "clinical_notes": "青藏高原高寒燥并存，用药可较平原地区大幅加重温热之品用量，但需注意高原缺氧状态下药物代谢差异",
+      "source": "《中医地理学》、《高原医学与中医运气学交叉研究》"
+    }
+  ]
+}

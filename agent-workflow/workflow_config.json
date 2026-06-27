@@ -1,0 +1,321 @@
+{
+  "workflow_name": "wuyun-liuqi-agent",
+  "version": "1.0.0",
+  "description": "五运六气 Agent ReAct 闭环推理工作流。查工具→查知识库→辨证推理→输出。基于《黄帝内经·素问》七篇大论。",
+  "language": "zh-CN",
+  "framework_compatibility": ["LangChain", "AutoGen", "Dify"],
+
+  "steps": [
+    {
+      "step_id": 1,
+      "name": "call_yunqi_api",
+      "type": "tool_call",
+      "description": "调用 calculate_yunqi_api 获取精确干支/运气推算数据。底层封装 scripts/ 下 Python 推算引擎。",
+      "tool_name": "calculate_yunqi_api",
+      "input_template": {
+        "date_str": "$user_date"
+      },
+      "output_keys": [
+        "year_gz",
+        "day_gz",
+        "sui_yun",
+        "sui_yun.element",
+        "sui_yun.code",
+        "sui_yun.tai_shao",
+        "sui_yun.is_taiguo",
+        "si_tian",
+        "zai_quan",
+        "current_step",
+        "current_step.step_num",
+        "current_step.step_name",
+        "current_step.jieqi_range",
+        "current_step.zhu_qi",
+        "current_step.ke_qi",
+        "current_step.jialin_relation",
+        "current_step.jialin_shun_ni",
+        "tianfu",
+        "suihui",
+        "pingqi"
+      ],
+      "react_phase": "ACT",
+      "on_error": {
+        "strategy": "retry_once_then_fallback",
+        "fallback": "call scripts/yunqi_report.py $user_year --json",
+        "fallback_output_keys": ["year", "ganzhi", "dayun", "sitian", "zaiquan", "tianfu", "suihui", "pingqi"],
+        "if_all_fail": "output_literature_only_with_disclaimer"
+      }
+    },
+    {
+      "step_id": 2,
+      "name": "parse_yunqi_result",
+      "type": "observe",
+      "description": "解析工具返回的 JSON，提取关键键值供后续 RAG 检索与病机推理使用。",
+      "react_phase": "OBSERVE",
+      "extract": {
+        "rag_query_keys": {
+          "asset1_key": "$.sui_yun.code",
+          "asset2_sitian_key": "$.si_tian + '司天'",
+          "asset2_zaiquan_key": "$.zai_quan + '在泉'",
+          "asset3_key": "$.current_step.step_name + '_' + $.current_step.zhu_qi + '_' + $.current_step.jialin_relation"
+        },
+        "reasoning_inputs": {
+          "suiyun_element": "$.sui_yun.element",
+          "suiyun_taiguo": "$.sui_yun.is_taiguo",
+          "sitian": "$.si_tian",
+          "zaiquan": "$.zai_quan",
+          "current_step_zhuqi": "$.current_step.zhu_qi",
+          "current_step_keqi": "$.current_step.ke_qi",
+          "current_step_relation": "$.current_step.jialin_relation"
+        }
+      },
+      "validation": {
+        "required_fields": ["year_gz", "sui_yun.code", "si_tian", "zai_quan"],
+        "optional_fields": ["day_gz", "current_step"],
+        "if_missing_required": "abort_step_with_error",
+        "if_missing_optional": "continue_with_degraded_analysis"
+      }
+    },
+    {
+      "step_id": 3,
+      "name": "rag_search_bingji",
+      "type": "tool_call",
+      "description": "以 Step 2 提取的键值为检索词，查询 RAG 知识库三个 asset，获取病机文本、症状、治法、经文。",
+      "tool_name": "rag_search",
+      "input_template": {
+        "queries": [
+          {"asset": "asset1", "query": "$asset1_key"},
+          {"asset": "asset2", "query": "$asset2_sitian_key"},
+          {"asset": "asset2", "query": "$asset2_zaiquan_key"},
+          {"asset": "asset3", "query": "$asset3_key"}
+        ]
+      },
+      "react_phase": "ACT",
+      "on_error": {
+        "strategy": "degrade_to_fulltext_search",
+        "fallback_sources": [
+          "yunqi-pathogenesis/references/wuyun_bingji.md",
+          "yunqi-pathogenesis/references/liuqi_bingji.md",
+          "yunqi-pathogenesis/references/taiguo_bingji.md",
+          "yunqi-calc/references/kezhujialin.md"
+        ],
+        "if_all_fail": "llm_general_reasoning_with_label"
+      }
+    },
+    {
+      "step_id": 4,
+      "name": "receive_rag_results",
+      "type": "observe",
+      "description": "接收 RAG 返回的病机文本、症状描述、治法建议、经文引用，整理为三层推理输入。",
+      "react_phase": "OBSERVE",
+      "expected_fields": [
+        "asset1_results[].source",
+        "asset1_results[].bingji",
+        "asset1_results[].zangfu",
+        "asset1_results[].zhengtao",
+        "asset2_results[].source",
+        "asset2_results[].bingji",
+        "asset3_results[].source",
+        "asset3_results[].bingji",
+        "asset3_results[].zhengtao"
+      ]
+    },
+    {
+      "step_id": 5,
+      "name": "three_layer_reasoning",
+      "type": "think",
+      "description": "三层辨证推理。核心策略：岁运为主，司天为统，客主加临看动态。",
+      "react_phase": "THINK",
+      "strategy": "岁运为主，司天为统，客主加临看动态",
+      "layers": [
+        {
+          "layer": "岁运层",
+          "scope": "宏观（全年）",
+          "input": ["sui_yun.element", "sui_yun.is_taiguo", "asset1_results"],
+          "reasoning": "大运五行决定年度气候基调。太过→本气偏盛，所胜受邪；不及→本气偏衰，所不胜来乘。",
+          "classic_source": "素问·气交变大论、素问·五常政大论"
+        },
+        {
+          "layer": "司天层",
+          "scope": "半年（司天主上半年，在泉主下半年）",
+          "input": ["si_tian", "zai_quan", "asset2_results"],
+          "reasoning": "司天之气胜→上半年相应脏腑易病；在泉之气胜→下半年相应脏腑易病。司天在泉互为阴阳配对。",
+          "classic_source": "素问·至真要大论"
+        },
+        {
+          "layer": "客主加临层",
+          "scope": "动态（当前步位）",
+          "input": ["current_step.zhu_qi", "current_step.ke_qi", "current_step.jialin_relation", "asset3_results"],
+          "reasoning": "客主加临决定当前时段即时气候-病机倾向。相得(顺)→相对平和；不相得(逆)→异常加重。",
+          "classic_source": "素问·六元正纪大论"
+        }
+      ],
+      "output": "三层综合判断（叠加效应分析）"
+    },
+    {
+      "step_id": 6,
+      "name": "constitution_cross_reference",
+      "type": "tool_call",
+      "description": "可选：若用户提供个人体质数据，与运气格局交叉比对，输出个体化倾向。",
+      "tool_name": "constitution_cross_reference",
+      "input_template": {
+        "user_constitution": "$user_constitution",
+        "yunqi_pattern": "$step5_output"
+      },
+      "react_phase": "ACT",
+      "required": false,
+      "condition": "$user_provides_constitution == true",
+      "if_skipped": "output_general_yunqi_analysis_with_hint"
+    },
+    {
+      "step_id": 7,
+      "name": "generate_structured_output",
+      "type": "output",
+      "description": "生成结构化响应：运气格局概述→病机分析→调理建议→免责声明。",
+      "react_phase": "OUTPUT",
+      "output_template": {
+        "sections": [
+          {
+            "name": "运气格局概述",
+            "fields": ["year_gz", "sui_yun", "si_tian", "zai_quan", "current_step"]
+          },
+          {
+            "name": "病机分析",
+            "subsections": ["岁运层", "司天层", "客主加临层", "综合判断"]
+          },
+          {
+            "name": "调理建议",
+            "subsections": ["治则", "食疗", "养生"],
+            "references": [
+              "yunqi-clinical/references/zhize_zhifa.md",
+              "yunqi-clinical/references/fangyao_xuanze.md",
+              "yunqi-clinical/references/yangsheng_tiaoli.md"
+            ]
+          },
+          {
+            "name": "免责声明",
+            "required": true,
+            "text": "⚠️ 免责声明：以上分析基于中医运气学说理论推算，仅供参考。运气学说非现代医学诊断标准，具体诊疗须由执业中医师辨证论治。请勿据此自行用药或针灸。"
+          }
+        ]
+      },
+      "format": "markdown",
+      "language_rules": {
+        "ban_modern_medical_terms": true,
+        "require_tcm_pathogenesis_terms": true,
+        "prescription_must_add": "请遵医嘱"
+      }
+    }
+  ],
+
+  "rag_endpoints": {
+    "asset1": {
+      "path": "rag-knowledge-base/asset1_suiyun.json",
+      "description": "岁运病机知识库（五运太过不及）",
+      "classic_source": "素问·气交变大论、素问·五常政大论",
+      "fallback_source": "yunqi-pathogenesis/references/wuyun_bingji.md",
+      "keys_example": ["water_excess", "wood_deficiency", "fire_excess", "earth_deficiency", "metal_excess"]
+    },
+    "asset2": {
+      "path": "rag-knowledge-base/asset2_sitian_zaiquan.json",
+      "description": "司天在泉病机知识库（六气病机）",
+      "classic_source": "素问·至真要大论",
+      "fallback_source": "yunqi-pathogenesis/references/liuqi_bingji.md",
+      "keys_example": ["少阴君火司天", "阳明燥金在泉", "太阴湿土司天", "太阳寒水在泉"]
+    },
+    "asset3": {
+      "path": "rag-knowledge-base/asset3_kezhujialin.json",
+      "description": "客主加临顺逆病机知识库（六步动态）",
+      "classic_source": "素问·六元正纪大论",
+      "fallback_source": "yunqi-calc/references/kezhujialin.md",
+      "keys_example": ["zhu_shaoyang_ke_shaoyin", "四之气_太阴湿土_客主同气", "初之气_厥阴风木_客气生主气"]
+    }
+  },
+
+  "tool_registry": {
+    "calculate_yunqi_api": {
+      "type": "function",
+      "description": "五运六气推算 API。传入日期，返回干支/大运/司天在泉/客主加临等完整运气数据。",
+      "parameters": {
+        "date_str": {"type": "string", "required": true, "formats": ["YYYY", "YYYY-MM-DD", "YYYY-MM-DD HH:MM"]}
+      },
+      "underlying_scripts": [
+        "scripts/ganzhi_calc.py",
+        "scripts/dayun_calc.py",
+        "scripts/keyun_calc.py",
+        "scripts/liuqi_calc.py",
+        "scripts/kezhujialin.py"
+      ],
+      "returns": "JSON object with year_gz, day_gz, sui_yun, si_tian, zai_quan, current_step, tianfu, suihui, pingqi"
+    },
+    "rag_search": {
+      "type": "function",
+      "description": "RAG 知识库检索。传入 asset 名与 query，返回病机文本/症状/治法/经文。",
+      "parameters": {
+        "queries": {
+          "type": "array",
+          "items": {
+            "asset": {"type": "string", "enum": ["asset1", "asset2", "asset3"]},
+            "query": {"type": "string"}
+          }
+        }
+      },
+      "returns": "JSON object with asset1_results, asset2_results, asset3_results arrays"
+    },
+    "constitution_cross_reference": {
+      "type": "function",
+      "description": "体质与运气交叉比对。可选调用。",
+      "parameters": {
+        "user_constitution": {"type": "string"},
+        "yunqi_pattern": {"type": "object"}
+      },
+      "returns": "JSON object with individual_tendency analysis"
+    }
+  },
+
+  "fallback_strategy": {
+    "tool_failure": "retry_once → fallback_to_python_script → literature_only_with_disclaimer",
+    "rag_miss": "degrade_to_fulltext_search → llm_general_reasoning_with_label",
+    "ambiguous_input": "use_defaults_with_hint → ask_user_to_clarify",
+    "principles": [
+      "不中断：局部失败时降级而非中断整体流程",
+      "不编造：RAG未命中时标注'未经文献验证'，不编造经文",
+      "不省略：无论降级到何种程度，免责声明必须附加"
+    ]
+  },
+
+  "disclaimer_required": true,
+  "disclaimer_text": "⚠️ 免责声明：以上分析基于中医运气学说理论推算，仅供参考。运气学说非现代医学诊断标准，具体诊疗须由执业中医师辨证论治。请勿据此自行用药或针灸。",
+  "disclaimer_source": "case-journal/precedent-disclaimer.md",
+
+  "safety_rules": {
+    "must": [
+      "区分'运气理论分析'与'具体医疗建议'",
+      "在所有临床输出末尾附加免责声明",
+      "引导用户咨询执业中医师"
+    ],
+    "must_not": [
+      "用运气推算替代辨证论治",
+      "给出具体方剂剂量",
+      "声称运气推算可以确诊疾病",
+      "省略免责声明",
+      "使用现代医学病名（高血压、冠心病等）替代中医病机术语"
+    ]
+  },
+
+  "reasoning_strategy": {
+    "core": "岁运为主，司天为统，客主加临看动态",
+    "layers": {
+      "岁运层": "分析大运对五脏盛衰的宏观影响（太过→本气偏盛所胜受邪；不及→本气偏衰所不胜来乘）",
+      "司天层": "分析司天在泉对上半年/下半年的气候-病机影响（司天主上半年，在泉主下半年）",
+      "客主加临层": "分析当前步位的动态病机（相得→平和，不相得→异常）"
+    },
+    "ganzhi_calibration": "工具返回的数据是绝对准确的，不得自行修正（R2推算准确性规则）"
+  },
+
+  "language_rules": {
+    "banned_terms": ["高血压", "冠心病", "糖尿病", "心衰", "心律失常"],
+    "required_terms": ["胸痹", "心悸", "诸寒收引", "诸热瞀瘛", "诸湿肿满", "诸风掉眩"],
+    "prescription_suffix": "请遵医嘱",
+    "classic_reference_style": "素问·至真要大论五味制约原则"
+  }
+}

@@ -1,0 +1,627 @@
+{
+  "module": "advanced-alignment",
+  "version": "1.0.0",
+  "description": "五运六气高级对齐模块：天气数据对齐 + 体质对齐。将运气推算与实时气象数据和个体体质交叉分析，实现内外邪相合判断与个体化病机预判。",
+  "dependencies": [
+    "yunqi-calc/",
+    "yunqi-pathogenesis/",
+    "case-journal/precedent-disclaimer.md"
+  ],
+  "disclaimer": "运气学说与体质学说均为中医传统理论，非现代医学诊断标准。本模块输出的临床分析仅供参考，具体诊疗须由执业中医师辨证论治。",
+
+  "weather_api": {
+    "description": "天气数据对齐API规范：将运气推算的气候趋势与实时气象数据对齐，实现内外邪相合判断。",
+    "recommended_providers": [
+      {
+        "name": "和风天气",
+        "english_name": "QWeather",
+        "api_base_url": "https://devapi.qweather.com/v7/weather/now",
+        "free_tier_limit": "1000 calls/day",
+        "chinese_city_coverage": "excellent (3000+ districts/counties)",
+        "fields_available": ["temperature", "humidity", "precipitation", "wind_speed", "wind_direction_16point", "uv_index", "aqi", "feels_like", "snow"],
+        "response_language": "zh-CN",
+        "update_frequency": "10-20 min",
+        "historical_data": "paid only",
+        "api_key_env_var": "WEATHER_API_KEY",
+        "recommended": true,
+        "recommendation_reason": "中国区县覆盖最全，数据维度最丰富，风向16方位有利于厥阴风木对齐，AQI有利于阳明燥金对齐"
+      },
+      {
+        "name": "心知天气",
+        "english_name": "Seniverse",
+        "api_base_url": "https://api.seniverse.com/v3/weather/now.json",
+        "free_tier_limit": "800 calls/day",
+        "chinese_city_coverage": "excellent (2000+ cities)",
+        "fields_available": ["temperature", "humidity", "wind_speed", "wind_direction_8point", "aqi"],
+        "response_language": "zh-CN",
+        "update_frequency": "60 min",
+        "historical_data": "free (10 days)",
+        "api_key_env_var": "WEATHER_API_KEY",
+        "recommended": false,
+        "recommendation_reason": "API简洁，适合轻量级集成；免费版降水量和UV数据不全"
+      },
+      {
+        "name": "OpenWeatherMap",
+        "english_name": "OpenWeatherMap",
+        "api_base_url": "https://api.openweathermap.org/data/2.5/weather",
+        "free_tier_limit": "1000 calls/day",
+        "chinese_city_coverage": "fair (major cities only, insufficient at district/county level)",
+        "fields_available": ["temperature", "humidity", "precipitation", "wind_speed", "wind_direction_degrees", "uv_index", "aqi (separate API)"],
+        "response_language": "en",
+        "update_frequency": "10 min",
+        "historical_data": "paid only",
+        "api_key_env_var": "WEATHER_API_KEY",
+        "recommended": false,
+        "recommendation_reason": "全球覆盖最佳，适合海外用户；中国区县级覆盖不足，风向以度数表示需转换"
+      }
+    ],
+    "required_fields": [
+      "temperature",
+      "humidity",
+      "precipitation",
+      "wind_speed",
+      "wind_direction"
+    ],
+    "optional_fields": [
+      "uv_index",
+      "aqi",
+      "feels_like",
+      "snow",
+      "pm25"
+    ],
+    "qi_weather_mapping": {
+      "厥阴风木": {
+        "yin_qi_attribute": "风",
+        "associated_organ": "肝",
+        "source_text": "《素问·五运行大论》：东方生风，风生木，木生酸，酸生肝……在天为风，在地为木",
+        "metrics": ["wind_speed", "wind_direction"],
+        "threshold": {
+          "wind_speed": 5.4,
+          "wind_speed_note": "4级风以上为风邪偏盛"
+        },
+        "direction_alignment": "偏东偏南合厥阴之位"
+      },
+      "少阴君火": {
+        "yin_qi_attribute": "热（温之渐）",
+        "associated_organ": "心",
+        "source_text": "《素问·五运行大论》：南方生热，热生火，火生苦，苦生心……在天为热，在地为火",
+        "metrics": ["temperature", "uv_index"],
+        "threshold": {
+          "temperature_deviation": 2,
+          "temperature_deviation_note": "高于同期常年均值2℃以上为君火偏盛",
+          "uv_index": 6
+        }
+      },
+      "少阳相火": {
+        "yin_qi_attribute": "暑（热之极）",
+        "associated_organ": "心包/三焦",
+        "source_text": "相火游行于外，暑热之邪偏盛",
+        "metrics": ["temperature", "uv_index", "feels_like"],
+        "threshold": {
+          "temperature_deviation": 3,
+          "temperature_deviation_note": "高于同期常年均值3℃以上为相火偏盛",
+          "feels_like": 35
+        }
+      },
+      "太阴湿土": {
+        "yin_qi_attribute": "湿",
+        "associated_organ": "脾",
+        "source_text": "《素问·五运行大论》：中央生湿，湿生土，土生甘，甘生脾……在天为湿，在地为土",
+        "metrics": ["humidity", "precipitation"],
+        "threshold": {
+          "humidity": 75,
+          "humidity_note": "持续3天以上≥75%为湿邪偏盛",
+          "precipitation_daily": 10,
+          "precipitation_note": "日降水量≥10mm为湿邪外侵"
+        }
+      },
+      "阳明燥金": {
+        "yin_qi_attribute": "燥",
+        "associated_organ": "肺",
+        "source_text": "《素问·五运行大论》：西方生燥，燥生金，金生辛，辛生肺……在天为燥，在地为金",
+        "metrics": ["humidity", "aqi"],
+        "threshold": {
+          "humidity_low": 40,
+          "humidity_low_note": "持续3天以上≤40%为燥邪偏盛",
+          "aqi": 100,
+          "aqi_note": "AQI≥100为浊邪兼燥（现代补充）"
+        }
+      },
+      "太阳寒水": {
+        "yin_qi_attribute": "寒",
+        "associated_organ": "肾",
+        "source_text": "《素问·五运行大论》：北方生寒，寒生水，水生咸，咸生肾……在天为寒，在地为水",
+        "metrics": ["temperature", "snow"],
+        "threshold": {
+          "temperature_deviation": -2,
+          "temperature_deviation_note": "低于同期常年均值2℃以上为寒邪偏盛",
+          "snow": true,
+          "snow_note": "出现降雪/霜冻为寒邪外侵"
+        }
+      }
+    },
+    "alignment_logic": {
+      "description": "对齐判定算法：比较运气推算的气候趋势方向与实际气象实况方向，判定内外邪是否相合",
+      "algorithm": [
+        "1. 从 qi_prediction 提取当前时段主导客气属性（如太阴湿土司天）",
+        "2. 查 qi_weather_mapping 获取该客气对应的气象指标及阈值",
+        "3. 从 weather_actual 提取对应气象指标的实际值",
+        "4. 计算实际值与同期常年均值的偏差",
+        "5. 判定实际气象是否达到该客气属性的偏盛阈值",
+        "6. 比较运气推算方向与实际气象方向",
+        "7. 根据对齐状态调整病机分析权重"
+      ],
+      "alignment_states": {
+        "相合": {
+          "condition": "运气推算偏盛方向 与 实际气象偏盛方向 一致",
+          "risk_multiplier": 1.5,
+          "pathogenesis_note": "内外邪相合，对应脏腑风险显著加重",
+          "tcm_theory": "内外邪相合——运邪与时邪同向叠加"
+        },
+        "不符": {
+          "condition": "运气推算偏盛方向 与 实际气象方向 相背",
+          "risk_multiplier": 0.6,
+          "pathogenesis_note": "气候与运气不符，需灵活调整运气推算的病机预判，但运邪仍在不可归零",
+          "tcm_theory": "运气有常而天时多变，须知常达变"
+        },
+        "中性": {
+          "condition": "实际气象无显著偏盛",
+          "risk_multiplier": 1.0,
+          "pathogenesis_note": "运邪为主，按运气推算原值处理",
+          "tcm_theory": "天时平和，运邪未被实况放大或缓解"
+        }
+      },
+      "period_alignment_rules": {
+        "sitian": {
+          "period": "上半年（大寒至小暑，约1月-6月）",
+          "method": "取上半年对应气象指标均值，与同期常年均值对比，验证司天之气"
+        },
+        "zaiquan": {
+          "period": "下半年（大暑至小寒，约7月-12月）",
+          "method": "取下半年对应气象指标均值，与同期常年均值对比，验证在泉之气"
+        },
+        "zhuqi_6_steps": {
+          "period": "六步主气（各步约60日）",
+          "method": "按六步节气时段取气象数据，与主气属性对齐"
+        },
+        "keqi_6_steps": {
+          "period": "客气六步（各步约60日）",
+          "method": "客气属性对应的气象指标在该步是否偏盛"
+        }
+      },
+      "special_cases": [
+        {
+          "case": "平气之年",
+          "handling": "以实际气象为主，运气推算为辅（平气年运邪不盛，实况权重更大）"
+        },
+        {
+          "case": "太过之年且实际也偏盛",
+          "handling": "相合程度最高，内外邪合最重，MUST提升预警级别"
+        },
+        {
+          "case": "不及之年但实际偏盛",
+          "handling": "运气不及为虚，实况偏盛为实，须防虚中夹实，兼顾补虚与祛邪"
+        },
+        {
+          "case": "天气API不可用",
+          "handling": "回退至纯运气推算模式，在输出中标注未含实况对齐"
+        },
+        {
+          "case": "实际气候极端异常",
+          "handling": "无论运气推算如何，MUST以实际极端气候为首要警示"
+        }
+      ]
+    },
+    "fallback_rules": {
+      "api_failure": "MUST回退至纯运气推算模式，不得阻断主流程，输出中标注'未含实况对齐'",
+      "partial_data": "缺少部分气象指标时，仅对齐可用指标，标注缺失项",
+      "rate_limit": "启用本地缓存（1小时有效期），避免重复请求"
+    },
+    "privacy_rules": {
+      "location_data": "MUST仅用于天气查询，MUST NOT存储或传输至第三方",
+      "api_key": "MUST安全存储，MUST NOT硬编码在脚本中，使用环境变量WEATHER_API_KEY"
+    }
+  },
+
+  "constitution_api": {
+    "description": "体质对齐API规范：将运气推算与个体体质（王琦九种体质分类）交叉分析，实现个体化病机预判。",
+    "schema": {
+      "type": "object",
+      "required": ["constitution_type", "constitution_scores", "questionnaire_version", "assessment_date"],
+      "properties": {
+        "constitution_type": {
+          "type": "string",
+          "enum": ["平和质", "气虚质", "阳虚质", "阴虚质", "痰湿质", "湿热质", "血瘀质", "气郁质", "特禀质"],
+          "description": "主要体质类型（九种之一）"
+        },
+        "constitution_scores": {
+          "type": "object",
+          "description": "九种体质得分（0-100），键为体质名，值为得分",
+          "properties": {
+            "平和质": {"type": "number", "min": 0, "max": 100},
+            "气虚质": {"type": "number", "min": 0, "max": 100},
+            "阳虚质": {"type": "number", "min": 0, "max": 100},
+            "阴虚质": {"type": "number", "min": 0, "max": 100},
+            "痰湿质": {"type": "number", "min": 0, "max": 100},
+            "湿热质": {"type": "number", "min": 0, "max": 100},
+            "血瘀质": {"type": "number", "min": 0, "max": 100},
+            "气郁质": {"type": "number", "min": 0, "max": 100},
+            "特禀质": {"type": "number", "min": 0, "max": 100}
+          }
+        },
+        "primary_type": {
+          "type": "string",
+          "enum": ["平和质", "气虚质", "阳虚质", "阴虚质", "痰湿质", "湿热质", "血瘀质", "气郁质", "特禀质"],
+          "description": "主要体质类型（与constitution_type一致，冗余字段便于程序读取）"
+        },
+        "secondary_types": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["平和质", "气虚质", "阳虚质", "阴虚质", "痰湿质", "湿热质", "血瘀质", "气郁质", "特禀质"]
+          },
+          "description": "兼夹体质类型列表（得分40-59的体质）"
+        },
+        "questionnaire_version": {
+          "type": "string",
+          "description": "问卷版本，标准为WangQi-2009"
+        },
+        "assessment_date": {
+          "type": "string",
+          "format": "date",
+          "description": "评估日期（ISO 8601格式）"
+        },
+        "assessed_by": {
+          "type": "string",
+          "enum": ["self-assessment", "physician", "auto-derived"],
+          "description": "评估方式"
+        },
+        "metadata": {
+          "type": "object",
+          "properties": {
+            "user_age": {"type": "integer", "description": "用户年龄"},
+            "user_gender": {"type": "string", "enum": ["male", "female"], "description": "用户性别"},
+            "birth_year": {"type": "integer", "description": "出生年份（用于推算先天运气格局）"},
+            "birth_season": {
+              "type": "string",
+              "enum": ["spring", "summer", "autumn", "winter"],
+              "description": "出生季节（用于细化先天运气分析）"
+            },
+            "notes": {"type": "string", "description": "用户备注（症状描述等）"}
+          }
+        }
+      },
+      "example": {
+        "constitution_type": "阳虚质",
+        "constitution_scores": {
+          "平和质": 35, "气虚质": 50, "阳虚质": 78, "阴虚质": 25,
+          "痰湿质": 30, "湿热质": 20, "血瘀质": 22, "气郁质": 28, "特禀质": 15
+        },
+        "primary_type": "阳虚质",
+        "secondary_types": ["气虚质"],
+        "questionnaire_version": "WangQi-2009",
+        "assessment_date": "2026-06-01",
+        "assessed_by": "self-assessment",
+        "metadata": {
+          "user_age": 35,
+          "user_gender": "male",
+          "birth_year": 1991,
+          "birth_season": "winter",
+          "notes": "长期畏寒怕冷，手足不温，喜温饮食"
+        }
+      }
+    },
+    "nine_types": [
+      {
+        "id": 1,
+        "name": "平和质",
+        "core_characteristic": "阴阳气血调和，体态适中，面色红润，精力充沛，适应力强",
+        "susceptible_evils": "无明显易感邪气",
+        "susceptible_organs": "无明显偏颇",
+        "tongue_pulse": "舌色淡红，苔薄白，脉和缓"
+      },
+      {
+        "id": 2,
+        "name": "气虚质",
+        "core_characteristic": "元气不足，气短懒言，易疲乏，自汗，易感冒",
+        "susceptible_evils": "风邪、寒邪（卫表不固）",
+        "susceptible_organs": "肺、脾（气虚）",
+        "tongue_pulse": "舌淡红，舌体胖大，边有齿痕，脉虚缓"
+      },
+      {
+        "id": 3,
+        "name": "阳虚质",
+        "core_characteristic": "阳气不足，畏寒怕冷，手足不温，喜温饮食，大便溏薄",
+        "susceptible_evils": "寒邪、湿邪（阴邪）",
+        "susceptible_organs": "脾、肾（阳虚）",
+        "tongue_pulse": "舌淡胖嫩，苔润，脉沉迟"
+      },
+      {
+        "id": 4,
+        "name": "阴虚质",
+        "core_characteristic": "阴液亏少，口燥咽干，手足心热，喜冷饮，大便干燥",
+        "susceptible_evils": "燥邪、火邪（阳邪）",
+        "susceptible_organs": "肝、肾（阴虚）",
+        "tongue_pulse": "舌红少津，苔少或无苔，脉细数"
+      },
+      {
+        "id": 5,
+        "name": "痰湿质",
+        "core_characteristic": "痰湿凝聚，体形肥胖，腹部肥满，口黏苔腻，喜食肥甘",
+        "susceptible_evils": "湿邪（内外合邪）",
+        "susceptible_organs": "脾、肺（痰湿困阻）",
+        "tongue_pulse": "舌体胖大，苔白腻，脉滑"
+      },
+      {
+        "id": 6,
+        "name": "湿热质",
+        "core_characteristic": "湿热内蕴，面垢油光，口苦口干，身重困倦，大便黏滞",
+        "susceptible_evils": "湿邪、火邪（湿热合邪）",
+        "susceptible_organs": "脾、肝（湿热蕴结）",
+        "tongue_pulse": "舌质偏红，苔黄腻，脉滑数"
+      },
+      {
+        "id": 7,
+        "name": "血瘀质",
+        "core_characteristic": "血行不畅，肤色晦暗，唇色偏暗，易有瘀斑，健忘",
+        "susceptible_evils": "寒邪（寒凝血瘀）",
+        "susceptible_organs": "心、肝（血瘀络阻）",
+        "tongue_pulse": "舌质暗或有瘀点，舌下络脉曲张，脉涩"
+      },
+      {
+        "id": 8,
+        "name": "气郁质",
+        "core_characteristic": "气机郁滞，情志不畅，忧思多虑，胸胁胀满，善太息",
+        "susceptible_evils": "风邪（肝风内动）",
+        "susceptible_organs": "肝、心（气机郁滞）",
+        "tongue_pulse": "舌淡红，苔薄白，脉弦"
+      },
+      {
+        "id": 9,
+        "name": "特禀质",
+        "core_characteristic": "先天禀赋异常，易过敏（鼻炎、哮喘、荨麻疹），对花粉/食物等敏感",
+        "susceptible_evils": "风邪、燥邪（外邪引触）",
+        "susceptible_organs": "肺、肝（禀赋特异）",
+        "tongue_pulse": "舌象多变，脉象不一"
+      }
+    ],
+    "score_interpretation": {
+      "formula": "体质转化分 = (原始分 - 条目数) / (条目数 × 4) × 100",
+      "ranges": [
+        {"min": 60, "max": 100, "result": "是", "description": "判定为该体质类型"},
+        {"min": 40, "max": 59, "result": "倾向是", "description": "有该体质倾向，列入secondary_types"},
+        {"min": 0, "max": 39, "result": "否", "description": "非该体质类型"}
+      ]
+    },
+    "cross_analysis_matrix": {
+      "description": "体质-运气交叉分析矩阵：9种体质 × 5类运气格局 = 45个交叉分析点",
+      "luck_patterns": {
+        "A_木运太过": {
+          "yunqi": "木运太过",
+          "sitian": "厥阴风木司天",
+          "evil_attribute": "风邪偏盛"
+        },
+        "B_火运太过": {
+          "yunqi": "火运太过",
+          "sitian": "少阴君火/少阳相火司天",
+          "evil_attribute": "火热邪偏盛"
+        },
+        "C_土运太过": {
+          "yunqi": "土运太过",
+          "sitian": "太阴湿土司天",
+          "evil_attribute": "湿邪偏盛"
+        },
+        "D_金运太过": {
+          "yunqi": "金运太过",
+          "sitian": "阳明燥金司天",
+          "evil_attribute": "燥邪偏盛"
+        },
+        "E_水运太过": {
+          "yunqi": "水运太过",
+          "sitian": "太阳寒水司天",
+          "evil_attribute": "寒邪偏盛"
+        }
+      },
+      "matrix": {
+        "平和质": {
+          "A_木运太过": "风邪外扰，平和体质耐受较好，微调疏肝即可",
+          "B_火运太过": "火热偏盛，平和体质可自调，适度清热生津",
+          "C_土运太过": "湿邪偏盛，平和体质脾运尚健，注意健脾化湿",
+          "D_金运太过": "燥邪偏盛，平和体质可润肺自适，注意生津润燥",
+          "E_水运太过": "寒邪偏盛，平和体质阳气充足，注意保暖即可"
+        },
+        "气虚质": {
+          "A_木运太过": "风木克土，气虚脾弱更易受邪，重点益气健脾，兼以疏肝防木贼土",
+          "B_火运太过": "火热耗气，气虚者气耗更甚，益气兼清热，防壮火食气",
+          "C_土运太过": "湿困脾土，气虚者运化无力，益气化湿并重，脾虚湿盛尤须健运",
+          "D_金运太过": "燥邪伤肺气，气虚者卫表不固，益气润肺固表，防燥邪犯肺",
+          "E_水运太过": "寒伤阳气，气虚者阳亦不足，益气温阳并重，气阳两虚需兼顾"
+        },
+        "阳虚质": {
+          "A_木运太过": "风木乘虚而入，阳虚者肝疏不及，温阳疏肝，防风寒袭表",
+          "B_火运太过": "火运可暂助阳，但太过反耗散，温阳兼引火归元，防虚火上浮",
+          "C_土运太过": "湿为阴邪合于寒，阳虚者寒湿相搏，温阳化湿重用，脾肾双温",
+          "D_金运太过": "燥邪伤津不甚伤阳，阳虚者尚可耐受，温阳为主兼以润燥",
+          "E_水运太过": "寒邪根深，阳虚者寒上加寒，重用温阳散寒，温补肾命之火为要"
+        },
+        "阴虚质": {
+          "A_木运太过": "风木化火易动肝阳，阴虚者肝阳易亢，滋阴平肝息风",
+          "B_火运太过": "火热伤阴，阴虚者阴液更亏，重点滋阴降火，壮水之主以制阳光",
+          "C_土运太过": "湿郁化热易伤阴，阴虚者湿热夹杂最难治，滋阴兼化湿清热，防滋阴助湿",
+          "D_金运太过": "燥邪伤阴，阴虚者津液更亏，滋阴润燥并重，金水相生",
+          "E_水运太过": "寒邪不甚伤阴，但须防寒郁化热伤阴，滋阴兼透散郁热，忌过用苦寒"
+        },
+        "痰湿质": {
+          "A_木运太过": "风木克土，痰湿者脾运本弱，健脾化痰兼疏肝理气",
+          "B_火运太过": "火热炼液成痰，痰湿者痰浊更甚，清热化痰，防痰热互结",
+          "C_土运太过": "湿邪内盛外合，痰湿者湿上加湿，重点健脾化湿，燥湿健脾为法",
+          "D_金运太过": "燥可化湿但亦伤津，痰湿者利湿兼顾润肺，防燥湿太过伤津",
+          "E_水运太过": "寒湿相合，痰湿者痰饮内生，温阳化痰饮，苓桂术甘之属"
+        },
+        "湿热质": {
+          "A_木运太过": "风木助火，湿热者热邪更甚，清热化湿兼疏肝，防风火煽动",
+          "B_火运太过": "火热加湿，湿热者胶结难解，重点清热利湿，湿热分消走泄",
+          "C_土运太过": "湿邪偏盛，湿热者热伏湿中更难解，清热化湿并重，宜芳香化浊透散",
+          "D_金运太过": "燥邪可暂化湿，湿热者暂得缓解，但防燥伤津液，利湿兼润燥",
+          "E_水运太过": "寒邪凝滞，湿热者湿遏热伏更深，须防寒遏热郁，温化兼透热"
+        },
+        "血瘀质": {
+          "A_木运太过": "风木主疏泄，瘀者疏泄不利，行气活血兼疏肝，气行则血行",
+          "B_火运太过": "火热熬血成瘀，瘀者血行更滞，凉血活血，防热瘀互结",
+          "C_土运太过": "湿阻气机碍血行，瘀者血滞更甚，化湿活血并重，气畅则瘀化",
+          "D_金运太过": "燥邪收敛不利疏泄，瘀者血行涩滞，润燥活血，增水行舟",
+          "E_水运太过": "寒凝血瘀，瘀者血滞更甚，温阳活血散寒，寒去则瘀自通"
+        },
+        "气郁质": {
+          "A_木运太过": "风木主肝，郁者肝气更郁，疏肝解郁为主，木郁达之",
+          "B_火运太过": "火热扰心，郁者郁而化火，疏肝清热兼解郁，防气郁化火伤阴",
+          "C_土运太过": "湿阻气机，郁者气滞更甚，理气化湿解郁，气行则湿化",
+          "D_金运太过": "燥邪收敛不利疏泄，郁者气机涩滞，润燥理气解郁",
+          "E_水运太过": "寒邪凝滞气机，郁者郁上加寒，温阳行气解郁，寒散则气通"
+        },
+        "特禀质": {
+          "A_木运太过": "风邪外袭，特禀者易发风团瘙痒，疏风固表，消风散之属",
+          "B_火运太过": "火热扰血分，特禀者易发皮疹红斑，凉血消风，清热凉血透疹",
+          "C_土运太过": "湿邪外侵，特禀者易湿疹渗出，健脾化湿固表，防湿邪浸淫",
+          "D_金运太过": "燥邪外袭，特禀者易皮肤干燥瘙痒，润燥固表，滋阴润肤",
+          "E_水运太过": "寒邪外束，特禀者易发寒疹鼻鼽，温阳固表散寒，玉屏风合桂枝之属"
+        }
+      },
+      "usage_rules": [
+        "1. 确定体质类型：通过体质问卷获取用户主要体质类型及得分",
+        "2. 确定运气格局：通过yunqi-calc脚本获取当年大运属性及司天在泉",
+        "3. 查矩阵交叉点：在矩阵中找到对应体质行与运气列的交叉格",
+        "4. 兼顾兼夹体质：如有兼夹体质，查多个体质行综合分析",
+        "5. 兼顾不及之年：如运气推算为不及，调理方向反转为扶其不足",
+        "6. MUST附加免责声明：矩阵分析为理论参考，具体调理须由执业中医师辨证论治"
+      ],
+      "inborn_acquired_analysis": {
+        "description": "先天运气（出生年）与后天体质的叠加分析",
+        "interaction_types": {
+          "同向叠加": {
+            "condition": "先天运气倾向与后天体质方向一致（如先天水运不及+后天阳虚质）",
+            "risk_level": "高",
+            "note": "先天后天同向叠加，病根深，调理周期需长"
+          },
+          "相抵缓解": {
+            "condition": "先天运气倾向与后天体质方向相反（如先天火运太过+后天阳虚质）",
+            "risk_level": "中",
+            "note": "先天后天部分相抵，但仍以后天体质为主要调理方向"
+          },
+          "转化演变": {
+            "condition": "先天运气倾向在后天体质中已发生转化",
+            "risk_level": "中",
+            "note": "须动态评估，不可仅凭出生年运气断言体质"
+          }
+        }
+      }
+    },
+    "integration_rules": {
+      "context_injection_format": {
+        "context_type": "constitution_alignment",
+        "fields": [
+          "constitution (体质数据)",
+          "current_year_yunqi (当年运气)",
+          "birth_year_yunqi (出生年运气)",
+          "cross_analysis (交叉分析结果)",
+          "instruction (Agent指令)"
+        ]
+      },
+      "data_acquisition_priority": [
+        {"priority": 1, "source": "用户直接提供体质问卷JSON", "handling": "直接使用，进入交叉分析"},
+        {"priority": 2, "source": "用户描述体质特征（非标准化）", "handling": "Agent根据描述推断体质倾向，提示建议完成标准化体质评估"},
+        {"priority": 3, "source": "用户提供出生年份", "handling": "推算先天运气倾向，提示建议完成体质评估"},
+        {"priority": 4, "source": "无任何体质信息", "handling": "跳过体质对齐，仅输出运气推算+病机分析，标注未含体质对齐"}
+      ],
+      "constraints": [
+        "MUST：体质数据为用户个人健康信息，注意隐私保护，MUST NOT存储在持久化日志中",
+        "MUST：体质对齐结果作为Context传递给Agent，不替代运气推算",
+        "MUST：交叉分析中的临床建议MUST附加医学免责声明",
+        "MUST NOT：仅凭体质+运气推断即给出具体方药剂量",
+        "SHOULD：鼓励用户完成标准化体质评估（王琦量表）",
+        "MUST NOT：仅凭出生年份运气断言个体体质（先天运气仅为参考维度）"
+      ]
+    },
+    "stacked_alignment": {
+      "description": "体质对齐与天气对齐叠加使用：运气×天气×体质三维增强分析",
+      "risk_multiplier_table": [
+        {"combination": "仅运气推算", "risk_multiplier": 1.0, "level": "基准"},
+        {"combination": "运气×天气相合", "risk_multiplier": 1.5, "level": "升高"},
+        {"combination": "运气×体质同向", "risk_multiplier": 1.4, "level": "升高"},
+        {"combination": "运气×天气相合×体质同向", "risk_multiplier": 2.0, "level": "最高"},
+        {"combination": "运气×天气不符", "risk_multiplier": 0.6, "level": "降低"},
+        {"combination": "运气×体质反向", "risk_multiplier": 0.7, "level": "降低"}
+      ]
+    }
+  },
+
+  "integration_endpoints": {
+    "weather_fetch": {
+      "endpoint_name": "fetch_weather_for_alignment",
+      "description": "获取用户所在位置的实时天气数据，用于运气-天气对齐分析",
+      "input": {
+        "location_lat": {"type": "number", "required": true, "description": "纬度"},
+        "location_lon": {"type": "number", "required": true, "description": "经度"},
+        "location_name": {"type": "string", "required": false, "description": "城市名称（可选，用于显示）"}
+      },
+      "output": {
+        "temperature": {"type": "number", "unit": "celsius", "description": "气温"},
+        "humidity": {"type": "number", "unit": "percent", "description": "相对湿度"},
+        "precipitation": {"type": "number", "unit": "mm", "description": "降水量（24小时）"},
+        "wind_speed": {"type": "number", "unit": "m/s", "description": "风速"},
+        "wind_direction": {"type": "string", "description": "风向（方位或角度）"},
+        "uv_index": {"type": "number", "description": "UV指数"},
+        "aqi": {"type": "number", "description": "空气质量指数"},
+        "feels_like": {"type": "number", "unit": "celsius", "description": "体感温度"},
+        "snow": {"type": "boolean", "description": "是否降雪"},
+        "timestamp": {"type": "string", "format": "iso8601", "description": "数据时间戳"}
+      },
+      "fallback": "api_failure时回退至纯运气推算模式，输出标注'未含实况对齐'",
+      "cache_ttl_seconds": 3600,
+      "rate_limit_per_day": 1000
+    },
+    "constitution_input": {
+      "endpoint_name": "submit_constitution_data",
+      "description": "接收用户体质问卷数据，用于运气-体质交叉分析",
+      "input_schema_ref": "constitution_api.schema",
+      "input": {
+        "constitution_type": {"type": "string", "required": true, "description": "主要体质类型"},
+        "constitution_scores": {"type": "object", "required": true, "description": "九种体质得分"},
+        "questionnaire_version": {"type": "string", "required": true, "description": "问卷版本"},
+        "assessment_date": {"type": "string", "required": true, "format": "date", "description": "评估日期"},
+        "metadata.birth_year": {"type": "integer", "required": false, "description": "出生年份（用于先天运气分析）"}
+      },
+      "output": {
+        "cross_analysis_result": {
+          "matrix_cell": {"type": "string", "description": "矩阵交叉点标识（如'阳虚质×水运太过'）"},
+          "pathogenesis_note": {"type": "string", "description": "病机倾向与调理重点"},
+          "risk_level": {"type": "string", "enum": ["低", "中", "高", "最高"], "description": "风险等级"},
+          "adjustment_priority": {"type": "array", "description": "调理优先级列表"},
+          "innate_acquired_interaction": {"type": "string", "description": "先天后天交互分析"}
+        },
+        "context_for_agent": {
+          "type": "object",
+          "description": "传递给Agent的Context对象，包含体质数据、运气数据、交叉分析结果"
+        }
+      },
+      "privacy": "MUST NOT存储在持久化日志中；MUST仅用于本次分析"
+    },
+    "combined_alignment": {
+      "endpoint_name": "combined_weather_constitution_alignment",
+      "description": "三维叠加对齐：运气×天气×体质",
+      "input": {
+        "qi_prediction": {"type": "object", "required": true, "description": "运气推算结果（来自yunqi-calc --json）"},
+        "weather_data": {"type": "object", "required": false, "description": "天气数据（来自weather_fetch）"},
+        "constitution_data": {"type": "object", "required": false, "description": "体质数据（来自constitution_input）"}
+      },
+      "output": {
+        "weather_alignment": {"type": "object", "description": "天气对齐结果"},
+        "constitution_alignment": {"type": "object", "description": "体质对齐结果"},
+        "stacked_risk_multiplier": {"type": "number", "description": "叠加风险系数（1.0-2.0）"},
+        "enhanced_pathogenesis": {"type": "object", "description": "增强病机分析结果"},
+        "enhanced_advice": {"type": "object", "description": "增强调理建议"},
+        "disclaimer": {"type": "string", "description": "医学免责声明（MUST附加）"}
+      }
+    }
+  }
+}
