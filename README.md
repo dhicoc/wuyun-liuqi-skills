@@ -133,34 +133,34 @@ wuyun-liuqi/
 │   └── demo_full_chain.py      # 全链路演示
 │
 ├── rag-knowledge-base/         # ★ RAG知识库（5 层覆盖）
-│   ├── asset1_suiyun.json      # 岁运病机（10条，key=water_excess等）
-│   ├── asset2_sitian_zaiquan.json # 司天在泉病机（6对，含治法）
-│   ├── asset3_kezhujialin.json # 客主加临病机（36条，6×6全组合）
+│   ├── asset1_suiyun.json      # 岁运病机（10条）
+│   ├── asset2_sitian_zaiquan.json # 司天在泉病机（6对）
+│   ├── asset3_kezhujialin.json # 客主加临病机（36条）
 │   ├── asset4_formula.json     # 三因司天方（16首运气方剂）
-│   ├── asset5_commentary.json  # 历代注家（20条，王冰→陆懋修）
-│   ├── asset6_regional.json    # 地域修正（8区，含纬度/气候/体质）
-│   ├── asset7_constitution.json # 运气体质交叉（18条，9体质×9岁运）
+│   ├── asset5_commentary.json  # 历代注家（20条）
+│   ├── asset6_regional.json    # 地域修正（8区）
+│   ├── asset7_constitution.json # 运气体质交叉（18条）
 │   ├── LITERATURE_EXPANSION.md # 文献扩充指南
 │   └── README.md               # 知识库使用说明
 │
 ├── self-evolve/                # ★ 自进化引擎
-│   ├── README.md               # 使用指南（日/周/月流程）
+│   ├── README.md               # 使用指南
 │   ├── logs/                   # 使用日志（gitignore）
 │   ├── misses/                 # 盲区记录（gitignore）
 │   ├── feedback/               # 反馈采集（gitignore）
 │   └── reports/                # 优化报告（gitignore）
 │
 ├── agent-workflow/             # ★ ReAct推理工作流
-│   ├── react_workflow.md       # 工作流规范（查工具→查RAG→辨证推理）
+│   ├── react_workflow.md       # 工作流规范
 │   ├── self_evolve_hook.md     # 自进化集成钩子
-│   └── workflow_config.json    # 机器可读配置（LangChain/AutoGen/Dify）
+│   └── workflow_config.json    # 机器可读配置
 │
 ├── prompts/                    # ★ System Prompt
-│   └── system_prompt.md        # TCM运气专家角色 + 输出规范 + 措辞约束
+│   └── system_prompt.md        # TCM运气专家角色
 │
 ├── advanced-alignment/         # ★ 高级对齐
-│   ├── weather_integration.md  # 天气API对齐（内外邪相合）
-│   ├── constitution_alignment.md # 体质报告交叉分析（9×5矩阵）
+│   ├── weather_integration.md  # 天气API对齐
+│   ├── constitution_alignment.md # 体质报告交叉分析
 │   └── api_specs.json          # API规格定义
 │
 ├── ganzhi-basics/              # 子技能1：干支基础
@@ -189,12 +189,10 @@ wuyun-liuqi/
 
 ### Agent 集成层
 
-在推算+病机+临床+文献四层基础上，增加 Agent 深度集成能力：
-
-1. **强规则计算工具**（`calculate_yunqi_api`）：大寒定年 + 日期输入 + 标准化JSON输出 + rag_key 生成，作为 LLM Agent 的"外挂大脑"
+1. **强规则计算工具**（`calculate_yunqi_api`）：大寒定年 + 日期输入 + 标准化JSON输出 + rag_key 生成
 2. **RAG 知识库**（`rag-knowledge-base/`）：5 层 key-value 结构化存储，精准检索
 3. **ReAct 推理工作流**（`agent-workflow/`）：查工具→查知识库→辨证推理闭环
-4. **System Prompt**（`prompts/`）：TCM 运气专家角色约束，禁止现代医学词汇，固化输出规范
+4. **System Prompt**（`prompts/`）：TCM 运气专家角色约束
 5. **高级对齐**（`advanced-alignment/`）：天气 API 对齐 + 体质报告交叉分析
 6. **自进化回路**（`self_evolve/`）：每次推理后自动记录 → 盲区检测 → 反馈采集 → 优化报告
 
@@ -216,38 +214,6 @@ advanced-alignment/ → (可选) 天气对齐 + 体质交叉分析
 scripts/self_evolve.py → 自动记录本次推理
 ```
 
-### 自制化
-
-```bash
-# 记录一次使用
-python scripts/self_evolve.py log --input 2026-06-27 --rag-keys water_excess,shaoyin_junhuo_sitian --source user_query
-
-# 查看统计
-python scripts/self_evolve.py stats
-
-# 检测盲区
-python scripts/self_evolve.py analyze
-
-# 记录反馈
-python scripts/self_evolve.py feedback --input 2026-06-27 --rag-key water_excess --score 4 --comment "方剂建议有用"
-
-# 生成优化报告
-python scripts/self_evolve.py report
-```
-
-### 文献注入
-
-```bash
-# 从 Markdown 注入经典文献
-python scripts/ingest_literature.py --input 文献.md --category classics
-
-# 从 JSON 注入方剂数据
-python scripts/ingest_literature.py --input 方剂数据集.json --category formula
-
-# 批量处理目录下所有文件
-python scripts/ingest_literature.py --input ./文献目录/ --batch
-```
-
 ### 验证
 
 ```bash
@@ -261,7 +227,6 @@ python scripts/verify_expansion.py
 - 三轴路由矩阵（维度改为：时间维度 + 用户意图 + 知识层级）
 - SKILL.md 标准格式（frontmatter + scope + workflow + pitfalls + 路由上下文）
 - ACTION REQUIRED + 任务完成自检
-- 子技能目录结构（SKILL.md + scripts/ + references/）
 - case-journal 经验沉淀系统（field-journal 的改造版）
 
 从 reverse-skill 裁剪：
@@ -285,4 +250,229 @@ MIT License. 详见 [LICENSE](LICENSE)。
 
 ## 友情链接
 
-[Linux.do](https://linux.do)是一个非常友好的社区。 感谢LINUX.DO的所有人给我灵感和勇气。
+[Linux.do](https://linux.do)是一个非常友好的社区。感谢LINUX.DO的所有人给我灵感和勇气。
+
+---
+
+> **English Version / 英文版**
+
+---
+
+# WuYun-LiuQi (Five Movements & Six Qi) AI Agent Skill Pack
+
+> An AI Agent Skill Pack based on the TCM Yunqi (Fortune-Qi) theory from the "Yellow Emperor's Inner Classic" (Suwen seven major treatises), using Heavenly Stems and Earthly Branches to calculate annual climate and disease patterns.
+>
+> Architecture adapted from [reverse-skill](https://github.com/zhaoxuya520/reverse-skill) (reuse strategy with reduction).
+
+This repository can be placed in any directory. The AI will auto-detect its actual path. `<SKILL_ROOT>` refers to the real installation path.
+
+---
+
+## 0. AI Auto-Configuration Flow (Execute Immediately After Reading)
+
+> **After reading this file, the AI must automatically execute the following configuration — no manual operation required.**
+
+```text
+0. Detect the installation path (derived from this file's directory)
+1. Detect OS package manager:
+   - Windows → run scripts/setup.bat
+   - Linux/macOS → run bash scripts/setup.sh
+2. Setup script auto-completes:
+   a. Check Python version
+   b. Install lunar-python (pip install)
+   c. Create self-evolution runtime dirs (logs/misses/feedback/reports)
+   d. Optional: detect Node.js (JS version only)
+3. Once dependencies are ready, read routing.md → match user task → enter corresponding sub-skill
+4. Start task execution
+```
+
+### Quick Setup (Human Users)
+
+```bash
+# Windows (PowerShell/cmd)
+scripts\setup.bat
+
+# Linux/macOS
+bash scripts/setup.sh
+```
+
+---
+
+## Feature Overview
+
+- **Calculation Layer**: Given any Gregorian date or year, compute Heavenly Stems & Earthly Branches, Great Movement (Dayun) excess/deficiency, Host/Guest Movement, Sitian-Zaiquan, Guest Qi six steps, Kezhu-Jialin (guest-host interaction), Tianfu-Suihui-Taiyi-Tianfu
+- **Pathogenesis Layer**: Analyze Five Movements pathogenesis, Six Qi pathogenesis, excess-deficiency victory-recovery, combined disease patterns
+- **Clinical Layer**: Treatment principles, formula references, acupuncture points, health cultivation
+- **Literature Layer**: Suwen seven major treatise index, historical Yunqi theories, modern research overview
+- **Case Sedimentation**: Yunqi application case records and index
+- **Agent Integration**: Unified calculation API (Dahan year-definition + standardized JSON), RAG knowledge base (5 layers, 104 keys), ReAct reasoning workflow, System Prompt, weather/constitution alignment, self-evolving engine
+
+## Quick Start
+
+### Calculate Yearly Fortune
+
+```bash
+# Comprehensive report (student edition)
+python scripts/yunqi_report.py 2026 --audience student
+
+# Comprehensive report (practitioner edition)
+python scripts/yunqi_report.py 2026 --audience practitioner
+
+# Comprehensive report (researcher edition)
+python scripts/yunqi_report.py 2026 --audience researcher
+
+# Individual calculations
+python scripts/ganzhi_calc.py 2026       # Ganzhi calculation
+python scripts/dayun_calc.py 2026        # Great Movement
+python scripts/keyun_calc.py 2026        # Host/Guest Movement
+python scripts/liuqi_calc.py 2026        # Six Qi
+python scripts/kezhujialin.py 2026       # Guest-Host interaction
+
+# JSON output (machine-readable)
+python scripts/dayun_calc.py 2026 --json
+```
+
+### Date-Based Unified Calculation (Agent Recommended Entry)
+
+```bash
+# Python: Dahan year-definition, standardized JSON output (with rag_keys)
+python scripts/calculate_yunqi_api.py 2026-06-27 --json
+
+# JavaScript: same function (requires npm install lunar-javascript)
+node scripts/calculate_yunqi_api.js 2026-06-27 --json
+
+# Dahan boundary test: 2026-01-15 → Fortune year 2025(Yisi), 2026-01-20 → Fortune year 2026(Bingwu)
+python scripts/calculate_yunqi_api.py 2026-01-15 --json
+python scripts/calculate_yunqi_api.py 2026-01-20 --json
+```
+
+### Full Chain Demo (Calculation → RAG → Formula → Constitution)
+
+```bash
+python scripts/demo_full_chain.py 2026-06-27
+```
+
+### Requirements
+
+- Python 3.8+, recommended `lunar-python` (accurate solar term calculation): `pip install -r requirements.txt`
+- Node.js 14+ (JS version), requires `lunar-javascript`: `npm install`
+- Falls back to approximate solar term dates (Dahan = Jan 20) without lunar library
+
+## Directory Structure
+
+```
+wuyun-liuqi/
+├── SKILL.md                    # Main controller + routing execution contract
+├── routing.md                  # 3-axis routing matrix
+├── RULES.md                    # Behavior rule chain
+├── CONTRIBUTING.md             # Guide for adding sub-skills
+├── LICENSE                     # MIT License
+├── .gitignore
+├── requirements.txt            # Python dependencies
+├── package.json                # Node.js dependencies
+├── README.md                   # This file
+│
+├── scripts/                    # Calculation engines (Python + JavaScript)
+│   ├── lib/
+│   ├── ganzhi_calc.py          # Ganzhi calculation
+│   ├── dayun_calc.py           # Great Movement
+│   ├── keyun_calc.py           # Host/Guest Movement
+│   ├── liuqi_calc.py           # Six Qi
+│   ├── kezhujialin.py          # Guest-Host interaction
+│   ├── yunqi_report.py         # Comprehensive report
+│   ├── calculate_yunqi_api.py  # ★ Unified calculation API
+│   ├── calculate_yunqi_api.js  # ★ JS unified API
+│   ├── ingest_literature.py    # ★ Literature ingestion pipeline
+│   ├── self_evolve.py          # ★ Self-evolving engine
+│   ├── verify_expansion.py     # End-to-end verification (67 tests)
+│   └── demo_full_chain.py      # Full chain demo
+│
+├── rag-knowledge-base/         # ★ RAG knowledge base (5 layers)
+├── self-evolve/                # ★ Self-evolving engine
+├── agent-workflow/             # ★ ReAct reasoning workflow
+├── prompts/                    # ★ System Prompt
+├── advanced-alignment/         # ★ Advanced alignment
+├── ganzhi-basics/              # Sub-skill 1
+├── yunqi-calc/                 # Sub-skill 2
+├── yunqi-pathogenesis/         # Sub-skill 3
+├── yunqi-clinical/             # Sub-skill 4
+├── yunqi-classics/             # Sub-skill 5
+├── docs-generator/             # Sub-skill 6
+├── docs/                       # Technical docs
+└── case-journal/               # Case sedimentation
+```
+
+## Architecture
+
+### 5-Layer RAG Knowledge Base
+
+| Layer | Assets | Entries | Purpose |
+|-------|--------|---------|---------|
+| Classic pathogenesis | asset1-3 | 52 | Year fortune/Sitian/Kezhu-Jialin |
+| Yunqi formulas | asset4 | 16 | Sanyin Sitian formulas |
+| Historical commentaries | asset5 | 20 | 11 scholars from Wang Bing to Lu Maoxiu |
+| Regional correction | asset6 | 8 | 8 climate zones across China |
+| Yunqi constitution | asset7 | 18 | 9 constitution types × fortune mapping |
+
+**104 unique keys** covering classic texts, formulas, commentaries, regions, and constitutions — matched precisely via `rag_keys`.
+
+### Agent Integration
+
+1. **Rule-based calculation tool** (`calculate_yunqi_api`): Dahan year-definition + date input + standardized JSON output + rag_key generation
+2. **RAG knowledge base** (`rag-knowledge-base/`): 5-layer key-value structured storage
+3. **ReAct reasoning workflow** (`agent-workflow/`): Tool lookup → RAG lookup → dialectical reasoning loop
+4. **System Prompt** (`prompts/`): TCM Yunqi expert role constraints
+5. **Advanced alignment** (`advanced-alignment/`): Weather API alignment + constitution cross-analysis
+6. **Self-evolving loop** (`self_evolve/`): Auto-record after each inference → blind spot detection → feedback collection → optimization report
+
+### Agent ReAct Reasoning Path
+
+```
+prompts/system_prompt.md → Load role constraints
+  ↓
+scripts/calculate_yunqi_api.py → Input date, get standardized JSON (with rag_keys)
+  ↓
+rag-knowledge-base/ → Retrieve all 5 layers by rag_keys
+  ↓
+agent-workflow/react_workflow.md → Multi-layer dialectical reasoning
+  ↓
+advanced-alignment/ → (Optional) Weather alignment + constitution cross-analysis
+  ↓
+Output structured report + disclaimer
+  ↓
+scripts/self_evolve.py → Auto-record this inference
+```
+
+### Verification
+
+```bash
+# End-to-end verification (67 tests: Dahan regression + asset integrity + Key association + self-evolution)
+python scripts/verify_expansion.py
+```
+
+## Reuse Strategy
+
+Preserved from reverse-skill:
+- 3-axis routing matrix (dimensions: time dimension + user intent + knowledge level)
+- SKILL.md standard format (frontmatter + scope + workflow + pitfalls + routing context)
+- ACTION REQUIRED + task completion self-check
+- case-journal experience sedimentation system
+
+Removed from reverse-skill:
+- Manifest-driven bootstrap system (Yunqi requires no external tools)
+- bootstrap/ToolDiscovery/tool-index
+- MCP server registration
+- Cross-platform PowerShell/Bash parity (pure Python only)
+
+## Disclaimer
+
+Yunqi theory is traditional Chinese medical theory, not a modern medical diagnostic standard. Clinical analysis output by this skill pack is for reference only. Actual diagnosis and treatment must be performed by licensed TCM practitioners.
+
+## License
+
+MIT License. See [LICENSE](LICENSE).
+
+## Acknowledgements
+
+- Architecture reference: [reverse-skill](https://github.com/zhaoxuya520/reverse-skill) (zhaoxuya520)
+- Theoretical basis: Yellow Emperor's Inner Classic · Suwen, seven major treatises
