@@ -39,7 +39,7 @@
 
 ## 关于项目
 
-> **如果你是 AI Agent，直接阅读 [SKILL.md](SKILL.md)，按照工作流执行。**
+> **如果你是 AI Agent，直接跳转到 [README_AI.md](README_AI.md)，严格按照内容要求执行。**
 
 基于中医运气学说（《黄帝内经》素问七篇大论），运用天干地支推算年度气候与疾病规律的 AI Agent 技能包。架构改编自 [reverse-skill](https://github.com/zhaoxuya520/reverse-skill)。
 
