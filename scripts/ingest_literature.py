@@ -23,12 +23,22 @@
 输出格式：与现有 asset1-3 兼容的 JSON 结构。
 """
 
+# -*- coding: utf-8 -*-
 import json
 import os
 import re
 import sys
+import io
 import hashlib
 from typing import Any
+
+# Windows 终端默认编码可能不是 UTF-8，强制设置 stdout/stderr 编码
+if sys.platform == 'win32' and sys.stdout.encoding != 'utf-8':
+    try:
+        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
+    except (AttributeError, io.UnsupportedOperation):
+        pass
 
 
 # ── 分类目录 ──────────────────────────────────────────────
@@ -292,6 +302,87 @@ def batch_ingest(
 
 # ── CLI ───────────────────────────────────────────────────
 
+def interactive_add_entry(category: str | None = None, output_path: str = "rag-knowledge-base/custom_entries.json") -> dict:
+    """交互式添加单个条目到 RAG 知识库。"""
+    import readline  # noqa: F401
+
+    print("\n=== 交互式添加 RAG 知识库条目 ===")
+    print("可用分类：")
+    for key, info in CATEGORIES.items():
+        print(f"  {key:12s} → {info['description']}")
+
+    if category is None:
+        category = input("\n请选择分类 (默认 custom): ").strip() or "custom"
+    if category not in CATEGORIES:
+        print(f"未知分类: {category}，已降级为 custom")
+        category = "custom"
+
+    cat_info = CATEGORIES[category]
+    required = cat_info["required_fields"]
+
+    print(f"\n已选择分类: {category}")
+    print(f"必填字段: {', '.join(required) if required else '无'}")
+
+    entry = {"entry_type": cat_info["entry_type"]}
+    for field in required:
+        value = input(f"  {field}: ").strip()
+        if value:
+            # 尝试解析 JSON 数组/对象
+            try:
+                parsed = json.loads(value)
+                entry[field] = parsed
+            except json.JSONDecodeError:
+                entry[field] = value
+
+    # 允许用户额外添加自定义字段
+    print("\n是否添加额外字段? (直接回车结束)")
+    while True:
+        extra = input("  额外字段名 (或回车结束): ").strip()
+        if not extra:
+            break
+        extra_value = input(f"  {extra} 的值: ").strip()
+        try:
+            entry[extra] = json.loads(extra_value)
+        except json.JSONDecodeError:
+            entry[extra] = extra_value
+
+    # 验证
+    missing = validate_entry(entry, category)
+    if missing:
+        print(f"[WARN] 缺少必填字段: {', '.join(missing)}")
+        proceed = input("是否继续保存? (y/N): ").strip().lower()
+        if proceed not in ("y", "yes"):
+            print("已取消保存。")
+            return {"saved": False, "entry": entry}
+
+    entry["entry_id"] = assign_entry_id(entry, category)
+
+    # 读取或创建 asset
+    if os.path.exists(output_path):
+        with open(output_path, "r", encoding="utf-8") as f:
+            asset = json.load(f)
+    else:
+        asset = {
+            "asset_name": f"asset_{cat_info['asset_prefix']}_custom",
+            "asset_type": category,
+            "description": cat_info["description"],
+            "total_entries": 0,
+            "source_file": "interactive",
+            "entries": [],
+        }
+
+    asset["entries"].append(entry)
+    asset["total_entries"] = len(asset["entries"])
+
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(asset, f, ensure_ascii=False, indent=2)
+
+    print(f"\n✓ 已保存条目: {entry['entry_id']}")
+    print(f"→ 输出文件: {output_path}")
+    return {"saved": True, "entry": entry, "output_path": output_path}
+
+
 def main():
     import argparse
 
@@ -309,10 +400,20 @@ def main():
                         help="输出目录（批量模式）")
     parser.add_argument("--no-validate", action="store_true",
                         help="跳过字段校验")
+    parser.add_argument("--interactive", "-i", action="store_true",
+                        help="交互式添加单个条目到 RAG 知识库")
+    parser.add_argument("--interactive-category", default=None,
+                        help="交互模式下的默认分类")
+    parser.add_argument("--interactive-output", default="rag-knowledge-base/custom_entries.json",
+                        help="交互模式下的输出文件路径")
     parser.add_argument("--list-categories", action="store_true",
                         help="列出所有可用分类")
 
     args = parser.parse_args()
+
+    if args.interactive:
+        interactive_add_entry(args.interactive_category, args.interactive_output)
+        return
 
     if args.list_categories:
         print("可用分类：")

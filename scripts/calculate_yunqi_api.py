@@ -17,7 +17,16 @@
 """
 import sys
 import os
+import io
 import json
+
+# Windows 终端默认编码可能不是 UTF-8，强制设置 stdout/stderr 编码
+if sys.platform == 'win32' and sys.stdout.encoding != 'utf-8':
+    try:
+        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
+    except (AttributeError, io.UnsupportedOperation):
+        pass
 
 # 添加 lib 目录到路径
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'lib'))
@@ -32,6 +41,7 @@ from yunqi_data import (
     kezhujialin_relation, check_tianfu, check_suihui, check_pingqi,
     get_yunqi_year, get_current_qi_step, get_day_ganzhi,
     get_suiyun_code, get_kezhujialin_detail, get_jieqi_date,
+    generate_summary, generate_current_step_focus,
 )
 
 
@@ -260,16 +270,155 @@ def format_text(result):
     return '\n'.join(lines)
 
 
+def run_yunqi_report(yunqi_year, audience='student', as_json=False):
+    """调用 yunqi_report.py 生成年度综合报告"""
+    import subprocess
+    script_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'yunqi_report.py')
+    env = os.environ.copy()
+    env['PYTHONIOENCODING'] = 'utf-8'
+    args = [sys.executable, script_path, str(yunqi_year), '--audience', audience]
+    if as_json:
+        args.append('--json')
+    result = subprocess.run(args, capture_output=True, text=True, encoding='utf-8', env=env)
+    return result.stdout
+
+
+def run_visualize(date_str):
+    """调用 visualize_yunqi.py 生成 ASCII 图"""
+    import subprocess
+    script_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'visualize_yunqi.py')
+    env = os.environ.copy()
+    env['PYTHONIOENCODING'] = 'utf-8'
+    result = subprocess.run(
+        [sys.executable, script_path, date_str],
+        capture_output=True, text=True, encoding='utf-8', env=env
+    )
+    return result.stdout
+
+
+def run_html_report(date_str):
+    """调用 generate_html_report.py 生成 HTML 报告"""
+    import subprocess
+    script_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'generate_html_report.py')
+    output_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'reports', f'wuyun-liuqi-report-{date_str}.html')
+    env = os.environ.copy()
+    env['PYTHONIOENCODING'] = 'utf-8'
+    result = subprocess.run(
+        [sys.executable, script_path, date_str, output_path],
+        capture_output=True, text=True, encoding='utf-8', env=env
+    )
+    return result.stdout.strip() + '\n'
+
+
+def load_terminology():
+    """加载术语解释库"""
+    path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'rag-knowledge-base', 'terminology.json')
+    if not os.path.exists(path):
+        return {}
+    try:
+        with open(path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        return {entry['term']: entry for entry in data.get('entries', [])}
+    except Exception:
+        return {}
+
+
+def generate_explanation_output(result):
+    """生成带术语解释的输出"""
+    terminology = load_terminology()
+    if not terminology:
+        return "术语解释库暂不可用，请检查 rag-knowledge-base/terminology.json 是否存在。\n"
+
+    # 需要解释的术语
+    terms_to_explain = [
+        ('岁运', result['sui_yun']['name'] + result['sui_yun']['status']),
+        ('司天', result['si_tian']),
+        ('在泉', result['zai_quan']),
+        ('主气', result['current_step']['zhu_qi']),
+        ('客气', result['current_step']['ke_qi']),
+        ('客主加临', result['current_step']['relation']),
+    ]
+
+    lines = [
+        f"日期: {result['date']}",
+        f"运气年: {result['yunqi_year']}年 ({result['year_gz']})",
+        "",
+        "【带解释的运气格局】",
+    ]
+
+    for term, context in terms_to_explain:
+        entry = terminology.get(term)
+        if entry:
+            lines.append(f"• {term}（{context}）：{entry['explanation']}")
+        else:
+            lines.append(f"• {term}（{context}）：暂无解释")
+
+    # 六气术语解释
+    for qi_name in set([result['si_tian'], result['zai_quan'], result['current_step']['zhu_qi'], result['current_step']['ke_qi']]):
+        entry = terminology.get(qi_name)
+        if entry:
+            lines.append(f"• {qi_name}：{entry['explanation']}")
+
+    # 添加其他相关术语
+    extra_terms = ['太过', '不及', '平气', '天符', '岁会', '大寒']
+    for term in extra_terms:
+        if term in str(result) or (term == '平气' and result['tong_hua']['pingqi']):
+            entry = terminology.get(term)
+            if entry:
+                lines.append(f"• {term}：{entry['explanation']}")
+
+    lines.append("")
+    lines.append("术语解释基于《黄帝内经·素问》七篇大论及中医基础理论。")
+    return '\n'.join(lines)
+
+
 if __name__ == '__main__':
     if len(sys.argv) < 2:
-        print("用法: python calculate_yunqi_api.py <YYYY-MM-DD> [--json]")
+        print("用法: python calculate_yunqi_api.py <YYYY-MM-DD> [--json] [--summary] [--visual] [--focus current-step] [--html] [--explain] [--report-type student|practitioner|researcher]")
         print("示例: python calculate_yunqi_api.py 2026-06-27 --json")
+        print("       python calculate_yunqi_api.py 2026-06-27 --summary")
+        print("       python calculate_yunqi_api.py 2026-06-27 --visual")
+        print("       python calculate_yunqi_api.py 2026-06-27 --focus current-step")
+        print("       python calculate_yunqi_api.py 2026-06-27 --html")
+        print("       python calculate_yunqi_api.py 2026-06-27 --explain")
+        print("       python calculate_yunqi_api.py 2026-06-27 --report-type practitioner")
         sys.exit(1)
-    
+
     date_str = sys.argv[1]
     result = calculate_yunqi_api(date_str)
-    
-    if '--json' in sys.argv:
-        print(json.dumps(result, ensure_ascii=False, indent=2))
+
+    if '--html' in sys.argv:
+        output = run_html_report(date_str)
+        sys.stdout.write(output)
+    elif '--focus' in sys.argv:
+        idx = sys.argv.index('--focus')
+        focus_mode = sys.argv[idx + 1] if idx + 1 < len(sys.argv) else 'current-step'
+        if focus_mode == 'current-step':
+            sys.stdout.write(generate_current_step_focus(result) + '\n')
+        else:
+            print(f"不支持的聚焦模式: {focus_mode}，当前仅支持 current-step")
+            sys.exit(1)
+    elif '--visual' in sys.argv:
+        output = run_visualize(date_str)
+        sys.stdout.write(output)
+    elif '--report-type' in sys.argv:
+        idx = sys.argv.index('--report-type')
+        audience = sys.argv[idx + 1] if idx + 1 < len(sys.argv) else 'student'
+        if audience not in ('student', 'practitioner', 'researcher'):
+            print(f"report-type 必须是 student/practitioner/researcher，当前: {audience}")
+            sys.exit(1)
+        as_json = '--json' in sys.argv
+        output = run_yunqi_report(result['yunqi_year'], audience, as_json)
+        sys.stdout.write(output)
+    elif '--explain' in sys.argv:
+        sys.stdout.write(generate_explanation_output(result) + '\n')
+    elif '--json' in sys.argv:
+        # 显式使用 utf-8 编码输出，兼容 Windows
+        output = json.dumps(result, ensure_ascii=False, indent=2)
+        sys.stdout.write(output + '\n')
+    elif '--summary' in sys.argv:
+        summary = generate_summary(result)
+        sys.stdout.write(summary + '\n')
     else:
-        print(format_text(result))
+        sys.stdout.write(format_text(result) + '\n')
+    sys.stdout.flush()

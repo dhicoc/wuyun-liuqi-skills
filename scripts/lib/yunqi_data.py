@@ -587,6 +587,103 @@ def get_kezhujialin_detail(year, step_num):
     }
 
 
+def generate_summary(result):
+    """
+    根据 calculate_yunqi_api 返回的结果生成一段自然语言摘要。
+    摘要包含：年干支、岁运、司天在泉、当前步位、客主关系、近期关注重点。
+    """
+    date_str = result['date']
+    year_gz = result['year_gz']
+    yunqi_year = result['yunqi_year']
+    sui_yun = result['sui_yun']
+    si_tian = result['si_tian']
+    zai_quan = result['zai_quan']
+    step = result['current_step']
+
+    # 计算客主加临顺逆统计
+    xiangde = sum(1 for s in result['ke_zhu_jia_lin'] if s['shun_ni'].startswith('相得'))
+    buxiangde = 6 - xiangde
+
+    summary = (
+        f"{date_str} 属于{yunqi_year}年（{year_gz}）。"
+        f"全年岁运为{sui_yun['name']}{sui_yun['status']}，"
+        f"上半年{si_tian}司天，下半年{zai_quan}在泉。"
+        f"当前处于{step['name']}，主气为{step['zhu_qi']}，客气为{step['ke_qi']}，"
+        f"二者{step['relation']}，{step['shun_ni']}。"
+    )
+
+    # 添加近期关注重点
+    focus_points = []
+    if step['keqi_is_sitian']:
+        focus_points.append(f"司天{si_tian}之气当令，上半年气候特征明显")
+    if step['keqi_is_zaiquan']:
+        focus_points.append(f"在泉{zai_quan}之气当令，下半年气候特征明显")
+
+    # 根据客主关系给出提示
+    relation = step['relation']
+    if '同气' in relation:
+        focus_points.append(f"{step['zhu_qi']}同气偏盛，注意相关脏腑调养")
+    elif '客气克主气' in relation:
+        focus_points.append(f"客气克制主气，气候不调，注意防病")
+    elif '主气生客气' in relation:
+        focus_points.append(f"主气生客气，气机上逆，宜平和调理")
+
+    # 岁运与司天综合提示
+    sui_yun_element = sui_yun['element']
+    sitian_element = LIUQI_WUXING.get(si_tian, '')
+    if sui_yun_element and sitian_element:
+        if WUXING_KE.get(sitian_element) == sui_yun_element:
+            focus_points.append(f"司天{sitian_element}克岁运{sui_yun_element}，天刑之年，气候易有乖戾")
+        elif WUXING_KE.get(sui_yun_element) == sitian_element:
+            focus_points.append(f"岁运{sui_yun_element}克司天{sitian_element}，运盛于天，气候偏甚")
+        elif sitian_element == sui_yun_element:
+            focus_points.append(f"岁运与司天同气，{sui_yun_element}气偏盛")
+
+    if focus_points:
+        summary += " 近期关注：" + "；".join(focus_points) + "。"
+
+    summary += f" 全年六步客主加临：{xiangde}步相得、{buxiangde}步不相得。"
+
+    return summary
+
+
+def generate_current_step_focus(result):
+    """
+    聚焦当前步位，输出 concise 的近期关注点。
+    """
+    step = result['current_step']
+    sui_yun = result['sui_yun']
+    si_tian = result['si_tian']
+    zai_quan = result['zai_quan']
+
+    focus_points = []
+    if step['keqi_is_sitian']:
+        focus_points.append(f"司天{si_tian}当令")
+    if step['keqi_is_zaiquan']:
+        focus_points.append(f"在泉{zai_quan}当令")
+
+    relation = step['relation']
+    if '同气' in relation:
+        focus_points.append(f"{step['zhu_qi']}同气偏盛")
+    elif '客气克主气' in relation:
+        focus_points.append("客气克主，气候不调")
+    elif '主气生客气' in relation:
+        focus_points.append("主气生客，气机上逆")
+    elif '客气生主气' in relation:
+        focus_points.append("客气生主，气候平和")
+
+    focus_str = "；".join(focus_points) if focus_points else "无明显偏颇"
+
+    return (
+        f"当前步位：{step['name']}\n"
+        f"时间范围：{step['date_range']['start']} ~ {step['date_range']['end']}\n"
+        f"主气：{step['zhu_qi']} | 客气：{step['ke_qi']}\n"
+        f"关系：{step['relation']} | {step['shun_ni']}\n"
+        f"岁运背景：{sui_yun['name']}{sui_yun['status']}，{si_tian}司天/{zai_quan}在泉\n"
+        f"近期关注：{focus_str}\n"
+    )
+
+
 if __name__ == '__main__':
     # 自测
     for y in [2024, 2025, 2026]:

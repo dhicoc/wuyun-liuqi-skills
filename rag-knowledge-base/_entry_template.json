@@ -1,0 +1,19 @@
+{
+  "_description": "RAG 知识库新增条目标准模板。复制此文件内容后填写字段，保存为 .json 并通过 scripts/validate_knowledge_base.py 校验。",
+  "asset_name": "asset_custom_your_name",
+  "asset_type": "custom",
+  "description": "简短描述本 asset 的内容",
+  "total_entries": 1,
+  "source_file": "your_source.txt",
+  "entries": [
+    {
+      "entry_id": "custom_unique_id",
+      "entry_type": "custom_entry",
+      "title": "条目标题",
+      "source": "《黄帝内经·素问》某篇 或 现代文献",
+      "text": "条目正文内容，可包含病机、症状、治法、经文引用等。",
+      "topic": "所属主题，如 岁运/司天/客主加临/方药/体质等",
+      "rag_key": "用于精确检索的 key，如 water_excess、shaoyin_junhuo_sitian、zhu_shaoyang_ke_taiyang"
+    }
+  ]
+}

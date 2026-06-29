@@ -24,14 +24,27 @@
 
   # 生成优化报告
   python scripts/self_evolve.py report
+
+  # 生成月度自进化汇总报告
+  python scripts/self_evolve.py monthly-report
 """
 
+# -*- coding: utf-8 -*-
 import json
 import os
 import sys
+import io
 import time
 from collections import Counter, defaultdict
 from datetime import datetime, date
+
+# Windows 终端默认编码可能不是 UTF-8，强制设置 stdout/stderr 编码
+if sys.platform == 'win32' and sys.stdout.encoding != 'utf-8':
+    try:
+        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
+    except (AttributeError, io.UnsupportedOperation):
+        pass
 
 
 EVOLVE_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "self-evolve")
@@ -236,6 +249,90 @@ def generate_report() -> str:
     return report
 
 
+def generate_monthly_report() -> str:
+    """生成月度自进化汇总报告。"""
+    today = date.today()
+    month_start = today.replace(day=1)
+    # 简单处理：若今天是每月1号，则生成上月报告；否则生成当月到目前为止的汇总
+    report_month = month_start
+    month_label = report_month.strftime("%Y-%m")
+
+    lines = []
+    lines.append(f"# 五运六气技能包月度自进化报告（{month_label}）")
+    lines.append(f"> 生成时间: {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+    lines.append("> 本月度报告汇总当月使用日志、用户反馈与知识盲区，用于持续优化技能包。")
+    lines.append("")
+
+    logs = load_jsonl_lines(LOG_DIR)
+    month_logs = [log for log in logs if log.get("timestamp", "").startswith(month_label)]
+
+    lines.append("## 使用概况")
+    lines.append(f"- 本月累计推算次数: {len(month_logs)}")
+    daily = Counter(log.get("timestamp", "")[:10] for log in month_logs)
+    lines.append(f"- 活跃天数: {len(daily)}")
+    lines.append("")
+
+    # 高频 rag_key
+    key_counter = Counter()
+    for log in month_logs:
+        for key in log.get("rag_keys", []):
+            key_counter[key] += 1
+    if key_counter:
+        lines.append("## 高频查询病机 TOP10")
+        for key, count in key_counter.most_common(10):
+            lines.append(f"- `{key}`: {count} 次")
+        lines.append("")
+
+    # 知识盲区
+    misses = load_jsonl_lines(MISS_DIR)
+    month_misses = [m for m in misses if m.get("timestamp", "").startswith(month_label)]
+    miss_counter = Counter(m.get("missed_key", "unknown") for m in month_misses)
+    if miss_counter:
+        lines.append("## 本月知识盲区（未命中）")
+        for key, count in miss_counter.most_common(10):
+            lines.append(f"- `{key}`: {count} 次")
+        lines.append("")
+
+    # 反馈
+    fb = stats_feedback_summary()
+    if fb["total"] > 0:
+        lines.append("## 用户反馈")
+        lines.append(f"- 累计反馈总数: {fb['total']}")
+        lines.append(f"- 平均评分: {fb['avg_rating']}/5")
+        if fb.get("rating_distribution"):
+            dist = fb["rating_distribution"]
+            dist_str = ", ".join(f"{k}分:{v}" for k, v in sorted(dist.items()))
+            lines.append(f"- 评分分布: {dist_str}")
+        lines.append("")
+
+    # 优化建议
+    lines.append("## 优化建议")
+    suggestions = []
+    if miss_counter:
+        suggestions.append(f"补充高频未命中知识：{', '.join(k for k, _ in miss_counter.most_common(5))}")
+    if key_counter:
+        top = key_counter.most_common(1)[0][0]
+        suggestions.append(f"高频查询 `{top}` 可考虑扩展临床案例与注家观点")
+    if fb["total"] > 0 and fb.get("avg_rating", 5) < 4:
+        suggestions.append("平均评分偏低，建议复盘近期输出质量并优化 report 模板")
+    if not suggestions:
+        suggestions.append("本月数据平稳，建议继续保持并关注新增路由场景")
+    for s in suggestions:
+        lines.append(f"- {s}")
+    lines.append("")
+
+    lines.append("---")
+    lines.append("_由 self_evolve.py 自动生成_")
+
+    report = "\n".join(lines)
+    report_path = os.path.join(REPORT_DIR, f"monthly_report_{month_label}.md")
+    with open(report_path, "w", encoding="utf-8") as f:
+        f.write(report)
+
+    print(f"月度报告已生成: {report_path}")
+    return report
+
+
 # ── CLI ─────────────────────────────────────────────────
 
 def main():
@@ -267,6 +364,9 @@ def main():
 
     # report
     subparsers.add_parser("report", help="生成优化报告")
+
+    # monthly-report
+    subparsers.add_parser("monthly-report", help="生成月度自进化汇总报告")
 
     args = parser.parse_args()
 
@@ -313,7 +413,12 @@ def main():
         print(f"反馈已记录: {json.dumps(result, ensure_ascii=False)}")
 
     elif args.command == "report":
-        generate_report()
+        report = generate_report()
+        print(report)
+
+    elif args.command == "monthly-report":
+        report = generate_monthly_report()
+        print(report)
 
 
 if __name__ == "__main__":

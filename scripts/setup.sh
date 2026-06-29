@@ -5,6 +5,9 @@
 # ============================================================
 set -e
 
+# 强制 UTF-8 编码环境变量，解决终端中文乱码
+export PYTHONIOENCODING=utf-8
+
 SKILL_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$SKILL_ROOT"
 

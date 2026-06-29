@@ -49,8 +49,9 @@ description: >
 
 ### NOW（立即执行）
 1. 读取 `routing.md` 完成路由匹配（三轴：时间维度 + 用户意图 + 知识层级）
-2. 读取 `case-journal/precedent-disclaimer.md`（医学免责声明前置）
-3. 读取目标子技能的 `SKILL.md`
+2. **如用户意图模糊或仅发送触发词，先读取 `prompts/onboarding_prompt.md` 进行轻量级引导，不得直接进入完整推算/临床报告流程**
+3. 读取 `case-journal/precedent-disclaimer.md`（医学免责声明前置）
+4. 读取目标子技能的 `SKILL.md`
 
 ### NEXT（路由后执行）
 1. 按目标子技能工作流执行推算/分析
@@ -61,12 +62,18 @@ description: >
 1. 按 `docs-generator/` 格式输出结构化报告
 2. 如涉及临床案例，按 `case-journal/_template.md` 沉淀医案
 3. 所有临床输出 MUST 附加医学免责声明
+4. **（P2-8 新增）任务完成后，主动邀请用户提供反馈：**
+   - 在报告末尾附加反馈入口话术：
+     > 本次分析是否对您有帮助？如您愿意，可回复评分（1-5）和简短建议，我将记录到自进化引擎以持续优化输出质量。
+   - 如用户提供了评分/建议，调用 `python scripts/self_evolve.py feedback --session-id <会话ID> --rating <1-5> --comment "..."` 记录反馈
+   - 每月自动生成月度报告：`python scripts/self_evolve.py monthly-report`
 
 ### ACT（行动约束）
 - 推算层：MUST 调用脚本，MUST NOT 凭记忆推算干支运气
 - 病机层：MUST 基于推算结果分析，MUST 参考对应 references
 - 临床层：MUST 区分"运气理论分析"与"具体医疗建议"
 - 文献层：MUST 标注出处（素问篇名/历代医家/现代文献）
+- **引导层：MUST 在意图模糊时先询问，MUST NOT 直接输出完整报告**
 
 ## 模块总表
 

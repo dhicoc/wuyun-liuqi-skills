@@ -253,9 +253,32 @@
 
 ---
 
-## 5. Agent 集成方式
+## 5. 命令行快速入口
 
-### 5.1 体质数据作为 Context 传递
+### 5.1 个人运气体质分析脚本
+
+为简化使用，项目提供 `scripts/personal_yunqi_profile.py`，根据出生日期与所在地区，自动调用 `calculate_yunqi_api.py` 与 `rag-knowledge-base/asset7_constitution.json`、`asset6_regional.json` 生成本人先天体质倾向、当前岁运调理方向与地域修正建议。
+
+```bash
+# 文本报告
+python scripts/personal_yunqi_profile.py 1990-05-20 北京
+
+# JSON 输出
+python scripts/personal_yunqi_profile.py 1990-05-20 --json
+```
+
+### 5.2 输出说明
+
+- **先天体质倾向**：根据出生年份的岁运代码匹配 `asset7_constitution.json` 中的 `birth_yunqi_mapping` 条目
+- **当前岁运调理方向**：根据当前日期的岁运代码匹配 `suiyun_constitution_adjustment` 条目
+- **地域运气修正**：根据地区名匹配 `asset6_regional.json` 中的区域条目
+- 所有涉及方药/针灸的建议均须附加医学免责声明
+
+---
+
+## 6. Agent 集成方式
+
+### 6.1 体质数据作为 Context 传递
 
 体质数据不参与运气推算脚本的计算过程，而是作为 **Context** 传递给 Agent，在病机分析与临床建议环节进行交叉分析。
 
@@ -266,7 +289,7 @@
   ↓
 [constitution_alignment] 体质对齐
   ├── 如有体质问卷数据 → 直接使用
-  └── 如无问卷但有出生年份 → 推算先天运气倾向 → 提示用户做体质评估
+  └── 如无问卷但有出生年份 → 调用 scripts/personal_yunqi_profile.py 推算先天运气倾向
   ↓
 [constitution_alignment] 交叉分析（查矩阵 → 体质 × 运气 → 交叉结果）
   ↓
@@ -277,7 +300,7 @@
 [docs-generator] 生成增强报告（含体质对齐章节）
 ```
 
-### 5.2 Context 注入格式
+### 6.2 Context 注入格式
 
 Agent 接收体质对齐 Context 的标准格式：
 

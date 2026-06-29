@@ -1,7 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """端到端验证 + 大寒边界回归测试"""
-import json, subprocess, sys, os
+import json, subprocess, sys, os, io
+
+# Windows 终端默认编码可能不是 UTF-8，强制设置 stdout/stderr 编码
+if sys.platform == 'win32' and sys.stdout.encoding != 'utf-8':
+    try:
+        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
+    except (AttributeError, io.UnsupportedOperation):
+        pass
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 API_PY = os.path.join(BASE, "scripts", "calculate_yunqi_api.py")
@@ -153,7 +161,8 @@ if os.path.exists(evolve_script):
                        capture_output=True, cwd=os.path.dirname(evolve_script))
     out = r.stdout.decode('utf-8', errors='replace')
     check("self_evolve.py log 成功", r.returncode == 0)
-    print("    " + out.strip()[:80])
+    sys.stdout.write("    " + out.strip()[:80] + "\n")
+    sys.stdout.flush()
 else:
     print("  [WARN] 不存在，跳过")
 
@@ -178,12 +187,20 @@ new_files = [
     "scripts/ingest_literature.py",
     "scripts/self_evolve.py",
     "scripts/verify_expansion.py",
+    "scripts/health_check.py",
+    "scripts/personal_yunqi_profile.py",
+    "scripts/visualize_yunqi.py",
+    "scripts/validate_knowledge_base.py",
+    "scripts/generate_html_report.py",
     "self-evolve/README.md",
     "agent-workflow/self_evolve_hook.md",
+    "prompts/onboarding_prompt.md",
     "rag-knowledge-base/asset4_formula.json",
     "rag-knowledge-base/asset5_commentary.json",
     "rag-knowledge-base/asset6_regional.json",
     "rag-knowledge-base/asset7_constitution.json",
+    "rag-knowledge-base/terminology.json",
+    "rag-knowledge-base/_entry_template.json",
     "rag-knowledge-base/LITERATURE_EXPANSION.md",
     "yunqi-classics/references/lingqu_jiugong_bafeng.md",
 ]

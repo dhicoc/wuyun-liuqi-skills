@@ -5,6 +5,9 @@ REM wuyun-liuqi 一键环境配置脚本 (Windows)
 REM 用法: scripts\setup.bat
 REM ============================================================
 
+REM 强制 UTF-8 编码环境变量，解决 Windows 终端中文乱码
+set PYTHONIOENCODING=utf-8
+
 setlocal enabledelayedexpansion
 set "SKILL_ROOT=%~dp0.."
 cd /d "%SKILL_ROOT%"

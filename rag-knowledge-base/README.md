@@ -13,6 +13,46 @@
 | asset2 | `asset2_sitian_zaiquan.json` | 6（12半年节段） | 司天在泉病机与治法 | 素问·至真要大论 |
 | asset3 | `asset3_kezhujialin.json` | 36 | 客主加临顺逆病机 | 素问·五运行大论、素问·至真要大论 |
 
+## 如何贡献知识
+
+欢迎通过以下两种方式扩展本知识库：
+
+### 方式一：交互式添加条目（推荐）
+
+运行以下命令，按提示输入字段：
+
+```bash
+python scripts/ingest_literature.py --interactive
+# 或指定分类
+python scripts/ingest_literature.py --interactive --interactive-category formula
+```
+
+支持分类：`classics`（经典） / `commentary`（注家） / `formula`（方药） / `clinical`（临床） / `regional`（地域） / `custom`（自定义）。
+
+### 方式二：手动编辑 JSON
+
+1. 复制 `rag-knowledge-base/_entry_template.json` 作为起点。
+2. 按模板结构填写条目，确保每个条目至少包含一个可检索键（`key` / `code` / `rag_key` / `sitian_key` / `zaiquan_key`）。
+3. 使用校验工具检查格式：
+
+```bash
+python scripts/validate_knowledge_base.py
+# 校验单个文件
+python scripts/validate_knowledge_base.py --path rag-knowledge-base/asset1_suiyun.json
+# 生成模板示例
+python scripts/validate_knowledge_base.py --template
+```
+
+### 条目新增 checklist
+
+- [ ] 条目内容与《黄帝内经·素问》七篇大论或可靠中医文献一致
+- [ ] 已填写 `entry_id`（可自动生成）和 `entry_type`
+- [ ] 已填写至少一个可检索键（key / code / rag_key / sitian_key / zaiquan_key）
+- [ ] 已通过 `validate_knowledge_base.py` 校验
+- [ ] 如涉及临床建议，已在条目中保留"仅供参考，须遵医嘱"声明
+
+---
+
 ## 与 LLM Agent 的配合使用
 
 ### 检索流程

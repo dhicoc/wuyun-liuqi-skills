@@ -49,10 +49,14 @@
 | "运气合病" / "运气同化病机" | `yunqi-pathogenesis/references/yunqi_hebing.md` |
 | "完整分析XX年" / "全年运气分析" | `ganzhi-basics/` → `yunqi-calc/` → `yunqi-pathogenesis/` → `yunqi-clinical/` |
 | "写医案" / "记录运气应用" | `case-journal/_template.md` |
-| "生成运气报告" / "输出分析报告" | `docs-generator/SKILL.md` |
+| "生成运气报告" / "输出分析报告" | `docs-generator/SKILL.md` → 按受众选择 `--report-type student|practitioner|researcher` |
+| "学生版报告" / "学习报告" | `docs-generator/SKILL.md` → `--report-type student` |
+| "临床版报告" / "医师版报告" | `docs-generator/SKILL.md` → `--report-type practitioner` |
+| "研究版报告" / "文献版报告" | `docs-generator/SKILL.md` → `--report-type researcher` |
 | "运气治则" / "平气治法" | `yunqi-clinical/references/zhize_zhifa.md` |
 | "运气方药" / "岁运方" | `yunqi-clinical/references/fangyao_xuanze.md` |
-| "推算某日运气" / "今天运气如何" | `scripts/calculate_yunqi_api.py` → `rag-knowledge-base/` |
+| "推算某日运气" / "今天运气如何" | `scripts/calculate_yunqi_api.py --summary` → `rag-knowledge-base/` |
+| "我现在运气如何" / "最近运气" | `scripts/calculate_yunqi_api.py --focus current-step` |
 | "Agent集成" / "RAG检索" / "知识库" | `rag-knowledge-base/README.md` |
 | "ReAct工作流" / "推理链路" | `agent-workflow/react_workflow.md` |
 | "System Prompt" / "角色约束" | `prompts/system_prompt.md` |
@@ -61,7 +65,8 @@
 | "运气方" / "三因司天方" / "什么方" | `rag-knowledge-base/asset4_formula.json` — 按 rag_key 匹配运气方 |
 | "历代注家" / "王冰怎么说" / "刘完素" | `rag-knowledge-base/asset5_commentary.json` — 历代医家运气学说 |
 | "地域" / "南方北方" / "我在XX地方" | `rag-knowledge-base/asset6_regional.json` — 地域运气修正系数 |
-| "体质" / "我是什么体质" / "体质调理" | `rag-knowledge-base/asset7_constitution.json` — 体质运气交叉分析 |
+| "体质" / "我是什么体质" / "体质调理" | `advanced-alignment/constitution_alignment.md` → `scripts/personal_yunqi_profile.py` |
+| "个人运气" / "我的运气" / "出生年份运气" | `scripts/personal_yunqi_profile.py` → `rag-knowledge-base/asset7_constitution.json` + `asset6_regional.json` |
 | "自进化" / "自学习" / "优化报告" | `self-evolve/README.md` — 自进化引擎使用指南 |
 
 ## 按知识层级
@@ -146,3 +151,61 @@ Agent ReAct 推理路径（LLM Agent 集成）:
 4. 创建后更新本路由矩阵
 
 **AI 不需要等待用户发现缺口。路由失败就是提议新增子技能的信号。**
+
+---
+
+## 模糊意图与首次使用引导
+
+当用户仅发送触发词（如"五运六气""运气"）或意图不明确时，**不得直接进入完整推算/临床报告流程**。应先进行轻量级引导，明确用户需求。
+
+### 触发词宽泛时的处理流程
+
+```
+用户输入仅包含触发词 / 无明确日期 / 无明确需求类型
+  ↓
+读取 prompts/onboarding_prompt.md
+  ↓
+回复引导语，询问：
+  1. 你想推算哪个日期/年份的运气？（默认：今天）
+  2. 你的主要需求是？
+     A. 快速了解当前运气概况（推荐 --summary）
+     B. 完整年度分析报告（student/practitioner/researcher）
+     C. 运气病机分析
+     D. 运气治法/方药/养生
+     E. 学习某个概念（如天干化五运、客主加临）
+     F. 个人运气体质分析（需提供出生日期+地区）
+  ↓
+用户明确选择后，再按对应路由执行
+```
+
+### 轻量级引导判定条件
+
+满足以下任一条件时，先引导再执行：
+
+- 用户输入只包含触发词（如"五运六气""运气"）
+- 用户未提供具体日期或年份
+- 用户未说明需求类型（推算/病机/临床/学习/个人）
+- 用户说"帮我看看""分析一下"等模糊表达
+- 用户输入无法匹配路由矩阵中任何一行
+
+### 引导回复示例
+
+> 你好，我是五运六气分析助手。我可以帮你：
+> 1. 推算任意日期的运气格局
+> 2. 分析当前步位的病机与调理方向
+> 3. 生成完整年度分析报告
+> 4. 学习运气学基础概念
+> 5. 分析个人先天运气体质
+>
+> 请告诉我：你想分析哪个日期？主要关注哪方面？
+
+### 常见快速意图匹配
+
+| 用户回复 | 直接执行 |
+|----------|----------|
+| "2026-06-29" 或 "今天" | `calculate_yunqi_api.py <日期> --summary` |
+| "完整分析2026年" | `yunqi_report.py 2026 --audience practitioner` |
+| "学习客主加临" | 读取 `yunqi-calc/references/kezhujialin.md` |
+| "我1990年出生，体质如何" | `personal_yunqi_profile.py 1990-XX-XX` |
+
+---

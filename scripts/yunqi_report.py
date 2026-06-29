@@ -6,7 +6,16 @@
 """
 import sys
 import os
+import io
 import json
+
+# Windows 终端默认编码可能不是 UTF-8，强制设置 stdout/stderr 编码
+if sys.platform == 'win32' and sys.stdout.encoding != 'utf-8':
+    try:
+        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
+    except (AttributeError, io.UnsupportedOperation):
+        pass
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'lib'))
 from yunqi_data import (
@@ -208,9 +217,11 @@ def main():
             'audience': audience,
             'report': report,
         }
-        print(json.dumps(result, ensure_ascii=False, indent=2))
+        output = json.dumps(result, ensure_ascii=False, indent=2)
+        sys.stdout.write(output + '\n')
     else:
-        print(report)
+        sys.stdout.write(report + '\n')
+    sys.stdout.flush()
 
 
 if __name__ == '__main__':

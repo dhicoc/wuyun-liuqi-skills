@@ -1,0 +1,189 @@
+{
+  "asset_id": "asset8_terminology",
+  "asset_name": "五运六气术语解释库",
+  "asset_description": "统一的中医运气学专业术语白话解释库，用于 --explain 模式和学生版报告。",
+  "data_source": "《黄帝内经·素问》七篇大论及中医基础理论教材",
+  "entry_count": 20,
+  "entries": [
+    {
+      "entry_id": "term_suiyun",
+      "entry_type": "terminology",
+      "term": "岁运",
+      "pinyin": "suiyun",
+      "category": "基础概念",
+      "explanation": "五运六气中一年的主管运气。由年干决定，每10年一个周期。岁运太过或不及影响全年气候和疾病倾向。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_sitian",
+      "entry_type": "terminology",
+      "term": "司天",
+      "pinyin": "sitian",
+      "category": "基础概念",
+      "explanation": "五运六气中主管上半年的气。由年支决定，代表上半年的气候特征，影响人体上部和表证。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_zaiquan",
+      "entry_type": "terminology",
+      "term": "在泉",
+      "pinyin": "zaiquan",
+      "category": "基础概念",
+      "explanation": "五运六气中主管下半年的气。与司天相对，代表下半年的气候特征，影响人体下部和里证。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_zhuqi",
+      "entry_type": "terminology",
+      "term": "主气",
+      "pinyin": "zhuqi",
+      "category": "基础概念",
+      "explanation": "五运六气中的固定之气，每年六步不变，代表正常季节气候。初之气为厥阴风木，二之气为少阴君火，依此类推。",
+      "source": "《素问·六微旨大论》"
+    },
+    {
+      "entry_id": "term_keqi",
+      "entry_type": "terminology",
+      "term": "客气",
+      "pinyin": "keqi",
+      "category": "基础概念",
+      "explanation": "五运六气中的变动之气，每年分六步推移。客气加临主气形成客主加临，是当年气候异常的关键。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_kezhujialin",
+      "entry_type": "terminology",
+      "term": "客主加临",
+      "pinyin": "kezhujialin",
+      "category": "基础概念",
+      "explanation": "客气与主气叠加分析，判断当年气候是否异常。顺（客生主/客同主）为正常，逆（主生客/客克主）为异常。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_taiguo",
+      "entry_type": "terminology",
+      "term": "太过",
+      "pinyin": "taiguo",
+      "category": "五运状态",
+      "explanation": "阳干所化之运，本气偏盛。如甲己化土，甲为阳干，故甲年为土运太过。",
+      "source": "《素问·气交变大论》"
+    },
+    {
+      "entry_id": "term_buji",
+      "entry_type": "terminology",
+      "term": "不及",
+      "pinyin": "buji",
+      "category": "五运状态",
+      "explanation": "阴干所化之运，本气偏衰。如乙庚化金，乙为阴干，故乙年为金运不及。",
+      "source": "《素问·气交变大论》"
+    },
+    {
+      "entry_id": "term_pingqi",
+      "entry_type": "terminology",
+      "term": "平气",
+      "pinyin": "pingqi",
+      "category": "五运状态",
+      "explanation": "太过之年被司天所克，或不及之年得司天所生，使岁运不偏盛偏衰，气候相对平和。",
+      "source": "《素问·五常政大论》"
+    },
+    {
+      "entry_id": "term_tianfu",
+      "entry_type": "terminology",
+      "term": "天符",
+      "pinyin": "tianfu",
+      "category": "运气同化",
+      "explanation": "大运五行与司天五行相同。天符之年气候变化剧烈，发病快而重。",
+      "source": "《素问·六微旨大论》"
+    },
+    {
+      "entry_id": "term_suihui",
+      "entry_type": "terminology",
+      "term": "岁会",
+      "pinyin": "suihui",
+      "category": "运气同化",
+      "explanation": "大运五行与地支五行相同。岁会之年气候与脏腑相应较为平和但专一。",
+      "source": "《素问·六微旨大论》"
+    },
+    {
+      "entry_id": "term_taiyi_tianfu",
+      "entry_type": "terminology",
+      "term": "太乙天符",
+      "pinyin": "taiyi_tianfu",
+      "category": "运气同化",
+      "explanation": "既是天符又是岁会的年份，气候变化最为剧烈，容易出现危重病候。",
+      "source": "《素问·六微旨大论》"
+    },
+    {
+      "entry_id": "term_jueyin_fengmu",
+      "entry_type": "terminology",
+      "term": "厥阴风木",
+      "pinyin": "jueyin_fengmu",
+      "category": "六气",
+      "explanation": "六气之一，属木，为一阴。主风，与肝相应，易致风动、眩晕、过敏等病。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_shaoyin_junhuo",
+      "entry_type": "terminology",
+      "term": "少阴君火",
+      "pinyin": "shaoyin_junhuo",
+      "category": "六气",
+      "explanation": "六气之一，属火，为二阴。主热，与心相应，易致心烦、失眠、热证等。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_taiyin_shitu",
+      "entry_type": "terminology",
+      "term": "太阴湿土",
+      "pinyin": "taiyin_shitu",
+      "category": "六气",
+      "explanation": "六气之一，属土，为三阴。主湿，与脾相应，易致胸闷、脘痞、身重等。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_shaoyang_xianghuo",
+      "entry_type": "terminology",
+      "term": "少阳相火",
+      "pinyin": "shaoyang_xianghuo",
+      "category": "六气",
+      "explanation": "六气之一，属火，为一阳。主暑热，与三焦、胆相应，易致肝胆热证、炎症、上火等。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_yangming_zaojin",
+      "entry_type": "terminology",
+      "term": "阳明燥金",
+      "pinyin": "yangming_zaojin",
+      "category": "六气",
+      "explanation": "六气之一，属金，为二阳。主燥，与肺、大肠相应，易致肺燥、便秘、皮肤干燥等。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_taiyang_hanshui",
+      "entry_type": "terminology",
+      "term": "太阳寒水",
+      "pinyin": "taiyang_hanshui",
+      "category": "六气",
+      "explanation": "六气之一，属水，为三阳。主寒，与肾、膀胱相应，易致风寒感冒、关节痛、寒证等。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_dahan",
+      "entry_type": "terminology",
+      "term": "大寒",
+      "pinyin": "dahan",
+      "category": "节气",
+      "explanation": "二十四节气之一，约每年1月20日前后。五运六气以大寒为年界，大寒后进入新的运气年。",
+      "source": "《素问·六微旨大论》"
+    },
+    {
+      "entry_id": "term_liuyibu",
+      "entry_type": "terminology",
+      "term": "六步",
+      "pinyin": "liuyibu",
+      "category": "基础概念",
+      "explanation": "一年分为六个气运阶段，每步约60天。初之气从大寒开始，终之气至次年大寒结束。",
+      "source": "《素问·六元正纪大论》"
+    }
+  ]
+}
