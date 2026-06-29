@@ -18,6 +18,7 @@
 | 经典文献 | 素问七篇、历代学说、现代研究 | `yunqi-classics/` | ✅ 已覆盖 |
 | RAG 知识库 | 岁运、司天在泉、客主加临、方剂、注家、地域、体质 | `rag-knowledge-base/asset*.json` | ✅ 已覆盖 |
 | 个人体质 | 出生年运气倾向、当前岁运调理、地域修正 | `scripts/personal_yunqi_profile.py` | ✅ 已覆盖 |
+| 天气对齐 | 实时气象 × 运气格局交叉分析，判断相合/相背/兼夹 | `scripts/weather_alignment.py`、`advanced-alignment/weather_integration.md` | ✅ 已覆盖 |
 | 报告生成 | 学生版、临床版、研究版报告 | `scripts/yunqi_report.py`、`docs-generator/` | ✅ 已覆盖 |
 | 可视化 | 终端 ASCII、HTML 可视化报告 | `scripts/visualize_yunqi.py`、`scripts/generate_html_report.py` | ✅ 已覆盖 |
 | 自进化 | 使用日志、盲区检测、反馈、月度报告 | `scripts/self_evolve.py` | ✅ 已覆盖 |
@@ -37,7 +38,7 @@
 |------|------|--------|
 | CI 稳定性 | 扩展 Python / Node 多版本矩阵 | 高 |
 | 测试迁移 | 将测试脚本逐步迁移到 `tests/`，`scripts/` 保留兼容入口 | 中 |
-| 地域天气落地 | 将 `advanced-alignment/weather_integration.md` 中设计转为可执行模块 | 中 |
+| 天气对齐增强 | 已有 `scripts/weather_alignment.py` MVP；后续可加入缓存、历史同期均值和更多天气源 | 中 |
 | 体质量表 | 引入九种体质量表评分输入，而非仅出生年映射 | 中 |
 | 文献证据链 | 报告结论进一步标注出处与证据层级 | 中 |
 | 医学安全 | 更严格区分理论参考、养生建议与临床处置 | 高 |

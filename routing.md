@@ -60,7 +60,7 @@
 | "Agent集成" / "RAG检索" / "知识库" | `rag-knowledge-base/README.md` |
 | "ReAct工作流" / "推理链路" | `agent-workflow/react_workflow.md` |
 | "System Prompt" / "角色约束" | `prompts/system_prompt.md` |
-| "天气对齐" / "内外邪相合" | `advanced-alignment/weather_integration.md` |
+| "天气对齐" / "内外邪相合" / "结合天气" / "当地天气" | `scripts/weather_alignment.py <日期> --city <城市>` → `advanced-alignment/weather_integration.md` |
 | "体质分析" / "体质运气交叉" | `advanced-alignment/constitution_alignment.md` |
 | "运气方" / "三因司天方" / "什么方" | `rag-knowledge-base/asset4_formula.json` — 按 rag_key 匹配运气方 |
 | "历代注家" / "王冰怎么说" / "刘完素" | `rag-knowledge-base/asset5_commentary.json` — 历代医家运气学说 |
@@ -77,7 +77,7 @@
 | 病机层 | `yunqi-pathogenesis/` | 无 | 依赖中医辨证思维，文档化推理 |
 | 临床层 | `yunqi-clinical/` | 无 | 依赖辨证论治，文档化推理 |
 | 文献层 | `yunqi-classics/` | 无 | 文献检索与索引 |
-| Agent层 | `rag-knowledge-base/`, `agent-workflow/`, `prompts/`, `advanced-alignment/`, `self-evolve/` | `calculate_yunqi_api.py(.js)`, `ingest_literature.py`, `self_evolve.py` | 大寒定年+RAG检索(7 asset)+ReAct推理+高级对齐+自进化 |
+| Agent层 | `rag-knowledge-base/`, `agent-workflow/`, `prompts/`, `advanced-alignment/`, `self-evolve/` | `calculate_yunqi_api.py(.js)`, `weather_alignment.py`, `personal_yunqi_profile.py`, `ingest_literature.py`, `self_evolve.py` | 大寒定年+RAG检索(7 asset)+ReAct推理+天气/体质高级对齐+自进化 |
 
 ## 路径交叉（跨模块场景）
 
@@ -125,6 +125,8 @@ Agent ReAct 推理路径（LLM Agent 集成）:
   agent-workflow/react_workflow.md → 多层辨证推理（经典层+注释层+地域层+体质层）
   ↓
   advanced-alignment/ → (可选) 天气对齐 + 体质交叉分析
+    ├ scripts/weather_alignment.py：实时/历史/预报天气 × 运气格局
+    └ scripts/personal_yunqi_profile.py：出生运气 × 体质/地域
   ↓
   输出结构化报告 + 免责声明
   ↓

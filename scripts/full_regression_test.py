@@ -100,6 +100,10 @@ def main():
     run('personal profile text', [PY, 'scripts/personal_yunqi_profile.py', '1990-05-20', '北京'], has('个人运气体质分析报告'))
     run('personal profile json', [PY, 'scripts/personal_yunqi_profile.py', '1990-05-20', '北京', '--json'], json_has(['birth_suiyun', 'code']))
 
+    # 天气对齐（mock 模式避免 CI 依赖外网）
+    run('weather alignment mock text', [PY, 'scripts/weather_alignment.py', '2026-06-29', '--city', '杭州', '--mock'], has('天气对齐报告'))
+    run('weather alignment mock json', [PY, 'scripts/weather_alignment.py', '2026-06-29', '--city', '杭州', '--mock', '--json'], json_has(['alignment', 'type']))
+
     # ingest / validate / self-evolve
     run('ingest list categories', [PY, 'scripts/ingest_literature.py', '--list-categories'], has('classics'))
     run('validate single terminology', [PY, 'scripts/validate_knowledge_base.py', '--path', 'rag-knowledge-base/terminology.json'], has('校验通过'))

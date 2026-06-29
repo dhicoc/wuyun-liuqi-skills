@@ -90,7 +90,7 @@ description: >
 | **RAG 知识库** | `rag-knowledge-base/` | **岁运/司天在泉/客主加临病机 key-value 检索**（3 个 Asset JSON） |
 | **ReAct 工作流** | `agent-workflow/` | **Agent 推理链路规范**（查工具→查知识库→辨证推理闭环） |
 | **System Prompt** | `prompts/system_prompt.md` | **TCM 运气专家角色约束 + 输出规范 + 措辞约束** |
-| **高级对齐** | `advanced-alignment/` | **天气 API 对齐 + 体质报告交叉分析**（内外邪相合） |
+| **高级对齐** | `advanced-alignment/` + `scripts/weather_alignment.py` + `scripts/personal_yunqi_profile.py` | **天气 API 对齐 + 体质报告交叉分析**（内外邪相合） |
 | **RAG 知识库 v2** | `rag-knowledge-base/asset4_formula.json` | **三因司天方 16 方**（运气专方 key→方药检索） |
 | **RAG 知识库 v3** | `rag-knowledge-base/asset5_commentary.json` | **历代注家运气学说 20 条**（王冰→陆懋修 11 家核心理论） |
 | **RAG 知识库 v4** | `rag-knowledge-base/asset6_regional.json` | **地域运气修正 8 区**（东北→青藏，纬度/海拔/地貌修正系数） |
@@ -116,6 +116,7 @@ description: >
 | `yunqi_report.py` | 综合报告（调用以上全部） | `python scripts/yunqi_report.py <年份> --audience <student\|practitioner\|researcher>` |
 | **`calculate_yunqi_api.py`** | **日期→完整运气JSON（大寒定年）** | **`python scripts/calculate_yunqi_api.py <YYYY-MM-DD> --json`** |
 | **`calculate_yunqi_api.js`** | **JS版统一接口（需 lunar-javascript）** | **`node scripts/calculate_yunqi_api.js <YYYY-MM-DD> --json`** |
+| **`weather_alignment.py`** | **天气实况→六气转译→运气天气对齐（Open-Meteo，可 --mock）** | **`python scripts/weather_alignment.py <YYYY-MM-DD> --city <城市> --json`** |
 | **`ingest_literature.py`** | **文献注入管道**（txt→结构化RAG JSON） | **`python scripts/ingest_literature.py --source <文件> --category <分类> --output <目标>`** |
 | **`self_evolve.py`** | **自进化引擎**（日志/盲区/反馈/报告） | **`python scripts/self_evolve.py <log|stats|feedback|report> <参数>`** |
 

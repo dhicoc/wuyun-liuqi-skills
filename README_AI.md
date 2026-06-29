@@ -228,6 +228,7 @@ node scripts/calculate_yunqi_api.js <YYYY-MM-DD> --json
 | 经典文献 | 素问七篇、历代学说、现代研究 | `yunqi-classics/` | ✅ 已覆盖 |
 | RAG 知识库 | 岁运、司天在泉、客主加临、方剂、注家、地域、体质 | `rag-knowledge-base/asset*.json` | ✅ 已覆盖 |
 | 个人体质 | 出生年运气倾向、当前岁运调理、地域修正 | `scripts/personal_yunqi_profile.py` | ✅ 已覆盖 |
+| 天气对齐 | 实时气象 × 运气格局交叉分析，判断相合/相背/兼夹 | `scripts/weather_alignment.py`、`advanced-alignment/weather_integration.md` | ✅ 已覆盖 |
 | 报告生成 | 学生版、临床版、研究版报告 | `scripts/yunqi_report.py`、`docs-generator/` | ✅ 已覆盖 |
 | 可视化 | 终端 ASCII、HTML 可视化报告 | `scripts/visualize_yunqi.py`、`scripts/generate_html_report.py` | ✅ 已覆盖 |
 | 自进化 | 使用日志、盲区检测、反馈、月度报告 | `scripts/self_evolve.py` | ✅ 已覆盖 |
@@ -330,6 +331,7 @@ python scripts/self_evolve.py log \
 | [scripts/calculate_yunqi_api.py](scripts/calculate_yunqi_api.py) | ★ Python 主链路统一计算接口 |
 | [scripts/calculate_yunqi_api.js](scripts/calculate_yunqi_api.js) | 可选 Node.js 接口 |
 | [scripts/personal_yunqi_profile.py](scripts/personal_yunqi_profile.py) | 个人运气体质分析 |
+| [scripts/weather_alignment.py](scripts/weather_alignment.py) | 天气实况 × 运气格局高级对齐 |
 | [scripts/self_evolve.py](scripts/self_evolve.py) | 自进化引擎 |
 | [scripts/verify_expansion.py](scripts/verify_expansion.py) | 端到端验证 |
 | [rag-knowledge-base/](rag-knowledge-base/) | RAG 知识库 |
