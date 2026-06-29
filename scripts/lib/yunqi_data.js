@@ -154,17 +154,17 @@ function getSexagenaryIndex(year) {
 }
 
 function getDayun(year) {
-  const [tg, _] = getGanzhi(year);
+  const [tg] = getGanzhi(year);
   return [TIANGAN_HUAYUN[tg], tg];
 }
 
 function isTaiguo(year) {
-  const [tg, _] = getGanzhi(year);
+  const [tg] = getGanzhi(year);
   return TIANGAN_YINYANG[tg] === '阳';
 }
 
 function getSitian(year) {
-  const [_, dz] = getGanzhi(year);
+  const [, dz] = getGanzhi(year);
   return DIZHI_HUAQI_SITIAN[dz];
 }
 
@@ -210,19 +210,19 @@ function kezhujialinRelation(keqi, zhuqi) {
 }
 
 function checkTianfu(year) {
-  const [dayun, _] = getDayun(year);
+  const [dayun] = getDayun(year);
   const sitian = getSitian(year);
   return dayun === LIUQI_WUXING[sitian];
 }
 
 function checkSuihui(year) {
-  const [dayun, _] = getDayun(year);
-  const [_, dz] = getGanzhi(year);
+  const [dayun] = getDayun(year);
+  const [, dz] = getGanzhi(year);
   return dayun === DIZHI_WUXING[dz];
 }
 
 function checkPingqi(year) {
-  const [dayun, _] = getDayun(year);
+  const [dayun] = getDayun(year);
   const sitian = getSitian(year);
   const sitianElem = LIUQI_WUXING[sitian];
   const taiguo = isTaiguo(year);
@@ -232,7 +232,7 @@ function checkPingqi(year) {
 }
 
 function getZhuyunFiveSteps(year) {
-  const [dayun, _] = getDayun(year);
+  const [dayun] = getDayun(year);
   const dayunStep = WUYUN_STEP[dayun];
   const taiguo = isTaiguo(year);
   const steps = [];
@@ -247,7 +247,7 @@ function getZhuyunFiveSteps(year) {
 }
 
 function getKeyunFiveSteps(year) {
-  const [dayun, _] = getDayun(year);
+  const [dayun] = getDayun(year);
   const taiguo = isTaiguo(year);
   let elem = dayun;
   const elements = [];
@@ -265,7 +265,7 @@ function getKeyunFiveSteps(year) {
 }
 
 function getSuiyunCode(year) {
-  const [dayun, _] = getDayun(year);
+  const [dayun] = getDayun(year);
   const taiguo = isTaiguo(year);
   const key = `${SUIYUN_EN[dayun] || dayun}_${taiguo}`;
   // Use direct mapping
@@ -339,7 +339,7 @@ function getYunqiYear(dateStr) {
   const solarYear = parseInt(parts[0]);
   const solarMonth = parseInt(parts[1]);
   const solarDay = parseInt(parts[2]);
-  const [_, dahanM, dahanD] = getJieqiDate(solarYear, '大寒');
+  const [, dahanM, dahanD] = getJieqiDate(solarYear, '大寒');
   if (solarMonth < dahanM || (solarMonth === dahanM && solarDay < dahanD)) {
     return solarYear - 1;
   }
