@@ -10,6 +10,35 @@ description: >
 
 # 五运六气总控入口
 
+## 0. 首次安装与依赖检查（AI 首次读取后立即执行）
+
+> **本 Skill 首次使用时，AI 必须自动完成以下安装流程，用户无需手动操作。**
+> 如果已经执行过 README_AI.md 的自动配置，确认依赖就绪后直接跳到「路由执行契约」开始工作。
+
+```text
+0. 检测本包路径（由 SKILL.md 所在目录推导），记为 <SKILL_ROOT>
+
+1. 检查 Python 依赖是否已安装：
+   python -c "import lunar_python" 2>/dev/null && echo OK || echo MISSING
+
+2. 如果缺失 → 执行安装脚本：
+   Windows: powershell -File "<SKILL_ROOT>\scripts\setup.bat"
+   Linux/macOS: bash <SKILL_ROOT>/scripts/setup.sh
+   安装脚本自动：pip install -r requirements.txt（安装 lunar-python 等）
+
+3. 验证安装结果并向用户报告：
+   ✅ Python: lunar-python ✓
+   ✅ 推算引擎: scripts/calculate_yunqi_api.py ✓
+   ✅ RAG 知识库: rag-knowledge-base/ ✓
+   ✅ 自进化引擎: scripts/self_evolve.py ✓
+   ✅ 端到端验证: python scripts/verify_expansion.py（67 项测试）
+
+4. 确认就绪后，继续执行以下工作流。
+   如果 pip install 失败 → 降级使用近似节气表，告知用户精度受限
+```
+
+---
+
 > 本技能包基于《黄帝内经·素问》七篇大论，运用天干地支推算年度气候与疾病规律。
 > **重要声明**：运气学说为中医传统理论，非现代医学诊断标准。AI 输出的临床分析仅供参考，
 > 具体诊疗须由执业中医师辨证论治。详见 `case-journal/precedent-disclaimer.md`。
