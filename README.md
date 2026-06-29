@@ -113,8 +113,13 @@ python scripts/dayun_calc.py 2026 --json
 
 ### 基于日期的统一推算（Agent 推荐入口）
 
+> **主链路说明**：本项目以 **Python 推算引擎** 为主链路，`scripts/calculate_yunqi_api.py` 是 AI Agent、RAG 检索、报告生成与回归测试的推荐入口。JavaScript 版 `scripts/calculate_yunqi_api.js` 提供同类 JSON 输出，定位为 **可选接口 / 前端或 Node.js 集成适配层**；若追求完整功能覆盖与回归稳定性，请优先使用 Python 版。
+
 ```bash
+# 推荐：Python 主链路
 python scripts/calculate_yunqi_api.py 2026-06-27 --json
+
+# 可选：JavaScript / Node.js 接口
 node scripts/calculate_yunqi_api.js 2026-06-27 --json
 ```
 
@@ -145,6 +150,29 @@ python scripts/verify_expansion.py        # 67 项端到端测试
 | RAG 知识库检索 | `rag-knowledge-base/` |
 | 自进化引擎 | `scripts/self_evolve.py` |
 | 端到端验证 | `scripts/verify_expansion.py` |
+
+### 功能覆盖矩阵
+
+| 功能层级 | 覆盖能力 | 主入口 / 文件 | 状态 |
+|----------|----------|---------------|------|
+| 干支基础 | 年干支、六十甲子序号、生肖 | `scripts/ganzhi_calc.py` | ✅ 已覆盖 |
+| 五运推算 | 天干化五运、大运太过/不及、平气判断 | `scripts/dayun_calc.py`、`yunqi-calc/references/taiguo_buji.md` | ✅ 已覆盖 |
+| 主运客运 | 主运五步、客运五步、太少推移 | `scripts/keyun_calc.py` | ✅ 已覆盖 |
+| 六气推算 | 司天、在泉、主气六步、客气六步 | `scripts/liuqi_calc.py` | ✅ 已覆盖 |
+| 客主加临 | 六步客主关系、相得/不相得、顺逆分析 | `scripts/kezhujialin.py` | ✅ 已覆盖 |
+| 日期统一接口 | 大寒定年、日干支、当前步位、RAG keys、JSON 输出 | `scripts/calculate_yunqi_api.py` | ✅ Python 主链路 |
+| Node.js 接口 | 面向前端/Node 集成的 JSON 输出 | `scripts/calculate_yunqi_api.js` | 🟡 可选接口 |
+| 病机分析 | 五运病机、六气病机、太过不及、运气合病 | `yunqi-pathogenesis/` | ✅ 文档化推理 |
+| 临床应用 | 治则治法、方药方向、针灸选穴、养生调理 | `yunqi-clinical/` | ✅ 参考建议，含免责声明 |
+| 经典文献 | 素问七篇、历代运气学说、现代研究索引 | `yunqi-classics/`、`rag-knowledge-base/asset5_commentary.json` | ✅ 已覆盖 |
+| RAG 知识库 | 岁运、司天在泉、客主加临、运气方、注家、地域、体质 | `rag-knowledge-base/asset*.json` | ✅ 已覆盖 |
+| 个人体质 | 出生年运气体质倾向、当前岁运调理方向、地域修正 | `scripts/personal_yunqi_profile.py`、`advanced-alignment/` | ✅ 已覆盖 |
+| 报告生成 | 学生版、临床版、研究版 Markdown 报告 | `scripts/yunqi_report.py`、`docs-generator/` | ✅ 已覆盖 |
+| 可视化 | 终端 ASCII 图、HTML 可视化报告 | `scripts/visualize_yunqi.py`、`scripts/generate_html_report.py` | ✅ 已覆盖 |
+| 自进化 | 使用日志、盲区检测、反馈记录、月度报告 | `scripts/self_evolve.py`、`self-evolve/` | ✅ 已覆盖 |
+| 校验测试 | 环境检查、知识库校验、端到端测试、全量回归 | `scripts/health_check.py`、`scripts/validate_knowledge_base.py`、`scripts/verify_expansion.py`、`scripts/full_regression_test.py` | ✅ 已覆盖 |
+
+> 注：临床、方药、针灸相关内容仅作为中医运气学理论参考，不构成医学诊断或治疗建议；具体诊疗须由执业医师辨证处理。
 
 ### 关键文件
 
