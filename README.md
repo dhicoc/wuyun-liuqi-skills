@@ -373,6 +373,7 @@ python scripts/verify_expansion.py
 - Rule-based Yunqi calculation with Dahan (大寒) as the Yunqi year boundary
 - Standardized JSON output for LLM / Agent integration
 - Five-layer RAG knowledge base covering pathogenesis, formulas, commentaries, regional modifiers, and constitution alignment
+- Weather alignment module with Open-Meteo, optional QWeather/Seniverse providers, local cache, historical same-date baseline, and mock mode for CI
 - ReAct-style reasoning workflow for tool use, retrieval, and structured synthesis
 - Markdown and HTML report generation
 - ASCII visualization for terminal workflows

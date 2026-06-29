@@ -6,25 +6,45 @@
 
 | 能力 | 状态 | 执行入口 | 说明 |
 |------|------|----------|------|
-| 天气对齐 | ✅ 已接入 | `scripts/weather_alignment.py` | 使用 Open-Meteo 或 mock 天气数据，将实况气象转译为六气倾向，与运气格局对齐 |
+| 天气对齐 | ✅ 已接入 | `scripts/weather_alignment.py` | 支持 Open-Meteo、QWeather、Seniverse、mock；含缓存、历史同期均值、气象六气转译与运气对齐 |
 | 个人体质 | ✅ 已接入 | `scripts/personal_yunqi_profile.py` | 出生年运气体质映射、当前岁运调理、地域修正 |
 | 天气 × 体质叠加 | 🟡 设计中 | `weather_alignment.py` + `personal_yunqi_profile.py` | 目前可由 Agent 组合调用，后续可封装为统一脚本 |
 
 ## 天气对齐用法
 
 ```bash
-# 使用城市名调用真实 Open-Meteo API
+# 自动选择天气源：若配置 QWeather / Seniverse 密钥则优先使用，否则回退 Open-Meteo
 python scripts/weather_alignment.py 2026-06-29 --city 杭州
 
 # JSON 输出
 python scripts/weather_alignment.py 2026-06-29 --city 杭州 --json
 
+# 指定天气源
+python scripts/weather_alignment.py 2026-06-29 --city 杭州 --provider open-meteo --json
+
 # 使用经纬度
 python scripts/weather_alignment.py 2026-06-29 --lat 30.2741 --lon 120.1551 --json
+
+# 加入历史同期均值（默认 5 年，可调整）
+python scripts/weather_alignment.py 2026-06-29 --city 杭州 --baseline-years 10 --json
+
+# 关闭历史同期均值或缓存
+python scripts/weather_alignment.py 2026-06-29 --city 杭州 --no-baseline --no-cache --json
 
 # 测试 / CI：不访问外网
 python scripts/weather_alignment.py 2026-06-29 --city 杭州 --mock --json
 ```
+
+### 可选天气源配置
+
+| 天气源 | 参数 | 密钥环境变量 | 说明 |
+|--------|------|--------------|------|
+| Open-Meteo | `--provider open-meteo` | 无需密钥 | 默认可用，支持当前/历史/预报与历史同期均值 |
+| QWeather | `--provider qweather` | `QWEATHER_API_KEY` 或 `WEATHER_API_KEY` | 当前实现用于实时天气 |
+| Seniverse | `--provider seniverse` | `SENIVERSE_API_KEY` | 当前实现用于实时天气 |
+| Mock | `--provider mock` 或 `--mock` | 无需密钥 | 用于测试和 CI |
+
+缓存目录：`.cache/weather_alignment/`，默认缓存 60 分钟，可用 `--cache-ttl` 调整。
 
 ## 设计文档
 
