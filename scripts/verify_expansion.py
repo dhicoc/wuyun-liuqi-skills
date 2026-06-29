@@ -132,6 +132,9 @@ for fname in os.listdir(RAG_DIR):
         continue
     with open(os.path.join(RAG_DIR, fname), "r", encoding="utf-8") as f:
         data = json.load(f)
+    # 跳过非标准 asset 格式文件（如术语库根对象含 entries 数组）
+    if not isinstance(data, dict):
+        continue
     for e in data.get("entries", []):
         for kf in ["rag_key", "code", "sitian_key", "zaiquan_key", "key"]:
             if kf in e and e[kf]:

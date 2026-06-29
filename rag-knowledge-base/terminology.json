@@ -1,18 +1,72 @@
 {
   "asset_id": "asset8_terminology",
   "asset_name": "五运六气术语解释库",
-  "asset_description": "统一的中医运气学专业术语白话解释库，用于 --explain 模式和学生版报告。",
-  "data_source": "《黄帝内经·素问》七篇大论及中医基础理论教材",
-  "entry_count": 20,
+  "asset_description": "统一的中医运气学专业术语白话解释库，用于 --explain 模式和学生版报告。涵盖基础概念、天干地支、五行学说、五运、六气、节气时令、脏腑经络、病因病机、治则治法、方药、针灸养生、经典文献与医家等12大类。",
+  "data_source": "《黄帝内经·素问》七篇大论、《黄帝内经·灵枢》、《神农本草经》、《伤寒论》、《金匮要略》、《医宗金鉴》及中医基础理论教材",
+  "entry_count": 425,
   "entries": [
+    {
+      "entry_id": "term_wuyun_liuqi",
+      "entry_type": "terminology",
+      "term": "五运六气",
+      "pinyin": "wuyun_liuqi",
+      "category": "基础概念",
+      "explanation": "中医古代气候医学理论，以天干地支推算年度气候与疾病规律，包括五运（木火土金水）和六气（风寒暑湿燥火）。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_yunqi",
+      "entry_type": "terminology",
+      "term": "运气",
+      "pinyin": "yunqi",
+      "category": "基础概念",
+      "explanation": "五运六气的简称，指天地间阴阳五行之气的运动变化及其对人体的影响。",
+      "source": "《素问·天元纪大论》"
+    },
     {
       "entry_id": "term_suiyun",
       "entry_type": "terminology",
       "term": "岁运",
       "pinyin": "suiyun",
       "category": "基础概念",
-      "explanation": "五运六气中一年的主管运气。由年干决定，每10年一个周期。岁运太过或不及影响全年气候和疾病倾向。",
+      "explanation": "又称大运、中运，是一年的主管运气，由年干决定，每十年循环一次。",
       "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_dayun",
+      "entry_type": "terminology",
+      "term": "大运",
+      "pinyin": "dayun",
+      "category": "基础概念",
+      "explanation": "同岁运，指一年之气的总体运动变化趋势。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_zhongyun",
+      "entry_type": "terminology",
+      "term": "中运",
+      "pinyin": "zhongyun",
+      "category": "基础概念",
+      "explanation": "同岁运，因其位于天地气交之中而得名。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_zhuyun",
+      "entry_type": "terminology",
+      "term": "主运",
+      "pinyin": "zhuyun",
+      "category": "基础概念",
+      "explanation": "每年固定不变的五运推移，按木火土金水次序，反映正常季节气候变化。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_keyun",
+      "entry_type": "terminology",
+      "term": "客运",
+      "pinyin": "keyun",
+      "category": "基础概念",
+      "explanation": "以当年岁运为初运，按五行相生排列的五运推移，反映当年运气的特殊变化。",
+      "source": "《素问·六元正纪大论》"
     },
     {
       "entry_id": "term_sitian",
@@ -20,7 +74,7 @@
       "term": "司天",
       "pinyin": "sitian",
       "category": "基础概念",
-      "explanation": "五运六气中主管上半年的气。由年支决定，代表上半年的气候特征，影响人体上部和表证。",
+      "explanation": "主管上半年气候的六气，由年支决定，影响人体上部和表证。",
       "source": "《素问·至真要大论》"
     },
     {
@@ -29,7 +83,7 @@
       "term": "在泉",
       "pinyin": "zaiquan",
       "category": "基础概念",
-      "explanation": "五运六气中主管下半年的气。与司天相对，代表下半年的气候特征，影响人体下部和里证。",
+      "explanation": "主管下半年气候的六气，与司天相对，影响人体下部和里证。",
       "source": "《素问·至真要大论》"
     },
     {
@@ -38,7 +92,7 @@
       "term": "主气",
       "pinyin": "zhuqi",
       "category": "基础概念",
-      "explanation": "五运六气中的固定之气，每年六步不变，代表正常季节气候。初之气为厥阴风木，二之气为少阴君火，依此类推。",
+      "explanation": "每年六步固定不变的六气，反映正常季节气候。",
       "source": "《素问·六微旨大论》"
     },
     {
@@ -47,7 +101,7 @@
       "term": "客气",
       "pinyin": "keqi",
       "category": "基础概念",
-      "explanation": "五运六气中的变动之气，每年分六步推移。客气加临主气形成客主加临，是当年气候异常的关键。",
+      "explanation": "每年按阴阳次序推移的六气，反映当年气候的特殊变化。",
       "source": "《素问·六元正纪大论》"
     },
     {
@@ -56,7 +110,16 @@
       "term": "客主加临",
       "pinyin": "kezhujialin",
       "category": "基础概念",
-      "explanation": "客气与主气叠加分析，判断当年气候是否异常。顺（客生主/客同主）为正常，逆（主生客/客克主）为异常。",
+      "explanation": "客气加临于主气之上，通过五行生克判断当年气候是否异常。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_liuyibu",
+      "entry_type": "terminology",
+      "term": "六步",
+      "pinyin": "liuyibu",
+      "category": "基础概念",
+      "explanation": "一年分为六个气运阶段，每步约六十天，从大寒开始至次年大寒结束。",
       "source": "《素问·六元正纪大论》"
     },
     {
@@ -64,8 +127,8 @@
       "entry_type": "terminology",
       "term": "太过",
       "pinyin": "taiguo",
-      "category": "五运状态",
-      "explanation": "阳干所化之运，本气偏盛。如甲己化土，甲为阳干，故甲年为土运太过。",
+      "category": "基础概念",
+      "explanation": "阳干所化之运，本气偏盛，如甲年为土运太过。",
       "source": "《素问·气交变大论》"
     },
     {
@@ -73,8 +136,8 @@
       "entry_type": "terminology",
       "term": "不及",
       "pinyin": "buji",
-      "category": "五运状态",
-      "explanation": "阴干所化之运，本气偏衰。如乙庚化金，乙为阴干，故乙年为金运不及。",
+      "category": "基础概念",
+      "explanation": "阴干所化之运，本气偏衰，如乙年为金运不及。",
       "source": "《素问·气交变大论》"
     },
     {
@@ -82,8 +145,8 @@
       "entry_type": "terminology",
       "term": "平气",
       "pinyin": "pingqi",
-      "category": "五运状态",
-      "explanation": "太过之年被司天所克，或不及之年得司天所生，使岁运不偏盛偏衰，气候相对平和。",
+      "category": "基础概念",
+      "explanation": "太过之年被司天所克，或不及之年得司天所生，使岁运不偏盛衰，气候相对平和。",
       "source": "《素问·五常政大论》"
     },
     {
@@ -91,8 +154,8 @@
       "entry_type": "terminology",
       "term": "天符",
       "pinyin": "tianfu",
-      "category": "运气同化",
-      "explanation": "大运五行与司天五行相同。天符之年气候变化剧烈，发病快而重。",
+      "category": "基础概念",
+      "explanation": "大运五行与司天五行相同之年，气候变化剧烈，发病快而重。",
       "source": "《素问·六微旨大论》"
     },
     {
@@ -100,8 +163,8 @@
       "entry_type": "terminology",
       "term": "岁会",
       "pinyin": "suihui",
-      "category": "运气同化",
-      "explanation": "大运五行与地支五行相同。岁会之年气候与脏腑相应较为平和但专一。",
+      "category": "基础概念",
+      "explanation": "大运五行与地支五行相同之年，气候与脏腑相应较为平和但专一。",
       "source": "《素问·六微旨大论》"
     },
     {
@@ -109,9 +172,1116 @@
       "entry_type": "terminology",
       "term": "太乙天符",
       "pinyin": "taiyi_tianfu",
-      "category": "运气同化",
+      "category": "基础概念",
       "explanation": "既是天符又是岁会的年份，气候变化最为剧烈，容易出现危重病候。",
       "source": "《素问·六微旨大论》"
+    },
+    {
+      "entry_id": "term_tongtianfu",
+      "entry_type": "terminology",
+      "term": "同天符",
+      "pinyin": "tongtianfu",
+      "category": "基础概念",
+      "explanation": "阳年大运与在泉五行相同，为太过之年的运气同化。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_tongsuihui",
+      "entry_type": "terminology",
+      "term": "同岁会",
+      "pinyin": "tongsuihui",
+      "category": "基础概念",
+      "explanation": "阴年大运与在泉五行相同，为不及之年的运气同化。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_tianxing",
+      "entry_type": "terminology",
+      "term": "天刑",
+      "pinyin": "tianxing",
+      "category": "基础概念",
+      "explanation": "司天五行克制大运五行，气候易有乖戾，又称天刑之年。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_shunhua",
+      "entry_type": "terminology",
+      "term": "顺化",
+      "pinyin": "shunhua",
+      "category": "基础概念",
+      "explanation": "大运五行生司天五行，为运气相得的和顺年份。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_buhe",
+      "entry_type": "terminology",
+      "term": "不和",
+      "pinyin": "buhe",
+      "category": "基础概念",
+      "explanation": "大运五行克制司天五行，运气关系不和，气候易有变异。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_qijiao",
+      "entry_type": "terminology",
+      "term": "气交",
+      "pinyin": "qijiao",
+      "category": "基础概念",
+      "explanation": "天地之气相交之处，人居其中，故受运气变化影响。",
+      "source": "《素问·六微旨大论》"
+    },
+    {
+      "entry_id": "term_shengjiang_churu",
+      "entry_type": "terminology",
+      "term": "升降出入",
+      "pinyin": "shengjiang_churu",
+      "category": "基础概念",
+      "explanation": "气机运动的四种基本形式，升清阳、降浊阴、出糟粕、入精微。",
+      "source": "《素问·六微旨大论》"
+    },
+    {
+      "entry_id": "term_biaoben_zhongqi",
+      "entry_type": "terminology",
+      "term": "标本中气",
+      "pinyin": "biaoben_zhongqi",
+      "category": "基础概念",
+      "explanation": "六气学说中，本气、标气、中气之间的关系，用于解释六气从化规律。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_zhenghua",
+      "entry_type": "terminology",
+      "term": "正化",
+      "pinyin": "zhenghua",
+      "category": "基础概念",
+      "explanation": "六气按其本气性质发挥作用，如少阳从本化为相火。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_duihua",
+      "entry_type": "terminology",
+      "term": "对化",
+      "pinyin": "duihua",
+      "category": "基础概念",
+      "explanation": "六气在对冲地支上的变化，如子午相对，同属少阴君火。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_shengfu",
+      "entry_type": "terminology",
+      "term": "胜复",
+      "pinyin": "shengfu",
+      "category": "基础概念",
+      "explanation": "五行偏盛到一定程度，其所不胜之气来制约，称为胜复调节。",
+      "source": "《素问·气交变大论》"
+    },
+    {
+      "entry_id": "term_tiangan",
+      "entry_type": "terminology",
+      "term": "天干",
+      "pinyin": "tiangan",
+      "category": "天干地支",
+      "explanation": "甲、乙、丙、丁、戊、己、庚、辛、壬、癸十个符号，用于纪年、纪日，并与五行配属。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_dizhi",
+      "entry_type": "terminology",
+      "term": "地支",
+      "pinyin": "dizhi",
+      "category": "天干地支",
+      "explanation": "子、丑、寅、卯、辰、巳、午、未、申、酉、戌、亥十二个符号，用于纪年、纪月、纪时。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_jia",
+      "entry_type": "terminology",
+      "term": "甲",
+      "pinyin": "jia",
+      "category": "天干地支",
+      "explanation": "天干第一位，属阳木，为土运之化。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_yi",
+      "entry_type": "terminology",
+      "term": "乙",
+      "pinyin": "yi",
+      "category": "天干地支",
+      "explanation": "天干第二位，属阴木，为金运之化。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_bing",
+      "entry_type": "terminology",
+      "term": "丙",
+      "pinyin": "bing",
+      "category": "天干地支",
+      "explanation": "天干第三位，属阳火，为水运之化。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_ding",
+      "entry_type": "terminology",
+      "term": "丁",
+      "pinyin": "ding",
+      "category": "天干地支",
+      "explanation": "天干第四位，属阴火，为木运之化。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_wu_tiangan",
+      "entry_type": "terminology",
+      "term": "戊",
+      "pinyin": "wu_tiangan",
+      "category": "天干地支",
+      "explanation": "天干第五位，属阳土，为火运之化。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_ji",
+      "entry_type": "terminology",
+      "term": "己",
+      "pinyin": "ji",
+      "category": "天干地支",
+      "explanation": "天干第六位，属阴土，为水运之化。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_geng",
+      "entry_type": "terminology",
+      "term": "庚",
+      "pinyin": "geng",
+      "category": "天干地支",
+      "explanation": "天干第七位，属阳金，为金运之化。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_xin",
+      "entry_type": "terminology",
+      "term": "辛",
+      "pinyin": "xin",
+      "category": "天干地支",
+      "explanation": "天干第八位，属阴金，为水运之化。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_ren",
+      "entry_type": "terminology",
+      "term": "壬",
+      "pinyin": "ren",
+      "category": "天干地支",
+      "explanation": "天干第九位，属阳水，为木运之化。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_gui",
+      "entry_type": "terminology",
+      "term": "癸",
+      "pinyin": "gui",
+      "category": "天干地支",
+      "explanation": "天干第十位，属阴水，为火运之化。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_zi",
+      "entry_type": "terminology",
+      "term": "子",
+      "pinyin": "zi",
+      "category": "天干地支",
+      "explanation": "地支第一位，属阳水，对应少阴君火司天。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_chou",
+      "entry_type": "terminology",
+      "term": "丑",
+      "pinyin": "chou",
+      "category": "天干地支",
+      "explanation": "地支第二位，属阴土，对应太阴湿土司天。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_yin",
+      "entry_type": "terminology",
+      "term": "寅",
+      "pinyin": "yin",
+      "category": "天干地支",
+      "explanation": "地支第三位，属阳木，对应少阳相火司天。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_mao",
+      "entry_type": "terminology",
+      "term": "卯",
+      "pinyin": "mao",
+      "category": "天干地支",
+      "explanation": "地支第四位，属阴木，对应阳明燥金司天。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_chen",
+      "entry_type": "terminology",
+      "term": "辰",
+      "pinyin": "chen",
+      "category": "天干地支",
+      "explanation": "地支第五位，属阳土，对应太阳寒水司天。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_si",
+      "entry_type": "terminology",
+      "term": "巳",
+      "pinyin": "si",
+      "category": "天干地支",
+      "explanation": "地支第六位，属阴火，对应厥阴风木司天。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_wu_dizhi",
+      "entry_type": "terminology",
+      "term": "午",
+      "pinyin": "wu_dizhi",
+      "category": "天干地支",
+      "explanation": "地支第七位，属阳火，对应少阴君火司天。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_wei",
+      "entry_type": "terminology",
+      "term": "未",
+      "pinyin": "wei",
+      "category": "天干地支",
+      "explanation": "地支第八位，属阴土，对应太阴湿土司天。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_shen",
+      "entry_type": "terminology",
+      "term": "申",
+      "pinyin": "shen",
+      "category": "天干地支",
+      "explanation": "地支第九位，属阳金，对应少阳相火司天。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_you",
+      "entry_type": "terminology",
+      "term": "酉",
+      "pinyin": "you",
+      "category": "天干地支",
+      "explanation": "地支第十位，属阴金，对应阳明燥金司天。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_xu",
+      "entry_type": "terminology",
+      "term": "戌",
+      "pinyin": "xu",
+      "category": "天干地支",
+      "explanation": "地支第十一位，属阳土，对应太阳寒水司天。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_hai",
+      "entry_type": "terminology",
+      "term": "亥",
+      "pinyin": "hai",
+      "category": "天干地支",
+      "explanation": "地支第十二位，属阴水，对应厥阴风木司天。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_liushijiazi",
+      "entry_type": "terminology",
+      "term": "六十甲子",
+      "pinyin": "liushijiazi",
+      "category": "天干地支",
+      "explanation": "天干与地支按顺序相配，六十组为一个循环，用于纪年、纪日。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_ganzhi_jinian",
+      "entry_type": "terminology",
+      "term": "干支纪年",
+      "pinyin": "ganzhi_jinian",
+      "category": "天干地支",
+      "explanation": "以六十甲子循环纪年的方法，是运气学推算的基础。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_ganzhi_jiri",
+      "entry_type": "terminology",
+      "term": "干支纪日",
+      "pinyin": "ganzhi_jiri",
+      "category": "天干地支",
+      "explanation": "以六十甲子循环纪日的方法，用于推算日干支。",
+      "source": "《素问·六微旨大论》"
+    },
+    {
+      "entry_id": "term_nianzhu",
+      "entry_type": "terminology",
+      "term": "年柱",
+      "pinyin": "nianzhu",
+      "category": "天干地支",
+      "explanation": "以干支表示的年份，如2026年为丙午年。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_rizhu",
+      "entry_type": "terminology",
+      "term": "日柱",
+      "pinyin": "rizhu",
+      "category": "天干地支",
+      "explanation": "以干支表示的日期，运气学中日干支用于精细推算。",
+      "source": "《素问·六微旨大论》"
+    },
+    {
+      "entry_id": "term_jiazi",
+      "entry_type": "terminology",
+      "term": "甲子",
+      "pinyin": "jiazi",
+      "category": "天干地支",
+      "explanation": "六十甲子之首，天干甲与地支子相配。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_jiawu",
+      "entry_type": "terminology",
+      "term": "甲午",
+      "pinyin": "jiawu",
+      "category": "天干地支",
+      "explanation": "天干甲与地支午相配，为土运少阴君火司天之年。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_tiangan_huayun",
+      "entry_type": "terminology",
+      "term": "天干化运",
+      "pinyin": "tiangan_huayun",
+      "category": "天干地支",
+      "explanation": "甲己化土、乙庚化金、丙辛化水、丁壬化木、戊癸化火的规律。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_dizhi_huaqi",
+      "entry_type": "terminology",
+      "term": "地支化气",
+      "pinyin": "dizhi_huaqi",
+      "category": "天干地支",
+      "explanation": "子午少阴君火、丑未太阴湿土、寅申少阳相火、卯酉阳明燥金、辰戌太阳寒水、巳亥厥阴风木的规律。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_yanggan",
+      "entry_type": "terminology",
+      "term": "阳干",
+      "pinyin": "yanggan",
+      "category": "天干地支",
+      "explanation": "甲、丙、戊、庚、壬五干，主太过。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_yingan",
+      "entry_type": "terminology",
+      "term": "阴干",
+      "pinyin": "yingan",
+      "category": "天干地支",
+      "explanation": "乙、丁、己、辛、癸五干，主不及。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_wuxing",
+      "entry_type": "terminology",
+      "term": "五行",
+      "pinyin": "wuxing",
+      "category": "五行学说",
+      "explanation": "木、火、土、金、水五种基本物质及其运动变化，是中医认识自然和人体的基本方法。",
+      "source": "《尚书·洪范》"
+    },
+    {
+      "entry_id": "term_mu",
+      "entry_type": "terminology",
+      "term": "木",
+      "pinyin": "mu",
+      "category": "五行学说",
+      "explanation": "五行之一，具生发、条达之性，对应肝、春、风、青等。",
+      "source": "《素问·阴阳应象大论》"
+    },
+    {
+      "entry_id": "term_huo",
+      "entry_type": "terminology",
+      "term": "火",
+      "pinyin": "huo",
+      "category": "五行学说",
+      "explanation": "五行之一，具炎上、温热之性，对应心、夏、暑、赤等。",
+      "source": "《素问·阴阳应象大论》"
+    },
+    {
+      "entry_id": "term_tu",
+      "entry_type": "terminology",
+      "term": "土",
+      "pinyin": "tu",
+      "category": "五行学说",
+      "explanation": "五行之一，具生化、承载之性，对应脾、长夏、湿、黄等。",
+      "source": "《素问·阴阳应象大论》"
+    },
+    {
+      "entry_id": "term_jin",
+      "entry_type": "terminology",
+      "term": "金",
+      "pinyin": "jin",
+      "category": "五行学说",
+      "explanation": "五行之一，具肃降、收敛之性，对应肺、秋、燥、白等。",
+      "source": "《素问·阴阳应象大论》"
+    },
+    {
+      "entry_id": "term_shui",
+      "entry_type": "terminology",
+      "term": "水",
+      "pinyin": "shui",
+      "category": "五行学说",
+      "explanation": "五行之一，具寒凉、润下之性，对应肾、冬、寒、黑等。",
+      "source": "《素问·阴阳应象大论》"
+    },
+    {
+      "entry_id": "term_xiang_sheng",
+      "entry_type": "terminology",
+      "term": "相生",
+      "pinyin": "xiang_sheng",
+      "category": "五行学说",
+      "explanation": "木生火、火生土、土生金、金生水、水生木的资生关系。",
+      "source": "《素问·阴阳应象大论》"
+    },
+    {
+      "entry_id": "term_xiang_ke",
+      "entry_type": "terminology",
+      "term": "相克",
+      "pinyin": "xiang_ke",
+      "category": "五行学说",
+      "explanation": "木克土、土克水、水克火、火克金、金克木的制约关系。",
+      "source": "《素问·阴阳应象大论》"
+    },
+    {
+      "entry_id": "term_xiang_cheng",
+      "entry_type": "terminology",
+      "term": "相乘",
+      "pinyin": "xiang_cheng",
+      "category": "五行学说",
+      "explanation": "五行克制太过，超过正常制约程度，如木旺乘土。",
+      "source": "《素问·五运行大论》"
+    },
+    {
+      "entry_id": "term_xiang_wu",
+      "entry_type": "terminology",
+      "term": "相侮",
+      "pinyin": "xiang_wu",
+      "category": "五行学说",
+      "explanation": "五行反克，如木火刑金，金弱不能制木而反被木侮。",
+      "source": "《素问·五运行大论》"
+    },
+    {
+      "entry_id": "term_mubing_jizi",
+      "entry_type": "terminology",
+      "term": "母病及子",
+      "pinyin": "mubing_jizi",
+      "category": "五行学说",
+      "explanation": "按相生关系，母行病变累及子行，如肾病及肝。",
+      "source": "《素问·阴阳应象大论》"
+    },
+    {
+      "entry_id": "term_zibing_fanmu",
+      "entry_type": "terminology",
+      "term": "子病犯母",
+      "pinyin": "zibing_fanmu",
+      "category": "五行学说",
+      "explanation": "按相生关系，子行病变累及母行，如心病及肝。",
+      "source": "《素问·阴阳应象大论》"
+    },
+    {
+      "entry_id": "term_zishui_hanmu",
+      "entry_type": "terminology",
+      "term": "滋水涵木",
+      "pinyin": "zishui_hanmu",
+      "category": "五行学说",
+      "explanation": "通过滋补肾阴以养肝阴的治法，用于肝肾阴虚。",
+      "source": "《医宗金鉴》"
+    },
+    {
+      "entry_id": "term_peitu_shengjin",
+      "entry_type": "terminology",
+      "term": "培土生金",
+      "pinyin": "peitu_shengjin",
+      "category": "五行学说",
+      "explanation": "通过健脾益气以补益肺气的治法，用于肺脾气虚。",
+      "source": "《医宗金鉴》"
+    },
+    {
+      "entry_id": "term_jinshui_xiangsheng",
+      "entry_type": "terminology",
+      "term": "金水相生",
+      "pinyin": "jinshui_xiangsheng",
+      "category": "五行学说",
+      "explanation": "肺肾阴液相互资生，通过补肺肾阴虚的治法。",
+      "source": "《医宗金鉴》"
+    },
+    {
+      "entry_id": "term_yimu_futu",
+      "entry_type": "terminology",
+      "term": "抑木扶土",
+      "pinyin": "yimu_futu",
+      "category": "五行学说",
+      "explanation": "通过疏肝健脾治疗肝旺脾虚的治法。",
+      "source": "《医宗金鉴》"
+    },
+    {
+      "entry_id": "term_peitu_zhishui",
+      "entry_type": "terminology",
+      "term": "培土制水",
+      "pinyin": "peitu_zhishui",
+      "category": "五行学说",
+      "explanation": "通过健脾以制约水湿停聚的治法。",
+      "source": "《医宗金鉴》"
+    },
+    {
+      "entry_id": "term_zuojin_pingmu",
+      "entry_type": "terminology",
+      "term": "佐金平木",
+      "pinyin": "zuojin_pingmu",
+      "category": "五行学说",
+      "explanation": "通过清肃肺气以抑制肝木亢盛的治法。",
+      "source": "《医宗金鉴》"
+    },
+    {
+      "entry_id": "term_xienan_bubei",
+      "entry_type": "terminology",
+      "term": "泻南补北",
+      "pinyin": "xienan_bubei",
+      "category": "五行学说",
+      "explanation": "泻心火补肾水，治疗心肾不交的方法。",
+      "source": "《医宗金鉴》"
+    },
+    {
+      "entry_id": "term_kangzehai_chengnazhi",
+      "entry_type": "terminology",
+      "term": "亢则害承乃制",
+      "pinyin": "kangzehai_chengnazhi",
+      "category": "五行学说",
+      "explanation": "五行任何一方过亢，其所承制之气即来制约，以维持动态平衡。",
+      "source": "《素问·六微旨大论》"
+    },
+    {
+      "entry_id": "term_wuxing_guilei",
+      "entry_type": "terminology",
+      "term": "五行归类",
+      "pinyin": "wuxing_guilei",
+      "category": "五行学说",
+      "explanation": "将自然界和人体各种事物按五行属性进行系统归类的方法。",
+      "source": "《素问·阴阳应象大论》"
+    },
+    {
+      "entry_id": "term_wuse",
+      "entry_type": "terminology",
+      "term": "五色",
+      "pinyin": "wuse",
+      "category": "五行学说",
+      "explanation": "青、赤、黄、白、黑，分别对应木火土金水。",
+      "source": "《素问·阴阳应象大论》"
+    },
+    {
+      "entry_id": "term_wuwei",
+      "entry_type": "terminology",
+      "term": "五味",
+      "pinyin": "wuwei",
+      "category": "五行学说",
+      "explanation": "酸、苦、甘、辛、咸，分别对应木火土金水。",
+      "source": "《素问·阴阳应象大论》"
+    },
+    {
+      "entry_id": "term_wuyin",
+      "entry_type": "terminology",
+      "term": "五音",
+      "pinyin": "wuyin",
+      "category": "五行学说",
+      "explanation": "角、徵、宫、商、羽，分别对应木火土金水。",
+      "source": "《素问·阴阳应象大论》"
+    },
+    {
+      "entry_id": "term_wuchou",
+      "entry_type": "terminology",
+      "term": "五臭",
+      "pinyin": "wuchou",
+      "category": "五行学说",
+      "explanation": "臊、焦、香、腥、腐，分别对应木火土金水。",
+      "source": "《素问·金匮真言论》"
+    },
+    {
+      "entry_id": "term_wuhua",
+      "entry_type": "terminology",
+      "term": "五化",
+      "pinyin": "wuhua",
+      "category": "五行学说",
+      "explanation": "生、长、化、收、藏，分别对应木火土金水。",
+      "source": "《素问·阴阳应象大论》"
+    },
+    {
+      "entry_id": "term_wufang",
+      "entry_type": "terminology",
+      "term": "五方",
+      "pinyin": "wufang",
+      "category": "五行学说",
+      "explanation": "东、南、中、西、北，分别对应木火土金水。",
+      "source": "《素问·阴阳应象大论》"
+    },
+    {
+      "entry_id": "term_wuji",
+      "entry_type": "terminology",
+      "term": "五季",
+      "pinyin": "wuji",
+      "category": "五行学说",
+      "explanation": "春、夏、长夏、秋、冬，分别对应木火土金水。",
+      "source": "《素问·阴阳应象大论》"
+    },
+    {
+      "entry_id": "term_wuti",
+      "entry_type": "terminology",
+      "term": "五体",
+      "pinyin": "wuti",
+      "category": "五行学说",
+      "explanation": "筋、脉、肉、皮、骨，分别对应木火土金水。",
+      "source": "《素问·阴阳应象大论》"
+    },
+    {
+      "entry_id": "term_wuguan",
+      "entry_type": "terminology",
+      "term": "五官",
+      "pinyin": "wuguan",
+      "category": "五行学说",
+      "explanation": "目、舌、口、鼻、耳，分别对应木火土金水。",
+      "source": "《素问·阴阳应象大论》"
+    },
+    {
+      "entry_id": "term_wuzhi",
+      "entry_type": "terminology",
+      "term": "五志",
+      "pinyin": "wuzhi",
+      "category": "五行学说",
+      "explanation": "怒、喜、思、悲、恐，分别对应木火土金水。",
+      "source": "《素问·阴阳应象大论》"
+    },
+    {
+      "entry_id": "term_wuye",
+      "entry_type": "terminology",
+      "term": "五液",
+      "pinyin": "wuye",
+      "category": "五行学说",
+      "explanation": "泪、汗、涎、涕、唾，分别对应木火土金水。",
+      "source": "《素问·宣明五气》"
+    },
+    {
+      "entry_id": "term_wushen",
+      "entry_type": "terminology",
+      "term": "五神",
+      "pinyin": "wushen",
+      "category": "五行学说",
+      "explanation": "魂、神、意、魄、志，分别对应木火土金水。",
+      "source": "《素问·宣明五气》"
+    },
+    {
+      "entry_id": "term_wusheng",
+      "entry_type": "terminology",
+      "term": "五声",
+      "pinyin": "wusheng",
+      "category": "五行学说",
+      "explanation": "呼、笑、歌、哭、呻，分别对应木火土金水。",
+      "source": "《素问·阴阳应象大论》"
+    },
+    {
+      "entry_id": "term_wubian",
+      "entry_type": "terminology",
+      "term": "五变",
+      "pinyin": "wubian",
+      "category": "五行学说",
+      "explanation": "握、忧、哕、咳、栗，分别对应木火土金水。",
+      "source": "《素问·阴阳应象大论》"
+    },
+    {
+      "entry_id": "term_wuyun",
+      "entry_type": "terminology",
+      "term": "五运",
+      "pinyin": "wuyun",
+      "category": "五运",
+      "explanation": "木运、火运、土运、金运、水运的合称，是运气学推算年度气候的核心内容。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_muyun",
+      "entry_type": "terminology",
+      "term": "木运",
+      "pinyin": "muyun",
+      "category": "五运",
+      "explanation": "五行之木的气化运动，对应肝脏，主生发、条达。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_huoyun",
+      "entry_type": "terminology",
+      "term": "火运",
+      "pinyin": "huoyun",
+      "category": "五运",
+      "explanation": "五行之火的气化运动，对应心脏，主温热、炎上。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_tuyun",
+      "entry_type": "terminology",
+      "term": "土运",
+      "pinyin": "tuyun",
+      "category": "五运",
+      "explanation": "五行之土的气化运动，对应脾脏，主生化、承载。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_jinyun",
+      "entry_type": "terminology",
+      "term": "金运",
+      "pinyin": "jinyun",
+      "category": "五运",
+      "explanation": "五行之金的气化运动，对应肺脏，主肃降、收敛。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_shuiyun",
+      "entry_type": "terminology",
+      "term": "水运",
+      "pinyin": "shuiyun",
+      "category": "五运",
+      "explanation": "五行之水的气化运动，对应肾脏，主寒凉、润下。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_tu_yun_taiguo",
+      "entry_type": "terminology",
+      "term": "土运太过",
+      "pinyin": "tu_yun_taiguo",
+      "category": "五运",
+      "explanation": "甲年、己年之土运太过，湿气偏盛，脾土易实。",
+      "source": "《素问·气交变大论》"
+    },
+    {
+      "entry_id": "term_tu_yun_buji",
+      "entry_type": "terminology",
+      "term": "土运不及",
+      "pinyin": "tu_yun_buji",
+      "category": "五运",
+      "explanation": "己年之土运不及，风木来乘，脾胃虚弱。",
+      "source": "《素问·气交变大论》"
+    },
+    {
+      "entry_id": "term_jin_yun_taiguo",
+      "entry_type": "terminology",
+      "term": "金运太过",
+      "pinyin": "jin_yun_taiguo",
+      "category": "五运",
+      "explanation": "乙年、庚年之金运太过，燥气偏盛，肺气易实。",
+      "source": "《素问·气交变大论》"
+    },
+    {
+      "entry_id": "term_jin_yun_buji",
+      "entry_type": "terminology",
+      "term": "金运不及",
+      "pinyin": "jin_yun_buji",
+      "category": "五运",
+      "explanation": "乙年之金运不及，火热来乘，肺气虚弱。",
+      "source": "《素问·气交变大论》"
+    },
+    {
+      "entry_id": "term_shui_yun_taiguo",
+      "entry_type": "terminology",
+      "term": "水运太过",
+      "pinyin": "shui_yun_taiguo",
+      "category": "五运",
+      "explanation": "丙年、辛年之水运太过，寒气偏盛，肾水易实。",
+      "source": "《素问·气交变大论》"
+    },
+    {
+      "entry_id": "term_shui_yun_buji",
+      "entry_type": "terminology",
+      "term": "水运不及",
+      "pinyin": "shui_yun_buji",
+      "category": "五运",
+      "explanation": "丙年之水运不及，湿土来乘，肾气虚弱。",
+      "source": "《素问·气交变大论》"
+    },
+    {
+      "entry_id": "term_mu_yun_taiguo",
+      "entry_type": "terminology",
+      "term": "木运太过",
+      "pinyin": "mu_yun_taiguo",
+      "category": "五运",
+      "explanation": "丁年、壬年之木运太过，风气偏盛，肝气易实。",
+      "source": "《素问·气交变大论》"
+    },
+    {
+      "entry_id": "term_mu_yun_buji",
+      "entry_type": "terminology",
+      "term": "木运不及",
+      "pinyin": "mu_yun_buji",
+      "category": "五运",
+      "explanation": "丁年之木运不及，燥金来乘，肝气虚弱。",
+      "source": "《素问·气交变大论》"
+    },
+    {
+      "entry_id": "term_huo_yun_taiguo",
+      "entry_type": "terminology",
+      "term": "火运太过",
+      "pinyin": "huo_yun_taiguo",
+      "category": "五运",
+      "explanation": "戊年、癸年之火运太过，热气偏盛，心火易实。",
+      "source": "《素问·气交变大论》"
+    },
+    {
+      "entry_id": "term_huo_yun_buji",
+      "entry_type": "terminology",
+      "term": "火运不及",
+      "pinyin": "huo_yun_buji",
+      "category": "五运",
+      "explanation": "戊年之火运不及，寒水来乘，心火虚弱。",
+      "source": "《素问·气交变大论》"
+    },
+    {
+      "entry_id": "term_taijiao",
+      "entry_type": "terminology",
+      "term": "太角",
+      "pinyin": "taijiao",
+      "category": "五运",
+      "explanation": "木运太过之称，角为木音，太为太过。",
+      "source": "《素问·五常政大论》"
+    },
+    {
+      "entry_id": "term_shaojiao",
+      "entry_type": "terminology",
+      "term": "少角",
+      "pinyin": "shaojiao",
+      "category": "五运",
+      "explanation": "木运不及之称，角为木音，少为不及。",
+      "source": "《素问·五常政大论》"
+    },
+    {
+      "entry_id": "term_taizhi",
+      "entry_type": "terminology",
+      "term": "太徵",
+      "pinyin": "taizhi",
+      "category": "五运",
+      "explanation": "火运太过之称，徵为火音，太为太过。",
+      "source": "《素问·五常政大论》"
+    },
+    {
+      "entry_id": "term_shaozhi",
+      "entry_type": "terminology",
+      "term": "少徵",
+      "pinyin": "shaozhi",
+      "category": "五运",
+      "explanation": "火运不及之称，徵为火音，少为不及。",
+      "source": "《素问·五常政大论》"
+    },
+    {
+      "entry_id": "term_taigong",
+      "entry_type": "terminology",
+      "term": "太宫",
+      "pinyin": "taigong",
+      "category": "五运",
+      "explanation": "土运太过之称，宫为土音，太为太过。",
+      "source": "《素问·五常政大论》"
+    },
+    {
+      "entry_id": "term_shaogong",
+      "entry_type": "terminology",
+      "term": "少宫",
+      "pinyin": "shaogong",
+      "category": "五运",
+      "explanation": "土运不及之称，宫为土音，少为不及。",
+      "source": "《素问·五常政大论》"
+    },
+    {
+      "entry_id": "term_taishang",
+      "entry_type": "terminology",
+      "term": "太商",
+      "pinyin": "taishang",
+      "category": "五运",
+      "explanation": "金运太过之称，商为金音，太为太过。",
+      "source": "《素问·五常政大论》"
+    },
+    {
+      "entry_id": "term_shaoshang",
+      "entry_type": "terminology",
+      "term": "少商",
+      "pinyin": "shaoshang",
+      "category": "五运",
+      "explanation": "金运不及之称，商为金音，少为不及。",
+      "source": "《素问·五常政大论》"
+    },
+    {
+      "entry_id": "term_taiyu",
+      "entry_type": "terminology",
+      "term": "太羽",
+      "pinyin": "taiyu",
+      "category": "五运",
+      "explanation": "水运太过之称，羽为水音，太为太过。",
+      "source": "《素问·五常政大论》"
+    },
+    {
+      "entry_id": "term_shaoyu",
+      "entry_type": "terminology",
+      "term": "少羽",
+      "pinyin": "shaoyu",
+      "category": "五运",
+      "explanation": "水运不及之称，羽为水音，少为不及。",
+      "source": "《素问·五常政大论》"
+    },
+    {
+      "entry_id": "term_chu_yun",
+      "entry_type": "terminology",
+      "term": "初运",
+      "pinyin": "chu_yun",
+      "category": "五运",
+      "explanation": "五运的第一步，主运为太角或少角木运。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_er_yun",
+      "entry_type": "terminology",
+      "term": "二运",
+      "pinyin": "er_yun",
+      "category": "五运",
+      "explanation": "五运的第二步，主运为太徵或少徵火运。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_san_yun",
+      "entry_type": "terminology",
+      "term": "三运",
+      "pinyin": "san_yun",
+      "category": "五运",
+      "explanation": "五运的第三步，主运为太宫或少宫土运。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_si_yun",
+      "entry_type": "terminology",
+      "term": "四运",
+      "pinyin": "si_yun",
+      "category": "五运",
+      "explanation": "五运的第四步，主运为太商或少商金运。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_zhong_yun",
+      "entry_type": "terminology",
+      "term": "终运",
+      "pinyin": "zhong_yun",
+      "category": "五运",
+      "explanation": "五运的第五步，主运为太羽或少羽水运。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_yun_sheng_qi",
+      "entry_type": "terminology",
+      "term": "运生气",
+      "pinyin": "yun_sheng_qi",
+      "category": "五运",
+      "explanation": "大运五行生司天五行，为运气顺化，气候较为和顺。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_qi_sheng_yun",
+      "entry_type": "terminology",
+      "term": "气生运",
+      "pinyin": "qi_sheng_yun",
+      "category": "五运",
+      "explanation": "司天五行生大运五行，为天符类年份，气候专一。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_yun_ke_qi",
+      "entry_type": "terminology",
+      "term": "运克气",
+      "pinyin": "yun_ke_qi",
+      "category": "五运",
+      "explanation": "大运五行克制司天五行，运气不和，气候易有变异。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_qi_ke_yun",
+      "entry_type": "terminology",
+      "term": "气克运",
+      "pinyin": "qi_ke_yun",
+      "category": "五运",
+      "explanation": "司天五行克制大运五行，为天刑之年，气候乖戾。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_yunqi_tonghua",
+      "entry_type": "terminology",
+      "term": "运气同化",
+      "pinyin": "yunqi_tonghua",
+      "category": "五运",
+      "explanation": "大运与司天或在泉五行相同，包括天符、岁会、太乙天符等。",
+      "source": "《素问·六微旨大论》"
+    },
+    {
+      "entry_id": "term_fuhe",
+      "entry_type": "terminology",
+      "term": "敷和",
+      "pinyin": "fuhe",
+      "category": "五运",
+      "explanation": "木运平气之年，气候平和，万物敷布温和。",
+      "source": "《素问·五常政大论》"
+    },
+    {
+      "entry_id": "term_shengming",
+      "entry_type": "terminology",
+      "term": "升明",
+      "pinyin": "shengming",
+      "category": "五运",
+      "explanation": "火运平气之年，阳气升明，万物繁茂。",
+      "source": "《素问·五常政大论》"
+    },
+    {
+      "entry_id": "term_beihua",
+      "entry_type": "terminology",
+      "term": "备化",
+      "pinyin": "beihua",
+      "category": "五运",
+      "explanation": "土运平气之年，土气化育万物，生化具备。",
+      "source": "《素问·五常政大论》"
+    },
+    {
+      "entry_id": "term_shenping",
+      "entry_type": "terminology",
+      "term": "审平",
+      "pinyin": "shenping",
+      "category": "五运",
+      "explanation": "金运平气之年，金气清肃平和，万物收敛。",
+      "source": "《素问·五常政大论》"
+    },
+    {
+      "entry_id": "term_jingshun",
+      "entry_type": "terminology",
+      "term": "静顺",
+      "pinyin": "jingshun",
+      "category": "五运",
+      "explanation": "水运平气之年，水气宁静柔顺，万物闭藏。",
+      "source": "《素问·五常政大论》"
+    },
+    {
+      "entry_id": "term_liuqi",
+      "entry_type": "terminology",
+      "term": "六气",
+      "pinyin": "liuqi",
+      "category": "六气",
+      "explanation": "风、寒、暑、湿、燥、火六种自然气候因素，也指厥阴风木、少阴君火、少阳相火、太阴湿土、阳明燥金、太阳寒水。",
+      "source": "《素问·天元纪大论》"
     },
     {
       "entry_id": "term_jueyin_fengmu",
@@ -119,7 +1289,7 @@
       "term": "厥阴风木",
       "pinyin": "jueyin_fengmu",
       "category": "六气",
-      "explanation": "六气之一，属木，为一阴。主风，与肝相应，易致风动、眩晕、过敏等病。",
+      "explanation": "六气之一，属木，为一阴，主风，与肝相应。",
       "source": "《素问·至真要大论》"
     },
     {
@@ -128,7 +1298,7 @@
       "term": "少阴君火",
       "pinyin": "shaoyin_junhuo",
       "category": "六气",
-      "explanation": "六气之一，属火，为二阴。主热，与心相应，易致心烦、失眠、热证等。",
+      "explanation": "六气之一，属火，为二阴，主热，与心相应。",
       "source": "《素问·至真要大论》"
     },
     {
@@ -137,7 +1307,7 @@
       "term": "太阴湿土",
       "pinyin": "taiyin_shitu",
       "category": "六气",
-      "explanation": "六气之一，属土，为三阴。主湿，与脾相应，易致胸闷、脘痞、身重等。",
+      "explanation": "六气之一，属土，为三阴，主湿，与脾相应。",
       "source": "《素问·至真要大论》"
     },
     {
@@ -146,7 +1316,7 @@
       "term": "少阳相火",
       "pinyin": "shaoyang_xianghuo",
       "category": "六气",
-      "explanation": "六气之一，属火，为一阳。主暑热，与三焦、胆相应，易致肝胆热证、炎症、上火等。",
+      "explanation": "六气之一，属火，为一阳，主暑热，与三焦、胆相应。",
       "source": "《素问·至真要大论》"
     },
     {
@@ -155,7 +1325,7 @@
       "term": "阳明燥金",
       "pinyin": "yangming_zaojin",
       "category": "六气",
-      "explanation": "六气之一，属金，为二阳。主燥，与肺、大肠相应，易致肺燥、便秘、皮肤干燥等。",
+      "explanation": "六气之一，属金，为二阳，主燥，与肺、大肠相应。",
       "source": "《素问·至真要大论》"
     },
     {
@@ -164,26 +1334,2501 @@
       "term": "太阳寒水",
       "pinyin": "taiyang_hanshui",
       "category": "六气",
-      "explanation": "六气之一，属水，为三阳。主寒，与肾、膀胱相应，易致风寒感冒、关节痛、寒证等。",
+      "explanation": "六气之一，属水，为三阳，主寒，与肾、膀胱相应。",
       "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_feng",
+      "entry_type": "terminology",
+      "term": "风",
+      "pinyin": "feng",
+      "category": "六气",
+      "explanation": "六淫之一，其性轻扬开泄，善行数变，为百病之长。",
+      "source": "《素问·风论》"
+    },
+    {
+      "entry_id": "term_han",
+      "entry_type": "terminology",
+      "term": "寒",
+      "pinyin": "han",
+      "category": "六气",
+      "explanation": "六淫之一，其性清冷、凝滞、收引，易伤阳气。",
+      "source": "《素问·痹论》"
+    },
+    {
+      "entry_id": "term_shu",
+      "entry_type": "terminology",
+      "term": "暑",
+      "pinyin": "shu",
+      "category": "六气",
+      "explanation": "六淫之一，其性炎热、升散，易耗气伤津。",
+      "source": "《素问·举痛论》"
+    },
+    {
+      "entry_id": "term_shi",
+      "entry_type": "terminology",
+      "term": "湿",
+      "pinyin": "shi",
+      "category": "六气",
+      "explanation": "六淫之一，其性重浊、黏滞、趋下，易阻遏气机。",
+      "source": "《素问·痹论》"
+    },
+    {
+      "entry_id": "term_zao",
+      "entry_type": "terminology",
+      "term": "燥",
+      "pinyin": "zao",
+      "category": "六气",
+      "explanation": "六淫之一，其性干燥、收敛，易伤津液。",
+      "source": "《素问·阴阳应象大论》"
+    },
+    {
+      "entry_id": "term_huo_liuqi",
+      "entry_type": "terminology",
+      "term": "火",
+      "pinyin": "huo_liuqi",
+      "category": "六气",
+      "explanation": "六淫之一，其性炎上、耗津、动血、生风。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_yi_yin",
+      "entry_type": "terminology",
+      "term": "一阴",
+      "pinyin": "yi_yin",
+      "category": "六气",
+      "explanation": "厥阴风木，为阴之始，故称一阴。",
+      "source": "《素问·阴阳类论》"
+    },
+    {
+      "entry_id": "term_er_yin",
+      "entry_type": "terminology",
+      "term": "二阴",
+      "pinyin": "er_yin",
+      "category": "六气",
+      "explanation": "少阴君火，为阴中之二，故称二阴。",
+      "source": "《素问·阴阳类论》"
+    },
+    {
+      "entry_id": "term_san_yin",
+      "entry_type": "terminology",
+      "term": "三阴",
+      "pinyin": "san_yin",
+      "category": "六气",
+      "explanation": "太阴湿土，为阴之极，故称三阴。",
+      "source": "《素问·阴阳类论》"
+    },
+    {
+      "entry_id": "term_yi_yang",
+      "entry_type": "terminology",
+      "term": "一阳",
+      "pinyin": "yi_yang",
+      "category": "六气",
+      "explanation": "少阳相火，为阳之始，故称一阳。",
+      "source": "《素问·阴阳类论》"
+    },
+    {
+      "entry_id": "term_er_yang",
+      "entry_type": "terminology",
+      "term": "二阳",
+      "pinyin": "er_yang",
+      "category": "六气",
+      "explanation": "阳明燥金，为阳中之二，故称二阳。",
+      "source": "《素问·阴阳类论》"
+    },
+    {
+      "entry_id": "term_san_yang",
+      "entry_type": "terminology",
+      "term": "三阳",
+      "pinyin": "san_yang",
+      "category": "六气",
+      "explanation": "太阳寒水，为阳之极，故称三阳。",
+      "source": "《素问·阴阳类论》"
+    },
+    {
+      "entry_id": "term_chu_zhi_qi",
+      "entry_type": "terminology",
+      "term": "初之气",
+      "pinyin": "chu_zhi_qi",
+      "category": "六气",
+      "explanation": "六步中的第一步，从大寒至春分，主气厥阴风木。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_er_zhi_qi",
+      "entry_type": "terminology",
+      "term": "二之气",
+      "pinyin": "er_zhi_qi",
+      "category": "六气",
+      "explanation": "六步中的第二步，从春分至小满，主气少阴君火。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_san_zhi_qi",
+      "entry_type": "terminology",
+      "term": "三之气",
+      "pinyin": "san_zhi_qi",
+      "category": "六气",
+      "explanation": "六步中的第三步，从小满至大暑，主气少阳相火，客气司天所在。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_si_zhi_qi",
+      "entry_type": "terminology",
+      "term": "四之气",
+      "pinyin": "si_zhi_qi",
+      "category": "六气",
+      "explanation": "六步中的第四步，从大暑至秋分，主气太阴湿土。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_wu_zhi_qi",
+      "entry_type": "terminology",
+      "term": "五之气",
+      "pinyin": "wu_zhi_qi",
+      "category": "六气",
+      "explanation": "六步中的第五步，从秋分至小雪，主气阳明燥金。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_zhong_zhi_qi",
+      "entry_type": "terminology",
+      "term": "终之气",
+      "pinyin": "zhong_zhi_qi",
+      "category": "六气",
+      "explanation": "六步中的第六步，从小雪至大寒，主气太阳寒水，客气在泉所在。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_sitian_zaiquan",
+      "entry_type": "terminology",
+      "term": "司天在泉",
+      "pinyin": "sitian_zaiquan",
+      "category": "六气",
+      "explanation": "司天主管上半年，在泉主管下半年，二者互为阴阳配对。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_liuqi_conghua",
+      "entry_type": "terminology",
+      "term": "六气从化",
+      "pinyin": "liuqi_conghua",
+      "category": "六气",
+      "explanation": "六气按标本中气规律从化，有从本、从标、从中气之分。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_congben",
+      "entry_type": "terminology",
+      "term": "从本",
+      "pinyin": "congben",
+      "category": "六气",
+      "explanation": "六气按本气性质变化，如少阳、太阴从本。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_congbiao",
+      "entry_type": "terminology",
+      "term": "从标",
+      "pinyin": "congbiao",
+      "category": "六气",
+      "explanation": "六气按标气性质变化，如少阴、太阳从标。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_congzhongqi",
+      "entry_type": "terminology",
+      "term": "从中气",
+      "pinyin": "congzhongqi",
+      "category": "六气",
+      "explanation": "六气按中气性质变化，如阳明、厥阴从中气。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_yinsheng",
+      "entry_type": "terminology",
+      "term": "淫胜",
+      "pinyin": "yinsheng",
+      "category": "六气",
+      "explanation": "六气太过而侵害人体，如风气淫胜、火气淫胜等。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_fansheng",
+      "entry_type": "terminology",
+      "term": "反胜",
+      "pinyin": "fansheng",
+      "category": "六气",
+      "explanation": "被克之气反来克胜，如金虚木侮。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_xiangde",
+      "entry_type": "terminology",
+      "term": "相得",
+      "pinyin": "xiangde",
+      "category": "六气",
+      "explanation": "客气与主气相生或同气，气候相对和顺。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_buxiangde",
+      "entry_type": "terminology",
+      "term": "不相得",
+      "pinyin": "buxiangde",
+      "category": "六气",
+      "explanation": "客气与主气相克或主气生客气，气候相对异常。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_kezhu_tongqi",
+      "entry_type": "terminology",
+      "term": "客主同气",
+      "pinyin": "kezhu_tongqi",
+      "category": "六气",
+      "explanation": "客气与主气五行相同，同气偏盛，仍为相得。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_keqi_sheng_zhuqi",
+      "entry_type": "terminology",
+      "term": "客气生主气",
+      "pinyin": "keqi_sheng_zhuqi",
+      "category": "六气",
+      "explanation": "客气五行生主气五行，为相得（顺）。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_keqi_ke_zhuqi",
+      "entry_type": "terminology",
+      "term": "客气克主气",
+      "pinyin": "keqi_ke_zhuqi",
+      "category": "六气",
+      "explanation": "客气五行克主气五行，为不相得（逆）。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_zhuqi_sheng_keqi",
+      "entry_type": "terminology",
+      "term": "主气生客气",
+      "pinyin": "zhuqi_sheng_keqi",
+      "category": "六气",
+      "explanation": "主气五行生客气五行，为不相得（逆）。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_zhuqi_ke_keqi",
+      "entry_type": "terminology",
+      "term": "主气克客气",
+      "pinyin": "zhuqi_ke_keqi",
+      "category": "六气",
+      "explanation": "主气五行克客气五行，为不相得（逆）。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_ershisi_jieqi",
+      "entry_type": "terminology",
+      "term": "二十四节气",
+      "pinyin": "ershisi_jieqi",
+      "category": "节气时令",
+      "explanation": "一年中气候变化的二十四个节点，包括十二节和十二气。",
+      "source": "《素问·六节藏象论》"
+    },
+    {
+      "entry_id": "term_lichun",
+      "entry_type": "terminology",
+      "term": "立春",
+      "pinyin": "lichun",
+      "category": "节气时令",
+      "explanation": "二十四节气之首，春季开始，阳气升发。",
+      "source": "《素问·四气调神大论》"
+    },
+    {
+      "entry_id": "term_yushui",
+      "entry_type": "terminology",
+      "term": "雨水",
+      "pinyin": "yushui",
+      "category": "节气时令",
+      "explanation": "降雨开始增多，湿气渐盛，脾土当令。",
+      "source": "《素问·四气调神大论》"
+    },
+    {
+      "entry_id": "term_jingzhe",
+      "entry_type": "terminology",
+      "term": "惊蛰",
+      "pinyin": "jingzhe",
+      "category": "节气时令",
+      "explanation": "春雷始鸣，蛰伏动物苏醒，肝气升发之际。",
+      "source": "《素问·四气调神大论》"
+    },
+    {
+      "entry_id": "term_chunfen",
+      "entry_type": "terminology",
+      "term": "春分",
+      "pinyin": "chunfen",
+      "category": "节气时令",
+      "explanation": "昼夜平分，春季过半，厥阴风木主令。",
+      "source": "《素问·四气调神大论》"
+    },
+    {
+      "entry_id": "term_qingming",
+      "entry_type": "terminology",
+      "term": "清明",
+      "pinyin": "qingming",
+      "category": "节气时令",
+      "explanation": "天气清朗，万物生长，肝气条达之时。",
+      "source": "《素问·四气调神大论》"
+    },
+    {
+      "entry_id": "term_guyu",
+      "entry_type": "terminology",
+      "term": "谷雨",
+      "pinyin": "guyu",
+      "category": "节气时令",
+      "explanation": "雨量增多，利于谷物生长，湿气渐重。",
+      "source": "《素问·四气调神大论》"
+    },
+    {
+      "entry_id": "term_lixia",
+      "entry_type": "terminology",
+      "term": "立夏",
+      "pinyin": "lixia",
+      "category": "节气时令",
+      "explanation": "夏季开始，阳气渐盛，心火当令。",
+      "source": "《素问·四气调神大论》"
+    },
+    {
+      "entry_id": "term_xiaoman",
+      "entry_type": "terminology",
+      "term": "小满",
+      "pinyin": "xiaoman",
+      "category": "节气时令",
+      "explanation": "麦类等作物籽粒饱满，三之气开始，少阳相火主令。",
+      "source": "《素问·四气调神大论》"
+    },
+    {
+      "entry_id": "term_mangzhong",
+      "entry_type": "terminology",
+      "term": "芒种",
+      "pinyin": "mangzhong",
+      "category": "节气时令",
+      "explanation": "麦类等有芒作物成熟，暑热渐盛。",
+      "source": "《素问·四气调神大论》"
+    },
+    {
+      "entry_id": "term_xiazhi",
+      "entry_type": "terminology",
+      "term": "夏至",
+      "pinyin": "xiazhi",
+      "category": "节气时令",
+      "explanation": "白昼最长，阳气至极，一阴初生。",
+      "source": "《素问·四气调神大论》"
+    },
+    {
+      "entry_id": "term_xiaoshu",
+      "entry_type": "terminology",
+      "term": "小暑",
+      "pinyin": "xiaoshu",
+      "category": "节气时令",
+      "explanation": "天气开始炎热，心火偏盛。",
+      "source": "《素问·四气调神大论》"
+    },
+    {
+      "entry_id": "term_dashu",
+      "entry_type": "terminology",
+      "term": "大暑",
+      "pinyin": "dashu",
+      "category": "节气时令",
+      "explanation": "一年中最热之时，四之气开始，太阴湿土主令。",
+      "source": "《素问·四气调神大论》"
+    },
+    {
+      "entry_id": "term_liqiu",
+      "entry_type": "terminology",
+      "term": "立秋",
+      "pinyin": "liqiu",
+      "category": "节气时令",
+      "explanation": "秋季开始，阳气渐收，肺气当令。",
+      "source": "《素问·四气调神大论》"
+    },
+    {
+      "entry_id": "term_chushu",
+      "entry_type": "terminology",
+      "term": "处暑",
+      "pinyin": "chushu",
+      "category": "节气时令",
+      "explanation": "暑气渐消，秋凉开始，燥气渐盛。",
+      "source": "《素问·四气调神大论》"
+    },
+    {
+      "entry_id": "term_bailu",
+      "entry_type": "terminology",
+      "term": "白露",
+      "pinyin": "bailu",
+      "category": "节气时令",
+      "explanation": "夜间水汽凝结成露，燥金之气渐盛。",
+      "source": "《素问·四气调神大论》"
+    },
+    {
+      "entry_id": "term_qiufen",
+      "entry_type": "terminology",
+      "term": "秋分",
+      "pinyin": "qiufen",
+      "category": "节气时令",
+      "explanation": "昼夜平分，秋季过半，阳明燥金主令。",
+      "source": "《素问·四气调神大论》"
+    },
+    {
+      "entry_id": "term_hanlu",
+      "entry_type": "terminology",
+      "term": "寒露",
+      "pinyin": "hanlu",
+      "category": "节气时令",
+      "explanation": "气温下降，露水变寒，凉燥之气当令。",
+      "source": "《素问·四气调神大论》"
+    },
+    {
+      "entry_id": "term_shuangjiang",
+      "entry_type": "terminology",
+      "term": "霜降",
+      "pinyin": "shuangjiang",
+      "category": "节气时令",
+      "explanation": "天气转冷，初霜出现，燥金肃杀之气盛。",
+      "source": "《素问·四气调神大论》"
+    },
+    {
+      "entry_id": "term_lidong",
+      "entry_type": "terminology",
+      "term": "立冬",
+      "pinyin": "lidong",
+      "category": "节气时令",
+      "explanation": "冬季开始，阳气潜藏，肾气当令。",
+      "source": "《素问·四气调神大论》"
+    },
+    {
+      "entry_id": "term_xiaoxue",
+      "entry_type": "terminology",
+      "term": "小雪",
+      "pinyin": "xiaoxue",
+      "category": "节气时令",
+      "explanation": "开始降雪，五之气结束，终之气开始。",
+      "source": "《素问·四气调神大论》"
+    },
+    {
+      "entry_id": "term_daxue",
+      "entry_type": "terminology",
+      "term": "大雪",
+      "pinyin": "daxue",
+      "category": "节气时令",
+      "explanation": "降雪增多，寒水之气渐盛。",
+      "source": "《素问·四气调神大论》"
+    },
+    {
+      "entry_id": "term_dongzhi",
+      "entry_type": "terminology",
+      "term": "冬至",
+      "pinyin": "dongzhi",
+      "category": "节气时令",
+      "explanation": "白昼最短，阴气至极，一阳初生。",
+      "source": "《素问·四气调神大论》"
+    },
+    {
+      "entry_id": "term_xiaohan",
+      "entry_type": "terminology",
+      "term": "小寒",
+      "pinyin": "xiaohan",
+      "category": "节气时令",
+      "explanation": "天气寒冷但未到极点，寒水主令。",
+      "source": "《素问·四气调神大论》"
     },
     {
       "entry_id": "term_dahan",
       "entry_type": "terminology",
       "term": "大寒",
       "pinyin": "dahan",
-      "category": "节气",
-      "explanation": "二十四节气之一，约每年1月20日前后。五运六气以大寒为年界，大寒后进入新的运气年。",
+      "category": "节气时令",
+      "explanation": "一年中最冷之时，五运六气年以大寒为界。",
       "source": "《素问·六微旨大论》"
     },
     {
-      "entry_id": "term_liuyibu",
+      "entry_id": "term_si_qi",
       "entry_type": "terminology",
-      "term": "六步",
-      "pinyin": "liuyibu",
-      "category": "基础概念",
-      "explanation": "一年分为六个气运阶段，每步约60天。初之气从大寒开始，终之气至次年大寒结束。",
+      "term": "四气",
+      "pinyin": "si_qi",
+      "category": "节气时令",
+      "explanation": "春、夏、秋、冬四季气候特点，分别为生、长、收、藏。",
+      "source": "《素问·四气调神大论》"
+    },
+    {
+      "entry_id": "term_chunxia_yangyang",
+      "entry_type": "terminology",
+      "term": "春夏养阳",
+      "pinyin": "chunxia_yangyang",
+      "category": "节气时令",
+      "explanation": "春夏季节应顺应阳气生发而养护阳气。",
+      "source": "《素问·四气调神大论》"
+    },
+    {
+      "entry_id": "term_qiudong_yangyin",
+      "entry_type": "terminology",
+      "term": "秋冬养阴",
+      "pinyin": "qiudong_yangyin",
+      "category": "节气时令",
+      "explanation": "秋冬季节应顺应阴气收藏而养护阴精。",
+      "source": "《素问·四气调神大论》"
+    },
+    {
+      "entry_id": "term_chunsheng",
+      "entry_type": "terminology",
+      "term": "春生",
+      "pinyin": "chunsheng",
+      "category": "节气时令",
+      "explanation": "春季万物生发，人体肝气升发，宜养肝疏肝。",
+      "source": "《素问·四气调神大论》"
+    },
+    {
+      "entry_id": "term_xiazhang",
+      "entry_type": "terminology",
+      "term": "夏长",
+      "pinyin": "xiazhang",
+      "category": "节气时令",
+      "explanation": "夏季万物盛长，人体心气旺盛，宜养心清心。",
+      "source": "《素问·四气调神大论》"
+    },
+    {
+      "entry_id": "term_qiushou",
+      "entry_type": "terminology",
+      "term": "秋收",
+      "pinyin": "qiushou",
+      "category": "节气时令",
+      "explanation": "秋季万物收敛，人体肺气肃降，宜养肺润燥。",
+      "source": "《素问·四气调神大论》"
+    },
+    {
+      "entry_id": "term_dongcang",
+      "entry_type": "terminology",
+      "term": "冬藏",
+      "pinyin": "dongcang",
+      "category": "节气时令",
+      "explanation": "冬季万物闭藏，人体肾气封藏，宜养肾藏精。",
+      "source": "《素问·四气调神大论》"
+    },
+    {
+      "entry_id": "term_changxia",
+      "entry_type": "terminology",
+      "term": "长夏",
+      "pinyin": "changxia",
+      "category": "节气时令",
+      "explanation": "夏秋之间的季节，湿土当令，脾气易困。",
+      "source": "《素问·藏气法时论》"
+    },
+    {
+      "entry_id": "term_jieqi",
+      "entry_type": "terminology",
+      "term": "节气",
+      "pinyin": "jieqi",
+      "category": "节气时令",
+      "explanation": "一年中气候变化的节点，运气学据此划分六步。",
+      "source": "《素问·六节藏象论》"
+    },
+    {
+      "entry_id": "term_zhongqi",
+      "entry_type": "terminology",
+      "term": "中气",
+      "pinyin": "zhongqi",
+      "category": "节气时令",
+      "explanation": "二十四节气中的十二气，如冬至、夏至等，位于每月之中。",
+      "source": "《素问·六节藏象论》"
+    },
+    {
+      "entry_id": "term_zangfu",
+      "entry_type": "terminology",
+      "term": "脏腑",
+      "pinyin": "zangfu",
+      "category": "脏腑经络",
+      "explanation": "人体内脏器官的总称，脏为实质性器官，腑为 hollow 器官。",
+      "source": "《素问·灵兰秘典论》"
+    },
+    {
+      "entry_id": "term_wuzang",
+      "entry_type": "terminology",
+      "term": "五脏",
+      "pinyin": "wuzang",
+      "category": "脏腑经络",
+      "explanation": "心、肝、脾、肺、肾五个实质性脏器，藏精气而不泻。",
+      "source": "《素问·五脏别论》"
+    },
+    {
+      "entry_id": "term_liufu",
+      "entry_type": "terminology",
+      "term": "六腑",
+      "pinyin": "liufu",
+      "category": "脏腑经络",
+      "explanation": "胆、胃、小肠、大肠、膀胱、三焦六个 hollow 器官，传化物而不藏。",
+      "source": "《素问·五脏别论》"
+    },
+    {
+      "entry_id": "term_xin",
+      "entry_type": "terminology",
+      "term": "心",
+      "pinyin": "xin",
+      "category": "脏腑经络",
+      "explanation": "五脏之一，主血脉、主神明，在志为喜，在液为汗。",
+      "source": "《素问·灵兰秘典论》"
+    },
+    {
+      "entry_id": "term_gan",
+      "entry_type": "terminology",
+      "term": "肝",
+      "pinyin": "gan",
+      "category": "脏腑经络",
+      "explanation": "五脏之一，主疏泄、主藏血，在志为怒，在液为泪。",
+      "source": "《素问·灵兰秘典论》"
+    },
+    {
+      "entry_id": "term_pi",
+      "entry_type": "terminology",
+      "term": "脾",
+      "pinyin": "pi",
+      "category": "脏腑经络",
+      "explanation": "五脏之一，主运化、主升清、主统血，在志为思，在液为涎。",
+      "source": "《素问·灵兰秘典论》"
+    },
+    {
+      "entry_id": "term_fei",
+      "entry_type": "terminology",
+      "term": "肺",
+      "pinyin": "fei",
+      "category": "脏腑经络",
+      "explanation": "五脏之一，主气、司呼吸、通调水道，在志为悲，在液为涕。",
+      "source": "《素问·灵兰秘典论》"
+    },
+    {
+      "entry_id": "term_shen",
+      "entry_type": "terminology",
+      "term": "肾",
+      "pinyin": "shen",
+      "category": "脏腑经络",
+      "explanation": "五脏之一，藏精、主水、主纳气，在志为恐，在液为唾。",
+      "source": "《素问·灵兰秘典论》"
+    },
+    {
+      "entry_id": "term_dan",
+      "entry_type": "terminology",
+      "term": "胆",
+      "pinyin": "dan",
+      "category": "脏腑经络",
+      "explanation": "六腑之一，藏胆汁，主决断，为奇恒之腑。",
+      "source": "《素问·灵兰秘典论》"
+    },
+    {
+      "entry_id": "term_wei_zangfu",
+      "entry_type": "terminology",
+      "term": "胃",
+      "pinyin": "wei_zangfu",
+      "category": "脏腑经络",
+      "explanation": "六腑之一，受纳腐熟水谷，为水谷之海。",
+      "source": "《素问·灵兰秘典论》"
+    },
+    {
+      "entry_id": "term_xiaochang",
+      "entry_type": "terminology",
+      "term": "小肠",
+      "pinyin": "xiaochang",
+      "category": "脏腑经络",
+      "explanation": "六腑之一，受盛化物、泌别清浊。",
+      "source": "《素问·灵兰秘典论》"
+    },
+    {
+      "entry_id": "term_dachang",
+      "entry_type": "terminology",
+      "term": "大肠",
+      "pinyin": "dachang",
+      "category": "脏腑经络",
+      "explanation": "六腑之一，传化糟粕，主津。",
+      "source": "《素问·灵兰秘典论》"
+    },
+    {
+      "entry_id": "term_pangguang",
+      "entry_type": "terminology",
+      "term": "膀胱",
+      "pinyin": "pangguang",
+      "category": "脏腑经络",
+      "explanation": "六腑之一，贮存和排泄尿液。",
+      "source": "《素问·灵兰秘典论》"
+    },
+    {
+      "entry_id": "term_sanjiao",
+      "entry_type": "terminology",
+      "term": "三焦",
+      "pinyin": "sanjiao",
+      "category": "脏腑经络",
+      "explanation": "六腑之一，通行元气、运行水液，为水火气机之道路。",
+      "source": "《素问·灵兰秘典论》"
+    },
+    {
+      "entry_id": "term_xinbao",
+      "entry_type": "terminology",
+      "term": "心包",
+      "pinyin": "xinbao",
+      "category": "脏腑经络",
+      "explanation": "心脏外围之包膜，代心受邪，保护心脏。",
+      "source": "《灵枢·邪客》"
+    },
+    {
+      "entry_id": "term_qiheng_zhifu",
+      "entry_type": "terminology",
+      "term": "奇恒之腑",
+      "pinyin": "qiheng_zhifu",
+      "category": "脏腑经络",
+      "explanation": "脑、髓、骨、脉、胆、女子胞，形态似腑而功能似脏。",
+      "source": "《素问·五脏别论》"
+    },
+    {
+      "entry_id": "term_jingluo",
+      "entry_type": "terminology",
+      "term": "经络",
+      "pinyin": "jingluo",
+      "category": "脏腑经络",
+      "explanation": "经脉和络脉的总称，运行气血、联络脏腑肢节、沟通上下内外。",
+      "source": "《灵枢·经脉》"
+    },
+    {
+      "entry_id": "term_jingmai",
+      "entry_type": "terminology",
+      "term": "经脉",
+      "pinyin": "jingmai",
+      "category": "脏腑经络",
+      "explanation": "经络系统中纵行的主干，包括十二正经和奇经八脉。",
+      "source": "《灵枢·经脉》"
+    },
+    {
+      "entry_id": "term_luomai",
+      "entry_type": "terminology",
+      "term": "络脉",
+      "pinyin": "luomai",
+      "category": "脏腑经络",
+      "explanation": "经脉的分支，网络全身，加强经脉间的联系。",
+      "source": "《灵枢·脉度》"
+    },
+    {
+      "entry_id": "term_shier_zhengjing",
+      "entry_type": "terminology",
+      "term": "十二正经",
+      "pinyin": "shier_zhengjing",
+      "category": "脏腑经络",
+      "explanation": "手三阴、手三阳、足三阴、足三阳十二条主要经脉。",
+      "source": "《灵枢·经脉》"
+    },
+    {
+      "entry_id": "term_shoutaiyin_feijing",
+      "entry_type": "terminology",
+      "term": "手太阴肺经",
+      "pinyin": "shoutaiyin_feijing",
+      "category": "脏腑经络",
+      "explanation": "起于中焦，属肺络大肠，与肺相表里。",
+      "source": "《灵枢·经脉》"
+    },
+    {
+      "entry_id": "term_shouyangming_dachangjing",
+      "entry_type": "terminology",
+      "term": "手阳明大肠经",
+      "pinyin": "shouyangming_dachangjing",
+      "category": "脏腑经络",
+      "explanation": "起于食指，属大肠络肺，与大肠相表里。",
+      "source": "《灵枢·经脉》"
+    },
+    {
+      "entry_id": "term_zuyangming_weijing",
+      "entry_type": "terminology",
+      "term": "足阳明胃经",
+      "pinyin": "zuyangming_weijing",
+      "category": "脏腑经络",
+      "explanation": "起于鼻旁，属胃络脾，与胃相表里。",
+      "source": "《灵枢·经脉》"
+    },
+    {
+      "entry_id": "term_zutaiyin_pijing",
+      "entry_type": "terminology",
+      "term": "足太阴脾经",
+      "pinyin": "zutaiyin_pijing",
+      "category": "脏腑经络",
+      "explanation": "起于足大趾，属脾络胃，与脾相表里。",
+      "source": "《灵枢·经脉》"
+    },
+    {
+      "entry_id": "term_shoushaoyin_xinjing",
+      "entry_type": "terminology",
+      "term": "手少阴心经",
+      "pinyin": "shoushaoyin_xinjing",
+      "category": "脏腑经络",
+      "explanation": "起于心中，属心络小肠，与心相表里。",
+      "source": "《灵枢·经脉》"
+    },
+    {
+      "entry_id": "term_shoutaiyang_xiaochangjing",
+      "entry_type": "terminology",
+      "term": "手太阳小肠经",
+      "pinyin": "shoutaiyang_xiaochangjing",
+      "category": "脏腑经络",
+      "explanation": "起于小指，属小肠络心，与小肠相表里。",
+      "source": "《灵枢·经脉》"
+    },
+    {
+      "entry_id": "term_zutaiyang_pangguangjing",
+      "entry_type": "terminology",
+      "term": "足太阳膀胱经",
+      "pinyin": "zutaiyang_pangguangjing",
+      "category": "脏腑经络",
+      "explanation": "起于目内眦，属膀胱络肾，与膀胱相表里。",
+      "source": "《灵枢·经脉》"
+    },
+    {
+      "entry_id": "term_zushaoyin_shenjing",
+      "entry_type": "terminology",
+      "term": "足少阴肾经",
+      "pinyin": "zushaoyin_shenjing",
+      "category": "脏腑经络",
+      "explanation": "起于足底，属肾络膀胱，与肾相表里。",
+      "source": "《灵枢·经脉》"
+    },
+    {
+      "entry_id": "term_shoujueyin_xinbaojing",
+      "entry_type": "terminology",
+      "term": "手厥阴心包经",
+      "pinyin": "shoujueyin_xinbaojing",
+      "category": "脏腑经络",
+      "explanation": "起于胸中，属心包络三焦，与心包相表里。",
+      "source": "《灵枢·经脉》"
+    },
+    {
+      "entry_id": "term_shoushaoyang_sanjiaojing",
+      "entry_type": "terminology",
+      "term": "手少阳三焦经",
+      "pinyin": "shoushaoyang_sanjiaojing",
+      "category": "脏腑经络",
+      "explanation": "起于无名指，属三焦络心包，与三焦相表里。",
+      "source": "《灵枢·经脉》"
+    },
+    {
+      "entry_id": "term_zushaoyang_danjing",
+      "entry_type": "terminology",
+      "term": "足少阳胆经",
+      "pinyin": "zushaoyang_danjing",
+      "category": "脏腑经络",
+      "explanation": "起于目外眦，属胆络肝，与胆相表里。",
+      "source": "《灵枢·经脉》"
+    },
+    {
+      "entry_id": "term_zujueyin_ganjing",
+      "entry_type": "terminology",
+      "term": "足厥阴肝经",
+      "pinyin": "zujueyin_ganjing",
+      "category": "脏腑经络",
+      "explanation": "起于足大趾，属肝络胆，与肝相表里。",
+      "source": "《灵枢·经脉》"
+    },
+    {
+      "entry_id": "term_qijing_bamai",
+      "entry_type": "terminology",
+      "term": "奇经八脉",
+      "pinyin": "qijing_bamai",
+      "category": "脏腑经络",
+      "explanation": "督、任、冲、带、阴跷、阳跷、阴维、阳维八条特殊经脉。",
+      "source": "《难经·二十七难》"
+    },
+    {
+      "entry_id": "term_dumai",
+      "entry_type": "terminology",
+      "term": "督脉",
+      "pinyin": "dumai",
+      "category": "脏腑经络",
+      "explanation": "行于腰背正中，总督一身之阳脉，与脑、髓、肾相关。",
+      "source": "《素问·骨空论》"
+    },
+    {
+      "entry_id": "term_renmai",
+      "entry_type": "terminology",
+      "term": "任脉",
+      "pinyin": "renmai",
+      "category": "脏腑经络",
+      "explanation": "行于胸腹正中，总任一身之阴脉，与女子月经、生殖相关。",
+      "source": "《素问·骨空论》"
+    },
+    {
+      "entry_id": "term_chongmai",
+      "entry_type": "terminology",
+      "term": "冲脉",
+      "pinyin": "chongmai",
+      "category": "脏腑经络",
+      "explanation": "十二经之海，气血汇聚之所，与生殖功能密切相关。",
+      "source": "《灵枢·逆顺肥瘦》"
+    },
+    {
+      "entry_id": "term_daimai",
+      "entry_type": "terminology",
+      "term": "带脉",
+      "pinyin": "daimai",
+      "category": "脏腑经络",
+      "explanation": "环绕腰部一周，约束纵行诸经，主司带下。",
+      "source": "《难经·二十八难》"
+    },
+    {
+      "entry_id": "term_biaoli",
+      "entry_type": "terminology",
+      "term": "表里",
+      "pinyin": "biaoli",
+      "category": "脏腑经络",
+      "explanation": "脏腑经脉之间相互配合、相互影响的关系，如肺与大肠相表里。",
+      "source": "《灵枢·经脉》"
+    },
+    {
+      "entry_id": "term_bingyin",
+      "entry_type": "terminology",
+      "term": "病因",
+      "pinyin": "bingyin",
+      "category": "病因病机",
+      "explanation": "导致疾病发生的原因，包括六淫、七情、饮食劳倦、痰饮瘀血等。",
+      "source": "《素问·调经论》"
+    },
+    {
+      "entry_id": "term_bingji",
+      "entry_type": "terminology",
+      "term": "病机",
+      "pinyin": "bingji",
+      "category": "病因病机",
+      "explanation": "疾病发生、发展、变化的机制，包括邪正盛衰、阴阳失调、气血津液失常等。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_liu_yin",
+      "entry_type": "terminology",
+      "term": "六淫",
+      "pinyin": "liu_yin",
+      "category": "病因病机",
+      "explanation": "风、寒、暑、湿、燥、火六种外感病邪的合称。",
+      "source": "《素问·阴阳应象大论》"
+    },
+    {
+      "entry_id": "term_qi_qing",
+      "entry_type": "terminology",
+      "term": "七情",
+      "pinyin": "qi_qing",
+      "category": "病因病机",
+      "explanation": "喜、怒、忧、思、悲、恐、惊七种情志变化，过极致病。",
+      "source": "《素问·举痛论》"
+    },
+    {
+      "entry_id": "term_neishang",
+      "entry_type": "terminology",
+      "term": "内伤",
+      "pinyin": "neishang",
+      "category": "病因病机",
+      "explanation": "由七情、饮食、劳倦等内因引起的疾病。",
+      "source": "《素问·阴阳应象大论》"
+    },
+    {
+      "entry_id": "term_waigan",
+      "entry_type": "terminology",
+      "term": "外感",
+      "pinyin": "waigan",
+      "category": "病因病机",
+      "explanation": "由六淫、疫疠等外邪侵袭人体引起的疾病。",
+      "source": "《素问·阴阳应象大论》"
+    },
+    {
+      "entry_id": "term_xieqi",
+      "entry_type": "terminology",
+      "term": "邪气",
+      "pinyin": "xieqi",
+      "category": "病因病机",
+      "explanation": "泛指各种致病因素，与正气相对而言。",
+      "source": "《素问·评热病论》"
+    },
+    {
+      "entry_id": "term_zhengqi",
+      "entry_type": "terminology",
+      "term": "正气",
+      "pinyin": "zhengqi",
+      "category": "病因病机",
+      "explanation": "人体的抗病能力和康复能力，包括阴阳气血津液等。",
+      "source": "《素问·刺法论》"
+    },
+    {
+      "entry_id": "term_yinyang_shitiao",
+      "entry_type": "terminology",
+      "term": "阴阳失调",
+      "pinyin": "yinyang_shitiao",
+      "category": "病因病机",
+      "explanation": "人体阴阳平衡被破坏，出现偏盛偏衰的病理状态。",
+      "source": "《素问·阴阳应象大论》"
+    },
+    {
+      "entry_id": "term_qixue_shitiao",
+      "entry_type": "terminology",
+      "term": "气血失调",
+      "pinyin": "qixue_shitiao",
+      "category": "病因病机",
+      "explanation": "气和血的生成、运行、功能失常，如气虚、血瘀、气滞等。",
+      "source": "《素问·调经论》"
+    },
+    {
+      "entry_id": "term_qixu",
+      "entry_type": "terminology",
+      "term": "气虚",
+      "pinyin": "qixu",
+      "category": "病因病机",
+      "explanation": "元气不足，脏腑功能减退，表现为乏力、气短、自汗等。",
+      "source": "《素问·通评虚实论》"
+    },
+    {
+      "entry_id": "term_xuexu",
+      "entry_type": "terminology",
+      "term": "血虚",
+      "pinyin": "xuexu",
+      "category": "病因病机",
+      "explanation": "血液亏虚，脏腑经络失养，表现为面色苍白、头晕眼花等。",
+      "source": "《素问·腹中论》"
+    },
+    {
+      "entry_id": "term_yinxu",
+      "entry_type": "terminology",
+      "term": "阴虚",
+      "pinyin": "yinxu",
+      "category": "病因病机",
+      "explanation": "阴液不足，虚热内生，表现为潮热、盗汗、口干咽燥等。",
+      "source": "《素问·调经论》"
+    },
+    {
+      "entry_id": "term_yangxu",
+      "entry_type": "terminology",
+      "term": "阳虚",
+      "pinyin": "yangxu",
+      "category": "病因病机",
+      "explanation": "阳气不足，虚寒内生，表现为畏寒肢冷、面色苍白等。",
+      "source": "《素问·调经论》"
+    },
+    {
+      "entry_id": "term_qizhi",
+      "entry_type": "terminology",
+      "term": "气滞",
+      "pinyin": "qizhi",
+      "category": "病因病机",
+      "explanation": "气机运行不畅，郁滞不通，表现为胀满、疼痛、情志不畅等。",
+      "source": "《素问·举痛论》"
+    },
+    {
+      "entry_id": "term_xueyu",
+      "entry_type": "terminology",
+      "term": "血瘀",
+      "pinyin": "xueyu",
+      "category": "病因病机",
+      "explanation": "血液运行不畅或停滞成瘀，表现为刺痛、肿块、舌质紫暗等。",
+      "source": "《素问·调经论》"
+    },
+    {
+      "entry_id": "term_tanshi",
+      "entry_type": "terminology",
+      "term": "痰湿",
+      "pinyin": "tanshi",
+      "category": "病因病机",
+      "explanation": "水液代谢障碍，凝聚成痰成湿，表现为肥胖、胸闷、苔腻等。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_shire",
+      "entry_type": "terminology",
+      "term": "湿热",
+      "pinyin": "shire",
+      "category": "病因病机",
+      "explanation": "湿与热合邪，胶结难解，表现为身重、口苦、苔黄腻等。",
+      "source": "《素问·生气通天论》"
+    },
+    {
+      "entry_id": "term_hanre",
+      "entry_type": "terminology",
+      "term": "寒热",
+      "pinyin": "hanre",
+      "category": "病因病机",
+      "explanation": "疾病过程中出现的寒象或热象，反映阴阳偏盛偏衰。",
+      "source": "《素问·阴阳应象大论》"
+    },
+    {
+      "entry_id": "term_xushi",
+      "entry_type": "terminology",
+      "term": "虚实",
+      "pinyin": "xushi",
+      "category": "病因病机",
+      "explanation": "正气不足为虚，邪气亢盛为实，是判断疾病性质的基本纲领。",
+      "source": "《素问·通评虚实论》"
+    },
+    {
+      "entry_id": "term_biaoli_bingji",
+      "entry_type": "terminology",
+      "term": "表里",
+      "pinyin": "biaoli_bingji",
+      "category": "病因病机",
+      "explanation": "病位的浅深，表证病位浅，里证病位深。",
+      "source": "《素问·玉机真藏论》"
+    },
+    {
+      "entry_id": "term_hanre_cuoza",
+      "entry_type": "terminology",
+      "term": "寒热错杂",
+      "pinyin": "hanre_cuoza",
+      "category": "病因病机",
+      "explanation": "寒证与热证同时出现，如上热下寒、表寒里热等。",
+      "source": "《伤寒论》"
+    },
+    {
+      "entry_id": "term_zhenjia_hanre",
+      "entry_type": "terminology",
+      "term": "真假寒热",
+      "pinyin": "zhenjia_hanre",
+      "category": "病因病机",
+      "explanation": "疾病本质与表象不一致，如真寒假热、真热假寒。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_wangyin",
+      "entry_type": "terminology",
+      "term": "亡阴",
+      "pinyin": "wangyin",
+      "category": "病因病机",
+      "explanation": "阴液突然大量耗损，病情危重，表现为汗热而黏、烦躁等。",
+      "source": "《素问·评热病论》"
+    },
+    {
+      "entry_id": "term_wangyang",
+      "entry_type": "terminology",
+      "term": "亡阳",
+      "pinyin": "wangyang",
+      "category": "病因病机",
+      "explanation": "阳气突然大量脱失，病情危重，表现为冷汗淋漓、四肢厥冷等。",
+      "source": "《素问·评热病论》"
+    },
+    {
+      "entry_id": "term_tanyin",
+      "entry_type": "terminology",
+      "term": "痰饮",
+      "pinyin": "tanyin",
+      "category": "病因病机",
+      "explanation": "水液代谢失常，凝聚成痰饮，停聚于脏腑经络。",
+      "source": "《金匮要略·痰饮咳嗽病脉证并治》"
+    },
+    {
+      "entry_id": "term_yuxue",
+      "entry_type": "terminology",
+      "term": "瘀血",
+      "pinyin": "yuxue",
+      "category": "病因病机",
+      "explanation": "血液运行不畅或离经之血未能消散，停滞体内。",
+      "source": "《素问·调经论》"
+    },
+    {
+      "entry_id": "term_fengzheng",
+      "entry_type": "terminology",
+      "term": "风证",
+      "pinyin": "fengzheng",
+      "category": "病因病机",
+      "explanation": "以动摇、善行数变为特征的证候，如眩晕、抽搐、震颤等。",
+      "source": "《素问·风论》"
+    },
+    {
+      "entry_id": "term_hanzheng",
+      "entry_type": "terminology",
+      "term": "寒证",
+      "pinyin": "hanzheng",
+      "category": "病因病机",
+      "explanation": "以寒冷、凝滞、收引为特征的证候，如畏寒、疼痛、肢冷等。",
+      "source": "《素问·痹论》"
+    },
+    {
+      "entry_id": "term_shuzheng",
+      "entry_type": "terminology",
+      "term": "暑证",
+      "pinyin": "shuzheng",
+      "category": "病因病机",
+      "explanation": "以炎热、伤津耗气为特征的证候，如高热、口渴、乏力等。",
+      "source": "《素问·举痛论》"
+    },
+    {
+      "entry_id": "term_shizheng",
+      "entry_type": "terminology",
+      "term": "湿证",
+      "pinyin": "shizheng",
+      "category": "病因病机",
+      "explanation": "以重浊、黏滞、趋下为特征的证候，如身重、胸闷、便溏等。",
+      "source": "《素问·痹论》"
+    },
+    {
+      "entry_id": "term_zaozheng",
+      "entry_type": "terminology",
+      "term": "燥证",
+      "pinyin": "zaozheng",
+      "category": "病因病机",
+      "explanation": "以干燥、伤津为特征的证候，如口干、皮肤干燥、便秘等。",
+      "source": "《素问·阴阳应象大论》"
+    },
+    {
+      "entry_id": "term_huozheng",
+      "entry_type": "terminology",
+      "term": "火证",
+      "pinyin": "huozheng",
+      "category": "病因病机",
+      "explanation": "以炎热、炎上、动血生风为特征的证候，如高热、出血、神昏等。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_wuyun_bingji",
+      "entry_type": "terminology",
+      "term": "五运病机",
+      "pinyin": "wuyun_bingji",
+      "category": "病因病机",
+      "explanation": "五运太过不及所导致的脏腑气血病变，如岁水太过则寒气流行、邪害心火。",
+      "source": "《素问·气交变大论》"
+    },
+    {
+      "entry_id": "term_liuqi_bingji",
+      "entry_type": "terminology",
+      "term": "六气病机",
+      "pinyin": "liuqi_bingji",
+      "category": "病因病机",
+      "explanation": "六气司天在泉、客主加临所导致的病变，如少阴君火司天则心下热善饥。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_yunqi_hebing",
+      "entry_type": "terminology",
+      "term": "运气合病",
+      "pinyin": "yunqi_hebing",
+      "category": "病因病机",
+      "explanation": "岁运、司天、在泉、客主加临多层因素叠加导致的复杂病机。",
       "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_bingji_shijiu_tiao",
+      "entry_type": "terminology",
+      "term": "病机十九条",
+      "pinyin": "bingji_shijiu_tiao",
+      "category": "病因病机",
+      "explanation": "《素问·至真要大论》中十九种病机的经典归纳，如风淫于内、火淫于内等。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_zhize",
+      "entry_type": "terminology",
+      "term": "治则",
+      "pinyin": "zhize",
+      "category": "治则治法",
+      "explanation": "治疗疾病的总则，如扶正祛邪、调整阴阳、三因制宜等。",
+      "source": "《素问·阴阳应象大论》"
+    },
+    {
+      "entry_id": "term_zhifa",
+      "entry_type": "terminology",
+      "term": "治法",
+      "pinyin": "zhifa",
+      "category": "治则治法",
+      "explanation": "治疗疾病的具体方法，如汗、吐、下、和、温、清、消、补八法。",
+      "source": "《医学心悟》"
+    },
+    {
+      "entry_id": "term_fuzheng_quxie",
+      "entry_type": "terminology",
+      "term": "扶正祛邪",
+      "pinyin": "fuzheng_quxie",
+      "category": "治则治法",
+      "explanation": "扶助正气、祛除邪气的治疗总则。",
+      "source": "《素问·刺法论》"
+    },
+    {
+      "entry_id": "term_tiaozheng_yinyang",
+      "entry_type": "terminology",
+      "term": "调整阴阳",
+      "pinyin": "tiaozheng_yinyang",
+      "category": "治则治法",
+      "explanation": "通过药物、针灸等方法恢复阴阳平衡的治疗原则。",
+      "source": "《素问·阴阳应象大论》"
+    },
+    {
+      "entry_id": "term_sanyin_zhiyi",
+      "entry_type": "terminology",
+      "term": "三因制宜",
+      "pinyin": "sanyin_zhiyi",
+      "category": "治则治法",
+      "explanation": "因时、因地、因人制宜，根据具体情况制定治疗方案。",
+      "source": "《素问·五常政大论》"
+    },
+    {
+      "entry_id": "term_yinshi_zhiyi",
+      "entry_type": "terminology",
+      "term": "因时制宜",
+      "pinyin": "yinshi_zhiyi",
+      "category": "治则治法",
+      "explanation": "根据不同季节气候特点选择治疗方法，如用寒远寒、用热远热。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_yindi_zhiyi",
+      "entry_type": "terminology",
+      "term": "因地制宜",
+      "pinyin": "yindi_zhiyi",
+      "category": "治则治法",
+      "explanation": "根据不同地域环境特点选择治疗方法，如南方湿热宜清化。",
+      "source": "《素问·五常政大论》"
+    },
+    {
+      "entry_id": "term_yinren_zhiyi",
+      "entry_type": "terminology",
+      "term": "因人制宜",
+      "pinyin": "yinren_zhiyi",
+      "category": "治则治法",
+      "explanation": "根据患者年龄、体质、性别等特点选择治疗方法。",
+      "source": "《素问·五常政大论》"
+    },
+    {
+      "entry_id": "term_zhibing_qiuben",
+      "entry_type": "terminology",
+      "term": "治病求本",
+      "pinyin": "zhibing_qiuben",
+      "category": "治则治法",
+      "explanation": "治疗疾病要抓住根本病因病机，而非仅治标象。",
+      "source": "《素问·阴阳应象大论》"
+    },
+    {
+      "entry_id": "term_biaoben_jianzhi",
+      "entry_type": "terminology",
+      "term": "标本兼治",
+      "pinyin": "biaoben_jianzhi",
+      "category": "治则治法",
+      "explanation": "同时治疗疾病表象和根本，适用于标证急重而本证亦甚的情况。",
+      "source": "《素问·标本病传论》"
+    },
+    {
+      "entry_id": "term_jize_zhibiao",
+      "entry_type": "terminology",
+      "term": "急则治标",
+      "pinyin": "jize_zhibiao",
+      "category": "治则治法",
+      "explanation": "标证危急时先治标证，待缓解后再治本。",
+      "source": "《素问·标本病传论》"
+    },
+    {
+      "entry_id": "term_huanze_zhiben",
+      "entry_type": "terminology",
+      "term": "缓则治本",
+      "pinyin": "huanze_zhiben",
+      "category": "治则治法",
+      "explanation": "病情缓和时着重治疗根本病因。",
+      "source": "《素问·标本病传论》"
+    },
+    {
+      "entry_id": "term_zheng_zhi",
+      "entry_type": "terminology",
+      "term": "正治",
+      "pinyin": "zheng_zhi",
+      "category": "治则治法",
+      "explanation": "采用与疾病性质相反的药物进行治疗，如寒者热之、热者寒之。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_fan_zhi",
+      "entry_type": "terminology",
+      "term": "反治",
+      "pinyin": "fan_zhi",
+      "category": "治则治法",
+      "explanation": "采用与疾病假象性质相同的药物进行治疗，如热因热用、寒因寒用。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_hanzhe_rezhi",
+      "entry_type": "terminology",
+      "term": "寒者热之",
+      "pinyin": "hanzhe_rezhi",
+      "category": "治则治法",
+      "explanation": "寒证用温热药物治疗。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_rezhe_hanzhi",
+      "entry_type": "terminology",
+      "term": "热者寒之",
+      "pinyin": "rezhe_hanzhi",
+      "category": "治则治法",
+      "explanation": "热证用寒凉药物治疗。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_xuzhe_buzhi",
+      "entry_type": "terminology",
+      "term": "虚则补之",
+      "pinyin": "xuzhe_buzhi",
+      "category": "治则治法",
+      "explanation": "虚证用补益药物治疗。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_shize_xiezhi",
+      "entry_type": "terminology",
+      "term": "实则泻之",
+      "pinyin": "shize_xiezhi",
+      "category": "治则治法",
+      "explanation": "实证用泻实药物治疗。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_yonghan_yuanhan",
+      "entry_type": "terminology",
+      "term": "用寒远寒",
+      "pinyin": "yonghan_yuanhan",
+      "category": "治则治法",
+      "explanation": "寒冷季节慎用寒凉药物，以免损伤阳气。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_yongre_yuanre",
+      "entry_type": "terminology",
+      "term": "用热远热",
+      "pinyin": "yongre_yuanre",
+      "category": "治则治法",
+      "explanation": "炎热季节慎用温热药物，以免助热伤阴。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_yongwen_yuanwen",
+      "entry_type": "terminology",
+      "term": "用温远温",
+      "pinyin": "yongwen_yuanwen",
+      "category": "治则治法",
+      "explanation": "温暖季节慎用温燥药物。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_yongliang_yuanliang",
+      "entry_type": "terminology",
+      "term": "用凉远凉",
+      "pinyin": "yongliang_yuanliang",
+      "category": "治则治法",
+      "explanation": "凉爽季节慎用凉润药物。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_han_fa",
+      "entry_type": "terminology",
+      "term": "汗法",
+      "pinyin": "han_fa",
+      "category": "治则治法",
+      "explanation": "通过发汗解表，使邪气从汗而解的治疗方法。",
+      "source": "《医学心悟》"
+    },
+    {
+      "entry_id": "term_tu_fa",
+      "entry_type": "terminology",
+      "term": "吐法",
+      "pinyin": "tu_fa",
+      "category": "治则治法",
+      "explanation": "通过催吐，使痰涎、宿食等从上而出的治疗方法。",
+      "source": "《医学心悟》"
+    },
+    {
+      "entry_id": "term_xia_fa",
+      "entry_type": "terminology",
+      "term": "下法",
+      "pinyin": "xia_fa",
+      "category": "治则治法",
+      "explanation": "通过泻下通便，使燥屎、积滞等从大便而出的治疗方法。",
+      "source": "《医学心悟》"
+    },
+    {
+      "entry_id": "term_he_fa",
+      "entry_type": "terminology",
+      "term": "和法",
+      "pinyin": "he_fa",
+      "category": "治则治法",
+      "explanation": "通过调和脏腑气血，治疗半表半里、肝脾不和等证的方法。",
+      "source": "《医学心悟》"
+    },
+    {
+      "entry_id": "term_wen_fa",
+      "entry_type": "terminology",
+      "term": "温法",
+      "pinyin": "wen_fa",
+      "category": "治则治法",
+      "explanation": "用温热药物治疗寒证的方法。",
+      "source": "《医学心悟》"
+    },
+    {
+      "entry_id": "term_qing_fa",
+      "entry_type": "terminology",
+      "term": "清法",
+      "pinyin": "qing_fa",
+      "category": "治则治法",
+      "explanation": "用寒凉药物治疗热证的方法。",
+      "source": "《医学心悟》"
+    },
+    {
+      "entry_id": "term_xiao_fa",
+      "entry_type": "terminology",
+      "term": "消法",
+      "pinyin": "xiao_fa",
+      "category": "治则治法",
+      "explanation": "通过消食导滞、行气活血、化痰利水等治疗积滞的方法。",
+      "source": "《医学心悟》"
+    },
+    {
+      "entry_id": "term_bu_fa",
+      "entry_type": "terminology",
+      "term": "补法",
+      "pinyin": "bu_fa",
+      "category": "治则治法",
+      "explanation": "用补益药物治疗虚证的方法。",
+      "source": "《医学心悟》"
+    },
+    {
+      "entry_id": "term_yunqi_zhize",
+      "entry_type": "terminology",
+      "term": "运气治则",
+      "pinyin": "yunqi_zhize",
+      "category": "治则治法",
+      "explanation": "根据五运六气格局确定的治疗原则，如抑其太过、扶其不及。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_yiqi_taiguo",
+      "entry_type": "terminology",
+      "term": "抑其太过",
+      "pinyin": "yiqi_taiguo",
+      "category": "治则治法",
+      "explanation": "抑制偏盛的运气之气，如木运太过则疏肝平肝。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_fuqi_buji",
+      "entry_type": "terminology",
+      "term": "扶其不及",
+      "pinyin": "fuqi_buji",
+      "category": "治则治法",
+      "explanation": "扶助偏衰的运气之气，如土运不及则健脾益气。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_suizheng_jiajian",
+      "entry_type": "terminology",
+      "term": "随证加减",
+      "pinyin": "suizheng_jiajian",
+      "category": "治则治法",
+      "explanation": "根据患者具体证候灵活调整方剂药物。",
+      "source": "《伤寒论》"
+    },
+    {
+      "entry_id": "term_fangji",
+      "entry_type": "terminology",
+      "term": "方剂",
+      "pinyin": "fangji",
+      "category": "方药",
+      "explanation": "根据治法将药物按君臣佐使配伍组成的处方。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_zhongyao",
+      "entry_type": "terminology",
+      "term": "中药",
+      "pinyin": "zhongyao",
+      "category": "方药",
+      "explanation": "在中医理论指导下用于防治疾病的天然药物及其加工品。",
+      "source": "《神农本草经》"
+    },
+    {
+      "entry_id": "term_si_qi_fangyao",
+      "entry_type": "terminology",
+      "term": "四气",
+      "pinyin": "si_qi_fangyao",
+      "category": "方药",
+      "explanation": "药物的寒、热、温、凉四种药性。",
+      "source": "《神农本草经》"
+    },
+    {
+      "entry_id": "term_wuwei_fangyao",
+      "entry_type": "terminology",
+      "term": "五味",
+      "pinyin": "wuwei_fangyao",
+      "category": "方药",
+      "explanation": "药物的酸、苦、甘、辛、咸五种味道及其作用。",
+      "source": "《神农本草经》"
+    },
+    {
+      "entry_id": "term_shengjiang_fuchen",
+      "entry_type": "terminology",
+      "term": "升降浮沉",
+      "pinyin": "shengjiang_fuchen",
+      "category": "方药",
+      "explanation": "药物作用的趋向性，升浮向上向外，沉降向下向内。",
+      "source": "《本草纲目》"
+    },
+    {
+      "entry_id": "term_guijing",
+      "entry_type": "terminology",
+      "term": "归经",
+      "pinyin": "guijing",
+      "category": "方药",
+      "explanation": "药物对某经或某几经有特殊作用，如黄连归心经。",
+      "source": "《珍珠囊》"
+    },
+    {
+      "entry_id": "term_junchen_zuoshi",
+      "entry_type": "terminology",
+      "term": "君臣佐使",
+      "pinyin": "junchen_zuoshi",
+      "category": "方药",
+      "explanation": "方剂中药物的主次配伍关系，君药为主，臣药助君，佐药监制，使药引经。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_tangji",
+      "entry_type": "terminology",
+      "term": "汤剂",
+      "pinyin": "tangji",
+      "category": "方药",
+      "explanation": "将药物煎煮后去渣取汁的液体剂型，吸收快，作用迅速。",
+      "source": "《伤寒论》"
+    },
+    {
+      "entry_id": "term_sanji",
+      "entry_type": "terminology",
+      "term": "散剂",
+      "pinyin": "sanji",
+      "category": "方药",
+      "explanation": "将药物研成细粉混合均匀的固体剂型，便于服用和携带。",
+      "source": "《伤寒论》"
+    },
+    {
+      "entry_id": "term_wanji",
+      "entry_type": "terminology",
+      "term": "丸剂",
+      "pinyin": "wanji",
+      "category": "方药",
+      "explanation": "将药物研成细粉加赋形剂制成的球形剂型，作用缓和持久。",
+      "source": "《伤寒论》"
+    },
+    {
+      "entry_id": "term_gaoji",
+      "entry_type": "terminology",
+      "term": "膏剂",
+      "pinyin": "gaoji",
+      "category": "方药",
+      "explanation": "将药物煎煮浓缩后加糖或蜜制成的半固体剂型，多用于滋补。",
+      "source": "《金匮要略》"
+    },
+    {
+      "entry_id": "term_danji",
+      "entry_type": "terminology",
+      "term": "丹剂",
+      "pinyin": "danji",
+      "category": "方药",
+      "explanation": "用矿物药经升华熔炼制成的剂型，多外用或用于急救。",
+      "source": "《肘后备急方》"
+    },
+    {
+      "entry_id": "term_bianzheng_lunzhi",
+      "entry_type": "terminology",
+      "term": "辨证论治",
+      "pinyin": "bianzheng_lunzhi",
+      "category": "方药",
+      "explanation": "根据四诊收集的资料，辨别证候，确定治法和方药的过程。",
+      "source": "《伤寒论》"
+    },
+    {
+      "entry_id": "term_mahuang",
+      "entry_type": "terminology",
+      "term": "麻黄",
+      "pinyin": "mahuang",
+      "category": "方药",
+      "explanation": "辛温解表药，发汗解表、宣肺平喘、利水消肿。",
+      "source": "《神农本草经》"
+    },
+    {
+      "entry_id": "term_guizhi",
+      "entry_type": "terminology",
+      "term": "桂枝",
+      "pinyin": "guizhi",
+      "category": "方药",
+      "explanation": "辛温解表药，发汗解肌、温通经脉、助阳化气。",
+      "source": "《神农本草经》"
+    },
+    {
+      "entry_id": "term_chaihu",
+      "entry_type": "terminology",
+      "term": "柴胡",
+      "pinyin": "chaihu",
+      "category": "方药",
+      "explanation": "辛凉解表药，疏散退热、疏肝解郁、升举阳气。",
+      "source": "《神农本草经》"
+    },
+    {
+      "entry_id": "term_huanglian",
+      "entry_type": "terminology",
+      "term": "黄连",
+      "pinyin": "huanglian",
+      "category": "方药",
+      "explanation": "清热燥湿药，清热燥湿、泻火解毒。",
+      "source": "《神农本草经》"
+    },
+    {
+      "entry_id": "term_huangqin",
+      "entry_type": "terminology",
+      "term": "黄芩",
+      "pinyin": "huangqin",
+      "category": "方药",
+      "explanation": "清热燥湿药，清热燥湿、泻火解毒、止血安胎。",
+      "source": "《神农本草经》"
+    },
+    {
+      "entry_id": "term_renshen",
+      "entry_type": "terminology",
+      "term": "人参",
+      "pinyin": "renshen",
+      "category": "方药",
+      "explanation": "补气药，大补元气、复脉固脱、补脾益肺、生津养血。",
+      "source": "《神农本草经》"
+    },
+    {
+      "entry_id": "term_huangqi",
+      "entry_type": "terminology",
+      "term": "黄芪",
+      "pinyin": "huangqi",
+      "category": "方药",
+      "explanation": "补气药，补气升阳、益卫固表、利水消肿。",
+      "source": "《神农本草经》"
+    },
+    {
+      "entry_id": "term_danggui",
+      "entry_type": "terminology",
+      "term": "当归",
+      "pinyin": "danggui",
+      "category": "方药",
+      "explanation": "补血药，补血活血、调经止痛、润肠通便。",
+      "source": "《神农本草经》"
+    },
+    {
+      "entry_id": "term_shudihuang",
+      "entry_type": "terminology",
+      "term": "熟地黄",
+      "pinyin": "shudihuang",
+      "category": "方药",
+      "explanation": "补血药，补血滋阴、益精填髓。",
+      "source": "《神农本草经》"
+    },
+    {
+      "entry_id": "term_fuling",
+      "entry_type": "terminology",
+      "term": "茯苓",
+      "pinyin": "fuling",
+      "category": "方药",
+      "explanation": "利水渗湿药，利水渗湿、健脾宁心。",
+      "source": "《神农本草经》"
+    },
+    {
+      "entry_id": "term_baizhu",
+      "entry_type": "terminology",
+      "term": "白术",
+      "pinyin": "baizhu",
+      "category": "方药",
+      "explanation": "补气药，健脾益气、燥湿利水、止汗安胎。",
+      "source": "《神农本草经》"
+    },
+    {
+      "entry_id": "term_gancao",
+      "entry_type": "terminology",
+      "term": "甘草",
+      "pinyin": "gancao",
+      "category": "方药",
+      "explanation": "补气药，补脾益气、清热解毒、祛痰止咳、调和诸药。",
+      "source": "《神农本草经》"
+    },
+    {
+      "entry_id": "term_fuzi",
+      "entry_type": "terminology",
+      "term": "附子",
+      "pinyin": "fuzi",
+      "category": "方药",
+      "explanation": "温里药，回阳救逆、补火助阳、散寒止痛。",
+      "source": "《神农本草经》"
+    },
+    {
+      "entry_id": "term_rougui",
+      "entry_type": "terminology",
+      "term": "肉桂",
+      "pinyin": "rougui",
+      "category": "方药",
+      "explanation": "温里药，补火助阳、引火归元、散寒止痛、温通经脉。",
+      "source": "《神农本草经》"
+    },
+    {
+      "entry_id": "term_shengjiang",
+      "entry_type": "terminology",
+      "term": "生姜",
+      "pinyin": "shengjiang",
+      "category": "方药",
+      "explanation": "解表药，解表散寒、温中止呕、温肺止咳。",
+      "source": "《名医别录》"
+    },
+    {
+      "entry_id": "term_dazao",
+      "entry_type": "terminology",
+      "term": "大枣",
+      "pinyin": "dazao",
+      "category": "方药",
+      "explanation": "补气药，补中益气、养血安神、缓和药性。",
+      "source": "《神农本草经》"
+    },
+    {
+      "entry_id": "term_sanyin_sitianfang",
+      "entry_type": "terminology",
+      "term": "三因司天方",
+      "pinyin": "sanyin_sitianfang",
+      "category": "方药",
+      "explanation": "宋代陈无择《三因极一病证方论》中按六气司天所立的十六首运气专方。",
+      "source": "《三因极一病证方论》"
+    },
+    {
+      "entry_id": "term_guizhi_tang",
+      "entry_type": "terminology",
+      "term": "桂枝汤",
+      "pinyin": "guizhi_tang",
+      "category": "方药",
+      "explanation": "解表剂，解肌发表、调和营卫，主治外感风寒表虚证。",
+      "source": "《伤寒论》"
+    },
+    {
+      "entry_id": "term_mahuang_tang",
+      "entry_type": "terminology",
+      "term": "麻黄汤",
+      "pinyin": "mahuang_tang",
+      "category": "方药",
+      "explanation": "解表剂，发汗解表、宣肺平喘，主治外感风寒表实证。",
+      "source": "《伤寒论》"
+    },
+    {
+      "entry_id": "term_sijunzi_tang",
+      "entry_type": "terminology",
+      "term": "四君子汤",
+      "pinyin": "sijunzi_tang",
+      "category": "方药",
+      "explanation": "补气剂，益气健脾，主治脾胃气虚证。",
+      "source": "《太平惠民和剂局方》"
+    },
+    {
+      "entry_id": "term_siwu_tang",
+      "entry_type": "terminology",
+      "term": "四物汤",
+      "pinyin": "siwu_tang",
+      "category": "方药",
+      "explanation": "补血剂，补血调血，主治营血虚滞证。",
+      "source": "《仙授理伤续断秘方》"
+    },
+    {
+      "entry_id": "term_liuwei_dihuang_wan",
+      "entry_type": "terminology",
+      "term": "六味地黄丸",
+      "pinyin": "liuwei_dihuang_wan",
+      "category": "方药",
+      "explanation": "补阴剂，滋补肾阴，主治肾阴虚证。",
+      "source": "《小儿药证直诀》"
+    },
+    {
+      "entry_id": "term_zhenjiu",
+      "entry_type": "terminology",
+      "term": "针灸",
+      "pinyin": "zhenjiu",
+      "category": "针灸养生",
+      "explanation": "针刺和艾灸的合称，通过刺激经络腧穴防治疾病。",
+      "source": "《灵枢·九针十二原》"
+    },
+    {
+      "entry_id": "term_zhenci",
+      "entry_type": "terminology",
+      "term": "针刺",
+      "pinyin": "zhenci",
+      "category": "针灸养生",
+      "explanation": "用金属针具刺激腧穴以防治疾病的方法。",
+      "source": "《灵枢·九针十二原》"
+    },
+    {
+      "entry_id": "term_aijiu",
+      "entry_type": "terminology",
+      "term": "艾灸",
+      "pinyin": "aijiu",
+      "category": "针灸养生",
+      "explanation": "用艾绒燃烧熏烤腧穴以防治疾病的方法。",
+      "source": "《灵枢·官能》"
+    },
+    {
+      "entry_id": "term_shuxue",
+      "entry_type": "terminology",
+      "term": "腧穴",
+      "pinyin": "shuxue",
+      "category": "针灸养生",
+      "explanation": "人体脏腑经络之气输注于体表的部位，是针灸治疗的刺激点。",
+      "source": "《灵枢·九针十二原》"
+    },
+    {
+      "entry_id": "term_jingxue",
+      "entry_type": "terminology",
+      "term": "经穴",
+      "pinyin": "jingxue",
+      "category": "针灸养生",
+      "explanation": "归属于十四经的腧穴，共有361个。",
+      "source": "《针灸甲乙经》"
+    },
+    {
+      "entry_id": "term_qixue",
+      "entry_type": "terminology",
+      "term": "奇穴",
+      "pinyin": "qixue",
+      "category": "针灸养生",
+      "explanation": "未归入十四经但确有特殊疗效的腧穴。",
+      "source": "《针灸大成》"
+    },
+    {
+      "entry_id": "term_ashixue",
+      "entry_type": "terminology",
+      "term": "阿是穴",
+      "pinyin": "ashixue",
+      "category": "针灸养生",
+      "explanation": "以压痛点或其他反应点作为针灸施术部位，无固定位置。",
+      "source": "《备急千金要方》"
+    },
+    {
+      "entry_id": "term_haozhen",
+      "entry_type": "terminology",
+      "term": "毫针",
+      "pinyin": "haozhen",
+      "category": "针灸养生",
+      "explanation": "最常用的针具，针身细小，用于针刺浅深各层组织。",
+      "source": "《灵枢·九针论》"
+    },
+    {
+      "entry_id": "term_jiufa",
+      "entry_type": "terminology",
+      "term": "灸法",
+      "pinyin": "jiufa",
+      "category": "针灸养生",
+      "explanation": "用艾绒或其他药物烧灼、温熨体表穴位的方法。",
+      "source": "《灵枢·官能》"
+    },
+    {
+      "entry_id": "term_baguan",
+      "entry_type": "terminology",
+      "term": "拔罐",
+      "pinyin": "baguan",
+      "category": "针灸养生",
+      "explanation": "以罐为工具，借热力排除空气产生负压，吸附于体表以防治疾病。",
+      "source": "《五十二病方》"
+    },
+    {
+      "entry_id": "term_guasha",
+      "entry_type": "terminology",
+      "term": "刮痧",
+      "pinyin": "guasha",
+      "category": "针灸养生",
+      "explanation": "用器具在体表反复刮动，使局部出痧以防治疾病的方法。",
+      "source": "《痧胀玉衡》"
+    },
+    {
+      "entry_id": "term_tuina",
+      "entry_type": "terminology",
+      "term": "推拿",
+      "pinyin": "tuina",
+      "category": "针灸养生",
+      "explanation": "用手法作用于人体体表特定部位以防治疾病的方法。",
+      "source": "《黄帝内经》"
+    },
+    {
+      "entry_id": "term_daoyin",
+      "entry_type": "terminology",
+      "term": "导引",
+      "pinyin": "daoyin",
+      "category": "针灸养生",
+      "explanation": "通过肢体运动、呼吸吐纳、意念引导来养生保健的方法。",
+      "source": "《庄子·刻意》"
+    },
+    {
+      "entry_id": "term_qigong",
+      "entry_type": "terminology",
+      "term": "气功",
+      "pinyin": "qigong",
+      "category": "针灸养生",
+      "explanation": "调身、调息、调心相结合的身心锻炼方法。",
+      "source": "《黄帝内经》"
+    },
+    {
+      "entry_id": "term_baduanjin",
+      "entry_type": "terminology",
+      "term": "八段锦",
+      "pinyin": "baduanjin",
+      "category": "针灸养生",
+      "explanation": "传统导引功法，由八节动作组成，用于强身健体。",
+      "source": "《夷坚志》"
+    },
+    {
+      "entry_id": "term_taijiquan",
+      "entry_type": "terminology",
+      "term": "太极拳",
+      "pinyin": "taijiquan",
+      "category": "针灸养生",
+      "explanation": "传统武术与养生结合的拳术，以柔克刚、动静结合。",
+      "source": "《太极拳论》"
+    },
+    {
+      "entry_id": "term_wuqinxi",
+      "entry_type": "terminology",
+      "term": "五禽戏",
+      "pinyin": "wuqinxi",
+      "category": "针灸养生",
+      "explanation": "华佗创编的导引功法，模仿虎、鹿、熊、猿、鸟五种动物动作。",
+      "source": "《后汉书·方术列传》"
+    },
+    {
+      "entry_id": "term_guanyuan",
+      "entry_type": "terminology",
+      "term": "关元",
+      "pinyin": "guanyuan",
+      "category": "针灸养生",
+      "explanation": "任脉穴位，脐下三寸，大补元气、温阳固脱。",
+      "source": "《针灸甲乙经》"
+    },
+    {
+      "entry_id": "term_qihai",
+      "entry_type": "terminology",
+      "term": "气海",
+      "pinyin": "qihai",
+      "category": "针灸养生",
+      "explanation": "任脉穴位，脐下1.5寸，益气助阳、调经固精。",
+      "source": "《针灸甲乙经》"
+    },
+    {
+      "entry_id": "term_zusanli",
+      "entry_type": "terminology",
+      "term": "足三里",
+      "pinyin": "zusanli",
+      "category": "针灸养生",
+      "explanation": "足阳明胃经合穴，健脾和胃、补中益气、通经活络。",
+      "source": "《针灸甲乙经》"
+    },
+    {
+      "entry_id": "term_mingmen",
+      "entry_type": "terminology",
+      "term": "命门",
+      "pinyin": "mingmen",
+      "category": "针灸养生",
+      "explanation": "督脉穴位，第二腰椎棘突下，温肾壮阳、强健腰膝。",
+      "source": "《针灸甲乙经》"
+    },
+    {
+      "entry_id": "term_shenshu",
+      "entry_type": "terminology",
+      "term": "肾俞",
+      "pinyin": "shenshu",
+      "category": "针灸养生",
+      "explanation": "足太阳膀胱经背俞穴，补肾壮阳、益精填髓。",
+      "source": "《针灸甲乙经》"
+    },
+    {
+      "entry_id": "term_dazhui",
+      "entry_type": "terminology",
+      "term": "大椎",
+      "pinyin": "dazhui",
+      "category": "针灸养生",
+      "explanation": "督脉穴位，第七颈椎棘突下，清热解表、通阳理气。",
+      "source": "《针灸甲乙经》"
+    },
+    {
+      "entry_id": "term_baihui",
+      "entry_type": "terminology",
+      "term": "百会",
+      "pinyin": "baihui",
+      "category": "针灸养生",
+      "explanation": "督脉穴位，头顶正中，升阳举陷、醒脑开窍。",
+      "source": "《针灸甲乙经》"
+    },
+    {
+      "entry_id": "term_sanyinjiao",
+      "entry_type": "terminology",
+      "term": "三阴交",
+      "pinyin": "sanyinjiao",
+      "category": "针灸养生",
+      "explanation": "足太阴脾经穴位，肝脾肾三经交会，调理气血。",
+      "source": "《针灸甲乙经》"
+    },
+    {
+      "entry_id": "term_taichong",
+      "entry_type": "terminology",
+      "term": "太冲",
+      "pinyin": "taichong",
+      "category": "针灸养生",
+      "explanation": "足厥阴肝经原穴，疏肝理气、平肝息风。",
+      "source": "《针灸甲乙经》"
+    },
+    {
+      "entry_id": "term_hegu",
+      "entry_type": "terminology",
+      "term": "合谷",
+      "pinyin": "hegu",
+      "category": "针灸养生",
+      "explanation": "手阳明大肠经原穴，疏风解表、行气活血。",
+      "source": "《针灸甲乙经》"
+    },
+    {
+      "entry_id": "term_yangsheng",
+      "entry_type": "terminology",
+      "term": "养生",
+      "pinyin": "yangsheng",
+      "category": "针灸养生",
+      "explanation": "通过各种方法调养身心、增强体质、预防疾病的活动。",
+      "source": "《素问·上古天真论》"
+    },
+    {
+      "entry_id": "term_zhiweibing",
+      "entry_type": "terminology",
+      "term": "治未病",
+      "pinyin": "zhiweibing",
+      "category": "针灸养生",
+      "explanation": "在疾病发生之前进行预防，包括未病先防、既病防变。",
+      "source": "《素问·四气调神大论》"
+    },
+    {
+      "entry_id": "term_qiju_youchang",
+      "entry_type": "terminology",
+      "term": "起居有常",
+      "pinyin": "qiju_youchang",
+      "category": "针灸养生",
+      "explanation": "生活作息规律有序，是养生的基本要求。",
+      "source": "《素问·上古天真论》"
+    },
+    {
+      "entry_id": "term_huangdi_neijing",
+      "entry_type": "terminology",
+      "term": "黄帝内经",
+      "pinyin": "huangdi_neijing",
+      "category": "经典文献与医家",
+      "explanation": "中医最早的经典著作，包括《素问》和《灵枢》两部分。",
+      "source": "《黄帝内经》"
+    },
+    {
+      "entry_id": "term_suwen",
+      "entry_type": "terminology",
+      "term": "素问",
+      "pinyin": "suwen",
+      "category": "经典文献与医家",
+      "explanation": "《黄帝内经》的一部分，主要论述医学理论、疾病诊治等。",
+      "source": "《黄帝内经·素问》"
+    },
+    {
+      "entry_id": "term_lingshu",
+      "entry_type": "terminology",
+      "term": "灵枢",
+      "pinyin": "lingshu",
+      "category": "经典文献与医家",
+      "explanation": "《黄帝内经》的一部分，主要论述经络、针灸、脏腑等。",
+      "source": "《黄帝内经·灵枢》"
+    },
+    {
+      "entry_id": "term_tianyuan_ji_dalun",
+      "entry_type": "terminology",
+      "term": "天元纪大论",
+      "pinyin": "tianyuan_ji_dalun",
+      "category": "经典文献与医家",
+      "explanation": "《素问》第六十六篇，论述运气学说的纲领。",
+      "source": "《素问·天元纪大论》"
+    },
+    {
+      "entry_id": "term_wuyunxing_dalun",
+      "entry_type": "terminology",
+      "term": "五运行大论",
+      "pinyin": "wuyunxing_dalun",
+      "category": "经典文献与医家",
+      "explanation": "《素问》第六十七篇，论述五运六气的运行规律。",
+      "source": "《素问·五运行大论》"
+    },
+    {
+      "entry_id": "term_liuweizhi_dalun",
+      "entry_type": "terminology",
+      "term": "六微旨大论",
+      "pinyin": "liuweizhi_dalun",
+      "category": "经典文献与医家",
+      "explanation": "《素问》第六十八篇，阐述六气升降出入、标本中气等。",
+      "source": "《素问·六微旨大论》"
+    },
+    {
+      "entry_id": "term_qijiaobian_dalun",
+      "entry_type": "terminology",
+      "term": "气交变大论",
+      "pinyin": "qijiaobian_dalun",
+      "category": "经典文献与医家",
+      "explanation": "《素问》第六十九篇，论述五运太过不及的气候病机。",
+      "source": "《素问·气交变大论》"
+    },
+    {
+      "entry_id": "term_wuchangzheng_dalun",
+      "entry_type": "terminology",
+      "term": "五常政大论",
+      "pinyin": "wuchangzheng_dalun",
+      "category": "经典文献与医家",
+      "explanation": "《素问》第七十篇，论述五运平气、太过、不及的政令变化。",
+      "source": "《素问·五常政大论》"
+    },
+    {
+      "entry_id": "term_liuyuan_zhengji_dalun",
+      "entry_type": "terminology",
+      "term": "六元正纪大论",
+      "pinyin": "liuyuan_zhengji_dalun",
+      "category": "经典文献与医家",
+      "explanation": "《素问》第七十一篇，系统论述六十年的运气变化规律。",
+      "source": "《素问·六元正纪大论》"
+    },
+    {
+      "entry_id": "term_zhizhen_yao_dalun",
+      "entry_type": "terminology",
+      "term": "至真要大论",
+      "pinyin": "zhizhen_yao_dalun",
+      "category": "经典文献与医家",
+      "explanation": "《素问》第七十四篇，论述六气病机、治法、方药等。",
+      "source": "《素问·至真要大论》"
+    },
+    {
+      "entry_id": "term_qi_pian_dalun",
+      "entry_type": "terminology",
+      "term": "七篇大论",
+      "pinyin": "qi_pian_dalun",
+      "category": "经典文献与医家",
+      "explanation": "《素问》中七篇论述运气学说的专篇，由唐代王冰补入。",
+      "source": "《素问》"
+    },
+    {
+      "entry_id": "term_wang_bing",
+      "entry_type": "terminology",
+      "term": "王冰",
+      "pinyin": "wang_bing",
+      "category": "经典文献与医家",
+      "explanation": "唐代医学家，整理注释《黄帝内经素问》，补入七篇大论。",
+      "source": "《重广补注黄帝内经素问》"
+    },
+    {
+      "entry_id": "term_zhang_zhongjing",
+      "entry_type": "terminology",
+      "term": "张仲景",
+      "pinyin": "zhang_zhongjing",
+      "category": "经典文献与医家",
+      "explanation": "东汉医学家，著《伤寒杂病论》，被尊为医圣。",
+      "source": "《伤寒杂病论》"
+    },
+    {
+      "entry_id": "term_shanghan_lun",
+      "entry_type": "terminology",
+      "term": "伤寒论",
+      "pinyin": "shanghan_lun",
+      "category": "经典文献与医家",
+      "explanation": "张仲景所著，创立六经辨证论治体系。",
+      "source": "《伤寒论》"
+    },
+    {
+      "entry_id": "term_jingui_yaolue",
+      "entry_type": "terminology",
+      "term": "金匮要略",
+      "pinyin": "jingui_yaolue",
+      "category": "经典文献与医家",
+      "explanation": "张仲景所著，论述杂病辨证论治。",
+      "source": "《金匮要略》"
+    },
+    {
+      "entry_id": "term_shennong_bencao_jing",
+      "entry_type": "terminology",
+      "term": "神农本草经",
+      "pinyin": "shennong_bencao_jing",
+      "category": "经典文献与医家",
+      "explanation": "中国最早的本草学专著，载药365种。",
+      "source": "《神农本草经》"
+    },
+    {
+      "entry_id": "term_nan_jing",
+      "entry_type": "terminology",
+      "term": "难经",
+      "pinyin": "nan_jing",
+      "category": "经典文献与医家",
+      "explanation": "中医经典之一，以问答形式阐释医学理论。",
+      "source": "《难经》"
+    },
+    {
+      "entry_id": "term_zhenjiu_jiayi_jing",
+      "entry_type": "terminology",
+      "term": "针灸甲乙经",
+      "pinyin": "zhenjiu_jiayi_jing",
+      "category": "经典文献与医家",
+      "explanation": "皇甫谧所著，中国第一部针灸学专著。",
+      "source": "《针灸甲乙经》"
+    },
+    {
+      "entry_id": "term_zhubing_yuanhou_lun",
+      "entry_type": "terminology",
+      "term": "诸病源候论",
+      "pinyin": "zhubing_yuanhou_lun",
+      "category": "经典文献与医家",
+      "explanation": "巢元方等编撰，系统论述各种疾病的病因证候。",
+      "source": "《诸病源候论》"
+    },
+    {
+      "entry_id": "term_beiji_qianjin_yaofang",
+      "entry_type": "terminology",
+      "term": "备急千金要方",
+      "pinyin": "beiji_qianjin_yaofang",
+      "category": "经典文献与医家",
+      "explanation": "孙思邈所著，中医临床百科全书。",
+      "source": "《备急千金要方》"
+    },
+    {
+      "entry_id": "term_qianjin_yifang",
+      "entry_type": "terminology",
+      "term": "千金翼方",
+      "pinyin": "qianjin_yifang",
+      "category": "经典文献与医家",
+      "explanation": "孙思邈晚年所著，补充《千金要方》。",
+      "source": "《千金翼方》"
+    },
+    {
+      "entry_id": "term_waitai_miyao",
+      "entry_type": "terminology",
+      "term": "外台秘要",
+      "pinyin": "waitai_miyao",
+      "category": "经典文献与医家",
+      "explanation": "王焘编撰，汇集唐代以前的医学文献。",
+      "source": "《外台秘要》"
+    },
+    {
+      "entry_id": "term_taiping_ju_fang",
+      "entry_type": "terminology",
+      "term": "太平惠民和剂局方",
+      "pinyin": "taiping_ju_fang",
+      "category": "经典文献与医家",
+      "explanation": "宋代官方药局方书，载方众多。",
+      "source": "《太平惠民和剂局方》"
+    },
+    {
+      "entry_id": "term_shengji_zonglu",
+      "entry_type": "terminology",
+      "term": "圣济总录",
+      "pinyin": "shengji_zonglu",
+      "category": "经典文献与医家",
+      "explanation": "宋代官修医学巨著，内容广博。",
+      "source": "《圣济总录》"
+    },
+    {
+      "entry_id": "term_sanyin_jiyi_bingzheng_fanglun",
+      "entry_type": "terminology",
+      "term": "三因极一病证方论",
+      "pinyin": "sanyin_jiyi_bingzheng_fanglun",
+      "category": "经典文献与医家",
+      "explanation": "陈无择所著，提出三因学说，载三因司天方。",
+      "source": "《三因极一病证方论》"
+    },
+    {
+      "entry_id": "term_liu_wansu",
+      "entry_type": "terminology",
+      "term": "刘完素",
+      "pinyin": "liu_wansu",
+      "category": "经典文献与医家",
+      "explanation": "金元四大家之一，寒凉派代表，强调火热致病。",
+      "source": "《素问玄机原病式》"
+    },
+    {
+      "entry_id": "term_zhang_congzheng",
+      "entry_type": "terminology",
+      "term": "张从正",
+      "pinyin": "zhang_congzheng",
+      "category": "经典文献与医家",
+      "explanation": "金元四大家之一，攻邪派代表，主张汗吐下三法。",
+      "source": "《儒门事亲》"
+    },
+    {
+      "entry_id": "term_li_dongyuan",
+      "entry_type": "terminology",
+      "term": "李东垣",
+      "pinyin": "li_dongyuan",
+      "category": "经典文献与医家",
+      "explanation": "金元四大家之一，补土派代表，重视脾胃。",
+      "source": "《脾胃论》"
+    },
+    {
+      "entry_id": "term_zhu_danxi",
+      "entry_type": "terminology",
+      "term": "朱丹溪",
+      "pinyin": "zhu_danxi",
+      "category": "经典文献与医家",
+      "explanation": "金元四大家之一，滋阴派代表，主张阳常有余阴常不足。",
+      "source": "《格致余论》"
+    },
+    {
+      "entry_id": "term_zhang_jingyue",
+      "entry_type": "terminology",
+      "term": "张景岳",
+      "pinyin": "zhang_jingyue",
+      "category": "经典文献与医家",
+      "explanation": "明代医学家，温补派代表，著《类经》《景岳全书》。",
+      "source": "《景岳全书》"
+    },
+    {
+      "entry_id": "term_li_shizhen",
+      "entry_type": "terminology",
+      "term": "李时珍",
+      "pinyin": "li_shizhen",
+      "category": "经典文献与医家",
+      "explanation": "明代医学家、药学家，著《本草纲目》。",
+      "source": "《本草纲目》"
+    },
+    {
+      "entry_id": "term_ye_tianshi",
+      "entry_type": "terminology",
+      "term": "叶天士",
+      "pinyin": "ye_tianshi",
+      "category": "经典文献与医家",
+      "explanation": "清代温病学家，创立卫气营血辨证。",
+      "source": "《温热论》"
+    },
+    {
+      "entry_id": "term_wu_jutong",
+      "entry_type": "terminology",
+      "term": "吴鞠通",
+      "pinyin": "wu_jutong",
+      "category": "经典文献与医家",
+      "explanation": "清代温病学家，创立三焦辨证，著《温病条辨》。",
+      "source": "《温病条辨》"
+    },
+    {
+      "entry_id": "term_xue_shengbai",
+      "entry_type": "terminology",
+      "term": "薛生白",
+      "pinyin": "xue_shengbai",
+      "category": "经典文献与医家",
+      "explanation": "清代医学家，著《湿热条辨》，专论湿热病。",
+      "source": "《湿热条辨》"
+    },
+    {
+      "entry_id": "term_wang_mengying",
+      "entry_type": "terminology",
+      "term": "王孟英",
+      "pinyin": "wang_mengying",
+      "category": "经典文献与医家",
+      "explanation": "清代温病学家，著《温热经纬》。",
+      "source": "《温热经纬》"
+    },
+    {
+      "entry_id": "term_lu_maoxiu",
+      "entry_type": "terminology",
+      "term": "陆懋修",
+      "pinyin": "lu_maoxiu",
+      "category": "经典文献与医家",
+      "explanation": "清代医学家，精通运气学说，著《世补斋医书》。",
+      "source": "《世补斋医书》"
     }
   ]
 }
