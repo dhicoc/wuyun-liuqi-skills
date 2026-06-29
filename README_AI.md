@@ -2,7 +2,139 @@
 
 > **这是 AI Agent 的配置引导文件。如果你是 AI Agent，严格按以下流程执行。**
 
-## 0. 核心执行流程（立即执行）
+## 0. 安装与核心执行流程
+
+> **AI Agent 请严格按以下流程执行。人类用户可参考「安装说明」手动操作。**
+
+---
+
+### 0.1 安装说明（人类用户手动安装用）
+
+============================================
+  五运六气 AI Agent 技能包 — 环境配置
+============================================
+
+[1/4] 检测 Python...
+  ✓ Python: Python 3.13.7
+[2/4] 安装 Python 依赖 (lunar-python)...
+  ✓ lunar-python 已安装
+[3/4] 创建自进化运行时目录...
+  ✓ 目录已就绪
+[4/4] 检测 Node.js (可选)...
+  ✓ Node.js: v24.12.0
+  → 如需使用 JS 版, 运行: npm install
+
+============================================
+  ✅ 环境配置完成!
+============================================
+
+快速试用:
+  python scripts/calculate_yunqi_api.py 2026-06-27
+  python scripts/demo_full_chain.py 2004-07-30
+  python scripts/verify_expansion.py
+
+更多用法见 README.md
+============================================================
+1. ´󺮱߽ç»عé²âÊÔ
+============================================================
+
+  ÊäÈë: 2026-01-15
+  [OK] yunqi_year=2025
+  [OK] year_gz=ÒÒËÈ
+  [OK] sui_yun.code=metal_deficient
+  [OK] day_gz ´æÔÚ
+  [OK] si_tian ´æÔÚ
+  [OK] zai_quan ´æÔÚ
+  [OK] current_step.name ´æÔÚ
+  [OK] rag_keys º¬ 4 ¸ö·ÖÀà
+
+  ÊäÈë: 2026-01-20
+  [OK] yunqi_year=2026
+  [OK] year_gz=±ûÎç
+  [OK] sui_yun.code=water_excess
+  [OK] day_gz ´æÔÚ
+  [OK] si_tian ´æÔÚ
+  [OK] zai_quan ´æÔÚ
+  [OK] current_step.name ´æÔÚ
+  [OK] rag_keys º¬ 4 ¸ö·ÖÀà
+
+  ÊäÈë: 2026-06-27
+  [OK] yunqi_year=2026
+  [OK] year_gz=±ûÎç
+  [OK] sui_yun.code=water_excess
+  [OK] day_gz ´æÔÚ
+  [OK] si_tian ´æÔÚ
+  [OK] zai_quan ´æÔÚ
+  [OK] current_step.name ´æÔÚ
+  [OK] rag_keys º¬ 4 ¸ö·ÖÀà
+
+============================================================
+2. RAG Asset JSON ÍêÕûÐԼì²é
+============================================================
+
+  asset1_suiyun.json:
+  [OK] ÌõĿÊý >= 10 (ʵ¼Ê: 10)
+  [OK] ×ֶÎ 'code' ȫ²¿´æÔÚ
+  [OK] ×ֶÎ 'name' ȫ²¿´æÔÚ
+  [OK] ×ֶÎ 'treatment_principle' ȫ²¿´æÔÚ
+
+  asset2_sitian_zaiquan.json:
+  [OK] ÌõĿÊý >= 6 (ʵ¼Ê: 6)
+  [OK] ×ֶÎ 'sitian_key' ȫ²¿´æÔÚ
+  [OK] ×ֶÎ 'zaiquan_key' ȫ²¿´æÔÚ
+
+  asset3_kezhujialin.json:
+  [OK] ÌõĿÊý >= 36 (ʵ¼Ê: 36)
+  [OK] ×ֶÎ 'key' ȫ²¿´æÔÚ
+  [OK] ×ֶÎ 'shun_ni' ȫ²¿´æÔÚ
+
+  asset4_formula.json:
+  [OK] ÌõĿÊý >= 16 (ʵ¼Ê: 16)
+  [OK] ×ֶÎ 'formula_id' ȫ²¿´æÔÚ
+  [OK] ×ֶÎ 'rag_key' ȫ²¿´æÔÚ
+  [OK] ×ֶÎ 'name' ȫ²¿´æÔÚ
+  [OK] ×ֶÎ 'ingredients' ȫ²¿´æÔÚ
+
+  asset5_commentary.json:
+  [OK] ÌõĿÊý >= 20 (ʵ¼Ê: 20)
+  [OK] ×ֶÎ 'commentary_id' ȫ²¿´æÔÚ
+  [OK] ×ֶÎ 'author' ȫ²¿´æÔÚ
+  [OK] ×ֶÎ 'core_theory_title' ȫ²¿´æÔÚ
+
+  asset6_regional.json:
+  [OK] ÌõĿÊý >= 8 (ʵ¼Ê: 8)
+  [OK] ×ֶÎ 'region_id' ȫ²¿´æÔÚ
+  [OK] ×ֶÎ 'region_name' ȫ²¿´æÔÚ
+  [OK] ×ֶÎ 'wuyun_modifier' ȫ²¿´æÔÚ
+
+  asset7_constitution.json:
+  [OK] ×ÜÌõĿ >= 18 (ʵ¼Ê: 18)
+  [OK] birth_yunqi_mapping 9 Ìõ (ʵ¼Ê: 9)
+  [OK] suiyun_constitution_adjustment 9 Ìõ (ʵ¼Ê: 9)
+  [OK] birth º¬ constitution_name
+  [OK] adj º¬ suiyun_code+suiyun_name
+
+============================================================
+3. Cross-Asset Key ¹ØÁªÐԼì²é
+============================================================
+
+  RAG ֪ʶ¿â×ÜΨһ¼üÊý: 104
+  [OK] API rag_key values ¿ɱ» RAG asset ÃüÖÐ (4/4)
+    API values: {'shaoyin_junhuo_sitian', 'zhu_shaoyang_ke_shaoyin', 'water_excess', 'yangming_zaojin_zaiquan'}
+    ÒÑƥÅä: {'shaoyin_junhuo_sitian', 'water_excess', 'zhu_shaoyang_ke_shaoyin', 'yangming_zaojin_zaiquan'}
+
+============================================================
+4. ×Խø»¯ÒýÇæÆô¶¯¼ì²é
+============================================================
+  [OK] self_evolve.py log ³ɹ¦
+
+
+
+---
+
+### 0.2 AI Agent 自动安装与配置（AI 读完本文件后立即执行）
+
+> **AI Agent 执行以下流程，用户无需手动操作。**
 
 ```text
 0. 检测本包实际路径：由当前文件所在目录推导，记为 <SKILL_ROOT>
