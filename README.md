@@ -292,35 +292,117 @@ scripts/self_evolve.py -> 自动记录
 
 ---
 
-> **English Version - README.md is bilingual. Chinese content is above. Below is a summary.**
+> **English Version** — This README is bilingual. The Chinese documentation above is the canonical guide for AI Agents; the English section below provides a structured overview for international users and contributors.
 
 ---
 
-# WuYun-LiuQi (Five Movements & Six Qi) AI Agent Skill Pack
+# WuYun-LiuQi AI Agent Skill Pack
 
-An AI Agent Skill Pack based on the TCM Yunqi theory from the "Yellow Emperor Inner Classic" (Suwen seven major treatises), using Heavenly Stems and Earthly Branches to calculate annual climate and disease patterns. Architecture adapted from reverse-skill.
+**WuYun-LiuQi** (Five Movements and Six Qi, 运气学) is an AI Agent skill pack for rule-based TCM climate-pattern calculation, knowledge retrieval, and structured report generation. It is based on the Yunqi theory recorded in the seven major Suwen treatises of the *Huangdi Neijing* (*Yellow Emperor's Inner Classic*) and uses Heavenly Stems, Earthly Branches, solar-term boundaries, and structured RAG assets to derive annual Yunqi patterns.
 
-**Features:**
-- Ganzhi (Stem-Branch) calculation engine (Python + JavaScript)
-- Great Movement (Dayun) excess/deficiency analysis
-- Six Qi progression (Keqi, Kezhu-Jialin)
-- 5-layer RAG knowledge base (104 keys covering pathogenesis, formulas, commentaries, regions, constitutions)
-- ReAct dialectical reasoning workflow
-- Self-evolving engine with blind spot detection
-- Weather API and constitution alignment
-- 67 end-to-end verification tests
+The project provides an end-to-end workflow:
 
-**Quick Start:**
+```text
+User input → routing.md → target skill → Python calculation engine → RAG knowledge base
+→ pathogenesis reasoning → structured report → visualization → self-evolution log
+```
+
+> Medical note: this project is for traditional TCM theory learning, research, and assisted reasoning only. It is **not** a medical diagnosis or treatment system. Clinical decisions must be made by qualified healthcare professionals.
+
+## Primary Runtime
+
+The **Python engine is the primary and recommended runtime**:
+
+- `scripts/calculate_yunqi_api.py` is the main entry point for AI Agents, RAG lookup, report generation, visualization, and regression tests.
+- `scripts/calculate_yunqi_api.js` is an optional JavaScript / Node.js integration layer for frontend or Node-based applications.
+- For full feature coverage and the most stable regression path, prefer the Python entry point.
+
+## Quick Start
+
 ```bash
+# Install dependencies
 pip install -r requirements.txt
+npm install   # optional, only required for the Node.js interface
+
+# Recommended: Python primary workflow
 python scripts/calculate_yunqi_api.py 2026-06-27 --json
+python scripts/calculate_yunqi_api.py 2026-06-27 --summary
+python scripts/calculate_yunqi_api.py 2026-06-27 --report-type student
+
+# Optional: Node.js interface
+node scripts/calculate_yunqi_api.js 2026-06-27 --json
+
+# Full-chain demo and verification
 python scripts/demo_full_chain.py 2026-06-27
 python scripts/verify_expansion.py
 ```
 
-**Tech Stack:** Python, JavaScript, lunar-python, lunar-javascript
+## Feature Coverage Matrix
 
-**License:** MIT
+| Layer | Capability | Main Entry | Status |
+|-------|------------|------------|--------|
+| Ganzhi basics | Year Stem-Branch, sexagenary index, zodiac | `scripts/ganzhi_calc.py` | ✅ Covered |
+| Five Movements | Dayun, excess/deficiency, Pingqi conditions | `scripts/dayun_calc.py` | ✅ Covered |
+| Movement steps | Host movement and guest movement progression | `scripts/keyun_calc.py` | ✅ Covered |
+| Six Qi | Sitian, Zaiquan, host Qi, guest Qi | `scripts/liuqi_calc.py` | ✅ Covered |
+| Kezhu-Jialin | Guest-host Qi relationship and favorable/unfavorable analysis | `scripts/kezhujialin.py` | ✅ Covered |
+| Unified date API | Dahan year boundary, current Qi step, RAG keys, JSON output | `scripts/calculate_yunqi_api.py` | ✅ Primary Python path |
+| Node.js API | JSON output for frontend / Node.js integrations | `scripts/calculate_yunqi_api.js` | 🟡 Optional |
+| Pathogenesis | Five-movement, Six-Qi, excess/deficiency, combined Yunqi reasoning | `yunqi-pathogenesis/` | ✅ Documented reasoning |
+| Clinical reference | Treatment principles, formula direction, acupuncture references, lifestyle guidance | `yunqi-clinical/` | ✅ Reference only |
+| Classics | Suwen treatises, historical schools, modern research notes | `yunqi-classics/` | ✅ Covered |
+| RAG knowledge base | Yunqi keys for pathogenesis, formulas, commentaries, regions, constitutions | `rag-knowledge-base/asset*.json` | ✅ Covered |
+| Personal profile | Birth-year Yunqi tendency, current-year adjustment, regional modifier | `scripts/personal_yunqi_profile.py` | ✅ Covered |
+| Reports | Student, practitioner, and researcher report styles | `scripts/yunqi_report.py` | ✅ Covered |
+| Visualization | ASCII chart and HTML visual report | `scripts/visualize_yunqi.py`, `scripts/generate_html_report.py` | ✅ Covered |
+| Self-evolution | Usage logs, blind-spot detection, feedback, monthly report | `scripts/self_evolve.py` | ✅ Covered |
+| Validation | Environment check, RAG validation, end-to-end tests, full regression | `scripts/health_check.py`, `scripts/validate_knowledge_base.py`, `scripts/verify_expansion.py`, `scripts/full_regression_test.py` | ✅ Covered |
+
+## Core Features
+
+- Rule-based Yunqi calculation with Dahan (大寒) as the Yunqi year boundary
+- Standardized JSON output for LLM / Agent integration
+- Five-layer RAG knowledge base covering pathogenesis, formulas, commentaries, regional modifiers, and constitution alignment
+- ReAct-style reasoning workflow for tool use, retrieval, and structured synthesis
+- Markdown and HTML report generation
+- ASCII visualization for terminal workflows
+- Self-evolution loop: usage logging, blind-spot analysis, feedback capture, and monthly reports
+- Regression and knowledge-base validation scripts
+
+## Repository Map
+
+```text
+scripts/                 Calculation engines, API, reports, visualization, tests
+rag-knowledge-base/      Structured RAG assets
+agent-workflow/          ReAct workflow specification
+prompts/                 Agent system prompts
+ganzhi-basics/           Stem-Branch learning skill
+yunqi-calc/              Core Yunqi calculation skill
+yunqi-pathogenesis/      Pathogenesis reasoning skill
+yunqi-clinical/          Clinical reference and lifestyle guidance skill
+yunqi-classics/          Classical literature and research references
+docs-generator/          Report templates
+advanced-alignment/      Weather and constitution alignment
+self-evolve/             Runtime logs, feedback, reports
+case-journal/            Case record templates and disclaimers
+```
+
+## Verification
+
+```bash
+python scripts/health_check.py
+python scripts/validate_knowledge_base.py
+python scripts/verify_expansion.py
+python scripts/full_regression_test.py
+```
+
+## Tech Stack
+
+Python · JavaScript · Node.js · `lunar-python` · `lunar-javascript` · RAG · ReAct-style agent workflow
+
+## License
+
+MIT License. See [LICENSE](LICENSE).
 
 ---
 
