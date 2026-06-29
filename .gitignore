@@ -10,6 +10,7 @@ self-evolve/logs/
 self-evolve/misses/
 self-evolve/feedback/
 self-evolve/reports/
+self-evolve/stats/
 
 # Node.js
 node_modules/
@@ -31,4 +32,7 @@ Thumbs.db
 
 # Output
 *.log
-reports/
+reports/generated/*
+!reports/generated/.gitkeep
+reports/test-results/*
+!reports/test-results/.gitkeep

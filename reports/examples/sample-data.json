@@ -1,0 +1,208 @@
+{
+  "date": "2026-06-29",
+  "yunqi_year": 2026,
+  "year_gz": "丙午",
+  "year_gan": "丙",
+  "year_zhi": "午",
+  "sexagenary_index": 43,
+  "shengxiao": "马",
+  "day_gz": "甲戌",
+  "sui_yun": {
+    "name": "水运",
+    "element": "水",
+    "status": "太过",
+    "code": "water_excess",
+    "tiangan": "丙"
+  },
+  "si_tian": "少阴君火",
+  "zai_quan": "阳明燥金",
+  "current_step": {
+    "step_number": 3,
+    "name": "三之气(主小满~大暑)",
+    "zhu_qi": "少阳相火",
+    "ke_qi": "少阴君火",
+    "relation": "客主同气",
+    "shun_ni": "相得（顺）",
+    "keqi_is_sitian": true,
+    "keqi_is_zaiquan": false,
+    "date_range": {
+      "start": "2026-05-21",
+      "end": "2026-07-23"
+    }
+  },
+  "tong_hua": {
+    "tianfu": false,
+    "suihui": false,
+    "taiyi_tianfu": false,
+    "pingqi": false
+  },
+  "zhu_yun": [
+    {
+      "step": 1,
+      "element": "木",
+      "tai_shao": "太"
+    },
+    {
+      "step": 2,
+      "element": "火",
+      "tai_shao": "少"
+    },
+    {
+      "step": 3,
+      "element": "土",
+      "tai_shao": "太"
+    },
+    {
+      "step": 4,
+      "element": "金",
+      "tai_shao": "少"
+    },
+    {
+      "step": 5,
+      "element": "水",
+      "tai_shao": "太"
+    }
+  ],
+  "ke_yun": [
+    {
+      "step": 1,
+      "element": "水",
+      "tai_shao": "太"
+    },
+    {
+      "step": 2,
+      "element": "木",
+      "tai_shao": "少"
+    },
+    {
+      "step": 3,
+      "element": "火",
+      "tai_shao": "太"
+    },
+    {
+      "step": 4,
+      "element": "土",
+      "tai_shao": "少"
+    },
+    {
+      "step": 5,
+      "element": "金",
+      "tai_shao": "太"
+    }
+  ],
+  "ke_qi_six_steps": [
+    {
+      "step": 1,
+      "ke_qi": "太阳寒水",
+      "is_sitian": false,
+      "is_zaiquan": false
+    },
+    {
+      "step": 2,
+      "ke_qi": "厥阴风木",
+      "is_sitian": false,
+      "is_zaiquan": false
+    },
+    {
+      "step": 3,
+      "ke_qi": "少阴君火",
+      "is_sitian": true,
+      "is_zaiquan": false
+    },
+    {
+      "step": 4,
+      "ke_qi": "太阴湿土",
+      "is_sitian": false,
+      "is_zaiquan": false
+    },
+    {
+      "step": 5,
+      "ke_qi": "少阳相火",
+      "is_sitian": false,
+      "is_zaiquan": false
+    },
+    {
+      "step": 6,
+      "ke_qi": "阳明燥金",
+      "is_sitian": false,
+      "is_zaiquan": true
+    }
+  ],
+  "ke_zhu_jia_lin": [
+    {
+      "step_number": 1,
+      "step_name": "初之气(主大寒~春分)",
+      "zhu_qi": "厥阴风木",
+      "ke_qi": "太阳寒水",
+      "relation": "客气生主气",
+      "shun_ni": "相得（顺）",
+      "keqi_is_sitian": false,
+      "keqi_is_zaiquan": false
+    },
+    {
+      "step_number": 2,
+      "step_name": "二之气(主春分~小满)",
+      "zhu_qi": "少阴君火",
+      "ke_qi": "厥阴风木",
+      "relation": "客气生主气",
+      "shun_ni": "相得（顺）",
+      "keqi_is_sitian": false,
+      "keqi_is_zaiquan": false
+    },
+    {
+      "step_number": 3,
+      "step_name": "三之气(主小满~大暑)",
+      "zhu_qi": "少阳相火",
+      "ke_qi": "少阴君火",
+      "relation": "客主同气",
+      "shun_ni": "相得（顺）",
+      "keqi_is_sitian": true,
+      "keqi_is_zaiquan": false
+    },
+    {
+      "step_number": 4,
+      "step_name": "四之气(主大暑~秋分)",
+      "zhu_qi": "太阴湿土",
+      "ke_qi": "太阴湿土",
+      "relation": "客主同气",
+      "shun_ni": "相得（顺）",
+      "keqi_is_sitian": false,
+      "keqi_is_zaiquan": false
+    },
+    {
+      "step_number": 5,
+      "step_name": "五之气(主秋分~小雪)",
+      "zhu_qi": "阳明燥金",
+      "ke_qi": "少阳相火",
+      "relation": "客气克主气",
+      "shun_ni": "不相得（逆）",
+      "keqi_is_sitian": false,
+      "keqi_is_zaiquan": false
+    },
+    {
+      "step_number": 6,
+      "step_name": "终之气(主小雪~大寒)",
+      "zhu_qi": "太阳寒水",
+      "ke_qi": "阳明燥金",
+      "relation": "客气生主气",
+      "shun_ni": "相得（顺）",
+      "keqi_is_sitian": false,
+      "keqi_is_zaiquan": true
+    }
+  ],
+  "jieqi_dates": {
+    "大寒": "2026-01-20",
+    "春分": "2026-03-20",
+    "小满": "2026-05-21",
+    "大暑": "2026-07-23",
+    "秋分": "2026-09-23",
+    "小雪": "2026-11-22",
+    "大寒(终)": "2027-01-20"
+  },
+  "rag_keys": {
+    "suiyun": "water_excess",
+    "sitian": "shaoyin_junhuo_sitian",
+    "zaiquan": "yangming_zaojin_zaiquan",
+    "current_step": "zhu_shaoyang_ke_shaoyin"
+  }
+}

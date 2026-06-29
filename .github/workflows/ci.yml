@@ -1,0 +1,50 @@
+# GitHub Actions CI for WuYun-LiuQi Skills
+# Runs the primary Python workflow, RAG validation, regression tests, and optional Node.js API smoke test.
+
+name: CI
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  test:
+    name: Python and Node smoke tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Node dependencies
+        run: npm install
+
+      - name: Health check
+        run: python scripts/health_check.py
+
+      - name: Validate RAG knowledge base
+        run: python scripts/validate_knowledge_base.py
+
+      - name: Verify expansion suite
+        run: python scripts/verify_expansion.py
+
+      - name: Full CLI regression suite
+        run: python scripts/full_regression_test.py
+
+      - name: Node.js API smoke test
+        run: node scripts/calculate_yunqi_api.js 2026-06-29 --json

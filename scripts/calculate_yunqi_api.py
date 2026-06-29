@@ -300,7 +300,7 @@ def run_html_report(date_str):
     """调用 generate_html_report.py 生成 HTML 报告"""
     import subprocess
     script_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'generate_html_report.py')
-    output_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'reports', f'wuyun-liuqi-report-{date_str}.html')
+    output_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'reports', 'generated', f'wuyun-liuqi-report-{date_str}.html')
     env = os.environ.copy()
     env['PYTHONIOENCODING'] = 'utf-8'
     result = subprocess.run(

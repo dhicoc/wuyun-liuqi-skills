@@ -1,0 +1,110 @@
+{
+  "asset_name": "wuyun-liuqi-rag-index",
+  "asset_type": "knowledge_base_index",
+  "description": "五运六气 RAG 知识库资产索引。用于说明各 asset 的用途、检索键和维护状态。",
+  "total_entries": 8,
+  "primary_api": "scripts/calculate_yunqi_api.py",
+  "entries": [
+    {
+      "entry_id": "rag_index_asset1_suiyun",
+      "entry_type": "asset_index",
+      "title": "岁运病机资产",
+      "file": "asset1_suiyun.json",
+      "asset_id": "asset1",
+      "asset_category": "suiyun_pathogenesis",
+      "description": "五运太过/不及病机、症状、治则。",
+      "lookup_fields": ["code"],
+      "example_keys": ["water_excess", "fire_deficient"],
+      "rag_key": "asset1_suiyun"
+    },
+    {
+      "entry_id": "rag_index_asset2_sitian_zaiquan",
+      "entry_type": "asset_index",
+      "title": "司天在泉资产",
+      "file": "asset2_sitian_zaiquan.json",
+      "asset_id": "asset2",
+      "asset_category": "sitian_zaiquan_pathogenesis",
+      "description": "司天在泉上下半年六气病机与治法。",
+      "lookup_fields": ["sitian_key", "zaiquan_key", "rag_key"],
+      "example_keys": ["shaoyin_junhuo_sitian", "yangming_zaojin_zaiquan"],
+      "rag_key": "asset2_sitian_zaiquan"
+    },
+    {
+      "entry_id": "rag_index_asset3_kezhujialin",
+      "entry_type": "asset_index",
+      "title": "客主加临资产",
+      "file": "asset3_kezhujialin.json",
+      "asset_id": "asset3",
+      "asset_category": "kezhujialin_pathogenesis",
+      "description": "六步主客气组合、顺逆判断、病机分析。",
+      "lookup_fields": ["key", "rag_key"],
+      "example_keys": ["zhu_shaoyang_ke_shaoyin"],
+      "rag_key": "asset3_kezhujialin"
+    },
+    {
+      "entry_id": "rag_index_asset4_formula",
+      "entry_type": "asset_index",
+      "title": "运气方资产",
+      "file": "asset4_formula.json",
+      "asset_id": "asset4",
+      "asset_category": "yunqi_formula",
+      "description": "三因司天方与运气方药方向。",
+      "lookup_fields": ["rag_key"],
+      "example_keys": ["water_excess", "fire_deficient"],
+      "rag_key": "asset4_formula"
+    },
+    {
+      "entry_id": "rag_index_asset5_commentary",
+      "entry_type": "asset_index",
+      "title": "历代注家资产",
+      "file": "asset5_commentary.json",
+      "asset_id": "asset5",
+      "asset_category": "commentary",
+      "description": "历代注家运气学说观点。",
+      "lookup_fields": ["related_yunqi_keys", "commentary_id"],
+      "example_keys": ["water_excess"],
+      "rag_key": "asset5_commentary"
+    },
+    {
+      "entry_id": "rag_index_asset6_regional",
+      "entry_type": "asset_index",
+      "title": "地域修正资产",
+      "file": "asset6_regional.json",
+      "asset_id": "asset6",
+      "asset_category": "regional_modifier",
+      "description": "地域气候修正与体质倾向。",
+      "lookup_fields": ["region_id", "region_name"],
+      "example_keys": ["华东", "华南", "西南"],
+      "rag_key": "asset6_regional"
+    },
+    {
+      "entry_id": "rag_index_asset7_constitution",
+      "entry_type": "asset_index",
+      "title": "运气体质资产",
+      "file": "asset7_constitution.json",
+      "asset_id": "asset7",
+      "asset_category": "constitution_alignment",
+      "description": "出生年运气体质映射与当前岁运调理。",
+      "lookup_fields": ["birth_yunqi_keys", "suiyun_code", "constitution_code"],
+      "example_keys": ["fire_deficient", "water_excess"],
+      "rag_key": "asset7_constitution"
+    },
+    {
+      "entry_id": "rag_index_terminology",
+      "entry_type": "asset_index",
+      "title": "术语解释资产",
+      "file": "terminology.json",
+      "asset_id": "terminology",
+      "asset_category": "terminology",
+      "description": "术语解释库，用于教学和报告解释。",
+      "lookup_fields": ["term", "pinyin", "entry_id"],
+      "example_keys": ["岁运", "司天", "客主加临"],
+      "rag_key": "terminology"
+    }
+  ],
+  "maintenance": {
+    "validate": "python scripts/validate_knowledge_base.py",
+    "full_regression": "python scripts/full_regression_test.py",
+    "ingest": "python scripts/ingest_literature.py"
+  }
+}

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>五运六气 · 2026-06-29 · 丙午年</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0b0f17;
+  --surface: #111827;
+  --surface-2: #1f2937;
+  --gold: #d4af37;
+  --gold-light: #f3e5ab;
+  --muted: #94a3b8;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Noto Sans SC', sans-serif;
+  background: radial-gradient(ellipse at 50% 0%, #162032 0%, #0b0f17 60%);
+  color: #f8fafc;
+  min-height: 100vh;
+}
+.font-serif { font-family: 'Noto Serif SC', serif; }
+.gold-text {
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero {
+  position: relative;
+  padding: 4rem 1rem 3rem;
+  text-align: center;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../wuyun-liuqi-skills.png') center/contain no-repeat;
+  opacity: 0.12;
+  filter: blur(2px);
+  pointer-events: none;
+}
+.hero-content { position: relative; z-index: 1; }
+.hero h1 { font-size: clamp(2.2rem, 7vw, 4.5rem); letter-spacing: 0.05em; }
+.hero .subtitle { color: var(--muted); font-size: 1.05rem; margin-top: 0.75rem; }
+.hero-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin-top: 1.75rem; }
+.badge-hero {
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(212,175,55,0.35);
+  background: rgba(17,24,39,0.7);
+  color: var(--gold-light);
+  font-size: 0.9rem;
+  backdrop-filter: blur(6px);
+}
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 1rem;
+}
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.section-title::before {
+  content: '';
+  width: 4px;
+  height: 1.4em;
+  background: linear-gradient(180deg, var(--gold) 0%, transparent 100%);
+  border-radius: 2px;
+}
+.current-focus {
+  background: linear-gradient(135deg, rgba(212,175,55,0.12) 0%, rgba(17,24,39,0.9) 60%);
+  border: 1px solid rgba(212,175,55,0.35);
+  border-radius: 1.25rem;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.current-focus::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(251,113,133,0.45);
+  filter: blur(60px);
+  pointer-events: none;
+}
+.focus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+.focus-item {
+  background: rgba(17,24,39,0.7);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 0.875rem;
+  padding: 1.25rem;
+}
+.focus-item .label { color: var(--muted); font-size: 0.85rem; margin-bottom: 0.35rem; }
+.focus-item .value { font-size: 1.25rem; font-weight: 700; }
+.qi-ring {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+.qi-card {
+  background: rgba(17,24,39,0.75);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 1rem;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+}
+.qi-card:hover { transform: translateY(-4px); }
+.qi-card.current {
+  background: rgba(17,24,39,0.95);
+  border-width: 2px;
+}
+.qi-step-num {
+  position: absolute;
+  top: 0.6rem;
+  left: 0.6rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+.qi-card.current .qi-step-num { background: var(--gold); color: #0b0f17; font-weight: 700; }
+.qi-name { font-size: 1.15rem; font-weight: 700; color: var(--gold-light); margin-bottom: 0.75rem; }
+.qi-pair { display: flex; justify-content: center; gap: 0.75rem; font-size: 0.95rem; margin-bottom: 0.5rem; }
+.qi-relation { font-size: 0.8rem; color: var(--muted); }
+.qi-badges { display: flex; justify-content: center; gap: 0.35rem; margin-top: 0.75rem; }
+.badge {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid;
+}
+.badge.sitian { color: #fb7185; border-color: rgba(251,113,133,0.4); }
+.badge.zaiquan { color: #e5e7eb; border-color: rgba(229,231,235,0.4); }
+.badge.current-badge { color: #0b0f17; background: var(--gold); border-color: var(--gold); font-weight: 700; }
+.yun-timeline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+}
+.yun-step {
+  flex: 1 1 160px;
+  background: rgba(17,24,39,0.7);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 0.875rem;
+  padding: 1.25rem;
+  text-align: center;
+}
+.yun-dot {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  margin: 0 auto 0.75rem;
+}
+.yun-label { color: var(--muted); font-size: 0.8rem; margin-bottom: 0.35rem; }
+.yun-values { font-weight: 700; font-size: 1.05rem; }
+.yun-sep { color: var(--muted); margin: 0 0.4rem; }
+.jialin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(17,24,39,0.6);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.jialin-table th, .jialin-table td {
+  padding: 0.9rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.jialin-table th {
+  background: rgba(212,175,55,0.12);
+  color: var(--gold-light);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+.jialin-table tr:last-child td { border-bottom: none; }
+.jialin-table tr:hover { background: rgba(255,255,255,0.04); }
+.jialin-table .row-current { background: rgba(212,175,55,0.1); }
+.jialin-table .shun { color: #4ade80; }
+.jialin-table .ni { color: #fb7185; }
+.disclaimer {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: rgba(248,113,113,0.08);
+  border: 1px solid rgba(248,113,113,0.25);
+  color: #fca5a5;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+.print-btn {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 50;
+  background: linear-gradient(135deg, var(--gold) 0%, #b8860b 100%);
+  color: #0b0f17;
+  font-weight: 700;
+  padding: 0.75rem 1.25rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(212,175,55,0.3);
+  transition: transform 0.2s ease;
+}
+.print-btn:hover { transform: translateY(-2px); }
+.tooltip {
+  position: relative;
+  cursor: help;
+  border-bottom: 1px dashed rgba(212,175,55,0.5);
+}
+.tooltip::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 260px;
+  background: rgba(17,24,39,0.98);
+  border: 1px solid rgba(212,175,55,0.35);
+  color: #f8fafc;
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 100;
+}
+.tooltip:hover::after { opacity: 1; }
+@media print {
+  .print-btn { display: none; }
+  body { background: #fff; color: #111; }
+  .hero::before { opacity: 0.05; }
+}
+@media (max-width: 640px) {
+  .hero { padding: 2.5rem 1rem 2rem; }
+  .yun-timeline { flex-direction: column; }
+  .jialin-table th, .jialin-table td { padding: 0.7rem 0.5rem; font-size: 0.85rem; }
+}
+</style>
+</head>
+<body>
+  <button class="print-btn" onclick="window.print()">导出 / 打印</button>
+
+  <header class="hero">
+    <div class="hero-content">
+      <h1 class="font-serif gold-text">五运六气</h1>
+      <p class="subtitle font-serif">2026-06-29 · 丙午年 · 第43甲子 · 生肖马</p>
+      <div class="hero-badges">
+        <span class="badge-hero">岁运：<span style="color:#e5e7eb">水运太过</span></span>
+        <span class="badge-hero">司天：少阴君火</span>
+        <span class="badge-hero">在泉：阳明燥金</span>
+        <span class="badge-hero">日干支：甲戌</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="current-focus">
+        <h2 class="section-title font-serif" style="margin:0">当前步位聚焦</h2>
+        <p style="color:var(--muted); margin-top:0.5rem;">三之气(主小满~大暑) · 2026-05-21 至 2026-07-23</p>
+        <div class="focus-grid">
+          <div class="focus-item">
+            <div class="label">主气</div>
+            <div class="value" style="color:#fb7185">少阳相火</div>
+          </div>
+          <div class="focus-item">
+            <div class="label">客气</div>
+            <div class="value" style="color:#fb7185">少阴君火</div>
+          </div>
+          <div class="focus-item">
+            <div class="label">关系</div>
+            <div class="value">客主同气</div>
+          </div>
+          <div class="focus-item">
+            <div class="label">顺逆</div>
+            <div class="value" style="color:#4ade80">相得（顺）</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title font-serif">六气步位圆环</h2>
+      <div class="qi-ring">
+        
+        <div class="qi-card" style="border-color: #60a5fa; ">
+          <div class="qi-step-num">1</div>
+          <div class="qi-name">初之气</div>
+          <div class="qi-pair">
+            <span class="zhu" style="color:#4ade80">主 厥阴风木</span>
+            <span class="ke" style="color:#60a5fa">客 太阳寒水</span>
+          </div>
+          <div class="qi-relation">客气生主气 · 相得（顺）</div>
+          <div class="qi-badges"></div>
+        </div>
+        
+        <div class="qi-card" style="border-color: #4ade80; ">
+          <div class="qi-step-num">2</div>
+          <div class="qi-name">二之气</div>
+          <div class="qi-pair">
+            <span class="zhu" style="color:#fb7185">主 少阴君火</span>
+            <span class="ke" style="color:#4ade80">客 厥阴风木</span>
+          </div>
+          <div class="qi-relation">客气生主气 · 相得（顺）</div>
+          <div class="qi-badges"></div>
+        </div>
+        
+        <div class="qi-card current" style="border-color: #fb7185; box-shadow: 0 0 28px rgba(251,113,133,0.45);">
+          <div class="qi-step-num">3</div>
+          <div class="qi-name">三之气</div>
+          <div class="qi-pair">
+            <span class="zhu" style="color:#fb7185">主 少阳相火</span>
+            <span class="ke" style="color:#fb7185">客 少阴君火</span>
+          </div>
+          <div class="qi-relation">客主同气 · 相得（顺）</div>
+          <div class="qi-badges"><span class="badge sitian">司天</span><span class="badge current-badge">当前</span></div>
+        </div>
+        
+        <div class="qi-card" style="border-color: #facc15; ">
+          <div class="qi-step-num">4</div>
+          <div class="qi-name">四之气</div>
+          <div class="qi-pair">
+            <span class="zhu" style="color:#facc15">主 太阴湿土</span>
+            <span class="ke" style="color:#facc15">客 太阴湿土</span>
+          </div>
+          <div class="qi-relation">客主同气 · 相得（顺）</div>
+          <div class="qi-badges"></div>
+        </div>
+        
+        <div class="qi-card" style="border-color: #fb7185; ">
+          <div class="qi-step-num">5</div>
+          <div class="qi-name">五之气</div>
+          <div class="qi-pair">
+            <span class="zhu" style="color:#e5e7eb">主 阳明燥金</span>
+            <span class="ke" style="color:#fb7185">客 少阳相火</span>
+          </div>
+          <div class="qi-relation">客气克主气 · 不相得（逆）</div>
+          <div class="qi-badges"></div>
+        </div>
+        
+        <div class="qi-card" style="border-color: #e5e7eb; ">
+          <div class="qi-step-num">6</div>
+          <div class="qi-name">终之气</div>
+          <div class="qi-pair">
+            <span class="zhu" style="color:#60a5fa">主 太阳寒水</span>
+            <span class="ke" style="color:#e5e7eb">客 阳明燥金</span>
+          </div>
+          <div class="qi-relation">客气生主气 · 相得（顺）</div>
+          <div class="qi-badges"><span class="badge zaiquan">在泉</span></div>
+        </div>
+        
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title font-serif">五运推移</h2>
+      <div class="yun-timeline">
+        
+        <div class="yun-step">
+          <div class="yun-dot" style="background:#4ade80;box-shadow:0 0 12px rgba(74,222,128,0.45)"></div>
+          <div class="yun-info">
+            <div class="yun-label">第1运</div>
+            <div class="yun-values">
+              <span style="color:#4ade80">主 太木运</span>
+              <span class="yun-sep">|</span>
+              <span style="color:#60a5fa">客 太水运</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="yun-step">
+          <div class="yun-dot" style="background:#fb7185;box-shadow:0 0 12px rgba(251,113,133,0.45)"></div>
+          <div class="yun-info">
+            <div class="yun-label">第2运</div>
+            <div class="yun-values">
+              <span style="color:#fb7185">主 少火运</span>
+              <span class="yun-sep">|</span>
+              <span style="color:#4ade80">客 少木运</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="yun-step">
+          <div class="yun-dot" style="background:#facc15;box-shadow:0 0 12px rgba(250,204,21,0.45)"></div>
+          <div class="yun-info">
+            <div class="yun-label">第3运</div>
+            <div class="yun-values">
+              <span style="color:#facc15">主 太土运</span>
+              <span class="yun-sep">|</span>
+              <span style="color:#fb7185">客 太火运</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="yun-step">
+          <div class="yun-dot" style="background:#e5e7eb;box-shadow:0 0 12px rgba(229,231,235,0.45)"></div>
+          <div class="yun-info">
+            <div class="yun-label">第4运</div>
+            <div class="yun-values">
+              <span style="color:#e5e7eb">主 少金运</span>
+              <span class="yun-sep">|</span>
+              <span style="color:#facc15">客 少土运</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="yun-step">
+          <div class="yun-dot" style="background:#60a5fa;box-shadow:0 0 12px rgba(96,165,250,0.45)"></div>
+          <div class="yun-info">
+            <div class="yun-label">第5运</div>
+            <div class="yun-values">
+              <span style="color:#60a5fa">主 太水运</span>
+              <span class="yun-sep">|</span>
+              <span style="color:#e5e7eb">客 太金运</span>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title font-serif">客主加临顺逆</h2>
+      <div style="overflow-x:auto">
+        <table class="jialin-table">
+          <thead>
+            <tr>
+              <th>步位</th>
+              <th>主气</th>
+              <th>客气</th>
+              <th>关系</th>
+              <th>顺逆</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+        <tr class="">
+          <td>初之气 </td>
+          <td style="color:#4ade80">厥阴风木</td>
+          <td style="color:#60a5fa">太阳寒水</td>
+          <td>客气生主气</td>
+          <td class="shun">相得（顺）</td>
+        </tr>
+        
+        <tr class="">
+          <td>二之气 </td>
+          <td style="color:#fb7185">少阴君火</td>
+          <td style="color:#4ade80">厥阴风木</td>
+          <td>客气生主气</td>
+          <td class="shun">相得（顺）</td>
+        </tr>
+        
+        <tr class="row-current">
+          <td>三之气 ★</td>
+          <td style="color:#fb7185">少阳相火</td>
+          <td style="color:#fb7185">少阴君火</td>
+          <td>客主同气</td>
+          <td class="shun">相得（顺）</td>
+        </tr>
+        
+        <tr class="">
+          <td>四之气 </td>
+          <td style="color:#facc15">太阴湿土</td>
+          <td style="color:#facc15">太阴湿土</td>
+          <td>客主同气</td>
+          <td class="shun">相得（顺）</td>
+        </tr>
+        
+        <tr class="">
+          <td>五之气 </td>
+          <td style="color:#e5e7eb">阳明燥金</td>
+          <td style="color:#fb7185">少阳相火</td>
+          <td>客气克主气</td>
+          <td class="ni">不相得（逆）</td>
+        </tr>
+        
+        <tr class="">
+          <td>终之气 </td>
+          <td style="color:#60a5fa">太阳寒水</td>
+          <td style="color:#e5e7eb">阳明燥金</td>
+          <td>客气生主气</td>
+          <td class="shun">相得（顺）</td>
+        </tr>
+        
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title font-serif">术语速查</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;color:var(--muted);font-size:0.9rem;">
+        <div><strong class="gold-text">岁运</strong>：即大运，一年之总气，由年干决定。</div>
+        <div><strong class="gold-text">司天</strong>：上半年主管之气，由年支决定。</div>
+        <div><strong class="gold-text">在泉</strong>：下半年主管之气，与司天相对。</div>
+        <div><strong class="gold-text">主气</strong>：六气固定次序，初之气厥阴风木至终之气太阳寒水。</div>
+        <div><strong class="gold-text">客气</strong>：逐年流转之六气，以司天所在步位为第三气。</div>
+        <div><strong class="gold-text">客主加临</strong>：客气与主气同处一步，按五行生克判断顺逆。</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="disclaimer">
+        <strong>免责声明</strong>：以上分析基于中医运气学说理论推算，仅供参考。运气学说非现代医学诊断标准，具体诊疗须由执业中医师辨证论治。请勿据此自行用药或针灸。
+      </div>
+    </section>
+  </main>
+
+  <footer style="text-align:center;padding:2rem 1rem;color:var(--muted);font-size:0.8rem;">
+    由 wuyun-liuqi-skills 自动生成 · 2026-06-29
+  </footer>
+</body>
+</html>

@@ -76,6 +76,10 @@ function calculateYunqiApi(dateStr) {
   const [ny, nm, nd] = D.getJieqiDate(yqYear + 1, '大寒');
   jieqiDates['大寒(终)'] = `${ny}-${String(nm).padStart(2,'0')}-${String(nd).padStart(2,'0')}`;
 
+  const liuqiPinyinShort = Object.fromEntries(
+    Object.entries(D.LIUQI_PINYIN).map(([key, value]) => [key, value.split('_')[0]])
+  );
+
   // 构建标准化输出
   return {
     date: dateStr,
@@ -121,7 +125,7 @@ function calculateYunqiApi(dateStr) {
       suiyun: suiyunCode,
       sitian: `${D.LIUQI_PINYIN[sitian]}_sitian`,
       zaiquan: `${D.LIUQI_PINYIN[zaiquan]}_zaiquan`,
-      current_step: `zhu_${D.LIUQI_PINYIN[stepDetail.zhu_qi]}_ke_${D.LIUQI_PINYIN[stepDetail.ke_qi]}`,
+      current_step: `zhu_${liuqiPinyinShort[stepDetail.zhu_qi]}_ke_${liuqiPinyinShort[stepDetail.ke_qi]}`,
     },
   };
 }

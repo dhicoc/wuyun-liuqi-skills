@@ -5,7 +5,7 @@
 用法:
   python scripts/generate_html_report.py <YYYY-MM-DD> [输出路径]
 示例:
-  python scripts/generate_html_report.py 2026-06-29 reports/wuyun-liuqi-report.html
+  python scripts/generate_html_report.py 2026-06-29 reports/generated/wuyun-liuqi-report.html
 """
 import sys
 import os
@@ -657,11 +657,11 @@ body {{
 def main():
     if len(sys.argv) < 2:
         print("用法: python scripts/generate_html_report.py <YYYY-MM-DD> [输出路径]")
-        print("示例: python scripts/generate_html_report.py 2026-06-29 reports/wuyun-liuqi-report.html")
+        print("示例: python scripts/generate_html_report.py 2026-06-29 reports/generated/wuyun-liuqi-report.html")
         sys.exit(1)
 
     date_str = sys.argv[1]
-    output_path = sys.argv[2] if len(sys.argv) > 2 else os.path.join(BASE_DIR, 'reports', f'wuyun-liuqi-report-{date_str}.html')
+    output_path = sys.argv[2] if len(sys.argv) > 2 else os.path.join(BASE_DIR, 'reports', 'generated', f'wuyun-liuqi-report-{date_str}.html')
 
     data = get_data(date_str)
     html = generate_html(data)

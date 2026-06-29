@@ -333,6 +333,13 @@ python scripts/self_evolve.py log \
 | [scripts/self_evolve.py](scripts/self_evolve.py) | 自进化引擎 |
 | [scripts/verify_expansion.py](scripts/verify_expansion.py) | 端到端验证 |
 | [rag-knowledge-base/](rag-knowledge-base/) | RAG 知识库 |
+| [rag-knowledge-base/index.json](rag-knowledge-base/index.json) | RAG 资产索引 |
+| [docs/architecture.md](docs/architecture.md) | 项目架构说明 |
+| [docs/function-coverage.md](docs/function-coverage.md) | 功能覆盖说明 |
+| [docs/roadmap.md](docs/roadmap.md) | 后续路线图 |
+| [reports/examples/](reports/examples/) | 示例报告与预览图 |
+| [reports/generated/](reports/generated/) | 本地生成报告 |
+| [reports/test-results/](reports/test-results/) | 测试输出 |
 | [docs-generator/](docs-generator/) | 报告模板 |
 | [advanced-alignment/](advanced-alignment/) | 天气、地域、体质高级对齐 |
 

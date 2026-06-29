@@ -194,12 +194,19 @@ python scripts/verify_expansion.py        # 67 项端到端测试
 ├── CONTRIBUTING.md             # 新增子技能指南
 ├── LICENSE                     # MIT 许可证
 │
-├── scripts/                    # 推算引擎（Python + JavaScript）
-│   ├── calculate_yunqi_api.py  # ★ 统一计算接口
+├── scripts/                    # 推算引擎（Python 主链路 + JS 可选接口）
+│   ├── calculate_yunqi_api.py  # ★ Python 主链路统一计算接口
+│   ├── calculate_yunqi_api.js  # JS / Node.js 可选接口
 │   ├── self_evolve.py          # ★ 自进化引擎
-│   └── verify_expansion.py     # 67 项测试
+│   └── full_regression_test.py # 全量回归测试
 │
-├── rag-knowledge-base/         # ★ RAG 知识库（5 层 104 键）
+├── tests/                      # 测试夹具与后续测试迁移目标
+├── reports/                    # 报告与可视化输出
+│   ├── examples/               # 示例报告与预览图
+│   ├── generated/              # 本地生成报告（默认忽略）
+│   └── test-results/           # 测试输出（默认忽略）
+├── rag-knowledge-base/         # ★ RAG 知识库（含 README 与 index.json）
+├── .github/workflows/          # CI 工作流
 ├── agent-workflow/             # ★ ReAct 推理工作流
 ├── prompts/                    # System Prompt
 ├── advanced-alignment/         # 高级对齐（天气 / 体质）
@@ -372,10 +379,16 @@ python scripts/verify_expansion.py
 ## Repository Map
 
 ```text
-scripts/                 Calculation engines, API, reports, visualization, tests
-rag-knowledge-base/      Structured RAG assets
+scripts/                 Calculation engines, primary Python API, optional Node.js API, reports, visualization
+rag-knowledge-base/      Structured RAG assets, README, and index.json
 agent-workflow/          ReAct workflow specification
 prompts/                 Agent system prompts
+reports/examples/        Versioned sample reports and preview images
+reports/generated/       Local generated reports (ignored by Git)
+reports/test-results/    Test outputs (ignored by Git)
+docs/                    Architecture, feature coverage, roadmap, and technical notes
+tests/                   Test fixtures and future test migration target
+.github/workflows/       CI workflow
 ganzhi-basics/           Stem-Branch learning skill
 yunqi-calc/              Core Yunqi calculation skill
 yunqi-pathogenesis/      Pathogenesis reasoning skill
