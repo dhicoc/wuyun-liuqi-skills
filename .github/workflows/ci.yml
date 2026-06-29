@@ -51,3 +51,6 @@ jobs:
 
       - name: Weather alignment mock test
         run: python scripts/weather_alignment.py 2026-06-29 --city 杭州 --mock --json
+
+      - name: Weather and constitution combined mock test
+        run: python scripts/yunqi_weather_constitution.py 2026-06-29 --birth-date 2003-04-19 --city 杭州 --mock --json

@@ -8,7 +8,7 @@
 |------|------|----------|------|
 | 天气对齐 | ✅ 已接入 | `scripts/weather_alignment.py` | 支持 Open-Meteo、QWeather、Seniverse、mock；含缓存、历史同期均值、气象六气转译与运气对齐 |
 | 个人体质 | ✅ 已接入 | `scripts/personal_yunqi_profile.py` | 出生年运气体质映射、当前岁运调理、地域修正 |
-| 天气 × 体质叠加 | 🟡 设计中 | `weather_alignment.py` + `personal_yunqi_profile.py` | 目前可由 Agent 组合调用，后续可封装为统一脚本 |
+| 天气 × 体质叠加 | ✅ 已接入 | `scripts/yunqi_weather_constitution.py` | 组合天气对齐与个人运气体质，输出先天体质 × 当前岁运 × 天气实况三维叠加判断 |
 
 ## 天气对齐用法
 
@@ -45,6 +45,28 @@ python scripts/weather_alignment.py 2026-06-29 --city 杭州 --mock --json
 | Mock | `--provider mock` 或 `--mock` | 无需密钥 | 用于测试和 CI |
 
 缓存目录：`.cache/weather_alignment/`，默认缓存 60 分钟，可用 `--cache-ttl` 调整。
+
+## 天气 × 体质叠加用法
+
+```bash
+# 三维叠加：分析日期 + 出生日期 + 城市
+python scripts/yunqi_weather_constitution.py 2026-06-29 --birth-date 2003-04-19 --city 杭州
+
+# JSON 输出
+python scripts/yunqi_weather_constitution.py 2026-06-29 --birth-date 2003-04-19 --city 杭州 --json
+
+# 测试 / CI：不访问外网
+python scripts/yunqi_weather_constitution.py 2026-06-29 --birth-date 2003-04-19 --city 杭州 --mock --json
+```
+
+该脚本会同时调用个人运气体质分析与天气对齐模块，输出：
+
+- 出生年先天运气体质倾向
+- 当前岁运易感体质
+- 天气实况六气倾向
+- 先天体质 × 当前岁运 × 天气实况的叠加级别
+- 综合调摄原则
+
 
 ## 设计文档
 

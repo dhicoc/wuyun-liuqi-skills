@@ -103,6 +103,8 @@ def main():
     # 天气对齐（mock 模式避免 CI 依赖外网）
     run('weather alignment mock text', [PY, 'scripts/weather_alignment.py', '2026-06-29', '--city', '杭州', '--mock'], has('天气对齐报告'))
     run('weather alignment mock json', [PY, 'scripts/weather_alignment.py', '2026-06-29', '--city', '杭州', '--mock', '--json'], json_has(['alignment', 'type']))
+    run('weather constitution mock text', [PY, 'scripts/yunqi_weather_constitution.py', '2026-06-29', '--birth-date', '2003-04-19', '--city', '杭州', '--mock'], has('三维叠加报告'))
+    run('weather constitution mock json', [PY, 'scripts/yunqi_weather_constitution.py', '2026-06-29', '--birth-date', '2003-04-19', '--city', '杭州', '--mock', '--json'], json_has(['combined_analysis', 'level']))
 
     # ingest / validate / self-evolve
     run('ingest list categories', [PY, 'scripts/ingest_literature.py', '--list-categories'], has('classics'))
