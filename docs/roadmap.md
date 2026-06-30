@@ -24,7 +24,7 @@
 
 - [x] 新增九种体质量表评估脚本（`scripts/constitution_assessment.py`）。
 - [x] 将九种体质量表评估结果深度接入 `personal_yunqi_profile.py`。
-- [ ] 将地域修正从静态提示扩展为报告中的可解释修正项。
+- [x] 将地域修正从静态提示扩展为报告中的可解释修正项。
 - [x] 将天气 API 对齐设计转为可执行模块（`scripts/weather_alignment.py`）。
 - [x] 为天气对齐增加缓存、历史同期均值和更多天气源适配。
 - [x] 封装天气 × 体质三维叠加脚本（`scripts/yunqi_weather_constitution.py`）。
