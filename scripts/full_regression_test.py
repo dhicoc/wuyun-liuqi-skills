@@ -118,6 +118,7 @@ def main():
     run('constitution assessment demo json', [PY, 'scripts/constitution_assessment.py', '--demo', '--json'], json_has(['agent_context', 'constitution']))
     run('weather alignment mock text', [PY, 'scripts/weather_alignment.py', '2026-06-29', '--city', '杭州', '--mock'], has('天气对齐报告'))
     run('weather alignment mock json', [PY, 'scripts/weather_alignment.py', '2026-06-29', '--city', '杭州', '--mock', '--json'], json_has(['alignment', 'type']))
+    run('weather alignment extended mock json', [PY, 'scripts/weather_alignment.py', '2026-06-29', '--city', '杭州', '--mock', '--json', '--with-hourly-trend', '--with-regional-climate'], json_has(['regional_climate_norm', 'wuyun_weight']))
     run('weather constitution mock text', [PY, 'scripts/yunqi_weather_constitution.py', '2026-06-29', '--birth-date', '2003-04-19', '--city', '杭州', '--mock'], has('三维叠加报告'))
     run('weather constitution mock json', [PY, 'scripts/yunqi_weather_constitution.py', '2026-06-29', '--birth-date', '2003-04-19', '--city', '杭州', '--mock', '--json'], json_has(['combined_analysis', 'level']))
     run('advanced alignment mock text', [PY, 'scripts/advanced_alignment.py', '--date', '2026-06-29', '--birth-date', '2003-04-19', '--city', '杭州', '--constitution-demo', '--mock'], has('高级对齐综合报告'))

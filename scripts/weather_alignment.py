@@ -45,10 +45,12 @@ BASE_DIR = os.path.dirname(SCRIPT_DIR)
 CACHE_DIR = os.path.join(BASE_DIR, '.cache', 'weather_alignment')
 sys.path.insert(0, SCRIPT_DIR)
 from calculate_yunqi_api import calculate_yunqi_api  # noqa: E402
+from personal_yunqi_profile import match_region, build_regional_explainable_modifier  # noqa: E402
 
 OPEN_METEO_FORECAST_URL = 'https://api.open-meteo.com/v1/forecast'
 OPEN_METEO_ARCHIVE_URL = 'https://archive-api.open-meteo.com/v1/archive'
 OPEN_METEO_GEOCODE_URL = 'https://geocoding-api.open-meteo.com/v1/search'
+OPEN_METEO_AIR_QUALITY_URL = 'https://air-quality-api.open-meteo.com/v1/air-quality'
 QWEATHER_NOW_URL = 'https://devapi.qweather.com/v7/weather/now'
 SENIVERSE_NOW_URL = 'https://api.seniverse.com/v3/weather/now.json'
 
@@ -243,6 +245,10 @@ def mock_weather(date_str, location):
         'precipitation': 0.0,
         'wind_speed_10m': 9.5,
         'weather_code': 1,
+        'uv_index': 7.2,
+        'pm2_5': 45.0,
+        'pm10': 80.0,
+        'aqi': 85.0,
         'is_current': False,
         'raw_summary': 'mock: warm-humid summer weather',
     }
@@ -259,6 +265,9 @@ def mock_climatology(date_str, location, years=5):
         'relative_humidity_2m_mean': 72.0,
         'precipitation_mean': 0.5,
         'wind_speed_10m_mean': 8.0,
+        'uv_index_mean': 5.0,
+        'pm2_5_mean': 25.0,
+        'aqi_mean': 60.0,
         'anomalies': {},
     }
 
@@ -275,7 +284,64 @@ def mode(values):
     return Counter(values).most_common(1)[0][0]
 
 
-def fetch_open_meteo_weather(date_str, location, timeout=10, cache_ttl=60, no_cache=False):
+def normalize_aqi_from_pm25(pm25):
+    """粗略 AQI 近似：仅用于六气转译，不作为环保监测结论。"""
+    if pm25 is None:
+        return None
+    pm25 = float(pm25)
+    if pm25 <= 35:
+        return round_float(pm25 / 35 * 50)
+    if pm25 <= 75:
+        return round_float(50 + (pm25 - 35) / 40 * 50)
+    if pm25 <= 115:
+        return round_float(100 + (pm25 - 75) / 40 * 50)
+    return round_float(150 + min((pm25 - 115), 150))
+
+
+def fetch_open_meteo_air_quality(date_str, location, timeout=10, cache_ttl=60, no_cache=False):
+    target_date = parse_date(date_str)
+    today = date_cls.today()
+    if target_date > today:
+        return {'status': 'disabled', 'source': 'open-meteo-air-quality', 'reason': 'future date'}
+    params = {
+        'latitude': location['latitude'],
+        'longitude': location['longitude'],
+        'start_date': date_str,
+        'end_date': date_str,
+        'hourly': 'pm10,pm2_5,uv_index',
+        'timezone': 'auto',
+    }
+    try:
+        data = http_get_json(OPEN_METEO_AIR_QUALITY_URL, params, timeout=timeout, retries=1, cache_ttl=cache_ttl, no_cache=no_cache)
+        hourly = data.get('hourly') or {}
+        pm25 = round_float(mean(hourly.get('pm2_5', [])))
+        pm10 = round_float(mean(hourly.get('pm10', [])))
+        uv = round_float(mean(hourly.get('uv_index', [])))
+        return {
+            'status': 'ok',
+            'source': 'open-meteo-air-quality',
+            'pm2_5': pm25,
+            'pm10': pm10,
+            'uv_index': uv,
+            'aqi': normalize_aqi_from_pm25(pm25),
+            'raw_summary': f'{len(hourly.get("time", []))} hourly records',
+            'cache_hit': bool(data.get('_cache_hit')),
+        }
+    except Exception as exc:
+        return {'status': 'unavailable', 'source': 'open-meteo-air-quality', 'error': str(exc)}
+
+
+def merge_air_quality(weather, air_quality):
+    if air_quality and air_quality.get('status') == 'ok':
+        for key in ('pm2_5', 'pm10', 'uv_index', 'aqi'):
+            weather[key] = air_quality.get(key)
+        weather['air_quality'] = air_quality
+    else:
+        weather['air_quality'] = air_quality
+    return weather
+
+
+def fetch_open_meteo_weather(date_str, location, timeout=10, cache_ttl=60, no_cache=False, include_air_quality=True):
     target_date = parse_date(date_str)
     today = date_cls.today()
     lat = location['latitude']
@@ -290,7 +356,7 @@ def fetch_open_meteo_weather(date_str, location, timeout=10, cache_ttl=60, no_ca
         }
         data = http_get_json(OPEN_METEO_FORECAST_URL, params, timeout=timeout, retries=2, cache_ttl=cache_ttl, no_cache=no_cache)
         current = data.get('current') or {}
-        return {
+        weather = {
             'status': 'ok',
             'source': 'open-meteo-current',
             'date': date_str,
@@ -303,6 +369,9 @@ def fetch_open_meteo_weather(date_str, location, timeout=10, cache_ttl=60, no_ca
             'raw_summary': current.get('time'),
             'cache_hit': bool(data.get('_cache_hit')),
         }
+        if include_air_quality:
+            weather = merge_air_quality(weather, fetch_open_meteo_air_quality(date_str, location, timeout=timeout, cache_ttl=cache_ttl, no_cache=no_cache))
+        return weather
 
     url = OPEN_METEO_ARCHIVE_URL if target_date < today else OPEN_METEO_FORECAST_URL
     params = {
@@ -317,7 +386,7 @@ def fetch_open_meteo_weather(date_str, location, timeout=10, cache_ttl=60, no_ca
     hourly = data.get('hourly') or {}
     precipitation_values = [float(v) for v in hourly.get('precipitation', []) if v is not None]
     wind_values = [float(v) for v in hourly.get('wind_speed_10m', []) if v is not None]
-    return {
+    weather = {
         'status': 'ok',
         'source': 'open-meteo-archive' if target_date < today else 'open-meteo-forecast',
         'date': date_str,
@@ -330,6 +399,9 @@ def fetch_open_meteo_weather(date_str, location, timeout=10, cache_ttl=60, no_ca
         'raw_summary': f'{len(hourly.get("time", []))} hourly records',
         'cache_hit': bool(data.get('_cache_hit')),
     }
+    if include_air_quality:
+        weather = merge_air_quality(weather, fetch_open_meteo_air_quality(date_str, location, timeout=timeout, cache_ttl=cache_ttl, no_cache=no_cache))
+    return weather
 
 
 def fetch_qweather_now(date_str, location, timeout=10, cache_ttl=60, no_cache=False):
@@ -397,7 +469,7 @@ def fetch_seniverse_now(date_str, location, timeout=10, cache_ttl=60, no_cache=F
     }
 
 
-def fetch_weather(date_str, location, mock=False, timeout=10, strict=False, provider='auto', cache_ttl=60, no_cache=False):
+def fetch_weather(date_str, location, mock=False, timeout=10, strict=False, provider='auto', cache_ttl=60, no_cache=False, include_air_quality=True):
     if mock or provider == 'mock':
         return mock_weather(date_str, location)
 
@@ -418,7 +490,7 @@ def fetch_weather(date_str, location, mock=False, timeout=10, strict=False, prov
     for item in try_order:
         try:
             if item == 'open-meteo':
-                return fetch_open_meteo_weather(date_str, location, timeout=timeout, cache_ttl=cache_ttl, no_cache=no_cache)
+                return fetch_open_meteo_weather(date_str, location, timeout=timeout, cache_ttl=cache_ttl, no_cache=no_cache, include_air_quality=include_air_quality)
             if item == 'qweather':
                 return fetch_qweather_now(date_str, location, timeout=timeout, cache_ttl=cache_ttl, no_cache=no_cache)
             if item == 'seniverse':
@@ -453,7 +525,7 @@ def date_with_year(base_date, year):
         return base_date.replace(year=year, day=28)
 
 
-def fetch_climatology(date_str, location, years=5, mock=False, timeout=10, no_cache=False):
+def fetch_climatology(date_str, location, years=5, mock=False, timeout=10, no_cache=False, include_air_quality=True):
     years = int(years or 0)
     if years <= 0:
         return {'status': 'disabled', 'source': 'none', 'baseline_years': 0, 'sample_count': 0, 'anomalies': {}}
@@ -510,6 +582,9 @@ def add_climatology_anomalies(weather, climatology):
         ('relative_humidity_2m', 'relative_humidity_2m_mean', 'relative_humidity_2m_anomaly'),
         ('precipitation', 'precipitation_mean', 'precipitation_anomaly'),
         ('wind_speed_10m', 'wind_speed_10m_mean', 'wind_speed_10m_anomaly'),
+        ('uv_index', 'uv_index_mean', 'uv_index_anomaly'),
+        ('pm2_5', 'pm2_5_mean', 'pm2_5_anomaly'),
+        ('aqi', 'aqi_mean', 'aqi_anomaly'),
     ]
     for cur_key, base_key, out_key in mappings:
         cur = weather.get(cur_key)
@@ -536,6 +611,9 @@ def infer_weather_qi(weather, climatology=None):
     humidity = weather.get('relative_humidity_2m')
     precip = weather.get('precipitation') or 0
     wind = weather.get('wind_speed_10m')
+    uv = weather.get('uv_index')
+    aqi = weather.get('aqi')
+    pm25 = weather.get('pm2_5')
     anomalies = (climatology or {}).get('anomalies') or {}
 
     qi = []
@@ -596,6 +674,25 @@ def infer_weather_qi(weather, climatology=None):
     if wind_anomaly is not None and wind_anomaly >= 8:
         qi.append('风')
         evidence.append(f'较历史同期风速偏大：+{wind_anomaly} km/h')
+
+    if uv is not None and uv >= 6:
+        qi.append('火热')
+        evidence.append(f'UV 指数偏高：{uv} ≥ 6，火热之象增强')
+    uv_anomaly = anomalies.get('uv_index_anomaly')
+    if uv_anomaly is not None and uv_anomaly >= 2:
+        qi.append('火热')
+        evidence.append(f'UV 较历史同期偏高：+{uv_anomaly}')
+
+    if aqi is not None and aqi >= 100:
+        qi.append('燥')
+        evidence.append(f'AQI 偏高：{aqi} ≥ 100，浊燥犯肺倾向增强')
+    elif pm25 is not None and pm25 >= 75:
+        qi.append('燥')
+        evidence.append(f'PM2.5 偏高：{pm25} ≥ 75，浊邪兼燥倾向增强')
+    aqi_anomaly = anomalies.get('aqi_anomaly')
+    if aqi_anomaly is not None and aqi_anomaly >= 30:
+        qi.append('燥')
+        evidence.append(f'AQI 较历史同期偏高：+{aqi_anomaly}')
 
     qi_set = set(qi)
     if {'火热', '湿'} <= qi_set or {'暑热', '湿'} <= qi_set:
@@ -764,7 +861,35 @@ def care_principle_for_weather(attrs, alignment_type):
     return '顺时调摄，平衡作息饮食。'
 
 
-def generate_result(date_str, location, weather, climatology=None, as_mock=False, provider='auto', cache_enabled=True, cache_ttl=60):
+def build_hourly_qi_trend(weather):
+    """基于当日聚合天气生成六步内的趋势占位，后续可替换为真实逐小时分段。"""
+    wq = infer_weather_qi(weather)
+    return {
+        'status': 'summary_based',
+        'description': '当前使用当日聚合天气推断六步趋势；后续可接入真实逐小时分段。',
+        'dominant_pattern': wq.get('pattern'),
+        'dominant_qi': wq.get('qi', []),
+    }
+
+
+def build_regional_climate_norm(location, region_name=None):
+    entry = match_region(region_name or location.get('name'))
+    if not entry:
+        return {'status': 'unavailable', 'region': region_name or location.get('name'), 'reason': '未匹配地域气候常年值条目'}
+    modifier = build_regional_explainable_modifier(entry)
+    return {
+        'status': 'ok',
+        'region': modifier['region_name'],
+        'climate_characteristics': modifier['climate_characteristics'],
+        'affected_factors': modifier['affected_factors'],
+        'wuyun_weight': modifier['wuyun_weight'],
+        'liuqi_weight': modifier['liuqi_weight'],
+        'explanation': modifier['explanation'],
+        'source': modifier['source'],
+    }
+
+
+def generate_result(date_str, location, weather, climatology=None, as_mock=False, provider='auto', cache_enabled=True, cache_ttl=60, regional_climate=None, hourly_trend=None):
     yunqi = calculate_yunqi_api(date_str)
     climatology = add_climatology_anomalies(weather, climatology)
     tendency = extract_yunqi_tendency(yunqi)
@@ -776,6 +901,8 @@ def generate_result(date_str, location, weather, climatology=None, as_mock=False
         'yunqi': tendency,
         'weather': weather,
         'climatology': climatology,
+        'regional_climate_norm': regional_climate,
+        'hourly_qi_trend': hourly_trend,
         'weather_qi': weather_qi,
         'alignment': alignment,
         'provider': provider,
@@ -819,6 +946,8 @@ def format_markdown(result):
             f"- 相对湿度：{weather.get('relative_humidity_2m')}%",
             f"- 降水：{weather.get('precipitation')} mm",
             f"- 风速：{weather.get('wind_speed_10m')} km/h",
+            f"- UV 指数：{weather.get('uv_index')}",
+            f"- AQI：{weather.get('aqi')}；PM2.5：{weather.get('pm2_5')}",
             f"- 天气代码：{weather.get('weather_code')}",
         ])
     else:
@@ -834,6 +963,8 @@ def format_markdown(result):
             f"- 同期湿度：{climatology.get('relative_humidity_2m_mean')}%；距平：{anomalies.get('relative_humidity_2m_anomaly')}",
             f"- 同期降水：{climatology.get('precipitation_mean')} mm；距平：{anomalies.get('precipitation_anomaly')}",
             f"- 同期风速：{climatology.get('wind_speed_10m_mean')} km/h；距平：{anomalies.get('wind_speed_10m_anomaly')}",
+            f"- 同期 UV：{climatology.get('uv_index_mean')}；距平：{anomalies.get('uv_index_anomaly')}",
+            f"- 同期 AQI：{climatology.get('aqi_mean')}；距平：{anomalies.get('aqi_anomaly')}",
         ])
     elif climatology.get('status') == 'unavailable':
         lines.extend(['', '## 历史同期均值', f"- 暂不可用：{climatology.get('error', 'unknown error')}"])
@@ -847,6 +978,27 @@ def format_markdown(result):
     ])
     for item in wq['evidence']:
         lines.append(f"  - {item}")
+
+    regional = result.get('regional_climate_norm') or {}
+    if regional.get('status') == 'ok':
+        lines.extend([
+            '',
+            '## 区域气候常年值',
+            f"- 区域：{regional.get('region')}",
+            f"- 影响因子：{', '.join(regional.get('affected_factors') or []) or '未提取'}",
+            f"- 五运权重：{regional.get('wuyun_weight')}；六气权重：{regional.get('liuqi_weight')}",
+            f"- 解释：{regional.get('explanation')}",
+        ])
+
+    hourly = result.get('hourly_qi_trend') or {}
+    if hourly:
+        lines.extend([
+            '',
+            '## 逐小时六气趋势',
+            f"- 状态：{hourly.get('status')}",
+            f"- 主导趋势：{hourly.get('dominant_pattern')}（{', '.join(hourly.get('dominant_qi') or [])}）",
+            f"- 说明：{hourly.get('description')}",
+        ])
 
     lines.extend([
         '',
@@ -879,6 +1031,10 @@ def build_arg_parser():
     parser.add_argument('--mock', action='store_true', help='使用固定 mock 天气数据，适合测试/CI')
     parser.add_argument('--baseline-years', type=int, default=5, help='历史同期均值年数，默认 5；设为 0 可关闭')
     parser.add_argument('--no-baseline', action='store_true', help='关闭历史同期均值')
+    parser.add_argument('--no-air-quality', action='store_true', help='关闭 AQI/UV 空气质量扩展')
+    parser.add_argument('--with-hourly-trend', action='store_true', help='输出逐小时六气趋势（当前为当日聚合趋势占位）')
+    parser.add_argument('--with-regional-climate', action='store_true', help='输出区域气候常年值/地域修正')
+    parser.add_argument('--region', help='区域名，如 华东、华南；默认复用城市名')
     parser.add_argument('--cache-ttl', type=int, default=60, help='天气 API 缓存分钟数，默认 60')
     parser.add_argument('--no-cache', action='store_true', help='关闭本地缓存')
     parser.add_argument('--strict', action='store_true', help='天气 API 失败时直接报错退出')
@@ -905,6 +1061,7 @@ def main():
             provider=args.provider,
             cache_ttl=args.cache_ttl,
             no_cache=args.no_cache,
+            include_air_quality=not args.no_air_quality,
         )
         baseline_years = 0 if args.no_baseline else args.baseline_years
         climatology = fetch_climatology(
@@ -914,7 +1071,10 @@ def main():
             mock=use_mock,
             timeout=args.timeout,
             no_cache=args.no_cache,
+            include_air_quality=not args.no_air_quality,
         )
+        regional_climate = build_regional_climate_norm(location, region_name=args.region or city) if args.with_regional_climate else None
+        hourly_trend = build_hourly_qi_trend(weather) if args.with_hourly_trend else None
         result = generate_result(
             args.date,
             location,
@@ -924,6 +1084,8 @@ def main():
             provider=args.provider,
             cache_enabled=not args.no_cache,
             cache_ttl=args.cache_ttl,
+            regional_climate=regional_climate,
+            hourly_trend=hourly_trend,
         )
         if args.json:
             sys.stdout.write(json.dumps(result, ensure_ascii=False, indent=2) + '\n')
