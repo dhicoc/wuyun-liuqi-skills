@@ -54,10 +54,10 @@ jobs:
         run: python scripts/generate_rag_index.py --check
 
       - name: Verify expansion suite
-        run: python scripts/verify_expansion.py
+        run: python tests/verify_expansion.py
 
       - name: Full CLI regression suite
-        run: python scripts/full_regression_test.py
+        run: python tests/full_regression_test.py
 
       - name: Node.js API smoke test
         run: node scripts/calculate_yunqi_api.js 2026-06-29 --json

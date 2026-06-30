@@ -127,7 +127,7 @@ node scripts/calculate_yunqi_api.js 2026-06-27 --json
 
 ```bash
 python scripts/demo_full_chain.py 2026-06-27
-python scripts/verify_expansion.py        # 67 项端到端测试
+python tests/verify_expansion.py        # 67 项端到端测试
 ```
 
 <p align="right">(<a href="#快速开始">返回顶部</a>)</p>
@@ -173,7 +173,7 @@ python scripts/verify_expansion.py        # 67 项端到端测试
 | 报告生成 | 学生版、临床版、研究版 Markdown 报告；支持注入高级对齐章节 | `scripts/yunqi_report.py --advanced-json`、`scripts/generate_html_report.py --with-advanced-alignment`、`docs-generator/` | ✅ 已覆盖 |
 | 可视化 | 终端 ASCII 图、HTML 可视化报告 | `scripts/visualize_yunqi.py`、`scripts/generate_html_report.py` | ✅ 已覆盖 |
 | 自进化 | 使用日志、盲区检测、反馈记录、月度报告 | `scripts/self_evolve.py`、`self-evolve/` | ✅ 已覆盖 |
-| 校验测试 | 环境检查、知识库校验、端到端测试、全量回归 | `scripts/health_check.py`、`scripts/validate_knowledge_base.py`、`scripts/verify_expansion.py`、`scripts/full_regression_test.py` | ✅ 已覆盖 |
+| 校验测试 | 环境检查、知识库校验、端到端测试、全量回归 | `scripts/health_check.py`、`scripts/validate_knowledge_base.py`、`tests/verify_expansion.py`、`tests/full_regression_test.py` | ✅ 已覆盖 |
 
 > 注：临床、方药、针灸相关内容仅作为中医运气学理论参考，不构成医学诊断或治疗建议；具体诊疗须由执业医师辨证处理。
 
@@ -205,9 +205,10 @@ python scripts/verify_expansion.py        # 67 项端到端测试
 │   ├── advanced_alignment.py   # ★ 高级对齐统一入口
 │   ├── calculate_yunqi_api.js  # JS / Node.js 可选接口
 │   ├── self_evolve.py          # ★ 自进化引擎
-│   └── full_regression_test.py # 全量回归测试
+│   ├── verify_expansion.py     # 兼容入口 → tests/verify_expansion.py
+│   └── full_regression_test.py # 兼容入口 → tests/full_regression_test.py
 │
-├── tests/                      # 测试夹具与后续测试迁移目标
+├── tests/                      # 测试脚本与夹具
 ├── reports/                    # 报告与可视化输出
 │   ├── examples/               # 示例报告与预览图
 │   ├── generated/              # 本地生成报告（默认忽略）
@@ -348,7 +349,7 @@ node scripts/calculate_yunqi_api.js 2026-06-27 --json
 
 # Full-chain demo and verification
 python scripts/demo_full_chain.py 2026-06-27
-python scripts/verify_expansion.py
+python tests/verify_expansion.py
 ```
 
 ## Feature Coverage Matrix
@@ -416,8 +417,8 @@ case-journal/            Case record templates and disclaimers
 ```bash
 python scripts/health_check.py
 python scripts/validate_knowledge_base.py
-python scripts/verify_expansion.py
-python scripts/full_regression_test.py
+python tests/verify_expansion.py
+python tests/full_regression_test.py
 ```
 
 ## Tech Stack

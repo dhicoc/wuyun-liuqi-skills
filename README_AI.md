@@ -53,7 +53,7 @@ python scripts/health_check.py
 ```bash
 python scripts/calculate_yunqi_api.py 2026-06-27 --json
 python scripts/demo_full_chain.py 2026-06-27
-python scripts/verify_expansion.py
+python tests/verify_expansion.py
 ```
 
 ### 1.2 AI Agent 自动检查流程
@@ -108,7 +108,7 @@ AI Agent 首次进入本技能包时执行：
 | “个人运气/出生日期分析” | `python scripts/personal_yunqi_profile.py <出生日期> [地区]` |
 | “病机/治法/养生” | 先调用 `calculate_yunqi_api.py --json`，再读取 `yunqi-pathogenesis/` 与 `yunqi-clinical/` |
 | “经典依据/术语解释” | 读取 `yunqi-classics/`、`rag-knowledge-base/terminology.json` |
-| “测试全部功能” | 运行 `health_check.py`、`verify_expansion.py`、`full_regression_test.py`，必要时补充用户指定日期的脚本测试 |
+| “测试全部功能” | 运行 `health_check.py`、`tests/verify_expansion.py`、`tests/full_regression_test.py`，必要时补充用户指定日期的脚本测试 |
 | “生成含高级对齐的报告” | 先运行 `advanced_alignment.py --json` 生成 JSON，再用 `yunqi_report.py --advanced-json` 或 `generate_html_report.py --with-advanced-alignment` |
 
 ### 2.2 模糊输入处理
@@ -235,7 +235,7 @@ node scripts/calculate_yunqi_api.js <YYYY-MM-DD> --json
 | 报告生成 | 学生版、临床版、研究版报告；支持注入高级对齐章节 | `scripts/yunqi_report.py --advanced-json`、`scripts/generate_html_report.py --with-advanced-alignment`、`docs-generator/` | ✅ 已覆盖 |
 | 可视化 | 终端 ASCII、HTML 可视化报告 | `scripts/visualize_yunqi.py`、`scripts/generate_html_report.py` | ✅ 已覆盖 |
 | 自进化 | 使用日志、盲区检测、反馈、月度报告 | `scripts/self_evolve.py` | ✅ 已覆盖 |
-| 校验测试 | 环境检查、知识库校验、端到端测试、全量回归 | `scripts/health_check.py`、`scripts/validate_knowledge_base.py`、`scripts/verify_expansion.py`、`scripts/full_regression_test.py` | ✅ 已覆盖 |
+| 校验测试 | 环境检查、知识库校验、端到端测试、全量回归 | `scripts/health_check.py`、`scripts/validate_knowledge_base.py`、`tests/verify_expansion.py`、`tests/full_regression_test.py` | ✅ 已覆盖 |
 
 ---
 
@@ -339,7 +339,9 @@ python scripts/self_evolve.py log \
 | [scripts/yunqi_weather_constitution.py](scripts/yunqi_weather_constitution.py) | 天气 × 体质三维叠加分析 |
 | [scripts/advanced_alignment.py](scripts/advanced_alignment.py) | 高级对齐统一入口 |
 | [scripts/self_evolve.py](scripts/self_evolve.py) | 自进化引擎 |
-| [scripts/verify_expansion.py](scripts/verify_expansion.py) | 端到端验证 |
+| [tests/verify_expansion.py](tests/verify_expansion.py) | 端到端验证 |
+| [tests/full_regression_test.py](tests/full_regression_test.py) | 全量 CLI 回归测试 |
+| [scripts/verify_expansion.py](scripts/verify_expansion.py) | 兼容入口，转发到 tests/ |
 | [rag-knowledge-base/](rag-knowledge-base/) | RAG 知识库 |
 | [rag-knowledge-base/index.json](rag-knowledge-base/index.json) | RAG 资产索引 |
 | [docs/architecture.md](docs/architecture.md) | 项目架构说明 |
@@ -381,8 +383,8 @@ python scripts/self_evolve.py log \
 ```bash
 python scripts/health_check.py
 python scripts/validate_knowledge_base.py
-python scripts/verify_expansion.py
-python scripts/full_regression_test.py
+python tests/verify_expansion.py
+python tests/full_regression_test.py
 ```
 
 ---
