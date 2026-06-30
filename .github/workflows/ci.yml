@@ -11,25 +11,35 @@ on:
 
 jobs:
   test:
-    name: Python and Node smoke tests
+    name: Python ${{ matrix.python-version }} / Node ${{ matrix.node-version }}
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - python-version: '3.10'
+            node-version: '18'
+          - python-version: '3.11'
+            node-version: '20'
+          - python-version: '3.12'
+            node-version: '22'
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: ${{ matrix.python-version }}
 
       - name: Install Python dependencies
         run: pip install -r requirements.txt
 
-      - name: Set up Node.js
+      - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: ${{ matrix.node-version }}
 
       - name: Install Node dependencies
         run: npm install

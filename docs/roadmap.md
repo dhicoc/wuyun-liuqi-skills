@@ -8,7 +8,7 @@
 - [x] 修复 Node.js 新版本下重复 `_` 解构占位符问题。
 - [x] 增加 GitHub Actions CI 工作流。
 - [x] 将报告输出划分为 examples / generated / test-results。
-- [ ] 在 CI 中增加更多 Python / Node 版本矩阵。
+- [x] 在 CI 中增加更多 Python / Node 版本矩阵。
 - [ ] 将本地生成报告与自进化运行时数据从仓库追踪中彻底隔离。
 
 ## P1：知识库与文档
