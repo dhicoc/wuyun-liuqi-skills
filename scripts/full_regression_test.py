@@ -139,6 +139,8 @@ def main():
     # ingest / validate / self-evolve
     run('ingest list categories', [PY, 'scripts/ingest_literature.py', '--list-categories'], has('classics'))
     run('validate single terminology', [PY, 'scripts/validate_knowledge_base.py', '--path', 'rag-knowledge-base/terminology.json'], has('校验通过'))
+    run('generate_rag_index check', [PY, 'scripts/generate_rag_index.py', '--check'], has('一致'))
+    run('generate_rag_index print', [PY, 'scripts/generate_rag_index.py', '--print'], json_has(['entries']))
     run('self_evolve stats top_keys', [PY, 'scripts/self_evolve.py', 'stats', '--type', 'top_keys'], lambda r, o: True)
     run('self_evolve analyze blind_spots', [PY, 'scripts/self_evolve.py', 'analyze', '--type', 'blind_spots'], lambda r, o: True)
     run('self_evolve report', [PY, 'scripts/self_evolve.py', 'report'], has('自进化报告'))

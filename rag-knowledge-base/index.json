@@ -10,11 +10,19 @@
       "entry_type": "asset_index",
       "title": "岁运病机资产",
       "file": "asset1_suiyun.json",
-      "asset_id": "asset1",
+      "asset_id": "asset1_suiyun",
+      "asset_name": "岁运病机数据库",
       "asset_category": "suiyun_pathogenesis",
-      "description": "五运太过/不及病机、症状、治则。",
-      "lookup_fields": ["code"],
-      "example_keys": ["water_excess", "fire_deficient"],
+      "description": "五运太过不及之病机、症状、治则、饮食调理。基于《素问·气交变大论》《素问·五常政大论》。",
+      "total_entries": 10,
+      "lookup_fields": [
+        "code"
+      ],
+      "example_keys": [
+        "wood_excess",
+        "wood_deficient",
+        "fire_excess"
+      ],
       "rag_key": "asset1_suiyun"
     },
     {
@@ -22,11 +30,21 @@
       "entry_type": "asset_index",
       "title": "司天在泉资产",
       "file": "asset2_sitian_zaiquan.json",
-      "asset_id": "asset2",
+      "asset_id": "asset2_sitian_zaiquan",
+      "asset_name": "司天在泉病机数据库",
       "asset_category": "sitian_zaiquan_pathogenesis",
-      "description": "司天在泉上下半年六气病机与治法。",
-      "lookup_fields": ["sitian_key", "zaiquan_key", "rag_key"],
-      "example_keys": ["shaoyin_junhuo_sitian", "yangming_zaojin_zaiquan"],
+      "description": "六气司天在泉之病机、症状、治法。每年司天主上半年，在泉主下半年，共6组司天在泉配对，涵盖12个半年节段。基于《素问·至真要大论》。",
+      "total_entries": 6,
+      "lookup_fields": [
+        "sitian_key",
+        "zaiquan_key",
+        "rag_key"
+      ],
+      "example_keys": [
+        "jueyin_fengmu_sitian",
+        "shaoyang_xianghuo_zaiquan",
+        "shaoyin_junhuo_sitian"
+      ],
       "rag_key": "asset2_sitian_zaiquan"
     },
     {
@@ -34,11 +52,20 @@
       "entry_type": "asset_index",
       "title": "客主加临资产",
       "file": "asset3_kezhujialin.json",
-      "asset_id": "asset3",
+      "asset_id": "asset3_kezhujialin",
+      "asset_name": "客主加临病机库",
       "asset_category": "kezhujialin_pathogenesis",
-      "description": "六步主客气组合、顺逆判断、病机分析。",
-      "lookup_fields": ["key", "rag_key"],
-      "example_keys": ["zhu_shaoyang_ke_shaoyin"],
+      "description": "六气客主加临之顺逆、病机、临床关注重点。主气六步固定不变，客气逐年流转，6主气×6客气=36种组合。基于《素问·五运行大论》《素问·至真要大论》客主加临理论。",
+      "total_entries": 36,
+      "lookup_fields": [
+        "key",
+        "rag_key"
+      ],
+      "example_keys": [
+        "zhu_jueyin_ke_jueyin",
+        "zhu_jueyin_ke_shaoyin",
+        "zhu_jueyin_ke_taiyin"
+      ],
       "rag_key": "asset3_kezhujialin"
     },
     {
@@ -46,11 +73,19 @@
       "entry_type": "asset_index",
       "title": "运气方资产",
       "file": "asset4_formula.json",
-      "asset_id": "asset4",
+      "asset_id": "asset4_formula",
+      "asset_name": "三因司天方 — 运气方剂数据库",
       "asset_category": "yunqi_formula",
-      "description": "三因司天方与运气方药方向。",
-      "lookup_fields": ["rag_key"],
-      "example_keys": ["water_excess", "fire_deficient"],
+      "description": "陈无择《三因极一病证方论》运气时气方，包含五运时气方10首和六气时气方6首。每方对应特定运气格局，为运气辨证论治提供方药参考。",
+      "total_entries": 16,
+      "lookup_fields": [
+        "rag_key"
+      ],
+      "example_keys": [
+        "wood_excess",
+        "fire_excess",
+        "earth_excess"
+      ],
       "rag_key": "asset4_formula"
     },
     {
@@ -58,11 +93,20 @@
       "entry_type": "asset_index",
       "title": "历代注家资产",
       "file": "asset5_commentary.json",
-      "asset_id": "asset5",
+      "asset_id": "asset5_commentary",
+      "asset_name": "历代注家运气学说数据库",
       "asset_category": "commentary",
-      "description": "历代注家运气学说观点。",
-      "lookup_fields": ["related_yunqi_keys", "commentary_id"],
-      "example_keys": ["water_excess"],
+      "description": "唐代至清代主要医家对五运六气学说的核心贡献与独特见解，涵盖王冰、刘完素、张元素、李东垣、汪石山、张景岳、吴谦、缪问、徐灵胎、张志聪、陆懋修等。每条目包含医家简介、核心理论、经典原文、临床意义。",
+      "total_entries": 20,
+      "lookup_fields": [
+        "related_yunqi_keys",
+        "commentary_id"
+      ],
+      "example_keys": [
+        "tiangan_wuyun",
+        "dizhi_liuqi",
+        "sitian_zaiquan"
+      ],
       "rag_key": "asset5_commentary"
     },
     {
@@ -70,11 +114,20 @@
       "entry_type": "asset_index",
       "title": "地域修正资产",
       "file": "asset6_regional.json",
-      "asset_id": "asset6",
+      "asset_id": "asset6_regional",
+      "asset_name": "地域运气修正数据库",
       "asset_category": "regional_modifier",
-      "description": "地域气候修正与体质倾向。",
-      "lookup_fields": ["region_id", "region_name"],
-      "example_keys": ["华东", "华南", "西南"],
+      "description": "中国不同地理区域的运气推算修正系数。同一运气格局在不同地区的实际气候表现差异显著，本库提供纬度、海拔、地貌等因素的修正参考。",
+      "total_entries": 8,
+      "lookup_fields": [
+        "region_id",
+        "region_name"
+      ],
+      "example_keys": [
+        "regional_1",
+        "东北地区（黑吉辽）",
+        "regional_2"
+      ],
       "rag_key": "asset6_regional"
     },
     {
@@ -82,11 +135,21 @@
       "entry_type": "asset_index",
       "title": "运气体质资产",
       "file": "asset7_constitution.json",
-      "asset_id": "asset7",
+      "asset_id": "asset7_constitution",
+      "asset_name": "运气与体质交叉分析数据库",
       "asset_category": "constitution_alignment",
-      "description": "出生年运气体质映射与当前岁运调理。",
-      "lookup_fields": ["birth_yunqi_keys", "suiyun_code", "constitution_code"],
-      "example_keys": ["fire_deficient", "water_excess"],
+      "description": "九种体质（王琦九分法）与五运六气格局的匹配关系。不同出生年运气格局影响先天体质倾向，不同运气岁气背景下各体质的发病倾向与调理要点。",
+      "total_entries": 18,
+      "lookup_fields": [
+        "birth_yunqi_keys",
+        "suiyun_code",
+        "constitution_code"
+      ],
+      "example_keys": [
+        "earth_deficient",
+        "metal_excess",
+        "qi_xu"
+      ],
       "rag_key": "asset7_constitution"
     },
     {
@@ -94,15 +157,27 @@
       "entry_type": "asset_index",
       "title": "术语解释资产",
       "file": "terminology.json",
-      "asset_id": "terminology",
+      "asset_id": "asset8_terminology",
+      "asset_name": "五运六气术语解释库",
       "asset_category": "terminology",
-      "description": "术语解释库，用于教学和报告解释。",
-      "lookup_fields": ["term", "pinyin", "entry_id"],
-      "example_keys": ["岁运", "司天", "客主加临"],
+      "description": "统一的中医运气学专业术语白话解释库，用于 --explain 模式和学生版报告。涵盖基础概念、天干地支、五行学说、五运、六气、节气时令、脏腑经络、病因病机、治则治法、方药、针灸养生、经典文献与医家等12大类。",
+      "total_entries": 592,
+      "lookup_fields": [
+        "term",
+        "pinyin",
+        "entry_id"
+      ],
+      "example_keys": [
+        "五运六气",
+        "wuyun_liuqi",
+        "term_wuyun_liuqi"
+      ],
       "rag_key": "terminology"
     }
   ],
   "maintenance": {
+    "generate": "python scripts/generate_rag_index.py",
+    "check": "python scripts/generate_rag_index.py --check",
     "validate": "python scripts/validate_knowledge_base.py",
     "full_regression": "python scripts/full_regression_test.py",
     "ingest": "python scripts/ingest_literature.py"

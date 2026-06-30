@@ -16,7 +16,7 @@
 - [x] 补充 README 功能覆盖矩阵。
 - [x] 补充 README_AI Agent 执行引导。
 - [x] 补充架构文档与功能覆盖文档。
-- [ ] 完善 `rag-knowledge-base/index.json` 的自动生成或校验机制。
+- [x] 完善 `rag-knowledge-base/index.json` 的自动生成或校验机制。
 - [ ] 为每个 RAG asset 补充字段级 schema 说明。
 - [ ] 将报告中的重要结论关联到具体经典或注家出处。
 

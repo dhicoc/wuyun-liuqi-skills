@@ -50,6 +50,9 @@ jobs:
       - name: Validate RAG knowledge base
         run: python scripts/validate_knowledge_base.py
 
+      - name: Check generated RAG index
+        run: python scripts/generate_rag_index.py --check
+
       - name: Verify expansion suite
         run: python scripts/verify_expansion.py
 

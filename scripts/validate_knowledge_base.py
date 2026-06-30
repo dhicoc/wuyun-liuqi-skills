@@ -16,6 +16,13 @@ import sys
 import io
 import argparse
 
+# 允许脚本直接导入 generate_rag_index.py
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+try:
+    from generate_rag_index import check_index as check_rag_index
+except Exception:
+    check_rag_index = None
+
 # Windows 终端默认编码可能不是 UTF-8，强制设置 stdout/stderr 编码
 if sys.platform == 'win32' and sys.stdout.encoding != 'utf-8':
     try:
@@ -183,6 +190,9 @@ def main():
         results = {os.path.basename(args.path): validate_asset_file(args.path)}
     elif os.path.isdir(args.path):
         results = validate_directory(args.path)
+        if check_rag_index and os.path.abspath(args.path) == os.path.abspath(DEFAULT_RAG_DIR):
+            ok, index_errors, _ = check_rag_index(os.path.join(DEFAULT_RAG_DIR, 'index.json'), DEFAULT_RAG_DIR)
+            results['index_consistency'] = [] if ok else index_errors
     else:
         print(f"路径不存在: {args.path}")
         sys.exit(1)
