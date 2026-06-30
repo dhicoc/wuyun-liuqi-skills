@@ -150,7 +150,55 @@ def build_regional_alignment(region=None, constitution=None):
     return build_regional_explainable_modifier(entry, constitution_assessment=constitution) if entry else None
 
 
-def synthesize_all(profile=None, weather_alignment=None, constitution=None, regional_alignment=None):
+def build_location_entry(label, value=None, lat=None, lon=None, role='current'):
+    if not value and (lat is None or lon is None):
+        return None
+    if lat is not None and lon is not None:
+        resolved = {'name': value or label, 'latitude': float(lat), 'longitude': float(lon), 'source': f'{role}_coordinates'}
+    else:
+        try:
+            resolved = resolve_location(city=value, lat=None, lon=None, timeout=10, no_cache=False)
+        except Exception:
+            resolved = {'name': value, 'latitude': None, 'longitude': None, 'source': f'{role}_unresolved'}
+    regional = build_regional_alignment(value or resolved.get('name'))
+    return {
+        'role': role,
+        'label': label,
+        'input': value,
+        'resolved': resolved,
+        'regional_alignment': regional,
+    }
+
+
+def compare_location_differences(birth_place=None, residence_place=None, current_place=None):
+    entries = [e for e in [birth_place, residence_place, current_place] if e]
+    if not entries:
+        return None
+    region_names = []
+    factor_sets = []
+    for entry in entries:
+        regional = entry.get('regional_alignment') or {}
+        region_names.append(regional.get('region_name') or entry.get('resolved', {}).get('name'))
+        factor_sets.append(set(regional.get('affected_factors') or []))
+    unique_regions = sorted(set([r for r in region_names if r]))
+    common_factors = sorted(set.intersection(*factor_sets)) if factor_sets and all(factor_sets) else []
+    all_factors = sorted(set.union(*factor_sets)) if factor_sets else []
+    diff_factors = sorted(set(all_factors) - set(common_factors))
+    if len(unique_regions) <= 1:
+        summary = '出生地、常住地、当前地地域修正基本一致，地域因素相对稳定。'
+    else:
+        summary = f'涉及 {len(unique_regions)} 个地域修正区域：{"、".join(unique_regions)}，需区分先天地域、长期居住与当下实况。'
+    return {
+        'status': 'ok',
+        'locations': entries,
+        'unique_regions': unique_regions,
+        'common_factors': common_factors,
+        'different_factors': diff_factors,
+        'summary': summary,
+    }
+
+
+def synthesize_all(profile=None, weather_alignment=None, constitution=None, regional_alignment=None, location_difference=None):
     layers = []
     focus_codes = []
     notes = []
@@ -187,6 +235,12 @@ def synthesize_all(profile=None, weather_alignment=None, constitution=None, regi
         layers.append('regional_alignment')
         notes.append(f"地域修正提示：{regional_alignment.get('region_name')}，五运权重 {regional_alignment.get('wuyun_weight')}，六气权重 {regional_alignment.get('liuqi_weight')}。")
         notes.extend(regional_alignment.get('overlap_notes') or [])
+
+    if location_difference:
+        layers.append('location_difference')
+        notes.append(location_difference.get('summary', ''))
+        if location_difference.get('different_factors'):
+            notes.append(f"地域差异因子：{'、'.join(location_difference.get('different_factors'))}。")
 
     combined_birth_weather = None
     if profile and weather_alignment:
@@ -266,10 +320,23 @@ def generate_advanced_alignment(args):
     yunqi = calculate_yunqi_api(date_str)
     constitution = load_constitution_assessment(args)
     weather = build_weather_alignment(date_str, args)
-    region = args.region or args.city
-    profile = build_personal_profile(date_str, args.birth_date, region=region)
-    regional_alignment = build_regional_alignment(region=region, constitution=constitution)
-    synthesis = synthesize_all(profile=profile, weather_alignment=weather, constitution=constitution, regional_alignment=regional_alignment)
+    current_region = args.current_place or args.region or args.city
+    birth_region = args.birth_place
+    residence_region = args.residence_place
+    profile_region = args.region or residence_region or current_region
+    profile = build_personal_profile(date_str, args.birth_date, region=profile_region)
+    regional_alignment = build_regional_alignment(region=current_region, constitution=constitution)
+    birth_location = build_location_entry('出生地', value=birth_region, role='birth')
+    residence_location = build_location_entry('常住地', value=residence_region, role='residence')
+    current_location = build_location_entry('当前地', value=current_region, lat=args.lat, lon=args.lon, role='current')
+    location_difference = compare_location_differences(birth_location, residence_location, current_location)
+    synthesis = synthesize_all(
+        profile=profile,
+        weather_alignment=weather,
+        constitution=constitution,
+        regional_alignment=regional_alignment,
+        location_difference=location_difference,
+    )
 
     return {
         'date': date_str,
@@ -278,6 +345,7 @@ def generate_advanced_alignment(args):
         'constitution_assessment': constitution,
         'weather_alignment': weather,
         'regional_alignment': regional_alignment,
+        'location_difference': location_difference,
         'advanced_synthesis': synthesis,
         'disclaimer': DISCLAIMER,
     }
@@ -342,6 +410,20 @@ def format_markdown(result):
         for note in regional.get('overlap_notes') or []:
             lines.append(f"  - {note}")
 
+    location_diff = result.get('location_difference')
+    if location_diff:
+        lines.extend([
+            '',
+            '## 出生地 / 常住地 / 当前地差异',
+            f"- 涉及区域：{'、'.join(location_diff.get('unique_regions') or []) or '未匹配'}",
+            f"- 共同因子：{'、'.join(location_diff.get('common_factors') or []) or '无'}",
+            f"- 差异因子：{'、'.join(location_diff.get('different_factors') or []) or '无'}",
+            f"- 摘要：{location_diff.get('summary', '')}",
+        ])
+        for item in location_diff.get('locations') or []:
+            regional_item = item.get('regional_alignment') or {}
+            lines.append(f"  - {item.get('label')}：{item.get('resolved', {}).get('name')} → {regional_item.get('region_name', '未匹配')}")
+
     profile = result.get('personal_profile')
     if profile:
         names = [item.get('name') for item in profile.get('birth_constitutions') or []]
@@ -362,8 +444,11 @@ def build_arg_parser():
     parser.add_argument('date_arg', nargs='?', help='分析日期，格式 YYYY-MM-DD；也可用 --date')
     parser.add_argument('--date', help='分析日期，格式 YYYY-MM-DD')
     parser.add_argument('--birth-date', help='出生日期，格式 YYYY-MM-DD')
-    parser.add_argument('--city', help='城市名，如 杭州、北京、上海')
-    parser.add_argument('--region', help='地域修正名；默认复用 city')
+    parser.add_argument('--city', help='城市名，如 杭州、北京、上海；默认作为当前地')
+    parser.add_argument('--region', help='地域修正名；默认复用 current-place/city')
+    parser.add_argument('--birth-place', help='出生地，用于地域差异分析')
+    parser.add_argument('--residence-place', help='常住地，用于地域差异分析')
+    parser.add_argument('--current-place', help='当前地；默认复用 city')
     parser.add_argument('--lat', type=float, help='纬度')
     parser.add_argument('--lon', type=float, help='经度')
     parser.add_argument('--constitution-demo', action='store_true', help='使用内置体质量表示例')

@@ -30,7 +30,7 @@
 - [x] 封装天气 × 体质三维叠加脚本（`scripts/yunqi_weather_constitution.py`）。
 - [x] 新增统一高级对齐入口（`scripts/advanced_alignment.py`）。
 - [x] 扩展天气对齐 AQI、UV、逐小时六步趋势与区域气候常年值。
-- [ ] 支持用户常住地、出生地、当前地的差异分析。
+- [x] 支持用户常住地、出生地、当前地的差异分析。
 
 ## P3：临床安全与输出质量
 
