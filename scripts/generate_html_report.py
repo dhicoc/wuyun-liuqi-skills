@@ -47,6 +47,128 @@ def get_data(date_str):
     return json.loads(result.stdout)
 
 
+def fetch_advanced_alignment(date_str, birth_date=None, city=None, lat=None, lon=None,
+                             mock=False, no_weather=False, timeout=10):
+    """调用 advanced_alignment.py 获取高级对齐 JSON。"""
+    script = os.path.join(BASE_DIR, 'scripts', 'advanced_alignment.py')
+    args = [sys.executable, script, date_str, '--json']
+    if birth_date:
+        args += ['--birth-date', birth_date]
+    if city:
+        args += ['--city', city]
+    if lat is not None:
+        args += ['--lat', str(lat)]
+    if lon is not None:
+        args += ['--lon', str(lon)]
+    if mock:
+        args += ['--mock']
+    if no_weather:
+        args += ['--no-weather']
+    args += ['--timeout', str(timeout)]
+    env = os.environ.copy()
+    env['PYTHONIOENCODING'] = 'utf-8'
+    result = subprocess.run(
+        args,
+        capture_output=True, text=True, encoding='utf-8', env=env, timeout=max(60, timeout * 6),
+    )
+    if result.returncode != 0:
+        return None
+    try:
+        return json.loads(result.stdout)
+    except json.JSONDecodeError:
+        return None
+
+
+def escape_html(text):
+    if text is None:
+        return ''
+    return (str(text).replace('&', '&amp;').replace('<', '&lt;')
+            .replace('>', '&gt;').replace('"', '&quot;'))
+
+
+def render_advanced_alignment_section(advanced):
+    """渲染高级对齐章节 HTML。advanced 为 advanced_alignment.py 的 JSON 输出。"""
+    if not advanced:
+        return ''
+    synthesis = advanced.get('advanced_synthesis') or {}
+    rows = []
+    rows.append(f'<tr><th>综合等级</th><td>{escape_html(synthesis.get("label", ""))}（{escape_html(synthesis.get("level", ""))}）</td></tr>')
+    rows.append(f'<tr><th>重点体质</th><td>{escape_html("、".join(synthesis.get("focus_constitutions") or []) or "未指定")}</td></tr>')
+    rows.append(f'<tr><th>摘要</th><td>{escape_html(synthesis.get("summary", ""))}</td></tr>')
+    layers = synthesis.get('layers') or []
+    rows.append(f'<tr><th>已启用层</th><td>{escape_html("、".join(layers)) if layers else "仅基础运气"}</td></tr>')
+
+    blocks = [f'''
+    <section class="section">
+      <h2 class="section-title font-serif">高级对齐</h2>
+      <div style="overflow-x:auto">
+        <table class="jialin-table">
+          <tbody>
+            {''.join(rows)}
+          </tbody>
+        </table>
+      </div>
+    ''']
+
+    weather = advanced.get('weather_alignment')
+    if weather:
+        wq = weather.get('weather_qi') or {}
+        al = weather.get('alignment') or {}
+        w_rows = [
+            f'<tr><th>天气六气</th><td>{escape_html(wq.get("pattern", ""))}</td></tr>',
+            f'<tr><th>对齐类型</th><td>{escape_html(al.get("label", ""))}（{escape_html(al.get("type", ""))}）</td></tr>',
+            f'<tr><th>调摄原则</th><td>{escape_html(al.get("care_principle", ""))}</td></tr>',
+        ]
+        blocks.append(f'''
+        <div style="overflow-x:auto;margin-top:1rem">
+          <table class="jialin-table">
+            <thead><tr><th>天气对齐</th><th></th></tr></thead>
+            <tbody>{''.join(w_rows)}</tbody>
+          </table>
+        </div>
+        ''')
+
+    profile = advanced.get('personal_profile')
+    if profile:
+        names = [item.get('name') for item in profile.get('birth_constitutions') or []]
+        p_rows = [
+            f'<tr><th>出生运气年</th><td>{escape_html(profile.get("birth_yunqi_year", ""))}（{escape_html(profile.get("birth_suiyun", {}).get("name", ""))}）</td></tr>',
+            f'<tr><th>先天体质</th><td>{escape_html("、".join(names)) if names else "未匹配"}</td></tr>',
+        ]
+        blocks.append(f'''
+        <div style="overflow-x:auto;margin-top:1rem">
+          <table class="jialin-table">
+            <thead><tr><th>出生运气体质</th><th></th></tr></thead>
+            <tbody>{''.join(p_rows)}</tbody>
+          </table>
+        </div>
+        ''')
+
+    constitution = advanced.get('constitution_assessment')
+    if constitution:
+        c_rows = [
+            f'<tr><th>主要体质</th><td>{escape_html(constitution.get("primary_type", ""))}（{escape_html(str(constitution.get("primary_score", "")))} 分）</td></tr>',
+            f'<tr><th>兼夹/倾向</th><td>{escape_html("、".join(constitution.get("secondary_types") or []) or "无")}</td></tr>',
+            f'<tr><th>调理重点</th><td>{escape_html(constitution.get("care_priority", ""))}</td></tr>',
+        ]
+        blocks.append(f'''
+        <div style="overflow-x:auto;margin-top:1rem">
+          <table class="jialin-table">
+            <thead><tr><th>体质量表</th><th></th></tr></thead>
+            <tbody>{''.join(c_rows)}</tbody>
+          </table>
+        </div>
+        ''')
+
+    notes = synthesis.get('notes') or []
+    if notes:
+        note_items = ''.join(f'<li>{escape_html(n)}</li>' for n in notes)
+        blocks.append(f'<ul style="margin-top:1rem;color:var(--muted);font-size:0.9rem;">{note_items}</ul>')
+
+    blocks.append('</section>')
+    return ''.join(blocks)
+
+
 def element_color(name, key='fg'):
     wx = LIUQI_WUXING.get(name, '')
     return WUXING_COLORS.get(wx, WUXING_COLORS['金'])[key]
@@ -128,7 +250,7 @@ def generate_interpretation(data):
     }
 
 
-def generate_html(data):
+def generate_html(data, advanced=None):
     date_str = data['date']
     year_gz = data['year_gz']
     sui_yun = data['sui_yun']
@@ -627,6 +749,8 @@ body {{
       </div>
     </section>
 
+    {render_advanced_alignment_section(advanced)}
+
     <section class="section">
       <h2 class="section-title font-serif">术语速查</h2>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;color:var(--muted);font-size:0.9rem;">
@@ -656,21 +780,65 @@ body {{
 
 def main():
     if len(sys.argv) < 2:
-        print("用法: python scripts/generate_html_report.py <YYYY-MM-DD> [输出路径]")
+        print("用法: python scripts/generate_html_report.py <YYYY-MM-DD> [输出路径] [--with-advanced-alignment --birth-date YYYY-MM-DD --city 城市] [--mock] [--no-weather]")
         print("示例: python scripts/generate_html_report.py 2026-06-29 reports/generated/wuyun-liuqi-report.html")
         sys.exit(1)
 
     date_str = sys.argv[1]
-    output_path = sys.argv[2] if len(sys.argv) > 2 else os.path.join(BASE_DIR, 'reports', 'generated', f'wuyun-liuqi-report-{date_str}.html')
+    positional = []
+    advanced_kwargs = {}
+    i = 2
+    while i < len(sys.argv):
+        arg = sys.argv[i]
+        if arg == '--with-advanced-alignment':
+            advanced_kwargs['enabled'] = True
+        elif arg == '--birth-date' and i + 1 < len(sys.argv):
+            advanced_kwargs['birth_date'] = sys.argv[i + 1]
+            i += 1
+        elif arg == '--city' and i + 1 < len(sys.argv):
+            advanced_kwargs['city'] = sys.argv[i + 1]
+            i += 1
+        elif arg == '--lat' and i + 1 < len(sys.argv):
+            advanced_kwargs['lat'] = float(sys.argv[i + 1])
+            i += 1
+        elif arg == '--lon' and i + 1 < len(sys.argv):
+            advanced_kwargs['lon'] = float(sys.argv[i + 1])
+            i += 1
+        elif arg == '--mock':
+            advanced_kwargs['mock'] = True
+        elif arg == '--no-weather':
+            advanced_kwargs['no_weather'] = True
+        elif arg == '--timeout' and i + 1 < len(sys.argv):
+            advanced_kwargs['timeout'] = int(sys.argv[i + 1])
+            i += 1
+        elif not arg.startswith('--'):
+            positional.append(arg)
+        i += 1
+
+    output_path = positional[0] if positional else os.path.join(BASE_DIR, 'reports', 'generated', f'wuyun-liuqi-report-{date_str}.html')
 
     data = get_data(date_str)
-    html = generate_html(data)
+    advanced = None
+    if advanced_kwargs.get('enabled'):
+        advanced = fetch_advanced_alignment(
+            date_str,
+            birth_date=advanced_kwargs.get('birth_date'),
+            city=advanced_kwargs.get('city'),
+            lat=advanced_kwargs.get('lat'),
+            lon=advanced_kwargs.get('lon'),
+            mock=advanced_kwargs.get('mock', False),
+            no_weather=advanced_kwargs.get('no_weather', False),
+            timeout=advanced_kwargs.get('timeout', 10),
+        )
+    html = generate_html(data, advanced=advanced)
 
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, 'w', encoding='utf-8') as f:
         f.write(html)
 
     sys.stdout.write(f"✅ HTML 报告已生成：{output_path}\n")
+    if advanced is None and advanced_kwargs.get('enabled'):
+        sys.stdout.write("⚠️ 高级对齐获取失败，报告未包含高级对齐章节。\n")
     sys.stdout.flush()
 
 

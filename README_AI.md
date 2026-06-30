@@ -109,6 +109,7 @@ AI Agent 首次进入本技能包时执行：
 | “病机/治法/养生” | 先调用 `calculate_yunqi_api.py --json`，再读取 `yunqi-pathogenesis/` 与 `yunqi-clinical/` |
 | “经典依据/术语解释” | 读取 `yunqi-classics/`、`rag-knowledge-base/terminology.json` |
 | “测试全部功能” | 运行 `health_check.py`、`verify_expansion.py`、`full_regression_test.py`，必要时补充用户指定日期的脚本测试 |
+| “生成含高级对齐的报告” | 先运行 `advanced_alignment.py --json` 生成 JSON，再用 `yunqi_report.py --advanced-json` 或 `generate_html_report.py --with-advanced-alignment` |
 
 ### 2.2 模糊输入处理
 
@@ -230,7 +231,8 @@ node scripts/calculate_yunqi_api.js <YYYY-MM-DD> --json
 | 个人体质 | 出生年运气倾向、九种体质量表、当前岁运调理、地域修正 | `scripts/personal_yunqi_profile.py`、`scripts/constitution_assessment.py` | ✅ 已覆盖 |
 | 天气对齐 | 实时气象 × 运气格局交叉分析，判断相合/相背/兼夹 | `scripts/weather_alignment.py`、`advanced-alignment/weather_integration.md` | ✅ 已覆盖 |
 | 天气 × 体质叠加 | 出生运气体质 × 当前岁运 × 天气实况三维分析 | `scripts/yunqi_weather_constitution.py` | ✅ 已覆盖 |
-| 报告生成 | 学生版、临床版、研究版报告 | `scripts/yunqi_report.py`、`docs-generator/` | ✅ 已覆盖 |
+| 统一高级对齐 | 基础运气、出生运气体质、九种体质量表、天气对齐统一入口 | `scripts/advanced_alignment.py` | ✅ 已覆盖 |
+| 报告生成 | 学生版、临床版、研究版报告；支持注入高级对齐章节 | `scripts/yunqi_report.py --advanced-json`、`scripts/generate_html_report.py --with-advanced-alignment`、`docs-generator/` | ✅ 已覆盖 |
 | 可视化 | 终端 ASCII、HTML 可视化报告 | `scripts/visualize_yunqi.py`、`scripts/generate_html_report.py` | ✅ 已覆盖 |
 | 自进化 | 使用日志、盲区检测、反馈、月度报告 | `scripts/self_evolve.py` | ✅ 已覆盖 |
 | 校验测试 | 环境检查、知识库校验、端到端测试、全量回归 | `scripts/health_check.py`、`scripts/validate_knowledge_base.py`、`scripts/verify_expansion.py`、`scripts/full_regression_test.py` | ✅ 已覆盖 |
@@ -335,6 +337,7 @@ python scripts/self_evolve.py log \
 | [scripts/constitution_assessment.py](scripts/constitution_assessment.py) | 九种体质量表评估 |
 | [scripts/weather_alignment.py](scripts/weather_alignment.py) | 天气实况 × 运气格局高级对齐 |
 | [scripts/yunqi_weather_constitution.py](scripts/yunqi_weather_constitution.py) | 天气 × 体质三维叠加分析 |
+| [scripts/advanced_alignment.py](scripts/advanced_alignment.py) | 高级对齐统一入口 |
 | [scripts/self_evolve.py](scripts/self_evolve.py) | 自进化引擎 |
 | [scripts/verify_expansion.py](scripts/verify_expansion.py) | 端到端验证 |
 | [rag-knowledge-base/](rag-knowledge-base/) | RAG 知识库 |

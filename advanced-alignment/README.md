@@ -8,7 +8,42 @@
 |------|------|----------|------|
 | 天气对齐 | ✅ 已接入 | `scripts/weather_alignment.py` | 支持 Open-Meteo、QWeather、Seniverse、mock；含缓存、历史同期均值、气象六气转译与运气对齐 |
 | 个人体质 | ✅ 已接入 | `scripts/personal_yunqi_profile.py`、`scripts/constitution_assessment.py` | 出生年运气体质映射、当前岁运调理、地域修正；支持九种体质量表得分评估 |
+| 统一高级对齐 | ✅ 已接入 | `scripts/advanced_alignment.py` | 统一整合基础运气、出生运气体质、九种体质量表、天气对齐与三维综合判断 |
 | 天气 × 体质叠加 | ✅ 已接入 | `scripts/yunqi_weather_constitution.py` | 组合天气对齐与个人运气体质，输出先天体质 × 当前岁运 × 天气实况三维叠加判断 |
+
+## 报告融合
+
+高级对齐结果可直接注入既有报告生成器：
+
+```bash
+# Markdown 报告：先产出高级对齐 JSON，再注入年度报告
+python scripts/advanced_alignment.py --date 2026-06-29 --birth-date 2003-04-19 --city 杭州 --constitution-demo --mock --json > reports/generated/advanced-2026-06-29.json
+python scripts/yunqi_report.py 2026 --audience practitioner --advanced-json reports/generated/advanced-2026-06-29.json
+
+# HTML 报告：内置调用高级对齐并渲染章节（mock 用于测试）
+python scripts/generate_html_report.py 2026-06-29 --with-advanced-alignment --birth-date 2003-04-19 --city 杭州 --constitution-demo --mock
+```
+
+- `yunqi_report.py` 追加 `## 高级对齐` 章节，含综合等级、重点体质、天气对齐、出生体质与量表结果。
+- `generate_html_report.py` 在术语速查前插入“高级对齐”可视化表格区块。
+
+## 统一高级对齐入口
+
+```bash
+# 仅基础运气 + 天气对齐
+python scripts/advanced_alignment.py --date 2026-06-29 --city 杭州 --mock
+
+# 加入出生运气体质
+python scripts/advanced_alignment.py --date 2026-06-29 --birth-date 2003-04-19 --city 杭州 --mock --json
+
+# 加入九种体质量表示例
+python scripts/advanced_alignment.py --date 2026-06-29 --birth-date 2003-04-19 --city 杭州 --constitution-demo --mock --json
+
+# 从体质量表文件读取
+python scripts/advanced_alignment.py --date 2026-06-29 --constitution-file constitution_scores.json --city 杭州 --json
+```
+
+统一入口会按参数自动启用：基础运气、出生运气体质、九种体质量表、天气对齐与综合判断。
 
 ## 天气对齐用法
 

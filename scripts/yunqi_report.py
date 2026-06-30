@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 五运六气综合报告生成器
-用法: python yunqi_report.py <年份> [--audience student|practitioner|researcher] [--json]
+用法: python yunqi_report.py <年份> [--audience student|practitioner|researcher] [--json] [--advanced-json <高级对齐JSON文件>]
 """
 import sys
 import os
@@ -34,7 +34,58 @@ DISCLAIMER = (
 )
 
 
-def generate_report(year, audience='student'):
+def build_advanced_alignment_section(advanced):
+    """根据 advanced_alignment.py 的 JSON 输出构建报告章节。"""
+    if not advanced:
+        return ''
+    synthesis = advanced.get('advanced_synthesis') or {}
+    sections = []
+    sections.append("## 高级对齐\n")
+    sections.append(f"- **综合等级**: {synthesis.get('label', '')}（{synthesis.get('level', '')}）")
+    sections.append(f"- **重点体质**: {'、'.join(synthesis.get('focus_constitutions') or []) or '未指定'}")
+    sections.append(f"- **摘要**: {synthesis.get('summary', '')}")
+    layers = synthesis.get('layers') or []
+    sections.append(f"- **已启用层**: {'、'.join(layers) if layers else '仅基础运气'}")
+
+    weather = advanced.get('weather_alignment')
+    if weather:
+        wq = weather.get('weather_qi') or {}
+        al = weather.get('alignment') or {}
+        sections.append(f"- **天气六气**: {wq.get('pattern', '')}（{al.get('label', '')}）")
+        sections.append(f"- **天气调摄**: {al.get('care_principle', '')}")
+
+    profile = advanced.get('personal_profile')
+    if profile:
+        names = [item.get('name') for item in profile.get('birth_constitutions') or []]
+        sections.append(f"- **出生运气年**: {profile.get('birth_yunqi_year', '')}（{profile.get('birth_suiyun', {}).get('name', '')}）")
+        sections.append(f"- **先天体质**: {'、'.join(names) if names else '未匹配'}")
+
+    constitution = advanced.get('constitution_assessment')
+    if constitution:
+        sections.append(f"- **体质量表**: {constitution.get('primary_type', '')}（{constitution.get('primary_score', '')} 分）")
+        sections.append(f"- **兼夹/倾向**: {'、'.join(constitution.get('secondary_types') or []) or '无'}")
+        sections.append(f"- **调理重点**: {constitution.get('care_priority', '')}")
+
+    for note in synthesis.get('notes') or []:
+        sections.append(f"  - {note}")
+    sections.append("")
+    return '\n'.join(sections)
+
+
+def load_advanced_alignment(path):
+    if not path:
+        return None
+    # 兼容 PowerShell 重定向可能产生的 UTF-16，以及 UTF-8 BOM。
+    for encoding in ('utf-8', 'utf-8-sig', 'utf-16'):
+        try:
+            with open(path, 'r', encoding=encoding) as f:
+                return json.load(f)
+        except Exception:
+            continue
+    return None
+
+
+def generate_report(year, audience='student', advanced=None):
     """生成综合报告"""
     # 获取全部推算数据
     tg, dz = get_ganzhi(year)
@@ -176,6 +227,11 @@ def generate_report(year, audience='student'):
         sections.append("- 参考文献详见 yunqi-classics/references/")
         sections.append("")
 
+    # 高级对齐章节（可选）
+    advanced_section = build_advanced_alignment_section(advanced)
+    if advanced_section:
+        sections.append(advanced_section)
+
     # 免责声明
     sections.append(DISCLAIMER)
 
@@ -184,21 +240,26 @@ def generate_report(year, audience='student'):
 
 def main():
     if len(sys.argv) < 2:
-        print("用法: python yunqi_report.py <年份> [--audience student|practitioner|researcher] [--json]")
+        print("用法: python yunqi_report.py <年份> [--audience student|practitioner|researcher] [--json] [--advanced-json <高级对齐JSON文件>]")
         sys.exit(1)
 
     year = int(sys.argv[1])
     audience = 'student'
+    advanced = None
     if '--audience' in sys.argv:
         idx = sys.argv.index('--audience')
         if idx + 1 < len(sys.argv):
             audience = sys.argv[idx + 1]
+    if '--advanced-json' in sys.argv:
+        idx = sys.argv.index('--advanced-json')
+        if idx + 1 < len(sys.argv):
+            advanced = load_advanced_alignment(sys.argv[idx + 1])
 
     if audience not in ('student', 'practitioner', 'researcher'):
         print(f"audience 必须是 student/practitioner/researcher，当前: {audience}")
         sys.exit(1)
 
-    report = generate_report(year, audience)
+    report = generate_report(year, audience, advanced=advanced)
 
     if '--json' in sys.argv:
         tg, dz = get_ganzhi(year)
@@ -215,6 +276,7 @@ def main():
             'suihui': check_suihui(year),
             'pingqi': check_pingqi(year),
             'audience': audience,
+            'has_advanced_alignment': advanced is not None,
             'report': report,
         }
         output = json.dumps(result, ensure_ascii=False, indent=2)

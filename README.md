@@ -169,7 +169,8 @@ python scripts/verify_expansion.py        # 67 项端到端测试
 | 个人体质 | 出生年运气体质倾向、九种体质量表、当前岁运调理方向、地域修正 | `scripts/personal_yunqi_profile.py`、`scripts/constitution_assessment.py`、`advanced-alignment/` | ✅ 已覆盖 |
 | 天气对齐 | 实时气象 × 运气格局交叉分析，判断内外邪相合/相背/兼夹 | `scripts/weather_alignment.py`、`advanced-alignment/weather_integration.md` | ✅ 已接入 |
 | 天气 × 体质叠加 | 出生运气体质 × 当前岁运 × 天气实况三维分析 | `scripts/yunqi_weather_constitution.py` | ✅ 已接入 |
-| 报告生成 | 学生版、临床版、研究版 Markdown 报告 | `scripts/yunqi_report.py`、`docs-generator/` | ✅ 已覆盖 |
+| 统一高级对齐 | 基础运气、出生运气体质、九种体质量表、天气对齐的统一入口 | `scripts/advanced_alignment.py` | ✅ 已接入 |
+| 报告生成 | 学生版、临床版、研究版 Markdown 报告；支持注入高级对齐章节 | `scripts/yunqi_report.py --advanced-json`、`scripts/generate_html_report.py --with-advanced-alignment`、`docs-generator/` | ✅ 已覆盖 |
 | 可视化 | 终端 ASCII 图、HTML 可视化报告 | `scripts/visualize_yunqi.py`、`scripts/generate_html_report.py` | ✅ 已覆盖 |
 | 自进化 | 使用日志、盲区检测、反馈记录、月度报告 | `scripts/self_evolve.py`、`self-evolve/` | ✅ 已覆盖 |
 | 校验测试 | 环境检查、知识库校验、端到端测试、全量回归 | `scripts/health_check.py`、`scripts/validate_knowledge_base.py`、`scripts/verify_expansion.py`、`scripts/full_regression_test.py` | ✅ 已覆盖 |
@@ -201,6 +202,7 @@ python scripts/verify_expansion.py        # 67 项端到端测试
 │   ├── weather_alignment.py    # ★ 天气实况 × 运气格局高级对齐
 │   ├── constitution_assessment.py # ★ 九种体质量表评估
 │   ├── yunqi_weather_constitution.py # ★ 天气 × 体质三维叠加分析
+│   ├── advanced_alignment.py   # ★ 高级对齐统一入口
 │   ├── calculate_yunqi_api.js  # JS / Node.js 可选接口
 │   ├── self_evolve.py          # ★ 自进化引擎
 │   └── full_regression_test.py # 全量回归测试
@@ -367,7 +369,8 @@ python scripts/verify_expansion.py
 | Personal profile | Birth-year Yunqi tendency, constitution score assessment, current-year adjustment, regional modifier | `scripts/personal_yunqi_profile.py`, `scripts/constitution_assessment.py` | ✅ Covered |
 | Weather alignment | Real weather × Yunqi pattern alignment for same-direction, opposite, or mixed climate signals | `scripts/weather_alignment.py` | ✅ Covered |
 | Weather × constitution | Birth Yunqi constitution × current-year Yunqi × weather reality combined analysis | `scripts/yunqi_weather_constitution.py` | ✅ Covered |
-| Reports | Student, practitioner, and researcher report styles | `scripts/yunqi_report.py` | ✅ Covered |
+| Unified advanced alignment | Unified entry for base Yunqi, birth profile, constitution assessment, and weather alignment | `scripts/advanced_alignment.py` | ✅ Covered |
+| Reports | Student, practitioner, and researcher report styles with optional advanced-alignment sections | `scripts/yunqi_report.py --advanced-json`, `scripts/generate_html_report.py --with-advanced-alignment` | ✅ Covered |
 | Visualization | ASCII chart and HTML visual report | `scripts/visualize_yunqi.py`, `scripts/generate_html_report.py` | ✅ Covered |
 | Self-evolution | Usage logs, blind-spot detection, feedback, monthly report | `scripts/self_evolve.py` | ✅ Covered |
 | Validation | Environment check, RAG validation, end-to-end tests, full regression | `scripts/health_check.py`, `scripts/validate_knowledge_base.py`, `scripts/verify_expansion.py`, `scripts/full_regression_test.py` | ✅ Covered |

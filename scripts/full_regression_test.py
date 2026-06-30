@@ -60,6 +60,17 @@ def json_has(keys):
     return check
 
 
+def _save_fixture(rel_path, content):
+    """把命令 stdout 落盘为测试 fixture，供后续步骤复用。返回是否写入成功。"""
+    path = ROOT / rel_path
+    try:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(content, encoding='utf-8')
+        return True
+    except Exception:
+        return False
+
+
 def main():
     global passed, failed
     print('=== CLI 全量功能测试 ===')
@@ -107,6 +118,19 @@ def main():
     run('weather alignment mock json', [PY, 'scripts/weather_alignment.py', '2026-06-29', '--city', '杭州', '--mock', '--json'], json_has(['alignment', 'type']))
     run('weather constitution mock text', [PY, 'scripts/yunqi_weather_constitution.py', '2026-06-29', '--birth-date', '2003-04-19', '--city', '杭州', '--mock'], has('三维叠加报告'))
     run('weather constitution mock json', [PY, 'scripts/yunqi_weather_constitution.py', '2026-06-29', '--birth-date', '2003-04-19', '--city', '杭州', '--mock', '--json'], json_has(['combined_analysis', 'level']))
+    run('advanced alignment mock text', [PY, 'scripts/advanced_alignment.py', '--date', '2026-06-29', '--birth-date', '2003-04-19', '--city', '杭州', '--constitution-demo', '--mock'], has('高级对齐综合报告'))
+    run('advanced alignment mock json', [PY, 'scripts/advanced_alignment.py', '--date', '2026-06-29', '--birth-date', '2003-04-19', '--city', '杭州', '--constitution-demo', '--mock', '--json'], json_has(['advanced_synthesis', 'level']))
+
+    # 报告融合：高级对齐 JSON 注入 yunqi_report
+    run('generate advanced json fixture', [PY, 'scripts/advanced_alignment.py', '--date', '2026-06-29', '--birth-date', '2003-04-19', '--city', '杭州', '--constitution-demo', '--mock', '--json'], lambda r, o: (r.returncode == 0 and _save_fixture('reports/test-results/advanced-2026-06-29.json', r.stdout)))
+    run('yunqi_report with advanced json', [PY, 'scripts/yunqi_report.py', '2026', '--audience', 'practitioner', '--advanced-json', 'reports/test-results/advanced-2026-06-29.json'], has('高级对齐'))
+    run('yunqi_report with advanced json json', [PY, 'scripts/yunqi_report.py', '2026', '--audience', 'student', '--advanced-json', 'reports/test-results/advanced-2026-06-29.json', '--json'], json_has(['has_advanced_alignment']))
+
+    # 报告融合：HTML 报告内置高级对齐章节
+    def html_has_advanced(result, output):
+        html_path = ROOT / 'reports/test-results/html-advanced-2026-06-29.html'
+        return html_path.exists() and '高级对齐' in html_path.read_text(encoding='utf-8')
+    run('generate_html_report with advanced', [PY, 'scripts/generate_html_report.py', '2026-06-29', 'reports/test-results/html-advanced-2026-06-29.html', '--with-advanced-alignment', '--birth-date', '2003-04-19', '--city', '杭州', '--constitution-demo', '--mock'], html_has_advanced)
 
     # ingest / validate / self-evolve
     run('ingest list categories', [PY, 'scripts/ingest_literature.py', '--list-categories'], has('classics'))

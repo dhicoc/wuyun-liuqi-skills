@@ -57,3 +57,12 @@ jobs:
 
       - name: Weather and constitution combined mock test
         run: python scripts/yunqi_weather_constitution.py 2026-06-29 --birth-date 2003-04-19 --city 杭州 --mock --json
+
+      - name: Advanced alignment unified mock test
+        run: python scripts/advanced_alignment.py --date 2026-06-29 --birth-date 2003-04-19 --city 杭州 --constitution-demo --mock --json > reports/test-results/advanced-ci.json
+
+      - name: Advanced Markdown report integration test
+        run: python scripts/yunqi_report.py 2026 --audience practitioner --advanced-json reports/test-results/advanced-ci.json
+
+      - name: Advanced HTML report integration test
+        run: python scripts/generate_html_report.py 2026-06-29 reports/test-results/advanced-ci.html --with-advanced-alignment --birth-date 2003-04-19 --city 杭州 --constitution-demo --mock

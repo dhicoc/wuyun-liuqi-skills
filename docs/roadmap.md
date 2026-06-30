@@ -28,11 +28,13 @@
 - [x] 将天气 API 对齐设计转为可执行模块（`scripts/weather_alignment.py`）。
 - [x] 为天气对齐增加缓存、历史同期均值和更多天气源适配。
 - [x] 封装天气 × 体质三维叠加脚本（`scripts/yunqi_weather_constitution.py`）。
+- [x] 新增统一高级对齐入口（`scripts/advanced_alignment.py`）。
 - [ ] 扩展天气对齐 AQI、UV、逐小时六步趋势与区域气候常年值。
 - [ ] 支持用户常住地、出生地、当前地的差异分析。
 
 ## P3：临床安全与输出质量
 
+- [x] 报告融合：`yunqi_report.py --advanced-json` 与 `generate_html_report.py --with-advanced-alignment` 支持高级对齐章节。
 - [ ] 强化方药与针灸输出安全策略。
 - [ ] 对临床版报告增加更严格的免责声明检查。
 - [ ] 为严重症状或急症相关输入增加就医提醒。

@@ -20,7 +20,8 @@
 | 个人体质 | 出生年运气倾向、九种体质量表、当前岁运调理、地域修正 | `scripts/personal_yunqi_profile.py`、`scripts/constitution_assessment.py` | ✅ 已覆盖 |
 | 天气对齐 | 实时气象 × 运气格局交叉分析；支持 Open-Meteo、QWeather、Seniverse、缓存、历史同期均值与 mock 测试 | `scripts/weather_alignment.py`、`advanced-alignment/weather_integration.md` | ✅ 已覆盖 |
 | 天气 × 体质叠加 | 出生运气体质 × 当前岁运 × 天气实况三维叠加判断 | `scripts/yunqi_weather_constitution.py` | ✅ 已覆盖 |
-| 报告生成 | 学生版、临床版、研究版报告 | `scripts/yunqi_report.py`、`docs-generator/` | ✅ 已覆盖 |
+| 统一高级对齐 | 基础运气、出生运气体质、九种体质量表、天气对齐统一入口 | `scripts/advanced_alignment.py` | ✅ 已覆盖 |
+| 报告生成 | 学生版、临床版、研究版报告；支持注入高级对齐章节 | `scripts/yunqi_report.py`、`docs-generator/` | ✅ 已覆盖 |
 | 可视化 | 终端 ASCII、HTML 可视化报告 | `scripts/visualize_yunqi.py`、`scripts/generate_html_report.py` | ✅ 已覆盖 |
 | 自进化 | 使用日志、盲区检测、反馈、月度报告 | `scripts/self_evolve.py` | ✅ 已覆盖 |
 | 校验测试 | 环境检查、知识库校验、端到端测试、全量回归 | `scripts/health_check.py`、`scripts/validate_knowledge_base.py`、`scripts/verify_expansion.py`、`scripts/full_regression_test.py` | ✅ 已覆盖 |
