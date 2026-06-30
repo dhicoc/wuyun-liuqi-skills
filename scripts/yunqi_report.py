@@ -66,6 +66,12 @@ def build_advanced_alignment_section(advanced):
         sections.append(f"- **兼夹/倾向**: {'、'.join(constitution.get('secondary_types') or []) or '无'}")
         sections.append(f"- **调理重点**: {constitution.get('care_priority', '')}")
 
+    regional = advanced.get('regional_alignment')
+    if regional:
+        sections.append(f"- **地域修正**: {regional.get('region_name', '')}；五运权重 {regional.get('wuyun_weight', '')}，六气权重 {regional.get('liuqi_weight', '')}")
+        sections.append(f"- **地域因子**: {'、'.join(regional.get('affected_factors') or []) or '未提取'}")
+        sections.append(f"- **地域解释**: {regional.get('explanation', '')}")
+
     for note in synthesis.get('notes') or []:
         sections.append(f"  - {note}")
     sections.append("")

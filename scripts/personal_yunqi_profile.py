@@ -13,6 +13,7 @@ import sys
 import os
 import io
 import json
+import re
 import subprocess
 from datetime import date
 
@@ -69,6 +70,8 @@ def match_region(region_name):
         '河北': '华北地区（京津冀晋）', '山西': '华北地区（京津冀晋）',
         '上海': '华东地区（江浙沪皖）', '江苏': '华东地区（江浙沪皖）',
         '浙江': '华东地区（江浙沪皖）', '安徽': '华东地区（江浙沪皖）',
+        '杭州': '华东地区（江浙沪皖）', '南京': '华东地区（江浙沪皖）',
+        '苏州': '华东地区（江浙沪皖）', '合肥': '华东地区（江浙沪皖）',
         '广东': '华南地区（粤桂闽琼）', '广西': '华南地区（粤桂闽琼）',
         '福建': '华南地区（粤桂闽琼）', '海南': '华南地区（粤桂闽琼）',
         '四川': '西南地区（川渝云贵）', '重庆': '西南地区（川渝云贵）',
@@ -122,6 +125,59 @@ def normalize_affected_constitutions(items):
             if code:
                 codes.append(code)
     return codes
+
+
+def parse_weight_adjustment(text):
+    """把 '+20%' / '-10%' 之类文本转为乘法权重。"""
+    if not text:
+        return 1.0
+    nums = re.findall(r'([+-])\s*(\d+(?:\.\d+)?)\s*%', str(text))
+    weight = 1.0
+    for sign, num in nums:
+        value = float(num) / 100.0
+        weight += value if sign == '+' else -value
+    return round(max(weight, 0.1), 3)
+
+
+def build_regional_explainable_modifier(region_entry, birth_suiyun_code=None, current_suiyun_code=None, constitution_assessment=None):
+    if not region_entry:
+        return None
+    wuyun_weight = parse_weight_adjustment(region_entry.get('wuyun_modifier', {}).get('weight_adjustment', ''))
+    liuqi_weight = parse_weight_adjustment(region_entry.get('liuqi_modifier', {}).get('weight_adjustment', ''))
+    affected = []
+    text = ' '.join([
+        region_entry.get('wuyun_modifier', {}).get('effect', ''),
+        region_entry.get('liuqi_modifier', {}).get('effect', ''),
+        region_entry.get('wuyun_modifier', {}).get('description', ''),
+        region_entry.get('liuqi_modifier', {}).get('description', ''),
+    ])
+    for key in ['寒', '燥', '湿', '火', '热', '风', '水', '土', '金', '木']:
+        if key in text and key not in affected:
+            affected.append(key)
+
+    primary = constitution_assessment.get('primary_type') if constitution_assessment else None
+    overlap_notes = []
+    if primary and any(k in text for k in ['寒', '湿']) and primary in ('阳虚质', '气虚质', '痰湿质'):
+        overlap_notes.append(f'地域寒湿/湿重倾向与{primary}调理方向相关，应重视避寒湿与健脾温阳。')
+    if primary and any(k in text for k in ['火', '热']) and primary in ('阴虚质', '湿热质'):
+        overlap_notes.append(f'地域火热/湿热倾向与{primary}易感方向相关，应防热郁与伤津。')
+    if primary and '燥' in text and primary in ('阴虚质', '特禀质', '气虚质'):
+        overlap_notes.append(f'地域燥气倾向与{primary}易感方向相关，应重视润燥护肺。')
+
+    return {
+        'region_name': region_entry['region_name'],
+        'climate_characteristics': region_entry['climate_characteristics'],
+        'wuyun_effect': region_entry.get('wuyun_modifier', {}).get('effect', ''),
+        'liuqi_effect': region_entry.get('liuqi_modifier', {}).get('effect', ''),
+        'wuyun_weight': wuyun_weight,
+        'liuqi_weight': liuqi_weight,
+        'affected_factors': affected,
+        'explanation': f"{region_entry['region_name']}：{region_entry['climate_characteristics']}；{region_entry.get('wuyun_modifier', {}).get('description', '')}；{region_entry.get('liuqi_modifier', {}).get('description', '')}",
+        'constitution_tendency': region_entry.get('constitution_tendency', ''),
+        'clinical_notes': region_entry.get('clinical_notes', ''),
+        'overlap_notes': overlap_notes,
+        'source': region_entry.get('source', ''),
+    }
 
 
 def synthesize_innate_acquired(birth_constitutions, current_adjustment, constitution_assessment):
@@ -193,6 +249,12 @@ def generate_profile(birth_date, region=None, as_json=False, today=None, constit
     current_adjustment = match_current_adjustment(current_suiyun_code)
     region_entry = match_region(region) if region else None
     innate_acquired = synthesize_innate_acquired(birth_constitutions, current_adjustment, constitution_assessment)
+    regional_explainable = build_regional_explainable_modifier(
+        region_entry,
+        birth_suiyun_code=birth_suiyun_code,
+        current_suiyun_code=current_suiyun_code,
+        constitution_assessment=constitution_assessment,
+    )
 
     profile = {
         'birth_date': birth_date,
@@ -233,6 +295,7 @@ def generate_profile(birth_date, region=None, as_json=False, today=None, constit
             'liuqi_modifier': region_entry['liuqi_modifier'],
             'constitution_tendency': region_entry['constitution_tendency'],
         },
+        'regional_explainable_modifier': regional_explainable,
         'constitution_assessment': constitution_assessment,
         'innate_acquired_synthesis': innate_acquired,
     }
@@ -297,6 +360,14 @@ def generate_profile(birth_date, region=None, as_json=False, today=None, constit
         lines.append(f"**五运修正**: {region_entry['wuyun_modifier']['description']}")
         lines.append(f"**六气修正**: {region_entry['liuqi_modifier']['description']}")
         lines.append(f"**体质倾向**: {region_entry['constitution_tendency']}")
+        if regional_explainable:
+            lines.append(f"**可解释权重**: 五运 {regional_explainable['wuyun_weight']}；六气 {regional_explainable['liuqi_weight']}")
+            lines.append(f"**影响因子**: {'、'.join(regional_explainable['affected_factors']) or '未提取'}")
+            if regional_explainable.get('overlap_notes'):
+                lines.append("**与体质量表交叉提示**：")
+                for note in regional_explainable['overlap_notes']:
+                    lines.append(f"- {note}")
+            lines.append(f"**地域解释**: {regional_explainable['explanation']}")
         lines.append("")
 
     lines.append(

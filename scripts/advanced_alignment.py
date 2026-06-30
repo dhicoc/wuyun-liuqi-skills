@@ -38,7 +38,7 @@ from constitution_assessment import (  # noqa: E402
     extract_scores_and_metadata,
     parse_input_payload,
 )
-from personal_yunqi_profile import generate_profile  # noqa: E402
+from personal_yunqi_profile import generate_profile, match_region, build_regional_explainable_modifier  # noqa: E402
 from weather_alignment import (  # noqa: E402
     DISCLAIMER,
     fetch_climatology,
@@ -143,7 +143,14 @@ def normalize_codes(codes):
     return [c for c in (codes or []) if c]
 
 
-def synthesize_all(profile=None, weather_alignment=None, constitution=None):
+def build_regional_alignment(region=None, constitution=None):
+    if not region:
+        return None
+    entry = match_region(region)
+    return build_regional_explainable_modifier(entry, constitution_assessment=constitution) if entry else None
+
+
+def synthesize_all(profile=None, weather_alignment=None, constitution=None, regional_alignment=None):
     layers = []
     focus_codes = []
     notes = []
@@ -175,6 +182,11 @@ def synthesize_all(profile=None, weather_alignment=None, constitution=None):
         notes.append(f"天气实况为{weather_qi.get('pattern')}，对齐类型为{alignment.get('label')}。")
     else:
         weather_qi = {}
+
+    if regional_alignment:
+        layers.append('regional_alignment')
+        notes.append(f"地域修正提示：{regional_alignment.get('region_name')}，五运权重 {regional_alignment.get('wuyun_weight')}，六气权重 {regional_alignment.get('liuqi_weight')}。")
+        notes.extend(regional_alignment.get('overlap_notes') or [])
 
     combined_birth_weather = None
     if profile and weather_alignment:
@@ -256,7 +268,8 @@ def generate_advanced_alignment(args):
     weather = build_weather_alignment(date_str, args)
     region = args.region or args.city
     profile = build_personal_profile(date_str, args.birth_date, region=region)
-    synthesis = synthesize_all(profile=profile, weather_alignment=weather, constitution=constitution)
+    regional_alignment = build_regional_alignment(region=region, constitution=constitution)
+    synthesis = synthesize_all(profile=profile, weather_alignment=weather, constitution=constitution, regional_alignment=regional_alignment)
 
     return {
         'date': date_str,
@@ -264,6 +277,7 @@ def generate_advanced_alignment(args):
         'personal_profile': profile,
         'constitution_assessment': constitution,
         'weather_alignment': weather,
+        'regional_alignment': regional_alignment,
         'advanced_synthesis': synthesis,
         'disclaimer': DISCLAIMER,
     }
@@ -314,6 +328,19 @@ def format_markdown(result):
             f"- 对齐类型：{weather['alignment']['label']}（{weather['alignment']['type']}）",
             f"- 调摄原则：{weather['alignment']['care_principle']}",
         ])
+
+    regional = result.get('regional_alignment')
+    if regional:
+        lines.extend([
+            '',
+            '## 地域可解释修正',
+            f"- 地区：{regional['region_name']}",
+            f"- 五运权重：{regional['wuyun_weight']}；六气权重：{regional['liuqi_weight']}",
+            f"- 影响因子：{'、'.join(regional.get('affected_factors') or []) or '未提取'}",
+            f"- 地域解释：{regional['explanation']}",
+        ])
+        for note in regional.get('overlap_notes') or []:
+            lines.append(f"  - {note}")
 
     profile = result.get('personal_profile')
     if profile:

@@ -160,6 +160,23 @@ def render_advanced_alignment_section(advanced):
         </div>
         ''')
 
+    regional = advanced.get('regional_alignment')
+    if regional:
+        r_rows = [
+            f'<tr><th>地区</th><td>{escape_html(regional.get("region_name", ""))}</td></tr>',
+            f'<tr><th>权重</th><td>五运 {escape_html(str(regional.get("wuyun_weight", "")))}；六气 {escape_html(str(regional.get("liuqi_weight", "")))}</td></tr>',
+            f'<tr><th>影响因子</th><td>{escape_html("、".join(regional.get("affected_factors") or []) or "未提取")}</td></tr>',
+            f'<tr><th>解释</th><td>{escape_html(regional.get("explanation", ""))}</td></tr>',
+        ]
+        blocks.append(f'''
+        <div style="overflow-x:auto;margin-top:1rem">
+          <table class="jialin-table">
+            <thead><tr><th>地域修正</th><th></th></tr></thead>
+            <tbody>{''.join(r_rows)}</tbody>
+          </table>
+        </div>
+        ''')
+
     notes = synthesis.get('notes') or []
     if notes:
         note_items = ''.join(f'<li>{escape_html(n)}</li>' for n in notes)

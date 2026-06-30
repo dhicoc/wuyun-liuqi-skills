@@ -121,7 +121,7 @@ def main():
     run('weather constitution mock text', [PY, 'scripts/yunqi_weather_constitution.py', '2026-06-29', '--birth-date', '2003-04-19', '--city', '杭州', '--mock'], has('三维叠加报告'))
     run('weather constitution mock json', [PY, 'scripts/yunqi_weather_constitution.py', '2026-06-29', '--birth-date', '2003-04-19', '--city', '杭州', '--mock', '--json'], json_has(['combined_analysis', 'level']))
     run('advanced alignment mock text', [PY, 'scripts/advanced_alignment.py', '--date', '2026-06-29', '--birth-date', '2003-04-19', '--city', '杭州', '--constitution-demo', '--mock'], has('高级对齐综合报告'))
-    run('advanced alignment mock json', [PY, 'scripts/advanced_alignment.py', '--date', '2026-06-29', '--birth-date', '2003-04-19', '--city', '杭州', '--constitution-demo', '--mock', '--json'], json_has(['advanced_synthesis', 'level']))
+    run('advanced alignment mock json', [PY, 'scripts/advanced_alignment.py', '--date', '2026-06-29', '--birth-date', '2003-04-19', '--city', '杭州', '--constitution-demo', '--mock', '--json'], json_has(['regional_alignment', 'wuyun_weight']))
 
     # 报告融合：高级对齐 JSON 注入 yunqi_report
     run('generate advanced json fixture', [PY, 'scripts/advanced_alignment.py', '--date', '2026-06-29', '--birth-date', '2003-04-19', '--city', '杭州', '--constitution-demo', '--mock', '--json'], lambda r, o: (r.returncode == 0 and _save_fixture('reports/test-results/advanced-2026-06-29.json', r.stdout)))
