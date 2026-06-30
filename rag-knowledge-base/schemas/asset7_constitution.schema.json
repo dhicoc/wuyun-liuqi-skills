@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wuyun-liuqi.local/schemas/asset7_constitution.schema.json",
+  "title": "asset7_constitution — 运气体质资产",
+  "description": "出生年运气体质映射与当前岁运体质调理字段级 schema。",
+  "type": "object",
+  "required": ["asset_id", "asset_name", "asset_description", "data_source", "entry_count", "entries"],
+  "properties": {
+    "asset_id": {"type": "string", "description": "资产唯一 ID。"},
+    "asset_name": {"type": "string", "description": "资产中文名称。"},
+    "asset_description": {"type": "string", "description": "资产说明。"},
+    "data_source": {"type": "string", "description": "资料来源。"},
+    "entry_count": {"type": "integer", "description": "entries 条目数量。"},
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["entry_id", "entry_type"],
+        "properties": {
+          "entry_id": {"type": "string", "description": "条目编号。"},
+          "entry_type": {"type": "string", "description": "条目类型：birth_yunqi_mapping 或 suiyun_constitution_adjustment。"},
+          "constitution_name": {"type": "string", "description": "体质名称。"},
+          "rag_key": {"type": "string", "description": "检索键。"},
+          "constitution_code": {"type": "string", "description": "体质代码。"},
+          "birth_yunqi_keys": {"type": "array", "items": {"type": "string"}, "description": "可映射到该体质的出生岁运代码。"},
+          "description": {"type": "string", "description": "体质说明。"},
+          "typical_features": {"type": "array", "items": {"type": "string"}, "description": "典型体质表现。"},
+          "birth_year_analysis": {"type": "string", "description": "出生年运气体质分析。"},
+          "current_year_sensitivity": {"type": "object", "description": "当前岁运敏感性。"},
+          "health_risks": {"type": "array", "items": {"type": "string"}, "description": "健康风险或易感问题。"},
+          "lifestyle_advice": {"type": "string", "description": "生活调养建议。"},
+          "dietary_guidance": {"type": "string", "description": "饮食指导。"},
+          "herbal_reference": {"type": "string", "description": "参考方药方向。"},
+          "suiyun_code": {"type": "string", "description": "岁运代码。"},
+          "suiyun_name": {"type": "string", "description": "岁运名称。"},
+          "most_affected_constitutions": {"type": "array", "items": {"type": ["string", "object"]}, "description": "该岁运最易影响的体质。"},
+          "dietary_herbs": {"type": "string", "description": "饮食药膳参考。"},
+          "acupuncture_points": {"type": "array", "items": {"type": "string"}, "description": "参考穴位。"},
+          "preventive_measures": {"type": "string", "description": "预防调摄措施。"},
+          "source": {"type": "string", "description": "资料来源。"}
+        },
+        "allOf": [
+          {
+            "if": {"properties": {"entry_type": {"const": "birth_yunqi_mapping"}}},
+            "then": {"required": ["constitution_name", "constitution_code", "birth_yunqi_keys", "description", "birth_year_analysis"]}
+          },
+          {
+            "if": {"properties": {"entry_type": {"const": "suiyun_constitution_adjustment"}}},
+            "then": {"required": ["suiyun_code", "suiyun_name", "most_affected_constitutions", "health_risks", "lifestyle_advice"]}
+          }
+        ]
+      }
+    }
+  }
+}

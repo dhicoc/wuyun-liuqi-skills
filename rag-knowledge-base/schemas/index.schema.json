@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wuyun-liuqi.local/schemas/index.schema.json",
+  "title": "index — RAG 资产索引",
+  "description": "RAG 知识库资产索引字段级 schema。",
+  "type": "object",
+  "required": ["asset_name", "asset_type", "description", "total_entries", "primary_api", "entries", "maintenance"],
+  "properties": {
+    "asset_name": {"type": "string", "description": "索引资产名称。"},
+    "asset_type": {"type": "string", "description": "索引资产类型，固定为 knowledge_base_index。"},
+    "description": {"type": "string", "description": "索引说明。"},
+    "total_entries": {"type": "integer", "description": "被索引资产数量。"},
+    "primary_api": {"type": "string", "description": "主计算 API。"},
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["entry_id", "entry_type", "title", "file", "asset_id", "asset_name", "asset_category", "description", "total_entries", "lookup_fields", "example_keys", "rag_key"],
+        "properties": {
+          "entry_id": {"type": "string", "description": "索引条目 ID。"},
+          "entry_type": {"type": "string", "description": "条目类型，固定为 asset_index。"},
+          "title": {"type": "string", "description": "资产标题。"},
+          "file": {"type": "string", "description": "资产文件名。"},
+          "asset_id": {"type": "string", "description": "被索引资产 ID。"},
+          "asset_name": {"type": "string", "description": "被索引资产名称。"},
+          "asset_category": {"type": "string", "description": "被索引资产分类。"},
+          "description": {"type": "string", "description": "被索引资产说明。"},
+          "total_entries": {"type": "integer", "description": "被索引资产条目数。"},
+          "lookup_fields": {"type": "array", "items": {"type": "string"}, "description": "推荐检索字段。"},
+          "example_keys": {"type": "array", "items": {"type": "string"}, "description": "示例检索值。"},
+          "rag_key": {"type": "string", "description": "资产自身检索键。"}
+        }
+      }
+    },
+    "maintenance": {"type": "object", "description": "维护命令索引。"}
+  }
+}

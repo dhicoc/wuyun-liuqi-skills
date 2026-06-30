@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wuyun-liuqi.local/schemas/asset1_suiyun.schema.json",
+  "title": "asset1_suiyun — 岁运病机数据库",
+  "description": "五运太过/不及病机、症状、治则、饮食调理字段级 schema。",
+  "type": "object",
+  "required": ["asset_id", "asset_name", "asset_description", "data_source", "entry_count", "entries"],
+  "properties": {
+    "asset_id": {"type": "string", "description": "资产唯一 ID，固定为 asset1_suiyun。"},
+    "asset_name": {"type": "string", "description": "资产中文名称。"},
+    "asset_description": {"type": "string", "description": "资产说明。"},
+    "data_source": {"type": "string", "description": "知识来源。"},
+    "entry_count": {"type": "integer", "description": "entries 条目数量。"},
+    "entries": {
+      "type": "array",
+      "description": "岁运病机条目，共五运太过/不及 10 条。",
+      "items": {
+        "type": "object",
+        "required": ["code", "name", "tiangan", "tiangan_yinyang", "wuxing", "pathogenesis", "classics_quote", "organs_affected", "symptoms", "sheng_fu", "treatment_principle", "dietary_advice", "pingqi_condition"],
+        "properties": {
+          "code": {"type": "string", "description": "岁运检索代码，如 water_excess、fire_deficient。"},
+          "name": {"type": "string", "description": "岁运中文名，如 水运太过。"},
+          "tiangan": {"type": "string", "description": "对应天干。"},
+          "tiangan_yinyang": {"type": "string", "description": "阳干/阴干，用于太过不及判断。"},
+          "wuxing": {"type": "string", "description": "五运五行：木、火、土、金、水。"},
+          "pathogenesis": {"type": "string", "description": "病机阐释。"},
+          "classics_quote": {"type": "string", "description": "经典原文引用。"},
+          "organs_affected": {"type": "array", "items": {"type": "string"}, "description": "影响脏腑/系统。"},
+          "symptoms": {"type": "array", "items": {"type": "string"}, "description": "典型症状或病证术语。"},
+          "sheng_fu": {
+            "type": "object",
+            "description": "胜复关系。",
+            "required": ["sheng", "fu"],
+            "properties": {
+              "sheng": {"type": "string", "description": "胜气或来乘关系。"},
+              "fu": {"type": "string", "description": "复气或反侮关系。"}
+            }
+          },
+          "treatment_principle": {"type": "string", "description": "治则治法方向。"},
+          "dietary_advice": {"type": "string", "description": "饮食调理方向。"},
+          "pingqi_condition": {"type": "string", "description": "可能转为平气的条件。"}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wuyun-liuqi.local/schemas/terminology.schema.json",
+  "title": "terminology — 五运六气术语解释库",
+  "description": "术语解释条目字段级 schema。",
+  "type": "object",
+  "required": ["asset_id", "asset_name", "asset_description", "data_source", "entry_count", "entries"],
+  "properties": {
+    "asset_id": {"type": "string", "description": "资产唯一 ID。"},
+    "asset_name": {"type": "string", "description": "资产中文名称。"},
+    "asset_description": {"type": "string", "description": "资产说明。"},
+    "data_source": {"type": "string", "description": "资料来源。"},
+    "entry_count": {"type": "integer", "description": "术语条目数量。"},
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["entry_id", "entry_type", "term", "pinyin", "category", "explanation", "source"],
+        "properties": {
+          "entry_id": {"type": "string", "description": "术语条目 ID。"},
+          "entry_type": {"type": "string", "description": "条目类型，固定为 terminology。"},
+          "term": {"type": "string", "description": "中文术语。"},
+          "pinyin": {"type": "string", "description": "拼音或英文检索别名。"},
+          "category": {"type": "string", "description": "术语分类。"},
+          "explanation": {"type": "string", "description": "白话解释。"},
+          "source": {"type": "string", "description": "术语来源或参考。"}
+        }
+      }
+    }
+  }
+}

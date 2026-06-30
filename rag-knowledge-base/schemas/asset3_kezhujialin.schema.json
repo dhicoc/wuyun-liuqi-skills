@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wuyun-liuqi.local/schemas/asset3_kezhujialin.schema.json",
+  "title": "asset3_kezhujialin — 客主加临病机库",
+  "description": "六气主客加临关系、顺逆、病机字段级 schema。",
+  "type": "object",
+  "required": ["asset_id", "asset_name", "asset_description", "data_source", "entry_count", "entries"],
+  "properties": {
+    "asset_id": {"type": "string", "description": "资产唯一 ID。"},
+    "asset_name": {"type": "string", "description": "资产中文名称。"},
+    "asset_description": {"type": "string", "description": "资产说明。"},
+    "data_source": {"type": "string", "description": "知识来源。"},
+    "entry_count": {"type": "integer", "description": "entries 条目数量。"},
+    "relation_rules": {"type": "object", "description": "客主关系判定规则说明。"},
+    "zhuqi_steps": {"type": "array", "description": "主气六步固定序列。"},
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["key", "zhu_qi", "ke_qi", "zhu_step", "zhu_wuxing", "ke_wuxing", "relation", "shun_ni", "pathogenesis", "clinical_focus"],
+        "properties": {
+          "key": {"type": "string", "description": "检索键，格式 zhu_<主气>_ke_<客气>。"},
+          "zhu_qi": {"type": "string", "description": "主气名称。"},
+          "ke_qi": {"type": "string", "description": "客气名称。"},
+          "zhu_step": {"type": "string", "description": "主气步位与节气范围。"},
+          "zhu_wuxing": {"type": "string", "description": "主气五行。"},
+          "ke_wuxing": {"type": "string", "description": "客气五行。"},
+          "relation": {"type": "string", "description": "主客五行关系。"},
+          "shun_ni": {"type": "string", "description": "相得/不相得顺逆判断。"},
+          "pathogenesis": {"type": "string", "description": "病机分析。"},
+          "clinical_focus": {"type": "string", "description": "临床关注重点与调理方向。"}
+        }
+      }
+    }
+  }
+}

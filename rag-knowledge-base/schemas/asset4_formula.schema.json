@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wuyun-liuqi.local/schemas/asset4_formula.schema.json",
+  "title": "asset4_formula — 三因司天方资产",
+  "description": "运气方剂条目字段级 schema。",
+  "type": "object",
+  "required": ["asset_id", "asset_name", "asset_description", "data_source", "formula_count", "entries"],
+  "properties": {
+    "asset_id": {"type": "string", "description": "资产唯一 ID。"},
+    "asset_name": {"type": "string", "description": "资产中文名称。"},
+    "asset_description": {"type": "string", "description": "资产说明。"},
+    "data_source": {"type": "string", "description": "方剂来源。"},
+    "formula_count": {"type": "integer", "description": "方剂数量。"},
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["formula_id", "rag_key", "category", "name", "source", "author", "dynasty", "applicable_pattern", "indications", "pathogenesis", "ingredients", "usage", "clinical_notes"],
+        "properties": {
+          "formula_id": {"type": "string", "description": "方剂编号。"},
+          "rag_key": {"type": "string", "description": "适用运气检索键。"},
+          "category": {"type": "string", "description": "方剂类别，如 wuyun / liuqi。"},
+          "name": {"type": "string", "description": "方名。"},
+          "source": {"type": "string", "description": "出处。"},
+          "author": {"type": "string", "description": "作者。"},
+          "dynasty": {"type": "string", "description": "朝代。"},
+          "applicable_pattern": {"type": "string", "description": "适用运气格局。"},
+          "indications": {"type": "string", "description": "主治/适应证候。"},
+          "pathogenesis": {"type": "string", "description": "方证病机解释。"},
+          "ingredients": {"type": "string", "description": "组成。"},
+          "usage": {"type": "string", "description": "古籍用法。"},
+          "clinical_notes": {"type": "string", "description": "临床加减与注意。"},
+          "modern_studies": {"type": "string", "description": "现代研究或现代应用。"}
+        }
+      }
+    }
+  }
+}

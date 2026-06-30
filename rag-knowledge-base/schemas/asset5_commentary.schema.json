@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wuyun-liuqi.local/schemas/asset5_commentary.schema.json",
+  "title": "asset5_commentary — 历代注家资产",
+  "description": "历代医家运气学说观点字段级 schema。",
+  "type": "object",
+  "required": ["asset_id", "asset_name", "asset_description", "data_source", "entry_count", "entries"],
+  "properties": {
+    "asset_id": {"type": "string", "description": "资产唯一 ID。"},
+    "asset_name": {"type": "string", "description": "资产中文名称。"},
+    "asset_description": {"type": "string", "description": "资产说明。"},
+    "data_source": {"type": "string", "description": "资料来源。"},
+    "entry_count": {"type": "integer", "description": "entries 条目数量。"},
+    "usage_note": {"type": "string", "description": "使用说明。"},
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["commentary_id", "rag_key", "author", "dynasty", "work", "core_theory_title", "core_theory", "clinical_significance", "related_yunqi_keys"],
+        "properties": {
+          "commentary_id": {"type": "string", "description": "注家条目编号。"},
+          "rag_key": {"type": "string", "description": "注家观点检索键。"},
+          "author": {"type": "string", "description": "医家姓名。"},
+          "dynasty": {"type": "string", "description": "所处朝代。"},
+          "work": {"type": "string", "description": "代表著作。"},
+          "chapter": {"type": "string", "description": "涉及篇章。"},
+          "core_theory_title": {"type": "string", "description": "核心理论标题。"},
+          "core_theory": {"type": "string", "description": "核心理论内容。"},
+          "classics_quote": {"type": "string", "description": "原文或注释引用。"},
+          "clinical_significance": {"type": "string", "description": "临床意义。"},
+          "related_yunqi_keys": {"type": "array", "items": {"type": "string"}, "description": "相关运气检索键。"}
+        }
+      }
+    }
+  }
+}

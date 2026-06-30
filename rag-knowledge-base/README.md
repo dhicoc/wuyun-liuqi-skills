@@ -2,6 +2,26 @@
 
 本文档是 `rag-knowledge-base/` 的维护索引。知识库通过 `scripts/calculate_yunqi_api.py` 生成的 `rag_keys` 精确检索，为病机分析、报告生成、个人体质和高级对齐提供结构化资料。
 
+## 字段级 Schema
+
+各 RAG asset 的字段级 schema 位于：
+
+```text
+rag-knowledge-base/schemas/
+```
+
+| Asset | Schema |
+|-------|--------|
+| `asset1_suiyun.json` | `schemas/asset1_suiyun.schema.json` |
+| `asset2_sitian_zaiquan.json` | `schemas/asset2_sitian_zaiquan.schema.json` |
+| `asset3_kezhujialin.json` | `schemas/asset3_kezhujialin.schema.json` |
+| `asset4_formula.json` | `schemas/asset4_formula.schema.json` |
+| `asset5_commentary.json` | `schemas/asset5_commentary.schema.json` |
+| `asset6_regional.json` | `schemas/asset6_regional.schema.json` |
+| `asset7_constitution.json` | `schemas/asset7_constitution.schema.json` |
+| `terminology.json` | `schemas/terminology.schema.json` |
+| `index.json` | `schemas/index.schema.json` |
+
 ## 资产总览
 
 | Asset | 文件 | 类型 | 主要用途 | 典型检索键 |

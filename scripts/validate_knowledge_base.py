@@ -145,6 +145,18 @@ def validate_directory(directory: str) -> dict[str, list[str]]:
         path = os.path.join(directory, fname)
         if os.path.isfile(path):
             results[fname] = validate_asset_file(path)
+    schema_dir = os.path.join(directory, "schemas")
+    if os.path.isdir(schema_dir):
+        for fname in sorted(os.listdir(schema_dir)):
+            if not fname.endswith(".json"):
+                continue
+            path = os.path.join(schema_dir, fname)
+            if os.path.isfile(path):
+                try:
+                    load_json(path)
+                    results[f"schemas/{fname}"] = []
+                except Exception as exc:
+                    results[f"schemas/{fname}"] = [f"Schema JSON 读取失败: {exc}"]
     return results
 
 

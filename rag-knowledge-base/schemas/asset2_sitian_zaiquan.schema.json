@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wuyun-liuqi.local/schemas/asset2_sitian_zaiquan.schema.json",
+  "title": "asset2_sitian_zaiquan — 司天在泉病机数据库",
+  "description": "六气司天在泉病机、症状、治法字段级 schema。",
+  "type": "object",
+  "required": ["asset_id", "asset_name", "asset_description", "data_source", "entry_count", "entries"],
+  "properties": {
+    "asset_id": {"type": "string", "description": "资产唯一 ID。"},
+    "asset_name": {"type": "string", "description": "资产中文名称。"},
+    "asset_description": {"type": "string", "description": "资产说明。"},
+    "data_source": {"type": "string", "description": "知识来源。"},
+    "entry_count": {"type": "integer", "description": "entries 条目数量。"},
+    "half_year_analyses": {"type": "integer", "description": "半年节段分析数量。"},
+    "pairing_rule": {"type": "string", "description": "司天在泉配对规则。"},
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["sitian", "zaiquan", "sitian_yinyang", "zaiquan_yinyang", "year_dizhi", "sitian_key", "zaiquan_key", "sitian_pathogenesis", "sitian_classics_quote", "sitian_symptoms", "sitian_affected_organ", "zaiquan_pathogenesis", "zaiquan_classics_quote", "zaiquan_symptoms", "zaiquan_affected_organ", "treatment_rule", "treatment_rule_classics_quote"],
+        "properties": {
+          "sitian": {"type": "string", "description": "司天六气。"},
+          "zaiquan": {"type": "string", "description": "在泉六气。"},
+          "sitian_yinyang": {"type": "string", "description": "司天阴阳层级。"},
+          "zaiquan_yinyang": {"type": "string", "description": "在泉阴阳层级。"},
+          "year_dizhi": {"type": "string", "description": "对应地支年份。"},
+          "sitian_key": {"type": "string", "description": "司天检索键。"},
+          "zaiquan_key": {"type": "string", "description": "在泉检索键。"},
+          "sitian_pathogenesis": {"type": "string", "description": "司天病机分析。"},
+          "sitian_classics_quote": {"type": "string", "description": "司天经典原文。"},
+          "sitian_symptoms": {"type": "array", "items": {"type": "string"}, "description": "司天相关症状。"},
+          "sitian_affected_organ": {"type": "string", "description": "司天病本脏腑。"},
+          "zaiquan_pathogenesis": {"type": "string", "description": "在泉病机分析。"},
+          "zaiquan_classics_quote": {"type": "string", "description": "在泉经典原文。"},
+          "zaiquan_symptoms": {"type": "array", "items": {"type": "string"}, "description": "在泉相关症状。"},
+          "zaiquan_affected_organ": {"type": "string", "description": "在泉相关脏腑。"},
+          "treatment_rule": {"type": "string", "description": "上下半年治法规则。"},
+          "treatment_rule_classics_quote": {"type": "string", "description": "治法经典原文。"}
+        }
+      }
+    }
+  }
+}

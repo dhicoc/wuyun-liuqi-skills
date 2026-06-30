@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wuyun-liuqi.local/schemas/asset6_regional.schema.json",
+  "title": "asset6_regional — 地域修正资产",
+  "description": "地域气候修正、权重和体质倾向字段级 schema。",
+  "type": "object",
+  "required": ["asset_id", "asset_name", "asset_description", "data_source", "entry_count", "entries"],
+  "properties": {
+    "asset_id": {"type": "string", "description": "资产唯一 ID。"},
+    "asset_name": {"type": "string", "description": "资产中文名称。"},
+    "asset_description": {"type": "string", "description": "资产说明。"},
+    "data_source": {"type": "string", "description": "资料来源。"},
+    "entry_count": {"type": "integer", "description": "entries 条目数量。"},
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["region_id", "region_name", "rag_key", "latitude_range", "climate_characteristics", "wuyun_modifier", "liuqi_modifier", "constitution_tendency", "clinical_notes", "source"],
+        "properties": {
+          "region_id": {"type": "string", "description": "地域条目编号。"},
+          "region_name": {"type": "string", "description": "地域名称。"},
+          "rag_key": {"type": "string", "description": "地域检索键。"},
+          "latitude_range": {"type": "string", "description": "纬度范围。"},
+          "climate_characteristics": {"type": "string", "description": "区域气候特点。"},
+          "wuyun_modifier": {
+            "type": "object",
+            "required": ["description", "effect", "weight_adjustment"],
+            "properties": {
+              "description": {"type": "string", "description": "五运修正解释。"},
+              "effect": {"type": "string", "description": "五运偏盛/偏衰结论。"},
+              "weight_adjustment": {"type": "string", "description": "五运权重调整文本，如 +10%。"}
+            }
+          },
+          "liuqi_modifier": {
+            "type": "object",
+            "required": ["description", "effect", "weight_adjustment"],
+            "properties": {
+              "description": {"type": "string", "description": "六气修正解释。"},
+              "effect": {"type": "string", "description": "六气偏盛/偏衰结论。"},
+              "weight_adjustment": {"type": "string", "description": "六气权重调整文本，如 +10%。"}
+            }
+          },
+          "constitution_tendency": {"type": "string", "description": "地域体质倾向。"},
+          "clinical_notes": {"type": "string", "description": "临床应用提示。"},
+          "source": {"type": "string", "description": "理论或文献来源。"}
+        }
+      }
+    }
+  }
+}
