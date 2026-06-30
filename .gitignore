@@ -39,3 +39,5 @@ reports/generated/**
 !reports/generated/.gitkeep
 reports/test-results/**
 !reports/test-results/.gitkeep
+!reports/snapshots/
+!reports/snapshots/**

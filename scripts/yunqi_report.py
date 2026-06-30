@@ -33,6 +33,17 @@ DISCLAIMER = (
     "请勿据此自行用药或针灸。\n"
 )
 
+CLINICAL_SAFETY_NOTICE = (
+    "\n> ⚠️ 临床安全提示：方药仅作传统运气学参考方向，须由执业中医师辨证加减；"
+    "请勿自行购药、配伍或服用。针灸/艾灸/穴位仅作传统理论参考，"
+    "须由执业针灸师操作；请勿自行针刺或重灸。\n"
+)
+
+EMERGENCY_NOTICE = (
+    "\n> ⚠️ 急症提醒：若出现胸痛、呼吸困难、意识障碍、大出血、剧烈腹痛、高热不退等严重症状，"
+    "请立即联系急救或前往正规医疗机构就诊。\n"
+)
+
 RAG_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'rag-knowledge-base')
 
 
@@ -358,6 +369,11 @@ def generate_report(year, audience='student', advanced=None):
     advanced_section = build_advanced_alignment_section(advanced)
     if advanced_section:
         sections.append(advanced_section)
+
+    # 临床版强化安全与急症提醒
+    if audience == 'practitioner':
+        sections.append(CLINICAL_SAFETY_NOTICE)
+        sections.append(EMERGENCY_NOTICE)
 
     # 免责声明
     sections.append(DISCLAIMER)

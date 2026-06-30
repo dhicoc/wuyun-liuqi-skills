@@ -36,13 +36,12 @@
 
 - [x] 报告融合：`yunqi_report.py --advanced-json` 与 `generate_html_report.py --with-advanced-alignment` 支持高级对齐章节。
 - [x] 强化方药与针灸输出安全策略。
-- [ ] 对临床版报告增加更严格的免责声明检查。
-- [ ] 为严重症状或急症相关输入增加就医提醒。
-- [ ] 增加报告快照测试，避免格式回退。
+- [x] 对临床版报告增加更严格的免责声明检查。
+- [x] 为严重症状或急症相关输入增加就医提醒。
+- [x] 增加报告快照测试，避免格式回退。
 
 ## P4：测试与发布
 
 - [ ] 将 `verify_expansion.py`、`full_regression_test.py` 逐步迁移到 `tests/`。
 - [ ] 在 `scripts/` 保留兼容 wrapper，避免破坏既有用户命令。
-- [ ] 发布版本号与 changelog。
 - [ ] 增加示例案例库与标准输出样例。

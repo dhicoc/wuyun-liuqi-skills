@@ -130,6 +130,12 @@ def main():
     run('yunqi_report with advanced json', [PY, 'scripts/yunqi_report.py', '2026', '--audience', 'practitioner', '--advanced-json', 'reports/test-results/advanced-2026-06-29.json'], has('高级对齐'))
     run('yunqi_report with advanced json json', [PY, 'scripts/yunqi_report.py', '2026', '--audience', 'student', '--advanced-json', 'reports/test-results/advanced-2026-06-29.json', '--json'], json_has(['has_advanced_alignment']))
 
+    # 报告质量门禁：临床免责声明、急症提醒、快照
+    run('generate practitioner report fixture', [PY, 'scripts/yunqi_report.py', '2026', '--audience', 'practitioner'], lambda r, o: (r.returncode == 0 and _save_fixture('reports/test-results/yunqi_report_2026_practitioner.md', r.stdout)))
+    run('report quality gate practitioner', [PY, 'scripts/report_quality_gate.py', '--file', 'reports/test-results/yunqi_report_2026_practitioner.md', '--audience', 'practitioner'], has('通过'))
+    run('report snapshot practitioner', [PY, 'scripts/report_quality_gate.py', '--file', 'reports/test-results/yunqi_report_2026_practitioner.md', '--audience', 'practitioner', '--snapshot', 'reports/snapshots/yunqi_report_2026_practitioner.md'], has('通过'))
+    run('report quality gate demo json', [PY, 'scripts/report_quality_gate.py', '--demo', '--json'], json_has(['passed']))
+
     # 报告融合：HTML 报告内置高级对齐章节
     def html_has_advanced(result, output):
         html_path = ROOT / 'reports/test-results/html-advanced-2026-06-29.html'

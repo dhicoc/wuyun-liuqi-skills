@@ -80,5 +80,10 @@ jobs:
       - name: Advanced Markdown report integration test
         run: python scripts/yunqi_report.py 2026 --audience practitioner --advanced-json reports/test-results/advanced-ci.json
 
+      - name: Practitioner report quality gate
+        run: |
+          python scripts/yunqi_report.py 2026 --audience practitioner > reports/test-results/yunqi_report_2026_practitioner.md
+          python scripts/report_quality_gate.py --file reports/test-results/yunqi_report_2026_practitioner.md --audience practitioner --snapshot reports/snapshots/yunqi_report_2026_practitioner.md
+
       - name: Advanced HTML report integration test
         run: python scripts/generate_html_report.py 2026-06-29 reports/test-results/advanced-ci.html --with-advanced-alignment --birth-date 2003-04-19 --city 杭州 --constitution-demo --mock
