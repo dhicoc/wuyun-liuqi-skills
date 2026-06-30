@@ -16,6 +16,9 @@ import json
 import subprocess
 from datetime import date
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from constitution_assessment import assess_constitution, extract_scores_and_metadata, parse_input_payload  # noqa: E402
+
 # Windows 终端默认编码可能不是 UTF-8，强制设置 stdout/stderr 编码
 if sys.platform == 'win32' and sys.stdout.encoding != 'utf-8':
     try:
@@ -109,7 +112,78 @@ def match_current_adjustment(suiyun_code):
     return None
 
 
-def generate_profile(birth_date, region=None, as_json=False, today=None):
+def normalize_affected_constitutions(items):
+    codes = []
+    for item in items or []:
+        if isinstance(item, str):
+            codes.append(item)
+        elif isinstance(item, dict):
+            code = item.get('code') or item.get('constitution_code')
+            if code:
+                codes.append(code)
+    return codes
+
+
+def synthesize_innate_acquired(birth_constitutions, current_adjustment, constitution_assessment):
+    """合成先天运气体质与后天量表体质。"""
+    if not constitution_assessment:
+        return None
+    birth_codes = [c['constitution_code'] for c in birth_constitutions if c.get('constitution_code')]
+    birth_names = [c['constitution_name'] for c in birth_constitutions if c.get('constitution_name')]
+    primary_code = constitution_assessment.get('primary_code')
+    secondary_codes = constitution_assessment.get('secondary_codes') or []
+    assessed_codes = [c for c in [primary_code] + secondary_codes if c]
+    current_affected = normalize_affected_constitutions((current_adjustment or {}).get('most_affected_constitutions'))
+
+    innate_acquired_overlap = sorted(set(birth_codes) & set(assessed_codes))
+    acquired_suiyun_overlap = sorted(set(assessed_codes) & set(current_affected))
+    triple_overlap = sorted(set(birth_codes) & set(assessed_codes) & set(current_affected))
+
+    if triple_overlap:
+        level = 'high'
+        label = '先天运气、后天体质与当前岁运三重同向'
+        summary = '出生年运气体质倾向、量表评估体质与当前岁运易感体质出现同向叠加，调理应优先处理该体质偏性。'
+    elif innate_acquired_overlap:
+        level = 'medium_high'
+        label = '先天运气与后天体质同向'
+        summary = '出生年运气体质倾向与量表评估结果相合，提示先天后天同气相引。'
+    elif acquired_suiyun_overlap:
+        level = 'medium'
+        label = '后天体质受当前岁运牵动'
+        summary = '量表评估体质与当前岁运易感体质相合，调理以当前岁运与后天体质为主。'
+    else:
+        level = 'baseline'
+        label = '先天后天未见明显同向叠加'
+        summary = '出生年运气体质倾向与量表评估体质未见明显重合，建议分别参考，避免机械合并。'
+
+    focus_codes = triple_overlap or innate_acquired_overlap or acquired_suiyun_overlap or assessed_codes[:2] or birth_codes[:2]
+    code_to_name = {}
+    for c in birth_constitutions:
+        code_to_name[c.get('constitution_code')] = c.get('constitution_name')
+    if constitution_assessment:
+        code_to_name[constitution_assessment.get('primary_code')] = constitution_assessment.get('primary_type')
+        for name, code in zip(constitution_assessment.get('secondary_types') or [], constitution_assessment.get('secondary_codes') or []):
+            code_to_name[code] = name
+
+    return {
+        'level': level,
+        'label': label,
+        'summary': summary,
+        'birth_codes': birth_codes,
+        'birth_names': birth_names,
+        'assessed_codes': assessed_codes,
+        'assessed_primary': constitution_assessment.get('primary_type'),
+        'assessed_secondary': constitution_assessment.get('secondary_types') or [],
+        'current_suiyun_affected_codes': current_affected,
+        'innate_acquired_overlap': innate_acquired_overlap,
+        'acquired_suiyun_overlap': acquired_suiyun_overlap,
+        'triple_overlap': triple_overlap,
+        'focus_constitutions': [code_to_name.get(code, code) for code in focus_codes],
+        'care_priority': constitution_assessment.get('care_priority', ''),
+    }
+
+
+def generate_profile(birth_date, region=None, as_json=False, today=None, constitution_assessment=None):
     birth_year, birth_suiyun_code, birth_suiyun_name = get_yunqi_year(birth_date)
     if today is None:
         today = date.today().isoformat()
@@ -118,6 +192,7 @@ def generate_profile(birth_date, region=None, as_json=False, today=None):
     birth_constitutions = match_birth_constitution(birth_suiyun_code)
     current_adjustment = match_current_adjustment(current_suiyun_code)
     region_entry = match_region(region) if region else None
+    innate_acquired = synthesize_innate_acquired(birth_constitutions, current_adjustment, constitution_assessment)
 
     profile = {
         'birth_date': birth_date,
@@ -158,6 +233,8 @@ def generate_profile(birth_date, region=None, as_json=False, today=None):
             'liuqi_modifier': region_entry['liuqi_modifier'],
             'constitution_tendency': region_entry['constitution_tendency'],
         },
+        'constitution_assessment': constitution_assessment,
+        'innate_acquired_synthesis': innate_acquired,
     }
 
     if as_json:
@@ -198,8 +275,23 @@ def generate_profile(birth_date, region=None, as_json=False, today=None):
         lines.append("未找到当前岁运调理条目。")
     lines.append("")
 
+    if constitution_assessment:
+        lines.append("## 三、后天体质量表评估")
+        lines.append(f"**主要体质**: {constitution_assessment['primary_type']}（{constitution_assessment['primary_score']}分）")
+        secondaries = '、'.join(constitution_assessment.get('secondary_types') or []) or '无'
+        lines.append(f"**兼夹/倾向体质**: {secondaries}")
+        lines.append(f"**体质解释**: {constitution_assessment.get('interpretation', '')}")
+        lines.append(f"**调理重点**: {constitution_assessment.get('care_priority', '')}")
+        lines.append("")
+        if innate_acquired:
+            lines.append("## 四、先天运气体质 × 后天体质对比")
+            lines.append(f"**叠加判断**: {innate_acquired['label']}（{innate_acquired['level']}）")
+            lines.append(f"**重点体质**: {'、'.join(innate_acquired.get('focus_constitutions') or []) or '未指定'}")
+            lines.append(f"**摘要**: {innate_acquired['summary']}")
+            lines.append("")
+
     if region_entry:
-        lines.append("## 三、地域运气修正")
+        lines.append("## 地域运气修正")
         lines.append(f"**地区**: {region_entry['region_name']}")
         lines.append(f"**气候特征**: {region_entry['climate_characteristics']}")
         lines.append(f"**五运修正**: {region_entry['wuyun_modifier']['description']}")
@@ -216,22 +308,60 @@ def generate_profile(birth_date, region=None, as_json=False, today=None):
     return '\n'.join(lines)
 
 
+def load_constitution_assessment_from_args(args):
+    """解析 CLI 体质量表参数并返回评估结果。"""
+    if not any(k in args for k in ('--constitution-demo', '--constitution-file', '--constitution-scores')):
+        return None
+
+    class _Args:
+        pass
+
+    proxy = _Args()
+    proxy.demo = '--constitution-demo' in args
+    proxy.file = None
+    proxy.scores = None
+    if '--constitution-file' in args:
+        idx = args.index('--constitution-file')
+        if idx + 1 < len(args):
+            proxy.file = args[idx + 1]
+    if '--constitution-scores' in args:
+        idx = args.index('--constitution-scores')
+        if idx + 1 < len(args):
+            proxy.scores = args[idx + 1]
+    payload = parse_input_payload(proxy)
+    scores, metadata = extract_scores_and_metadata(payload)
+    return assess_constitution(scores, metadata=metadata)
+
+
 def main():
     if len(sys.argv) < 2:
-        print("用法: python scripts/personal_yunqi_profile.py <出生日期YYYY-MM-DD> [地区] [--json]")
+        print("用法: python scripts/personal_yunqi_profile.py <出生日期YYYY-MM-DD> [地区] [--json] [--constitution-demo|--constitution-file <file>|--constitution-scores <json>]")
         print("示例: python scripts/personal_yunqi_profile.py 1990-05-20 北京")
         sys.exit(1)
 
     birth_date = sys.argv[1]
     region = None
     as_json = False
+    constitution_assessment = load_constitution_assessment_from_args(sys.argv[2:])
+    skip_next = False
+    option_with_value = {'--constitution-file', '--constitution-scores'}
     for arg in sys.argv[2:]:
+        if skip_next:
+            skip_next = False
+            continue
         if arg == '--json':
             as_json = True
+        elif arg == '--constitution-demo':
+            continue
+        elif arg in option_with_value:
+            skip_next = True
+            continue
+        elif arg.startswith('--'):
+            continue
         elif not region:
             region = arg
 
-    output = generate_profile(birth_date, region, as_json, today=None)
+    output = generate_profile(birth_date, region, as_json, today=None, constitution_assessment=constitution_assessment)
     sys.stdout.write(output)
     if not output.endswith('\n'):
         sys.stdout.write('\n')

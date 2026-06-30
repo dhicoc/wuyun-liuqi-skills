@@ -52,6 +52,9 @@ jobs:
       - name: Constitution assessment mock test
         run: python scripts/constitution_assessment.py --demo --json
 
+      - name: Personal profile with constitution assessment mock test
+        run: python scripts/personal_yunqi_profile.py 2003-04-19 杭州 --constitution-demo --json
+
       - name: Weather alignment mock test
         run: python scripts/weather_alignment.py 2026-06-29 --city 杭州 --mock --json
 

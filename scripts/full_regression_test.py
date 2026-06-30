@@ -110,6 +110,8 @@ def main():
     # 个人体质
     run('personal profile text', [PY, 'scripts/personal_yunqi_profile.py', '1990-05-20', '北京'], has('个人运气体质分析报告'))
     run('personal profile json', [PY, 'scripts/personal_yunqi_profile.py', '1990-05-20', '北京', '--json'], json_has(['birth_suiyun', 'code']))
+    run('personal profile constitution text', [PY, 'scripts/personal_yunqi_profile.py', '2003-04-19', '杭州', '--constitution-demo'], has('先天运气体质 × 后天体质对比'))
+    run('personal profile constitution json', [PY, 'scripts/personal_yunqi_profile.py', '2003-04-19', '杭州', '--constitution-demo', '--json'], json_has(['innate_acquired_synthesis', 'level']))
 
     # 天气对齐（mock 模式避免 CI 依赖外网）
     run('constitution assessment demo text', [PY, 'scripts/constitution_assessment.py', '--demo'], has('九种体质评估报告'))
