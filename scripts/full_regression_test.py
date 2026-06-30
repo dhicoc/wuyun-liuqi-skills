@@ -101,6 +101,8 @@ def main():
     run('personal profile json', [PY, 'scripts/personal_yunqi_profile.py', '1990-05-20', '北京', '--json'], json_has(['birth_suiyun', 'code']))
 
     # 天气对齐（mock 模式避免 CI 依赖外网）
+    run('constitution assessment demo text', [PY, 'scripts/constitution_assessment.py', '--demo'], has('九种体质评估报告'))
+    run('constitution assessment demo json', [PY, 'scripts/constitution_assessment.py', '--demo', '--json'], json_has(['agent_context', 'constitution']))
     run('weather alignment mock text', [PY, 'scripts/weather_alignment.py', '2026-06-29', '--city', '杭州', '--mock'], has('天气对齐报告'))
     run('weather alignment mock json', [PY, 'scripts/weather_alignment.py', '2026-06-29', '--city', '杭州', '--mock', '--json'], json_has(['alignment', 'type']))
     run('weather constitution mock text', [PY, 'scripts/yunqi_weather_constitution.py', '2026-06-29', '--birth-date', '2003-04-19', '--city', '杭州', '--mock'], has('三维叠加报告'))

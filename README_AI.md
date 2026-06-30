@@ -227,7 +227,7 @@ node scripts/calculate_yunqi_api.js <YYYY-MM-DD> --json
 | 临床应用 | 治则治法、方药方向、针灸选穴、养生调理 | `yunqi-clinical/` | ✅ 参考建议，需免责声明 |
 | 经典文献 | 素问七篇、历代学说、现代研究 | `yunqi-classics/` | ✅ 已覆盖 |
 | RAG 知识库 | 岁运、司天在泉、客主加临、方剂、注家、地域、体质 | `rag-knowledge-base/asset*.json` | ✅ 已覆盖 |
-| 个人体质 | 出生年运气倾向、当前岁运调理、地域修正 | `scripts/personal_yunqi_profile.py` | ✅ 已覆盖 |
+| 个人体质 | 出生年运气倾向、九种体质量表、当前岁运调理、地域修正 | `scripts/personal_yunqi_profile.py`、`scripts/constitution_assessment.py` | ✅ 已覆盖 |
 | 天气对齐 | 实时气象 × 运气格局交叉分析，判断相合/相背/兼夹 | `scripts/weather_alignment.py`、`advanced-alignment/weather_integration.md` | ✅ 已覆盖 |
 | 天气 × 体质叠加 | 出生运气体质 × 当前岁运 × 天气实况三维分析 | `scripts/yunqi_weather_constitution.py` | ✅ 已覆盖 |
 | 报告生成 | 学生版、临床版、研究版报告 | `scripts/yunqi_report.py`、`docs-generator/` | ✅ 已覆盖 |
@@ -332,6 +332,7 @@ python scripts/self_evolve.py log \
 | [scripts/calculate_yunqi_api.py](scripts/calculate_yunqi_api.py) | ★ Python 主链路统一计算接口 |
 | [scripts/calculate_yunqi_api.js](scripts/calculate_yunqi_api.js) | 可选 Node.js 接口 |
 | [scripts/personal_yunqi_profile.py](scripts/personal_yunqi_profile.py) | 个人运气体质分析 |
+| [scripts/constitution_assessment.py](scripts/constitution_assessment.py) | 九种体质量表评估 |
 | [scripts/weather_alignment.py](scripts/weather_alignment.py) | 天气实况 × 运气格局高级对齐 |
 | [scripts/yunqi_weather_constitution.py](scripts/yunqi_weather_constitution.py) | 天气 × 体质三维叠加分析 |
 | [scripts/self_evolve.py](scripts/self_evolve.py) | 自进化引擎 |

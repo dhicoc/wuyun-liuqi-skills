@@ -166,7 +166,7 @@ python scripts/verify_expansion.py        # 67 项端到端测试
 | 临床应用 | 治则治法、方药方向、针灸选穴、养生调理 | `yunqi-clinical/` | ✅ 参考建议，含免责声明 |
 | 经典文献 | 素问七篇、历代运气学说、现代研究索引 | `yunqi-classics/`、`rag-knowledge-base/asset5_commentary.json` | ✅ 已覆盖 |
 | RAG 知识库 | 岁运、司天在泉、客主加临、运气方、注家、地域、体质 | `rag-knowledge-base/asset*.json` | ✅ 已覆盖 |
-| 个人体质 | 出生年运气体质倾向、当前岁运调理方向、地域修正 | `scripts/personal_yunqi_profile.py`、`advanced-alignment/` | ✅ 已覆盖 |
+| 个人体质 | 出生年运气体质倾向、九种体质量表、当前岁运调理方向、地域修正 | `scripts/personal_yunqi_profile.py`、`scripts/constitution_assessment.py`、`advanced-alignment/` | ✅ 已覆盖 |
 | 天气对齐 | 实时气象 × 运气格局交叉分析，判断内外邪相合/相背/兼夹 | `scripts/weather_alignment.py`、`advanced-alignment/weather_integration.md` | ✅ 已接入 |
 | 天气 × 体质叠加 | 出生运气体质 × 当前岁运 × 天气实况三维分析 | `scripts/yunqi_weather_constitution.py` | ✅ 已接入 |
 | 报告生成 | 学生版、临床版、研究版 Markdown 报告 | `scripts/yunqi_report.py`、`docs-generator/` | ✅ 已覆盖 |
@@ -199,6 +199,7 @@ python scripts/verify_expansion.py        # 67 项端到端测试
 ├── scripts/                    # 推算引擎（Python 主链路 + JS 可选接口）
 │   ├── calculate_yunqi_api.py  # ★ Python 主链路统一计算接口
 │   ├── weather_alignment.py    # ★ 天气实况 × 运气格局高级对齐
+│   ├── constitution_assessment.py # ★ 九种体质量表评估
 │   ├── yunqi_weather_constitution.py # ★ 天气 × 体质三维叠加分析
 │   ├── calculate_yunqi_api.js  # JS / Node.js 可选接口
 │   ├── self_evolve.py          # ★ 自进化引擎
@@ -363,7 +364,7 @@ python scripts/verify_expansion.py
 | Clinical reference | Treatment principles, formula direction, acupuncture references, lifestyle guidance | `yunqi-clinical/` | ✅ Reference only |
 | Classics | Suwen treatises, historical schools, modern research notes | `yunqi-classics/` | ✅ Covered |
 | RAG knowledge base | Yunqi keys for pathogenesis, formulas, commentaries, regions, constitutions | `rag-knowledge-base/asset*.json` | ✅ Covered |
-| Personal profile | Birth-year Yunqi tendency, current-year adjustment, regional modifier | `scripts/personal_yunqi_profile.py` | ✅ Covered |
+| Personal profile | Birth-year Yunqi tendency, constitution score assessment, current-year adjustment, regional modifier | `scripts/personal_yunqi_profile.py`, `scripts/constitution_assessment.py` | ✅ Covered |
 | Weather alignment | Real weather × Yunqi pattern alignment for same-direction, opposite, or mixed climate signals | `scripts/weather_alignment.py` | ✅ Covered |
 | Weather × constitution | Birth Yunqi constitution × current-year Yunqi × weather reality combined analysis | `scripts/yunqi_weather_constitution.py` | ✅ Covered |
 | Reports | Student, practitioner, and researcher report styles | `scripts/yunqi_report.py` | ✅ Covered |

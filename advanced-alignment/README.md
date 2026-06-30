@@ -7,7 +7,7 @@
 | 能力 | 状态 | 执行入口 | 说明 |
 |------|------|----------|------|
 | 天气对齐 | ✅ 已接入 | `scripts/weather_alignment.py` | 支持 Open-Meteo、QWeather、Seniverse、mock；含缓存、历史同期均值、气象六气转译与运气对齐 |
-| 个人体质 | ✅ 已接入 | `scripts/personal_yunqi_profile.py` | 出生年运气体质映射、当前岁运调理、地域修正 |
+| 个人体质 | ✅ 已接入 | `scripts/personal_yunqi_profile.py`、`scripts/constitution_assessment.py` | 出生年运气体质映射、当前岁运调理、地域修正；支持九种体质量表得分评估 |
 | 天气 × 体质叠加 | ✅ 已接入 | `scripts/yunqi_weather_constitution.py` | 组合天气对齐与个人运气体质，输出先天体质 × 当前岁运 × 天气实况三维叠加判断 |
 
 ## 天气对齐用法
@@ -45,6 +45,27 @@ python scripts/weather_alignment.py 2026-06-29 --city 杭州 --mock --json
 | Mock | `--provider mock` 或 `--mock` | 无需密钥 | 用于测试和 CI |
 
 缓存目录：`.cache/weather_alignment/`，默认缓存 60 分钟，可用 `--cache-ttl` 调整。
+
+## 体质量表评估用法
+
+```bash
+# 使用内置示例数据
+python scripts/constitution_assessment.py --demo
+
+# JSON 输出，可作为 Agent Context 注入后续分析
+python scripts/constitution_assessment.py --demo --json
+
+# 输出输入模板
+python scripts/constitution_assessment.py --template
+
+# 从文件读取九种体质得分
+python scripts/constitution_assessment.py --file constitution_scores.json --json
+
+# 直接传入 JSON 字符串
+python scripts/constitution_assessment.py --scores '{"阳虚质":78,"气虚质":50,"平和质":35}' --json
+```
+
+判定规则：转化分 ≥60 为“是”，40-59 为“倾向是”，<40 为“否”。脚本会输出主要体质、兼夹体质、各体质判定、调理重点与 `agent_context`。
 
 ## 天气 × 体质叠加用法
 
