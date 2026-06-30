@@ -24,7 +24,7 @@ from yunqi_data import (
     get_keyun_five_steps, check_tianfu, check_suihui, check_pingqi,
     kezhujialin_relation, ZHUQI_JIEQI, LIUQI_WUXING, LIUQI_YINYANG,
     TIANGAN_YINYANG, DIZHI_WUXING, DIZHI_SHENGXIAO,
-    get_sexagenary_index,
+    get_sexagenary_index, get_suiyun_code,
 )
 
 DISCLAIMER = (
@@ -32,6 +32,124 @@ DISCLAIMER = (
     "运气学说非现代医学诊断标准，具体诊疗须由执业中医师辨证论治。"
     "请勿据此自行用药或针灸。\n"
 )
+
+RAG_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'rag-knowledge-base')
+
+
+def load_asset(filename):
+    try:
+        with open(os.path.join(RAG_DIR, filename), 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+def find_entry(asset, predicate):
+    for entry in asset.get('entries', []):
+        if predicate(entry):
+            return entry
+    return None
+
+
+def find_suiyun_evidence(year):
+    code = get_suiyun_code(year)
+    entry = find_entry(load_asset('asset1_suiyun.json'), lambda e: e.get('code') == code)
+    if not entry:
+        return None
+    return {
+        'title': entry.get('name'),
+        'source': 'rag-knowledge-base/asset1_suiyun.json',
+        'key': code,
+        'quote': entry.get('classics_quote'),
+        'principle': entry.get('treatment_principle'),
+    }
+
+
+def find_sitian_zaiquan_evidence(sitian, zaiquan):
+    asset = load_asset('asset2_sitian_zaiquan.json')
+    entry = find_entry(asset, lambda e: e.get('sitian') == sitian and e.get('zaiquan') == zaiquan)
+    if not entry:
+        return None
+    return {
+        'source': 'rag-knowledge-base/asset2_sitian_zaiquan.json',
+        'sitian_key': entry.get('sitian_key'),
+        'zaiquan_key': entry.get('zaiquan_key'),
+        'sitian_quote': entry.get('sitian_classics_quote'),
+        'zaiquan_quote': entry.get('zaiquan_classics_quote'),
+        'treatment_rule_quote': entry.get('treatment_rule_classics_quote'),
+    }
+
+
+def find_kezhujialin_evidence(step, zhu_qi, ke_qi):
+    asset = load_asset('asset3_kezhujialin.json')
+    entry = find_entry(asset, lambda e: e.get('zhu_qi') == zhu_qi and e.get('ke_qi') == ke_qi)
+    if not entry:
+        return None
+    return {
+        'source': 'rag-knowledge-base/asset3_kezhujialin.json',
+        'key': entry.get('key'),
+        'step': step,
+        'pathogenesis': entry.get('pathogenesis'),
+        'clinical_focus': entry.get('clinical_focus'),
+    }
+
+
+def find_commentary_evidence(suiyun_code=None):
+    asset = load_asset('asset5_commentary.json')
+    matches = []
+    for entry in asset.get('entries', []):
+        keys = entry.get('related_yunqi_keys') or []
+        if suiyun_code and suiyun_code in keys:
+            matches.append(entry)
+    if not matches:
+        # 通用注家观点兜底，保证报告能连接到注家资产
+        matches = asset.get('entries', [])[:2]
+    return [
+        {
+            'author': e.get('author'),
+            'dynasty': e.get('dynasty'),
+            'work': e.get('work'),
+            'title': e.get('core_theory_title'),
+            'source': 'rag-knowledge-base/asset5_commentary.json',
+            'rag_key': e.get('rag_key'),
+        }
+        for e in matches[:3]
+    ]
+
+
+def build_evidence_section(year, sitian, zaiquan, jialin_results):
+    suiyun = find_suiyun_evidence(year)
+    sitian_zaiquan = find_sitian_zaiquan_evidence(sitian, zaiquan)
+    suiyun_code = get_suiyun_code(year)
+    commentaries = find_commentary_evidence(suiyun_code)
+    lines = ['## 经典与注家依据\n']
+    if suiyun:
+        lines.append(f"- **岁运依据**（{suiyun['source']}，key: `{suiyun['key']}`）：{suiyun['quote']}")
+        lines.append(f"  - 治则摘录：{suiyun['principle']}")
+    if sitian_zaiquan:
+        lines.append(f"- **司天依据**（{sitian_zaiquan['source']}，key: `{sitian_zaiquan['sitian_key']}`）：{sitian_zaiquan['sitian_quote']}")
+        lines.append(f"- **在泉依据**（{sitian_zaiquan['source']}，key: `{sitian_zaiquan['zaiquan_key']}`）：{sitian_zaiquan['zaiquan_quote']}")
+        lines.append(f"  - 治法原文：{sitian_zaiquan['treatment_rule_quote']}")
+    # 选取不相得步位或第三步司天步位作为客主加临证据
+    target = None
+    for item in jialin_results:
+        if not item[4].startswith('相得'):
+            target = item
+            break
+    if not target and jialin_results:
+        target = jialin_results[2] if len(jialin_results) >= 3 else jialin_results[0]
+    if target:
+        step, zq, kq, rel, sn = target
+        evidence = find_kezhujialin_evidence(step, zq, kq)
+        if evidence:
+            lines.append(f"- **客主加临依据**（{evidence['source']}，key: `{evidence['key']}`）：{evidence['pathogenesis']}")
+            lines.append(f"  - 临床关注：{evidence['clinical_focus']}")
+    if commentaries:
+        lines.append('- **历代注家关联**：')
+        for item in commentaries:
+            lines.append(f"  - {item.get('dynasty', '')}·{item.get('author', '')}《{item.get('work', '')}》：{item.get('title', '')}（{item.get('source')}，key: `{item.get('rag_key')}`）")
+    lines.append('')
+    return '\n'.join(lines)
 
 
 def build_advanced_alignment_section(advanced):
@@ -232,6 +350,9 @@ def generate_report(year, audience='student', advanced=None):
         sections.append(f"- 客主加临{xiangde}步相得{6-xiangde}步不相得，可分析气候异常程度")
         sections.append("- 参考文献详见 yunqi-classics/references/")
         sections.append("")
+
+    # 经典与注家依据
+    sections.append(build_evidence_section(year, sitian, zaiquan, jialin_results))
 
     # 高级对齐章节（可选）
     advanced_section = build_advanced_alignment_section(advanced)

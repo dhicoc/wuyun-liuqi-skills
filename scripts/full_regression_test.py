@@ -102,7 +102,7 @@ def main():
 
     # 报告与可视化
     for audience in ['student', 'practitioner', 'researcher']:
-        run(f'yunqi_report {audience}', [PY, 'scripts/yunqi_report.py', '2026', '--audience', audience], has('免责声明'))
+        run(f'yunqi_report {audience}', [PY, 'scripts/yunqi_report.py', '2026', '--audience', audience], has('经典与注家依据'))
         run(f'yunqi_report {audience} json', [PY, 'scripts/yunqi_report.py', '2026', '--audience', audience, '--json'], json_has(['report']))
     run('visualize_yunqi', [PY, 'scripts/visualize_yunqi.py', '2026-06-29'], has('六气步位推移'))
     run('generate_html_report', [PY, 'scripts/generate_html_report.py', '2026-06-29', 'reports/test-results/test-full.html'], has('HTML 报告已生成'))
