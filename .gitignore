@@ -6,11 +6,11 @@ dist/
 build/
 
 # Self-evolve runtime data
-self-evolve/logs/
-self-evolve/misses/
-self-evolve/feedback/
-self-evolve/reports/
-self-evolve/stats/
+self-evolve/logs/**
+self-evolve/misses/**
+self-evolve/feedback/**
+self-evolve/reports/**
+self-evolve/stats/**
 
 # Node.js
 node_modules/
@@ -35,7 +35,7 @@ Thumbs.db
 
 # Output
 *.log
-reports/generated/*
+reports/generated/**
 !reports/generated/.gitkeep
-reports/test-results/*
+reports/test-results/**
 !reports/test-results/.gitkeep
