@@ -19,6 +19,7 @@ from datetime import date
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from constitution_assessment import assess_constitution, extract_scores_and_metadata, parse_input_payload  # noqa: E402
+from clinical_safety import sanitize_current_adjustment  # noqa: E402
 
 # Windows 终端默认编码可能不是 UTF-8，强制设置 stdout/stderr 编码
 if sys.platform == 'win32' and sys.stdout.encoding != 'utf-8':
@@ -184,7 +185,7 @@ def build_regional_explainable_modifier(region_entry, birth_suiyun_code=None, cu
     }
 
 
-def synthesize_innate_acquired(birth_constitutions, current_adjustment, constitution_assessment):
+def synthesize_innate_acquired(birth_constitutions, safe_current_adjustment, constitution_assessment):
     """合成先天运气体质与后天量表体质。"""
     if not constitution_assessment:
         return None
@@ -193,7 +194,7 @@ def synthesize_innate_acquired(birth_constitutions, current_adjustment, constitu
     primary_code = constitution_assessment.get('primary_code')
     secondary_codes = constitution_assessment.get('secondary_codes') or []
     assessed_codes = [c for c in [primary_code] + secondary_codes if c]
-    current_affected = normalize_affected_constitutions((current_adjustment or {}).get('most_affected_constitutions'))
+    current_affected = normalize_affected_constitutions((safe_current_adjustment or {}).get('most_affected_constitutions'))
 
     innate_acquired_overlap = sorted(set(birth_codes) & set(assessed_codes))
     acquired_suiyun_overlap = sorted(set(assessed_codes) & set(current_affected))
@@ -250,9 +251,10 @@ def generate_profile(birth_date, region=None, as_json=False, today=None, constit
     current_year, current_suiyun_code, current_suiyun_name = get_yunqi_year(today)
 
     birth_constitutions = match_birth_constitution(birth_suiyun_code)
-    current_adjustment = match_current_adjustment(current_suiyun_code)
+    safe_current_adjustment = match_current_adjustment(current_suiyun_code)
+    safe_current_adjustment, clinical_safety = sanitize_current_adjustment(safe_current_adjustment)
     region_entry = match_region(region) if region else None
-    innate_acquired = synthesize_innate_acquired(birth_constitutions, current_adjustment, constitution_assessment)
+    innate_acquired = synthesize_innate_acquired(birth_constitutions, safe_current_adjustment, constitution_assessment)
     regional_explainable = build_regional_explainable_modifier(
         region_entry,
         birth_suiyun_code=birth_suiyun_code,
@@ -283,15 +285,16 @@ def generate_profile(birth_date, region=None, as_json=False, today=None, constit
             }
             for c in birth_constitutions
         ],
-        'current_adjustment': current_adjustment and {
-            'name': current_adjustment['suiyun_name'],
-            'most_affected_constitutions': current_adjustment.get('most_affected_constitutions', []),
-            'health_risks': current_adjustment.get('health_risks', []),
-            'lifestyle_advice': current_adjustment.get('lifestyle_advice', ''),
-            'dietary_herbs': current_adjustment.get('dietary_herbs', ''),
-            'acupuncture_points': current_adjustment.get('acupuncture_points', []),
-            'preventive_measures': current_adjustment.get('preventive_measures', ''),
+        'current_adjustment': safe_current_adjustment and {
+            'name': safe_current_adjustment['suiyun_name'],
+            'most_affected_constitutions': safe_current_adjustment.get('most_affected_constitutions', []),
+            'health_risks': safe_current_adjustment.get('health_risks', []),
+            'lifestyle_advice': safe_current_adjustment.get('lifestyle_advice', ''),
+            'dietary_herbs': safe_current_adjustment.get('dietary_herbs', ''),
+            'acupuncture_points': safe_current_adjustment.get('acupuncture_points', []),
+            'preventive_measures': safe_current_adjustment.get('preventive_measures', ''),
         },
+        'clinical_safety': clinical_safety,
         'regional_modifier': region_entry and {
             'region_name': region_entry['region_name'],
             'climate_characteristics': region_entry['climate_characteristics'],
@@ -329,15 +332,15 @@ def generate_profile(birth_date, region=None, as_json=False, today=None, constit
     lines.append("")
 
     lines.append("## 二、当前岁运调理方向")
-    if current_adjustment:
-        lines.append(f"当前为{current_adjustment['suiyun_name']}。")
+    if safe_current_adjustment:
+        lines.append(f"当前为{safe_current_adjustment['suiyun_name']}。")
         lines.append(f"\n**易发健康问题**：")
-        for risk in current_adjustment.get('health_risks', []):
+        for risk in safe_current_adjustment.get('health_risks', []):
             lines.append(f"- {risk}")
-        lines.append(f"\n**生活调养**：{current_adjustment.get('lifestyle_advice', '')}")
-        lines.append(f"\n**饮食药膳**：{current_adjustment.get('dietary_herbs', '')}")
-        if current_adjustment.get('acupuncture_points'):
-            lines.append(f"\n**参考穴位**：{'、'.join(current_adjustment['acupuncture_points'][:5])}")
+        lines.append(f"\n**生活调养**：{safe_current_adjustment.get('lifestyle_advice', '')}")
+        lines.append(f"\n**饮食药膳**：{safe_current_adjustment.get('dietary_herbs', '')}")
+        if safe_current_adjustment.get('acupuncture_points'):
+            lines.append(f"\n**参考穴位**：{'、'.join(safe_current_adjustment['acupuncture_points'][:5])}")
     else:
         lines.append("未找到当前岁运调理条目。")
     lines.append("")
