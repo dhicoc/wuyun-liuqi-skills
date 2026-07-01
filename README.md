@@ -210,7 +210,7 @@ python tests/verify_expansion.py        # 67 项端到端测试
 │
 ├── tests/                      # 测试脚本与夹具
 ├── reports/                    # 报告与可视化输出
-│   ├── examples/               # 示例报告与预览图
+│   ├── examples/               # 标准输出样例、示例报告与预览图
 │   ├── generated/              # 本地生成报告（默认忽略）
 │   └── test-results/           # 测试输出（默认忽略）
 ├── rag-knowledge-base/         # ★ RAG 知识库（含 README 与 index.json）
@@ -228,6 +228,7 @@ python tests/verify_expansion.py        # 67 项端到端测试
 ├── docs-generator/             # 子技能：报告生成
 ├── docs/                       # 技术文档
 └── case-journal/               # 医案沉淀系统
+    └── examples/               # 脱敏示例案例库
 ```
 
 <p align="right">(<a href="#使用说明">返回顶部</a>)</p>
@@ -409,7 +410,7 @@ yunqi-classics/          Classical literature and research references
 docs-generator/          Report templates
 advanced-alignment/      Weather and constitution alignment
 self-evolve/             Runtime logs, feedback, reports
-case-journal/            Case record templates and disclaimers
+case-journal/            Case record templates, disclaimers, and example cases
 ```
 
 ## Verification

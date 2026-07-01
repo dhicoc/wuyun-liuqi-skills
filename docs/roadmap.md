@@ -44,4 +44,4 @@
 
 - [x] 将 `verify_expansion.py`、`full_regression_test.py` 逐步迁移到 `tests/`。
 - [x] 在 `scripts/` 保留兼容 wrapper，避免破坏既有用户命令。
-- [ ] 增加示例案例库与标准输出样例。
+- [x] 增加示例案例库与标准输出样例。

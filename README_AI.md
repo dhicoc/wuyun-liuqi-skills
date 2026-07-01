@@ -347,7 +347,8 @@ python scripts/self_evolve.py log \
 | [docs/architecture.md](docs/architecture.md) | 项目架构说明 |
 | [docs/function-coverage.md](docs/function-coverage.md) | 功能覆盖说明 |
 | [docs/roadmap.md](docs/roadmap.md) | 后续路线图 |
-| [reports/examples/](reports/examples/) | 示例报告与预览图 |
+| [reports/examples/](reports/examples/) | 标准输出样例、示例报告与预览图 |
+| [case-journal/examples/](case-journal/examples/) | 脱敏示例案例库 |
 | [reports/generated/](reports/generated/) | 本地生成报告 |
 | [reports/test-results/](reports/test-results/) | 测试输出 |
 | [docs-generator/](docs-generator/) | 报告模板 |
