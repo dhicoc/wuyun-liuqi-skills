@@ -1,6 +1,7 @@
 # 五运六气技能包自进化系统
 
-> 让技能包从每一次推算中学习，持续优化知识覆盖与输出质量。
+> 让技能包从每一次推算中学习，持续优化“帮助人类理解运气学思想”的质量。
+> 支持概念/哲学追踪、理解反馈、隐私保护（session 哈希 + PII 清洗）、导出材料生成。
 
 ---
 
@@ -57,7 +58,15 @@ python scripts/self_evolve.py log \
 
 ### 2.2 自动记录（推荐）
 
-在 `agent-workflow/react_workflow.md` 的 OUTPUT 阶段自动追加日志调用。详见 `agent-workflow/self_evolve_hook.md`。
+在 `agent-workflow/react_workflow.md` 的 OUTPUT 阶段自动追加日志调用（含 concepts）。详见 `agent-workflow/self_evolve_hook.md`。
+
+**当前增强**：
+- 自动记录 concepts（包括“思想层解读”）
+- session_id 默认 SHA256 哈希（隐私）
+- feedback 支持 understanding 类型
+- 支持 filter_test + dedup
+- 报告包含理解质量洞察与改进建议
+- 导出功能（export_thought）可与自进化数据结合使用复习材料
 
 ### 2.3 在 API 脚本中集成
 
@@ -131,6 +140,8 @@ python scripts/self_evolve.py stats --type feedback
 - 审查推算逻辑是否有误
 - 补充用户频繁提及的缺失内容
 
+**隐私注意**：反馈默认匿名化 session_id 和清洗 comment 中的 PII。使用 `cleanup` 命令定期清理旧数据。
+
 ---
 
 ## 五、优化报告
@@ -191,3 +202,13 @@ python scripts/self_evolve.py report
 - 所有数据以纯文本存储，可直接用文本编辑器查看
 - 统计函数自动扫描所有历史日志，无需指定日期范围
 - `low_coverage` 检测依赖于 `rag-knowledge-base/` 目录下的 JSON asset 结构
+
+### 6.4 隐私增强
+
+自进化默认启用隐私保护：
+- `session_id` 自动 SHA256 哈希（保留前16位用于统计聚合）。
+- `comment` 和 `context` 自动清洗邮箱、手机号、常见姓名等 PII。
+- 使用 `python scripts/self_evolve.py cleanup --days 90` 定期删除旧数据。
+- 报告默认不包含原始敏感文本，仅统计和摘要。
+
+如需调试，可在调用时传 `anonymize=False`（不推荐生产使用）。历史日志加载时建议保持匿名。

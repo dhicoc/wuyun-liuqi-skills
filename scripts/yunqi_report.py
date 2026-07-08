@@ -6,18 +6,11 @@
 """
 import sys
 import os
-import io
 import json
 
-# Windows 终端默认编码可能不是 UTF-8，强制设置 stdout/stderr 编码
-if sys.platform == 'win32' and sys.stdout.encoding != 'utf-8':
-    try:
-        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
-        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
-    except (AttributeError, io.UnsupportedOperation):
-        pass
+from _common import setup_environment
+setup_environment()  # 处理 UTF-8 + lib 路径
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'lib'))
 from yunqi_data import (
     get_ganzhi, get_dayun, is_taiguo, get_sitian, get_zaiquan,
     get_keqi_six_steps, get_zhuqi_six_steps, get_zhuyun_five_steps,
@@ -26,6 +19,13 @@ from yunqi_data import (
     TIANGAN_YINYANG, DIZHI_WUXING, DIZHI_SHENGXIAO,
     get_sexagenary_index, get_suiyun_code,
 )
+
+# 自进化集成
+try:
+    from self_evolve import log_usage
+    AUTO_SE = True
+except:
+    AUTO_SE = False
 
 DISCLAIMER = (
     "\n> ⚠️ 免责声明：以上分析基于中医运气学说理论推算，仅供参考。"
@@ -46,11 +46,17 @@ EMERGENCY_NOTICE = (
 
 RAG_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'rag-knowledge-base')
 
+# P1: 简单缓存，避免报告生成时重复读取 JSON
+_ASSET_CACHE = {}
 
 def load_asset(filename):
+    if filename in _ASSET_CACHE:
+        return _ASSET_CACHE[filename]
     try:
         with open(os.path.join(RAG_DIR, filename), 'r', encoding='utf-8') as f:
-            return json.load(f)
+            data = json.load(f)
+        _ASSET_CACHE[filename] = data
+        return data
     except Exception:
         return {}
 
@@ -207,6 +213,80 @@ def build_advanced_alignment_section(advanced):
     return '\n'.join(sections)
 
 
+def build_thought_layer_section(year, tg, dz, dayun, taiguo, sitian, zaiquan, tianfu, suihui, pingqi):
+    """
+    P0: 新增“思想层解读”章节
+    帮助用户理解运气格局背后的宇宙观与生命观，而非仅病机。
+    """
+    sections = ["## 思想层解读\n"]
+
+    # 基础宇宙观
+    sections.append("**运气学核心思想**：")
+    sections.append("五运六气体现了《黄帝内经》“天人合一”的根本宇宙观——天地阴阳之气按固定节律运行，人体作为小宇宙必须与之相应。")
+    sections.append("")
+
+    # 具体格局解读
+    sections.append(f"**{year}年（{tg}{dz}）格局的思想启发**：")
+
+    if taiguo:
+        sections.append("- 岁运太过之年，体现“盛极而衰”的辩证思想：阳干主事，气机偏盛，提醒人需防“太过则伤”。")
+    else:
+        sections.append("- 岁运不及之年，体现“虚则受邪”的思想：阴干主事，需主动培补，防“不及则侮”。")
+
+    if tianfu:
+        sections.append("- **天符**：运与气同，气机顺遂。思想上提示“顺时而为”，天地与人气相合之年，宜顺势而为而非强逆。")
+    if suihui:
+        sections.append("- **岁会**：运与地支五行相合。体现“天时地利人和”思想，提示该年外部条件相对有利，宜把握时机。")
+    if pingqi:
+        sections.append("- **平气**：太过被抑或不及得助。核心思想是“中和”——天地自行调节偏颇，人亦当守中道。")
+
+    sections.append("")
+    sections.append("**与现代生活的思想连接**：")
+    sections.append("运气学提醒我们：时间不是中性的容器，而是充满节律的生命场。尊重节气、顺应气候、调和体质，正是对“天人合一”最朴素的实践。")
+
+    sections.append("")
+    sections.append("**核心概念哲学简释**：")
+    sections.append("- **天人合一**：天地之气与人体之气同源同律，人体健康是天地节律在小宇宙的体现。")
+    sections.append("- **气化**：万物皆由气化生、气化动、气化变。运气即天地之气的运行节律。")
+    sections.append("- **中和**：太过与不及皆为偏，平气之年最接近“中道”，是天地自我调节的智慧。")
+
+    sections.append("")
+    return '\n'.join(sections)
+
+
+# 核心概念哲学银行 (P0-2)
+CONCEPT_PHILOSOPHY = {
+    "天人合一": {
+        "philosophy": "天地与人是一个整体的生命系统，运气是天地之气运行的节律，人必须与之相应才能健康。",
+        "modern": "类似现代的生物钟、季节性情感障碍、环境医学，强调人与自然环境的同步。",
+        "example": "当司天之气为风木时，肝气易动，养生宜顺肝而为。"
+    },
+    "气化": {
+        "philosophy": "一切现象皆为气之化生、运动、变化。运气学研究天地之气的周期性化生规律。",
+        "modern": "对应能量转换、生态系统循环、气候变化对生物的影响。",
+        "example": "五运对应五行之气的化生，六气为阴阳之气的运动形式。"
+    },
+    "中和": {
+        "philosophy": "太过与不及都是偏离，理想状态是气机中正平和。平气之年是天地自我调节的结果。",
+        "modern": "类似稳态（homeostasis）、平衡饮食、中庸之道在健康中的应用。",
+        "example": "平气年气候相对稳定，人体也易保持中和，不易生大病。"
+    },
+    "天符": {
+        "philosophy": "运与气相合，天地之气与岁运同调，气机顺畅但也可能偏盛。",
+        "modern": "顺势而为、环境与内在一致时的优势与风险。",
+        "example": "天符年宜把握机遇，但防太过之气伤正。"
+    }
+}
+
+def explain_concept(concept_name):
+    """返回概念的哲学解释 + 现代比喻 + 示例"""
+    if concept_name in CONCEPT_PHILOSOPHY:
+        c = CONCEPT_PHILOSOPHY[concept_name]
+        return f"**{concept_name}**：\n- 哲学思想：{c['philosophy']}\n- 现代比喻：{c['modern']}\n- 示例：{c['example']}"
+    return f"**{concept_name}**：暂无详细哲学解读，请参考经典原文。"
+
+
+
 def load_advanced_alignment(path):
     if not path:
         return None
@@ -269,6 +349,10 @@ def generate_report(year, audience='student', advanced=None):
     sections.append("## 二、六气格局\n")
     sections.append(f"- **司天**: {sitian}（{LIUQI_YINYANG[sitian]}）— 上半年主管")
     sections.append(f"- **在泉**: {zaiquan}（{LIUQI_YINYANG[zaiquan]}）— 下半年主管\n")
+
+    # P0: 思想层解读（帮助理解思想而非仅结果）
+    thought_section = build_thought_layer_section(year, tg, dz, dayun, taiguo, sitian, zaiquan, tianfu, suihui, pingqi)
+    sections.append(thought_section)
 
     # 主运客运
     sections.append("## 三、主运与客运\n")
@@ -377,6 +461,13 @@ def generate_report(year, audience='student', advanced=None):
 
     # 免责声明
     sections.append(DISCLAIMER)
+
+    # 自进化：自动记录报告生成（P0-1）
+    if AUTO_SE:
+        try:
+            log_usage(str(year), [], source="yunqi_report", concepts=["思想层解读"])
+        except:
+            pass
 
     return '\n'.join(sections)
 

@@ -28,6 +28,11 @@
 |--------|--------|
 | "推算XX年运气" / "今年大运是什么" | `yunqi-calc/SKILL.md` |
 | "今年容易发什么病" / "运气病机" | `yunqi-pathogenesis/SKILL.md` |
+| "最近运气怎么样" / "我这个月要注意什么" | `scripts/calculate_yunqi_api.py --focus current-step` + `yunqi-clinical/`（自然语言路由） |
+| "五运六气是什么思想" / "运气学核心是什么" | 先用 onboarding 介绍思想，再路由到概念解释或当前格局 |
+| "帮我学运气" / "解释天人合一" | 概念讲解模式 + 经典 + 现代比喻 + 计算示例（支持 --level / --explain-concept） |
+| "导出思想摘要 / 卡片 / PDF" | 路由到 export_thought.py（summary / cards / pdf） |
+| "我的运气" / "出生年份运气" | `scripts/personal_yunqi_profile.py` |
 | "运气治法" / "运气方药" | `yunqi-clinical/SKILL.md` — 治则治法 |
 | "运气养生" / "运气调理" | `yunqi-clinical/SKILL.md` — 养生调理 |
 | "运气针灸" / "运气选穴" | `yunqi-clinical/SKILL.md` — 针灸选穴 |
@@ -55,7 +60,7 @@
 | "研究版报告" / "文献版报告" | `docs-generator/SKILL.md` → `--report-type researcher` |
 | "运气治则" / "平气治法" | `yunqi-clinical/references/zhize_zhifa.md` |
 | "运气方药" / "岁运方" | `yunqi-clinical/references/fangyao_xuanze.md` |
-| "推算某日运气" / "今天运气如何" | `scripts/calculate_yunqi_api.py --summary` → `rag-knowledge-base/` |
+| "推算某日运气" / "今天运气如何" | `scripts/calculate_yunqi_api.py today --summary`（或直接省略日期）→ `rag-knowledge-base/` |
 | "我现在运气如何" / "最近运气" | `scripts/calculate_yunqi_api.py --focus current-step` |
 | "Agent集成" / "RAG检索" / "知识库" | `rag-knowledge-base/README.md` |
 | "ReAct工作流" / "推理链路" | `agent-workflow/react_workflow.md` |

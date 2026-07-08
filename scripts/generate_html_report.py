@@ -9,16 +9,11 @@
 """
 import sys
 import os
-import io
 import json
 import subprocess
 
-if sys.platform == 'win32' and sys.stdout.encoding != 'utf-8':
-    try:
-        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
-        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
-    except (AttributeError, io.UnsupportedOperation):
-        pass
+from _common import setup_environment
+setup_environment(add_lib=False)
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -37,14 +32,11 @@ LIUQI_WUXING = {
 
 
 def get_data(date_str):
-    script = os.path.join(BASE_DIR, 'scripts', 'calculate_yunqi_api.py')
-    env = os.environ.copy()
-    env['PYTHONIOENCODING'] = 'utf-8'
-    result = subprocess.run(
-        [sys.executable, script, date_str, '--json'],
-        capture_output=True, text=True, encoding='utf-8', env=env
-    )
-    return json.loads(result.stdout)
+    """直接调用（P0 优化：避免 subprocess 开销）"""
+    # 确保 lib 路径可用
+    sys.path.insert(0, os.path.join(BASE_DIR, 'scripts', 'lib'))
+    from calculate_yunqi_api import calculate_yunqi_api
+    return calculate_yunqi_api(date_str)
 
 
 def fetch_advanced_alignment(date_str, birth_date=None, city=None, lat=None, lon=None,

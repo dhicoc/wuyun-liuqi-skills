@@ -13,17 +13,10 @@
 import sys
 import os
 import json
-import io
 
-# Windows 终端默认编码可能不是 UTF-8，强制设置 stdout/stderr 编码
-if sys.platform == 'win32' and sys.stdout.encoding != 'utf-8':
-    try:
-        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
-        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
-    except (AttributeError, io.UnsupportedOperation):
-        pass
+from _common import setup_environment
+setup_environment()  # 处理 UTF-8 + lib 路径
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'lib'))
 from yunqi_data import (
     get_dayun, is_taiguo, get_zhuyun_five_steps, get_keyun_five_steps,
     WUXING, WUXING_SHENG,

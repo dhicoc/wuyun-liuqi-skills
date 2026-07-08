@@ -22,15 +22,10 @@ import argparse
 import json
 import os
 import sys
-import io
 from datetime import date
 
-if sys.platform == 'win32' and sys.stdout.encoding != 'utf-8':
-    try:
-        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
-        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
-    except (AttributeError, io.UnsupportedOperation):
-        pass
+from _common import setup_environment
+setup_environment(add_lib=False, add_scripts=True)
 
 CONSTITUTION_TYPES = [
     '平和质', '气虚质', '阳虚质', '阴虚质', '痰湿质',

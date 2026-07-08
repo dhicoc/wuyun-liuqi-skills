@@ -37,7 +37,9 @@ ACT (行动) → OBSERVE (观察) → THINK (思考) → OUTPUT (输出)
     log_usage(
         input_date="2026-06-27",
         rag_keys=["water_excess", "shaoyin_junhuo_sitian"],
-        source="react_workflow"
+        source="react_workflow",
+        concepts=["思想层解读", "天人合一"],  # 可选，追踪哲学概念
+        anonymize=True  # 默认隐私保护（session 哈希 + sanitize）
     )
 
   方式二（CLI 子进程调用）:
@@ -116,7 +118,9 @@ ACT (行动) → OBSERVE (观察) → THINK (思考) → OUTPUT (输出)
       "log_on_miss": true,
       "invite_feedback": true,
       "feedback_threshold": 4,
-      "auto_report_on_exit": false
+      "auto_report_on_exit": false,
+      "anonymize": true,          // 默认开启隐私保护
+      "track_concepts": true      // 记录思想概念以优化理解
     }
   }
 }
@@ -127,9 +131,11 @@ ACT (行动) → OBSERVE (观察) → THINK (思考) → OUTPUT (输出)
 | `enabled` | bool | 是否启用自进化钩子 |
 | `log_on_output` | bool | 每次 OUTPUT 后自动记录日志 |
 | `log_on_miss` | bool | RAG 未命中时自动记录 |
-| `invite_feedback` | bool | 交互结束时邀请用户反馈 |
+| `invite_feedback` | bool | 交互结束时邀请用户反馈（可指定 type=understanding） |
 | `feedback_threshold` | int | 低于此分数触发改进分析 |
 | `auto_report_on_exit` | bool | 退出时自动生成报告 |
+| `anonymize` | bool | 自动哈希 session_id 并清洗 PII |
+| `track_concepts` | bool | 记录哲学概念（如天人合一）用于思想理解追踪 |
 
 ### 3.2 工作流状态集成
 
@@ -190,22 +196,23 @@ ACT (行动) → OBSERVE (观察) → THINK (思考) → OUTPUT (输出)
 # ── 自进化钩子 ──────────────────────────────────────
 from scripts.self_evolve import log_usage, log_miss, log_feedback
 
-def after_output_hook(input_date, rag_keys, session_id):
-    """OUTPUT 阶段后的自进化钩子。"""
-    # 1. 记录使用日志
-    log_usage(input_date, rag_keys, source="react_workflow")
+def after_output_hook(input_date, rag_keys, session_id=None, concepts=None):
+    """OUTPUT 阶段后的自进化钩子（支持思想概念和隐私）。"""
+    # 1. 记录使用日志（自动匿名化 session_id，记录 concepts 用于思想理解追踪）
+    log_usage(input_date, rag_keys, source="react_workflow", concepts=concepts, session_id=session_id)
 
-    # 2. 检测并记录未命中
+    # 2. 检测并记录未命中（自动清洗 context 中的 PII）
     # （在 OBSERVE 阶段已由 RAG 查询函数调用 log_miss）
 
-    # 3. 附加反馈邀请
+    # 3. 附加反馈邀请（默认 anonymize）
     print("\n---")
     print("本次推算结果对您有帮助吗？请评分（1-5分），或回复 'skip' 跳过。")
+    print("（反馈将用于持续优化思想解释质量）")
     # 注：实际集成时，反馈采集由工作流调度器处理
 
 def on_rag_miss_hook(query_key, context):
     """RAG 未命中时的钩子。"""
-    log_miss(query_key, context)
+    log_miss(query_key, context)  # 自动 anonymize context
     # 降级处理：尝试相近知识
     fallback_keys = {
         "earth_zaiquan": "earth",
@@ -233,6 +240,6 @@ def on_rag_miss_hook(query_key, context):
 
 1. **不要阻塞主流程**：自进化钩子应异步执行，不影响推算响应的速度
 2. **日志容错**：日志记录失败不应影响主工作流，使用 try/except 包裹
-3. **数据隐私**：日志中不记录用户身份信息，仅记录推算参数和 RAG 键
+3. **数据隐私**：默认启用 anonymize（session_id 哈希 + PII 清洗）。日志中不记录用户身份信息。使用 cleanup 定期清理旧数据。支持 concepts 追踪思想理解质量。
 4. **定期审查**：每周审查报告，根据数据驱动决策更新 RAG 知识库
 5. **反馈频率**：反馈邀请不要过于频繁，同一会话最多邀请一次

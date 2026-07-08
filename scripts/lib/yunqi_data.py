@@ -4,130 +4,55 @@
 所有推算脚本均从此模块导入数据。
 """
 
-# ═══════════════════════════════════════════════════════════════
-# 天干地支
-# ═══════════════════════════════════════════════════════════════
+import functools
+import calendar
+import json
+import os
+import sys
+from datetime import datetime
 
-TIANGAN = ['甲', '乙', '丙', '丁', '戊', '己', '庚', '辛', '壬', '癸']
-DIZHI = ['子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥']
+# P2: 从单一 JSON 加载核心常量，减少 py/js 维护负担
+_CONST_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'yunqi_constants.json')
+with open(_CONST_PATH, 'r', encoding='utf-8') as f:
+    _C = json.load(f)
 
-# 天干阴阳: 阳干=太过, 阴干=不及
-TIANGAN_YINYANG = {
-    '甲': '阳', '丙': '阳', '戊': '阳', '庚': '阳', '壬': '阳',
-    '乙': '阴', '丁': '阴', '己': '阴', '辛': '阴', '癸': '阴',
-}
-
-# 地支生肖
-DIZHI_SHENGXIAO = {
-    '子': '鼠', '丑': '牛', '寅': '虎', '卯': '兔',
-    '辰': '龙', '巳': '蛇', '午': '马', '未': '羊',
-    '申': '猴', '酉': '鸡', '戌': '狗', '亥': '猪',
-}
-
-# 地支五行（用于岁会判断）
-DIZHI_WUXING = {
-    '子': '水', '丑': '土', '寅': '木', '卯': '木',
-    '辰': '土', '巳': '火', '午': '火', '未': '土',
-    '申': '金', '酉': '金', '戌': '土', '亥': '水',
-}
+# 重新导出为模块常量（保持向后兼容的名称）
 
 # ═══════════════════════════════════════════════════════════════
-# 五行
+# 天干地支 (从 yunqi_constants.json 加载)
 # ═══════════════════════════════════════════════════════════════
 
-WUXING = ['木', '火', '土', '金', '水']
-
-# 五行相生: A 生 B
-WUXING_SHENG = {
-    '木': '火', '火': '土', '土': '金', '金': '水', '水': '木',
-}
-
-# 五行相克: A 克 B
-WUXING_KE = {
-    '木': '土', '土': '水', '水': '火', '火': '金', '金': '木',
-}
+TIANGAN = _C['TIANGAN']
+DIZHI = _C['DIZHI']
+TIANGAN_YINYANG = _C['TIANGAN_YINYANG']
+DIZHI_SHENGXIAO = _C['DIZHI_SHENGXIAO']
+DIZHI_WUXING = _C['DIZHI_WUXING']
 
 # ═══════════════════════════════════════════════════════════════
-# 天干化五运
+# 五行 (从 JSON 加载)
 # ═══════════════════════════════════════════════════════════════
 
-TIANGAN_HUAYUN = {
-    '甲': '土', '己': '土',    # 甲己化土
-    '乙': '金', '庚': '金',    # 乙庚化金
-    '丙': '水', '辛': '水',    # 丙辛化水
-    '丁': '木', '壬': '木',    # 丁壬化木
-    '戊': '火', '癸': '火',    # 戊癸化火
-}
-
-# 五运对应的主运步序位置 (1-5)
-WUYUN_STEP = {
-    '木': 1, '火': 2, '土': 3, '金': 4, '水': 5,
-}
+WUXING = _C['WUXING']
+WUXING_SHENG = _C['WUXING_SHENG']
+WUXING_KE = _C['WUXING_KE']
 
 # ═══════════════════════════════════════════════════════════════
-# 六气
+# 天干化五运 (从 JSON)
 # ═══════════════════════════════════════════════════════════════
 
-# 地支化六气（司天）
-DIZHI_HUAQI_SITIAN = {
-    '子': '少阴君火', '午': '少阴君火',   # 子午少阴君火
-    '丑': '太阴湿土', '未': '太阴湿土',   # 丑未太阴湿土
-    '寅': '少阳相火', '申': '少阳相火',   # 寅申少阳相火
-    '卯': '阳明燥金', '酉': '阳明燥金',   # 卯酉阳明燥金
-    '辰': '太阳寒水', '戌': '太阳寒水',   # 辰戌太阳寒水
-    '巳': '厥阴风木', '亥': '厥阴风木',   # 巳亥厥阴风木
-}
+TIANGAN_HUAYUN = _C['TIANGAN_HUAYUN']
+WUYUN_STEP = {'木': 1, '火': 2, '土': 3, '金': 4, '水': 5}
 
-# 司天-在泉配对（一阴对一阳，二阴对二阳，三阴对三阳）
-SITIAN_ZAIQUAN_PAIR = {
-    '厥阴风木': '少阳相火',   # 一阴 ↔ 一阳
-    '少阴君火': '阳明燥金',   # 二阴 ↔ 二阳
-    '太阴湿土': '太阳寒水',   # 三阴 ↔ 三阳
-    '少阳相火': '厥阴风木',
-    '阳明燥金': '少阴君火',
-    '太阳寒水': '太阴湿土',
-}
+# ═══════════════════════════════════════════════════════════════
+# 六气 (从 JSON 加载)
+# ═══════════════════════════════════════════════════════════════
 
-# 六气对应的五行
-LIUQI_WUXING = {
-    '厥阴风木': '木',
-    '少阴君火': '火',
-    '少阳相火': '火',
-    '太阴湿土': '土',
-    '阳明燥金': '金',
-    '太阳寒水': '水',
-}
-
-# 六气阴阳归类
-LIUQI_YINYANG = {
-    '厥阴风木': '一阴',
-    '少阴君火': '二阴',
-    '太阴湿土': '三阴',
-    '少阳相火': '一阳',
-    '阳明燥金': '二阳',
-    '太阳寒水': '三阳',
-}
-
-# 主气六步（固定，每年相同，按季节顺序）
-ZHUQI_STEPS = [
-    '厥阴风木',   # 初之气
-    '少阴君火',   # 二之气
-    '少阳相火',   # 三之气
-    '太阴湿土',   # 四之气
-    '阳明燥金',   # 五之气
-    '太阳寒水',   # 终之气
-]
-
-# 客气循环序列（按阴阳推移：一阴→二阴→三阴→一阳→二阳→三阳）
-# 此顺序中，相差3位的六气互为司天-在泉对
-KEQI_CYCLE = [
-    '厥阴风木',   # 一阴
-    '少阴君火',   # 二阴
-    '太阴湿土',   # 三阴
-    '少阳相火',   # 一阳
-    '阳明燥金',   # 二阳
-    '太阳寒水',   # 三阳
-]
+DIZHI_HUAQI_SITIAN = _C['DIZHI_HUAQI_SITIAN']
+SITIAN_ZAIQUAN_PAIR = _C['SITIAN_ZAIQUAN_PAIR']
+LIUQI_WUXING = _C['LIUQI_WUXING']
+LIUQI_YINYANG = _C['LIUQI_YINYANG']
+ZHUQI_STEPS = _C['ZHUQI_STEPS']
+KEQI_CYCLE = _C['KEQI_CYCLE']
 
 # 六步主气对应的节气区间
 ZHUQI_JIEQI = {
@@ -139,17 +64,28 @@ ZHUQI_JIEQI = {
     6: ('小雪', '大寒'),    # 终之气
 }
 
-# 二十四节气（按顺序）
-JIEQI_24 = [
-    '立春', '雨水', '惊蛰', '春分', '清明', '谷雨',
-    '立夏', '小满', '芒种', '夏至', '小暑', '大暑',
-    '立秋', '处暑', '白露', '秋分', '寒露', '霜降',
-    '立冬', '小雪', '大雪', '冬至', '小寒', '大寒',
-]
+# 二十四节气（按顺序，从 JSON）
+JIEQI_24 = _C['JIEQI_24']
 
 # ═══════════════════════════════════════════════════════════════
 # 辅助函数
 # ═══════════════════════════════════════════════════════════════
+
+def _parse_date(date_str):
+    """
+    健壮的日期解析 (P1-3 优化)
+    接受 "YYYY-MM-DD"，返回 (year, month, day) int 元组。
+    抛出清晰的 ValueError。
+    """
+    if not isinstance(date_str, str):
+        raise ValueError(f"日期必须是字符串，得到: {type(date_str)}")
+    date_str = date_str.strip()
+    try:
+        dt = datetime.strptime(date_str, "%Y-%m-%d")
+        return dt.year, dt.month, dt.day
+    except ValueError as e:
+        raise ValueError(f"日期格式无效，应为 YYYY-MM-DD，当前: {date_str}") from e
+
 
 def get_ganzhi(year):
     """公历年份 → (天干, 地支)"""
@@ -354,15 +290,8 @@ LIUQI_PINYIN = {
     '太阳寒水': 'taiyang_hanshui',
 }
 
-# 六步名称
-QI_STEP_NAMES = {
-    1: '初之气(主大寒~春分)',
-    2: '二之气(主春分~小满)',
-    3: '三之气(主小满~大暑)',
-    4: '四之气(主大暑~秋分)',
-    5: '五之气(主秋分~小雪)',
-    6: '终之气(主小雪~大寒)',
-}
+# 六步名称 (从 JSON，键转 int 保持兼容)
+QI_STEP_NAMES = {int(k): v for k, v in _C['QI_STEP_NAMES'].items()}
 
 # 节气英文名映射 (lunar-python 用)
 _JIEQI_EN_MAP = {
@@ -393,35 +322,41 @@ def _get_solar_class():
         from lunar_python import Solar
         return Solar
     except ImportError:
+        # UX: 只警告一次
+        if not getattr(_get_solar_class, '_warned', False):
+            print("⚠️  未检测到 lunar-python，使用近似节气日期（精度降低）。建议: pip install lunar-python", file=sys.stderr)
+            _get_solar_class._warned = True
         return None
 
 
+@functools.lru_cache(maxsize=256)
 def get_jieqi_date(year, jieqi_name):
     """
     获取指定公历年份某节气的日期
     返回: (year, month, day) 元组
-    
-    大寒在年初(Jan)，需从前一年的 Lunar 表中获取
-    其他节气(春分~小雪)在年中，从当年的 Lunar 表中获取
+
+    优化点（P0）：
+    - 使用 lru_cache 显著减少重复 lunar-python 调用（calculate_yunqi_api 频繁调用）
+    - 修复兜底遍历：原 range(1,29) 会漏掉 29/30/31 日
     """
     Solar = _get_solar_class()
-    
+
     if Solar is None:
         # 退化方案: 使用近似日期
         m, d = _JIEQI_FALLBACK.get(jieqi_name, (1, 20))
         return (year, m, d)
-    
+
     # 大寒在年初: 从前一年7月的 Lunar 表获取
     # (因为 lunar year 从立春开始, 大寒在 Jan 属于上一个 lunar year)
     if jieqi_name == '大寒':
         solar = Solar.fromYmd(year - 1, 7, 1)
     else:
         solar = Solar.fromYmd(year, 7, 1)
-    
+
     lunar = solar.getLunar()
     jq_table = lunar.getJieQiTable()
     jq_en = _JIEQI_EN_MAP.get(jieqi_name)
-    
+
     if jq_en and jq_en in jq_table:
         val = jq_table[jq_en]
         # JieQiTable 值可能是 Solar 对象或字符串
@@ -431,10 +366,11 @@ def get_jieqi_date(year, jieqi_name):
         else:
             # Solar 对象
             return (val.getYear(), val.getMonth(), val.getDay())
-    
-    # 兜底: 遍历法
+
+    # 兜底: 遍历法（修复：使用 calendar 获取正确月末，或保守 range(1,32)）
     for month in range(1, 13):
-        for day in range(1, 29):
+        last_day = calendar.monthrange(year, month)[1]
+        for day in range(1, last_day + 1):
             try:
                 s = Solar.fromYmd(year, month, day)
                 l = s.getLunar()
@@ -443,6 +379,7 @@ def get_jieqi_date(year, jieqi_name):
                     return (year, month, day)
             except Exception:
                 pass
+
     # 最终兜底
     m, d = _JIEQI_FALLBACK.get(jieqi_name, (1, 20))
     return (year, m, d)
@@ -459,10 +396,7 @@ def get_yunqi_year(date_str):
     参数: date_str - "YYYY-MM-DD" 格式
     返回: 运气年份 (int)
     """
-    parts = date_str.split('-')
-    solar_year = int(parts[0])
-    solar_month = int(parts[1])
-    solar_day = int(parts[2])
+    solar_year, solar_month, solar_day = _parse_date(date_str)
     
     # 获取当年的大寒日期
     dahan_y, dahan_m, dahan_d = get_jieqi_date(solar_year, '大寒')
@@ -492,10 +426,7 @@ def get_current_qi_step(date_str):
     返回: (step_number, step_name, start_jieqi, end_jieqi)
     """
     yq_year = get_yunqi_year(date_str)
-    parts = date_str.split('-')
-    date_y = int(parts[0])
-    date_m = int(parts[1])
-    date_d = int(parts[2])
+    date_y, date_m, date_d = _parse_date(date_str)
     
     # 获取六步的节气边界日期
     # 初之气~五之气的起始节气在运气年当年
@@ -541,8 +472,7 @@ def get_day_ganzhi(date_str):
     if Solar is None:
         return None
     
-    parts = date_str.split('-')
-    y, m, d = int(parts[0]), int(parts[1]), int(parts[2])
+    y, m, d = _parse_date(date_str)
     solar = Solar.fromYmd(y, m, d)
     lunar = solar.getLunar()
     return lunar.getDayInGanZhi()
@@ -643,6 +573,13 @@ def generate_summary(result):
         summary += " 近期关注：" + "；".join(focus_points) + "。"
 
     summary += f" 全年六步客主加临：{xiangde}步相得、{buxiangde}步不相得。"
+
+    # UX P0-5 + P1-3: 下一步 + 思想伙伴引导
+    summary += "\n\n下一步建议：\n"
+    summary += "  • 聚焦当前步位：python scripts/calculate_yunqi_api.py " + result.get('date', 'today') + " --focus current-step\n"
+    summary += "  • 生成学生报告：python scripts/calculate_yunqi_api.py " + result.get('date', 'today') + " --report-type student\n"
+    summary += "  • 个人体质分析：python scripts/personal_yunqi_profile.py <出生日期> <城市>\n"
+    summary += "\n思想伙伴问题：你对这个‘天人合一’的体现有什么自己的理解？想继续探讨吗？\n"
 
     return summary
 

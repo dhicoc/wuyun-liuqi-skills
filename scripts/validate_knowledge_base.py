@@ -13,23 +13,16 @@ RAG 知识库校验工具
 import json
 import os
 import sys
-import io
 import argparse
 
+from _common import setup_environment
+setup_environment(add_lib=False, add_scripts=True)
+
 # 允许脚本直接导入 generate_rag_index.py
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 try:
     from generate_rag_index import check_index as check_rag_index
 except Exception:
     check_rag_index = None
-
-# Windows 终端默认编码可能不是 UTF-8，强制设置 stdout/stderr 编码
-if sys.platform == 'win32' and sys.stdout.encoding != 'utf-8':
-    try:
-        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
-        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
-    except (AttributeError, io.UnsupportedOperation):
-        pass
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

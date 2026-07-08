@@ -100,15 +100,16 @@ AI Agent 首次进入本技能包时执行：
 
 | 用户请求 | 推荐执行 |
 |----------|----------|
-| “算某日/今天运气” | `python scripts/calculate_yunqi_api.py <YYYY-MM-DD> --summary` |
-| “给我 JSON / Agent 接口” | `python scripts/calculate_yunqi_api.py <YYYY-MM-DD> --json` |
-| “当前步位/最近如何” | `python scripts/calculate_yunqi_api.py <YYYY-MM-DD> --focus current-step` |
-| “生成可视化” | `python scripts/generate_html_report.py <YYYY-MM-DD>` |
-| “完整年度报告” | `python scripts/yunqi_report.py <YYYY> --audience student|practitioner|researcher` |
+| “算某日/今天运气” | `python scripts/calculate_yunqi_api.py today --summary`（支持 today，默认今天） |
+| “给我 JSON / Agent 接口” | `python scripts/calculate_yunqi_api.py today --json` |
+| “思想层 / 概念解释” | `... --level deep` / `--explain-concept "天人合一"` |
+| “导出思想摘要/卡片/PDF” | `... --export summary|cards|pdf|all` 或 `scripts/export_thought.py today --format all` |
+| “当前步位/最近如何” | `python scripts/calculate_yunqi_api.py today --focus current-step` |
+| “完整年度报告” | `python scripts/yunqi_report.py <YYYY> --audience student|practitioner|researcher`（含思想层解读） |
 | “个人运气/出生日期分析” | `python scripts/personal_yunqi_profile.py <出生日期> [地区]` |
 | “病机/治法/养生” | 先调用 `calculate_yunqi_api.py --json`，再读取 `yunqi-pathogenesis/` 与 `yunqi-clinical/` |
-| “经典依据/术语解释” | 读取 `yunqi-classics/`、`rag-knowledge-base/terminology.json` |
-| “测试全部功能” | 运行 `health_check.py`、`tests/verify_expansion.py`、`tests/full_regression_test.py`，必要时补充用户指定日期的脚本测试 |
+| “自进化反馈 / 理解追踪” | `python scripts/self_evolve.py feedback ...` / `stats` / `report` / `cleanup`（支持哲学概念 + 理解评分 + session 哈希隐私 + 自动建议） |
+| “测试全部功能” | 运行 `health_check.py`、`tests/verify_expansion.py`、`tests/full_regression_test.py`（完整回归 63/0） |
 | “生成含高级对齐的报告” | 先运行 `advanced_alignment.py --json` 生成 JSON，再用 `yunqi_report.py --advanced-json` 或 `generate_html_report.py --with-advanced-alignment` |
 
 ### 2.2 模糊输入处理

@@ -3,101 +3,49 @@
  * 对应 Python 版 yunqi_data.py
  * 
  * 依赖: lunar-javascript (npm install lunar-javascript)
+ * P2: 核心常量从 yunqi_constants.json 加载，单一数据源
  */
 
-// ═══════════════════════════════════════════════════════════════
-// 天干地支
-// ═══════════════════════════════════════════════════════════════
-
-const TIANGAN = ['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
-const DIZHI = ['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
-
-const TIANGAN_YINYANG = {
-  '甲':'阳','丙':'阳','戊':'阳','庚':'阳','壬':'阳',
-  '乙':'阴','丁':'阴','己':'阴','辛':'阴','癸':'阴',
-};
-
-const DIZHI_SHENGXIAO = {
-  '子':'鼠','丑':'牛','寅':'虎','卯':'兔',
-  '辰':'龙','巳':'蛇','午':'马','未':'羊',
-  '申':'猴','酉':'鸡','戌':'狗','亥':'猪',
-};
-
-const DIZHI_WUXING = {
-  '子':'水','丑':'土','寅':'木','卯':'木',
-  '辰':'土','巳':'火','午':'火','未':'土',
-  '申':'金','酉':'金','戌':'土','亥':'水',
-};
+const path = require('path');
+const fs = require('fs');
+const _constPath = path.join(__dirname, 'yunqi_constants.json');
+const _C = JSON.parse(fs.readFileSync(_constPath, 'utf8'));
 
 // ═══════════════════════════════════════════════════════════════
-// 五行
+// 天干地支 (来自 JSON)
 // ═══════════════════════════════════════════════════════════════
 
-const WUXING = ['木','火','土','金','水'];
-
-const WUXING_SHENG = {
-  '木':'火','火':'土','土':'金','金':'水','水':'木',
-};
-
-const WUXING_KE = {
-  '木':'土','土':'水','水':'火','火':'金','金':'木',
-};
+const TIANGAN = _C.TIANGAN;
+const DIZHI = _C.DIZHI;
+const TIANGAN_YINYANG = _C.TIANGAN_YINYANG;
+const DIZHI_SHENGXIAO = _C.DIZHI_SHENGXIAO;
+const DIZHI_WUXING = _C.DIZHI_WUXING;
 
 // ═══════════════════════════════════════════════════════════════
-// 天干化五运
+// 五行 (来自 JSON)
 // ═══════════════════════════════════════════════════════════════
 
-const TIANGAN_HUAYUN = {
-  '甲':'土','己':'土',    // 甲己化土
-  '乙':'金','庚':'金',    // 乙庚化金
-  '丙':'水','辛':'水',    // 丙辛化水
-  '丁':'木','壬':'木',    // 丁壬化木
-  '戊':'火','癸':'火',    // 戊癸化火
-};
+const WUXING = _C.WUXING;
+const WUXING_SHENG = _C.WUXING_SHENG;
+const WUXING_KE = _C.WUXING_KE;
 
+// ═══════════════════════════════════════════════════════════════
+// 天干化五运 (来自 JSON)
+// ═══════════════════════════════════════════════════════════════
+
+const TIANGAN_HUAYUN = _C.TIANGAN_HUAYUN;
 const WUYUN_STEP = { '木':1, '火':2, '土':3, '金':4, '水':5 };
 
 // ═══════════════════════════════════════════════════════════════
-// 六气
+// 六气 (来自 JSON)
 // ═══════════════════════════════════════════════════════════════
 
-const DIZHI_HUAQI_SITIAN = {
-  '子':'少阴君火','午':'少阴君火',
-  '丑':'太阴湿土','未':'太阴湿土',
-  '寅':'少阳相火','申':'少阳相火',
-  '卯':'阳明燥金','酉':'阳明燥金',
-  '辰':'太阳寒水','戌':'太阳寒水',
-  '巳':'厥阴风木','亥':'厥阴风木',
-};
-
-const SITIAN_ZAIQUAN_PAIR = {
-  '厥阴风木':'少阳相火',
-  '少阴君火':'阳明燥金',
-  '太阴湿土':'太阳寒水',
-  '少阳相火':'厥阴风木',
-  '阳明燥金':'少阴君火',
-  '太阳寒水':'太阴湿土',
-};
-
-const LIUQI_WUXING = {
-  '厥阴风木':'木','少阴君火':'火','少阳相火':'火',
-  '太阴湿土':'土','阳明燥金':'金','太阳寒水':'水',
-};
-
-const LIUQI_YINYANG = {
-  '厥阴风木':'一阴','少阴君火':'二阴','太阴湿土':'三阴',
-  '少阳相火':'一阳','阳明燥金':'二阳','太阳寒水':'三阳',
-};
-
-// 主气六步 (固定, 按季节顺序)
-const ZHUQI_STEPS = [
-  '厥阴风木','少阴君火','少阳相火','太阴湿土','阳明燥金','太阳寒水',
-];
-
-// 客气循环序列 (按阴阳推移: 一阴→二阴→三阴→一阳→二阳→三阳)
-const KEQI_CYCLE = [
-  '厥阴风木','少阴君火','太阴湿土','少阳相火','阳明燥金','太阳寒水',
-];
+const DIZHI_HUAQI_SITIAN = _C.DIZHI_HUAQI_SITIAN;
+const SITIAN_ZAIQUAN_PAIR = _C.SITIAN_ZAIQUAN_PAIR;
+const LIUQI_WUXING = _C.LIUQI_WUXING;
+const LIUQI_YINYANG = _C.LIUQI_YINYANG;
+const ZHUQI_STEPS = _C.ZHUQI_STEPS;
+const KEQI_CYCLE = _C.KEQI_CYCLE;
 
 // ═══════════════════════════════════════════════════════════════
 // Step 1 增强: 代码/映射表
@@ -297,12 +245,22 @@ function getSolarClass() {
   }
 }
 
+// 简单内存缓存（对应 Python lru_cache）
+const _jieqiCache = new Map();
 function getJieqiDate(year, jieqiName) {
+  const key = `${year}|${jieqiName}`;
+  if (_jieqiCache.has(key)) {
+    return _jieqiCache.get(key);
+  }
+
   const Solar = getSolarClass();
   if (!Solar) {
     const [m, d] = JIEQI_FALLBACK[jieqiName] || [1, 20];
-    return [year, m, d];
+    const res = [year, m, d];
+    _jieqiCache.set(key, res);
+    return res;
   }
+
   // 大寒在年初: 从前一年7月的 Lunar 表获取
   const solar = Solar.fromYmd(jieqiName === '大寒' ? year - 1 : year, 7, 1);
   const lunar = solar.getLunar();
@@ -311,27 +269,42 @@ function getJieqiDate(year, jieqiName) {
   if (jqEn && jqTable[jqEn]) {
     const val = jqTable[jqEn];
     // JieQiTable 值可能是 Solar 对象或字符串
+    let res;
     if (typeof val === 'string') {
       const parts = val.split('-');
-      return [parseInt(parts[0]), parseInt(parts[1]), parseInt(parts[2])];
+      res = [parseInt(parts[0]), parseInt(parts[1]), parseInt(parts[2])];
     } else if (val && val.getYear) {
       // Solar 对象
-      return [val.getYear(), val.getMonth(), val.getDay()];
+      res = [val.getYear(), val.getMonth(), val.getDay()];
+    }
+    if (res) {
+      _jieqiCache.set(key, res);
+      return res;
     }
   }
-  // 兜底: 遍历法
-  for (let month = 1; month <= 12; month++) {
-    for (let day = 1; day <= 28; day++) {
+
+  // 兜底: 遍历法（修复：支持到每月最后一天）
+  let res = null;
+  for (let month = 1; month <= 12 && !res; month++) {
+    // 简单每月最多31天
+    for (let day = 1; day <= 31; day++) {
       try {
         const s = Solar.fromYmd(year, month, day);
         const l = s.getLunar();
         const jq = l.getJieQi();
-        if (jq && jq.includes(jieqiName)) return [year, month, day];
+        if (jq && jq.includes(jieqiName)) {
+          res = [year, month, day];
+          break;
+        }
       } catch (e) {}
     }
   }
-  const [m, d] = JIEQI_FALLBACK[jieqiName] || [1, 20];
-  return [year, m, d];
+  if (!res) {
+    const [m, d] = JIEQI_FALLBACK[jieqiName] || [1, 20];
+    res = [year, m, d];
+  }
+  _jieqiCache.set(key, res);
+  return res;
 }
 
 function getYunqiYear(dateStr) {

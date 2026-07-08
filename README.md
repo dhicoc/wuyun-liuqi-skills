@@ -7,6 +7,9 @@
 
 <p align="center"><em style="font-family: &quot;KaiTi&quot;, &quot;STKaiti&quot;, &quot;SimSun&quot;, serif; font-size: 1.3em; color: #999;">天人合一，五运六气</em></p>
 
+<p align="center">帮助人类通过 AI Agent 理解《黄帝内经》运气学思想的技能包<br/>
+AI Agent Skill Pack that enables humans to deeply understand WuYun-LiuQi (Five Movements and Six Qi) philosophy through natural conversation</p>
+
 <p align="center">TCM Climate &amp; Pathology Engine — Ganzhi calculation · Six-Qi progression · RAG knowledge base · ReAct reasoning · Self-evolving<br/>
 中医运气学推算引擎 — 干支推算 · 六气步移 · 五层 RAG 知识库 · ReAct 推理 · 自进化引擎</p>
 
@@ -41,19 +44,25 @@
 
 > **如果你是 AI Agent，直接跳转到 [README_AI.md](README_AI.md)，严格按照内容要求执行。**
 
-基于中医运气学说（《黄帝内经》素问七篇大论），运用天干地支推算年度气候与疾病规律的 AI Agent 技能包。架构改编自 [reverse-skill](https://github.com/zhaoxuya520/reverse-skill)。
+**核心定位**：人类将本技能包安装到自己的 AI Agent（Claude、Cursor 等）中后，Agent 就能成为一个可靠的“五运六气思想讲解员”和推算助手，帮助人类准确、系统地理解《黄帝内经》运气学这个古老而深刻的思想体系。
 
-当 AI Agent 面对五运六气推算、病机分析、运气治法等任务时，本技能包提供从干支计算 → RAG 知识库检索 → ReAct 辨证推理 → 结构化报告的全链路能力。
+基于中医运气学说（《黄帝内经》素问七篇大论），本技能包让 AI Agent 能够：
+- 进行严谨的干支运气推算（而非凭记忆或幻觉）
+- 检索并运用结构化的经典知识（RAG）
+- 按照正确的思维路径进行辨证推理
+- 输出可学习的报告、解释和个人化参考
 
 ```
-用户输入 → routing.md → 目标子技能 → 推算引擎 + RAG 知识库 → 病机分析 → 报告 + 自进化记录
+人类提问（关于运气） → Agent 激活本技能 → 推算引擎 + RAG 知识库 → 病机分析 + 思想解读 → 结构化报告 + 自进化
 ```
 
 **为什么需要这个项目：**
-- 五运六气推算涉及大量数据表（岁运、司天、客气、客主加临等），手工查表易错
-- 经典病机分散在素问七篇大论中，临床使用时检索困难
-- 运气方剂、历代注家、地域修正等信息需要多源整合
-- 缺乏统一的 Agent 集成接口，每次推算结果无法沉淀复用
+- 五运六气思想体系复杂（大量数据表、严谨规则、分散在经典中），普通人难以系统掌握
+- 一般大模型容易对干支、司天在泉、客主加临等内容产生幻觉或简化错误
+- 人类需要一个能“教”而不是“猜”的助手，来真正理解运气学背后的宇宙观、时间观与生命观
+- 缺乏专为 Agent 设计的、可靠的运气学知识与计算技能包
+
+本技能包正是为了解决以上问题，让人类通过与 AI 的自然对话，深入了解五运六气这个思想。
 
 完整路由矩阵：[routing.md](routing.md)
 
@@ -85,7 +94,26 @@ git clone https://github.com/dhicoc/wuyun-liuqi-skills.git
 cd wuyun-liuqi-skills
 ```
 
-### 快速配置
+### 快速配置（人类用户）—— 支持直接丢仓库地址
+
+**最推荐的方式（接近一句话安装）：**
+
+直接把下面内容复制给 Claude（或其他 AI）：
+
+```
+仓库地址：https://github.com/dhicoc/wuyun-liuqi-skills.git
+
+请帮我把这个五运六气技能包完整安装好（包含所有依赖和验证）。
+```
+
+AI 会引导你完成克隆 + 运行 `python scripts/install.py` + 验证。
+
+---
+
+传统方式：
+
+1. 把本技能包放在你的 AI Agent 能访问的位置。
+2. 让 Agent 准备好运行环境：
 
 ```bash
 # Windows (PowerShell/cmd)
@@ -95,39 +123,29 @@ scripts\setup.bat
 bash scripts/setup.sh
 ```
 
-### 推算某年运气
+配置完成后，在与 Agent 的对话中直接说“五运六气”“今天运气怎么样”“帮我分析出生年份的运气”等，Agent 会自动使用本技能来帮助你理解这个思想。
+
+### 技术入口（供 Agent 直接调用或调试）
+
+> **主链路**：`scripts/calculate_yunqi_api.py`（支持 `today` / 默认今天 + 思想层）
 
 ```bash
-# 综合报告
-python scripts/yunqi_report.py 2026 --audience student
+# Agent 常用（快速 + 思想理解）
+python scripts/calculate_yunqi_api.py today --summary
+python scripts/calculate_yunqi_api.py today --level deep --explain-concept "天人合一"
+python scripts/calculate_yunqi_api.py 2026-06-27 --json --export summary
 
-# 单项推算
-python scripts/ganzhi_calc.py 2026       # 干支推算
-python scripts/dayun_calc.py 2026        # 大运推算
-python scripts/liuqi_calc.py 2026        # 六气推算
-python scripts/kezhujialin.py 2026       # 客主加临
-
-# JSON 输出（机器可读）
-python scripts/dayun_calc.py 2026 --json
-```
-
-### 基于日期的统一推算（Agent 推荐入口）
-
-> **主链路说明**：本项目以 **Python 推算引擎** 为主链路，`scripts/calculate_yunqi_api.py` 是 AI Agent、RAG 检索、报告生成与回归测试的推荐入口。JavaScript 版 `scripts/calculate_yunqi_api.js` 提供同类 JSON 输出，定位为 **可选接口 / 前端或 Node.js 集成适配层**；若追求完整功能覆盖与回归稳定性，请优先使用 Python 版。
-
-```bash
-# 推荐：Python 主链路
-python scripts/calculate_yunqi_api.py 2026-06-27 --json
-
-# 可选：JavaScript / Node.js 接口
-node scripts/calculate_yunqi_api.js 2026-06-27 --json
+# 导出思想材料
+python scripts/export_thought.py today --format all          # 摘要 + 卡片 + HTML/PDF
+python scripts/self_evolve.py stats --top-concepts 5
 ```
 
 ### 全链路验证
 
 ```bash
 python scripts/demo_full_chain.py 2026-06-27
-python tests/verify_expansion.py        # 67 项端到端测试
+python tests/verify_expansion.py
+python tests/full_regression_test.py   # 63 项，通过 0 失败
 ```
 
 <p align="right">(<a href="#快速开始">返回顶部</a>)</p>
@@ -136,20 +154,47 @@ python tests/verify_expansion.py        # 67 项端到端测试
 
 ## 使用说明
 
-### 支持场景
+### 推荐使用方式
 
-| 场景 | 入口 |
-|------|------|
-| 干支推算 | `scripts/ganzhi_calc.py` |
-| 大运太过不及 | `scripts/dayun_calc.py` |
-| 主运客运 | `scripts/keyun_calc.py` |
-| 六气推算 | `scripts/liuqi_calc.py` |
-| 客主加临 | `scripts/kezhujialin.py` |
-| 综合报告 | `scripts/yunqi_report.py` |
-| 统一计算接口（JSON） | `scripts/calculate_yunqi_api.py` |
+**最自然的方式**：把本技能包安装到你的 AI Agent 中，然后直接用自然语言提问（例如：“五运六气是什么思想？”“今年运气如何影响养生？”“我的出生年份运气和体质有什么关系？”）。
+
+Agent 会自动调用本技能包的推算引擎、知识库和推理流程来帮助你理解运气学这个思想体系。
+
+### 技术级入口（供 Agent 或调试使用）
+
+| 场景 | 推荐入口 |
+|------|----------|
+| 日期运气快速了解 | `scripts/calculate_yunqi_api.py today --summary`（支持 today / 默认今天） |
+| Agent / JSON 接口 | `scripts/calculate_yunqi_api.py <日期> --json` |
+| 综合报告（学生/临床/研究版） | `scripts/yunqi_report.py <年份> --audience student\|practitioner\|researcher` |
+| 个人出生运气 + 体质 | `scripts/personal_yunqi_profile.py <出生日期> [地区]` |
+| 天气 × 运气 × 体质对齐 | `scripts/advanced_alignment.py --date <日期> --city <城市> --mock` |
+
+### 人类常用提问示例（直接对你的 AI 说这些）
+
+**理解思想：**
+- "五运六气是什么思想？核心的宇宙观和生命观是什么？"
+- "天人合一在运气学里怎么体现？"
+
+**生活应用：**
+- "今年运气对养生有什么启发？"
+- "最近天气变化，和运气有关系吗？我该注意什么？"
+
+**个人探索：**
+- "我出生那年的运气格局，对我的体质或人生阶段有什么思想意义？"
+- "请分析我当前运气 + 出生运气的整体思想启发"
+
+**学习深入 / 思想理解：**
+- "用简单语言解释司天在泉，然后再给哲学层面的解读"
+- "天符和中和这两个概念怎么连起来理解运气学的辩证思想？"
+- "请用 --level deep 解释今年格局的思想启发，并导出卡片集帮我复习"
+
+**导出与复习：**
+- "帮我导出今年运气的思想摘要和 Anki 卡片"
+- "生成可打印的 PDF 思想报告"
 | RAG 知识库检索 | `rag-knowledge-base/` |
 | 自进化引擎 | `scripts/self_evolve.py` |
-| 端到端验证 | `scripts/verify_expansion.py` |
+| 端到端验证 | `tests/verify_expansion.py` (scripts/ 有兼容 wrapper) |
 
 ### 功能覆盖矩阵
 
@@ -172,8 +217,9 @@ python tests/verify_expansion.py        # 67 项端到端测试
 | 统一高级对齐 | 基础运气、出生运气体质、九种体质量表、天气对齐的统一入口 | `scripts/advanced_alignment.py` | ✅ 已接入 |
 | 报告生成 | 学生版、临床版、研究版 Markdown 报告；支持注入高级对齐章节 | `scripts/yunqi_report.py --advanced-json`、`scripts/generate_html_report.py --with-advanced-alignment`、`docs-generator/` | ✅ 已覆盖 |
 | 可视化 | 终端 ASCII 图、HTML 可视化报告 | `scripts/visualize_yunqi.py`、`scripts/generate_html_report.py` | ✅ 已覆盖 |
-| 自进化 | 使用日志、盲区检测、反馈记录、月度报告 | `scripts/self_evolve.py`、`self-evolve/` | ✅ 已覆盖 |
-| 校验测试 | 环境检查、知识库校验、端到端测试、全量回归 | `scripts/health_check.py`、`scripts/validate_knowledge_base.py`、`tests/verify_expansion.py`、`tests/full_regression_test.py` | ✅ 已覆盖 |
+| 自进化 | 使用日志 + 概念/哲学追踪 + 理解反馈 + 隐私哈希/清洗 + 月报 + 清理 + 自动建议 | `scripts/self_evolve.py`、`self-evolve/` | ✅ 已覆盖（含思想理解维度） |
+| 校验测试 | 环境检查、知识库校验、端到端测试、全量回归（63/0） | `scripts/health_check.py`、`scripts/validate_knowledge_base.py`、`tests/verify_expansion.py`、`tests/full_regression_test.py` | ✅ 已覆盖 |
+| 思想导出 | 纯文本思想摘要、Anki 卡片集、高质量 HTML/打印 PDF | `scripts/export_thought.py` / `calculate_yunqi_api.py --export` | ✅ 新增 |
 
 > 注：临床、方药、针灸相关内容仅作为中医运气学理论参考，不构成医学诊断或治疗建议；具体诊疗须由执业医师辨证处理。
 
@@ -314,14 +360,17 @@ scripts/self_evolve.py -> 自动记录
 
 # WuYun-LiuQi AI Agent Skill Pack
 
-**WuYun-LiuQi** (Five Movements and Six Qi, 运气学) is an AI Agent skill pack for rule-based TCM climate-pattern calculation, knowledge retrieval, and structured report generation. It is based on the Yunqi theory recorded in the seven major Suwen treatises of the *Huangdi Neijing* (*Yellow Emperor's Inner Classic*) and uses Heavenly Stems, Earthly Branches, solar-term boundaries, and structured RAG assets to derive annual Yunqi patterns.
+**WuYun-LiuQi** (Five Movements and Six Qi, 运气学) is an AI Agent skill pack designed to help humans deeply understand the ancient Yunqi thought system (天人合一 / Heaven-Human Oneness, 气化 / Qi transformation, 中和 / moderation, time rhythms, and life view) through accurate calculation, philosophical interpretation, and exportable study materials.
 
-The project provides an end-to-end workflow:
+It is based on the Yunqi theory in the seven major Suwen treatises of the *Huangdi Neijing*. The pack provides rule-based Ganzhi/Yunqi calculation (Dahan boundary), a 7-layer RAG knowledge base, thought-layer explanations, progressive learning depth, self-evolution with privacy, and tools to export thought summaries, Anki cards, and printable reports.
+
+The project provides an end-to-end workflow focused on helping humans deeply understand the Yunqi thought system (天人合一, 气化, 中和, time rhythms, life view):
 
 ```text
-User input → routing.md → target skill → Python calculation engine → RAG knowledge base
-→ pathogenesis reasoning → structured report → visualization → self-evolution log
+User input (natural language) → routing + onboarding (fuzzy intent handling) → Python engine (Dahan boundary) → 7-layer RAG → pathogenesis + **thought-layer interpretation** → reports with guiding/reflection questions → visualization → self-evolution (concept tracking + understanding feedback + privacy) → export (plain-text thought summary / Anki cards / PDF/HTML)
 ```
+
+Core value: Reliable calculation + philosophical interpretation + exportable study materials so humans can truly internalize the ideas rather than just receive numbers.
 
 > Medical note: this project is for traditional TCM theory learning, research, and assisted reasoning only. It is **not** a medical diagnosis or treatment system. Clinical decisions must be made by qualified healthcare professionals.
 
@@ -329,9 +378,11 @@ User input → routing.md → target skill → Python calculation engine → RAG
 
 The **Python engine is the primary and recommended runtime**:
 
-- `scripts/calculate_yunqi_api.py` is the main entry point for AI Agents, RAG lookup, report generation, visualization, and regression tests.
-- `scripts/calculate_yunqi_api.js` is an optional JavaScript / Node.js integration layer for frontend or Node-based applications.
-- For full feature coverage and the most stable regression path, prefer the Python entry point.
+- `scripts/calculate_yunqi_api.py` is the main entry point (supports `today`, `--summary`, `--level`, `--explain-concept`, `--export`, thought-layer output).
+- `scripts/export_thought.py` for dedicated thought-summary / Anki cards / PDF exports.
+- `scripts/self_evolve.py` for usage tracking, concept-level understanding feedback, privacy-protected logs, and improvement reports.
+- `scripts/calculate_yunqi_api.js` is an optional JavaScript / Node.js integration layer.
+- Prefer Python for full features, stability, and the most complete regression coverage.
 
 ## Quick Start
 
@@ -340,10 +391,17 @@ The **Python engine is the primary and recommended runtime**:
 pip install -r requirements.txt
 npm install   # optional, only required for the Node.js interface
 
-# Recommended: Python primary workflow
-python scripts/calculate_yunqi_api.py 2026-06-27 --json
-python scripts/calculate_yunqi_api.py 2026-06-27 --summary
-python scripts/calculate_yunqi_api.py 2026-06-27 --report-type student
+# Recommended: Python primary workflow (today support + thought focus)
+python scripts/calculate_yunqi_api.py today --summary
+python scripts/calculate_yunqi_api.py today --level deep --explain-concept "天人合一"
+python scripts/calculate_yunqi_api.py 2026-06-27 --json --export all
+
+# Export thought materials (summary / Anki cards / printable PDF)
+python scripts/export_thought.py today --format all
+
+# Self-evolution (concepts + understanding feedback + privacy)
+python scripts/self_evolve.py stats --top-concepts 5
+python scripts/self_evolve.py report
 
 # Optional: Node.js interface
 node scripts/calculate_yunqi_api.js 2026-06-27 --json
@@ -351,6 +409,7 @@ node scripts/calculate_yunqi_api.js 2026-06-27 --json
 # Full-chain demo and verification
 python scripts/demo_full_chain.py 2026-06-27
 python tests/verify_expansion.py
+python tests/full_regression_test.py   # 63 tests, 0 failures
 ```
 
 ## Feature Coverage Matrix
@@ -367,40 +426,46 @@ python tests/verify_expansion.py
 | Pathogenesis | Five-movement, Six-Qi, excess/deficiency, combined Yunqi reasoning | `yunqi-pathogenesis/` | ✅ Documented reasoning |
 | Clinical reference | Treatment principles, formula direction, acupuncture references, lifestyle guidance | `yunqi-clinical/` | ✅ Reference only |
 | Classics | Suwen treatises, historical schools, modern research notes | `yunqi-classics/` | ✅ Covered |
-| RAG knowledge base | Yunqi keys for pathogenesis, formulas, commentaries, regions, constitutions | `rag-knowledge-base/asset*.json` | ✅ Covered |
+| RAG knowledge base | 7-layer structured assets (pathogenesis, formulas, commentaries, regional, constitution + more) | `rag-knowledge-base/asset*.json` | ✅ Covered |
 | Personal profile | Birth-year Yunqi tendency, constitution score assessment, current-year adjustment, regional modifier | `scripts/personal_yunqi_profile.py`, `scripts/constitution_assessment.py` | ✅ Covered |
 | Weather alignment | Real weather × Yunqi pattern alignment for same-direction, opposite, or mixed climate signals | `scripts/weather_alignment.py` | ✅ Covered |
 | Weather × constitution | Birth Yunqi constitution × current-year Yunqi × weather reality combined analysis | `scripts/yunqi_weather_constitution.py` | ✅ Covered |
 | Unified advanced alignment | Unified entry for base Yunqi, birth profile, constitution assessment, and weather alignment | `scripts/advanced_alignment.py` | ✅ Covered |
 | Reports | Student, practitioner, and researcher report styles with optional advanced-alignment sections | `scripts/yunqi_report.py --advanced-json`, `scripts/generate_html_report.py --with-advanced-alignment` | ✅ Covered |
 | Visualization | ASCII chart and HTML visual report | `scripts/visualize_yunqi.py`, `scripts/generate_html_report.py` | ✅ Covered |
-| Self-evolution | Usage logs, blind-spot detection, feedback, monthly report | `scripts/self_evolve.py` | ✅ Covered |
-| Validation | Environment check, RAG validation, end-to-end tests, full regression | `scripts/health_check.py`, `scripts/validate_knowledge_base.py`, `scripts/verify_expansion.py`, `scripts/full_regression_test.py` | ✅ Covered |
+| Self-evolution | Usage logs + philosophical concept tracking + understanding feedback + privacy (session hashing + PII sanitizing) + monthly reports + cleanup + auto suggestions | `scripts/self_evolve.py` | ✅ Covered (strong thought-understanding focus) |
+| Thought export | Plain-text thought summaries, Anki card sets, high-quality HTML / browser-print PDF | `scripts/export_thought.py`, `calculate_yunqi_api.py --export` | ✅ New |
+| Validation | Environment check, RAG validation, end-to-end tests, full regression (63/0) | `scripts/health_check.py`, `scripts/validate_knowledge_base.py`, `tests/verify_expansion.py`, `tests/full_regression_test.py` | ✅ Covered |
 
 ## Core Features
 
-- Rule-based Yunqi calculation with Dahan (大寒) as the Yunqi year boundary
-- Standardized JSON output for LLM / Agent integration
-- Five-layer RAG knowledge base covering pathogenesis, formulas, commentaries, regional modifiers, and constitution alignment
-- Weather alignment module with Open-Meteo, optional QWeather/Seniverse providers, local cache, historical same-date baseline, and mock mode for CI
-- ReAct-style reasoning workflow for tool use, retrieval, and structured synthesis
-- Markdown and HTML report generation
-- ASCII visualization for terminal workflows
-- Self-evolution loop: usage logging, blind-spot analysis, feedback capture, and monthly reports
-- Regression and knowledge-base validation scripts
+- Rule-based Yunqi calculation with Dahan (大寒) as the Yunqi year boundary (accurate, hallucination-free)
+- Standardized JSON + rich text output for LLM / Agent integration
+- **Thought-layer interpretation** in reports: philosophical explanations (天人合一, 气化, 中和), modern analogies, year-specific insights
+- Progressive depth: `--level simple|standard|deep` and `--explain-concept`
+- 7-layer RAG knowledge base (pathogenesis, formulas, commentaries, regional, constitution + more)
+- Weather & constitution advanced alignment (three-dimensional analysis)
+- ReAct-style reasoning workflow
+- Markdown / styled HTML report generation (student / practitioner / researcher)
+- ASCII + visual reports
+- **Export for study**: plain-text thought summaries, Anki flashcards (TSV + Markdown), high-quality printable HTML/PDF
+- **Self-evolution engine**: automatic logging of usage + concepts, understanding-quality feedback, privacy (SHA256 session IDs + PII sanitization), cleanup, stats, and improvement suggestions
+- Guiding questions and "next step" prompts to support reflection and deeper understanding
+- Full regression (63/0) + knowledge validation scripts
+- Strong human UX: `today` default, `--help`, colors, health-check guidance, fuzzy-input onboarding
 
 ## Repository Map
 
 ```text
-scripts/                 Calculation engines, primary Python API, weather alignment, optional Node.js API, reports, visualization
-rag-knowledge-base/      Structured RAG assets, README, and index.json
-agent-workflow/          ReAct workflow specification
-prompts/                 Agent system prompts
+scripts/                 Calculation engines, primary Python API (with --level/--explain-concept/--export), export_thought.py, weather alignment, reports, visualization
+rag-knowledge-base/      Structured RAG assets (7 layers), README, and index.json
+agent-workflow/          ReAct workflow specification + onboarding for vague inputs
+prompts/                 Agent system prompts (thought-partner tone)
 reports/examples/        Versioned sample reports and preview images
 reports/generated/       Local generated reports (ignored by Git)
 reports/test-results/    Test outputs (ignored by Git)
-docs/                    Architecture, feature coverage, roadmap, and technical notes
-tests/                   Test fixtures and future test migration target
+docs/                    Architecture, feature coverage, roadmap, optimization plans (self-evolve, thought understanding, UX)
+tests/                   Test fixtures; full_regression_test.py (63/0)
 .github/workflows/       CI workflow
 ganzhi-basics/           Stem-Branch learning skill
 yunqi-calc/              Core Yunqi calculation skill
@@ -409,7 +474,7 @@ yunqi-clinical/          Clinical reference and lifestyle guidance skill
 yunqi-classics/          Classical literature and research references
 docs-generator/          Report templates
 advanced-alignment/      Weather and constitution alignment
-self-evolve/             Runtime logs, feedback, reports
+self-evolve/             Logs + concept tracking + understanding feedback + privacy + reports + cleanup
 case-journal/            Case record templates, disclaimers, and example cases
 ```
 
@@ -419,7 +484,7 @@ case-journal/            Case record templates, disclaimers, and example cases
 python scripts/health_check.py
 python scripts/validate_knowledge_base.py
 python tests/verify_expansion.py
-python tests/full_regression_test.py
+python tests/full_regression_test.py   # currently 63 tests, 0 failures
 ```
 
 ## Tech Stack

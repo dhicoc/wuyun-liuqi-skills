@@ -11,6 +11,9 @@ import os
 import io
 import subprocess
 
+from _common import setup_environment, success, warning, error
+setup_environment(add_lib=False)
+
 
 def check_encoding():
     """检查当前 stdout 编码"""
@@ -79,13 +82,8 @@ def check_script(script_name):
 
 
 def main():
-    # 强制设置 UTF-8 输出
-    if sys.platform == 'win32' and sys.stdout.encoding != 'utf-8':
-        try:
-            sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
-            sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
-        except (AttributeError, io.UnsupportedOperation):
-            pass
+    from _common import setup_utf8_stdout
+    setup_utf8_stdout()
 
     print('🔍 wuyun-liuqi 健康检查')
     print('=' * 40)
@@ -101,6 +99,9 @@ def main():
     if dep['lunar_python'] != 'OK':
         print(f"       错误: {dep.get('error')}")
         print("       建议: pip install lunar-python")
+        print("       注意: 未安装时将使用近似节气日期，推算精度降低")
+    else:
+        print("       ✓ 精确节气计算已启用")
 
     scripts_to_check = [
         'calculate_yunqi_api.py',
@@ -130,9 +131,14 @@ def main():
         and all(s['returncode'] == 0 for s in script_statuses.values())
     )
     if all_ok:
-        print('✅ 健康检查通过，环境就绪')
+        print(success('✅ 健康检查通过，环境就绪'))
+        print('\n推荐下一步（直接复制运行）：')
+        print('  python scripts/calculate_yunqi_api.py today --summary')
+        print('  python scripts/demo_full_chain.py')
+        print('  python scripts/calculate_yunqi_api.py today --report-type student')
+        print('\n想看个人体质： python scripts/personal_yunqi_profile.py <出生日期> <城市>')
     else:
-        print('❌ 健康检查未通过，请按上方建议修复')
+        print(error('❌ 健康检查未通过，请按上方建议修复'))
     return 0 if all_ok else 1
 
 

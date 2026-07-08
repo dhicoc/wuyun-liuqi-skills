@@ -16,14 +16,9 @@ import argparse
 import json
 import re
 import sys
-import io
 
-if sys.platform == 'win32' and sys.stdout.encoding != 'utf-8':
-    try:
-        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
-        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
-    except (AttributeError, io.UnsupportedOperation):
-        pass
+from _common import setup_environment
+setup_environment(add_lib=False)
 
 FORMULA_NOTICE = '⚠️ 方药仅作传统运气学参考方向，须由执业中医师辨证加减；请勿自行购药、配伍或服用。'
 ACUPUNCTURE_NOTICE = '⚠️ 针灸/艾灸/穴位仅作传统理论参考，须由执业针灸师操作；请勿自行针刺或重灸。'

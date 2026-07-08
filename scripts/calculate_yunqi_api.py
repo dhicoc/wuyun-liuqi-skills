@@ -9,7 +9,8 @@
 - 日干支由 lunar-python 精确计算
 
 用法:
-  python calculate_yunqi_api.py 2026-06-27
+  python calculate_yunqi_api.py                  # 默认今天
+  python calculate_yunqi_api.py today --summary
   python calculate_yunqi_api.py 2026-06-27 --json
   python calculate_yunqi_api.py 2026-01-15 --json  # 测试大寒边界
 
@@ -17,19 +18,21 @@
 """
 import sys
 import os
-import io
 import json
+import argparse
+from pathlib import Path
+from datetime import date
 
-# Windows 终端默认编码可能不是 UTF-8，强制设置 stdout/stderr 编码
-if sys.platform == 'win32' and sys.stdout.encoding != 'utf-8':
-    try:
-        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
-        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
-    except (AttributeError, io.UnsupportedOperation):
-        pass
+from _common import setup_environment, color, highlight_key, success, warning, RED, YELLOW, GREEN, CYAN, RESET, BOLD
+setup_environment()  # 处理 UTF-8 + lib 路径
 
-# 添加 lib 目录到路径
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'lib'))
+# 自进化自动记录（可选关闭）
+try:
+    from self_evolve import log_usage
+    AUTO_LOG = True
+except:
+    AUTO_LOG = False
+
 from yunqi_data import (
     TIANGAN, DIZHI, DIZHI_SHENGXIAO, TIANGAN_HUAYUN, TIANGAN_YINYANG,
     DIZHI_HUAQI_SITIAN, SITIAN_ZAIQUAN_PAIR, LIUQI_WUXING, LIUQI_PINYIN,
@@ -45,11 +48,27 @@ from yunqi_data import (
 )
 
 
+def _resolve_date(date_input):
+    """
+    UX 优化：支持 'today'、'今天'、None（默认今天）、或标准 YYYY-MM-DD。
+    返回标准 YYYY-MM-DD 字符串。
+    """
+    if date_input is None:
+        return date.today().isoformat()
+
+    s = str(date_input).strip().lower()
+    if s in ("today", "今天", "now", "当前", ""):
+        return date.today().isoformat()
+
+    # 否则假定是标准日期，让下游 _parse_date 做校验
+    return date_input
+
+
 def calculate_yunqi_api(date_str):
     """
     五运六气统一计算接口
     
-    参数: date_str - "YYYY-MM-DD" 格式日期字符串
+    参数: date_str - "YYYY-MM-DD" 格式日期字符串，支持 "today" / "今天" / None
     返回: 标准化 JSON 字典，包含:
       - year_gz: 年干支
       - day_gz: 日干支
@@ -64,6 +83,12 @@ def calculate_yunqi_api(date_str):
       - ke_zhu_jia_lin: 客主加临六步分析
       - jieqi_dates: 六步节气边界日期
     """
+    date_str = _resolve_date(date_str)
+
+    # P1-3: 输入校验
+    if not date_str or not isinstance(date_str, str):
+        raise ValueError("date_str 必须是非空字符串，格式 YYYY-MM-DD")
+    
     # 1. 确定运气年份 (大寒定年)
     yq_year = get_yunqi_year(date_str)
     
@@ -194,21 +219,25 @@ def calculate_yunqi_api(date_str):
 
 
 def format_text(result):
-    """格式化为可读文本"""
+    """格式化为可读文本 (带轻量颜色高亮)"""
+    sui_status = result['sui_yun']['status']
+    status_color = RED if sui_status == '太过' else YELLOW
+    sui_line = f"【岁运】{result['sui_yun']['name']}{color(sui_status, status_color)} (code: {result['sui_yun']['code']})"
+
     lines = [
         f"日期: {result['date']}",
         f"运气年: {result['yunqi_year']}年 ({result['year_gz']})",
         f"六十甲子: 第{result['sexagenary_index']}甲子 | 生肖: {result['shengxiao']}",
         f"日干支: {result['day_gz'] or '未安装lunar-python，无法计算'}",
         "",
-        f"【岁运】{result['sui_yun']['name']}{'太过' if result['sui_yun']['status']=='太过' else '不及'} (code: {result['sui_yun']['code']})",
+        highlight_key(sui_line),
         f"【司天】{result['si_tian']}",
         f"【在泉】{result['zai_quan']}",
         "",
         f"【当前步位】{result['current_step']['name']}",
         f"  主气: {result['current_step']['zhu_qi']}",
         f"  客气: {result['current_step']['ke_qi']}",
-        f"  关系: {result['current_step']['relation']} → {result['current_step']['shun_ni']}",
+        f"  关系: {highlight_key(result['current_step']['relation'] + ' → ' + result['current_step']['shun_ni'])}",
     ]
     
     th = result['tong_hua']
@@ -266,6 +295,18 @@ def format_text(result):
     lines.append("【RAG检索键】")
     for k, v in result['rag_keys'].items():
         lines.append(f"  {k}: {v}")
+
+    # UX P0-5 + P1-3: 下一步 + 思想伙伴引导问题
+    d = result.get('date', 'today')
+    lines.append("")
+    lines.append("下一步建议：")
+    lines.append(f"  • 聚焦当前步位：  python scripts/calculate_yunqi_api.py {d} --focus current-step")
+    lines.append(f"  • 学生版报告：    python scripts/calculate_yunqi_api.py {d} --report-type student")
+    lines.append(f"  • 完整演示：      python scripts/demo_full_chain.py {d}")
+    lines.append("")
+    lines.append("思想伙伴问题（可回复继续对话）：")
+    lines.append("  • 你对这个格局的‘中和’或‘偏盛’部分怎么理解？")
+    lines.append("  • 想听听这个运气对养生或生活方式的思想启发吗？")
     
     return '\n'.join(lines)
 
@@ -373,51 +414,125 @@ def generate_explanation_output(result):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) < 2:
-        print("用法: python calculate_yunqi_api.py <YYYY-MM-DD> [--json] [--summary] [--visual] [--focus current-step] [--html] [--explain] [--report-type student|practitioner|researcher]")
-        print("示例: python calculate_yunqi_api.py 2026-06-27 --json")
-        print("       python calculate_yunqi_api.py 2026-06-27 --summary")
-        print("       python calculate_yunqi_api.py 2026-06-27 --visual")
-        print("       python calculate_yunqi_api.py 2026-06-27 --focus current-step")
-        print("       python calculate_yunqi_api.py 2026-06-27 --html")
-        print("       python calculate_yunqi_api.py 2026-06-27 --explain")
-        print("       python calculate_yunqi_api.py 2026-06-27 --report-type practitioner")
-        sys.exit(1)
+    parser = argparse.ArgumentParser(
+        prog='calculate_yunqi_api.py',
+        description='五运六气统一计算接口（主推荐入口）。支持日期推算、RAG key 生成、报告、摘要等。',
+        epilog='''示例:
+  python calculate_yunqi_api.py today --summary
+  python calculate_yunqi_api.py 2026-06-27 --json
+  python calculate_yunqi_api.py --report-type practitioner
+  python calculate_yunqi_api.py today --focus current-step
+  python calculate_yunqi_api.py 2026-01-15 --html reports/generated/report.html
 
-    date_str = sys.argv[1]
-    result = calculate_yunqi_api(date_str)
+日期支持: YYYY-MM-DD、today、今天（默认今天）
+更多用法见 README 和 SKILL.md''',
+        formatter_class=argparse.RawDescriptionHelpFormatter
+    )
+    parser.add_argument('date', nargs='?', default='today',
+                        help='日期，格式 YYYY-MM-DD，或 today / 今天（默认今天）')
+    parser.add_argument('--json', action='store_true', help='输出 JSON 格式')
+    parser.add_argument('--summary', action='store_true', help='输出自然语言摘要')
+    parser.add_argument('--visual', action='store_true', help='生成 ASCII 可视化图')
+    parser.add_argument('--html', action='store_true', help='生成 HTML 报告')
+    parser.add_argument('--explain', action='store_true', help='带术语解释的输出')
+    parser.add_argument('--focus', choices=['current-step'], default=None,
+                        help='聚焦当前步位分析')
+    parser.add_argument('--report-type', choices=['student', 'practitioner', 'researcher'],
+                        default=None, help='生成指定受众的综合报告')
+    parser.add_argument('--level', choices=['simple', 'standard', 'deep'], default='standard',
+                        help='解释深度：simple（简化思想版）/ standard / deep（哲学深入）')
+    parser.add_argument('--explain-concept', help='解释特定概念（如 天人合一、天符），返回哲学+现代+示例')
+    parser.add_argument('--export', choices=['summary', 'cards', 'pdf', 'all'], default=None,
+                        help='导出思想摘要/卡片集/PDF（专注理解）：summary | cards | pdf | all')
 
-    if '--html' in sys.argv:
+    args = parser.parse_args()
+
+    date_str = _resolve_date(args.date)
+
+    if args.explain_concept:
+        try:
+            from yunqi_report import explain_concept
+            print(explain_concept(args.explain_concept))
+            sys.exit(0)
+        except Exception as e:
+            print(f"概念解释错误: {e}")
+            sys.exit(2)
+
+    if args.export:
+        try:
+            # 直接调用导出逻辑（避免 sys.argv 污染）
+            import export_thought as et
+            date_to_use = args.date or 'today'
+            # 构造内部数据并生成
+            data = et.get_year_and_data(date_to_use)
+            out_dir = 'reports/generated/'
+            year_str = str(data.get('year', 'unknown'))
+            if args.export in ('summary', 'all'):
+                summary = et.generate_thought_summary(data)
+                Path(out_dir).mkdir(parents=True, exist_ok=True)
+                (Path(out_dir) / f'thought_summary_{year_str}.md').write_text(summary, encoding='utf-8')
+                print(f'✅ 思想摘要已导出到 {out_dir}')
+            if args.export in ('cards', 'all'):
+                anki, cards_md = et.generate_cards(data)
+                Path(out_dir).mkdir(parents=True, exist_ok=True)
+                (Path(out_dir) / f'thought_cards_{year_str}.anki.tsv').write_text(anki, encoding='utf-8')
+                (Path(out_dir) / f'thought_cards_{year_str}.md').write_text(cards_md, encoding='utf-8')
+                print(f'✅ 卡片集已导出')
+            if args.export in ('pdf', 'all'):
+                summary = et.generate_thought_summary(data)
+                msg = et.generate_pdf(summary, f'{out_dir}thought_{year_str}.pdf')
+                print(msg)
+            sys.exit(0)
+        except Exception as e:
+            print(f'导出失败: {e}')
+            print('提示：可直接运行 python scripts/export_thought.py today --format all')
+            sys.exit(2)
+
+    try:
+        result = calculate_yunqi_api(date_str)
+    except Exception as e:
+        print(f"错误: {e}", file=sys.stderr)
+        sys.exit(2)
+
+    # 自进化：自动记录使用（支持思想概念）
+    if AUTO_LOG:
+        concepts = []
+        if args.explain_concept:
+            concepts.append(args.explain_concept)
+        if args.level and args.level != "standard":
+            concepts.append(f"level_{args.level}")
+        try:
+            log_usage(date_str, list(result.get("rag_keys", {}).values()) if result.get("rag_keys") else [], source="cli", concepts=concepts or None)
+        except:
+            pass  # 不影响主流程
+
+    # 友好提示（默认今天时）
+    if args.date in (None, 'today', '今天') and not args.json:
+        print(f"（已默认使用今天日期: {result['date']}）\n")
+
+    if args.html:
         output = run_html_report(date_str)
         sys.stdout.write(output)
-    elif '--focus' in sys.argv:
-        idx = sys.argv.index('--focus')
-        focus_mode = sys.argv[idx + 1] if idx + 1 < len(sys.argv) else 'current-step'
-        if focus_mode == 'current-step':
+    elif args.focus:
+        if args.focus == 'current-step':
             sys.stdout.write(generate_current_step_focus(result) + '\n')
         else:
-            print(f"不支持的聚焦模式: {focus_mode}，当前仅支持 current-step")
+            print(f"不支持的聚焦模式: {args.focus}")
             sys.exit(1)
-    elif '--visual' in sys.argv:
+    elif args.visual:
         output = run_visualize(date_str)
         sys.stdout.write(output)
-    elif '--report-type' in sys.argv:
-        idx = sys.argv.index('--report-type')
-        audience = sys.argv[idx + 1] if idx + 1 < len(sys.argv) else 'student'
-        if audience not in ('student', 'practitioner', 'researcher'):
-            print(f"report-type 必须是 student/practitioner/researcher，当前: {audience}")
-            sys.exit(1)
-        as_json = '--json' in sys.argv
-        output = run_yunqi_report(result['yunqi_year'], audience, as_json)
+    elif args.report_type:
+        as_json = args.json
+        output = run_yunqi_report(result['yunqi_year'], args.report_type, as_json)
         sys.stdout.write(output)
-    elif '--explain' in sys.argv:
+    elif args.explain:
         sys.stdout.write(generate_explanation_output(result) + '\n')
-    elif '--json' in sys.argv:
-        # 显式使用 utf-8 编码输出，兼容 Windows
+    elif args.json:
         output = json.dumps(result, ensure_ascii=False, indent=2)
         sys.stdout.write(output + '\n')
-    elif '--summary' in sys.argv:
-        summary = generate_summary(result)
+    elif args.summary:
+        summary = highlight_key(generate_summary(result))
         sys.stdout.write(summary + '\n')
     else:
         sys.stdout.write(format_text(result) + '\n')

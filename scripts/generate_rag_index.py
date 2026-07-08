@@ -15,15 +15,10 @@ import argparse
 import json
 import os
 import sys
-import io
 from copy import deepcopy
 
-if sys.platform == 'win32' and sys.stdout.encoding != 'utf-8':
-    try:
-        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
-        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
-    except (AttributeError, io.UnsupportedOperation):
-        pass
+from _common import setup_environment
+setup_environment(add_lib=False)
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RAG_DIR = os.path.join(BASE_DIR, 'rag-knowledge-base')

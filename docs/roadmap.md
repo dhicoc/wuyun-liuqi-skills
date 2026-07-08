@@ -45,3 +45,20 @@
 - [x] 将 `verify_expansion.py`、`full_regression_test.py` 逐步迁移到 `tests/`。
 - [x] 在 `scripts/` 保留兼容 wrapper，避免破坏既有用户命令。
 - [x] 增加示例案例库与标准输出样例。
+- [x] 完整回归稳定在 63/0 + 75/0 verify。
+
+## P5：思想理解与导出（已完成核心）
+
+- [x] 报告思想层解读（build_thought_layer_section + CONCEPT_PHILOSOPHY）。
+- [x] 支持 --level 渐进式 + --explain-concept。
+- [x] 新增 export_thought.py：纯文本思想摘要、Anki卡片集（TSV+MD）、HTML/PDF导出。
+- [x] 主入口集成 --export。
+- [x] 自进化增强：概念追踪、理解反馈、隐私（SHA256 + sanitize）、会话统计。
+
+## 未来迭代方向（P6+）
+
+- 思想地图（Mermaid 概念关系图）
+- 交互式苏格拉底学习模式
+- 更强的个性化学习路径与进度仪表盘
+- 文献片段自动语境化关联
+- 统一 CLI 或交互模式（--interactive）

@@ -26,24 +26,18 @@ import json
 import math
 import os
 import sys
-import io
 import time
 import urllib.parse
 import urllib.request
 from collections import Counter
 from datetime import date as date_cls, datetime
 
-if sys.platform == 'win32' and sys.stdout.encoding != 'utf-8':
-    try:
-        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
-        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
-    except (AttributeError, io.UnsupportedOperation):
-        pass
+from _common import setup_environment
+setup_environment(add_lib=False, add_scripts=True)
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 BASE_DIR = os.path.dirname(SCRIPT_DIR)
 CACHE_DIR = os.path.join(BASE_DIR, '.cache', 'weather_alignment')
-sys.path.insert(0, SCRIPT_DIR)
 from calculate_yunqi_api import calculate_yunqi_api  # noqa: E402
 from personal_yunqi_profile import match_region, build_regional_explainable_modifier  # noqa: E402
 

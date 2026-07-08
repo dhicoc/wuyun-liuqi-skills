@@ -68,11 +68,12 @@ echo ============================================
 echo   ✅ 环境配置完成!
 echo ============================================
 echo.
-echo 快速试用:
-echo   python scripts/calculate_yunqi_api.py 2026-06-27
-echo   python scripts/demo_full_chain.py 2004-07-30
-echo   python scripts/verify_expansion.py
+echo 下一步推荐（直接复制给 AI 或手动运行）:
+echo   python scripts/health_check.py
+echo   python scripts/calculate_yunqi_api.py today --summary
+echo   python scripts/install.py          （推荐再次运行，确保完整）
 echo.
-echo 更多用法见 README.md
+echo 想立即看今天运气？直接运行上面第二条即可（支持 today / 无参数默认今天）。
+echo 更多用法见 README.md 和 docs/ux_optimization.md
 echo.
 pause

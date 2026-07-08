@@ -4,26 +4,26 @@
 五运六气 Skills 全链路演示脚本
 演示: 日期输入 → 运气推算 → RAG 知识检索 → 综合分析
 """
-import json, sys, os, io
+import json, sys, os
+from datetime import date
 
-# Windows 终端默认编码可能不是 UTF-8，强制设置 stdout/stderr 编码
-if sys.platform == 'win32' and sys.stdout.encoding != 'utf-8':
-    try:
-        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
-        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
-    except (AttributeError, io.UnsupportedOperation):
-        pass
+from _common import setup_environment
+setup_environment(add_lib=False, add_scripts=True)
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, os.path.join(BASE, "scripts", "lib"))
-sys.path.insert(0, os.path.join(BASE, "scripts"))
 
 from calculate_yunqi_api import calculate_yunqi_api
 
+# P1 简单缓存
+_ASSET_CACHE = {}
 def load_asset(name):
+    if name in _ASSET_CACHE:
+        return _ASSET_CACHE[name]
     path = os.path.join(BASE, "rag-knowledge-base", name)
     with open(path, "r", encoding="utf-8") as f:
-        return json.load(f)
+        data = json.load(f)
+    _ASSET_CACHE[name] = data
+    return data
 
 def find_entry(asset, key_field, key_value):
     """在 asset 中按 key_field 匹配条目"""
@@ -36,7 +36,7 @@ def find_entry(asset, key_field, key_value):
 # ============================================================
 # 1. 输入日期 → 运气推算
 # ============================================================
-date_str = sys.argv[1] if len(sys.argv) > 1 else "2026-06-27"
+date_str = sys.argv[1] if len(sys.argv) > 1 else date.today().isoformat()
 print("=" * 60)
 print("  五运六气 Skills 全链路演示")
 print(f"  输入日期: {date_str}")

@@ -11,23 +11,15 @@
 """
 import sys
 import os
-import io
 import json
 import re
-import subprocess
 from datetime import date
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from _common import setup_environment
+setup_environment(add_lib=False, add_scripts=True)  # 需要同目录 import constitution 等
+
 from constitution_assessment import assess_constitution, extract_scores_and_metadata, parse_input_payload  # noqa: E402
 from clinical_safety import sanitize_current_adjustment  # noqa: E402
-
-# Windows 终端默认编码可能不是 UTF-8，强制设置 stdout/stderr 编码
-if sys.platform == 'win32' and sys.stdout.encoding != 'utf-8':
-    try:
-        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
-        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
-    except (AttributeError, io.UnsupportedOperation):
-        pass
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RAG_DIR = os.path.join(BASE_DIR, 'rag-knowledge-base')
@@ -40,15 +32,10 @@ def load_json(filename):
 
 
 def get_yunqi_year(date_str):
-    """调用 calculate_yunqi_api.py 获取运气年份"""
-    script = os.path.join(BASE_DIR, 'scripts', 'calculate_yunqi_api.py')
-    env = os.environ.copy()
-    env['PYTHONIOENCODING'] = 'utf-8'
-    result = subprocess.run(
-        [sys.executable, script, date_str, '--json'],
-        capture_output=True, text=True, encoding='utf-8', env=env
-    )
-    data = json.loads(result.stdout)
+    """直接调用 calculate_yunqi_api 获取运气年份（P0 优化：避免 subprocess）"""
+    # 延迟 import 避免启动时不必要的依赖
+    from calculate_yunqi_api import calculate_yunqi_api
+    data = calculate_yunqi_api(date_str)
     return data['yunqi_year'], data['sui_yun']['code'], data['sui_yun']['name']
 
 

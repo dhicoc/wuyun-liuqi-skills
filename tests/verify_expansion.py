@@ -1,15 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """端到端验证 + 大寒边界回归测试"""
-import json, subprocess, sys, os, io
+import json, subprocess, sys, os
 
-# Windows 终端默认编码可能不是 UTF-8，强制设置 stdout/stderr 编码
-if sys.platform == 'win32' and sys.stdout.encoding != 'utf-8':
-    try:
-        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
-        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
-    except (AttributeError, io.UnsupportedOperation):
-        pass
+# 允许从 tests/ 直接 import scripts/_common (P2 改进)
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'scripts'))
+from _common import setup_environment, ensure_importable_from_scripts
+ensure_importable_from_scripts(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'scripts'))
+setup_environment(add_lib=False)
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 API_PY = os.path.join(BASE, "scripts", "calculate_yunqi_api.py")
