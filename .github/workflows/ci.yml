@@ -53,6 +53,21 @@ jobs:
       - name: Check generated RAG index
         run: python scripts/generate_rag_index.py --check
 
+      - name: Skill structure check
+        run: python scripts/check_skill_structure.py
+
+      - name: Agent routing scenario check
+        run: python scripts/check_routing_scenarios.py
+
+      - name: Sync routing manifest check
+        run: python scripts/sync_routing.py --check
+
+      - name: Conformance check
+        run: python scripts/check_conformance.py
+
+      - name: Content tier orphan audit
+        run: python scripts/audit_orphans.py
+
       - name: Verify expansion suite
         run: python tests/verify_expansion.py
 

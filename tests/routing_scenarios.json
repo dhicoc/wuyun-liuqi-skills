@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "description": "Agent 路由场景证明：用户话术 → routing.yaml task → 脚本/工作流/必读文件",
+  "scenarios": [
+    {
+      "name": "快速查今天运气",
+      "prompt": "今天运气如何",
+      "task_id": "quick-lookup",
+      "expect_script_contains": "calculate_yunqi_api.py today --summary",
+      "expect_route_contains": "calculate_yunqi_api.py"
+    },
+    {
+      "name": "当前步位关注",
+      "prompt": "我这个月要注意什么",
+      "task_id": "current-step",
+      "expect_script_contains": "current-step"
+    },
+    {
+      "name": "完整年度分析",
+      "prompt": "完整分析2026年",
+      "task_id": "full-year-analysis",
+      "expect_script_contains": "yunqi_report.py",
+      "expect_workflow": "docs-generator/SKILL.md"
+    },
+    {
+      "name": "运气病机",
+      "prompt": "今年容易发什么病",
+      "task_id": "pathogenesis",
+      "expect_route": "yunqi-pathogenesis/SKILL.md",
+      "expect_script_contains": "calculate_yunqi_api.py"
+    },
+    {
+      "name": "临床治法须先病机",
+      "prompt": "运气方药",
+      "task_id": "clinical",
+      "expect_route": "yunqi-clinical/SKILL.md",
+      "expect_required_reads": ["yunqi-pathogenesis/SKILL.md"]
+    },
+    {
+      "name": "经典文献",
+      "prompt": "七篇大论",
+      "task_id": "classics",
+      "expect_route": "yunqi-classics/SKILL.md"
+    },
+    {
+      "name": "学习概念",
+      "prompt": "解释天人合一",
+      "task_id": "learn-concept",
+      "expect_script_contains": "--explain-concept"
+    },
+    {
+      "name": "个人运气档案",
+      "prompt": "我1990年出生",
+      "task_id": "personal-profile",
+      "expect_script_contains": "personal_yunqi_profile.py"
+    },
+    {
+      "name": "天气对齐",
+      "prompt": "结合天气",
+      "task_id": "weather-alignment",
+      "expect_script_contains": "weather_alignment.py"
+    },
+    {
+      "name": "导出学习材料",
+      "prompt": "导出思想摘要",
+      "task_id": "export-thought",
+      "expect_script_contains": "export_thought.py"
+    },
+    {
+      "name": "一句话安装",
+      "prompt": "帮我安装这个技能包",
+      "task_id": "one-line-install",
+      "expect_workflow": "workflows/one-line-install.md",
+      "expect_script_contains": "install.py --link-global"
+    },
+    {
+      "name": "Claude Code 插件安装",
+      "prompt": "Claude Code 插件安装",
+      "task_id": "claude-plugin-install",
+      "expect_workflow": "workflows/claude-plugin-install.md"
+    },
+    {
+      "name": "写医案",
+      "prompt": "写医案",
+      "task_id": "case-journal",
+      "expect_route": "case-journal/_template.md"
+    }
+  ],
+  "fuzzy_scenarios": [
+    {
+      "name": "仅触发词应走引导",
+      "prompt": "五运六气",
+      "expect_workflow": "prompts/onboarding_prompt.md"
+    }
+  ],
+  "cross_paths": [
+    {
+      "name": "完整年度分析链路",
+      "path_id": "full-annual",
+      "expect_steps": [
+        "ganzhi-basics/SKILL.md",
+        "yunqi-calc/SKILL.md",
+        "yunqi-pathogenesis/SKILL.md",
+        "yunqi-clinical/SKILL.md",
+        "docs-generator/SKILL.md"
+      ]
+    },
+    {
+      "name": "Agent ReAct 链路",
+      "path_id": "react-agent",
+      "expect_steps": [
+        "prompts/system_prompt.md",
+        "scripts/calculate_yunqi_api.py",
+        "agent-workflow/react_workflow.md"
+      ]
+    }
+  ],
+  "always_read": [
+    "case-journal/precedent-disclaimer.md",
+    "rules/calculation.md",
+    "workflows/routing-contract.md"
+  ]
+}

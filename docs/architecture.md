@@ -19,7 +19,7 @@
 ```text
 用户输入（自然语言，可模糊）
   ↓
-routing.md + prompts/onboarding_prompt.md（模糊意图先引导）
+routing.yaml + prompts/onboarding_prompt.md（模糊意图先引导）
   ↓
 SKILL.md / 子技能 SKILL.md
   ↓

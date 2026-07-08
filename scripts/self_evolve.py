@@ -27,6 +27,9 @@
 
   # 生成月度自进化汇总报告
   python scripts/self_evolve.py monthly-report
+
+  # 记录规则/路由盲区（待合并进 gotchas 或 rules）
+  python scripts/self_evolve.py rule-gap --category routing --description "..."
 """
 
 # -*- coding: utf-8 -*-
@@ -49,6 +52,7 @@ STATS_DIR = os.path.join(EVOLVE_DIR, "stats")
 FEEDBACK_DIR = os.path.join(EVOLVE_DIR, "feedback")
 MISS_DIR = os.path.join(EVOLVE_DIR, "misses")
 REPORT_DIR = os.path.join(EVOLVE_DIR, "reports")
+RULE_GAP_FILE = os.path.join(EVOLVE_DIR, "rule-gaps.jsonl")
 
 for d in [EVOLVE_DIR, LOG_DIR, STATS_DIR, FEEDBACK_DIR, MISS_DIR, REPORT_DIR]:
     os.makedirs(d, exist_ok=True)
@@ -115,6 +119,42 @@ def log_miss(query_key: str, context: str = "", anonymize: bool = True):
     with open(miss_file, "a", encoding="utf-8") as f:
         f.write(json.dumps(entry, ensure_ascii=False) + "\n")
     return entry
+
+
+def log_rule_gap(category: str, description: str, source: str = "task_closure"):
+    """记录 Agent 规则/路由盲区，供月度报告与 gotchas 维护。"""
+    entry = {
+        "timestamp": datetime.now().isoformat(),
+        "category": category,
+        "description": _sanitize_text(description),
+        "source": source,
+        "status": "pending",
+    }
+    with open(RULE_GAP_FILE, "a", encoding="utf-8") as f:
+        f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+    return entry
+
+
+def stats_rule_gaps() -> list[dict]:
+    """按 category 汇总 rule-gap。"""
+    if not os.path.exists(RULE_GAP_FILE):
+        return []
+    counter = Counter()
+    samples: dict[str, str] = {}
+    with open(RULE_GAP_FILE, "r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            entry = json.loads(line)
+            cat = entry.get("category", "unknown")
+            counter[cat] += 1
+            if cat not in samples:
+                samples[cat] = entry.get("description", "")
+    return [
+        {"category": k, "count": v, "sample": samples.get(k, "")}
+        for k, v in counter.most_common()
+    ]
 
 
 def log_feedback(session_id: str, rating: int, comment: str = "", feedback_type: str = "general", anonymize: bool = True):
@@ -495,9 +535,27 @@ def generate_monthly_report() -> str:
             lines.append(f"- 评分分布: {dist_str}")
         lines.append("")
 
+    # 规则盲区
+    rule_gaps = stats_rule_gaps()
+    if rule_gaps:
+        lines.append("## 规则/路由盲区（rule-gap）")
+        for g in rule_gaps[:10]:
+            sample = g.get("sample", "")
+            if sample and len(sample) > 60:
+                sample = sample[:60] + "…"
+            lines.append(f"- `{g['category']}`: {g['count']} 次 — {sample}")
+        lines.append("")
+        lines.append("> 待确认项请合并进 `references/gotchas.md` 或 `rules/`（见 workflows/task-closure.md）")
+        lines.append("")
+
     # 优化建议
     lines.append("## 优化建议")
     suggestions = []
+    if rule_gaps:
+        top = rule_gaps[0]
+        suggestions.append(
+            f"规则盲区 `{top['category']}` 出现 {top['count']} 次，建议更新 gotchas/rules"
+        )
     if miss_counter:
         suggestions.append(f"补充高频未命中知识：{', '.join(k for k, _ in miss_counter.most_common(5))}")
     if key_counter:
@@ -562,6 +620,13 @@ def main():
 
     # monthly-report
     subparsers.add_parser("monthly-report", help="生成月度自进化汇总报告")
+
+    # rule-gap
+    rg_p = subparsers.add_parser("rule-gap", help="记录规则/路由盲区")
+    rg_p.add_argument("--category", "-c", required=True,
+                      choices=["routing", "calculation", "clinical", "output", "install", "other"])
+    rg_p.add_argument("--description", "-d", required=True)
+    rg_p.add_argument("--source", default="task_closure")
 
     # privacy cleanup
     clean_p = subparsers.add_parser("cleanup", help="隐私清理旧数据")
@@ -631,6 +696,10 @@ def main():
     elif args.command == "monthly-report":
         report = generate_monthly_report()
         print(report)
+
+    elif args.command == "rule-gap":
+        result = log_rule_gap(args.category, args.description, args.source)
+        print(f"规则盲区已记录: {json.dumps(result, ensure_ascii=False)}")
 
     elif args.command == "cleanup":
         cleanup_old_data(days=getattr(args, 'days', 90), anonymize_existing=getattr(args, 'anonymize_existing', False))

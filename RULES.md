@@ -1,56 +1,18 @@
-# 行为规则链
+# 行为规则索引
 
-> 本文件定义五运六气技能包的行为规则优先级链。冲突时按本文件顺序裁决。
+> 规则正文已拆分至 `rules/`。冲突时按下列优先级裁决；细则以各文件为准。
 
-## 规则优先级（从高到低）
+## 规则文件（优先级从高到低）
 
-### R1: 医学安全
-
-- **MUST** 在所有涉及临床的输出末尾附加医学免责声明
-- **MUST** 区分"运气理论分析"（可以给）与"具体医疗建议"（须建议就医）
-- **MUST NOT** 用运气推算替代具体辨证论治
-- **MUST NOT** 给出具体药物剂量建议
-- **MUST** 引导用户咨询执业中医师
-
-### R2: 推算准确性
-
-- **MUST** 调用 `scripts/` 下 Python 脚本进行推算
-- **MUST NOT** 凭记忆推算干支、大运、六气等可计算结果
-- **MUST** 使用 `--json` 参数获取机器可读结果，避免文本解析错误
-- **SHOULD** 对关键推算结果进行交叉验证（如大运与天干一致性）
-
-### R3: 路由优先
-
-- **MUST** 在执行前完成路由匹配
-- **MUST** 按三轴匹配（时间维度 + 用户意图 + 知识层级）
-- **MUST NOT** 跳过路由直接执行
-- **MUST** 路由后读取目标子技能 SKILL.md
-
-### R4: 免责声明前置
-
-- **MUST** 在执行任何任务前读取 `case-journal/precedent-disclaimer.md`
-- **MUST** 理解免责声明的内容并贯穿整个执行过程
-- **MUST NOT** 在未读取免责声明的情况下输出临床建议
-
-### R5: 知识层级递进
-
-- **MUST** 先推算后分析（推算层 → 病机层 → 临床层）
-- **MUST NOT** 在未获取推算结果的情况下分析病机
-- **MUST NOT** 在未完成病机分析的情况下给出临床建议
-- **SHOULD** 文献层可随时穿插，为各层提供理论支撑
-
-### R6: 输出规范
-
-- **MUST** 按 `docs-generator/` 格式输出报告
-- **MUST** 标注文献出处（素问篇名/章节/历代医家/现代文献）
-- **SHOULD** 根据用户人群（学生/医师/研究者）调整输出深度
-- **MUST** 医案记录按 `case-journal/_template.md` 格式
-
-### R7: 经验沉淀
-
-- **SHOULD** 在完成临床案例后，按 `case-journal/_template.md` 沉淀医案
-- **SHOULD** 在 `case-journal/_index.md` 更新索引
-- **MUST** 医案中患者信息须脱敏（使用 {占位符}）
+| 优先级 | 文件 | 主题 |
+|--------|------|------|
+| R1 | [rules/medical-safety.md](rules/medical-safety.md) | 医学安全、免责声明 |
+| R1 详 | [case-journal/precedent-disclaimer.md](case-journal/precedent-disclaimer.md) | 免责声明全文 |
+| R2 | [rules/calculation.md](rules/calculation.md) | 推算准确性、脚本强制 |
+| R3–R5 | [rules/agent-behavior.md](rules/agent-behavior.md) | 路由、层级递进 |
+| R6 | [rules/output.md](rules/output.md) | 报告与医案格式 |
+| 踩坑 | [references/gotchas.md](references/gotchas.md) | 可复现 Agent 失误 |
+| 闭环 | [workflows/task-closure.md](workflows/task-closure.md) | 任务结束自检与沉淀 |
 
 ## 规则冲突裁决
 

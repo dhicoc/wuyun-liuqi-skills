@@ -1,5 +1,68 @@
 # 更新日志
 
+## 2026-07-08（晚④）- P3 sync-routing + conformance + 孤儿审计
+
+### 路由同步（单一真相源 → 生成块）
+- **`scripts/sync_routing.py`**：`routing.yaml` → `SKILL.md` / `routing.md` 标记块（`--check` / `--write`）
+- **`routing.yaml` → `skill_sync.common_tasks`**：Common Tasks 列表配置化
+- **`scripts/lib/routing_manifest.py`**：共享 YAML 解析
+
+### 质量门禁
+- **`conformance.yaml`** + **`scripts/check_conformance.py`**：关键段落/文件必达
+- **`scripts/audit_orphans.py`**：`rules/` / `workflows/` / `references/` 零引用审计
+
+### CI
+- 新增 sync-routing、conformance、audit_orphans 步骤
+
+---
+
+## 2026-07-08（晚③）- P2 Claude Code 插件 + Agent 路由场景测试
+
+### Claude Code 插件化
+- **`.claude-plugin/`**：`plugin.json`、`marketplace.json`
+- **`workflows/claude-plugin-install.md`** + `routing.yaml` → `tasks/claude-plugin-install`
+
+### Agent 场景测试
+- **`tests/routing_scenarios.json`**：13 条任务路由 + 模糊意图 + 2 条 cross_path
+- **`scripts/check_routing_scenarios.py`**：用户话术 → task → 脚本/工作流/文件存在性
+- CI 与 `check_skill_structure.py` 联动
+
+---
+
+## 2026-07-08（晚②）- P1 规则分层 + 结构校验 + 任务闭环
+
+### 规则工程
+- **`rules/`**：`medical-safety`、`calculation`、`agent-behavior`、`output`
+- **`RULES.md`** 改为索引；细则不再堆叠在单文件
+- **`references/gotchas.md`** + **`workflows/task-closure.md`**
+
+### 自进化闭环
+- `self_evolve.py rule-gap`：记录规则/路由盲区 → 月度报告 `rule_gaps` 节
+
+### 校验
+- **`scripts/check_skill_structure.py`**：薄壳、routing 引用、行数预算
+- CI 新增结构检查步骤
+
+---
+
+## 2026-07-08（晚）- P0 技能架构 + 一句话安装全局注册
+
+### 技能工程（对齐 skill-based-architecture）
+- **瘦身 `SKILL.md`**（≤90 行）：仅保留路由入口；安装/契约/脚本表迁至 `workflows/`、`references/`
+- **`routing.yaml`**：路由单一真相源；`routing.md` 改为人类可读索引
+- **跨工具薄壳**：`AGENTS.md`、`CLAUDE.md`、`CODEX.md`、`GEMINI.md`、`.cursor/rules/`、`.cursor/skills/`、`.claude/skills/`
+- **新增** `workflows/one-line-install.md`、`workflows/routing-contract.md`、`references/script-index.md`、`references/module-index.md`
+
+### 安装
+- **`install.py --link-global`**：自动链接到 `~/.claude/skills/wuyun-liuqi-skills` 与 `~/.cursor/skills/wuyun-liuqi-skills`
+- **`--force`**：覆盖错误旧链接/目录；权限占用时提示关闭 Claude/Cursor 后重试
+- 一句话安装话术与 `routing.yaml` → `tasks/one-line-install` 已同步
+
+### 文档
+- 已更新：`README.md`、`README_AI.md`、`README_for_humans.md`、`workflows/`、`setup.bat`/`setup.sh`、`CONTRIBUTING.md`、`tests/verify_expansion.py`
+
+---
+
 ## 2026-07-08 - 文档全面对齐 + 安装体验优化 + 功能增强
 
 本次更新重点完成了项目文档与实际功能的完全对齐，并大幅优化了用户（尤其是直接把仓库地址丢给 AI）的安装体验，同时增强了核心“帮助人类通过 Agent 理解运气学思想”的能力。

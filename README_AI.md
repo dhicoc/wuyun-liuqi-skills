@@ -38,15 +38,16 @@
 ### 1.1 人类用户手动安装
 
 ```bash
-# 克隆后进入项目目录
+# 克隆后进入项目目录（推荐一条命令完成环境 + 全局注册）
+python scripts/install.py --link-global
+
+# 或分步：
 pip install -r requirements.txt
-
-# 可选：仅当需要 Node.js 接口时安装
-npm install
-
-# 环境检查
+npm install          # 可选，仅 Node.js 接口
 python scripts/health_check.py
 ```
+
+任意项目常驻：`--link-global` 会链接到 `~/.claude/skills/` 与 `~/.cursor/skills/`。详见 `workflows/one-line-install.md`。
 
 快速试用：
 
@@ -64,6 +65,7 @@ AI Agent 首次进入本技能包时执行：
 0. 确定技能包根目录，记为 <SKILL_ROOT>
 1. 检查核心文件是否存在：
    - SKILL.md
+   - routing.yaml
    - routing.md
    - RULES.md
    - scripts/calculate_yunqi_api.py
@@ -77,9 +79,11 @@ AI Agent 首次进入本技能包时执行：
    - python scripts/health_check.py
 5. 读取执行契约：
    - SKILL.md
-   - routing.md
+   - routing.yaml（路由单一真相源）
+   - workflows/routing-contract.md
    - case-journal/precedent-disclaimer.md
-6. 根据用户输入匹配子技能并执行。
+6. 若用户要求「完整安装」→ 执行 `python scripts/install.py --link-global`（见 `workflows/one-line-install.md`）
+7. 根据用户输入匹配子技能并执行。
 ```
 
 > 若用户只要求解释、总结或文档优化，不必运行完整推算链路；若任务涉及日期、年份、个人运气、病机或报告，必须调用 Python 脚本获取推算结果，不得凭记忆推算。
@@ -326,8 +330,14 @@ python scripts/self_evolve.py log \
 
 | 文件 | 用途 |
 |------|------|
-| [SKILL.md](SKILL.md) | 总控入口 + 路由执行契约 |
-| [routing.md](routing.md) | 三轴路由矩阵 |
+| [SKILL.md](SKILL.md) | 总控路由入口 |
+| [AGENTS.md](AGENTS.md) / [CLAUDE.md](CLAUDE.md) | 跨工具薄壳（Codex/Claude 等） |
+| [.cursor/skills/wuyun-liuqi/SKILL.md](.cursor/skills/wuyun-liuqi/SKILL.md) | Cursor 技能注册 |
+| [routing.yaml](routing.yaml) | 三轴路由单一真相源 |
+| [routing.md](routing.md) | 路由人类可读索引 |
+| [workflows/routing-contract.md](workflows/routing-contract.md) | 路由执行契约 |
+| [workflows/bootstrap.md](workflows/bootstrap.md) | 首次安装与依赖检查 |
+| [workflows/one-line-install.md](workflows/one-line-install.md) | 一句话安装（含 `--link-global`） |
 | [RULES.md](RULES.md) | 行为规则链 |
 | [case-journal/precedent-disclaimer.md](case-journal/precedent-disclaimer.md) | 医学免责声明 |
 | [agent-workflow/react_workflow.md](agent-workflow/react_workflow.md) | ReAct 推理工作流 |

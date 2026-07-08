@@ -27,20 +27,15 @@
 ```
 仓库地址：https://github.com/dhicoc/wuyun-liuqi-skills.git
 
-请帮我把这个五运六气技能包完整安装好，让我可以直接完整使用（包括思想层解读、导出卡片、self-evolve 等全部功能）。
+请按 workflows/one-line-install.md 帮我把这个五运六气技能包完整安装好（包括思想层解读、导出卡片、self-evolve 等全部功能）。
 
 执行流程：
-1. 告诉我正确的 git clone 命令（Windows 用 PowerShell）。
-2. 等我把克隆后的本地完整路径发给你。
-3. 优先运行：python scripts/install.py
-4. 如果上面脚本不存在或失败，再运行对应平台的 setup：
-   - Windows: powershell -File scripts\setup.bat
-   - macOS/Linux: bash scripts/setup.sh
-5. 最后运行验证：
-   python scripts/health_check.py
-   python scripts/calculate_yunqi_api.py today --summary
-   python scripts/export_thought.py today --format summary
-6. 确认“已完整可用”后，给我 3 个可以直接问你的使用示例（要包含思想层和导出）。
+1. git clone 仓库并进入目录。
+2. 运行：python scripts/install.py --link-global
+   （自动装依赖 + 注册到 Claude/Cursor 全局技能目录，之后任意项目都能用）
+3. 验证：python scripts/health_check.py && python tests/verify_expansion.py
+4. 若全局链接失败，用 --link-global --force；仍失败见 one-line-install.md 手动备用步骤。
+5. 确认可用后，给我 3 个可以直接问你的使用示例（要包含思想层和导出）。
 ```
 
 这样基本可以实现“直接丢仓库地址 + 一段话 → AI 引导完成安装 + 验证 + 可用”。

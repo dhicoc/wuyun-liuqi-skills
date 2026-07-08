@@ -1,0 +1,59 @@
+# 五运六气技能包内容一致性清单（P3）
+# 校验: python scripts/check_conformance.py
+#
+# 覆盖「下游是否遗漏关键段落/文件」；路由漂移用 sync_routing.py --check；
+# 场景路由用 check_routing_scenarios.py。
+
+required_sections:
+  - file: SKILL.md
+    must_contain:
+      - "routing.yaml"
+      - "Common Tasks"
+      - "MUST NOT 凭记忆推算"
+      - "SYNC:ALWAYS_READ_START"
+      - "SYNC:COMMON_TASKS_START"
+
+  - file: workflows/routing-contract.md
+    must_contain:
+      - "routing.yaml"
+      - "MUST NOT"
+      - "凭记忆推算"
+      - "task-closure.md"
+
+  - file: workflows/task-closure.md
+    must_contain:
+      - "任务闭环"
+      - "rule-gap"
+      - "references/gotchas.md"
+
+  - file: rules/calculation.md
+    must_contain:
+      - "MUST NOT"
+      - "凭记忆"
+      - "calculate_yunqi_api.py"
+
+  - file: rules/medical-safety.md
+    must_contain:
+      - "免责声明"
+      - "MUST"
+
+  - file: case-journal/precedent-disclaimer.md
+    must_contain:
+      - "免责声明"
+      - "MUST"
+
+  - file: AGENTS.md
+    must_contain:
+      - "routing.yaml"
+      - "rules/calculation.md"
+
+required_files:
+  - path: routing.yaml
+  - path: conformance.yaml
+  - path: tests/routing_scenarios.json
+  - path: scripts/sync_routing.py
+  - path: scripts/check_conformance.py
+  - path: scripts/audit_orphans.py
+  - path: references/gotchas.md
+  - path: workflows/task-closure.md
+  - path: .claude-plugin/plugin.json

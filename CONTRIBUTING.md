@@ -115,7 +115,7 @@ ACT: <具体操作>
 新增子技能后，MUST 更新以下文件：
 
 1. **`SKILL.md`**（总控）: 在模块总表中添加新模块
-2. **`routing.md`**（路由）: 在对应轴添加路由条目
+2. **`routing.yaml`**（路由单一真相源）: 在对应轴或 `tasks` 添加条目，并更新 `routing.md` 摘要
 3. **`case-journal/_index.md`**: 如涉及新的医案分类，添加索引条目
 
 ## 脚本规范（如需新增推算脚本）
@@ -140,7 +140,7 @@ ACT: <具体操作>
 
 - [ ] SKILL.md 包含全部 8 个必需段落
 - [ ] YAML frontmatter 的 name 和 description 正确
-- [ ] 路由已在 routing.md 中注册
+- [ ] 路由已在 routing.yaml 中注册，routing.md 摘要已同步
 - [ ] 模块已在 SKILL.md 总控表中登记
 - [ ] 脚本（如有）能独立运行并输出正确结果
 - [ ] 参考文档（如有）内容完整且有交叉引用

@@ -1,0 +1,348 @@
+# 五运六气路由单一真相源
+# 编辑本文件后，同步检查 routing.md 摘要是否仍准确。
+# 人类可读索引：routing.md | 执行契约：workflows/routing-contract.md
+
+version: 1
+
+always_read:
+  - case-journal/precedent-disclaimer.md
+  - rules/calculation.md
+  - workflows/routing-contract.md
+
+first_use:
+  - workflows/bootstrap.md
+
+# SKILL.md / routing.md 生成块单一来源（sync_routing.py）
+skill_sync:
+  common_tasks:
+    - quick-lookup
+    - current-step
+    - full-year-analysis
+    - year-calc
+    - pathogenesis
+    - clinical
+    - classics
+    - learn-concept
+    - personal-profile
+    - weather-alignment
+    - export-thought
+    - case-journal
+    - claude-plugin-install
+
+protocol:
+  must_route_before_act: true
+  axes: [time, intent, knowledge_level]
+  fuzzy_intent_workflow: prompts/onboarding_prompt.md
+  on_miss: propose_new_subskill  # 不得强行匹配；见 on_miss 节
+
+# 高频任务（Common Tasks）— SKILL.md 摘要来源
+tasks:
+  - id: quick-lookup
+    labels: { zh: 快速查某日/今天运气, en: Quick date lookup }
+    trigger_examples:
+      - 今天运气如何
+      - 推算某日运气
+      - 2026-06-29
+    route: scripts/calculate_yunqi_api.py today --summary → rag-knowledge-base/
+    workflow: agent-workflow/react_workflow.md
+    script: python scripts/calculate_yunqi_api.py today --summary
+
+  - id: current-step
+    labels: { zh: 当前步位/最近注意, en: Current step focus }
+    trigger_examples:
+      - 最近运气怎么样
+      - 我这个月要注意什么
+      - 我现在运气如何
+    route: scripts/calculate_yunqi_api.py --focus current-step → yunqi-clinical/
+    script: python scripts/calculate_yunqi_api.py today --focus current-step
+
+  - id: full-year-analysis
+    labels: { zh: 完整年度分析, en: Full year analysis }
+    trigger_examples:
+      - 完整分析2026年
+      - 全年运气分析
+      - 生成运气报告
+    route: ganzhi-basics/ → yunqi-calc/ → yunqi-pathogenesis/ → yunqi-clinical/ → docs-generator/
+    workflow: docs-generator/SKILL.md
+    script: python scripts/yunqi_report.py <年份> --audience practitioner
+
+  - id: year-calc
+    labels: { zh: 推算某年运气, en: Year calculation }
+    trigger_examples:
+      - 推算XX年运气
+      - 今年大运是什么
+    route: yunqi-calc/SKILL.md
+    required_reads: [ganzhi-basics/SKILL.md]
+
+  - id: pathogenesis
+    labels: { zh: 运气病机, en: Yunqi pathogenesis }
+    trigger_examples:
+      - 今年容易发什么病
+      - 运气病机
+      - 五运病机
+    route: yunqi-pathogenesis/SKILL.md
+    script: python scripts/calculate_yunqi_api.py <日期> --json
+
+  - id: clinical
+    labels: { zh: 运气治法/方药/养生, en: Clinical guidance }
+    trigger_examples:
+      - 运气治法
+      - 运气方药
+      - 运气养生
+      - 运气针灸
+    route: yunqi-clinical/SKILL.md
+    required_reads: [yunqi-pathogenesis/SKILL.md]
+
+  - id: classics
+    labels: { zh: 经典文献/七篇大论, en: Classics }
+    trigger_examples:
+      - 七篇大论
+      - 运气学说历史
+      - 历代运气学说
+    route: yunqi-classics/SKILL.md
+
+  - id: learn-concept
+    labels: { zh: 学习概念/思想, en: Learn concepts }
+    trigger_examples:
+      - 五运六气是什么思想
+      - 帮我学运气
+      - 解释天人合一
+      - 学习客主加临
+    route: prompts/onboarding_prompt.md → yunqi-calc/references/ 或 calculate_yunqi_api --explain-concept
+    script: python scripts/calculate_yunqi_api.py today --level deep --explain-concept "<概念>"
+
+  - id: personal-profile
+    labels: { zh: 个人运气/体质, en: Personal profile }
+    trigger_examples:
+      - 我的运气
+      - 出生年份运气
+      - 我1990年出生
+    route: scripts/personal_yunqi_profile.py → rag-knowledge-base/asset7_constitution.json
+    script: python scripts/personal_yunqi_profile.py <出生日期> [地区]
+
+  - id: weather-alignment
+    labels: { zh: 天气对齐, en: Weather alignment }
+    trigger_examples:
+      - 结合天气
+      - 当地天气
+      - 内外邪相合
+    route: scripts/weather_alignment.py → advanced-alignment/weather_integration.md
+    script: python scripts/weather_alignment.py <日期> --city <城市> --json
+
+  - id: export-thought
+    labels: { zh: 导出思想材料, en: Export study materials }
+    trigger_examples:
+      - 导出思想摘要
+      - 导出卡片
+      - 导出PDF
+    route: scripts/export_thought.py
+    script: python scripts/export_thought.py today --format all
+
+  - id: agent-rag
+    labels: { zh: Agent/RAG 集成, en: Agent RAG integration }
+    trigger_examples:
+      - Agent集成
+      - RAG检索
+      - ReAct工作流
+    route: rag-knowledge-base/README.md → agent-workflow/react_workflow.md
+    required_reads: [prompts/system_prompt.md]
+
+  - id: self-evolve
+    labels: { zh: 自进化/反馈, en: Self-evolution }
+    trigger_examples:
+      - 自进化
+      - 优化报告
+    route: self-evolve/README.md
+    script: python scripts/self_evolve.py stats
+
+  - id: case-journal
+    labels: { zh: 写医案, en: Case journal }
+    trigger_examples:
+      - 写医案
+      - 记录运气应用
+    route: case-journal/_template.md
+
+  - id: ganzhi-basics
+    labels: { zh: 干支基础, en: Ganzhi basics }
+    trigger_examples:
+      - 天干地支怎么算
+      - 六十甲子
+      - 节气和运气
+    route: ganzhi-basics/SKILL.md
+
+  - id: one-line-install
+    labels: { zh: 一句话安装/完整安装技能包, en: One-line install }
+    trigger_examples:
+      - 完整安装好
+      - 帮我安装这个技能包
+      - 一句话安装
+      - install skill pack
+    route: workflows/one-line-install.md → scripts/install.py → tests/verify_expansion.py
+    workflow: workflows/one-line-install.md
+    script: python scripts/install.py --link-global
+
+  - id: claude-plugin-install
+    labels: { zh: Claude Code 插件安装, en: Claude Code plugin install }
+    trigger_examples:
+      - Claude Code 插件安装
+      - 插件市场安装
+      - plugin install wuyun-liuqi
+      - /plugin install
+    route: workflows/claude-plugin-install.md → .claude-plugin/
+    workflow: workflows/claude-plugin-install.md
+    required_reads: [workflows/one-line-install.md]
+
+  - id: other
+    labels: { zh: 其他/未列出, en: Other }
+    trigger_examples: []
+    route: 扫描本文件 axes 与 tasks；若无匹配，按 workflows/routing-contract.md 提议新增子技能
+
+# 时间维度轴
+axes:
+  time:
+    - input: 公历日期 YYYY-MM-DD
+      route: [scripts/calculate_yunqi_api.py, rag-knowledge-base/, agent-workflow/react_workflow.md]
+    - input: 公历年份
+      route: [ganzhi-basics/, yunqi-calc/]
+    - input: 农历年份
+      route: [ganzhi-basics/references/liushijiazi.md, yunqi-calc/]
+    - input: 节气
+      route: [ganzhi-basics/references/jieqi.md, yunqi-calc/, yunqi-pathogenesis/]
+    - input: 当前时间（今年/当下）
+      route: [ganzhi-basics/, yunqi-calc/, yunqi-pathogenesis/, yunqi-clinical/]
+    - input: 历史年份回溯
+      route: [yunqi-classics/, yunqi-calc/]
+    - input: 未来年份预测
+      route: [ganzhi-basics/, yunqi-calc/, yunqi-pathogenesis/]
+
+  intent:
+    - phrases: [推算XX年运气, 今年大运是什么]
+      route: yunqi-calc/SKILL.md
+    - phrases: [今年容易发什么病, 运气病机]
+      route: yunqi-pathogenesis/SKILL.md
+    - phrases: [运气治法, 运气方药, 运气养生, 运气针灸]
+      route: yunqi-clinical/SKILL.md
+    - phrases: [七篇大论, 运气学说历史, 历代运气学说, 运气现代研究]
+      route: yunqi-classics/SKILL.md
+    - phrases: [天干化五运, 甲己化土]
+      route: yunqi-calc/references/tiangan_huayun.md
+    - phrases: [地支化六气, 子午少阴]
+      route: yunqi-calc/references/dizhi_huaqi.md
+    - phrases: [主运客运, 五运推移]
+      route: yunqi-calc/references/zhuyun_keyun.md
+    - phrases: [主气客气, 六气推移]
+      route: yunqi-calc/references/zhuqi_keqi.md
+    - phrases: [司天在泉, 上半年下半年]
+      route: yunqi-calc/references/sitian_zaiquan.md
+    - phrases: [客主加临, 顺逆]
+      route: yunqi-calc/references/kezhujialin.md
+    - phrases: [天符岁会, 运气同化, 太乙天符]
+      route: yunqi-calc/references/yunqi_tonghua.md
+    - phrases: [太过不及, 平气]
+      route: yunqi-calc/references/taiguo_buji.md
+    - phrases: [五运病机, 木运太过什么病]
+      route: yunqi-pathogenesis/references/wuyun_bingji.md
+    - phrases: [六气病机, 厥阴风木病机]
+      route: yunqi-pathogenesis/references/liuqi_bingji.md
+    - phrases: [运气合病]
+      route: yunqi-pathogenesis/references/yunqi_hebing.md
+    - phrases: [学生版报告, 学习报告]
+      route: docs-generator/SKILL.md
+      report_type: student
+    - phrases: [临床版报告, 医师版报告]
+      route: docs-generator/SKILL.md
+      report_type: practitioner
+    - phrases: [研究版报告, 文献版报告]
+      route: docs-generator/SKILL.md
+      report_type: researcher
+    - phrases: [运气方, 三因司天方]
+      route: rag-knowledge-base/asset4_formula.json
+    - phrases: [历代注家, 王冰怎么说, 刘完素]
+      route: rag-knowledge-base/asset5_commentary.json
+    - phrases: [地域, 南方北方, 我在XX地方]
+      route: rag-knowledge-base/asset6_regional.json
+    - phrases: [体质, 体质调理]
+      route: advanced-alignment/constitution_alignment.md
+
+  knowledge_level:
+    - level: 推算层
+      modules: [ganzhi-basics/, yunqi-calc/]
+      scripts: [ganzhi_calc.py, dayun_calc.py, keyun_calc.py, liuqi_calc.py, kezhujialin.py]
+    - level: 病机层
+      modules: [yunqi-pathogenesis/]
+      scripts: []
+    - level: 临床层
+      modules: [yunqi-clinical/]
+      scripts: []
+    - level: 文献层
+      modules: [yunqi-classics/]
+      scripts: []
+    - level: Agent层
+      modules: [rag-knowledge-base/, agent-workflow/, prompts/, advanced-alignment/, self-evolve/]
+      scripts: [calculate_yunqi_api.py, weather_alignment.py, personal_yunqi_profile.py, ingest_literature.py, self_evolve.py]
+
+cross_paths:
+  - id: full-annual
+    name: 完整年度分析
+    steps:
+      - ganzhi-basics/SKILL.md
+      - yunqi-calc/SKILL.md
+      - yunqi-pathogenesis/SKILL.md
+      - yunqi-clinical/SKILL.md
+      - docs-generator/SKILL.md
+
+  - id: calc-plus-classics
+    name: 推算+文献
+    steps:
+      - yunqi-classics/SKILL.md
+      - yunqi-calc/SKILL.md
+
+  - id: case-record
+    name: 医案沉淀
+    steps:
+      - yunqi-calc/
+      - yunqi-pathogenesis/
+      - yunqi-clinical/
+      - case-journal/_template.md
+
+  - id: react-agent
+    name: Agent ReAct 推理
+    steps:
+      - prompts/system_prompt.md
+      - scripts/calculate_yunqi_api.py
+      - rag-knowledge-base/
+      - agent-workflow/react_workflow.md
+      - advanced-alignment/
+      - scripts/self_evolve.py
+
+  - id: student-learning
+    name: 学习路径
+    steps:
+      - ganzhi-basics/
+      - yunqi-calc/references/
+      - yunqi-calc/SKILL.md
+
+fuzzy_intent:
+  conditions:
+    - 仅含触发词（五运六气/运气）
+    - 无具体日期或年份
+    - 无需求类型（推算/病机/临床/学习/个人）
+    - 模糊表达（帮我看看/分析一下）
+    - 无法匹配 tasks 或 axes.intent
+  workflow: prompts/onboarding_prompt.md
+  quick_replies:
+    - user: 今天
+      action: python scripts/calculate_yunqi_api.py today --summary
+    - user: 完整分析2026年
+      action: python scripts/yunqi_report.py 2026 --audience practitioner
+    - user: 学习客主加临
+      action: yunqi-calc/references/kezhujialin.md
+    - user: 我1990年出生
+      action: python scripts/personal_yunqi_profile.py 1990-XX-XX
+
+on_miss:
+  steps:
+    - 检查是否为现有子技能边缘情况
+    - 向用户提议新增子技能（名称、知识层级、与现有模块关系）
+    - 用户确认后按 CONTRIBUTING.md 创建
+    - 更新 routing.yaml 与本文件对应的 routing.md 摘要

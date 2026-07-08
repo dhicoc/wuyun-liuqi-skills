@@ -1,0 +1,21 @@
+{
+  "name": "wuyun-liuqi-skills",
+  "description": "五运六气（运气学）AI Agent 技能包：干支推算、病机分析、经典文献、思想解读与自进化。含跨工具薄壳、routing.yaml 路由与脚本化推算。",
+  "author": {
+    "name": "dhicoc"
+  },
+  "license": "MIT",
+  "keywords": [
+    "wuyun-liuqi",
+    "五运六气",
+    "运气学",
+    "中医",
+    "tcm",
+    "yunqi",
+    "skill",
+    "agent",
+    "claude-code",
+    "cursor"
+  ],
+  "skills": ["./"]
+}

@@ -167,17 +167,77 @@ if os.path.exists(evolve_script):
 else:
     print("  [WARN] 不存在，跳过")
 
-# === 5. SKILL.md & routing.md ===
+# === 5. SKILL.md & routing 结构检查 ===
 print("")
 print("=" * 60)
 print("5. 文档同步更新检查")
 print("=" * 60)
-for label, path in [("SKILL.md", os.path.join(BASE, "SKILL.md")),
-                     ("routing.md", os.path.join(BASE, "routing.md"))]:
-    with open(path, "r", encoding="utf-8") as f:
-        content = f.read()
-    found = any(kw in content for kw in ["asset4", "asset5", "asset6", "asset7", "self-evolve", "self_evolve", "ingest_literature"])
-    check(label + " 含新增模块引用", found)
+routing_yaml = os.path.join(BASE, "routing.yaml")
+with open(routing_yaml, "r", encoding="utf-8") as f:
+    routing_content = f.read()
+check("routing.yaml 存在且含 tasks", "tasks:" in routing_content and "always_read:" in routing_content)
+
+with open(os.path.join(BASE, "SKILL.md"), "r", encoding="utf-8") as f:
+    skill_content = f.read()
+check("SKILL.md 指向 routing.yaml", "routing.yaml" in skill_content)
+check("SKILL.md 行数预算（≤90行）", skill_content.count("\n") + 1 <= 90)
+
+for label, path in [
+    ("workflows/bootstrap.md", os.path.join(BASE, "workflows", "bootstrap.md")),
+    ("workflows/routing-contract.md", os.path.join(BASE, "workflows", "routing-contract.md")),
+    ("workflows/task-closure.md", os.path.join(BASE, "workflows", "task-closure.md")),
+    ("references/script-index.md", os.path.join(BASE, "references", "script-index.md")),
+    ("references/gotchas.md", os.path.join(BASE, "references", "gotchas.md")),
+    ("rules/calculation.md", os.path.join(BASE, "rules", "calculation.md")),
+]:
+    check(label + " 存在", os.path.isfile(path))
+
+import subprocess
+struct = subprocess.run(
+    [sys.executable, os.path.join(BASE, "scripts", "check_skill_structure.py")],
+    capture_output=True, text=True, encoding="utf-8", cwd=BASE
+)
+check("check_skill_structure.py 通过", struct.returncode == 0)
+
+scenario = subprocess.run(
+    [sys.executable, os.path.join(BASE, "scripts", "check_routing_scenarios.py")],
+    capture_output=True, text=True, encoding="utf-8", cwd=BASE
+)
+check("check_routing_scenarios.py 通过", scenario.returncode == 0)
+check("routing_scenarios.json 存在", os.path.isfile(os.path.join(BASE, "tests", "routing_scenarios.json")))
+for plugin_file in [".claude-plugin/plugin.json", ".claude-plugin/marketplace.json"]:
+    check(plugin_file + " 存在", os.path.isfile(os.path.join(BASE, plugin_file)))
+
+for p3_script, p3_args in [
+    ("sync_routing.py", ["--check"]),
+    ("check_conformance.py", []),
+    ("audit_orphans.py", []),
+]:
+    r = subprocess.run(
+        [sys.executable, os.path.join(BASE, "scripts", p3_script), *p3_args],
+        capture_output=True, text=True, encoding="utf-8", cwd=BASE,
+    )
+    check(p3_script + " 通过", r.returncode == 0)
+check("conformance.yaml 存在", os.path.isfile(os.path.join(BASE, "conformance.yaml")))
+
+print("")
+print("  薄壳入口检查")
+thin_shells = [
+    ("AGENTS.md", os.path.join(BASE, "AGENTS.md")),
+    ("CLAUDE.md", os.path.join(BASE, "CLAUDE.md")),
+    ("CODEX.md", os.path.join(BASE, "CODEX.md")),
+    ("GEMINI.md", os.path.join(BASE, "GEMINI.md")),
+    (".cursor/rules/wuyun-liuqi.mdc", os.path.join(BASE, ".cursor", "rules", "wuyun-liuqi.mdc")),
+    (".cursor/skills/wuyun-liuqi/SKILL.md", os.path.join(BASE, ".cursor", "skills", "wuyun-liuqi", "SKILL.md")),
+    (".claude/skills/wuyun-liuqi/SKILL.md", os.path.join(BASE, ".claude", "skills", "wuyun-liuqi", "SKILL.md")),
+]
+for label, path in thin_shells:
+    check(label + " 存在", os.path.isfile(path))
+    if os.path.isfile(path):
+        with open(path, "r", encoding="utf-8") as f:
+            shell = f.read()
+        check(label + " 含 routing.yaml 引导", "routing.yaml" in shell)
+        check(label + " 含 SKILL.md 引导", "SKILL.md" in shell)
 
 # === 6. 新增文件整体清单 ===
 print("")

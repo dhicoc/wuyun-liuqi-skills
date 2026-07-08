@@ -1,0 +1,27 @@
+---
+description: 五运六气技能包 — 路由薄壳，指向 SKILL.md 与 routing.yaml
+globs: ["**/*"]
+alwaysApply: true
+---
+
+# 五运六气（Cursor 规则薄壳）
+
+正式规则在 `SKILL.md` 与 `routing.yaml`。本 `.mdc` 仅保留路由引导。
+
+<always-applicable>
+
+**激活**：五运六气、运气、大运、司天在泉、客主加临、运气病机、七篇大论 → 读 `SKILL.md`。
+
+**Always Read**：`case-journal/precedent-disclaimer.md`、`rules/calculation.md`、`routing.yaml`、`workflows/routing-contract.md`
+
+**Red Flags**：禁止凭记忆推算；临床须免责声明；模糊意图先 `prompts/onboarding_prompt.md`
+
+</always-applicable>
+
+<task-routing>
+
+路由：`routing.yaml`。新任务按 `tasks`/`axes` 匹配。Cursor 技能注册：`.cursor/skills/wuyun-liuqi/SKILL.md`。
+
+</task-routing>
+
+冲突时：以 `SKILL.md`、`routing.yaml` 为准。

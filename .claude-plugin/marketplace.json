@@ -1,0 +1,29 @@
+{
+  "name": "wuyun-liuqi-skills",
+  "id": "wuyun-liuqi-skills",
+  "owner": {
+    "name": "dhicoc"
+  },
+  "metadata": {
+    "description": "五运六气 AI Agent 技能包：推算、病机、文献、思想解读与跨工具路由。"
+  },
+  "plugins": [
+    {
+      "name": "wuyun-liuqi-skills",
+      "source": "./",
+      "description": "中医运气学技能包。脚本化推算五运六气、分析运气病机、索引七篇大论、导出学习材料；含 routing.yaml 路由、rules/ 分层与自进化闭环。",
+      "author": {
+        "name": "dhicoc"
+      },
+      "keywords": [
+        "wuyun-liuqi",
+        "五运六气",
+        "运气",
+        "中医",
+        "tcm",
+        "skill"
+      ],
+      "category": "domain"
+    }
+  ]
+}
