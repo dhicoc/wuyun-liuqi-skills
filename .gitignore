@@ -11,6 +11,13 @@ self-evolve/misses/**
 self-evolve/feedback/**
 self-evolve/reports/**
 self-evolve/stats/**
+self-evolve/rule-gaps.jsonl
+
+# Local Cursor MCP descriptors (not project source)
+mcps/
+
+# Local drafts
+推广帖-draft.md
 
 # Node.js
 node_modules/
