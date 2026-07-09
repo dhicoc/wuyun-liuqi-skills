@@ -12,6 +12,9 @@ import re
 import sys
 from pathlib import Path
 
+from _common import setup_utf8_stdout
+setup_utf8_stdout()
+
 ROOT = Path(__file__).resolve().parent.parent
 MANIFEST = ROOT / "conformance.yaml"
 

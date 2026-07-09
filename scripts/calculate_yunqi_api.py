@@ -378,17 +378,26 @@ def run_html_report(date_str: str) -> str:
     return ghr.write_html_report(date_str, output_path)
 
 
+_TERMINOLOGY_CACHE: Optional[Dict[str, Any]] = None
+
+
 def load_terminology() -> Dict[str, Any]:
-    """加载术语解释库"""
+    """加载术语解释库（带模块级缓存，避免重复 I/O）。"""
+    global _TERMINOLOGY_CACHE
+    if _TERMINOLOGY_CACHE is not None:
+        return _TERMINOLOGY_CACHE
     path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'rag-knowledge-base', 'terminology.json')
     if not os.path.exists(path):
-        return {}
+        _TERMINOLOGY_CACHE = {}
+        return _TERMINOLOGY_CACHE
     try:
         with open(path, 'r', encoding='utf-8') as f:
             data = json.load(f)
-        return {entry['term']: entry for entry in data.get('entries', [])}
+        _TERMINOLOGY_CACHE = {entry['term']: entry for entry in data.get('entries', [])}
+        return _TERMINOLOGY_CACHE
     except Exception:
-        return {}
+        _TERMINOLOGY_CACHE = {}
+        return _TERMINOLOGY_CACHE
 
 
 def generate_explanation_output(result: Dict[str, Any]) -> str:
@@ -486,34 +495,8 @@ if __name__ == '__main__':
             sys.exit(2)
 
     if args.export:
-        try:
-            # 直接调用导出逻辑（避免 sys.argv 污染）
-            import export_thought as et
-            date_to_use = args.date or 'today'
-            # 构造内部数据并生成
-            data = et.get_year_and_data(date_to_use)
-            out_dir = 'reports/generated/'
-            year_str = str(data.get('year', 'unknown'))
-            if args.export in ('summary', 'all'):
-                summary = et.generate_thought_summary(data)
-                Path(out_dir).mkdir(parents=True, exist_ok=True)
-                (Path(out_dir) / f'thought_summary_{year_str}.md').write_text(summary, encoding='utf-8')
-                print(f'✅ 思想摘要已导出到 {out_dir}')
-            if args.export in ('cards', 'all'):
-                anki, cards_md = et.generate_cards(data)
-                Path(out_dir).mkdir(parents=True, exist_ok=True)
-                (Path(out_dir) / f'thought_cards_{year_str}.anki.tsv').write_text(anki, encoding='utf-8')
-                (Path(out_dir) / f'thought_cards_{year_str}.md').write_text(cards_md, encoding='utf-8')
-                print(f'✅ 卡片集已导出')
-            if args.export in ('pdf', 'all'):
-                summary = et.generate_thought_summary(data)
-                msg = et.generate_pdf(summary, f'{out_dir}thought_{year_str}.pdf')
-                print(msg)
-            sys.exit(0)
-        except Exception as e:
-            print(f'导出失败: {e}')
-            print('提示：可直接运行 python scripts/export_thought.py today --format all')
-            sys.exit(2)
+        import export_thought as et
+        sys.exit(et.run_export(args.date or 'today', args.export))
 
     try:
         result = calculate_yunqi_api(date_str)

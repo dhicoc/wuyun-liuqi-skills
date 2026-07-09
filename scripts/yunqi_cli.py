@@ -72,31 +72,8 @@ def cmd_calc(args: argparse.Namespace) -> int:
 
     # --export 模式
     if args.export:
-        try:
-            import export_thought as et
-            from pathlib import Path
-            data = et.get_year_and_data(date_str)
-            out_dir = 'reports/generated/'
-            year_str = str(data.get('year', 'unknown'))
-            if args.export in ('summary', 'all'):
-                summary = et.generate_thought_summary(data)
-                Path(out_dir).mkdir(parents=True, exist_ok=True)
-                (Path(out_dir) / f'thought_summary_{year_str}.md').write_text(summary, encoding='utf-8')
-                print(f'✅ 思想摘要已导出到 {out_dir}')
-            if args.export in ('cards', 'all'):
-                anki, cards_md = et.generate_cards(data)
-                Path(out_dir).mkdir(parents=True, exist_ok=True)
-                (Path(out_dir) / f'thought_cards_{year_str}.anki.tsv').write_text(anki, encoding='utf-8')
-                (Path(out_dir) / f'thought_cards_{year_str}.md').write_text(cards_md, encoding='utf-8')
-                print(f'✅ 卡片集已导出')
-            if args.export in ('pdf', 'all'):
-                summary = et.generate_thought_summary(data)
-                msg = et.generate_pdf(summary, f'{out_dir}thought_{year_str}.pdf')
-                print(msg)
-            return 0
-        except Exception as e:
-            print(f'导出失败: {e}', file=sys.stderr)
-            return 2
+        import export_thought as et
+        return et.run_export(date_str, args.export)
 
     try:
         result = calculate_yunqi_api(date_str)
@@ -306,23 +283,32 @@ def cmd_interactive(_args: argparse.Namespace) -> int:
         if choice in ("0", "q", "quit", "exit"):
             return 0
         if choice == "1":
-            rc = _run_py("calculate_yunqi_api.py", ["today", "--summary"])
+            # 直接调用 cmd_calc，避免 subprocess 开销
+            ns = argparse.Namespace(date='today', json=False, summary=True, visual=False,
+                                    html=False, explain=False, focus=None, report_type=None,
+                                    level='standard', explain_concept=None, export=None)
+            rc = cmd_calc(ns)
         elif choice == "2":
-            rc = _run_py("calculate_yunqi_api.py", ["today", "--focus", "current-step"])
+            ns = argparse.Namespace(date='today', json=False, summary=False, visual=False,
+                                    html=False, explain=False, focus='current-step', report_type=None,
+                                    level='standard', explain_concept=None, export=None)
+            rc = cmd_calc(ns)
         elif choice == "3":
             rc = _run_py("socratic_learn.py", ["today"])
         elif choice == "4":
             rc = _run_py("export_thought_map.py", ["today", "--format", "both"])
         elif choice == "5":
-            from calculate_yunqi_api import calculate_yunqi_api, _resolve_date
-            y = calculate_yunqi_api(_resolve_date("today"))["yunqi_year"]
-            rc = _run_py("yunqi_report.py", [str(y), "--audience", "student"])
+            ns = argparse.Namespace(year='today', audience='student', json=False)
+            rc = cmd_report(ns)
         elif choice == "6":
-            rc = _run_py("health_check.py", [])
+            rc = cmd_doctor(argparse.Namespace())
         elif choice == "7":
             rc = _run_py("learning_dashboard.py", [])
         elif choice == "8":
-            rc = _run_py("rag_search.py", ["--list-assets"])
+            ns = argparse.Namespace(terms=None, assets=None, keys=None, date=None,
+                                    semantic=None, full=False, limit=10, json=False,
+                                    list_assets=True)
+            rc = cmd_search(ns)
         else:
             print(color("无效选项，请输入 0-8", YELLOW))
             continue

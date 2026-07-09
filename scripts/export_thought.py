@@ -241,6 +241,43 @@ pre, code {{ background: #f8fafc; padding: 2px 6px; border-radius: 4px; }}
     return f"已生成 PDF：{output_path}\n注意：基础字体对中文支持有限，推荐优先使用生成的 HTML 打印为 PDF（排版更好）。"
 
 
+def run_export(date_input: str, fmt: str = 'summary') -> int:
+    """
+    统一导出入口（供 calculate_yunqi_api / yunqi_cli 共用，避免逻辑重复）。
+
+    参数:
+        date_input: 日期或年份（today / YYYY-MM-DD / 2026）
+        fmt: 导出类型 summary | cards | pdf | all
+    返回:
+        0 成功，2 失败
+    """
+    try:
+        data = get_year_and_data(date_input)
+        out_dir = Path('reports/generated/')
+        year_str = str(data.get('year', 'unknown'))
+
+        if fmt in ('summary', 'all'):
+            summary = generate_thought_summary(data)
+            out_dir.mkdir(parents=True, exist_ok=True)
+            (out_dir / f'thought_summary_{year_str}.md').write_text(summary, encoding='utf-8')
+            print(f'✅ 思想摘要已导出到 {out_dir}')
+        if fmt in ('cards', 'all'):
+            anki, cards_md = generate_cards(data)
+            out_dir.mkdir(parents=True, exist_ok=True)
+            (out_dir / f'thought_cards_{year_str}.anki.tsv').write_text(anki, encoding='utf-8')
+            (out_dir / f'thought_cards_{year_str}.md').write_text(cards_md, encoding='utf-8')
+            print(f'✅ 卡片集已导出')
+        if fmt in ('pdf', 'all'):
+            summary = generate_thought_summary(data)
+            msg = generate_pdf(summary, f'{out_dir}thought_{year_str}.pdf')
+            print(msg)
+        return 0
+    except Exception as e:
+        print(f'导出失败: {e}', file=sys.stderr)
+        print('提示：可直接运行 python scripts/export_thought.py today --format all', file=sys.stderr)
+        return 2
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="导出五运六气思想摘要、卡片集、PDF（专注思想理解）"

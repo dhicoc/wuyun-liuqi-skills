@@ -40,7 +40,7 @@ import time
 import hashlib
 import re
 from collections import Counter, defaultdict
-from datetime import datetime, date
+from datetime import datetime, date, timedelta
 
 from _common import setup_environment
 setup_environment(add_lib=False)
@@ -99,10 +99,11 @@ def log_usage(input_date: str, rag_keys: list[str], source: str = "cli", concept
     if concepts:
         entry["concepts"] = concepts
     if session_id:
-        entry["session_id"] = _hash_session_id(session_id) if True else session_id  # 默认始终哈希
+        entry["session_id"] = _hash_session_id(session_id)  # 默认始终哈希
     log_file = os.path.join(LOG_DIR, f"{date.today().isoformat()}.jsonl")
     with open(log_file, "a", encoding="utf-8") as f:
         f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+    invalidate_cache()
     return entry
 
 
@@ -118,6 +119,7 @@ def log_miss(query_key: str, context: str = "", anonymize: bool = True):
     miss_file = os.path.join(MISS_DIR, f"{date.today().isoformat()}_misses.jsonl")
     with open(miss_file, "a", encoding="utf-8") as f:
         f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+    invalidate_cache()
     return entry
 
 
@@ -175,6 +177,7 @@ def log_feedback(session_id: str, rating: int, comment: str = "", feedback_type:
     fb_file = os.path.join(FEEDBACK_DIR, f"{date.today().isoformat()}_feedback.jsonl")
     with open(fb_file, "a", encoding="utf-8") as f:
         f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+    invalidate_cache()
     return entry
 
 
@@ -215,14 +218,29 @@ def _is_noise_entry(entry: dict) -> bool:
     return False
 
 
+# 模块级缓存：避免报告生成时反复读取磁盘
+_JSONL_CACHE: dict[tuple[str, bool, bool], list[dict]] = {}
+
+
+def invalidate_cache():
+    """清除 JSONL 缓存（写入新日志后调用）。"""
+    _JSONL_CACHE.clear()
+
+
 def load_jsonl_lines(directory: str, filter_test: bool = True, dedup: bool = True) -> list[dict]:
     """加载目录下所有 JSONL 文件的内容。
     filter_test: 过滤测试/冒烟/占位噪声（source、rag_keys、input_date），提升数据质量。
     dedup: 简单去重（基于 timestamp + input + keys 的 hash），避免重复日志。
+    结果按 (directory, filter_test, dedup) 缓存，避免报告生成时反复读取磁盘。
     """
+    cache_key = (directory, filter_test, dedup)
+    if cache_key in _JSONL_CACHE:
+        return _JSONL_CACHE[cache_key]
+
     entries = []
     seen = set()
     if not os.path.exists(directory):
+        _JSONL_CACHE[cache_key] = entries
         return entries
     for fname in sorted(os.listdir(directory)):
         if not fname.endswith(".jsonl"):
@@ -366,7 +384,7 @@ def stats_low_coverage() -> list[str]:
 
 def cleanup_old_data(days: int = 90, anonymize_existing: bool = False):
     """隐私增强：清理旧数据，可选匿名化历史记录。"""
-    cutoff = (date.today() - __import__('datetime').timedelta(days=days)).isoformat()
+    cutoff = (date.today() - timedelta(days=days)).isoformat()
     for d in [LOG_DIR, FEEDBACK_DIR, MISS_DIR]:
         for fname in os.listdir(d):
             if fname.endswith('.jsonl') and fname[:10] < cutoff:
