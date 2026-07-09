@@ -54,6 +54,9 @@ ASSET_FILES = {
     "index": "index.json",
 }
 
+# 模块级缓存：避免重复 open + json.load
+_ENTRY_CACHE: Dict[str, Tuple[str, List[Dict[str, Any]]]] = {}
+
 
 def _flatten_strings(obj: Any, prefix: str = "") -> List[Tuple[str, str]]:
     """递归抽取可搜索字符串字段。"""
@@ -93,24 +96,33 @@ def _entry_title(entry: Dict[str, Any], eid: str) -> str:
 
 
 def load_entries(asset_key: str) -> Tuple[str, List[Dict[str, Any]]]:
-    fname = ASSET_FILES.get(asset_key, asset_key)
-    if not fname.endswith(".json"):
-        fname = ASSET_FILES.get(asset_key)
+    """加载资产 JSON，带模块级缓存。"""
+    if asset_key in _ENTRY_CACHE:
+        return _ENTRY_CACHE[asset_key]
+
+    fname = ASSET_FILES.get(asset_key)
     if not fname:
-        raise FileNotFoundError(f"未知资产: {asset_key}")
+        if asset_key.endswith(".json"):
+            fname = asset_key
+        else:
+            raise FileNotFoundError(f"未知资产: {asset_key}")
     path = RAG_DIR / fname
     if not path.is_file():
         raise FileNotFoundError(f"文件不存在: {path}")
     with open(path, "r", encoding="utf-8") as f:
         data = json.load(f)
     if isinstance(data, list):
-        return fname, data
-    if isinstance(data, dict):
+        result = (fname, data)
+    elif isinstance(data, dict):
         if "entries" in data and isinstance(data["entries"], list):
-            return fname, data["entries"]
-        # 单对象资产：包成一条
-        return fname, [data]
-    return fname, []
+            result = (fname, data["entries"])
+        else:
+            result = (fname, [data])
+    else:
+        result = (fname, [])
+
+    _ENTRY_CACHE[asset_key] = result
+    return result
 
 
 def score_entry(entry: Dict[str, Any], terms: Sequence[str]) -> Tuple[int, List[str], str]:

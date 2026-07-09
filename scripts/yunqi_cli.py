@@ -5,6 +5,9 @@
 
 把分散脚本收拢为单一入口，兼容原有能力，不删除旧命令。
 
+核心子命令（calc / report / search / doctor）直接 import 调用，
+其余子命令仍通过 subprocess 委托（逐步迁移中）。
+
 用法:
   python scripts/yunqi_cli.py --help
   python scripts/yunqi_cli.py calc today --summary
@@ -25,12 +28,13 @@
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import subprocess
 import sys
 from typing import List, Optional, Sequence
 
-from _common import setup_environment, add_scripts_dir_to_path, color, CYAN, GREEN, YELLOW
+from _common import setup_environment, add_scripts_dir_to_path, color, CYAN, GREEN, YELLOW, resolve_year_or_date
 
 setup_environment(add_lib=False, add_scripts=True)
 add_scripts_dir_to_path()
@@ -39,53 +43,183 @@ SCRIPTS = os.path.dirname(os.path.abspath(__file__))
 
 
 def _run_py(script: str, argv: List[str]) -> int:
+    """对尚未迁移为直接 import 的子命令，仍用 subprocess 委托。"""
     path = os.path.join(SCRIPTS, script)
     cmd = [sys.executable, path] + argv
     return subprocess.call(cmd)
 
 
+# ── 直接 import 的核心子命令 ──────────────────────────
+
+
 def cmd_calc(args: argparse.Namespace) -> int:
-    """委托 calculate_yunqi_api.py（保留全部旗标）。"""
-    argv: List[str] = [args.date]
-    if args.json:
-        argv.append("--json")
-    if args.summary:
-        argv.append("--summary")
-    if args.visual:
-        argv.append("--visual")
-    if args.html:
-        argv.append("--html")
-    if args.explain:
-        argv.append("--explain")
-    if args.focus:
-        argv.extend(["--focus", args.focus])
-    if args.report_type:
-        argv.extend(["--report-type", args.report_type])
-    if args.level and args.level != "standard":
-        argv.extend(["--level", args.level])
+    """直接调用 calculate_yunqi_api（无 subprocess 开销）。"""
+    from calculate_yunqi_api import calculate_yunqi_api, _resolve_date, format_text
+    from _common import highlight_key
+    from yunqi_data import generate_summary, generate_current_step_focus
+
+    date_str = resolve_year_or_date(args.date)
+
+    # --explain-concept 模式
     if args.explain_concept:
-        argv.extend(["--explain-concept", args.explain_concept])
+        try:
+            from yunqi_report import explain_concept
+            print(explain_concept(args.explain_concept))
+            return 0
+        except Exception as e:
+            print(f"概念解释错误: {e}", file=sys.stderr)
+            return 2
+
+    # --export 模式
     if args.export:
-        argv.extend(["--export", args.export])
-    # 无任何输出旗标时默认 summary（CLI 友好）
-    flags = (
-        args.json or args.summary or args.visual or args.html or args.explain
-        or args.focus or args.report_type or args.explain_concept or args.export
-    )
-    if not flags:
-        argv.append("--summary")
-    return _run_py("calculate_yunqi_api.py", argv)
+        try:
+            import export_thought as et
+            from pathlib import Path
+            data = et.get_year_and_data(date_str)
+            out_dir = 'reports/generated/'
+            year_str = str(data.get('year', 'unknown'))
+            if args.export in ('summary', 'all'):
+                summary = et.generate_thought_summary(data)
+                Path(out_dir).mkdir(parents=True, exist_ok=True)
+                (Path(out_dir) / f'thought_summary_{year_str}.md').write_text(summary, encoding='utf-8')
+                print(f'✅ 思想摘要已导出到 {out_dir}')
+            if args.export in ('cards', 'all'):
+                anki, cards_md = et.generate_cards(data)
+                Path(out_dir).mkdir(parents=True, exist_ok=True)
+                (Path(out_dir) / f'thought_cards_{year_str}.anki.tsv').write_text(anki, encoding='utf-8')
+                (Path(out_dir) / f'thought_cards_{year_str}.md').write_text(cards_md, encoding='utf-8')
+                print(f'✅ 卡片集已导出')
+            if args.export in ('pdf', 'all'):
+                summary = et.generate_thought_summary(data)
+                msg = et.generate_pdf(summary, f'{out_dir}thought_{year_str}.pdf')
+                print(msg)
+            return 0
+        except Exception as e:
+            print(f'导出失败: {e}', file=sys.stderr)
+            return 2
+
+    try:
+        result = calculate_yunqi_api(date_str)
+    except Exception as e:
+        print(f"错误: {e}", file=sys.stderr)
+        return 2
+
+    # 自进化记录
+    try:
+        from self_evolve import log_usage
+        concepts = []
+        if args.level and args.level != "standard":
+            concepts.append(f"level_{args.level}")
+        log_usage(date_str, list(result.get("rag_keys", {}).values()) if result.get("rag_keys") else [], source="cli", concepts=concepts or None)
+    except Exception:
+        pass
+
+    # 友好提示（默认今天时）
+    if args.date in (None, 'today', '今天') and not args.json:
+        print(f"（已默认使用今天日期: {result['date']}）\n")
+
+    if args.html:
+        from calculate_yunqi_api import run_html_report
+        sys.stdout.write(run_html_report(date_str))
+    elif args.focus:
+        if args.focus == 'current-step':
+            sys.stdout.write(generate_current_step_focus(result) + '\n')
+        else:
+            print(f"不支持的聚焦模式: {args.focus}", file=sys.stderr)
+            return 1
+    elif args.visual:
+        from calculate_yunqi_api import run_visualize
+        sys.stdout.write(run_visualize(date_str))
+    elif args.report_type:
+        from calculate_yunqi_api import run_yunqi_report
+        output = run_yunqi_report(result['yunqi_year'], args.report_type, args.json)
+        sys.stdout.write(output)
+    elif args.explain:
+        from calculate_yunqi_api import generate_explanation_output
+        sys.stdout.write(generate_explanation_output(result) + '\n')
+    elif args.json:
+        sys.stdout.write(json.dumps(result, ensure_ascii=False, indent=2) + '\n')
+    elif args.summary:
+        sys.stdout.write(highlight_key(generate_summary(result)) + '\n')
+    else:
+        # 无任何输出旗标时默认 summary
+        sys.stdout.write(highlight_key(generate_summary(result)) + '\n')
+    sys.stdout.flush()
+    return 0
 
 
 def cmd_report(args: argparse.Namespace) -> int:
+    """直接调用 yunqi_report.generate_report（无 subprocess 开销）。"""
+    from calculate_yunqi_api import calculate_yunqi_api, _resolve_date, run_yunqi_report
+
     year = args.year
     if year is None or str(year).lower() in ("today", "今天"):
-        from calculate_yunqi_api import calculate_yunqi_api, _resolve_date
-        year = str(calculate_yunqi_api(_resolve_date("today"))["yunqi_year"])
-    argv = [str(year), "--audience", args.audience]
+        year = calculate_yunqi_api(_resolve_date("today"))["yunqi_year"]
+
+    output = run_yunqi_report(year, args.audience, args.json)
+    sys.stdout.write(output)
+    sys.stdout.flush()
+    return 0
+
+
+def cmd_doctor(args: argparse.Namespace) -> int:
+    """直接调用 health_check（无 subprocess 开销）。"""
+    import health_check
+    return health_check.main() if hasattr(health_check, 'main') else 0
+
+
+def cmd_search(args: argparse.Namespace) -> int:
+    """直接调用 rag_search（无 subprocess 开销）。"""
+    import rag_search as rs
+
+    cli_args: List[str] = list(args.terms or [])
+    if args.list_assets:
+        print(rs.list_assets())
+        return 0
+    if args.assets:
+        # 资产限定
+        pass
+    if getattr(args, "keys", None):
+        # 精确 key 模式
+        all_hits = []
+        for k in args.keys:
+            all_hits.extend(rs.lookup_key(k, assets=args.assets, full=args.full))
+        if args.json:
+            print(json.dumps({"keys": args.keys, "count": len(all_hits), "hits": all_hits, "mode": "exact_key"}, ensure_ascii=False, indent=2))
+        else:
+            print(rs.format_text(all_hits, args.keys, mode="exact_key"))
+        return 0 if all_hits else 1
+    if getattr(args, "date", None):
+        bundle = rs.fetch_by_date(args.date, full=args.full)
+        if args.json:
+            print(json.dumps(bundle, ensure_ascii=False, indent=2))
+        else:
+            print(rs.format_date_bundle(bundle))
+        return 0 if not bundle.get("missing") else 1
+    if getattr(args, "semantic", None):
+        from rag_semantic import semantic_search, format_text as fmt_sem
+        q = args.semantic
+        if args.terms:
+            q = (q + " " + " ".join(args.terms)).strip()
+        hits = semantic_search(q, limit=args.limit, assets=args.assets, full=args.full)
+        if args.json:
+            print(json.dumps({"query": q, "count": len(hits), "mode": "semantic", "hits": hits}, ensure_ascii=False, indent=2))
+        else:
+            print(fmt_sem(hits, q))
+        return 0 if hits else 1
+    # 关键词模式
+    if not args.terms:
+        print(rs.list_assets())
+        return 0
+    hits = rs.search(args.terms, assets=args.assets, limit=args.limit)
     if args.json:
-        argv.append("--json")
-    return _run_py("yunqi_report.py", argv)
+        print(json.dumps({"terms": args.terms, "count": len(hits), "hits": hits, "mode": "keyword"}, ensure_ascii=False, indent=2))
+    else:
+        print(rs.format_text(hits, args.terms, mode="keyword"))
+    return 0 if hits else 1
+
+
+# ── 仍用 subprocess 委托的子命令（逐步迁移中） ──────
 
 
 def cmd_map(args: argparse.Namespace) -> int:
@@ -133,33 +267,6 @@ def cmd_export(args: argparse.Namespace) -> int:
     if args.output:
         argv.extend(["--output", args.output])
     return _run_py("export_thought.py", argv)
-
-
-def cmd_doctor(args: argparse.Namespace) -> int:
-    return _run_py("health_check.py", [])
-
-
-def cmd_search(args: argparse.Namespace) -> int:
-    argv: List[str] = list(args.terms or [])
-    if args.list_assets:
-        argv.append("--list-assets")
-    if args.assets:
-        for a in args.assets:
-            argv.extend(["--asset", a])
-    if getattr(args, "keys", None):
-        for k in args.keys:
-            argv.extend(["--key", k])
-    if getattr(args, "date", None):
-        argv.extend(["--date", args.date])
-    if getattr(args, "semantic", None):
-        argv.extend(["--semantic", args.semantic])
-    if getattr(args, "full", False):
-        argv.append("--full")
-    if args.limit:
-        argv.extend(["--limit", str(args.limit)])
-    if args.json:
-        argv.append("--json")
-    return _run_py("rag_search.py", argv)
 
 
 def cmd_dashboard(args: argparse.Namespace) -> int:

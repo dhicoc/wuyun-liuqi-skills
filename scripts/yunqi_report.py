@@ -24,7 +24,7 @@ from yunqi_data import (
 try:
     from self_evolve import log_usage
     AUTO_SE = True
-except:
+except Exception:
     AUTO_SE = False
 
 DISCLAIMER = (
@@ -537,7 +537,7 @@ def generate_report(year, audience='student', advanced=None, with_rag_bundle=Tru
     if AUTO_SE:
         try:
             log_usage(str(year), [], source="yunqi_report", concepts=["思想层解读"])
-        except:
+        except Exception:
             pass
 
     return '\n'.join(sections)

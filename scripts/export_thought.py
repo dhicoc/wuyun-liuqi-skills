@@ -23,29 +23,16 @@ import argparse
 from datetime import datetime
 from pathlib import Path
 
-from _common import setup_environment
+from _common import setup_environment, resolve_year_or_date
 setup_environment(add_lib=True, add_scripts=True)
 
-# 复用现有核心
-try:
-    from calculate_yunqi_api import calculate_yunqi_api, _resolve_date
-except Exception:
-    from scripts.calculate_yunqi_api import calculate_yunqi_api, _resolve_date
-
-try:
-    from yunqi_report import (
-        build_thought_layer_section,
-        CONCEPT_PHILOSOPHY,
-        explain_concept,
-        DISCLAIMER
-    )
-except Exception:
-    from scripts.yunqi_report import (
-        build_thought_layer_section,
-        CONCEPT_PHILOSOPHY,
-        explain_concept,
-        DISCLAIMER
-    )
+from calculate_yunqi_api import calculate_yunqi_api  # noqa: E402
+from yunqi_report import (  # noqa: E402
+    build_thought_layer_section,
+    CONCEPT_PHILOSOPHY,
+    explain_concept,
+    DISCLAIMER,
+)
 
 # 可选 PDF
 FPDF_AVAILABLE = False
@@ -58,27 +45,19 @@ except ImportError:
 
 def get_year_and_data(date_input):
     """解析日期，返回年份 + 完整计算结果 + 思想相关数据"""
-    date_str = str(date_input).strip()
-    # 支持纯年份（如 2026）
-    if date_str.isdigit() and len(date_str) == 4:
-        year = int(date_str)
-        # 选该运气年内一个代表性日期（大寒后）
-        date_str = f"{year}-07-08"
-    else:
-        date_str = _resolve_date(date_str) if callable(_resolve_date) else date_str
-
+    date_str = resolve_year_or_date(str(date_input).strip())
     result = calculate_yunqi_api(date_str)
 
-    year = int(result.get('year', datetime.now().year))
-    tg = result.get('ganzhi', {}).get('gan', '丙')
-    dz = result.get('ganzhi', {}).get('zhi', '午')
-    dayun = result.get('dayun', '火')
-    taiguo = result.get('dayun_taiguo', False)
-    sitian = result.get('sitian', '少阴君火')
-    zaiquan = result.get('zaiquan', '阳明燥金')
-    tianfu = result.get('tianfu', False)
-    suihui = result.get('suihui', False)
-    pingqi = result.get('pingqi', False)
+    year = result['yunqi_year']
+    tg = result['year_gan']
+    dz = result['year_zhi']
+    dayun = result['sui_yun']['element']
+    taiguo = result['sui_yun']['status'] == '太过'
+    sitian = result['si_tian']
+    zaiquan = result['zai_quan']
+    tianfu = result['tong_hua']['tianfu']
+    suihui = result['tong_hua']['suihui']
+    pingqi = result['tong_hua']['pingqi']
 
     return {
         'date_str': date_str,
@@ -255,7 +234,7 @@ pre, code {{ background: #f8fafc; padding: 2px 6px; border-radius: 4px; }}
     for line in summary_text.splitlines():
         try:
             pdf.multi_cell(0, 6, line)
-        except:
+        except Exception:
             pdf.multi_cell(0, 6, line.encode('utf-8', errors='ignore').decode('latin-1', errors='ignore'))
 
     pdf.output(str(output_path))

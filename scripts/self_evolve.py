@@ -353,7 +353,7 @@ def stats_low_coverage() -> list[str]:
                                 val = entry.get(key_field)
                                 if val and isinstance(val, str) and not val.startswith("asset"):
                                     all_keys.add(val)
-                    except:
+                    except Exception:
                         pass
 
     low_coverage = all_keys - queried_keys
@@ -386,7 +386,7 @@ def cleanup_old_data(days: int = 90, anonymize_existing: bool = False):
                             if 'context' in e:
                                 e['context'] = _sanitize_text(e.get('context', ''))
                             new_lines.append(json.dumps(e, ensure_ascii=False) + '\n')
-                        except:
+                        except Exception:
                             new_lines.append(line)
                     with open(fpath, 'w', encoding='utf-8') as f:
                         f.writelines(new_lines)

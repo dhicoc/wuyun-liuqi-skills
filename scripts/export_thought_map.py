@@ -23,11 +23,11 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from _common import setup_environment
+from _common import setup_environment, resolve_year_or_date
 
 setup_environment(add_lib=True, add_scripts=True)
 
-from calculate_yunqi_api import calculate_yunqi_api, _resolve_date  # noqa: E402
+from calculate_yunqi_api import calculate_yunqi_api  # noqa: E402
 from yunqi_report import CONCEPT_PHILOSOPHY  # noqa: E402
 
 
@@ -175,10 +175,7 @@ def build_markdown(
 
 
 def resolve_input_date(raw: str) -> str:
-    s = str(raw).strip()
-    if s.isdigit() and len(s) == 4:
-        return f"{s}-07-08"
-    return _resolve_date(s)
+    return resolve_year_or_date(raw)
 
 
 def main() -> int:

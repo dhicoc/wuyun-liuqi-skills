@@ -22,6 +22,7 @@
 import sys
 import os
 import io
+from datetime import date
 
 
 def setup_utf8_stdout():
@@ -66,6 +67,23 @@ def add_scripts_dir_to_path():
         sys.path.insert(0, script_dir)
 
 
+def resolve_year_or_date(raw: str) -> str:
+    """
+    统一解析日期或年份输入。
+
+    - 纯 4 位数字（如 "2026"）→ 转为该运气年代表性日期 "{year}-07-08"
+    - "today" / "今天" / "now" / "" → 今天
+    - 标准 YYYY-MM-DD → 原样返回
+    """
+    s = str(raw).strip()
+    if s.isdigit() and len(s) == 4:
+        return f"{int(s)}-07-08"
+    low = s.lower()
+    if low in ("today", "今天", "now", "当前", ""):
+        return date.today().isoformat()
+    return s
+
+
 def setup_environment(add_lib=True, add_scripts=False):
     """
     一键初始化环境。
@@ -102,7 +120,6 @@ def color(text, color_code):
         return text
     # 简单检测：Windows 旧版或非 tty 时可能不理想，但现代系统通常支持
     try:
-        import sys
         if sys.stdout.isatty():
             return f"{color_code}{text}{RESET}"
     except Exception:

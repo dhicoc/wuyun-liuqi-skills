@@ -9,8 +9,6 @@
 """
 import sys
 import os
-import json
-import subprocess
 
 from _common import setup_environment
 setup_environment(add_lib=False)  # 本脚本主要调用其他脚本，不一定需要 lib

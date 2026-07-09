@@ -26,7 +26,7 @@ from pathlib import Path
 from datetime import date
 from typing import Any, Dict, List, Optional, Union
 
-from _common import setup_environment, color, highlight_key, success, warning, RED, YELLOW, GREEN, CYAN, RESET, BOLD
+from _common import setup_environment, color, highlight_key, RED, YELLOW, GREEN, CYAN, RESET, BOLD
 setup_environment()  # 处理 UTF-8 + lib 路径
 
 # 自进化自动记录（可选关闭）
@@ -530,7 +530,7 @@ if __name__ == '__main__':
             concepts.append(f"level_{args.level}")
         try:
             log_usage(date_str, list(result.get("rag_keys", {}).values()) if result.get("rag_keys") else [], source="cli", concepts=concepts or None)
-        except:
+        except Exception:
             pass  # 不影响主流程
 
     # 友好提示（默认今天时）
