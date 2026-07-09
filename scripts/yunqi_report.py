@@ -169,6 +169,67 @@ def build_evidence_section(year, sitian, zaiquan, jialin_results):
     return '\n'.join(lines)
 
 
+def build_rag_bundle_section(year, ref_date=None):
+    """
+    将 rag_search.fetch_by_date 接入报告：按代表日 rag_keys 精确拉取知识库摘要。
+    ref_date: 默认 year-07-08（大寒后、年中，属该运气年）。
+    """
+    try:
+        from rag_search import fetch_by_date
+    except Exception:
+        return ''
+
+    date_str = ref_date or f"{int(year)}-07-08"
+    try:
+        bundle = fetch_by_date(date_str, full=False)
+    except Exception:
+        return ''
+
+    rag_keys = bundle.get('rag_keys') or {}
+    hits_by_role = bundle.get('hits_by_role') or {}
+    lines = [
+        '## 知识库精确命中（按日 rag_keys）\n',
+        f"> 代表日: `{bundle.get('date', date_str)}` · 运气年 {bundle.get('yunqi_year')}（{bundle.get('year_gz', '')}）  \n",
+        f"> 直取键: `{json.dumps(rag_keys, ensure_ascii=False)}`\n",
+    ]
+    role_labels = {
+        'suiyun': '岁运',
+        'sitian': '司天',
+        'zaiquan': '在泉',
+        'current_step': '当前步位（代表日）',
+    }
+    for role in ('suiyun', 'sitian', 'zaiquan', 'current_step'):
+        key = rag_keys.get(role, '')
+        label = role_labels.get(role, role)
+        hits = hits_by_role.get(role) or []
+        lines.append(f"### {label} · `{key}`\n")
+        if not hits:
+            lines.append("- （未命中知识库）\n")
+            continue
+        # 每 role 最多 2 条，避免报告过长
+        for h in hits[:2]:
+            preview = (h.get('preview') or '').strip()
+            if len(preview) > 160:
+                preview = preview[:160] + '…'
+            lines.append(
+                f"- **{h.get('title', h.get('id'))}**"
+                f"（{h.get('asset')}/{h.get('id')}）：{preview}"
+            )
+        lines.append('')
+
+    missing = bundle.get('missing') or []
+    if missing:
+        lines.append(f"- ⚠️ 未命中: {', '.join(missing)}")
+    else:
+        lines.append("- ✅ 全部 rag_keys 均有知识库命中")
+    lines.append('')
+    lines.append(
+        f"_完整 JSON：`python scripts/rag_search.py --date {date_str} --json` "
+        f"或 `from wuyun_liuqi import fetch_by_date`_\n"
+    )
+    return '\n'.join(lines)
+
+
 def build_advanced_alignment_section(advanced):
     """根据 advanced_alignment.py 的 JSON 输出构建报告章节。"""
     if not advanced:
@@ -300,8 +361,12 @@ def load_advanced_alignment(path):
     return None
 
 
-def generate_report(year, audience='student', advanced=None):
-    """生成综合报告"""
+def generate_report(year, audience='student', advanced=None, with_rag_bundle=True, rag_ref_date=None):
+    """生成综合报告。
+
+    with_rag_bundle: 是否附加按日 rag_keys 精确命中章节（默认开启）。
+    rag_ref_date: 代表日 YYYY-MM-DD；默认 year-07-08。
+    """
     # 获取全部推算数据
     tg, dz = get_ganzhi(year)
     dayun, _ = get_dayun(year)
@@ -449,6 +514,12 @@ def generate_report(year, audience='student', advanced=None):
     # 经典与注家依据
     sections.append(build_evidence_section(year, sitian, zaiquan, jialin_results))
 
+    # 知识库精确命中（fetch_by_date / rag_keys）
+    if with_rag_bundle:
+        rag_section = build_rag_bundle_section(year, ref_date=rag_ref_date)
+        if rag_section:
+            sections.append(rag_section)
+
     # 高级对齐章节（可选）
     advanced_section = build_advanced_alignment_section(advanced)
     if advanced_section:
@@ -474,12 +545,18 @@ def generate_report(year, audience='student', advanced=None):
 
 def main():
     if len(sys.argv) < 2:
-        print("用法: python yunqi_report.py <年份> [--audience student|practitioner|researcher] [--json] [--advanced-json <高级对齐JSON文件>]")
+        print(
+            "用法: python yunqi_report.py <年份> "
+            "[--audience student|practitioner|researcher] [--json] "
+            "[--advanced-json <文件>] [--no-rag-bundle] [--rag-date YYYY-MM-DD]"
+        )
         sys.exit(1)
 
     year = int(sys.argv[1])
     audience = 'student'
     advanced = None
+    with_rag_bundle = True
+    rag_ref_date = None
     if '--audience' in sys.argv:
         idx = sys.argv.index('--audience')
         if idx + 1 < len(sys.argv):
@@ -488,12 +565,24 @@ def main():
         idx = sys.argv.index('--advanced-json')
         if idx + 1 < len(sys.argv):
             advanced = load_advanced_alignment(sys.argv[idx + 1])
+    if '--no-rag-bundle' in sys.argv:
+        with_rag_bundle = False
+    if '--rag-date' in sys.argv:
+        idx = sys.argv.index('--rag-date')
+        if idx + 1 < len(sys.argv):
+            rag_ref_date = sys.argv[idx + 1]
 
     if audience not in ('student', 'practitioner', 'researcher'):
         print(f"audience 必须是 student/practitioner/researcher，当前: {audience}")
         sys.exit(1)
 
-    report = generate_report(year, audience, advanced=advanced)
+    report = generate_report(
+        year,
+        audience,
+        advanced=advanced,
+        with_rag_bundle=with_rag_bundle,
+        rag_ref_date=rag_ref_date,
+    )
 
     if '--json' in sys.argv:
         tg, dz = get_ganzhi(year)

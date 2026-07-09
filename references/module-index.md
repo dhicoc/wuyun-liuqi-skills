@@ -15,6 +15,14 @@
 | System Prompt | `prompts/system_prompt.md` | TCM 运气专家角色约束 |
 | 高级对齐 | `advanced-alignment/` | 天气、地域、体质交叉 |
 | 自进化 | `self-evolve/` + `scripts/self_evolve.py` | 日志、盲区、反馈、月报 |
+| 优化冲刺（执行真相源） | `docs/optimization-sprint.md` | 本轮文档/CLI/进程/测试任务与状态 |
+| 思想地图 | `scripts/export_thought_map.py` | Mermaid 概念图 + 年结构图 |
+| 苏格拉底学习 | `scripts/socratic_learn.py` | 提问式学习会话 |
+| 统一 CLI | `scripts/yunqi_cli.py` | calc/report/map/learn/search/dashboard |
+| 学习仪表盘 | `scripts/learning_dashboard.py` | 概念覆盖 + 产物 + 推荐 |
+| RAG 检索 | `scripts/rag_search.py` | 关键词 / `--key` 精确 / `--date` 按日打包 |
+| 可导入包 | `wuyun_liuqi/` | `from wuyun_liuqi import calculate, fetch_by_date` |
+| Py/JS 一致性 | `scripts/compare_py_js_yunqi.py` | 关键字段跨语言对比 |
 
 ## RAG Asset 速查
 

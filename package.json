@@ -5,7 +5,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "calc": "node scripts/calculate_yunqi_api.js"
+    "calc": "node scripts/calculate_yunqi_api.js",
+    "compare": "node scripts/calculate_yunqi_api.js 2026-06-29 --json"
   },
   "dependencies": {
     "lunar-javascript": "^1.0.0"

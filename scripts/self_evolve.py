@@ -180,9 +180,44 @@ def log_feedback(session_id: str, rating: int, comment: str = "", feedback_type:
 
 # ── 统计分析 ───────────────────────────────────────────
 
+# 噪声 source（大小写不敏感，整词或包含）
+_TEST_SOURCES = frozenset({
+    "test", "smoke", "health_check", "health-check", "ci", "regression",
+    "unit", "pytest", "demo",
+})
+# 占位 rag_key
+_NOISE_RAG_KEYS = frozenset({
+    "test-key", "test_key", "dummy", "placeholder", "sample-key", "sample_key",
+})
+_NOISE_INPUTS = frozenset({"", "test", "dummy", "sample", "n/a", "na", "null", "none"})
+
+
+def _is_noise_entry(entry: dict) -> bool:
+    """判断是否为测试/冒烟/占位噪声，应从统计中排除。"""
+    source = (entry.get("source") or "").strip().lower()
+    if source in _TEST_SOURCES:
+        return True
+    if source.startswith("test") or source.endswith("_test") or "smoke" in source:
+        return True
+
+    input_date = (entry.get("input_date") or "").strip().lower()
+    if input_date in _NOISE_INPUTS:
+        return True
+
+    for key in entry.get("rag_keys") or []:
+        k = (key or "").strip().lower()
+        if not k:
+            continue
+        if k in _NOISE_RAG_KEYS:
+            return True
+        if k.startswith("test") or k.startswith("dummy") or k.startswith("sample"):
+            return True
+    return False
+
+
 def load_jsonl_lines(directory: str, filter_test: bool = True, dedup: bool = True) -> list[dict]:
     """加载目录下所有 JSONL 文件的内容。
-    filter_test: 过滤 source 为 'test' 的数据，提升数据质量。
+    filter_test: 过滤测试/冒烟/占位噪声（source、rag_keys、input_date），提升数据质量。
     dedup: 简单去重（基于 timestamp + input + keys 的 hash），避免重复日志。
     """
     entries = []
@@ -198,7 +233,7 @@ def load_jsonl_lines(directory: str, filter_test: bool = True, dedup: bool = Tru
                 line = line.strip()
                 if line:
                     entry = json.loads(line)
-                    if filter_test and entry.get("source") == "test":
+                    if filter_test and _is_noise_entry(entry):
                         continue
                     if dedup:
                         key = (entry.get("timestamp", ""), entry.get("input_date", ""), tuple(entry.get("rag_keys", [])))

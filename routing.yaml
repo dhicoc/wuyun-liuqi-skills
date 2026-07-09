@@ -108,8 +108,13 @@ tasks:
       - 帮我学运气
       - 解释天人合一
       - 学习客主加临
-    route: prompts/onboarding_prompt.md → yunqi-calc/references/ 或 calculate_yunqi_api --explain-concept
-    script: python scripts/calculate_yunqi_api.py today --level deep --explain-concept "<概念>"
+      - 苏格拉底学习
+      - 思想地图
+    route: prompts/onboarding_prompt.md → socratic_learn / export_thought_map / --explain-concept
+    script: python scripts/yunqi_cli.py learn today
+    # 备选: python scripts/socratic_learn.py today --concept "<概念>"
+    #       python scripts/yunqi_cli.py map today
+    #       python scripts/calculate_yunqi_api.py today --level deep --explain-concept "<概念>"
 
   - id: personal-profile
     labels: { zh: 个人运气/体质, en: Personal profile }
@@ -137,6 +142,29 @@ tasks:
       - 导出PDF
     route: scripts/export_thought.py
     script: python scripts/export_thought.py today --format all
+
+  - id: learning-dashboard
+    labels: { zh: 学习路径仪表盘, en: Learning dashboard }
+    trigger_examples:
+      - 学习进度
+      - 学习仪表盘
+      - 我学到哪了
+    route: scripts/learning_dashboard.py
+    script: python scripts/yunqi_cli.py dashboard
+
+  - id: rag-search
+    labels: { zh: 知识库/文献检索, en: RAG keyword search }
+    trigger_examples:
+      - 检索司天
+      - 查客主加临
+      - 知识库搜索
+      - 术语解释 岁运
+      - 按今天运气查知识库
+    route: scripts/rag_search.py → rag-knowledge-base/
+    script: python scripts/yunqi_cli.py search <关键词>
+    # 精确: python scripts/yunqi_cli.py search --key water_excess --json
+    # 按日: python scripts/yunqi_cli.py search --date today --json
+    # 口语: python scripts/yunqi_cli.py search --semantic 心火偏旺
 
   - id: agent-rag
     labels: { zh: Agent/RAG 集成, en: Agent RAG integration }

@@ -132,3 +132,29 @@ def warning(text):
 
 def error(text):
     return color(text, RED)
+
+
+# ═══════════════════════════════════════════════════════════════
+# Legacy 分项脚本 CLI 辅助（optimization-sprint P2-1）
+# ═══════════════════════════════════════════════════════════════
+
+def build_year_cli_parser(prog: str, description: str, epilog: str = None):
+    """
+    为 year 位置参数 + --json 的分项脚本构建 argparse。
+    用法保持兼容：python xxx.py <年份> [--json]
+    """
+    import argparse
+    legacy_note = (
+        "\n\n[legacy] 分项入口。完整日期推算请优先使用：\n"
+        "  python scripts/calculate_yunqi_api.py today --summary"
+    )
+    full_epilog = (epilog or "") + legacy_note
+    parser = argparse.ArgumentParser(
+        prog=prog,
+        description=description,
+        epilog=full_epilog,
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
+    parser.add_argument("year", type=int, help="公历年份，如 2026")
+    parser.add_argument("--json", action="store_true", help="输出 JSON")
+    return parser

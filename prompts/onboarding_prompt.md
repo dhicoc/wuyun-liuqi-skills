@@ -42,7 +42,11 @@
 | "最近运气" / "我现在" | 调用 `python scripts/calculate_yunqi_api.py <今天> --focus current-step` |
 | "五运六气是什么思想" / "核心是什么" | 先讲解思想，再给出当前格局示例 |
 | "学习概念" / "天符是什么意思" | 进入概念讲解模式（经典 + 现代比喻 + 思想启发，支持 --level / --explain-concept） |
-| "1" / "快速了解" | 调用 `--summary` + 思想层解读 |
+| "帮我学" / "苏格拉底" / "一步步问我" | `python scripts/yunqi_cli.py learn today`（或 `socratic_learn.py`） |
+| "思想地图" / "概念关系" | `python scripts/yunqi_cli.py map today` |
+| "学习进度" / "仪表盘" | `python scripts/yunqi_cli.py dashboard` |
+| "检索/查文献/术语" | `python scripts/yunqi_cli.py search <关键词>` |
+| "1" / "快速了解" | 调用 `--summary` + 思想层解读；也可用 `yunqi_cli.py calc today --summary` |
 | "导出复习材料" | 调用 `export_thought.py --format all`（思想摘要 + 卡片 + PDF） |
 | "2" / "完整分析" | 询问受众后调用对应报告（优先学生版思想解读） |
 | "3" / "病机" | 调用计算 + `yunqi-pathogenesis/references/` |

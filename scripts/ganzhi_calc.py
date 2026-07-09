@@ -1,15 +1,19 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-干支推算脚本
-用法: python ganzhi_calc.py <年份>
+干支推算脚本 [legacy]
+
+用法: python ganzhi_calc.py <年份> [--json]
 输出: 天干、地支、六十甲子序号、生肖
+
+推荐主入口:
+  python scripts/calculate_yunqi_api.py today --summary
 """
 import sys
 import os
 import json
 
-from _common import setup_environment
+from _common import setup_environment, build_year_cli_parser
 setup_environment()  # 处理 UTF-8 + lib 路径
 
 from yunqi_data import TIANGAN, DIZHI, DIZHI_SHENGXIAO, get_ganzhi, get_sexagenary_index
@@ -42,13 +46,14 @@ def format_text(result):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) < 2:
-        print("用法: python ganzhi_calc.py <年份>")
-        sys.exit(1)
-    year = int(sys.argv[1])
-    result = calc(year)
-
-    if '--json' in sys.argv:
+    parser = build_year_cli_parser(
+        'ganzhi_calc.py',
+        '干支推算：年份 → 天干地支、六十甲子、生肖',
+        epilog='示例: python ganzhi_calc.py 2026 --json',
+    )
+    args = parser.parse_args()
+    result = calc(args.year)
+    if args.json:
         print(json.dumps(result, ensure_ascii=False, indent=2))
     else:
         print(format_text(result))

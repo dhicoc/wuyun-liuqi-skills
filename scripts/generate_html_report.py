@@ -10,10 +10,10 @@
 import sys
 import os
 import json
-import subprocess
+from types import SimpleNamespace
 
-from _common import setup_environment
-setup_environment(add_lib=False)
+from _common import setup_environment, add_scripts_dir_to_path
+setup_environment(add_lib=False, add_scripts=True)
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -32,43 +32,84 @@ LIUQI_WUXING = {
 
 
 def get_data(date_str):
-    """直接调用（P0 优化：避免 subprocess 开销）"""
-    # 确保 lib 路径可用
+    """直接调用 calculate_yunqi_api（避免 subprocess）。"""
     sys.path.insert(0, os.path.join(BASE_DIR, 'scripts', 'lib'))
+    add_scripts_dir_to_path()
     from calculate_yunqi_api import calculate_yunqi_api
     return calculate_yunqi_api(date_str)
 
 
 def fetch_advanced_alignment(date_str, birth_date=None, city=None, lat=None, lon=None,
                              mock=False, no_weather=False, timeout=10):
-    """调用 advanced_alignment.py 获取高级对齐 JSON。"""
-    script = os.path.join(BASE_DIR, 'scripts', 'advanced_alignment.py')
-    args = [sys.executable, script, date_str, '--json']
-    if birth_date:
-        args += ['--birth-date', birth_date]
-    if city:
-        args += ['--city', city]
-    if lat is not None:
-        args += ['--lat', str(lat)]
-    if lon is not None:
-        args += ['--lon', str(lon)]
-    if mock:
-        args += ['--mock']
-    if no_weather:
-        args += ['--no-weather']
-    args += ['--timeout', str(timeout)]
-    env = os.environ.copy()
-    env['PYTHONIOENCODING'] = 'utf-8'
-    result = subprocess.run(
-        args,
-        capture_output=True, text=True, encoding='utf-8', env=env, timeout=max(60, timeout * 6),
-    )
-    if result.returncode != 0:
-        return None
+    """直接 import advanced_alignment，获取高级对齐 JSON。"""
+    add_scripts_dir_to_path()
     try:
-        return json.loads(result.stdout)
-    except json.JSONDecodeError:
+        import advanced_alignment as aa
+        args = SimpleNamespace(
+            date=date_str,
+            date_arg=date_str,
+            birth_date=birth_date,
+            city=city,
+            lat=lat,
+            lon=lon,
+            mock=mock,
+            no_weather=no_weather,
+            timeout=timeout,
+            region=None,
+            birth_place=None,
+            residence_place=None,
+            current_place=city,
+            constitution_demo=False,
+            constitution_file=None,
+            constitution_scores=None,
+            assessment_date=None,
+            assessed_by='self-assessment',
+            provider='mock' if mock else 'auto',
+            baseline_years=5,
+            no_baseline=False,
+            cache_ttl=60,
+            no_cache=False,
+            strict=False,
+            json=True,
+        )
+        return aa.generate_advanced_alignment(args)
+    except Exception:
         return None
+
+
+def write_html_report(date_str, output_path=None, advanced=None, advanced_kwargs=None,
+                      with_rag_bundle=True):
+    """
+    可编程 API：生成 HTML 报告并写入文件。
+    返回：成功提示字符串（与 CLI 输出一致）。
+
+    with_rag_bundle: 是否包含 rag_keys 知识库精确命中章节（默认 True）。
+    """
+    if output_path is None:
+        output_path = os.path.join(BASE_DIR, 'reports', 'generated', f'wuyun-liuqi-report-{date_str}.html')
+    data = get_data(date_str)
+    adv = advanced
+    if adv is None and advanced_kwargs and advanced_kwargs.get('enabled'):
+        adv = fetch_advanced_alignment(
+            date_str,
+            birth_date=advanced_kwargs.get('birth_date'),
+            city=advanced_kwargs.get('city'),
+            lat=advanced_kwargs.get('lat'),
+            lon=advanced_kwargs.get('lon'),
+            mock=advanced_kwargs.get('mock', False),
+            no_weather=advanced_kwargs.get('no_weather', False),
+            timeout=advanced_kwargs.get('timeout', 10),
+        )
+    html = generate_html(data, advanced=adv, with_rag_bundle=with_rag_bundle)
+    parent = os.path.dirname(output_path)
+    if parent:
+        os.makedirs(parent, exist_ok=True)
+    with open(output_path, 'w', encoding='utf-8') as f:
+        f.write(html)
+    msg = f"✅ HTML 报告已生成：{output_path}\n"
+    if adv is None and advanced_kwargs and advanced_kwargs.get('enabled'):
+        msg += "⚠️ 高级对齐获取失败，报告未包含高级对齐章节。\n"
+    return msg
 
 
 def escape_html(text):
@@ -76,6 +117,82 @@ def escape_html(text):
         return ''
     return (str(text).replace('&', '&amp;').replace('<', '&lt;')
             .replace('>', '&gt;').replace('"', '&quot;'))
+
+
+def render_rag_bundle_section(date_str, with_rag_bundle=True):
+    """
+    渲染知识库精确命中章节（与 yunqi_report.build_rag_bundle_section 对齐）。
+    使用 rag_search.fetch_by_date(date_str)。
+    """
+    if not with_rag_bundle:
+        return ''
+    try:
+        from rag_search import fetch_by_date
+        bundle = fetch_by_date(date_str, full=False)
+    except Exception:
+        return ''
+
+    rag_keys = bundle.get('rag_keys') or {}
+    hits_by_role = bundle.get('hits_by_role') or {}
+    role_labels = {
+        'suiyun': '岁运',
+        'sitian': '司天',
+        'zaiquan': '在泉',
+        'current_step': '当前步位',
+    }
+    cards = []
+    for role in ('suiyun', 'sitian', 'zaiquan', 'current_step'):
+        key = rag_keys.get(role, '')
+        label = role_labels.get(role, role)
+        hits = hits_by_role.get(role) or []
+        if not hits:
+            body = '<p class="rag-empty">（未命中知识库）</p>'
+        else:
+            items = []
+            for h in hits[:2]:
+                preview = (h.get('preview') or '').strip()
+                if len(preview) > 140:
+                    preview = preview[:140] + '…'
+                items.append(
+                    f'<div class="rag-hit">'
+                    f'<div class="rag-hit-title">{escape_html(h.get("title") or h.get("id"))}'
+                    f' <span class="rag-meta">({escape_html(h.get("asset"))}/{escape_html(h.get("id"))})</span></div>'
+                    f'<p>{escape_html(preview)}</p>'
+                    f'</div>'
+                )
+            body = ''.join(items)
+        cards.append(
+            f'<div class="rag-card">'
+            f'<div class="rag-role">{escape_html(label)} · <code>{escape_html(key)}</code></div>'
+            f'{body}'
+            f'</div>'
+        )
+
+    missing = bundle.get('missing') or []
+    status = (
+        f'<p class="rag-status warn">⚠️ 未命中: {escape_html(", ".join(missing))}</p>'
+        if missing
+        else '<p class="rag-status ok">✅ 全部 rag_keys 均有知识库命中</p>'
+    )
+    keys_json = escape_html(json.dumps(rag_keys, ensure_ascii=False))
+    return f'''
+    <section class="section" id="rag-bundle">
+      <h2 class="section-title font-serif">知识库精确命中</h2>
+      <p style="color:var(--muted);font-size:0.9rem;margin-bottom:1rem;">
+        代表日 <code>{escape_html(bundle.get("date", date_str))}</code>
+        · 运气年 {escape_html(str(bundle.get("yunqi_year", "")))}
+        （{escape_html(bundle.get("year_gz", ""))}）
+        · 直取键 <code style="font-size:0.8rem">{keys_json}</code>
+      </p>
+      <div class="rag-grid">
+        {''.join(cards)}
+      </div>
+      {status}
+      <p style="color:var(--muted);font-size:0.8rem;margin-top:0.75rem;">
+        完整 JSON：<code>python scripts/rag_search.py --date {escape_html(date_str)} --json</code>
+      </p>
+    </section>
+    '''
 
 
 def render_advanced_alignment_section(advanced):
@@ -259,13 +376,14 @@ def generate_interpretation(data):
     }
 
 
-def generate_html(data, advanced=None):
+def generate_html(data, advanced=None, with_rag_bundle=True):
     date_str = data['date']
     year_gz = data['year_gz']
     sui_yun = data['sui_yun']
     si_tian = data['si_tian']
     zai_quan = data['zai_quan']
     current = data['current_step']
+    rag_bundle_html = render_rag_bundle_section(date_str, with_rag_bundle=with_rag_bundle)
 
     # 六气圆环卡片
     qi_cards = []
@@ -544,6 +662,33 @@ body {{
 .jialin-table .row-current {{ background: rgba(212,175,55,0.1); }}
 .jialin-table .shun {{ color: #4ade80; }}
 .jialin-table .ni {{ color: #fb7185; }}
+.rag-grid {{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}}
+.rag-card {{
+  background: rgba(17,24,39,0.75);
+  border: 1px solid rgba(212,175,55,0.22);
+  border-radius: 0.875rem;
+  padding: 1rem 1.1rem;
+}}
+.rag-role {{
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: 0.65rem;
+  font-size: 0.95rem;
+}}
+.rag-hit {{ margin-bottom: 0.75rem; }}
+.rag-hit:last-child {{ margin-bottom: 0; }}
+.rag-hit-title {{ color: var(--text); font-size: 0.92rem; margin-bottom: 0.25rem; }}
+.rag-meta {{ color: var(--muted); font-size: 0.78rem; font-weight: 400; }}
+.rag-hit p {{ color: var(--muted); font-size: 0.86rem; line-height: 1.55; margin: 0; }}
+.rag-empty {{ color: var(--muted); font-size: 0.88rem; margin: 0; }}
+.rag-status {{ margin-top: 1rem; font-size: 0.9rem; }}
+.rag-status.ok {{ color: #4ade80; }}
+.rag-status.warn {{ color: #fbbf24; }}
+
 .interpret-card {{
   background: rgba(17,24,39,0.75);
   border: 1px solid rgba(255,255,255,0.08);
@@ -758,6 +903,8 @@ body {{
       </div>
     </section>
 
+    {rag_bundle_html}
+
     {render_advanced_alignment_section(advanced)}
 
     <section class="section">
@@ -789,13 +936,18 @@ body {{
 
 def main():
     if len(sys.argv) < 2:
-        print("用法: python scripts/generate_html_report.py <YYYY-MM-DD> [输出路径] [--with-advanced-alignment --birth-date YYYY-MM-DD --city 城市] [--mock] [--no-weather]")
+        print(
+            "用法: python scripts/generate_html_report.py <YYYY-MM-DD> [输出路径] "
+            "[--with-advanced-alignment --birth-date YYYY-MM-DD --city 城市] "
+            "[--mock] [--no-weather] [--no-rag-bundle]"
+        )
         print("示例: python scripts/generate_html_report.py 2026-06-29 reports/generated/wuyun-liuqi-report.html")
         sys.exit(1)
 
     date_str = sys.argv[1]
     positional = []
     advanced_kwargs = {}
+    with_rag_bundle = True
     i = 2
     while i < len(sys.argv):
         arg = sys.argv[i]
@@ -817,6 +969,8 @@ def main():
             advanced_kwargs['mock'] = True
         elif arg == '--no-weather':
             advanced_kwargs['no_weather'] = True
+        elif arg == '--no-rag-bundle':
+            with_rag_bundle = False
         elif arg == '--timeout' and i + 1 < len(sys.argv):
             advanced_kwargs['timeout'] = int(sys.argv[i + 1])
             i += 1
@@ -825,29 +979,13 @@ def main():
         i += 1
 
     output_path = positional[0] if positional else os.path.join(BASE_DIR, 'reports', 'generated', f'wuyun-liuqi-report-{date_str}.html')
-
-    data = get_data(date_str)
-    advanced = None
-    if advanced_kwargs.get('enabled'):
-        advanced = fetch_advanced_alignment(
-            date_str,
-            birth_date=advanced_kwargs.get('birth_date'),
-            city=advanced_kwargs.get('city'),
-            lat=advanced_kwargs.get('lat'),
-            lon=advanced_kwargs.get('lon'),
-            mock=advanced_kwargs.get('mock', False),
-            no_weather=advanced_kwargs.get('no_weather', False),
-            timeout=advanced_kwargs.get('timeout', 10),
-        )
-    html = generate_html(data, advanced=advanced)
-
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
-    with open(output_path, 'w', encoding='utf-8') as f:
-        f.write(html)
-
-    sys.stdout.write(f"✅ HTML 报告已生成：{output_path}\n")
-    if advanced is None and advanced_kwargs.get('enabled'):
-        sys.stdout.write("⚠️ 高级对齐获取失败，报告未包含高级对齐章节。\n")
+    msg = write_html_report(
+        date_str,
+        output_path=output_path,
+        advanced_kwargs=advanced_kwargs,
+        with_rag_bundle=with_rag_bundle,
+    )
+    sys.stdout.write(msg)
     sys.stdout.flush()
 
 

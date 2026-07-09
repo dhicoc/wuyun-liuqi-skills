@@ -3,7 +3,10 @@
 > 本文档聚焦**最终用户使用体验**，区别于 `optimization.md`（工程质量、性能、代码结构）。
 > 目标：让直接运行 CLI 的人类用户和通过 AI Agent 调用的用户，都能更轻松、愉快、高效地使用本技能包。
 
-最后更新：2026-07-08
+最后更新：2026-07-09
+
+> **当前执行真相源**：本轮未完成的 UX 项已并入 [optimization-sprint.md](./optimization-sprint.md)。  
+> 下文中标注 ✅ 的项表示代码侧已落地；仍标 ⏳ 的项为剩余 backlog。
 
 ---
 
@@ -56,85 +59,42 @@
 - 无参数运行给出合理默认行为 + 友好提示
 - 大寒边界和随机日期测试仍全部通过
 
-**当前状态**：待实施
+**当前状态**：✅ 已完成（主入口支持 `today` / 默认今天；见 `calculate_yunqi_api.py`）
 
 ---
 
 ### 3.2 主 CLI 帮助与参数体验
 
-**问题**：
-- `calculate_yunqi_api.py` 使用手动 `sys.argv` 判断，`--help` 不存在或极简
-- 用法说明只在 `if __name__` 里打印
-- 旧脚本（`dayun_calc.py` 等）帮助风格不一致
+**问题（历史）**：
+- 曾用手写 `sys.argv`，`--help` 缺失；旧脚本风格不一致
 
-**建议方案**：
-- 将 `calculate_yunqi_api.py` 迁移到 `argparse`
-- 提供清晰的 `description`、`epilog`（包含常见示例）
-- 统一 `--json`、子功能标志
-- 为常用旧脚本也补全基本 argparse（或标记为 legacy）
+**已完成**：
+- `calculate_yunqi_api.py` 已迁移 `argparse`，含 description / epilog 示例
 
-**验收**：
-- `python scripts/calculate_yunqi_api.py --help` 输出美观且有用
-- 包含“推荐用法”示例
+**剩余**：
+- 分项脚本（`dayun_calc` 等）统一 argparse / legacy 标注 → 见冲刺 **P2-1**
 
-**当前状态**：待实施
+**当前状态**：主入口 ✅；legacy 分项 ⏳（optimization-sprint Phase 2）
 
 ---
 
 ### 3.3 健康检查后的行动引导
 
-**问题**：
-- `health_check.py` 成功后只说“环境就绪”，没有告诉用户“现在可以做什么”
-
-**建议方案**：
-- 成功时打印 3~4 个最常用的一键命令（含 `today`）
-- 失败时给出具体修复命令
-- 增加“推荐新手流程”小节
-
-**验收**：
-- 健康检查通过后输出包含可直接复制的命令
-
-**当前状态**：待实施
+**当前状态**：✅ 已完成（`health_check.py` 成功后打印可复制推荐命令）
 
 ---
 
 ### 3.4 错误消息与恢复建议
 
-**问题**：
-- lunar-python 缺失时静默降级，用户不知道精度受影响
-- 天气 API 失败时没有提示使用 `--mock`
-- 很多地方只有裸异常或极简错误
+**当前状态**：部分完成（主入口日期校验与友好报错已有；天气/advanced 的 `--mock` 提示与 lunar 降级警告可继续打磨）
 
-**建议方案**：
-- 在 `yunqi_data.py` 的 fallback 处增加警告打印（“精度降低为近似节气”）
-- 在 `weather_alignment.py` 和 `advanced_alignment.py` 增加失败时的 `--mock` 建议
-- 关键入口统一使用 `try/except` + 建议性文案
-
-**验收**：
-- 缺失 lunar-python 时运行主命令会看到清晰警告
-- 网络不可用时运行 advanced 能看到 `--mock` 提示
-
-**当前状态**：待实施
+**剩余 backlog**：见 optimization-sprint Phase 2 之后的运维体验项
 
 ---
 
 ### 3.5 输出末尾的“下一步”引导
 
-**问题**：
-- 运行任意命令后，用户不知道还能做什么
-- 缺少闭环引导（类似 onboarding_prompt）
-
-**建议方案**：
-- 在 `format_text`、`generate_summary`、`yunqi_report` 等输出函数末尾增加简短“推荐下一步”：
-  - `--focus current-step`
-  - `--report-type practitioner`
-  - 个人体质分析命令
-  - 反馈入口话术
-
-**验收**：
-- 运行 `--summary` 后输出底部有 2~3 条可操作建议
-
-**当前状态**：待实施
+**当前状态**：✅ 已完成（主入口 summary / format 输出含「下一步建议」与思想伙伴问题）
 
 ---
 
@@ -142,14 +102,13 @@
 
 ### 4.1 CLI 碎片化缓解
 
-- 文档和表格里仍然大量列出旧的单功能脚本
-- 建议：在 README 和 SKILL.md 中把 `calculate_yunqi_api.py` 作为**唯一推荐入口**，其他脚本标记为“内部/兼容”
+- **目标**：文档把 `calculate_yunqi_api.py` 作为唯一推荐入口，旧脚本标 legacy
+- **状态**：⏳ 进行中（optimization-sprint P2-1 / P2-2）
 
 ### 4.2 终端输出现代化（轻量）
 
-- 增加简单 ANSI 颜色（无新依赖或可选）
-- 让关键结论（太过/不及、相得/不相得）高亮
-- 可选：使用 emoji 增强可读性（已部分使用）
+- 主入口已有 ANSI 颜色辅助（`_common.color` 等）
+- **状态**：✅ 主路径已具备；可继续扩展到 legacy 脚本
 
 ### 4.3 首次使用流程闭环
 

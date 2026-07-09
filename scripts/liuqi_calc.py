@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-六气推算脚本
-用法: python liuqi_calc.py <年份>
+六气推算脚本 [legacy]
+
+用法: python liuqi_calc.py <年份> [--json]
 输出: 司天、在泉、客气六步、主气六步
 
 六气规则:
@@ -10,12 +11,15 @@
   - 在泉 = 司天之对化（下半年主管）
   - 客气六步: 按阴阳推移，司天为三之气，在泉为终之气
   - 主气六步: 每年固定，按季节顺序
+
+推荐主入口:
+  python scripts/calculate_yunqi_api.py today --summary
 """
 import sys
 import os
 import json
 
-from _common import setup_environment
+from _common import setup_environment, build_year_cli_parser
 setup_environment()  # 处理 UTF-8 + lib 路径
 
 from yunqi_data import (
@@ -76,13 +80,14 @@ def format_text(result):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) < 2:
-        print("用法: python liuqi_calc.py <年份>")
-        sys.exit(1)
-    year = int(sys.argv[1])
-    result = calc(year)
-
-    if '--json' in sys.argv:
+    parser = build_year_cli_parser(
+        'liuqi_calc.py',
+        '六气推算：司天在泉、主气客气六步',
+        epilog='示例: python liuqi_calc.py 2026 --json',
+    )
+    args = parser.parse_args()
+    result = calc(args.year)
+    if args.json:
         print(json.dumps(result, ensure_ascii=False, indent=2))
     else:
         print(format_text(result))

@@ -124,19 +124,42 @@ def main():
         else:
             print(f"  ⚠️  {script}: 运行正常，但中文输出可能乱码")
 
+    # 可导入包 + RAG 精确直取冒烟（非阻断编码，但失败记入 all_ok）
+    print("\n[包/API]")
+    package_ok = True
+    try:
+        skill_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        if skill_root not in sys.path:
+            sys.path.insert(0, skill_root)
+        from wuyun_liuqi import calculate, fetch_by_date
+        r = calculate('2026-06-29')
+        b = fetch_by_date('2026-06-29')
+        if r.get('yunqi_year') != 2026:
+            raise RuntimeError(f"yunqi_year={r.get('yunqi_year')}")
+        if b.get('missing'):
+            raise RuntimeError(f"rag missing={b.get('missing')}")
+        print("  ✅ wuyun_liuqi.calculate / fetch_by_date")
+    except Exception as e:
+        package_ok = False
+        print(f"  ❌ wuyun_liuqi 包冒烟失败: {e}")
+
     print('\n' + '=' * 40)
     all_ok = (
         enc['utf8_ready']
         and dep['lunar_python'] == 'OK'
         and all(s['returncode'] == 0 for s in script_statuses.values())
+        and package_ok
     )
     if all_ok:
         print(success('✅ 健康检查通过，环境就绪'))
         print('\n推荐下一步（直接复制运行）：')
-        print('  python scripts/calculate_yunqi_api.py today --summary')
-        print('  python scripts/demo_full_chain.py')
-        print('  python scripts/calculate_yunqi_api.py today --report-type student')
-        print('\n想看个人体质： python scripts/personal_yunqi_profile.py <出生日期> <城市>')
+        print('  python scripts/yunqi_cli.py calc today --summary')
+        print('  python scripts/yunqi_cli.py search --date today')
+        print('  python scripts/yunqi_cli.py learn today')
+        print('  python scripts/yunqi_cli.py dashboard')
+        print('  python -m wuyun_liuqi calc today --summary')
+        print('\n想看个人体质： python scripts/yunqi_cli.py profile <出生日期> [城市]')
+        print('菜单交互： python scripts/yunqi_cli.py interactive')
     else:
         print(error('❌ 健康检查未通过，请按上方建议修复'))
     return 0 if all_ok else 1

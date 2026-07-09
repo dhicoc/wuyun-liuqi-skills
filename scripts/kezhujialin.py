@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-客主加临分析脚本
-用法: python kezhujialin.py <年份>
+客主加临分析脚本 [legacy]
+
+用法: python kezhujialin.py <年份> [--json]
 输出: 六步客主加临顺逆分析
 
 客主加临规则:
@@ -11,12 +12,15 @@
   - 客气克主气 → 不相得（逆）
   - 主气生客气 → 不相得（逆，下生上）
   - 主气克客气 → 不相得（逆，主克客）
+
+推荐主入口:
+  python scripts/calculate_yunqi_api.py today --summary
 """
 import sys
 import os
 import json
 
-from _common import setup_environment
+from _common import setup_environment, build_year_cli_parser
 setup_environment()  # 处理 UTF-8 + lib 路径
 
 from yunqi_data import (
@@ -89,13 +93,14 @@ def format_text(result):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) < 2:
-        print("用法: python kezhujialin.py <年份>")
-        sys.exit(1)
-    year = int(sys.argv[1])
-    result = calc(year)
-
-    if '--json' in sys.argv:
+    parser = build_year_cli_parser(
+        'kezhujialin.py',
+        '客主加临：六步顺逆/相得分析',
+        epilog='示例: python kezhujialin.py 2026 --json',
+    )
+    args = parser.parse_args()
+    result = calc(args.year)
+    if args.json:
         print(json.dumps(result, ensure_ascii=False, indent=2))
     else:
         print(format_text(result))

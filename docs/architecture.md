@@ -97,3 +97,36 @@ node scripts/calculate_yunqi_api.js 2026-06-29 --json
 ## 7. 医学安全边界
 
 所有病机、方药、针灸与养生内容均为传统中医运气学理论参考，不构成现代医学诊断或治疗建议。涉及临床内容时必须附加免责声明，并提醒具体诊疗须由执业医师辨证处理。
+
+## 8. 可导入包布局（渐进 v0.1）
+
+> **已落地轻量骨架**：仓库根目录 `wuyun_liuqi/` 通过 bootstrap 复用 `scripts/` 实现，**不强制搬迁**全部逻辑。  
+> 详见 `docs/optimization-sprint.md`、`pyproject.toml`。
+
+```text
+wuyun_liuqi/                 # 可 import 的稳定 API 面
+├── __init__.py              # calculate / search / lookup_key / fetch_by_date
+├── _bootstrap.py            # 注入 scripts/ 路径
+├── core.py                  # 推算薄封装
+├── rag.py                   # RAG 检索薄封装
+└── __main__.py              # python -m wuyun_liuqi → yunqi_cli
+scripts/                     # 实现与 CLI 仍在此（主维护区）
+pyproject.toml               # 可选 pip install -e .
+```
+
+用法示例：
+
+```python
+from wuyun_liuqi import calculate, lookup_key, fetch_by_date
+r = calculate("2026-06-29")
+bundle = fetch_by_date("today")  # 推算 + 精确拉取 rag_keys 对应知识
+```
+
+```bash
+python -m wuyun_liuqi calc today --summary
+python -m wuyun_liuqi search --date today --json
+# 或继续使用:
+python scripts/yunqi_cli.py ...
+```
+
+Agent 路由仍以 `python scripts/...` 与 `routing.yaml` 为准；包导入供程序化集成。

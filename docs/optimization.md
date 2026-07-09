@@ -1,26 +1,24 @@
 # 代码优化计划（Optimization Plan）
 
-> 本文档记录 wuyun-liuqi-skills 项目的工程优化方向、优先级和实施状态。
-> 目标：在保持功能正确的前提下，显著降低维护成本、提升性能与健壮性。
+> 本文档记录 wuyun-liuqi-skills 项目的**历史工程优化**方向与已完成明细。  
+> **本轮未完成工作请以 [optimization-sprint.md](./optimization-sprint.md) 为准**（执行单一真相源）。
 
-最后更新：2026-07-08
+最后更新：2026-07-09
 
 ---
 
-## 1. 问题总览
+## 1. 问题总览（历史审查 → 当前状态）
 
-经过对代码库的全面审查，发现以下主要问题类别：
-
-| 类别 | 严重程度 | 影响范围 | 示例 |
-|------|----------|----------|------|
-| **样板代码重复** | 高 | 20+ 个脚本 | Windows UTF-8 stdout + sys.path.insert 重复 20+ 处 |
-| **性能问题** | 高 | 核心路径 | `get_jieqi_date` 无缓存 + 慢兜底循环 |
-| **调用方式低效** | 中高 | 多模块 | 大量使用 `subprocess` 调用同包脚本 |
-| **缓存缺失** | 中 | 报告生成 | RAG asset JSON 每次都重新加载 |
-| **双实现同步成本** | 中 | 核心逻辑 | Python + JavaScript 两套几乎完全镜像的计算逻辑 |
-| **健壮性风险** | 中 | 日期处理 | 兜底循环 `range(1,29)`、裸 except、脆弱日期解析 |
-| **结构问题** | 中 | 长期 | 平铺 scripts、无 package、测试文件重复 |
-| **可维护性** | 低中 | 全库 | 缺少类型提示、CLI 解析重复、硬编码数据 |
+| 类别 | 历史严重度 | 当前状态 | 说明 |
+|------|------------|----------|------|
+| **样板代码重复** | 高 | ✅ 基本解决 | `scripts/_common.py` + `setup_environment()` |
+| **性能问题** | 高 | ✅ 基本解决 | `get_jieqi_date` lru_cache + 兜底修复 |
+| **调用方式低效** | 中高 | 🔄 进行中 | 主路径部分仍 subprocess → 冲刺 P2-3~P2-6 |
+| **缓存缺失** | 中 | ✅ 已解决 | RAG asset 加载缓存 |
+| **双实现同步成本** | 中 | ✅ 数据层解决 | `yunqi_constants.json`；逻辑仍双份 |
+| **健壮性风险** | 中 | ✅ 显著改善 | `_parse_date`、入口校验；裸 except 仍有残留 |
+| **结构问题** | 中 | ⏳ 待做 | 正式包结构 → 冲刺 Phase 4 |
+| **可维护性** | 低中 | 🔄 部分 | 主入口 argparse；legacy CLI → 冲刺 P2-1 |
 
 ---
 
@@ -210,11 +208,9 @@ wuyun-liuqi-skills/
 - Python: 加 `@functools.lru_cache` + 用 `calendar.monthrange` 修复 29-31 日问题
 - JS: 增加 Map 缓存 + 兜底改为 31 天
 - 多次调用命中缓存，验证通过 |
-| P0-3 | 减少 subprocess 直接 import | P0 | 进行中（显著改进） | - | 2026-07-08 |
-- personal_yunqi_profile.py: get_yunqi_year 改直接 import calculate_yunqi_api
-- generate_html_report.py: get_data 改直接 import
-- visualize_yunqi.py: get_result 改直接 import
-- calculate_yunqi_api 内部的 run_* 保留 subprocess（用于完整外部报告生成） |
+| P0-3 | 减少 subprocess 直接 import | P0 | ✅ 已完成 | - | 2026-07-09 |
+- 已完成：personal_yunqi_profile / generate_html_report.get_data / visualize 主路径
+- 本冲刺完成：`calculate_yunqi_api.run_*`、`fetch_advanced_alignment` 改为直接 import |
 | P1-1 | RAG asset 加载缓存 | P1 | ✅ 已完成 | - | 2026-07-08 |
 - yunqi_report.py + demo_full_chain.py 增加简单 dict 缓存 |
 | P1-2 | 整理测试文件重复 | P1 | ✅ 已完成 | - | 2026-07-08 |

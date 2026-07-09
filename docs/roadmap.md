@@ -55,10 +55,16 @@
 - [x] 主入口集成 --export。
 - [x] 自进化增强：概念追踪、理解反馈、隐私（SHA256 + sanitize）、会话统计。
 
+## 当前工程冲刺（2026-07）
+
+执行计划与任务状态见：**[docs/optimization-sprint.md](./optimization-sprint.md)**  
+（文档去漂移 · CLI 统一 · 去 subprocess · 测试加固 · 包结构准备）
+
 ## 未来迭代方向（P6+）
 
-- 思想地图（Mermaid 概念关系图）
-- 交互式苏格拉底学习模式
-- 更强的个性化学习路径与进度仪表盘
-- 文献片段自动语境化关联
-- 统一 CLI 或交互模式（--interactive）
+- [x] 思想地图（Mermaid 概念关系图）— `scripts/export_thought_map.py`
+- [x] 交互式苏格拉底学习模式 — `scripts/socratic_learn.py`
+- [x] 统一 CLI / 菜单交互 — `scripts/yunqi_cli.py`
+- [x] 个性化学习路径仪表盘 — `scripts/learning_dashboard.py`
+- [x] 文献关键词检索（轻量）— `scripts/rag_search.py`
+- 文献片段深度语境化 / 向量检索（可选增强）

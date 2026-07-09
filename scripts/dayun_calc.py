@@ -1,15 +1,19 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-大运推算脚本
-用法: python dayun_calc.py <年份>
+大运推算脚本 [legacy]
+
+用法: python dayun_calc.py <年份> [--json]
 输出: 大运五行、太过/不及、平气判断、天符/岁会/太乙天符
+
+推荐主入口:
+  python scripts/calculate_yunqi_api.py today --summary
 """
 import sys
 import os
 import json
 
-from _common import setup_environment
+from _common import setup_environment, build_year_cli_parser
 setup_environment()  # 处理 UTF-8 + lib 路径
 
 from yunqi_data import (
@@ -116,13 +120,14 @@ def format_text(result):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) < 2:
-        print("用法: python dayun_calc.py <年份>")
-        sys.exit(1)
-    year = int(sys.argv[1])
-    result = calc(year)
-
-    if '--json' in sys.argv:
+    parser = build_year_cli_parser(
+        'dayun_calc.py',
+        '大运推算：岁运、太过不及、天符岁会',
+        epilog='示例: python dayun_calc.py 2026 --json',
+    )
+    args = parser.parse_args()
+    result = calc(args.year)
+    if args.json:
         print(json.dumps(result, ensure_ascii=False, indent=2))
     else:
         print(format_text(result))

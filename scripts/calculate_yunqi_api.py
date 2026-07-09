@@ -16,12 +16,15 @@
 
 依赖: lunar-python (pip install lunar-python)
 """
+from __future__ import annotations
+
 import sys
 import os
 import json
 import argparse
 from pathlib import Path
 from datetime import date
+from typing import Any, Dict, List, Optional, Union
 
 from _common import setup_environment, color, highlight_key, success, warning, RED, YELLOW, GREEN, CYAN, RESET, BOLD
 setup_environment()  # 处理 UTF-8 + lib 路径
@@ -30,7 +33,7 @@ setup_environment()  # 处理 UTF-8 + lib 路径
 try:
     from self_evolve import log_usage
     AUTO_LOG = True
-except:
+except Exception:
     AUTO_LOG = False
 
 from yunqi_data import (
@@ -48,23 +51,26 @@ from yunqi_data import (
 )
 
 
-def _resolve_date(date_input):
+def _resolve_date(date_input: Optional[Union[str, date]] = None) -> str:
     """
     UX 优化：支持 'today'、'今天'、None（默认今天）、或标准 YYYY-MM-DD。
     返回标准 YYYY-MM-DD 字符串。
     """
     if date_input is None:
         return date.today().isoformat()
+    # datetime.date 及其子类（含 datetime）
+    if isinstance(date_input, date):
+        return date_input.isoformat()[:10]
 
     s = str(date_input).strip().lower()
     if s in ("today", "今天", "now", "当前", ""):
         return date.today().isoformat()
 
     # 否则假定是标准日期，让下游 _parse_date 做校验
-    return date_input
+    return str(date_input).strip()
 
 
-def calculate_yunqi_api(date_str):
+def calculate_yunqi_api(date_str: Optional[Union[str, date]] = None) -> Dict[str, Any]:
     """
     五运六气统一计算接口
     
@@ -218,7 +224,7 @@ def calculate_yunqi_api(date_str):
     return result
 
 
-def format_text(result):
+def format_text(result: Dict[str, Any]) -> str:
     """格式化为可读文本 (带轻量颜色高亮)"""
     sui_status = result['sui_yun']['status']
     status_color = RED if sui_status == '太过' else YELLOW
@@ -311,47 +317,68 @@ def format_text(result):
     return '\n'.join(lines)
 
 
-def run_yunqi_report(yunqi_year, audience='student', as_json=False):
-    """调用 yunqi_report.py 生成年度综合报告"""
-    import subprocess
-    script_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'yunqi_report.py')
-    env = os.environ.copy()
-    env['PYTHONIOENCODING'] = 'utf-8'
-    args = [sys.executable, script_path, str(yunqi_year), '--audience', audience]
-    if as_json:
-        args.append('--json')
-    result = subprocess.run(args, capture_output=True, text=True, encoding='utf-8', env=env)
-    return result.stdout
-
-
-def run_visualize(date_str):
-    """调用 visualize_yunqi.py 生成 ASCII 图"""
-    import subprocess
-    script_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'visualize_yunqi.py')
-    env = os.environ.copy()
-    env['PYTHONIOENCODING'] = 'utf-8'
-    result = subprocess.run(
-        [sys.executable, script_path, date_str],
-        capture_output=True, text=True, encoding='utf-8', env=env
+def run_yunqi_report(
+    yunqi_year: Union[int, str],
+    audience: str = "student",
+    as_json: bool = False,
+) -> str:
+    """生成年度综合报告（直接 import，避免 subprocess）。"""
+    from _common import add_scripts_dir_to_path
+    add_scripts_dir_to_path()
+    import yunqi_report as yr
+    from yunqi_data import (
+        get_ganzhi, get_dayun, get_sitian, get_zaiquan,
+        is_taiguo, check_tianfu, check_suihui, check_pingqi,
     )
-    return result.stdout
+
+    report = yr.generate_report(int(yunqi_year), audience, advanced=None)
+    if not as_json:
+        return report + ('\n' if not report.endswith('\n') else '')
+
+    year = int(yunqi_year)
+    tg, dz = get_ganzhi(year)
+    dayun, _ = get_dayun(year)
+    sitian = get_sitian(year)
+    zaiquan = get_zaiquan(year)
+    payload = {
+        'year': year,
+        'ganzhi': f'{tg}{dz}',
+        'dayun': f'{dayun}运{"太过" if is_taiguo(year) else "不及"}',
+        'sitian': sitian,
+        'zaiquan': zaiquan,
+        'tianfu': check_tianfu(year),
+        'suihui': check_suihui(year),
+        'pingqi': check_pingqi(year),
+        'audience': audience,
+        'has_advanced_alignment': False,
+        'report': report,
+    }
+    return json.dumps(payload, ensure_ascii=False, indent=2) + '\n'
 
 
-def run_html_report(date_str):
-    """调用 generate_html_report.py 生成 HTML 报告"""
-    import subprocess
-    script_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'generate_html_report.py')
-    output_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'reports', 'generated', f'wuyun-liuqi-report-{date_str}.html')
-    env = os.environ.copy()
-    env['PYTHONIOENCODING'] = 'utf-8'
-    result = subprocess.run(
-        [sys.executable, script_path, date_str, output_path],
-        capture_output=True, text=True, encoding='utf-8', env=env
+def run_visualize(date_str: str) -> str:
+    """生成 ASCII 可视化（直接 import）。"""
+    from _common import add_scripts_dir_to_path
+    add_scripts_dir_to_path()
+    import visualize_yunqi as viz
+    data = viz.get_result(date_str)
+    output = viz.visualize(data)
+    return output + ('\n' if not output.endswith('\n') else '')
+
+
+def run_html_report(date_str: str) -> str:
+    """生成 HTML 报告（直接 import）。"""
+    from _common import add_scripts_dir_to_path
+    add_scripts_dir_to_path()
+    import generate_html_report as ghr
+    output_path = os.path.join(
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+        'reports', 'generated', f'wuyun-liuqi-report-{date_str}.html',
     )
-    return result.stdout.strip() + '\n'
+    return ghr.write_html_report(date_str, output_path)
 
 
-def load_terminology():
+def load_terminology() -> Dict[str, Any]:
     """加载术语解释库"""
     path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'rag-knowledge-base', 'terminology.json')
     if not os.path.exists(path):
@@ -364,7 +391,7 @@ def load_terminology():
         return {}
 
 
-def generate_explanation_output(result):
+def generate_explanation_output(result: Dict[str, Any]) -> str:
     """生成带术语解释的输出"""
     terminology = load_terminology()
     if not terminology:

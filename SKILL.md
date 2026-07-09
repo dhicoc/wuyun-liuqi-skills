@@ -72,3 +72,13 @@ description: >
 | 一致性/孤儿 | `conformance.yaml`、`scripts/check_conformance.py`、`scripts/audit_orphans.py` |
 | ReAct 推理 | `agent-workflow/react_workflow.md` |
 | 报告规范 | `docs-generator/SKILL.md` |
+| 当前优化冲刺 | `docs/optimization-sprint.md` |
+| 思想地图 | `scripts/export_thought_map.py` |
+| 苏格拉底学习 | `scripts/socratic_learn.py` / `yunqi_cli.py learn` |
+| 统一 CLI | `scripts/yunqi_cli.py` |
+| 学习仪表盘 | `scripts/learning_dashboard.py` / `yunqi_cli.py dashboard` |
+| RAG 检索 | `yunqi_cli.py search --date today` · `--key` · `--semantic 口语` |
+| 可导入包 | `wuyun_liuqi`（`from wuyun_liuqi import calculate, semantic_search`） |
+| HTML 报告 | `generate_html_report.py`（含知识库精确命中章节） |
+| pip 安装 | `pip install -e ".[lunar]"` → `python tests/smoke_pip_install.py` |
+| Py/JS 一致性 | `scripts/compare_py_js_yunqi.py` |

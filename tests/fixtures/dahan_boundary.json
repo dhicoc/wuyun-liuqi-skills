@@ -1,0 +1,31 @@
+{
+  "description": "大寒定年边界用例：公历日期 → 期望运气年（yunqi_year）",
+  "note": "运气年以大寒为界，非公历 1 月 1 日。fixture 由 calculate_yunqi_api 在 lunar-python 环境下标定。",
+  "cases": [
+    {
+      "date": "2026-01-15",
+      "expected_yunqi_year": 2025,
+      "note": "2026 大寒前，属 2025 运气年（乙巳，金运）"
+    },
+    {
+      "date": "2026-01-20",
+      "expected_yunqi_year": 2026,
+      "note": "2026 大寒后（约 1/20），属 2026 运气年（丙午，水运）"
+    },
+    {
+      "date": "2025-01-19",
+      "expected_yunqi_year": 2024,
+      "note": "2025 大寒前"
+    },
+    {
+      "date": "2025-01-20",
+      "expected_yunqi_year": 2025,
+      "note": "2025 大寒后"
+    },
+    {
+      "date": "2026-06-29",
+      "expected_yunqi_year": 2026,
+      "note": "年中非边界对照"
+    }
+  ]
+}

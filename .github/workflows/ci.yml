@@ -36,6 +36,12 @@ jobs:
       - name: Install Python dependencies
         run: pip install -r requirements.txt
 
+      - name: Editable package install (pip install -e .)
+        run: pip install -e ".[lunar]"
+
+      - name: Pip install smoke (import API after install)
+        run: python tests/smoke_pip_install.py
+
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
@@ -73,6 +79,23 @@ jobs:
 
       - name: Full CLI regression suite
         run: python tests/full_regression_test.py
+
+      - name: Dahan boundary fixture test
+        run: python tests/test_dahan_boundary.py
+
+      - name: Package API + RAG key/date + report bundle test
+        run: python tests/test_package_and_rag.py
+
+      - name: Py/JS critical-field consistency
+        run: python scripts/compare_py_js_yunqi.py
+
+      - name: RAG exact key + date bundle smoke
+        run: |
+          python scripts/rag_search.py --key water_excess --json
+          python scripts/rag_search.py --date 2026-06-29 --json
+
+      - name: Lightweight semantic search smoke
+        run: python scripts/rag_semantic.py 心火偏旺 --limit 3
 
       - name: Node.js API smoke test
         run: node scripts/calculate_yunqi_api.js 2026-06-29 --json

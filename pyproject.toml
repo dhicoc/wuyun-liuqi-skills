@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wuyun-liuqi"
+version = "0.1.0"
+description = "五运六气 AI Agent 技能包 — 可导入 API 与 CLI"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [{ name = "wuyun-liuqi contributors" }]
+dependencies = []
+
+[project.optional-dependencies]
+lunar = ["lunar-python>=1.0.0"]
+
+[project.scripts]
+wuyun-liuqi = "wuyun_liuqi.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/dhicoc/wuyun-liuqi-skills"
+Documentation = "https://github.com/dhicoc/wuyun-liuqi-skills/blob/master/docs/architecture.md"
+
+[tool.setuptools.packages.find]
+include = ["wuyun_liuqi*"]
+
+[tool.setuptools.package-data]
+wuyun_liuqi = ["py.typed"]
+
+# 说明：
+# - 推荐 `pip install -e .`（可编辑）：包位于仓库内，自动发现 scripts/ 与 rag-knowledge-base/
+# - 非 editable 安装时请设置环境变量 WUYUN_LIUQI_ROOT 指向仓库根目录
