@@ -398,19 +398,21 @@ def load_constitution_assessment_from_args(args):
     return assess_constitution(scores, metadata=metadata)
 
 
-def main():
-    if len(sys.argv) < 2:
+def main(argv=None):
+    if argv is None:
+        argv = sys.argv[1:]
+    if len(argv) < 1:
         print("用法: python scripts/personal_yunqi_profile.py <出生日期YYYY-MM-DD> [地区] [--json] [--constitution-demo|--constitution-file <file>|--constitution-scores <json>]")
         print("示例: python scripts/personal_yunqi_profile.py 1990-05-20 北京")
         sys.exit(1)
 
-    birth_date = sys.argv[1]
+    birth_date = argv[0]
     region = None
     as_json = False
-    constitution_assessment = load_constitution_assessment_from_args(sys.argv[2:])
+    constitution_assessment = load_constitution_assessment_from_args(argv[1:])
     skip_next = False
     option_with_value = {'--constitution-file', '--constitution-scores'}
-    for arg in sys.argv[2:]:
+    for arg in argv[1:]:
         if skip_next:
             skip_next = False
             continue

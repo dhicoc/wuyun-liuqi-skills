@@ -21,7 +21,7 @@ import json
 import sys
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Sequence
 
 from _common import setup_environment, resolve_year_or_date
 
@@ -178,7 +178,7 @@ def resolve_input_date(raw: str) -> str:
     return resolve_year_or_date(raw)
 
 
-def main() -> int:
+def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser(
         description="导出五运六气思想地图（Mermaid Markdown）",
         epilog="示例: python scripts/export_thought_map.py today --format both",
@@ -198,7 +198,7 @@ def main() -> int:
     )
     parser.add_argument("--output", "-o", default=None, help="输出 .md 路径")
     parser.add_argument("--json", action="store_true", help="同时打印元数据 JSON 到 stdout 摘要")
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
 
     date_str = resolve_input_date(args.date)
     result: Optional[Dict[str, Any]] = None

@@ -29,8 +29,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import os
-import subprocess
 import sys
 from typing import List, Optional, Sequence
 
@@ -38,15 +36,6 @@ from _common import setup_environment, add_scripts_dir_to_path, color, CYAN, GRE
 
 setup_environment(add_lib=False, add_scripts=True)
 add_scripts_dir_to_path()
-
-SCRIPTS = os.path.dirname(os.path.abspath(__file__))
-
-
-def _run_py(script: str, argv: List[str]) -> int:
-    """对尚未迁移为直接 import 的子命令，仍用 subprocess 委托。"""
-    path = os.path.join(SCRIPTS, script)
-    cmd = [sys.executable, path] + argv
-    return subprocess.call(cmd)
 
 
 # ── 直接 import 的核心子命令 ──────────────────────────
@@ -205,7 +194,8 @@ def cmd_map(args: argparse.Namespace) -> int:
         argv.extend(["--output", args.output])
     if args.json:
         argv.append("--json")
-    return _run_py("export_thought_map.py", argv)
+    import export_thought_map
+    return export_thought_map.main(argv)
 
 
 def cmd_learn(args: argparse.Namespace) -> int:
@@ -238,7 +228,8 @@ def cmd_profile(args: argparse.Namespace) -> int:
         argv.append(args.city)
     if args.json:
         argv.append("--json")
-    return _run_py("personal_yunqi_profile.py", argv)
+    import personal_yunqi_profile
+    return personal_yunqi_profile.main(argv)
 
 
 def cmd_export(args: argparse.Namespace) -> int:
@@ -310,16 +301,19 @@ def cmd_interactive(_args: argparse.Namespace) -> int:
                                     level='standard', explain_concept=None, export=None)
             rc = cmd_calc(ns)
         elif choice == "3":
-            rc = _run_py("socratic_learn.py", ["today"])
+            import socratic_learn
+            rc = socratic_learn.main(["today"])
         elif choice == "4":
-            rc = _run_py("export_thought_map.py", ["today", "--format", "both"])
+            import export_thought_map
+            rc = export_thought_map.main(["today", "--format", "both"])
         elif choice == "5":
             ns = argparse.Namespace(year='today', audience='student', json=False)
             rc = cmd_report(ns)
         elif choice == "6":
             rc = cmd_doctor(argparse.Namespace())
         elif choice == "7":
-            rc = _run_py("learning_dashboard.py", [])
+            import learning_dashboard
+            rc = learning_dashboard.main([])
         elif choice == "8":
             ns = argparse.Namespace(terms=None, assets=None, keys=None, date=None,
                                     semantic=None, full=False, limit=10, json=False,
