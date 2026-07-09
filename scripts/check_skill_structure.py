@@ -14,10 +14,10 @@ import re
 import sys
 from pathlib import Path
 
-from _common import setup_utf8_stdout
+from _common import setup_utf8_stdout, PROJECT_ROOT
 setup_utf8_stdout()
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = PROJECT_ROOT
 
 SKILL_MD_MAX_LINES = 90
 RULES_MD_MAX_LINES = 200

@@ -11,7 +11,7 @@ import os
 import io
 import subprocess
 
-from _common import setup_environment, success, warning, error
+from _common import setup_environment, success, warning, error, PROJECT_ROOT
 setup_environment(add_lib=False)
 
 
@@ -42,7 +42,7 @@ def check_dependency():
 
 def check_script(script_name):
     """检查单个脚本能否正常运行"""
-    skill_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    skill_root = str(PROJECT_ROOT)
     script_path = os.path.join(skill_root, 'scripts', script_name)
     if not os.path.exists(script_path):
         return {'exists': False, 'error': 'file not found'}
@@ -128,7 +128,7 @@ def main():
     print("\n[包/API]")
     package_ok = True
     try:
-        skill_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        skill_root = str(PROJECT_ROOT)
         if skill_root not in sys.path:
             sys.path.insert(0, skill_root)
         from wuyun_liuqi import calculate, fetch_by_date

@@ -25,12 +25,12 @@ import json
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Sequence, Tuple
 
-from _common import setup_environment, add_scripts_dir_to_path
+from _common import setup_environment, add_scripts_dir_to_path, PROJECT_ROOT
 
 setup_environment(add_lib=False)
 add_scripts_dir_to_path()
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = PROJECT_ROOT
 RAG_DIR = ROOT / "rag-knowledge-base"
 
 # 可检索资产

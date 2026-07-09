@@ -42,11 +42,11 @@ import re
 from collections import Counter, defaultdict
 from datetime import datetime, date, timedelta
 
-from _common import setup_environment
+from _common import setup_environment, PROJECT_ROOT
 setup_environment(add_lib=False)
 
 
-EVOLVE_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "self-evolve")
+EVOLVE_DIR = str(PROJECT_ROOT / "self-evolve")
 LOG_DIR = os.path.join(EVOLVE_DIR, "logs")
 STATS_DIR = os.path.join(EVOLVE_DIR, "stats")
 FEEDBACK_DIR = os.path.join(EVOLVE_DIR, "feedback")
@@ -357,7 +357,7 @@ def stats_low_coverage() -> list[str]:
         queried_concepts.update(log_entry.get("concepts", []))
 
     # 扫描 rag-knowledge-base 下的所有 asset JSON
-    rag_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "rag-knowledge-base")
+    rag_dir = str(PROJECT_ROOT / "rag-knowledge-base")
     all_keys = set()
     if os.path.exists(rag_dir):
         for fname in os.listdir(rag_dir):

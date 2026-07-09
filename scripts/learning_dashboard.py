@@ -25,12 +25,12 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Sequence, Tuple
 
-from _common import setup_environment, add_scripts_dir_to_path
+from _common import setup_environment, add_scripts_dir_to_path, PROJECT_ROOT
 
 setup_environment(add_lib=False, add_scripts=True)
 add_scripts_dir_to_path()
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = PROJECT_ROOT
 REPORTS_GEN = ROOT / "reports" / "generated"
 CORE_CONCEPTS = ["天人合一", "气化", "中和", "天符"]
 

@@ -23,6 +23,11 @@ import sys
 import os
 import io
 from datetime import date
+from pathlib import Path
+
+# 项目根目录（scripts/ 的父目录），统一引用避免 20+ 处重复计算
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+SCRIPTS_DIR = PROJECT_ROOT / "scripts"
 
 
 def setup_utf8_stdout():
@@ -40,8 +45,7 @@ def setup_utf8_stdout():
 
 def add_lib_to_path():
     """将本脚本所在目录下的 lib/ 加入 sys.path（优先级最高）。"""
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    lib_dir = os.path.join(script_dir, 'lib')
+    lib_dir = str(SCRIPTS_DIR / "lib")
     if lib_dir not in sys.path:
         sys.path.insert(0, lib_dir)
 
@@ -51,20 +55,16 @@ def ensure_importable_from_scripts(target_dir=None):
     辅助函数：从任意位置确保可以 import scripts 下的模块。
     主要用于测试或外部调用。
     """
-    if target_dir is None:
-        # 默认假设调用者相对 scripts
-        base = os.path.dirname(os.path.abspath(__file__))
-    else:
-        base = os.path.abspath(target_dir)
+    base = str(PROJECT_ROOT) if target_dir is None else os.path.abspath(target_dir)
     if base not in sys.path:
         sys.path.insert(0, base)
 
 
 def add_scripts_dir_to_path():
     """将本脚本所在目录加入 sys.path，用于同目录脚本直接 import（例如 constitution_assessment）。"""
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    if script_dir not in sys.path:
-        sys.path.insert(0, script_dir)
+    sd = str(SCRIPTS_DIR)
+    if sd not in sys.path:
+        sys.path.insert(0, sd)
 
 
 def resolve_year_or_date(raw: str) -> str:

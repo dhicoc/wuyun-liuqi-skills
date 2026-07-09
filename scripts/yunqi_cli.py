@@ -220,14 +220,16 @@ def cmd_learn(args: argparse.Namespace) -> int:
         argv.append("--json")
     if args.no_file:
         argv.append("--no-file")
-    return _run_py("socratic_learn.py", argv)
+    import socratic_learn
+    return socratic_learn.main(argv)
 
 
 def cmd_compare(args: argparse.Namespace) -> int:
     argv = list(args.dates or [])
     if args.json:
         argv.append("--json")
-    return _run_py("compare_py_js_yunqi.py", argv)
+    import compare_py_js_yunqi
+    return compare_py_js_yunqi.main(argv)
 
 
 def cmd_profile(args: argparse.Namespace) -> int:
@@ -240,10 +242,23 @@ def cmd_profile(args: argparse.Namespace) -> int:
 
 
 def cmd_export(args: argparse.Namespace) -> int:
-    argv = [args.date, "--format", args.format]
-    if args.output:
-        argv.extend(["--output", args.output])
-    return _run_py("export_thought.py", argv)
+    import export_thought as et
+    rc = et.run_export(args.date, args.format)
+    if rc == 0 and args.output:
+        # run_export 默认写到 reports/generated/，用户指定 --output 时需要额外复制
+        import shutil
+        from pathlib import Path
+        year = et.get_year_and_data(args.date).get('year', 'unknown')
+        for stem, ext in [(f'thought_summary_{year}', '.md'), (f'thought_cards_{year}', '.anki.tsv'), (f'thought_cards_{year}', '.md')]:
+            src = Path('reports/generated') / stem
+            if src.exists():
+                dst = Path(args.output)
+                if dst.is_dir() or not dst.suffix:
+                    dst.mkdir(parents=True, exist_ok=True)
+                    shutil.copy2(src, dst / src.name)
+                else:
+                    shutil.copy2(src, dst)
+    return rc
 
 
 def cmd_dashboard(args: argparse.Namespace) -> int:
@@ -256,7 +271,8 @@ def cmd_dashboard(args: argparse.Namespace) -> int:
         argv.extend(["--output", args.output])
     if args.stdout:
         argv.append("--stdout")
-    return _run_py("learning_dashboard.py", argv)
+    import learning_dashboard
+    return learning_dashboard.main(argv)
 
 
 def cmd_interactive(_args: argparse.Namespace) -> int:

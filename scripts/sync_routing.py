@@ -14,8 +14,10 @@ import re
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / "scripts"))
+from _common import setup_environment, PROJECT_ROOT
+setup_environment(add_lib=False)
+
+ROOT = PROJECT_ROOT
 
 from lib.routing_manifest import Manifest, Task, load_manifest, task_by_id  # noqa: E402
 

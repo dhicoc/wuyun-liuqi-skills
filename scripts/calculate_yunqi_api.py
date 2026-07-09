@@ -22,11 +22,10 @@ import sys
 import os
 import json
 import argparse
-from pathlib import Path
 from datetime import date
 from typing import Any, Dict, List, Optional, Union
 
-from _common import setup_environment, color, highlight_key, RED, YELLOW, GREEN, CYAN, RESET, BOLD
+from _common import setup_environment, color, highlight_key, RED, YELLOW, GREEN, CYAN, RESET, BOLD, PROJECT_ROOT
 setup_environment()  # 处理 UTF-8 + lib 路径
 
 # 自进化自动记录（可选关闭）
@@ -372,7 +371,7 @@ def run_html_report(date_str: str) -> str:
     add_scripts_dir_to_path()
     import generate_html_report as ghr
     output_path = os.path.join(
-        os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+        str(PROJECT_ROOT),
         'reports', 'generated', f'wuyun-liuqi-report-{date_str}.html',
     )
     return ghr.write_html_report(date_str, output_path)
@@ -386,7 +385,7 @@ def load_terminology() -> Dict[str, Any]:
     global _TERMINOLOGY_CACHE
     if _TERMINOLOGY_CACHE is not None:
         return _TERMINOLOGY_CACHE
-    path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'rag-knowledge-base', 'terminology.json')
+    path = str(PROJECT_ROOT / 'rag-knowledge-base' / 'terminology.json')
     if not os.path.exists(path):
         _TERMINOLOGY_CACHE = {}
         return _TERMINOLOGY_CACHE
