@@ -1,10 +1,14 @@
 {
   "name": "wuyun-liuqi",
   "version": "1.0.0",
-  "description": "五运六气 AI Agent 技能包 — 基于《黄帝内经》运气学说的推算计与 RAG 知识库",
+  "description": "五运六气 AI Agent 技能包 — 基于《黄帝内经》运气学说的推算与 RAG 知识库及可视化大屏",
   "license": "MIT",
   "private": true,
+  "main": "server.js",
   "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "ui": "node server.js",
     "calc": "node scripts/calculate_yunqi_api.js",
     "compare": "node scripts/calculate_yunqi_api.js 2026-06-29 --json"
   },

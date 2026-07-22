@@ -165,24 +165,6 @@ bash scripts/setup.sh
 python scripts/calculate_yunqi_api.py today --summary
 python scripts/calculate_yunqi_api.py today --level deep --explain-concept "天人合一"
 python scripts/calculate_yunqi_api.py 2026-06-27 --json --export summary
-
-# 导出思想材料
-python scripts/export_thought.py today --format all          # 摘要 + 卡片 + HTML/PDF
-python scripts/self_evolve.py stats --top-concepts 5
-```
-
-### 全链路验证
-
-```bash
-python scripts/demo_full_chain.py 2026-06-27
-python tests/verify_expansion.py
-python tests/full_regression_test.py   # 63 项，通过 0 失败
-```
-
-<p align="right">(<a href="#快速开始">返回顶部</a>)</p>
-
-<a id="使用说明"></a>
-
 ## 使用说明
 
 ### 推荐使用方式

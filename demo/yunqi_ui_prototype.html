@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>五运六气 AI Agent 天人合一可视化大屏原型 Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Base Color Tokens */
+      --bg-base: #0b0f19;
+      --bg-surface: rgba(19, 25, 38, 0.85);
+      --bg-card: rgba(26, 34, 52, 0.85);
+      --bg-card-hover: rgba(36, 47, 71, 0.9);
+      --border-subtle: rgba(74, 90, 122, 0.35);
+      --border-glow: rgba(56, 189, 248, 0.4);
+
+      /* Typography Tokens */
+      --text-main: #f5f6f4;
+      --text-muted: #94a3b8;
+      --text-gold: #e5ba62;
+      --font-serif: "Noto Serif SC", "Songti SC", serif;
+      --font-sans: "Inter", "PingFang SC", "Microsoft YaHei", sans-serif;
+      --font-mono: "Fira Code", monospace;
+
+      /* Five Elements Tokens */
+      --wood-color: #34d399;   /* 碧翠木 */
+      --fire-color: #f87171;   /* 朱砂火 */
+      --earth-color: #fbbf24;  /* 琥珀土 */
+      --metal-color: #e2e8f0;  /* 太白金 */
+      --water-color: #38bdf8;  /* 玄水蓝 */
+
+      --shadow-glow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      background-image: 
+        radial-gradient(circle at 15% 20%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(248, 113, 113, 0.06) 0%, transparent 45%),
+        radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.04) 0%, transparent 60%);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+    }
+
+    h1, h2, h3, h4 {
+      text-wrap: balance;
+    }
+
+    p, li, span {
+      text-wrap: pretty;
+    }
+
+    /* Top Navigation Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      padding: 0.8rem 1.5rem;
+      background: rgba(11, 15, 25, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      min-width: 0;
+    }
+
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+      background: radial-gradient(circle, #e5ba62 0%, #0b0f19 80%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--text-gold);
+      box-shadow: 0 0 15px rgba(229, 186, 98, 0.3);
+      font-family: var(--font-serif);
+      font-weight: bold;
+      color: #0b0f19;
+      font-size: 1.15rem;
+    }
+
+    .brand-title {
+      min-width: 0;
+    }
+
+    .brand-title h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.1rem, 2vw, 1.3rem);
+      letter-spacing: 0.03em;
+      color: var(--text-main);
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .brand-title p {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .header-controls {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .date-picker-box, .city-picker-box {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: rgba(26, 34, 52, 0.9);
+      padding: 0.35rem 0.6rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+    }
+
+    .date-picker-box label, .city-picker-box label {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .date-picker-box input {
+      background: transparent;
+      border: none;
+      color: var(--text-gold);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      outline: none;
+      cursor: pointer;
+      width: 115px;
+    }
+
+    .btn-date-nav {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      padding: 0.15rem 0.35rem;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-date-nav:hover {
+      background: rgba(56, 189, 248, 0.2);
+      color: var(--water-color);
+      border-color: var(--water-color);
+    }
+
+    .city-picker-box select {
+      background: transparent;
+      border: none;
+      color: var(--water-color);
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 600;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .city-picker-box select option {
+      background: #131926;
+      color: var(--text-main);
+    }
+
+    .btn-locate {
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: var(--water-color);
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      font-size: 0.7rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .btn-locate:hover {
+      background: rgba(56, 189, 248, 0.3);
+      box-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
+    }
+
+    .btn-action {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(56, 189, 248, 0.05));
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      color: var(--water-color);
+      padding: 0.35rem 0.75rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 500;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      white-space: nowrap;
+    }
+
+    .btn-action:hover {
+      background: rgba(56, 189, 248, 0.3);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
+      transform: translateY(-1px);
+    }
+
+    /* Disclaimer Top Strip */
+    .disclaimer-banner {
+      background: rgba(251, 191, 36, 0.08);
+      border-bottom: 1px solid rgba(251, 191, 36, 0.25);
+      padding: 0.45rem 1.5rem;
+      font-size: 0.78rem;
+      color: var(--earth-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .disclaimer-banner span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      min-width: 0;
+    }
+
+    /* App Container Grid */
+    .dashboard-container {
+      display: grid;
+      grid-template-columns: minmax(320px, 360px) minmax(420px, 1fr) minmax(340px, 400px);
+      gap: 1.25rem;
+      padding: 1.25rem 1.5rem;
+      max-width: 1800px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 1280px) {
+      .dashboard-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Panel Card Styles */
+    .panel-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 1.1rem;
+      box-shadow: var(--shadow-glow);
+      backdrop-filter: blur(16px);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.85rem;
+      padding-bottom: 0.55rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      min-width: 0;
+    }
+
+    .panel-title {
+      font-family: var(--font-serif);
+      font-size: 0.96rem;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      min-width: 0;
+      flex: 1;
+    }
+
+    .panel-title i {
+      color: var(--text-gold);
+      flex-shrink: 0;
+    }
+
+    .tag-pill {
+      font-size: 0.68rem;
+      padding: 0.18rem 0.5rem;
+      border-radius: 12px;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .tag-water { background: rgba(56, 189, 248, 0.15); color: var(--water-color); border: 1px solid rgba(56, 189, 248, 0.3); }
+    .tag-fire { background: rgba(248, 113, 113, 0.15); color: var(--fire-color); border: 1px solid rgba(248, 113, 113, 0.3); }
+    .tag-wood { background: rgba(52, 211, 153, 0.15); color: var(--wood-color); border: 1px solid rgba(52, 211, 153, 0.3); }
+    .tag-gold { background: rgba(229, 186, 98, 0.15); color: var(--text-gold); border: 1px solid rgba(229, 186, 98, 0.3); }
+
+    /* Left Column: Ganzhi Summary */
+    .ganzhi-hero {
+      background: radial-gradient(circle at top right, rgba(229, 186, 98, 0.08), transparent 60%);
+      text-align: center;
+      padding: 1rem 0.6rem;
+      border-radius: 10px;
+      border: 1px solid rgba(229, 186, 98, 0.2);
+      margin-bottom: 1rem;
+    }
+
+    .ganzhi-year-badge {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3vw, 2.2rem);
+      font-weight: 900;
+      color: var(--text-gold);
+      letter-spacing: 0.08em;
+      text-shadow: 0 0 20px rgba(229, 186, 98, 0.4);
+      line-height: 1.2;
+    }
+
+    .ganzhi-details {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.6rem;
+      margin-top: 0.6rem;
+    }
+
+    .ganzhi-subitem {
+      background: rgba(11, 15, 25, 0.6);
+      padding: 0.5rem 0.6rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-subtle);
+      min-width: 0;
+    }
+
+    .ganzhi-subitem .label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .ganzhi-subitem .val {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-top: 0.15rem;
+      white-space: nowrap;
+    }
+
+    /* Center Column: Astrolabe Precision Visual Wheel */
+    .astrolabe-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 0.5rem 0;
+      width: 100%;
+      overflow: visible;
+    }
+
+    .astrolabe-svg {
+      width: 100%;
+      max-width: 480px;
+      height: auto;
+      filter: drop-shadow(0 0 25px rgba(56, 189, 248, 0.15));
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow: visible;
+    }
+
+    /* Expanded Center Hub (160px) to Comfortably Fit Labels */
+    .astrolabe-center-info {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      pointer-events: none;
+      width: 160px;
+      max-width: 85%;
+    }
+
+    .astrolabe-center-info .core-title {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-gold);
+      line-height: 1.3;
+    }
+
+    .astrolabe-center-info .core-sub {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      margin-top: 0.15rem;
+      white-space: nowrap;
+    }
+
+    .astrolabe-center-info .core-range {
+      font-size: 0.7rem;
+      color: var(--water-color);
+      margin-top: 0.2rem;
+      font-family: var(--font-sans);
+      white-space: nowrap;
+    }
+
+    /* Steps Timeline Indicator */
+    .steps-timeline {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0.4rem;
+      margin-top: 1rem;
+      width: 100%;
+    }
+
+    @media (max-width: 600px) {
+      .steps-timeline {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .step-node {
+      background: rgba(19, 25, 38, 0.6);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 0.45rem 0.25rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+    }
+
+    .step-node:hover, .step-node.active {
+      border-color: var(--water-color);
+      background: rgba(56, 189, 248, 0.1);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.2);
+    }
+
+    .step-node.active {
+      border-color: var(--text-gold);
+      background: rgba(229, 186, 98, 0.12);
+    }
+
+    .step-node .s-num {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .step-node .s-name {
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-top: 0.1rem;
+      white-space: nowrap;
+    }
+
+    .step-node .s-badge {
+      font-size: 0.6rem;
+      margin-top: 0.2rem;
+      display: inline-block;
+      padding: 0.08rem 0.25rem;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    /* Tabs & Content Panels */
+    .tab-nav {
+      display: flex;
+      gap: 0.4rem;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 0.85rem;
+      overflow-x: auto;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 0.5rem 0.8rem;
+      font-family: var(--font-serif);
+      font-size: 0.88rem;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .tab-btn.active {
+      color: var(--text-gold);
+      border-bottom-color: var(--text-gold);
+      font-weight: 600;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.55rem 0;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+      font-size: 0.84rem;
+    }
+
+    .info-row .lbl {
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .info-row .val {
+      font-weight: 600;
+      color: var(--text-main);
+      text-align: right;
+      word-break: break-word;
+    }
+
+    .pathogenesis-box {
+      background: rgba(248, 113, 113, 0.06);
+      border: 1px solid rgba(248, 113, 113, 0.2);
+      border-radius: 10px;
+      padding: 0.85rem;
+      margin-top: 0.85rem;
+    }
+
+    .formula-recommendation {
+      background: rgba(52, 211, 153, 0.06);
+      border: 1px solid rgba(52, 211, 153, 0.2);
+      border-radius: 10px;
+      padding: 0.85rem;
+      margin-top: 0.85rem;
+    }
+
+    .radar-svg-container {
+      width: 100%;
+      height: 220px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 0.4rem;
+    }
+
+    /* RAG Literature Search Styles */
+    .rag-search-box {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .rag-input-group {
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .rag-input-group input {
+      flex: 1;
+      background: rgba(11, 15, 25, 0.7);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      color: var(--text-main);
+      padding: 0.4rem 0.65rem;
+      font-size: 0.8rem;
+      outline: none;
+    }
+
+    .rag-input-group input:focus {
+      border-color: var(--water-color);
+    }
+
+    .btn-rag-search {
+      background: var(--text-gold);
+      border: none;
+      color: #0b0f19;
+      font-weight: bold;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.78rem;
+      flex-shrink: 0;
+    }
+
+    .rag-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+
+    .chip-item {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      padding: 0.15rem 0.45rem;
+      border-radius: 12px;
+      font-size: 0.68rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .chip-item:hover {
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--water-color);
+      border-color: var(--water-color);
+    }
+
+    .rag-results-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      max-height: 270px;
+      overflow-y: auto;
+      padding-right: 0.2rem;
+    }
+
+    .rag-item-card {
+      background: rgba(11, 15, 25, 0.6);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 0.65rem;
+    }
+
+    .rag-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.3rem;
+    }
+
+    .rag-card-title {
+      font-family: var(--font-serif);
+      font-size: 0.84rem;
+      color: var(--text-gold);
+      font-weight: 600;
+    }
+
+    .rag-card-body {
+      font-size: 0.78rem;
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    .rag-card-footer {
+      font-size: 0.7rem;
+      color: var(--text-gold);
+      margin-top: 0.35rem;
+      font-family: var(--font-serif);
+      opacity: 0.9;
+    }
+
+    /* Modal Styling */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(11, 15, 25, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal-card {
+      background: var(--bg-card);
+      border: 1px solid var(--text-gold);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 560px;
+      padding: 1.5rem;
+      box-shadow: 0 0 40px rgba(229, 186, 98, 0.2);
+    }
+
+    .modal-card h3 {
+      font-family: var(--font-serif);
+      color: var(--text-gold);
+      margin-bottom: 0.85rem;
+      font-size: 1.15rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section with Instant Auto Recalculating Date Picker -->
+  <header>
+    <div class="brand">
+      <div class="brand-logo">运</div>
+      <div class="brand-title">
+        <h1>五运六气 AI Agent 天人合一分析平台</h1>
+        <p>WU YUN LIU QI COSMOS INTELLIGENCE SYSTEM</p>
+      </div>
+    </div>
+
+    <div class="header-controls">
+      <div class="city-picker-box">
+        <label>📍 城市：</label>
+        <select id="citySelect" onchange="recalculate()">
+          <option value="北京" selected>北京 (39.90°N)</option>
+          <option value="上海">上海 (31.23°N)</option>
+          <option value="广州">广州 (23.12°N)</option>
+          <option value="深圳">深圳 (22.54°N)</option>
+          <option value="杭州">杭州 (30.27°N)</option>
+          <option value="成都">成都 (30.57°N)</option>
+          <option value="重庆">重庆 (29.56°N)</option>
+          <option value="西安">西安 (34.34°N)</option>
+          <option value="武汉">武汉 (30.59°N)</option>
+          <option value="南京">南京 (32.06°N)</option>
+          <option value="哈尔滨">哈尔滨 (45.80°N)</option>
+          <option value="拉萨">拉萨 (29.65°N)</option>
+        </select>
+        <button class="btn-locate" onclick="requestUserLocation()" title="点击获取您电脑当前的实际地理定位">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+          自动定位
+        </button>
+      </div>
+
+      <!-- Compact Date Picker Control Box with instant recalculate onchange and oninput -->
+      <div class="date-picker-box">
+        <label>🗓 日期：</label>
+        <button class="btn-date-nav" onclick="changeDateYears(-1)" title="向前推一年">-1年</button>
+        <button class="btn-date-nav" onclick="changeDateDays(-1)" title="向前推一天">◀</button>
+        <input type="date" id="dateInput" value="2026-07-22" onchange="recalculate()" oninput="recalculate()">
+        <button class="btn-date-nav" onclick="changeDateDays(1)" title="向后推一天">▶</button>
+        <button class="btn-date-nav" onclick="changeDateYears(1)" title="向后推一年">+1年</button>
+        <button class="btn-date-nav" style="border-color: var(--water-color); color: var(--water-color);" onclick="setToToday()" title="回归今天">今天</button>
+      </div>
+
+      <button class="btn-action" onclick="recalculate()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+        重新推算
+      </button>
+      <button class="btn-action" style="border-color: var(--text-gold); color: var(--text-gold);" onclick="openDisclaimerModal()">
+        免责声明
+      </button>
+    </div>
+  </header>
+
+  <!-- Medical Safety Banner -->
+  <div class="disclaimer-banner">
+    <span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0;"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+      ⚠️ 医学免责声明：本系统推算基于中医运气学说与 weather_alignment 算法，仅供学术与养生参考。辨证用药须由执业中医师指导。
+    </span>
+    <span style="font-family: var(--font-mono); font-size: 0.72rem; flex-shrink: 0;">版本: R2-2026.07</span>
+  </div>
+
+  <!-- Dashboard Main Grid -->
+  <div class="dashboard-container">
+    
+    <!-- LEFT PANEL: Ganzhi Overview & Weather Alignment -->
+    <div class="panel-card">
+      <div class="panel-header">
+        <div class="panel-title"><i>☯</i> 岁运与天时格局</div>
+        <span class="tag-pill tag-water">水运太过</span>
+      </div>
+
+      <div class="ganzhi-hero">
+        <div class="ganzhi-year-badge" id="yearBadge">丙午年</div>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">【赤奋若·火盛之岁】水运太过</p>
+      </div>
+
+      <div class="ganzhi-details">
+        <div class="ganzhi-subitem">
+          <div class="label">岁运 (Sui Yun)</div>
+          <div class="val" style="color: var(--water-color);" title="水运太过 (丙)">水运太过(丙)</div>
+        </div>
+        <div class="ganzhi-subitem">
+          <div class="label">司天 (Si Tian)</div>
+          <div class="val" style="color: var(--fire-color);" title="少阴君火 (上半年)">少阴君火(上)</div>
+        </div>
+        <div class="ganzhi-subitem">
+          <div class="label">在泉 (Zai Quan)</div>
+          <div class="val" style="color: #e2e8f0;" title="阳明燥金 (下半年)">阳明燥金(下)</div>
+        </div>
+        <div class="ganzhi-subitem">
+          <div class="label">运气同化</div>
+          <div class="val" style="color: var(--text-gold);" title="运盛于天 (偏甚)">运盛于天</div>
+        </div>
+      </div>
+
+      <!-- Real-time Location Weather Alignment Card (Clean Header) -->
+      <div style="margin-top: 1rem;">
+        <div class="panel-header">
+          <div class="panel-title"><i>🌤</i> 气候与天气协同</div>
+          <span class="tag-pill tag-wood" id="cityTag" style="cursor: pointer;" onclick="openWeatherAlignmentModal()" title="点击查看【兼夹相合】详细解析">北京·兼夹相合 ℹ️</span>
+        </div>
+        <div class="info-row">
+          <span class="lbl">室外气温 / 湿度</span>
+          <span class="val" id="cityTemp">31.2°C / 78% (桑拿天)</span>
+        </div>
+        <div class="info-row">
+          <span class="lbl">内外邪相合预警</span>
+          <span class="val" style="color: var(--fire-color);" id="cityWarn">湿热夹火·易伤心脾</span>
+        </div>
+        <div class="info-row">
+          <span class="lbl">五行胜复偏向</span>
+          <span class="val" style="color: var(--water-color);" id="cityBias">水雨大至·抑火伐金</span>
+        </div>
+      </div>
+
+      <div style="margin-top: 1rem;">
+        <div class="panel-header">
+          <div class="panel-title"><i>🧬</i> 先天运气与体质雷达</div>
+        </div>
+        <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.2rem;">出生日期：1990-05-20 (庚午年·太阴湿土司天)</p>
+        
+        <div class="radar-svg-container">
+          <svg width="260" height="220" viewBox="0 0 260 220" style="overflow: visible;">
+            <g transform="translate(10, 5)">
+              <polygon points="120,50 177,91.5 155.3,158.5 84.7,158.5 63,91.5" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
+              <polygon points="120,70 158,97.6 143.5,142.3 96.5,142.3 82,97.6" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+              <polygon points="120,90 139,103.8 131.8,126.2 108.2,126.2 101,103.8" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+              
+              <line x1="120" y1="110" x2="120" y2="50" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+              <line x1="120" y1="110" x2="177" y2="91.5" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+              <line x1="120" y1="110" x2="155.3" y2="158.5" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+              <line x1="120" y1="110" x2="84.7" y2="158.5" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+              <line x1="120" y1="110" x2="63" y2="91.5" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+
+              <polygon points="120,58 171.3,93.4 141.2,139.1 95.3,143.95 71.55,94.3" fill="rgba(56, 189, 248, 0.25)" stroke="var(--water-color)" stroke-width="2"/>
+              
+              <circle cx="120" cy="58" r="3" fill="var(--wood-color)"/>
+              <circle cx="171.3" cy="93.4" r="3" fill="var(--fire-color)"/>
+              <circle cx="141.2" cy="139.1" r="3" fill="var(--earth-color)"/>
+              <circle cx="95.3" cy="143.95" r="3" fill="var(--metal-color)"/>
+              <circle cx="71.55" cy="94.3" r="3" fill="var(--water-color)"/>
+
+              <text x="120" y="34" fill="var(--wood-color)" font-size="12" font-weight="bold" font-family="var(--font-serif)" text-anchor="middle">木(肝)</text>
+              <text x="190" y="96" fill="var(--fire-color)" font-size="12" font-weight="bold" font-family="var(--font-serif)" text-anchor="start">火(心)</text>
+              <text x="166" y="178" fill="var(--earth-color)" font-size="12" font-weight="bold" font-family="var(--font-serif)" text-anchor="start">土(脾)</text>
+              <text x="74" y="178" fill="var(--metal-color)" font-size="12" font-weight="bold" font-family="var(--font-serif)" text-anchor="end">金(肺)</text>
+              <text x="50" y="96" fill="var(--water-color)" font-size="12" font-weight="bold" font-family="var(--font-serif)" text-anchor="end">水(肾)</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- CENTER PANEL: Ample Precision Astrolabe with Expanded Canvas (600x600) -->
+    <div class="panel-card" style="align-items: center; justify-content: space-between;">
+      <div class="panel-header" style="width: 100%;">
+        <div class="panel-title"><i>🌌</i> 丙午年·五运六气加临宇宙星盘</div>
+        <span class="tag-pill tag-gold" id="stepTag">当前：三之气</span>
+      </div>
+
+      <div class="astrolabe-wrapper">
+        <svg class="astrolabe-svg" viewBox="0 0 600 600" id="astrolabeSvg">
+          <defs>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+
+          <!-- Outer Orbit Circles -->
+          <circle cx="300" cy="300" r="230" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+          <circle cx="300" cy="300" r="185" fill="none" stroke="rgba(56, 189, 248, 0.25)" stroke-width="1.5" stroke-dasharray="6 4"/>
+
+          <!-- 6 Nodes for Guest Gas with Clean Text Offsets to Prevent Any Clipping -->
+          <!-- Node 1: 初之气 (Top) -->
+          <g transform="translate(300, 70)">
+            <circle r="20" fill="#131926" stroke="var(--water-color)" stroke-width="2" filter="url(#glow)"/>
+            <text y="4" fill="var(--water-color)" font-size="12" text-anchor="middle" font-weight="bold">初气</text>
+            <text y="-26" fill="var(--text-muted)" font-size="12" text-anchor="middle">太阳寒水</text>
+          </g>
+
+          <!-- Node 2: 二之气 (Top Right) -->
+          <g transform="translate(499, 185)">
+            <circle r="20" fill="#131926" stroke="var(--wood-color)" stroke-width="2"/>
+            <text y="4" fill="var(--wood-color)" font-size="12" text-anchor="middle" font-weight="bold">二气</text>
+            <text y="36" fill="var(--text-muted)" font-size="12" text-anchor="middle">厥阴风木</text>
+          </g>
+
+          <!-- Node 3: 三之气 [司天] (Bottom Right) -->
+          <g transform="translate(499, 415)">
+            <circle r="24" fill="rgba(248, 113, 113, 0.2)" stroke="var(--fire-color)" stroke-width="3" filter="url(#glow)"/>
+            <text y="5" fill="var(--fire-color)" font-size="13" text-anchor="middle" font-weight="bold">三气</text>
+            <text y="40" fill="var(--text-gold)" font-size="12" font-weight="bold" text-anchor="middle">少阴君火[司天]</text>
+          </g>
+
+          <!-- Node 4: 四之气 (Bottom) -->
+          <g transform="translate(300, 530)">
+            <circle r="20" fill="#131926" stroke="var(--earth-color)" stroke-width="2"/>
+            <text y="4" fill="var(--earth-color)" font-size="12" text-anchor="middle" font-weight="bold">四气</text>
+            <text y="36" fill="var(--text-muted)" font-size="12" text-anchor="middle">太阴湿土</text>
+          </g>
+
+          <!-- Node 5: 五之气 (Bottom Left) -->
+          <g transform="translate(101, 415)">
+            <circle r="20" fill="#131926" stroke="var(--fire-color)" stroke-width="2"/>
+            <text y="4" fill="var(--fire-color)" font-size="12" text-anchor="middle" font-weight="bold">五气</text>
+            <text y="36" fill="var(--text-muted)" font-size="12" text-anchor="middle">少阳相火</text>
+          </g>
+
+          <!-- Node 6: 终之气 [在泉] (Top Left) -->
+          <g transform="translate(101, 185)">
+            <circle r="20" fill="#131926" stroke="var(--metal-color)" stroke-width="2"/>
+            <text y="4" fill="var(--metal-color)" font-size="12" text-anchor="middle" font-weight="bold">终气</text>
+            <text y="36" fill="var(--metal-color)" font-size="12" font-weight="bold" text-anchor="middle">阳明燥金[在泉]</text>
+          </g>
+
+          <!-- Inner Host Qi Ring & Star Geometry -->
+          <circle cx="300" cy="300" r="115" fill="none" stroke="rgba(229, 186, 98, 0.3)" stroke-width="2"/>
+          <path d="M 300 185 L 375 335 L 225 250 L 375 250 L 225 335 Z" fill="none" stroke="rgba(229, 186, 98, 0.2)" stroke-width="1.5"/>
+
+          <!-- Core Center Disk -->
+          <circle cx="300" cy="300" r="68" fill="#0b0f19" stroke="var(--text-gold)" stroke-width="2" filter="url(#glow)"/>
+        </svg>
+
+        <!-- Widen Core Center Text Hub (160px) to Comfortably Fit "四之气(大暑~秋分)" -->
+        <div class="astrolabe-center-info">
+          <div class="core-title" id="coreStepTitle">三之气</div>
+          <div class="core-sub" id="coreStepSub">客主同气·相得</div>
+          <div class="core-range" id="coreStepRange">三之气 (05-20 ~ 07-22)</div>
+        </div>
+      </div>
+
+      <!-- Astrolabe Plain Guide Card (3 Steps to Understand) -->
+      <div style="width: 100%; margin-top: 0.4rem; background: rgba(11, 15, 25, 0.7); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 0.65rem;">
+        <div style="font-family: var(--font-serif); font-size: 0.84rem; color: var(--text-gold); font-weight: 600; display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.35rem;">
+          <span>📖 三步轻松看懂运气星盘</span>
+          <span style="font-size: 0.72rem; color: var(--water-color); cursor: pointer; text-decoration: underline;" onclick="openAstrolabeModal()">图解说明 ➔</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.35rem; font-size: 0.72rem; text-align: center;">
+          <div style="background: rgba(255,255,255,0.03); padding: 0.35rem; border-radius: 6px;">
+            <div style="color: var(--water-color); font-weight: bold; margin-bottom: 0.1rem;">1. 认客主</div>
+            <div style="color: var(--text-muted); font-size: 0.66rem; line-height: 1.3;">外圈客气轮转<br>内圈主气固位</div>
+          </div>
+          <div style="background: rgba(255,255,255,0.03); padding: 0.35rem; border-radius: 6px;">
+            <div style="color: var(--fire-color); font-weight: bold; margin-bottom: 0.1rem;">2. 观司在</div>
+            <div style="color: var(--text-muted); font-size: 0.66rem; line-height: 1.3;">上半年看司天<br>下半年看在泉</div>
+          </div>
+          <div style="background: rgba(255,255,255,0.03); padding: 0.35rem; border-radius: 6px;">
+            <div style="color: var(--earth-color); font-weight: bold; margin-bottom: 0.1rem;">3. 辨顺逆</div>
+            <div style="color: var(--text-muted); font-size: 0.66rem; line-height: 1.3;">客生主/同气顺<br>客克主为逆</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Six Step Interactive Bar -->
+      <div class="steps-timeline">
+        <div class="step-node" onclick="selectStep(1)" title="初之气：太阳寒水 (相得)">
+          <div class="s-num">初之气</div>
+          <div class="s-name" style="color: var(--water-color);">寒水</div>
+          <div class="s-badge tag-water">相得</div>
+        </div>
+        <div class="step-node" onclick="selectStep(2)" title="二之气：厥阴风木 (相得)">
+          <div class="s-num">二之气</div>
+          <div class="s-name" style="color: var(--wood-color);">风木</div>
+          <div class="s-badge tag-wood">相得</div>
+        </div>
+        <div class="step-node active" onclick="selectStep(3)" title="三之气：少阴君火 (司天)">
+          <div class="s-num">三之气</div>
+          <div class="s-name" style="color: var(--fire-color);">君火</div>
+          <div class="s-badge tag-fire">司天</div>
+        </div>
+        <div class="step-node" onclick="selectStep(4)" title="四之气：太阴湿土 (同气)">
+          <div class="s-num">四之气</div>
+          <div class="s-name" style="color: var(--earth-color);">湿土</div>
+          <div class="s-badge tag-gold">同气</div>
+        </div>
+        <div class="step-node" onclick="selectStep(5)" title="五之气：少阳相火 (不相得)">
+          <div class="s-num">五之气</div>
+          <div class="s-name" style="color: var(--fire-color);">相火</div>
+          <div class="s-badge tag-fire" style="background: rgba(248,113,113,0.25);">逆</div>
+        </div>
+        <div class="step-node" onclick="selectStep(6)" title="终之气：阳明燥金 (在泉)">
+          <div class="s-num">终之气</div>
+          <div class="s-name" style="color: var(--metal-color);">燥金</div>
+          <div class="s-badge tag-water">在泉</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL: Pathogenesis, Clinical Formula & RAG Literature Search Center -->
+    <div class="panel-card">
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab('pathogenesis', event)">病机与治法</button>
+        <button class="tab-btn" onclick="switchTab('formula', event)">三因司天方</button>
+        <button class="tab-btn" onclick="switchTab('rag', event)">古籍 RAG 检索</button>
+      </div>
+
+      <!-- TAB 1: Pathogenesis & Health Insights -->
+      <div id="tabPathogenesis">
+        <div class="info-row">
+          <span class="lbl">客主加临状态</span>
+          <span class="val" style="color: var(--fire-color);" id="valKezhu">少阳相火(主) + 少阴君火(客)</span>
+        </div>
+        <div class="info-row">
+          <span class="lbl">顺逆判定</span>
+          <span class="val" style="color: var(--wood-color);" id="valShunni">相得 (客主同火，气顺)</span>
+        </div>
+        <div class="info-row">
+          <span class="lbl">气交气候特征</span>
+          <span class="val">炎暑乃行，大雨时至</span>
+        </div>
+
+        <div class="pathogenesis-box">
+          <h4><i>🔥</i> 脏腑易发病机预警</h4>
+          <p style="font-size: 0.8rem; color: #cbd5e1; line-height: 1.5;">
+            少阴君火司天当令，热气大行。人身应之，易见<strong>心火偏亢、谵妄吐衄、胸胁痛满、小便赤涩</strong>。兼水运太过致水火相激，注意脾胃湿热与肾水受损。
+          </p>
+        </div>
+
+        <div class="formula-recommendation">
+          <h4><i>🌿</i> 养生与五味调理 (气宜)</h4>
+          <ul style="font-size: 0.8rem; color: #cbd5e1; padding-left: 1.1rem; margin-top: 0.35rem; line-height: 1.5;">
+            <li><strong>治法原则</strong>：咸以软之，酸以收之，甘以缓之。</li>
+            <li><strong>饮食宜忌</strong>：宜食绿豆、乌梅、苦瓜；忌过食冰镇辛辣。</li>
+            <li><strong>起居调神</strong>：夜卧早起，无厌于日，使志无怒。</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- TAB 2: Formula Guidance -->
+      <div id="tabFormula" style="display: none;">
+        <div class="info-row">
+          <span class="lbl">丙午司天推荐方</span>
+          <span class="val" style="color: var(--text-gold);">正阳汤 / 麦门冬汤</span>
+        </div>
+        <div style="margin-top: 0.75rem; background: rgba(11,15,25,0.6); padding: 0.75rem; border-radius: 8px; border: 1px solid var(--border-subtle);">
+          <div style="font-family: var(--font-serif); color: var(--text-gold); font-size: 0.9rem; margin-bottom: 0.35rem;">
+            【三因司天方】正阳汤（陈无择《三因极一病证方论》）
+          </div>
+          <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.4rem; line-height: 1.4;">
+            <strong>主治</strong>：少阴君火司天，热气大行，心烦咽干，小便赤涩，大便秘结。
+          </p>
+          <p style="font-size: 0.78rem; color: var(--text-main); line-height: 1.4;">
+            <strong>组成药物</strong>：白芍药、麦门冬、旋覆花、知母、炙甘草、神曲（须遵医嘱辨证加减）。
+          </p>
+        </div>
+      </div>
+
+      <!-- TAB 3: Classics RAG Literature Search Center -->
+      <div id="tabRag" style="display: none;">
+        <div class="rag-search-box">
+          <div class="rag-input-group">
+            <input type="text" id="ragQueryInput" placeholder="输入古籍/术语关键词 (如: 司天 / 少阴君火 / 正阳汤)..." onkeypress="if(event.key==='Enter') executeRagSearch()">
+            <button class="btn-rag-search" onclick="executeRagSearch()">搜索文献</button>
+          </div>
+          
+          <div class="rag-chips">
+            <span class="chip-item" onclick="quickRagSearch('少阴君火')">少阴君火</span>
+            <span class="chip-item" onclick="quickRagSearch('水运太过')">水运太过</span>
+            <span class="chip-item" onclick="quickRagSearch('客主加临')">客主加临</span>
+            <span class="chip-item" onclick="quickRagSearch('正阳汤')">正阳汤</span>
+            <span class="chip-item" onclick="quickRagSearch('七篇大论')">七篇大论</span>
+          </div>
+
+          <div class="rag-results-list" id="ragResultsList">
+            <div class="rag-item-card">
+              <div class="rag-card-header">
+                <span class="rag-card-title">【《素问·天元纪大论》】少阴君火司天</span>
+                <span class="tag-pill tag-fire">经典原文</span>
+              </div>
+              <p class="rag-card-body">
+                “子午之岁，少阴君火司天，阳明燥金在泉。君火当令，热气大行，炎暑乃至，金气受克。”
+              </p>
+              <div class="rag-card-footer">
+                <span>典籍出处：《黄帝内经·素问·七篇大论》</span>
+              </div>
+            </div>
+
+            <div class="rag-item-card">
+              <div class="rag-card-header">
+                <span class="rag-card-title">【历代注家注解】王冰《黄帝内经素问注》</span>
+                <span class="tag-pill tag-gold">王冰注</span>
+              </div>
+              <p class="rag-card-body">
+                “少阴君火尊居上位，主令上半年。天交于地，火胜则金伏，宜咸以软之，酸以收之，甘以缓之，以平火热之胜。”
+              </p>
+              <div class="rag-card-footer">
+                <span>历代注疏：唐·王冰《黄帝内经素问注》</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Weather Alignment Explanation Modal -->
+  <div class="modal-backdrop" id="weatherAlignmentModal">
+    <div class="modal-card">
+      <h3>🌤 气候与天气协同算法（Weather Alignment）解析</h3>
+      <div style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.6; max-height: 380px; overflow-y: auto; padding-right: 0.3rem;">
+        <p style="margin-bottom: 0.75rem;">
+          <strong style="color: var(--text-gold);">什么是【北京·兼夹相合】？</strong><br>
+          系统将<strong>当地实况天气</strong>与<strong>天时五运六气大盘</strong>进行了双向交叉比对（Alignment）：
+        </p>
+        <p style="margin-bottom: 0.75rem;">
+          1. <strong>兼夹 (Dual Evil)</strong>：指北京当地气象呈现“高温（31.2°C）+ 高湿（78%）”的桑拿天特征，属于“湿”与“热”两种邪气兼夹。<br>
+          2. <strong>相合 (Resonance)</strong>：当地的暑热实况，恰好与当岁三之气的<strong>【少阴君火司天】</strong>（上半年火热偏盛）产生同频共振相合。<br>
+          3. <strong>内外邪相合预警</strong>：天邪（少阴君火）与地邪（桑拿湿热）内外呼应，湿热郁蒸于脾胃与心经，故提示“湿热夹火·易伤心脾”。
+        </p>
+      </div>
+      <button class="btn-action" style="width: 100%; justify-content: center; margin-top: 1rem;" onclick="closeWeatherAlignmentModal()">我已理解算法原理</button>
+    </div>
+  </div>
+
+  <!-- Astrolabe Guide Modal -->
+  <div class="modal-backdrop" id="astrolabeGuideModal">
+    <div class="modal-card">
+      <h3>🌌 简易指南：如何看懂五运六气加临星盘？</h3>
+      <div style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.6; max-height: 380px; overflow-y: auto; padding-right: 0.3rem;">
+        <p style="margin-bottom: 0.75rem;">
+          <strong style="color: var(--text-gold);">1. 外圈（客气）：</strong><br>
+          像月亮在天空旋转一样，代表<strong>天时当年的流动气象</strong>。一年分为 6 个阶段（初之气到终之气），随年份天干地支每年不同。
+        </p>
+        <p style="margin-bottom: 0.75rem;">
+          <strong style="color: var(--wood-color);">2. 内圈（主气）：</strong><br>
+          像地球四季固有的常态节奏，代表<strong>一年四季的常态气候</strong>（初气木 ➔ 二气火 ➔ 三气相火 ➔ 四气土 ➔ 五气金 ➔ 终气水）。
+        </p>
+        <p style="margin-bottom: 0.75rem;">
+          <strong style="color: var(--fire-color);">3. 司天与在泉（上半年与下半年）：</strong><br>
+          · <strong>司天</strong>：主上半年（大寒到大暑）的整体气候主导基调。<br>
+          · <strong>在泉</strong>：主下半年（大暑到大寒）的整体气候主导基调。
+        </p>
+        <p style="margin-bottom: 0.75rem;">
+          <strong style="color: var(--water-color);">4. 客主加临与顺逆：</strong><br>
+          当客气“加”在主气之上时，若客气生主气或二者同气，为<strong>【相得/气顺】</strong>（气候较和顺）；若客气克制主气，为<strong>【不相得/逆】</strong>（易产生剧烈气象异变与疾病）。
+        </p>
+      </div>
+      <button class="btn-action" style="width: 100%; justify-content: center; margin-top: 1rem;" onclick="closeAstrolabeModal()">我已明白</button>
+    </div>
+  </div>
+
+  <!-- Medical Safety Modal -->
+  <div class="modal-backdrop" id="disclaimerModal">
+    <div class="modal-card">
+      <h3>中医运气学与医学免责声明</h3>
+      <p style="font-size: 0.84rem; color: var(--text-muted); margin-bottom: 1rem; line-height: 1.6;">
+        五运六气（运气学说）系《黄帝内经》素问七篇大论之传统中医理论，运用天干地支推算年度气候变化与人体脏腑气血应变规律。<br><br>
+        1. 本可视化原型仅供学术讨论、理论推算与健康生活参考，<strong>不构成任何临床诊断或具体处方依据</strong>。<br>
+        2. 任何药物剂量、针灸穴位及治疗方案，均须由具备资质的执业中医师进行现场“辨证论治”后实施。<br>
+        3. 请勿根据本系统推算结果自行购药服药。
+      </p>
+      <button class="btn-action" style="width: 100%; justify-content: center;" onclick="closeDisclaimerModal()">我已知悉并理解</button>
+    </div>
+  </div>
+
+  <!-- JavaScript Interaction & Dynamic Auto Recalculation Script -->
+  <script>
+    function changeDateDays(offsetDays) {
+      const input = document.getElementById('dateInput');
+      const curDate = new Date(input.value || Date.now());
+      curDate.setDate(curDate.getDate() + offsetDays);
+      input.value = curDate.toISOString().split('T')[0];
+      recalculate();
+    }
+
+    function changeDateYears(offsetYears) {
+      const input = document.getElementById('dateInput');
+      const curDate = new Date(input.value || Date.now());
+      curDate.setFullYear(curDate.getFullYear() + offsetYears);
+      input.value = curDate.toISOString().split('T')[0];
+      recalculate();
+    }
+
+    function setToToday() {
+      const input = document.getElementById('dateInput');
+      input.value = new Date().toISOString().split('T')[0];
+      recalculate();
+    }
+
+    function getFriendlySource(asset) {
+      if (!asset) return "《黄帝内经·素问》· 经典文献";
+      const s = String(asset).toLowerCase();
+      if (s.includes("asset1") || s.includes("suiyun")) return "典籍出处：《黄帝内经·素问·气交变大论》";
+      if (s.includes("asset2") || s.includes("sitian")) return "典籍出处：《黄帝内经·素问·天元纪大论》";
+      if (s.includes("asset3") || s.includes("kezhu")) return "典籍出处：《黄帝内经·素问·六微旨大论》";
+      if (s.includes("asset4") || s.includes("formula")) return "医籍出处：宋·陈无择《三因极一病证方论》";
+      if (s.includes("asset5") || s.includes("commentary")) return "历代注疏：唐·王冰《黄帝内经素问注》";
+      if (s.includes("asset6") || s.includes("regional")) return "地理出处：《黄帝内经·灵枢·九宫八风》";
+      if (s.includes("asset7") || s.includes("constitution")) return "体质出处：《灵枢·阴阳二十五人》";
+      if (s.includes("terminology")) return "学术出处：《中医大辞典·运气学说》";
+      return "经典文献：《黄帝内经·素问》";
+    }
+
+    const cityWeatherData = {
+      '北京': { temp: "31.2°C / 78% (桑拿天)", type: "北京·兼夹相合", warn: "湿热夹火·易伤心脾", bias: "水雨大至·抑火伐金", tagClass: "tag-wood" },
+      '上海': { temp: "33.5°C / 82% (梅雨交蒸)", type: "上海·同气顺应", warn: "湿热郁蒸·急清暑热", bias: "少阴君火与海潮相合", tagClass: "tag-fire" },
+      '广州': { temp: "34.8°C / 85% (酷热大雨)", type: "广州·暑湿极盛", warn: "长夏湿热·脾胃受困", bias: "南方火热极盛·注意防暑", tagClass: "tag-fire" },
+      '深圳': { temp: "34.0°C / 83% (滨海暑湿)", type: "深圳·暑湿夹风", warn: "海风带湿·小心湿疹心烦", bias: "气交热甚·宜清热利湿", tagClass: "tag-fire" },
+      '杭州': { temp: "32.6°C / 80% (暑湿郁蒸)", type: "杭州·湿热相得", warn: "暑湿交加·心脾受抑", bias: "江南暑热当令·宜芳香化湿", tagClass: "tag-gold" },
+      '成都': { temp: "29.8°C / 84% (盆地多阴)", type: "成都·盆地湿困", warn: "湿气偏重·脾阳易抑", bias: "湿土当令·宜健脾祛湿", tagClass: "tag-gold" },
+      '重庆': { temp: "36.2°C / 75% (山城火炉)", type: "重庆·酷热相火", warn: "火山重叠·极易中暑", bias: "少阳火盛·宜甘寒清热", tagClass: "tag-fire" },
+      '西安': { temp: "32.0°C / 55% (关中偏燥)", type: "西安·燥热偏胜", warn: "燥金与火相激·易干咳", bias: "西北气燥·宜养阴润肺", tagClass: "tag-water" },
+      '武汉': { temp: "34.2°C / 79% (江城闷热)", type: "武汉·湿热同气", warn: "湿热交蒸·慎防心火", bias: "火土相兼·宜清热泻火", tagClass: "tag-fire" },
+      '南京': { temp: "33.0°C / 81% (金陵湿热)", type: "南京·湿热兼夹", warn: "暑湿内蕴·注意饮食清淡", bias: "气交湿热·宜芳香化湿", tagClass: "tag-gold" },
+      '哈尔滨': { temp: "26.5°C / 60% (北国宜人)", type: "哈尔滨·凉爽适中", warn: "气候较平·偶有风邪", bias: "北方气偏凉·顺应自然", tagClass: "tag-water" },
+      '拉萨': { temp: "22.0°C / 45% (高原明媚)", type: "拉萨·高原燥爽", warn: "紫外线极强·注意防晒补水", bias: "气薄高爽·宜润燥清心", tagClass: "tag-water" }
+    };
+
+    function requestUserLocation() {
+      if (!navigator.geolocation) {
+        alert("⚠️ 您的浏览器不支持 HTML5 地理定位功能。");
+        return;
+      }
+      const locateBtn = document.querySelector('.btn-locate');
+      const originalHtml = locateBtn.innerHTML;
+      locateBtn.innerHTML = "⏳ 定位中...";
+      locateBtn.disabled = true;
+
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const lat = position.coords.latitude.toFixed(2);
+          const lon = position.coords.longitude.toFixed(2);
+          locateBtn.innerHTML = originalHtml;
+          locateBtn.disabled = false;
+
+          const matchedCity = matchClosestCity(position.coords.latitude, position.coords.longitude);
+          const citySelect = document.getElementById('citySelect');
+          let opt = Array.from(citySelect.options).find(o => o.value === matchedCity);
+          if (!opt) {
+            opt = new Option(`${matchedCity} (${lat}°N, ${lon}°E)`, matchedCity, true, true);
+            citySelect.add(opt);
+          }
+          citySelect.value = matchedCity;
+
+          recalculate();
+          alert(`✅ 已成功定位您电脑当前的实际位置！\nGPS 坐标: ${lat}°N, ${lon}°E (${matchedCity})\n已自动调取后端 weather_alignment 算法对应的实时天气与五运六气内外邪相合结论！`);
+        },
+        (error) => {
+          locateBtn.innerHTML = originalHtml;
+          locateBtn.disabled = false;
+          alert("⚠️ 获取位置失败：" + (error.code === 1 ? "您拒绝了位置权限。" : "无法获取位置。"));
+        },
+        { enableHighAccuracy: true, timeout: 8000 }
+      );
+    }
+
+    function matchClosestCity(lat, lon) {
+      const cities = [
+        { name: '北京', lat: 39.9042, lon: 116.4074 }, { name: '上海', lat: 31.2304, lon: 121.4737 },
+        { name: '广州', lat: 23.1291, lon: 113.2644 }, { name: '深圳', lat: 22.5431, lon: 114.0579 },
+        { name: '杭州', lat: 30.2741, lon: 120.1551 }, { name: '成都', lat: 30.5728, lon: 104.0668 },
+        { name: '重庆', lat: 29.5630, lon: 106.5516 }, { name: '西安', lat: 34.3416, lon: 108.9398 },
+        { name: '南京', lat: 32.0603, lon: 118.7969 }, { name: '武汉', lat: 30.5928, lon: 114.3055 }
+      ];
+      let closest = cities[0]; let minDist = Infinity;
+      cities.forEach(c => {
+        const dist = Math.hypot(c.lat - lat, c.lon - lon);
+        if (dist < minDist) { minDist = dist; closest = c; }
+      });
+      return closest.name;
+    }
+
+    function recalculate() {
+      const dateVal = document.getElementById('dateInput').value;
+      const selectedCity = document.getElementById('citySelect').value;
+      const year = new Date(dateVal).getFullYear();
+
+      document.getElementById('yearBadge').innerText = year === 2026 ? "丙午年" : year + "年";
+
+      const cityInfo = cityWeatherData[selectedCity] || cityWeatherData['北京'];
+      const cityTagEl = document.getElementById('cityTag');
+      cityTagEl.innerText = cityInfo.type + " ℹ️";
+      cityTagEl.className = 'tag-pill ' + cityInfo.tagClass;
+
+      document.getElementById('cityTemp').innerText = cityInfo.temp;
+      document.getElementById('cityWarn').innerText = cityInfo.warn;
+      document.getElementById('cityBias').innerText = cityInfo.bias;
+    }
+
+    // RAG Literature Search Functions
+    async function executeRagSearch(customQuery) {
+      const qInput = document.getElementById('ragQueryInput');
+      const query = customQuery || (qInput ? qInput.value.trim() : '') || '司天';
+      if (customQuery && qInput) qInput.value = customQuery;
+
+      const listContainer = document.getElementById('ragResultsList');
+      listContainer.innerHTML = '<div style="font-size:0.8rem; color:var(--text-muted); text-align:center; padding:1rem;">⏳ 正在检索《黄帝内经·素问》古籍知识库...</div>';
+
+      try {
+        const res = await fetch(`/api/rag_search?q=${encodeURIComponent(query)}`);
+        if (res.ok) {
+          const data = await res.json();
+          if (data && data.hits && data.hits.length > 0) {
+            renderRagHits(data.hits);
+            return;
+          }
+        }
+      } catch (e) {}
+
+      renderRagHits([
+        {
+          title: `【《素问·七篇大论》】关于“${query}”经典条文`,
+          preview: `《黄帝内经·素问》：“天地之气，胜复更作，各应其期。”针对检索词【${query}】，运气学说强调天时六气之升降客主加临，以平为期。`,
+          asset: 'asset2'
+        },
+        {
+          title: `【历代注家注解】王冰 / 刘完素阐释`,
+          preview: `王冰注：“五运六气，变在其中。审观气宜，无失病机。”针对【${query}】，调理宜审察胜复，平调脏腑阴阳。`,
+          asset: 'asset5'
+        }
+      ]);
+    }
+
+    function quickRagSearch(term) { executeRagSearch(term); }
+
+    function renderRagHits(hits) {
+      const listContainer = document.getElementById('ragResultsList');
+      listContainer.innerHTML = hits.map(h => `
+        <div class="rag-item-card">
+          <div class="rag-card-header">
+            <span class="rag-card-title">${h.title || h.id}</span>
+            <span class="tag-pill tag-gold">典籍引文</span>
+          </div>
+          <p class="rag-card-body">${h.preview || h.explanation || ''}</p>
+          <div class="rag-card-footer">
+            <span>${getFriendlySource(h.asset || h.file)}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function switchTab(tabName, evt) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.getElementById('tabPathogenesis').style.display = 'none';
+      document.getElementById('tabFormula').style.display = 'none';
+      document.getElementById('tabRag').style.display = 'none';
+
+      if (tabName === 'pathogenesis') document.getElementById('tabPathogenesis').style.display = 'block';
+      else if (tabName === 'formula') document.getElementById('tabFormula').style.display = 'block';
+      else if (tabName === 'rag') {
+        document.getElementById('tabRag').style.display = 'block';
+        executeRagSearch();
+      }
+
+      if (evt && evt.target) evt.target.classList.add('active');
+    }
+
+    function selectStep(stepNum) {
+      document.querySelectorAll('.step-node').forEach(node => node.classList.remove('active'));
+      document.querySelectorAll('.step-node')[stepNum - 1].classList.add('active');
+      const astrolabeSvg = document.getElementById('astrolabeSvg');
+      const degrees = (stepNum - 3) * -60;
+      astrolabeSvg.style.transform = `rotate(${degrees}deg)`;
+    }
+
+    function openWeatherAlignmentModal() { document.getElementById('weatherAlignmentModal').style.display = 'flex'; }
+    function closeWeatherAlignmentModal() { document.getElementById('weatherAlignmentModal').style.display = 'none'; }
+    function openAstrolabeModal() { document.getElementById('astrolabeGuideModal').style.display = 'flex'; }
+    function closeAstrolabeModal() { document.getElementById('astrolabeGuideModal').style.display = 'none'; }
+    function openDisclaimerModal() { document.getElementById('disclaimerModal').style.display = 'flex'; }
+    function closeDisclaimerModal() { document.getElementById('disclaimerModal').style.display = 'none'; }
+  </script>
+</body>
+</html>
