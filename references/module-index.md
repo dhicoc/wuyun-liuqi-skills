@@ -12,7 +12,8 @@
 | 统一计算 | `scripts/calculate_yunqi_api.py` | 大寒定年 + 日期输入 + JSON + rag_keys |
 | RAG 知识库 | `rag-knowledge-base/` | 7 个 asset JSON（岁运/司天/客主/方药/注家/地域/体质） |
 | ReAct 工作流 | `agent-workflow/` | 查工具→查知识库→辨证推理 |
-| System Prompt | `prompts/system_prompt.md` | TCM 运气专家角色约束 |
+| System Prompt | `prompts/system_prompt.md` | TCM 运气专家角色约束（临床模式 + 讲解模式双语态） |
+| 讲解人格 | `prompts/expression_style.md` | 运气导师表达 DNA（讲解模式加载） |
 | 高级对齐 | `advanced-alignment/` | 天气、地域、体质交叉 |
 | 自进化 | `self-evolve/` + `scripts/self_evolve.py` | 日志、盲区、反馈、月报 |
 | 优化冲刺（执行真相源） | `docs/optimization-sprint.md` | 本轮文档/CLI/进程/测试任务与状态 |
