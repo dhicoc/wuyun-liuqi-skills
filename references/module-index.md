@@ -14,6 +14,7 @@
 | ReAct 工作流 | `agent-workflow/` | 查工具→查知识库→辨证推理 |
 | System Prompt | `prompts/system_prompt.md` | TCM 运气专家角色约束（临床模式 + 讲解模式双语态） |
 | 讲解人格 | `prompts/expression_style.md` | 运气导师表达 DNA（讲解模式加载） |
+| 教学模块 | `teaching-modules/` | 10 个概念五段式可加载模块（原文/注家/解读/金句/误区/深度分层） |
 | 高级对齐 | `advanced-alignment/` | 天气、地域、体质交叉 |
 | 自进化 | `self-evolve/` + `scripts/self_evolve.py` | 日志、盲区、反馈、月报 |
 | 优化冲刺（执行真相源） | `docs/optimization-sprint.md` | 本轮文档/CLI/进程/测试任务与状态 |

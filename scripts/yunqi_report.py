@@ -315,7 +315,7 @@ def build_thought_layer_section(year, tg, dz, dayun, taiguo, sitian, zaiquan, ti
     return '\n'.join(sections)
 
 
-# 核心概念哲学银行 (P0-2)
+# 核心概念哲学银行 (P0-2) —— 内置回退，模块目录缺失时使用
 CONCEPT_PHILOSOPHY = {
     "天人合一": {
         "philosophy": "天地与人是一个整体的生命系统，运气是天地之气运行的节律，人必须与之相应才能健康。",
@@ -339,8 +339,108 @@ CONCEPT_PHILOSOPHY = {
     }
 }
 
+
+# ── 教学模块目录加载 (teaching-modules/) ─────────────────────────────
+# 从 teaching-modules/<concept>.md 读取 YAML frontmatter + Markdown 正文，
+# 解析为统一 dict。frontmatter 必须含 philosophy/modern/example（兼容旧消费者）。
+# 解析仅用 stdlib，避免引入 pyyaml 依赖。
+
+_TEACHING_MODULES_DIR = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+    "teaching-modules",
+)
+
+
+def _parse_yaml_frontmatter(text):
+    """极简 YAML frontmatter 解析（仅支持 key: value 与 key: value 形式）。
+
+    教学模块的 frontmatter 字段均为单行字符串，无需支持嵌套/列表。
+    复杂字段（commentaries / common_misconceptions / depth_levels）放在正文 Markdown 里。
+    """
+    import re
+    if not text.startswith("---"):
+        return {}, text
+    end = text.find("\n---", 3)
+    if end == -1:
+        return {}, text
+    fm_block = text[3:end].strip()
+    body = text[end + 4:].lstrip("\n")
+    meta = {}
+    for line in fm_block.splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        if ":" in line:
+            k, v = line.split(":", 1)
+            meta[k.strip()] = v.strip().strip('"').strip("'")
+    return meta, body
+
+
+def load_concept(concept_name):
+    """从 teaching-modules/ 加载一个概念模块，返回统一 dict。
+
+    返回 dict 含旧字段（philosophy/modern/example）以兼容旧消费者，
+    另含 concept/category/golden_quote 与正文 body。
+
+    模块不存在或解析失败时返回 None（由调用方决定回退）。
+    """
+    # 支持概念名含·/空格的归一化：文件名用概念原名
+    candidates = [
+        os.path.join(_TEACHING_MODULES_DIR, f"{concept_name}.md"),
+    ]
+    # 容错：概念名里的·在文件名里保留，但也尝试替换
+    safe = concept_name.replace("·", "").replace(" ", "")
+    if safe != concept_name:
+        candidates.append(os.path.join(_TEACHING_MODULES_DIR, f"{safe}.md"))
+
+    for path in candidates:
+        if os.path.isfile(path):
+            for encoding in ("utf-8", "utf-8-sig"):
+                try:
+                    with open(path, "r", encoding=encoding) as f:
+                        text = f.read()
+                    break
+                except Exception:
+                    continue
+            else:
+                continue
+            meta, body = _parse_yaml_frontmatter(text)
+            if not meta:
+                continue
+            # 兼容旧消费者：确保三字段存在
+            meta.setdefault("philosophy", "")
+            meta.setdefault("modern", "")
+            meta.setdefault("example", "")
+            meta["body"] = body
+            meta["_module_path"] = path
+            return meta
+    return None
+
+
 def explain_concept(concept_name):
-    """返回概念的哲学解释 + 现代比喻 + 示例"""
+    """返回概念的讲解文本。
+
+    优先从 teaching-modules/ 加载完整模块（五段式 + 思想层），
+    模块缺失时回退到内置 CONCEPT_PHILOSOPHY（三字段简版），
+    仍无则提示参考经典原文。
+    """
+    module = load_concept(concept_name)
+    if module:
+        lines = [f"**{concept_name}**"]
+        if module.get("category"):
+            lines.append(f"_分类：{module['category']}_")
+        lines.append("")
+        lines.append(f"- **哲学思想**：{module.get('philosophy', '')}")
+        lines.append(f"- **现代比喻**：{module.get('modern', '')}")
+        lines.append(f"- **示例**：{module.get('example', '')}")
+        if module.get("golden_quote"):
+            lines.append(f"- **金句**：{module['golden_quote']}")
+        # 附正文（含原文/注家对照/解读/误区/深度分层）
+        body = module.get("body", "").strip()
+        if body:
+            lines.append("")
+            lines.append(body)
+        return "\n".join(lines)
     if concept_name in CONCEPT_PHILOSOPHY:
         c = CONCEPT_PHILOSOPHY[concept_name]
         return f"**{concept_name}**：\n- 哲学思想：{c['philosophy']}\n- 现代比喻：{c['modern']}\n- 示例：{c['example']}"

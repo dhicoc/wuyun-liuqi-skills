@@ -110,7 +110,7 @@ tasks:
       - 学习客主加临
       - 苏格拉底学习
       - 思想地图
-    route: prompts/onboarding_prompt.md → prompts/expression_style.md（讲解模式人格） → socratic_learn / export_thought_map / --explain-concept
+    route: prompts/onboarding_prompt.md → prompts/expression_style.md（讲解模式人格） → teaching-modules/（概念五段式模块） → socratic_learn / export_thought_map / --explain-concept
     script: python scripts/yunqi_cli.py learn today
     # 备选: python scripts/socratic_learn.py today --concept "<概念>"
     #       python scripts/yunqi_cli.py map today
