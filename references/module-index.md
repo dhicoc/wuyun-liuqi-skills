@@ -27,6 +27,7 @@
 | 运气要诀病机速查 | `rag-knowledge-base/yunqi_yaojue_pathogenesis_guide.md` | 五运六气病机歌诀+注解可直接 Grep+Read（零依赖） |
 | 玄机原病式注家论 | `rag-knowledge-base/suwen_xuanji_pathogenesis_guide.md` | 刘完素五运六气病机论证+兼化理论（零依赖） |
 | 类经图翼运气哲学 | `rag-knowledge-base/leijing_tuyi_yunqi_philosophy_guide.md` | 张介宾太极阴阳五行统论+生克互藏辩证（零依赖） |
+| 保命集运气治法 | `rag-knowledge-base/baoming_zhifa_guide.md` | 刘完素病机十九条治法+六气司天岁宜+寒凉派宣言（零依赖） |
 | 可导入包 | `wuyun_liuqi/` | `from wuyun_liuqi import calculate, fetch_by_date` |
 | Py/JS 一致性 | `scripts/compare_py_js_yunqi.py` | 关键字段跨语言对比 |
 
