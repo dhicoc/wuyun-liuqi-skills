@@ -1,16 +1,22 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-本地向量语义检索（bge-m3 via Ollama）
-=====================================
+本地向量语义检索（bge-m3 via Ollama）—— 可选增强，非必需
+=========================================================
+⚠️ 本模块是【可选增强】，不是项目主链路。项目的主检索路径是：
+  - 键值精确检索：rag_search.py --key <rag_key>（零依赖，Agent 主路径）
+  - 关键词检索：  rag_search.py <关键词>（零依赖）
+  - 直接阅读：    rag-knowledge-base/sanyin_sitianfang_guide.md 等（Grep+Read，零依赖）
+
+只有当你需要"口语化语义检索"且本地已装 Ollama + bge-m3 时，才用本模块。
 调用本地 Ollama 的 bge-m3 模型生成 1024 维向量，做余弦相似度检索。
 返回结构与 rag_semantic.semantic_search 完全兼容，可作为其高质量替代。
 
 与 rag_semantic.py 的区别：
 - rag_semantic：纯标准库字符 n-gram 伪语义，无外部依赖，质量有限
-- rag_vector：  真正的 bge-m3 向量检索，中文/中医古文语义区分能力强
+- rag_vector：  真正的 bge-m3 向量检索，中文/中医古文语义区分能力强（但需 Ollama）
 
-前置：
+前置（仅在选用本模块时需要）：
 - Ollama 已安装 bge-m3（ollama pull bge-m3）
 - Ollama 服务在 http://localhost:11434（默认）
 
