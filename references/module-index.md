@@ -24,6 +24,7 @@
 | 学习仪表盘 | `scripts/learning_dashboard.py` | 概念覆盖 + 产物 + 推荐 |
 | RAG 检索 | `scripts/rag_search.py` | 关键词 / `--key` 精确 / `--date` 按日打包 |
 | 三因方速查指南 | `rag-knowledge-base/sanyin_sitianfang_guide.md` | 六步加减/六气病机可直接 Grep+Read（零依赖） |
+| 运气要诀病机速查 | `rag-knowledge-base/yunqi_yaojue_pathogenesis_guide.md` | 五运六气病机歌诀+注解可直接 Grep+Read（零依赖） |
 | 可导入包 | `wuyun_liuqi/` | `from wuyun_liuqi import calculate, fetch_by_date` |
 | Py/JS 一致性 | `scripts/compare_py_js_yunqi.py` | 关键字段跨语言对比 |
 
