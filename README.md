@@ -223,6 +223,7 @@ Agent 会自动调用本技能包的推算引擎、知识库和推理流程来�
 | 临床应用 | 治则治法、方药方向、针灸选穴、养生调理 | `yunqi-clinical/` | ✅ 参考建议，含免责声明 |
 | 经典文献 | 素问七篇、历代运气学说、现代研究索引 | `yunqi-classics/`、`rag-knowledge-base/asset5_commentary.json` | ✅ 已覆盖 |
 | RAG 知识库 | 岁运、司天在泉、客主加临、运气方、注家、地域、体质 | `rag-knowledge-base/asset*.json` | ✅ 已覆盖 |
+| 公版蒸馏指南 | 五本公版古籍蒸馏成可 Grep+Read 的原文/注解（方药/教材/病机/本体论/治法五层） | `rag-knowledge-base/*_guide.md` | ✅ 已覆盖 |
 | 个人体质 | 出生年运气体质倾向、九种体质量表、当前岁运调理方向、地域修正 | `scripts/personal_yunqi_profile.py`、`scripts/constitution_assessment.py`、`advanced-alignment/` | ✅ 已覆盖 |
 | 天气对齐 | 实时气象 × 运气格局交叉分析，判断内外邪相合/相背/兼夹 | `scripts/weather_alignment.py`、`advanced-alignment/weather_integration.md` | ✅ 已接入 |
 | 天气 × 体质叠加 | 出生运气体质 × 当前岁运 × 天气实况三维分析 | `scripts/yunqi_weather_constitution.py` | ✅ 已接入 |
@@ -246,8 +247,10 @@ Agent 会自动调用本技能包的推算引擎、知识库和推理流程来�
 | [workflows/routing-contract.md](workflows/routing-contract.md) | 路由执行契约 |
 | [RULES.md](RULES.md) | 行为规则索引 → `rules/` |
 | [references/gotchas.md](references/gotchas.md) | 常见踩坑 |
+| [references/module-index.md](references/module-index.md) | 模块地图（含五层注释链架构） |
 | [workflows/task-closure.md](workflows/task-closure.md) | 任务闭环 |
 | [agent-workflow/react_workflow.md](agent-workflow/react_workflow.md) | ReAct 推理工作流规范 |
+| `rag-knowledge-base/*_guide.md` | 五层公版蒸馏指南（方药/教材/病机/本体论/治法，Grep+Read 零依赖） |
 
 ### 仓库结构
 
@@ -326,10 +329,28 @@ Agent 会自动调用本技能包的推算引擎、知识库和推理流程来�
 
 **104 个唯一键**覆盖五层，通过 `rag_keys` 精确匹配。
 
+### 五层注释链（公版蒸馏指南）
+
+RAG asset 是精炼键值（回答"是什么"）；下列五本公版古籍蒸馏成的 Markdown 指南是**可 Grep+Read 的原文与注解**（回答"为什么、怎么治、古人怎么看"），零脚本零模型依赖，Agent 直接阅读。五层从方药到本体论，覆盖同一临床问题的不同深度。
+
+| 层 | 指南 | 来源 | 朝代·注家 | 回答什么 |
+|----|------|------|----------|----------|
+| 方药层 | `rag-knowledge-base/sanyin_sitianfang_guide.md` | 《三因极一病证方论》陈无择 | 宋 | 用什么方、六步怎么加减 |
+| 教材层 | `rag-knowledge-base/yunqi_yaojue_pathogenesis_guide.md` | 《运气要诀》吴谦 | 清 | 病机歌诀、标准表述 |
+| 病机层 | `rag-knowledge-base/suwen_xuanji_pathogenesis_guide.md` | 《素问玄机原病式》刘完素 | 金 | 逐症状辨病机、兼化是虚象 |
+| 本体论层 | `rag-knowledge-base/leijing_tuyi_yunqi_philosophy_guide.md` | 《类经图翼》张介宾 | 明 | 太极阴阳五行本体、生克互藏 |
+| 治法层 | `rag-knowledge-base/baoming_zhifa_guide.md` | 《素问病机气宜保命集》刘完素 | 金 | 病机十九条治则、六气岁宜治法 |
+
+**用法**：Agent 推算出 `rag_key` 后，`rag_search --key` 取 asset 精炼结论；需引用原文、解释病机、给治法或做注家对照时，Grep 对应指南关键词定位后 Read。asset 与指南互补——asset 给结论，指南给依据。
+
+**注家对照**：刘完素（寒凉派，"不可峻用辛温大热"）与张介宾（温补派，"阳气为本"）形成运气学史上最尖锐的立场的对立，两方原文均可 Grep，供 `prompts/expression_style.md` 注家对照模式调用。
+
+**蒸馏原则**：仓库只放蒸馏产物，不放蒸馏工具（仿 nihaixia 模式）。五本指南均来自公版古籍，人读原文 + 结构化录入，逐字保留、不增删、不编造，每条可溯源至源文件行号。
+
 ### Agent 集成层
 
 1. **强规则计算工具**（`calculate_yunqi_api`）：大寒定年 + 标准化 JSON + rag_key 生成
-2. **RAG 知识库**（`rag-knowledge-base/`）：5 层 key-value 结构化存储
+2. **RAG 知识库**（`rag-knowledge-base/`）：5 层 key-value 结构化存储 + 5 层公版蒸馏指南（Grep+Read）
 3. **ReAct 推理工作流**（`agent-workflow/`）：查工具 -> 查知识库 -> 辨证推理闭环
 4. **System Prompt**（`prompts/`）：TCM 运气专家角色约束
 5. **高级对齐**（`advanced-alignment/`）：天气 API 对齐 + 体质交叉分析

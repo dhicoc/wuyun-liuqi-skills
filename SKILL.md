@@ -78,6 +78,7 @@ description: >
 | 统一 CLI | `scripts/yunqi_cli.py` |
 | 学习仪表盘 | `scripts/learning_dashboard.py` / `yunqi_cli.py dashboard` |
 | RAG 检索 | `yunqi_cli.py search --date today` · `--key` · `--semantic 口语` |
+| 五层蒸馏指南 | `rag-knowledge-base/*_guide.md`（方药/教材/病机/本体论/治法，Grep+Read 零依赖；详见 `references/module-index.md`） |
 | 可导入包 | `wuyun_liuqi`（`from wuyun_liuqi import calculate, semantic_search`） |
 | HTML 报告 | `generate_html_report.py`（含知识库精确命中章节） |
 | pip 安装 | `pip install -e ".[lunar]"` → `python tests/smoke_pip_install.py` |
