@@ -54,6 +54,7 @@ description: >
 <!-- SYNC:COMMON_TASKS_END -->
 
 未命中 → 查 `routing.yaml` 的 `axes` 与 `on_miss`，不得强行匹配。
+**讲解模式**：学概念/思想/注家对照 → `expression_style.md`（运气导师）+ `teaching-modules/` + `rag-knowledge-base/*_guide.md`；深度注家扮演 → `perspectives/`（刘完素/张介宾）。双语态见 `system_prompt.md` §1.1。
 
 ## 延伸索引
 
@@ -78,7 +79,11 @@ description: >
 | 统一 CLI | `scripts/yunqi_cli.py` |
 | 学习仪表盘 | `scripts/learning_dashboard.py` / `yunqi_cli.py dashboard` |
 | RAG 检索 | `yunqi_cli.py search --date today` · `--key` · `--semantic 口语` |
-| 五层蒸馏指南 | `rag-knowledge-base/*_guide.md`（方药/教材/病机/本体论/治法，Grep+Read 零依赖；详见 `references/module-index.md`） |
+| 公版文献库 | `rag-knowledge-base/literature/`（35 篇原文 61.6 万字，Grep+Read 零依赖；详见 `检索说明.md`） |
+| 公版蒸馏指南 | `rag-knowledge-base/*_guide.md`（五层注释链 5 本 + 35 篇分组合并 5 册，Grep+Read 零依赖；详见 `references/module-index.md`） |
+| 讲解人格 | `prompts/expression_style.md`（运气导师表达 DNA，讲解模式加载） |
+| 教学模块 | `teaching-modules/`（10 个概念五段式可加载模块） |
+| 注家人格 | `perspectives/`（刘完素/张介宾 perspective skill，深度注家扮演） |
 | 可导入包 | `wuyun_liuqi`（`from wuyun_liuqi import calculate, semantic_search`） |
 | HTML 报告 | `generate_html_report.py`（含知识库精确命中章节） |
 | pip 安装 | `pip install -e ".[lunar]"` → `python tests/smoke_pip_install.py` |
