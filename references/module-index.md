@@ -23,8 +23,6 @@
 | 统一 CLI | `scripts/yunqi_cli.py` | calc/report/map/learn/search/dashboard |
 | 学习仪表盘 | `scripts/learning_dashboard.py` | 概念覆盖 + 产物 + 推荐 |
 | RAG 检索 | `scripts/rag_search.py` | 关键词 / `--key` 精确 / `--date` 按日打包 |
-| 向量语义检索 | `scripts/rag_vector.py` | bge-m3 向量检索（**可选增强**，需 Ollama，非主路径） |
-| 三因方蒸馏 | `scripts/distill_sanyin_formulas.py` | 蒸馏公版原文六步加减+六气病机入 asset4 |
 | 三因方速查指南 | `rag-knowledge-base/sanyin_sitianfang_guide.md` | 六步加减/六气病机可直接 Grep+Read（零依赖） |
 | 可导入包 | `wuyun_liuqi/` | `from wuyun_liuqi import calculate, fetch_by_date` |
 | Py/JS 一致性 | `scripts/compare_py_js_yunqi.py` | 关键字段跨语言对比 |

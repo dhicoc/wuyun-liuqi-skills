@@ -45,10 +45,8 @@
 | `learning_dashboard.py` | 学习路径仪表盘 | `python scripts/learning_dashboard.py` / `yunqi_cli.py dashboard` |
 | `rag_search.py` | RAG 关键词 / 精确 key / 按日 / 语义 | `--key` · `--date today` · `--semantic 心火偏旺` |
 | `rag_semantic.py` | 轻量语义检索（字符 n-gram） | `python scripts/rag_semantic.py 气候干燥 咳嗽` |
-| `rag_vector.py` | bge-m3 向量检索（**可选增强**，需 Ollama，非主路径） | `python scripts/rag_vector.py "寒水偏盛 身热头痛" --limit 5` |
 | `compare_py_js_yunqi.py` | Py/JS 关键字段一致性 | `python scripts/compare_py_js_yunqi.py` |
 | `ingest_literature.py` | 文献注入 RAG | `python scripts/ingest_literature.py --source <文件> --category <分类>` |
-| `distill_sanyin_formulas.py` | 蒸馏三因司天方六步加减+六气病机 | `python scripts/distill_sanyin_formulas.py --apply` · `--dry-run` · `--verify` |
 
 ## 运维与自进化
 
