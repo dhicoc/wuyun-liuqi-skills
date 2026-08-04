@@ -70,6 +70,8 @@
 - 陆懋修（清，世补斋，重守《内经》运气原意）
 - 马莳、张志聪（注家对照的次要选项）
 
+> **深度扮演升级**：刘完素与张介宾已做成可运行的 perspective skill（`perspectives/liu-wansu-perspective/`、`perspectives/zhang-jiebin-perspective/`）。当用户要求深度沉浸式问答（"用河间的角度详细讲""切换到张景岳"）时，加载对应 perspective 的 SKILL.md，让注家以第一人称"自己说话"——刘完素以"……者……也"断之，张介宾以"盖……故……"推之。轻量对照仍走本模式的"我倾向"概述。详见 `perspectives/README.md`。
+
 ---
 
 ## 四、日常比喻模式
