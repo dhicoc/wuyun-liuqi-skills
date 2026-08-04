@@ -10,8 +10,8 @@
 <p align="center">帮助人类通过 AI Agent 理解《黄帝内经》运气学思想的技能包<br/>
 AI Agent Skill Pack that enables humans to deeply understand WuYun-LiuQi (Five Movements and Six Qi) philosophy through natural conversation</p>
 
-<p align="center">TCM Climate &amp; Pathology Engine — Ganzhi calculation · Six-Qi progression · RAG knowledge base · ReAct reasoning · Self-evolving<br/>
-中医运气学推算引擎 — 干支推算 · 六气步移 · 五层 RAG 知识库 · ReAct 推理 · 自进化引擎</p>
+<p align="center">TCM Climate &amp; Pathology Engine — Ganzhi calculation · Six-Qi progression · RAG knowledge base · Public-domain literature distillation · Commentator perspectives · ReAct reasoning · Self-evolving<br/>
+中医运气学推算引擎 — 干支推算 · 六气步移 · RAG 知识库 · 公版文献蒸馏 · 注家人格 · ReAct 推理 · 自进化引擎</p>
 
 <p align="center">
   <a href="https://github.com/dhicoc/wuyun-liuqi-skills/stargazers"><img src="https://img.shields.io/github/stars/dhicoc/wuyun-liuqi-skills?style=flat&logo=github" alt="stars"></a>
@@ -223,7 +223,9 @@ Agent 会自动调用本技能包的推算引擎、知识库和推理流程来�
 | 临床应用 | 治则治法、方药方向、针灸选穴、养生调理 | `yunqi-clinical/` | ✅ 参考建议，含免责声明 |
 | 经典文献 | 素问七篇、历代运气学说、现代研究索引 | `yunqi-classics/`、`rag-knowledge-base/asset5_commentary.json` | ✅ 已覆盖 |
 | RAG 知识库 | 岁运、司天在泉、客主加临、运气方、注家、地域、体质 | `rag-knowledge-base/asset*.json` | ✅ 已覆盖 |
-| 公版蒸馏指南 | 五本公版古籍蒸馏成可 Grep+Read 的原文/注解（方药/教材/病机/本体论/治法五层） | `rag-knowledge-base/*_guide.md` | ✅ 已覆盖 |
+| 公版文献库 | 35 篇公版五运六气文献原文（61.6 万字，先秦至清） | `rag-knowledge-base/literature/` | ✅ 已覆盖 |
+| 公版蒸馏指南 | 10 本公版古籍蒸馏成可 Grep+Read 的结构化指南（五层注释链 + 35 篇分组合并） | `rag-knowledge-base/*_guide.md` | ✅ 已覆盖 |
+| 注家人格 | 刘完素/张介宾可运行 perspective skill（深度注家扮演，nuwa 模式） | `perspectives/` | ✅ 已覆盖 |
 | 个人体质 | 出生年运气体质倾向、九种体质量表、当前岁运调理方向、地域修正 | `scripts/personal_yunqi_profile.py`、`scripts/constitution_assessment.py`、`advanced-alignment/` | ✅ 已覆盖 |
 | 天气对齐 | 实时气象 × 运气格局交叉分析，判断内外邪相合/相背/兼夹 | `scripts/weather_alignment.py`、`advanced-alignment/weather_integration.md` | ✅ 已接入 |
 | 天气 × 体质叠加 | 出生运气体质 × 当前岁运 × 天气实况三维分析 | `scripts/yunqi_weather_constitution.py` | ✅ 已接入 |
@@ -250,7 +252,9 @@ Agent 会自动调用本技能包的推算引擎、知识库和推理流程来�
 | [references/module-index.md](references/module-index.md) | 模块地图（含五层注释链架构） |
 | [workflows/task-closure.md](workflows/task-closure.md) | 任务闭环 |
 | [agent-workflow/react_workflow.md](agent-workflow/react_workflow.md) | ReAct 推理工作流规范 |
-| `rag-knowledge-base/*_guide.md` | 五层公版蒸馏指南（方药/教材/病机/本体论/治法，Grep+Read 零依赖） |
+| `rag-knowledge-base/*_guide.md` | 公版蒸馏指南（五层注释链 5 本 + 35 篇分组合并 5 册，Grep+Read 零依赖） |
+| `rag-knowledge-base/literature/` | 35 篇公版文献原文（61.6 万字，零依赖基础层） |
+| [`perspectives/`](perspectives/README.md) | 注家人格 perspective skill（刘完素/张介宾，深度扮演） |
 
 ### 仓库结构
 
@@ -293,10 +297,13 @@ Agent 会自动调用本技能包的推算引擎、知识库和推理流程来�
 │   ├── examples/               # 标准输出样例、示例报告与预览图
 │   ├── generated/              # 本地生成报告（默认忽略）
 │   └── test-results/           # 测试输出（默认忽略）
-├── rag-knowledge-base/         # ★ RAG 知识库（含 README 与 index.json）
+├── rag-knowledge-base/         # ★ RAG 知识库（asset JSON + 10 本蒸馏指南 + 35 篇文献原文）
+│   ├── literature/             #   35 篇公版文献原文（61.6 万字，零依赖基础层）
+│   └── *_guide.md              #   五层注释链 5 本 + 35 篇分组合并 5 册
 ├── .github/workflows/          # CI 工作流
 ├── agent-workflow/             # ★ ReAct 推理工作流
-├── prompts/                    # System Prompt
+├── prompts/                    # System Prompt + 讲解人格 expression_style
+├── perspectives/               # ★ 注家人格（刘完素/张介宾 perspective skill）
 ├── advanced-alignment/         # 高级对齐（天气 / 体质）
 ├── self-evolve/                # 自进化运行时
 │
@@ -347,14 +354,48 @@ RAG asset 是精炼键值（回答"是什么"）；下列五本公版古籍蒸�
 
 **蒸馏原则**：仓库只放蒸馏产物，不放蒸馏工具（仿 nihaixia 模式）。五本指南均来自公版古籍，人读原文 + 结构化录入，逐字保留、不增删、不编造，每条可溯源至源文件行号。
 
+### 35 篇文献库 + 蒸馏指南
+
+除了上述五层注释链的五本，项目还接入了一套更大的公版文献库及其蒸馏产物：
+
+**文献原文（基础层，零依赖 Grep+Read）**：`rag-knowledge-base/literature/` 收录 35 篇公版五运六气文献（约 61.6 万字，先秦至清代），含《素问》七篇大论全文、遗篇（刺法论/本病论）、《圣济总录》六十甲子岁图、《玄珠密语》、《运气易览》、《运气证治歌诀》等。详见 `rag-knowledge-base/literature/检索说明.md`。
+
+**35 篇蒸馏指南（结构化速查，零依赖）**：从 35 篇原文蒸馏出的 5 个合并指南，Agent 可 Grep 关键词定位要点，不必通读长文：
+
+| 指南 | 覆盖文献 | 用途 |
+|------|---------|------|
+| `rag-knowledge-base/suwen_qipian_yipian_guide.md` | 素问七篇大论 + 遗篇 9 篇 | 经文源头：天干配五运/标本中气/亢则害承乃制/病机十九条/六气治法/运气疫病刺法 |
+| `rag-knowledge-base/shengji_xuanzhu_suichatu_guide.md` | 圣济总录岁图 + 玄珠密语 2 篇 | 逐年推演速查（按司天在泉六组示例）+ 王冰运气推演十七卷 |
+| `rag-knowledge-base/mingqing_yunqi_zhuanzhu_guide.md` | 运气易览/松峰说疫/运气证治歌诀等 8 篇 | 明清运气推演与证治（含王旭高反刻板按语、李时珍五运六淫用药式） |
+| `rag-knowledge-base/jinyuan_yijia_yunqi_guide.md` | 玄机原病式节录/医学启源/脾胃论/格致余论 4 篇 | 金元四家运气观（河间寒凉/易水/补土/养阴） |
+| `rag-knowledge-base/xianqin_cunmu_yuanliu_guide.md` | 太始天元册/管子/月令等 10 篇 | 运学渊源（先秦思想源头）+ 已佚书目 + 晚清温病运气 |
+
+**可选向量语义检索**：本地装 `ollama pull bge-m3` 后，可对 444 个段落做 1024 维向量语义检索（建索引脚本与向量文件不进仓库，仿 nihaixia 模式）。基础检索仍走 Grep+Read，零依赖。
+
+### 注家人格 Perspective Skills
+
+五层注释链里的刘完素与张介宾，进一步做成**可运行的 perspective skill**（人物思维操作系统，采用 [女娲 · Skill造人术](https://github.com/alchaincyf/nuwa-skill) 模式）。Agent 激活后能**切换到注家视角**回答问题，而非"替注家说话"。
+
+| Perspective | 注家 | 派别 | 核心立场 | 保真度 |
+|-------------|------|------|----------|--------|
+| `perspectives/liu-wansu-perspective/` | 刘完素（金） | 寒凉派 | 六气皆从火化、不可峻用辛温、兼化虚象不可误治 | 87/100 A |
+| `perspectives/zhang-jiebin-perspective/` | 张介宾（明） | 温补派 | 阳气为本、五行互藏、生中有克克中有用、造化不可无制 | 88/100 A |
+
+每个 perspective 含 `SKILL.md`（角色扮演规则 + 心智模型 + 决策启发式 + 表达 DNA + 诚实边界）+ `FIDELITY.md`（保真度评分卡）。素材为已蒸馏的公版指南，非从零调研。
+
+**与 `expression_style.md` 的关系**：注家对照模式升级为两层——
+- **轻量对照**（默认）：运气导师口吻概述"刘完素认为……张介宾却认为……我倾向……"
+- **深度扮演**（用户要求"切换到河间/景岳"）：加载对应 perspective，让注家以第一人称"自己说话"——刘完素以"……者……也"断之，张介宾以"盖……故……"推之
+
 ### Agent 集成层
 
 1. **强规则计算工具**（`calculate_yunqi_api`）：大寒定年 + 标准化 JSON + rag_key 生成
-2. **RAG 知识库**（`rag-knowledge-base/`）：5 层 key-value 结构化存储 + 5 层公版蒸馏指南（Grep+Read）
+2. **RAG 知识库**（`rag-knowledge-base/`）：5 层 key-value 结构化存储 + 10 本公版蒸馏指南（Grep+Read）+ 35 篇文献原文
 3. **ReAct 推理工作流**（`agent-workflow/`）：查工具 -> 查知识库 -> 辨证推理闭环
-4. **System Prompt**（`prompts/`）：TCM 运气专家角色约束
-5. **高级对齐**（`advanced-alignment/`）：天气 API 对齐 + 体质交叉分析
-6. **自进化回路**（`self_evolve/`）：自动记录 -> 盲区检测 -> 反馈采集 -> 优化报告
+4. **System Prompt**（`prompts/`）：TCM 运气专家角色约束（临床模式 + 讲解模式双语态）
+5. **注家人格**（`perspectives/`）：刘完素/张介宾可运行 perspective skill（深度注家扮演）
+6. **高级对齐**（`advanced-alignment/`）：天气 API 对齐 + 体质交叉分析
+7. **自进化回路**（`self_evolve/`）：自动记录 -> 盲区检测 -> 反馈采集 -> 优化报告
 
 ### ReAct 推理路径
 
