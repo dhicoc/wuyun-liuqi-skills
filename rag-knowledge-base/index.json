@@ -76,7 +76,7 @@
       "asset_id": "asset4_formula",
       "asset_name": "三因司天方 — 运气方剂数据库",
       "asset_category": "yunqi_formula",
-      "description": "陈无择《三因极一病证方论》运气时气方，包含五运时气方10首和六气时气方6首。每方对应特定运气格局，为运气辨证论治提供方药参考。",
+      "description": "陈无择《三因极一病证方论》运气时气方，包含五运时气方10首和六气时气方6首。每方对应特定运气格局，为运气辨证论治提供方药参考。（v2：蒸馏公版原文，补六步时令加减、六气病机推演，订正审平汤/升明汤组成）",
       "total_entries": 16,
       "lookup_fields": [
         "rag_key"
