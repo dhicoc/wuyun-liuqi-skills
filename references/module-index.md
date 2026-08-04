@@ -38,6 +38,14 @@ RAG asset 是精炼键值（回答"是什么"）；下列五本公版古籍蒸�
 | 本体论层 | `rag-knowledge-base/leijing_tuyi_yunqi_philosophy_guide.md` | 《类经图翼》张介宾 | 明 | 太极阴阳五行本体、生克互藏 |
 | 治法层 | `rag-knowledge-base/baoming_zhifa_guide.md` | 《素问病机气宜保命集》刘完素 | 金 | 病机十九条治则、六气岁宜治法 |
 
+### 五运六气文献库（公版原文，35 篇）
+
+| 目录 | 内容 | 检索 |
+|------|------|------|
+| `rag-knowledge-base/literature/` | 35 篇公版原文（61.6 万字，先秦至清代）含素问七篇大论全文、遗篇、圣济总录六十甲子岁图、玄珠密语等 | Grep+Read 零依赖（基础层）；可选 bge-m3 向量语义检索（增强层，需本地 Ollama） |
+
+详见 `rag-knowledge-base/literature/检索说明.md`。五本蒸馏指南是从这套文献中提炼的结构化产物；本目录是完整原文，供 Agent 引经据典、逐年详查。
+
 **检索方式**：Grep 关键词定位 → Read 对应段落。各指南首部均有"关键词→定位段"索引表。
 
 **与 RAG asset 的关系**：asset 给精炼结论（`rag_search --key`），指南给原文依据（Grep+Read）。两者互补。
