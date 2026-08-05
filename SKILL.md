@@ -73,7 +73,6 @@ description: >
 | 一致性/孤儿 | `conformance.yaml`、`scripts/check_conformance.py`、`scripts/audit_orphans.py` |
 | ReAct 推理 | `agent-workflow/react_workflow.md` |
 | 报告规范 | `docs-generator/SKILL.md` |
-| 当前优化冲刺 | `docs/optimization-sprint.md` |
 | 思想地图 | `scripts/export_thought_map.py` |
 | 苏格拉底学习 | `scripts/socratic_learn.py` / `yunqi_cli.py learn` |
 | 统一 CLI | `scripts/yunqi_cli.py` |

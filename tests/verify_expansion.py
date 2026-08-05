@@ -247,7 +247,6 @@ print("=" * 60)
 new_files = [
     "scripts/ingest_literature.py",
     "scripts/self_evolve.py",
-    "scripts/verify_expansion.py",
     "scripts/health_check.py",
     "scripts/personal_yunqi_profile.py",
     "scripts/visualize_yunqi.py",

@@ -19,7 +19,6 @@
 | 教学模块 | `teaching-modules/` | 10 个概念五段式可加载模块（原文/注家/解读/金句/误区/深度分层） |
 | 高级对齐 | `advanced-alignment/` | 天气、地域、体质交叉 |
 | 自进化 | `self-evolve/` + `scripts/self_evolve.py` | 日志、盲区、反馈、月报 |
-| 优化冲刺（执行真相源） | `docs/optimization-sprint.md` | 本轮文档/CLI/进程/测试任务与状态 |
 | 思想地图 | `scripts/export_thought_map.py` | Mermaid 概念图 + 年结构图 |
 | 苏格拉底学习 | `scripts/socratic_learn.py` | 提问式学习会话 |
 | 统一 CLI | `scripts/yunqi_cli.py` | calc/report/map/learn/search/dashboard |

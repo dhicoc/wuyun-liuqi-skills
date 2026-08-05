@@ -89,8 +89,8 @@ self-evolve/*          自进化运行时数据，忽略
 ```bash
 python scripts/health_check.py
 python scripts/validate_knowledge_base.py
-python scripts/verify_expansion.py
-python scripts/full_regression_test.py
+python tests/verify_expansion.py
+python tests/full_regression_test.py
 node scripts/calculate_yunqi_api.js 2026-06-29 --json
 ```
 
@@ -101,7 +101,7 @@ node scripts/calculate_yunqi_api.js 2026-06-29 --json
 ## 8. 可导入包布局（渐进 v0.1）
 
 > **已落地轻量骨架**：仓库根目录 `wuyun_liuqi/` 通过 bootstrap 复用 `scripts/` 实现，**不强制搬迁**全部逻辑。  
-> 详见 `docs/optimization-sprint.md`、`pyproject.toml`。
+> 详见 `pyproject.toml`。
 
 ```text
 wuyun_liuqi/                 # 可 import 的稳定 API 面

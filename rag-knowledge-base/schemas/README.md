@@ -30,5 +30,5 @@
 python scripts/generate_rag_index.py
 python scripts/generate_rag_index.py --check
 python scripts/validate_knowledge_base.py
-python scripts/full_regression_test.py
+python tests/full_regression_test.py
 ```

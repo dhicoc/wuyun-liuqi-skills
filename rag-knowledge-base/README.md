@@ -63,7 +63,7 @@ rag-knowledge-base/schemas/
 
    ```bash
    python scripts/validate_knowledge_base.py
-   python scripts/full_regression_test.py
+   python tests/full_regression_test.py
    ```
 
 3. 涉及临床、方药、针灸的条目必须保留“仅供参考，须辨证论治”的安全边界。
