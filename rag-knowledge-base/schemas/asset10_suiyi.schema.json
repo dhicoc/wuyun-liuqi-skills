@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wuyun-liuqi.local/schemas/asset10_suiyi.schema.json",
+  "title": "asset10 — 六气岁宜治法库",
+  "description": "宋·刘完素《素问病机气宜保命集》气宜论的六气司天岁宜治法。每条含司天/岁宜治法/用热远热规则/原文摘录。",
+  "type": "object",
+  "required": ["asset_id", "asset_name", "entries"],
+  "properties": {
+    "asset_id": {"type": "string", "const": "asset10_suiyi_zhifa"},
+    "asset_name": {"type": "string"},
+    "asset_description": {"type": "string"},
+    "data_source": {"type": "string"},
+    "entry_count": {"type": "integer", "const": 6},
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["sitian_key", "sitian_name", "suiyi"],
+        "properties": {
+          "sitian_key": {"type": "string", "description": "司天 rag_key"},
+          "sitian_name": {"type": "string", "description": "司天名"},
+          "year_branches": {"type": "string", "description": "年支"},
+          "suiyi": {"type": "string", "description": "岁宜治法"},
+          "yongre_yuanre": {"type": "string", "description": "用热远热规则"},
+          "source_quote": {"type": "string", "description": "原文逐字"},
+          "source": {"type": "string"}
+        }
+      }
+    }
+  }
+}

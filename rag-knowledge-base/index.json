@@ -2,7 +2,7 @@
   "asset_name": "wuyun-liuqi-rag-index",
   "asset_type": "knowledge_base_index",
   "description": "五运六气 RAG 知识库资产索引。用于说明各 asset 的用途、检索键和维护状态。",
-  "total_entries": 9,
+  "total_entries": 10,
   "primary_api": "scripts/calculate_yunqi_api.py",
   "entries": [
     {
@@ -139,7 +139,7 @@
       "asset_name": "运气与体质交叉分析数据库",
       "asset_category": "constitution_alignment",
       "description": "九种体质（王琦九分法）与五运六气格局的匹配关系。不同出生年运气格局影响先天体质倾向，不同运气岁气背景下各体质的发病倾向与调理要点。",
-      "total_entries": 18,
+      "total_entries": 108,
       "lookup_fields": [
         "birth_yunqi_keys",
         "suiyun_code",
@@ -176,6 +176,26 @@
       "rag_key": "asset9_cases"
     },
     {
+      "entry_id": "rag_index_asset10_suiyi_zhifa",
+      "entry_type": "asset_index",
+      "title": "六气岁宜治法库",
+      "file": "asset10_suiyi_zhifa.json",
+      "asset_id": "asset10_suiyi_zhifa",
+      "asset_name": "六气岁宜治法库",
+      "asset_category": "custom_asset",
+      "description": "金·刘完素《素问病机气宜保命集·气宜论》录《内经》六气司天之政岁宜治法。六气司天各一条，为三因司天方背后的治则原文依据。仅作运气学理论参考，具体诊疗须遵医嘱。",
+      "total_entries": 6,
+      "lookup_fields": [
+        "sitian_key"
+      ],
+      "example_keys": [
+        "taiyang_hanshui_sitian",
+        "yangming_zaojin_sitian",
+        "shaoyang_xianghuo_sitian"
+      ],
+      "rag_key": "asset10_suiyi_zhifa"
+    },
+    {
       "entry_id": "rag_index_terminology",
       "entry_type": "asset_index",
       "title": "术语解释资产",
@@ -184,7 +204,7 @@
       "asset_name": "五运六气术语解释库",
       "asset_category": "terminology",
       "description": "统一的中医运气学专业术语白话解释库，用于 --explain 模式和学生版报告。涵盖基础概念、天干地支、五行学说、五运、六气、节气时令、脏腑经络、病因病机、治则治法、方药、针灸养生、经典文献与医家等12大类。",
-      "total_entries": 592,
+      "total_entries": 700,
       "lookup_fields": [
         "term",
         "pinyin",
