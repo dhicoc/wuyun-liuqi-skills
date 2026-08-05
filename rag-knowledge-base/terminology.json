@@ -3,7 +3,7 @@
   "asset_name": "五运六气术语解释库",
   "asset_description": "统一的中医运气学专业术语白话解释库，用于 --explain 模式和学生版报告。涵盖基础概念、天干地支、五行学说、五运、六气、节气时令、脏腑经络、病因病机、治则治法、方药、针灸养生、经典文献与医家等12大类。",
   "data_source": "《黄帝内经·素问》七篇大论、《黄帝内经·灵枢》、《神农本草经》、《伤寒论》、《金匮要略》、《医宗金鉴》及中医基础理论教材",
-  "entry_count": 592,
+  "entry_count": 700,
   "entries": [
     {
       "entry_id": "term_wuyun_liuqi",
@@ -5332,6 +5332,978 @@
       "category": "病因病机",
       "explanation": "一经证候未罢又出现另一经证候。",
       "source": "《伤寒论》"
+    },
+    {
+      "entry_id": "term_zhe_yu_fu_yun",
+      "entry_type": "terminology",
+      "term": "折郁扶运",
+      "pinyin": "zhe_yu_fu_yun",
+      "category": "治则治法",
+      "explanation": "刺法论所述刺法要旨之一，气交有变成暴郁时，用刺法折伏郁气、扶助运气，以预救生灵。",
+      "source": "素问遗篇·刺法论"
+    },
+    {
+      "entry_id": "term_bao_yu",
+      "entry_type": "terminology",
+      "term": "暴郁",
+      "pinyin": "bao_yu",
+      "category": "病因病机",
+      "explanation": "气交升降不前，气机骤然郁滞而成之暴发性郁病，可致民病温疫。",
+      "source": "素问遗篇·刺法论"
+    },
+    {
+      "entry_id": "term_tian_zhi",
+      "entry_type": "terminology",
+      "term": "天窒",
+      "pinyin": "tian_zhi",
+      "category": "六气",
+      "explanation": "六气欲升而天之中见星窒抑之，使气不得前。木遇天柱、火遇天蓬、土遇天冲、金遇天英、水遇天芮，各主一窒。",
+      "source": "素问遗篇·刺法论"
+    },
+    {
+      "entry_id": "term_di_zhi",
+      "entry_type": "terminology",
+      "term": "地窒",
+      "pinyin": "di_zhi",
+      "category": "六气",
+      "explanation": "六气欲降而地之中见星窒抑之，使气不得入。木遇地皛、火遇地玄、土遇地苍、金遇地彤、水遇地阜。",
+      "source": "素问遗篇·刺法论"
+    },
+    {
+      "entry_id": "term_qian_zheng",
+      "entry_type": "terminology",
+      "term": "迁正",
+      "pinyin": "qian_zheng",
+      "category": "六气",
+      "explanation": "司天、在泉之气当交司而得其正位，称为迁正，主一年气化之常政。",
+      "source": "素问遗篇·本病论"
+    },
+    {
+      "entry_id": "term_bu_qian_zheng",
+      "entry_type": "terminology",
+      "term": "不迁正",
+      "pinyin": "bu_qian_zheng",
+      "category": "六气",
+      "explanation": "司天之气当迁正而未得迁正，仍由旧气留治于天，致使天令失常而为病。",
+      "source": "素问遗篇·本病论"
+    },
+    {
+      "entry_id": "term_tui_wei",
+      "entry_type": "terminology",
+      "term": "退位",
+      "pinyin": "tui_wei",
+      "category": "六气",
+      "explanation": "旧岁司天之气交司后让位与新司天，称退位；气化正常之交接。",
+      "source": "素问遗篇·本病论"
+    },
+    {
+      "entry_id": "term_bu_tui_wei",
+      "entry_type": "terminology",
+      "term": "不退位",
+      "pinyin": "bu_tui_wei",
+      "category": "六气",
+      "explanation": "旧岁司天之气有余，交司后仍复布治天令，新岁司天不得迁正，致天令失常而民病灾。",
+      "source": "素问遗篇·本病论"
+    },
+    {
+      "entry_id": "term_gang_rou_shi_shou",
+      "entry_type": "terminology",
+      "term": "刚柔失守",
+      "pinyin": "gang_rou_shi_shou",
+      "category": "病因病机",
+      "explanation": "刚干与柔干上下不相合德，天地二甲子不相招，致天运皆虚，三年化疫疠之根。",
+      "source": "素问遗篇·刺法论"
+    },
+    {
+      "entry_id": "term_san_nian_hua_yi",
+      "entry_type": "terminology",
+      "term": "三年化疫",
+      "pinyin": "san_nian_hua_yi",
+      "category": "病因病机",
+      "explanation": "刚柔二干失守其位，天地迭移，其灾深甚者首尾三年至，化为五疫五疠之大疫。",
+      "source": "素问遗篇·刺法论"
+    },
+    {
+      "entry_id": "term_wu_yi_wu_li",
+      "entry_type": "terminology",
+      "term": "五疫五疠",
+      "pinyin": "wu_yi_wu_li",
+      "category": "病因病机",
+      "explanation": "五疫自天而来、五疠从地而至，分属木火土金水五行之疫疠，各有刺法补泻。",
+      "source": "素问遗篇·刺法论"
+    },
+    {
+      "entry_id": "term_zheng_qi_cun_nei",
+      "entry_type": "terminology",
+      "term": "正气存内",
+      "pinyin": "zheng_qi_cun_nei",
+      "category": "病因病机",
+      "explanation": "五疫染易之时，正气存于内则邪不可干，为预防疫病之根本要旨。",
+      "source": "素问遗篇·刺法论"
+    },
+    {
+      "entry_id": "term_bi_qi_du_qi",
+      "entry_type": "terminology",
+      "term": "避其毒气",
+      "pinyin": "bi_qi_du_qi",
+      "category": "治则治法",
+      "explanation": "疫疠毒气从天牝（鼻）而入，欲避之令勿投鼻中，即不相染，为避疫之法。",
+      "source": "素问遗篇·刺法论"
+    },
+    {
+      "entry_id": "term_tian_pin",
+      "entry_type": "terminology",
+      "term": "天牝",
+      "pinyin": "tian_pin",
+      "category": "病因病机",
+      "explanation": "指鼻。疫疠毒气从天牝而来，入脑流注诸经令人染病，故避毒当先护鼻。",
+      "source": "素问遗篇·刺法论"
+    },
+    {
+      "entry_id": "term_wu_qi_hu_shen",
+      "entry_type": "terminology",
+      "term": "五气护身",
+      "pinyin": "wu_qi_hu_shen",
+      "category": "治则治法",
+      "explanation": "入疫室前存想五藏之气（青白赤黑黄）护身，并想头上北斗煌煌，然后可入疫室而不染。",
+      "source": "素问遗篇·刺法论"
+    },
+    {
+      "entry_id": "term_xiao_jin_dan",
+      "entry_type": "terminology",
+      "term": "小金丹",
+      "pinyin": "xiao_jin_dan",
+      "category": "方药",
+      "explanation": "刺法论所载避疫方，以辰砂、水磨雄黄、叶子雌黄、紫金同煅炼蜜丸如梧桐子大，每日望东吸日华气一口冰水下一丸。具体方药请遵医嘱。",
+      "source": "素问遗篇·刺法论"
+    },
+    {
+      "entry_id": "term_shi_jue",
+      "entry_type": "terminology",
+      "term": "尸厥",
+      "pinyin": "shi_jue",
+      "category": "病因病机",
+      "explanation": "人虚神游失守，五尸鬼干犯致暴亡而未绝，四肢虽冷、心腹尚温、口中无涎、舌不缩，目中神彩不转者可刺救复苏。",
+      "source": "素问遗篇·刺法论"
+    },
+    {
+      "entry_id": "term_wu_shi_gui",
+      "entry_type": "terminology",
+      "term": "五尸鬼",
+      "pinyin": "wu_shi_gui",
+      "category": "病因病机",
+      "explanation": "五藏失守时干犯人之邪鬼：心黑尸鬼、脾青尸鬼、肾黄尸鬼、肝白尸鬼、肺赤尸鬼，令人暴亡。",
+      "source": "素问遗篇·刺法论"
+    },
+    {
+      "entry_id": "term_shen_guang_bu_ju",
+      "entry_type": "terminology",
+      "term": "神光不聚",
+      "pinyin": "shen_guang_bu_ju",
+      "category": "病因病机",
+      "explanation": "人虚天虚感邪致三虚，五神失守，神光不能聚守于本位，邪乃干人致暴亡。",
+      "source": "素问遗篇·刺法论"
+    },
+    {
+      "entry_id": "term_ying_er_qu_zhi",
+      "entry_type": "terminology",
+      "term": "迎而取之",
+      "pinyin": "ying_er_qu_zhi",
+      "category": "治则治法",
+      "explanation": "于运气将胜而未胜之前，先取其化源而泻之，迎其未来而取之，以折其胜气。",
+      "source": "素问六气玄珠密语"
+    },
+    {
+      "entry_id": "term_zi_qu_hua_yuan",
+      "entry_type": "terminology",
+      "term": "资取化源",
+      "pinyin": "zi_qu_hua_yuan",
+      "category": "治则治法",
+      "explanation": "太过取之、不及资之，当泻其胜实、补其衰弱，先取化源以避虚邪，为运气刺法之大法。",
+      "source": "素问遗篇·刺法论"
+    },
+    {
+      "entry_id": "term_zhe_qi_yu_qi",
+      "entry_type": "terminology",
+      "term": "折其郁气",
+      "pinyin": "zhe_qi_yu_qi",
+      "category": "治则治法",
+      "explanation": "气交郁发之岁，必先折伏其郁气，兼资其化源，使郁气得散而运气得平。",
+      "source": "素问·六元正纪大论"
+    },
+    {
+      "entry_id": "term_gan_de_fu",
+      "entry_type": "terminology",
+      "term": "干德符",
+      "pinyin": "gan_de_fu",
+      "category": "五运",
+      "explanation": "交司之日时，日干或月干与年干相合（如丁年遇壬日），名曰干德符，符即合，便为平气。",
+      "source": "素问六气玄珠密语"
+    },
+    {
+      "entry_id": "term_zhi_fa",
+      "entry_type": "terminology",
+      "term": "执法",
+      "pinyin": "zhi_fa",
+      "category": "五运",
+      "explanation": "天符之岁，司天与中运同气，象执法之官，其病连而危，故天符为执法。",
+      "source": "素问入式运气论奥"
+    },
+    {
+      "entry_id": "term_xing_ling",
+      "entry_type": "terminology",
+      "term": "行令",
+      "pinyin": "xing_ling",
+      "category": "五运",
+      "explanation": "岁会之岁，中运与年支五行同气而不得天令，象方伯行令，其病徐而持。",
+      "source": "素问入式运气论奥"
+    },
+    {
+      "entry_id": "term_gui_ren",
+      "entry_type": "terminology",
+      "term": "贵人",
+      "pinyin": "gui_ren",
+      "category": "五运",
+      "explanation": "太一天符之岁，天会岁会运会三者合，尊为贵人，其病暴而死。",
+      "source": "素问入式运气论奥"
+    },
+    {
+      "entry_id": "term_nan_bei_zheng",
+      "entry_type": "terminology",
+      "term": "南北政",
+      "pinyin": "nan_bei_zheng",
+      "category": "六气",
+      "explanation": "以甲己土运为南政，君尊南面而行令；余四运面北受令为北政，以别尺寸脉之应不应。",
+      "source": "素问入式运气论奥"
+    },
+    {
+      "entry_id": "term_chi_cun_fan",
+      "entry_type": "terminology",
+      "term": "尺寸反",
+      "pinyin": "chi_cun_fan",
+      "category": "六气",
+      "explanation": "南北政脉不应之位反移于尺寸相对之处，是为尺寸反，主死。",
+      "source": "素问入式运气论奥"
+    },
+    {
+      "entry_id": "term_yin_yang_jiao",
+      "entry_type": "terminology",
+      "term": "阴阳交",
+      "pinyin": "yin_yang_jiao",
+      "category": "六气",
+      "explanation": "南北政脉不应而交错移于当应之位之外，阴阳交错，是为阴阳交，主死。",
+      "source": "素问入式运气论奥"
+    },
+    {
+      "entry_id": "term_jiu_gong",
+      "entry_type": "terminology",
+      "term": "九宫",
+      "pinyin": "jiu_gong",
+      "category": "基础概念",
+      "explanation": "五运不及之岁灾宫所向，依洛书九宫分野：一坎、二坤、三震、四巽、五中、六乾、七兑、八艮、九离。",
+      "source": "素问入式运气论奥"
+    },
+    {
+      "entry_id": "term_zai_gong",
+      "entry_type": "terminology",
+      "term": "灾宫",
+      "pinyin": "zai_gong",
+      "category": "病因病机",
+      "explanation": "五运不及之岁，灾害所向之九宫方位：少角灾三宫、少徵灾九宫、少宫灾五宫、少商灾七宫、少羽灾一宫。",
+      "source": "素问入式运气论奥"
+    },
+    {
+      "entry_id": "term_tian_peng",
+      "entry_type": "terminology",
+      "term": "天蓬",
+      "pinyin": "tian_peng",
+      "category": "基础概念",
+      "explanation": "九宫之一，北方坎位水正之宫，主水运太过及水郁窒抑之占。",
+      "source": "素问入式运气论奥"
+    },
+    {
+      "entry_id": "term_tian_ying",
+      "entry_type": "terminology",
+      "term": "天英",
+      "pinyin": "tian_ying",
+      "category": "基础概念",
+      "explanation": "九宫之一，南方离位火正之宫，主火运不及灾宫及火郁窒抑之占。",
+      "source": "素问入式运气论奥"
+    },
+    {
+      "entry_id": "term_tian_zhu",
+      "entry_type": "terminology",
+      "term": "天柱",
+      "pinyin": "tian_zhu",
+      "category": "基础概念",
+      "explanation": "九宫之一，西方兑位金正之宫，主金运不及灾宫及木欲升受窒之占。",
+      "source": "素问入式运气论奥"
+    },
+    {
+      "entry_id": "term_tian_chong",
+      "entry_type": "terminology",
+      "term": "天冲",
+      "pinyin": "tian_chong",
+      "category": "基础概念",
+      "explanation": "九宫之一，东方震位木正之宫，主木运不及灾宫及土欲升受窒之占。",
+      "source": "素问入式运气论奥"
+    },
+    {
+      "entry_id": "term_tian_qin",
+      "entry_type": "terminology",
+      "term": "天禽",
+      "pinyin": "tian_qin",
+      "category": "基础概念",
+      "explanation": "九宫之一，中宫土正之宫，寄位二宫坤，主土运不及灾宫之占。",
+      "source": "素问入式运气论奥"
+    },
+    {
+      "entry_id": "term_tian_fu",
+      "entry_type": "terminology",
+      "term": "天辅",
+      "pinyin": "tian_fu",
+      "category": "基础概念",
+      "explanation": "九宫之一，东南巽位木神之应宫，佐天冲而主木气之占。",
+      "source": "素问入式运气论奥"
+    },
+    {
+      "entry_id": "term_tianxin_star",
+      "entry_type": "terminology",
+      "term": "天心",
+      "pinyin": "tianxin_star",
+      "category": "基础概念",
+      "explanation": "九宫之一，西北乾位金神之应宫，佐天柱而主金气之占。",
+      "source": "素问入式运气论奥"
+    },
+    {
+      "entry_id": "term_tian_ren",
+      "entry_type": "terminology",
+      "term": "天任",
+      "pinyin": "tian_ren",
+      "category": "基础概念",
+      "explanation": "九宫之一，东北艮位火神之应宫，佐天英而主火气之占。",
+      "source": "素问入式运气论奥"
+    },
+    {
+      "entry_id": "term_tian_nei",
+      "entry_type": "terminology",
+      "term": "天内",
+      "pinyin": "tian_nei",
+      "category": "基础概念",
+      "explanation": "九宫之一，西南坤位土神之应宫，佐天禽而主土气之占。",
+      "source": "素问入式运气论奥"
+    },
+    {
+      "entry_id": "term_wu_chong",
+      "entry_type": "terminology",
+      "term": "五虫",
+      "pinyin": "wu_chong",
+      "category": "五行学说",
+      "explanation": "毛羽倮甲鳞五类动物，分属木火土金水五行，随运气盛衰而衰夭生王。",
+      "source": "素问六气玄珠密语"
+    },
+    {
+      "entry_id": "term_mao_chong",
+      "entry_type": "terminology",
+      "term": "毛虫",
+      "pinyin": "mao_chong",
+      "category": "五行学说",
+      "explanation": "应木之虫，以师子为长，木运太过则毛虫盛，木运不及则毛虫困。",
+      "source": "素问六气玄珠密语"
+    },
+    {
+      "entry_id": "term_yu_chong",
+      "entry_type": "terminology",
+      "term": "羽虫",
+      "pinyin": "yu_chong",
+      "category": "五行学说",
+      "explanation": "应火之虫，以凤凰为长，火运太过则羽虫盛，火运不及则羽虫夭。",
+      "source": "素问六气玄珠密语"
+    },
+    {
+      "entry_id": "term_luo_chong",
+      "entry_type": "terminology",
+      "term": "倮虫",
+      "pinyin": "luo_chong",
+      "category": "五行学说",
+      "explanation": "应土之虫，以人为长，土运太过则倮虫太盛，土运不及则倮虫夭。",
+      "source": "素问六气玄珠密语"
+    },
+    {
+      "entry_id": "term_jia_chong",
+      "entry_type": "terminology",
+      "term": "甲虫",
+      "pinyin": "jia_chong",
+      "category": "五行学说",
+      "explanation": "应金之虫，以龟为长，金运太过则甲虫育，金运不及则甲虫殃。",
+      "source": "素问六气玄珠密语"
+    },
+    {
+      "entry_id": "term_lin_chong",
+      "entry_type": "terminology",
+      "term": "鳞虫",
+      "pinyin": "lin_chong",
+      "category": "五行学说",
+      "explanation": "应水之虫，以龙为长，水运太过则鳞虫育，水运不及则鳞虫困。",
+      "source": "素问六气玄珠密语"
+    },
+    {
+      "entry_id": "term_gang_gan",
+      "entry_type": "terminology",
+      "term": "刚干",
+      "pinyin": "gang_gan",
+      "category": "天干地支",
+      "explanation": "五阳干甲丙戊庚壬为刚干，主阳年太过；运之刚者主太过，伤其所胜。",
+      "source": "素问六气玄珠密语"
+    },
+    {
+      "entry_id": "term_rou_gan",
+      "entry_type": "terminology",
+      "term": "柔干",
+      "pinyin": "rou_gan",
+      "category": "天干地支",
+      "explanation": "五阴干乙丁己辛癸为柔干，主阴年不及；运之柔者主不及，反受所不胜之刑。",
+      "source": "素问六气玄珠密语"
+    },
+    {
+      "entry_id": "term_gang_rou",
+      "entry_type": "terminology",
+      "term": "刚柔",
+      "pinyin": "gang_rou",
+      "category": "天干地支",
+      "explanation": "十干分刚柔，阳干刚、阴干柔，刚主太过、柔主不及，刚柔失守则天运虚而化疫。",
+      "source": "素问六气玄珠密语"
+    },
+    {
+      "entry_id": "term_cang_tian",
+      "entry_type": "terminology",
+      "term": "苍天",
+      "pinyin": "cang_tian",
+      "category": "五运",
+      "explanation": "五天之气之一，青色天气横于丁壬所经危室柳鬼四宿，下合木运，立为木运之占。",
+      "source": "素问入式运气论奥"
+    },
+    {
+      "entry_id": "term_dan_tian",
+      "entry_type": "terminology",
+      "term": "丹天",
+      "pinyin": "dan_tian",
+      "category": "五运",
+      "explanation": "五天之气之一，赤色天气横于戊癸所经牛女奎璧四宿，下合火运，立为火运之占。",
+      "source": "素问入式运气论奥"
+    },
+    {
+      "entry_id": "term_jin_tian",
+      "entry_type": "terminology",
+      "term": "黅天",
+      "pinyin": "jin_tian",
+      "category": "五运",
+      "explanation": "五天之气之一，黄色天气横于甲己所经心尾角轸四宿，下合土运，立为土运之占。",
+      "source": "素问入式运气论奥"
+    },
+    {
+      "entry_id": "term_su_tian",
+      "entry_type": "terminology",
+      "term": "素天",
+      "pinyin": "su_tian",
+      "category": "五运",
+      "explanation": "五天之气之一，白色天气横于乙庚所经亢氐昴毕四宿，下合金运，立为金运之占。",
+      "source": "素问入式运气论奥"
+    },
+    {
+      "entry_id": "term_xuan_tian",
+      "entry_type": "terminology",
+      "term": "玄天",
+      "pinyin": "xuan_tian",
+      "category": "五运",
+      "explanation": "五天之气之一，黑色天气横于丙辛所经张翼娄胃四宿，下合水运，立为水运之占。",
+      "source": "素问入式运气论奥"
+    },
+    {
+      "entry_id": "term_wu_tian_zhi_qi",
+      "entry_type": "terminology",
+      "term": "五天之气",
+      "pinyin": "wu_tian_zhi_qi",
+      "category": "五运",
+      "explanation": "丹黅素玄苍五色天气各经二十八宿之分，下临十干方隅，以纪五运之所从立。",
+      "source": "素问入式运气论奥"
+    },
+    {
+      "entry_id": "term_ying_sui_bu_xie",
+      "entry_type": "terminology",
+      "term": "迎随补泻",
+      "pinyin": "ying_sui_bu_xie",
+      "category": "针灸养生",
+      "explanation": "五行六气各有胜复，于其将胜而迎之取源以泻，于其衰而随而资补之，为运气刺法之迎随补泻。",
+      "source": "素问六气玄珠密语"
+    },
+    {
+      "entry_id": "term_yu_fa",
+      "entry_type": "terminology",
+      "term": "郁发",
+      "pinyin": "yu_fa",
+      "category": "病因病机",
+      "explanation": "气交郁抑既久，待时而发，发则暴烈，如木郁待间气之时而发之类。",
+      "source": "素问·六元正纪大论"
+    },
+    {
+      "entry_id": "term_zi_qi_hua_yuan",
+      "entry_type": "terminology",
+      "term": "资其化源",
+      "pinyin": "zi_qi_hua_yuan",
+      "category": "治则治法",
+      "explanation": "运气为病，先资其化源以补所亏，使不胜之气得全，为运气治则之要法。",
+      "source": "素问·六元正纪大论"
+    },
+    {
+      "entry_id": "term_tai_yi_tian_fu",
+      "entry_type": "terminology",
+      "term": "太一天符",
+      "pinyin": "tai_yi_tian_fu",
+      "category": "五运",
+      "explanation": "又称太乙天符，司天、中运、年支三者会同，如戊午年三合为火，尊为太一天符，其病暴而死。",
+      "source": "素问·六元正纪大论"
+    },
+    {
+      "entry_id": "term_zuo_you_jian",
+      "entry_type": "terminology",
+      "term": "左右间",
+      "pinyin": "zuo_you_jian",
+      "category": "六气",
+      "explanation": "司天在泉之左右间气，共四间气，分主一步六十日余八十七刻半，以行岁中天令。",
+      "source": "素问入式运气论奥"
+    },
+    {
+      "entry_id": "term_wu_yun_jing_tian",
+      "entry_type": "terminology",
+      "term": "五运经天",
+      "pinyin": "wu_yun_jing_tian",
+      "category": "五运",
+      "explanation": "五色天气各经二十八宿之分，下合十干方隅，以纪五运立岁，为天干化运之天文学源头。",
+      "source": "素问入式运气论奥"
+    },
+    {
+      "entry_id": "term_tian_gan_hua_wu_yun",
+      "entry_type": "terminology",
+      "term": "天干化五运",
+      "pinyin": "tian_gan_hua_wu_yun",
+      "category": "天干地支",
+      "explanation": "甲己土运、乙庚金运、丙辛水运、丁壬木运、戊癸火运，十干合化五运，源于五天之气经宿之分。",
+      "source": "素问入式运气论奥"
+    },
+    {
+      "entry_id": "term_di_zhi_hua_liu_qi",
+      "entry_type": "terminology",
+      "term": "地支化六气",
+      "pinyin": "di_zhi_hua_liu_qi",
+      "category": "天干地支",
+      "explanation": "子午少阴君火、丑未太阴湿土、寅申少阳相火、卯酉阳明燥金、辰戌太阳寒水、巳亥厥阴风木，十二支配六气司天在泉。",
+      "source": "素问入式运气论奥"
+    },
+    {
+      "entry_id": "term_zhong_jian_zhi_qi",
+      "entry_type": "terminology",
+      "term": "中见之气",
+      "pinyin": "zhong_jian_zhi_qi",
+      "category": "六气",
+      "explanation": "六气各有中见之气，乃手足经六合表里相乘之化，如少阳之上火气治之，中见厥阴。",
+      "source": "素问入式运气论奥"
+    },
+    {
+      "entry_id": "term_qi_li",
+      "entry_type": "terminology",
+      "term": "气立",
+      "pinyin": "qi_li",
+      "category": "基础概念",
+      "explanation": "人体之气与天地运气相应而立，气立则神机生化有序，气立失常则病。",
+      "source": "素问·六微旨大论"
+    },
+    {
+      "entry_id": "term_shen_ji",
+      "entry_type": "terminology",
+      "term": "神机",
+      "pinyin": "shen_ji",
+      "category": "基础概念",
+      "explanation": "形气相感而化生万物之神妙枢机，根于中者曰神机，根于外者曰气立，神机去则生化息。",
+      "source": "素问·六微旨大论"
+    },
+    {
+      "entry_id": "term_kang_hai_cheng_zhi",
+      "entry_type": "terminology",
+      "term": "亢害承制",
+      "pinyin": "kang_hai_cheng_zhi",
+      "category": "五行学说",
+      "explanation": "亢则害、承乃制，五行之气过亢则害，下承之气从而制之，制则生化，为五行相济之妙用。",
+      "source": "素问·六微旨大论"
+    },
+    {
+      "entry_id": "term_mu_yu_da_zhi",
+      "entry_type": "terminology",
+      "term": "木郁达之",
+      "pinyin": "mu_yu_da_zhi",
+      "category": "治则治法",
+      "explanation": "木气郁滞当吐之令其调达，为五郁治法之一；泛指疏达肝木郁滞之法，方药请遵医嘱。",
+      "source": "素问·六元正纪大论"
+    },
+    {
+      "entry_id": "term_huo_yu_fa_zhi",
+      "entry_type": "terminology",
+      "term": "火郁发之",
+      "pinyin": "huo_yu_fa_zhi",
+      "category": "治则治法",
+      "explanation": "火气郁滞当汗之令其疏散，为五郁治法之一；泛指宣散发越火郁之法，方药请遵医嘱。",
+      "source": "素问·六元正纪大论"
+    },
+    {
+      "entry_id": "term_tu_yu_duo_zhi",
+      "entry_type": "terminology",
+      "term": "土郁夺之",
+      "pinyin": "tu_yu_duo_zhi",
+      "category": "治则治法",
+      "explanation": "土气郁滞当下之令无壅碍，为五郁治法之一；泛指攻夺壅滞之法，方药请遵医嘱。",
+      "source": "素问·六元正纪大论"
+    },
+    {
+      "entry_id": "term_jin_yu_xie_zhi",
+      "entry_type": "terminology",
+      "term": "金郁泄之",
+      "pinyin": "jin_yu_xie_zhi",
+      "category": "治则治法",
+      "explanation": "金气郁滞当渗泄解表利小便，为五郁治法之一；泛指宣泄金气之法，方药请遵医嘱。",
+      "source": "素问·六元正纪大论"
+    },
+    {
+      "entry_id": "term_shui_yu_zhe_zhi",
+      "entry_type": "terminology",
+      "term": "水郁折之",
+      "pinyin": "shui_yu_zhe_zhi",
+      "category": "治则治法",
+      "explanation": "水气郁滞当抑其冲逆，为五郁治法之一；泛指折抑水邪之法，方药请遵医嘱。",
+      "source": "素问·六元正纪大论"
+    },
+    {
+      "entry_id": "term_wu_yu",
+      "entry_type": "terminology",
+      "term": "五郁",
+      "pinyin": "wu_yu",
+      "category": "病因病机",
+      "explanation": "木火土金水五气之郁，各致其病，治当达之发之夺之泄之折之，是为五郁之治。",
+      "source": "素问·六元正纪大论"
+    },
+    {
+      "entry_id": "term_mu_yu",
+      "entry_type": "terminology",
+      "term": "木郁",
+      "pinyin": "mu_yu",
+      "category": "病因病机",
+      "explanation": "木气郁滞之病，可见胁满、痛呕、飧泄等，治当达之。方药请遵医嘱。",
+      "source": "素问·六元正纪大论"
+    },
+    {
+      "entry_id": "term_huo_yu",
+      "entry_type": "terminology",
+      "term": "火郁",
+      "pinyin": "huo_yu",
+      "category": "病因病机",
+      "explanation": "火气郁滞之病，可见热郁、疮疡、瞀闷等，治当发之。方药请遵医嘱。",
+      "source": "素问·六元正纪大论"
+    },
+    {
+      "entry_id": "term_tu_yu",
+      "entry_type": "terminology",
+      "term": "土郁",
+      "pinyin": "tu_yu",
+      "category": "病因病机",
+      "explanation": "土气郁滞之病，可见痞满、胀痛、吐下等，治当夺之。方药请遵医嘱。",
+      "source": "素问·六元正纪大论"
+    },
+    {
+      "entry_id": "term_jin_yu",
+      "entry_type": "terminology",
+      "term": "金郁",
+      "pinyin": "jin_yu",
+      "category": "病因病机",
+      "explanation": "金气郁滞之病，可见咳喘、气痹、瞀重等，治当泄之。方药请遵医嘱。",
+      "source": "素问·六元正纪大论"
+    },
+    {
+      "entry_id": "term_shui_yu",
+      "entry_type": "terminology",
+      "term": "水郁",
+      "pinyin": "shui_yu",
+      "category": "病因病机",
+      "explanation": "水气郁滞之病，可见胀满、寒厥、足痿等，治当折之。方药请遵医嘱。",
+      "source": "素问·六元正纪大论"
+    },
+    {
+      "entry_id": "term_sui_gu",
+      "entry_type": "terminology",
+      "term": "岁谷",
+      "pinyin": "sui_gu",
+      "category": "治则治法",
+      "explanation": "禀天地正气所生之谷，黄色黑色之类，食岁谷以全其真，为运气养生之一法。",
+      "source": "素问·六元正纪大论"
+    },
+    {
+      "entry_id": "term_jian_gu",
+      "entry_type": "terminology",
+      "term": "间谷",
+      "pinyin": "jian_gu",
+      "category": "治则治法",
+      "explanation": "感间气所生之谷，食间谷以去其邪、辟虚邪，为运气避病之法。",
+      "source": "素问·六元正纪大论"
+    },
+    {
+      "entry_id": "term_xu_xie",
+      "entry_type": "terminology",
+      "term": "虚邪",
+      "pinyin": "xu_xie",
+      "category": "病因病机",
+      "explanation": "从冲后来之虚风贼邪，乘虚而入，运气为病多感此气，当避之以安其正。",
+      "source": "素问·六元正纪大论"
+    },
+    {
+      "entry_id": "term_sui_qi",
+      "entry_type": "terminology",
+      "term": "岁气",
+      "pinyin": "sui_qi",
+      "category": "基础概念",
+      "explanation": "一岁司天在泉主客加临之政令气化总称，必先岁气无伐天和，为运气诊治之纲领。",
+      "source": "素问·六元正纪大论"
+    },
+    {
+      "entry_id": "term_qi_yi",
+      "entry_type": "terminology",
+      "term": "气宜",
+      "pinyin": "qi_yi",
+      "category": "基础概念",
+      "explanation": "六气各有所宜之政令气味，无逆气宜，顺其气宜以调治，为运气治则之要。",
+      "source": "素问·六元正纪大论"
+    },
+    {
+      "entry_id": "term_tian_xin",
+      "entry_type": "terminology",
+      "term": "天信",
+      "pinyin": "tian_xin",
+      "category": "基础概念",
+      "explanation": "六气交司之时，如约而至，谓之天信；无失天信，按时迎取化源以治。",
+      "source": "素问入式运气论奥"
+    },
+    {
+      "entry_id": "term_wu_shi_tian_xin",
+      "entry_type": "terminology",
+      "term": "无失天信",
+      "pinyin": "wu_shi_tian_xin",
+      "category": "治则治法",
+      "explanation": "六气交司之时不可失，当依时迎取化源、调治补泻，为运气主治之大法。",
+      "source": "素问入式运气论奥"
+    },
+    {
+      "entry_id": "term_wu_ni_qi_yi",
+      "entry_type": "terminology",
+      "term": "无逆气宜",
+      "pinyin": "wu_ni_qi_yi",
+      "category": "治则治法",
+      "explanation": "六气各有所宜，治当顺其气宜，不可逆其性，为运气用药之纲领。",
+      "source": "素问入式运气论奥"
+    },
+    {
+      "entry_id": "term_zheng_hua_ri",
+      "entry_type": "terminology",
+      "term": "正化日",
+      "pinyin": "zheng_hua_ri",
+      "category": "五运",
+      "explanation": "运气得平气而依时令正化，无他令至，是为正化日，气化各得其时。",
+      "source": "素问六气玄珠密语"
+    },
+    {
+      "entry_id": "term_xie_hua_ri",
+      "entry_type": "terminology",
+      "term": "邪化日",
+      "pinyin": "xie_hua_ri",
+      "category": "五运",
+      "explanation": "运气不得平气而政令失时，相刑胜复之名，是为邪化日，气化失常。",
+      "source": "素问六气玄珠密语"
+    },
+    {
+      "entry_id": "term_tian_di_die_yi",
+      "entry_type": "terminology",
+      "term": "天地迭移",
+      "pinyin": "tian_di_die_yi",
+      "category": "病因病机",
+      "explanation": "刚柔失守则天地之气迭移失常，三年化疫疠，是谓根之可见必有逃门。",
+      "source": "素问遗篇·刺法论"
+    },
+    {
+      "entry_id": "term_tu_yi",
+      "entry_type": "terminology",
+      "term": "土疫",
+      "pinyin": "tu_yi",
+      "category": "病因病机",
+      "explanation": "甲己上下失守，土运反虚而木乃胜，三年作土疫，自天而来，刺法当先补肾俞。",
+      "source": "素问遗篇·刺法论"
+    },
+    {
+      "entry_id": "term_jin_yi",
+      "entry_type": "terminology",
+      "term": "金疫",
+      "pinyin": "jin_yi",
+      "category": "病因病机",
+      "explanation": "乙庚上下失守，金运反虚而火乃胜，三年作金疫，又名杀疫，刺法当先补肺俞。",
+      "source": "素问遗篇·刺法论"
+    },
+    {
+      "entry_id": "term_shui_yi",
+      "entry_type": "terminology",
+      "term": "水疫",
+      "pinyin": "shui_yi",
+      "category": "病因病机",
+      "explanation": "丙辛上下失守，水运反虚而土乃胜，三年作水疫，刺法当先补心俞。",
+      "source": "素问遗篇·刺法论"
+    },
+    {
+      "entry_id": "term_mu_yi",
+      "entry_type": "terminology",
+      "term": "木疫",
+      "pinyin": "mu_yi",
+      "category": "病因病机",
+      "explanation": "丁壬上下失守，木运反虚而金乃胜，三年作木疫，又名风疫，刺法当先补脾俞。",
+      "source": "素问遗篇·刺法论"
+    },
+    {
+      "entry_id": "term_huo_yi",
+      "entry_type": "terminology",
+      "term": "火疫",
+      "pinyin": "huo_yi",
+      "category": "病因病机",
+      "explanation": "戊癸上下失守，火运反虚而水乃胜，三年作火疫，刺法当先补肺俞。",
+      "source": "素问遗篇·刺法论"
+    },
+    {
+      "entry_id": "term_tu_li",
+      "entry_type": "terminology",
+      "term": "土疠",
+      "pinyin": "tu_li",
+      "category": "病因病机",
+      "explanation": "甲己下位己卯不至而甲子孤立，次三年作土疠，从地而至，刺法补泻一如土疫。",
+      "source": "素问遗篇·刺法论"
+    },
+    {
+      "entry_id": "term_jin_li",
+      "entry_type": "terminology",
+      "term": "金疠",
+      "pinyin": "jin_li",
+      "category": "病因病机",
+      "explanation": "乙庚下位乙未失守，三年变金疠，刺法同金疫，从地而至。",
+      "source": "素问遗篇·刺法论"
+    },
+    {
+      "entry_id": "term_shui_li",
+      "entry_type": "terminology",
+      "term": "水疠",
+      "pinyin": "shui_li",
+      "category": "病因病机",
+      "explanation": "丙辛下位辛巳柔不附刚，三年变水疠，刺法同水疫，从地而至。",
+      "source": "素问遗篇·刺法论"
+    },
+    {
+      "entry_id": "term_mu_li",
+      "entry_type": "terminology",
+      "term": "木疠",
+      "pinyin": "mu_li",
+      "category": "病因病机",
+      "explanation": "丁壬下位丁酉失守，三年变木疠，又名风疠，刺法同木疫，从地而至。",
+      "source": "素问遗篇·刺法论"
+    },
+    {
+      "entry_id": "term_feng_li",
+      "entry_type": "terminology",
+      "term": "风疠",
+      "pinyin": "feng_li",
+      "category": "病因病机",
+      "explanation": "即木疠，丁壬上下失守所化，从地而至，刺法同木疫。",
+      "source": "素问遗篇·刺法论"
+    },
+    {
+      "entry_id": "term_huo_li",
+      "entry_type": "terminology",
+      "term": "火疠",
+      "pinyin": "huo_li",
+      "category": "病因病机",
+      "explanation": "戊癸下位癸亥失守，三年变火疠，刺法同火疫，从地而至。",
+      "source": "素问遗篇·刺法论"
+    },
+    {
+      "entry_id": "term_sha_yi",
+      "entry_type": "terminology",
+      "term": "杀疫",
+      "pinyin": "sha_yi",
+      "category": "病因病机",
+      "explanation": "金疫之又名，金运失守化疫，以金气肃杀故名杀疫。",
+      "source": "素问遗篇·刺法论"
+    },
+    {
+      "entry_id": "term_hei_shi_gui",
+      "entry_type": "terminology",
+      "term": "黑尸鬼",
+      "pinyin": "hei_shi_gui",
+      "category": "病因病机",
+      "explanation": "心虚失守遇火不及之年，黑尸鬼犯之令人暴亡，刺手少阳原穴阳池以救之。",
+      "source": "素问遗篇·刺法论"
+    },
+    {
+      "entry_id": "term_qing_shi_gui",
+      "entry_type": "terminology",
+      "term": "青尸鬼",
+      "pinyin": "qing_shi_gui",
+      "category": "病因病机",
+      "explanation": "脾虚失守遇土不及之年，青尸鬼邪犯之令人暴亡，刺足阳明原穴冲阳以救之。",
+      "source": "素问遗篇·刺法论"
+    },
+    {
+      "entry_id": "term_huang_shi_gui",
+      "entry_type": "terminology",
+      "term": "黄尸鬼",
+      "pinyin": "huang_shi_gui",
+      "category": "病因病机",
+      "explanation": "肾虚失守遇水不及之年，黄尸鬼干犯人吸人神魂致暴亡，刺足太阳原穴京骨以救之。",
+      "source": "素问遗篇·刺法论"
+    },
+    {
+      "entry_id": "term_bai_shi_gui",
+      "entry_type": "terminology",
+      "term": "白尸鬼",
+      "pinyin": "bai_shi_gui",
+      "category": "病因病机",
+      "explanation": "肝虚失守天虚重虚，白尸鬼至令人卒亡，刺足少阳原穴丘墟以救之。",
+      "source": "素问遗篇·刺法论"
+    },
+    {
+      "entry_id": "term_chi_shi_gui",
+      "entry_type": "terminology",
+      "term": "赤尸鬼",
+      "pinyin": "chi_shi_gui",
+      "category": "病因病机",
+      "explanation": "肺虚失守遇金不及之年，赤尸鬼干人令人暴亡，刺手阳明原穴合谷以救之。",
+      "source": "素问遗篇·刺法论"
+    },
+    {
+      "entry_id": "term_san_xu",
+      "entry_type": "terminology",
+      "term": "三虚",
+      "pinyin": "san_xu",
+      "category": "病因病机",
+      "explanation": "人之五脏一藏不足、又会天虚、感邪之至，三者同虚曰三虚，神游失守邪乃干人。",
+      "source": "素问遗篇·刺法论"
+    },
+    {
+      "entry_id": "term_zhong_xu",
+      "entry_type": "terminology",
+      "term": "重虚",
+      "pinyin": "zhong_xu",
+      "category": "病因病机",
+      "explanation": "人虚又遇天虚感邪，重虚而汗出，神游失守，致五尸鬼干人暴亡。",
+      "source": "素问遗篇·刺法论"
     }
   ]
 }
