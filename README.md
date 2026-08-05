@@ -11,7 +11,7 @@
 AI Agent Skill Pack that enables humans to deeply understand WuYun-LiuQi (Five Movements and Six Qi) philosophy through natural conversation</p>
 
 <p align="center">TCM Climate &amp; Pathology Engine — Ganzhi calculation · Six-Qi progression · RAG knowledge base · Public-domain literature distillation · Commentator perspectives · ReAct reasoning · Self-evolving<br/>
-中医运气学推算引擎 — 干支推算 · 六气步移 · RAG 知识库 · 公版文献蒸馏 · 注家人格 · ReAct 推理 · 自进化引擎</p>
+中医运气学推算引擎 — 干支推算 · 六气步移 · RAG 知识库 · 公版文献蒸馏 · 注家人格 · 岁图医案 · ReAct 推理 · 自进化引擎</p>
 
 <p align="center">
   <a href="https://github.com/dhicoc/wuyun-liuqi-skills/stargazers"><img src="https://img.shields.io/github/stars/dhicoc/wuyun-liuqi-skills?style=flat&logo=github" alt="stars"></a>
@@ -226,6 +226,7 @@ Agent 会自动调用本技能包的推算引擎、知识库和推理流程来�
 | 公版文献库 | 35 篇公版五运六气文献原文（61.6 万字，先秦至清） | `rag-knowledge-base/literature/` | ✅ 已覆盖 |
 | 公版蒸馏指南 | 10 本公版古籍蒸馏成可 Grep+Read 的结构化指南（五层注释链 + 35 篇分组合并） | `rag-knowledge-base/*_guide.md` | ✅ 已覆盖 |
 | 注家人格 | 刘完素/张介宾可运行 perspective skill（深度注家扮演，nuwa 模式） | `perspectives/` | ✅ 已覆盖 |
+| 岁图医案库 | 圣济总录六十甲子岁图蒸馏的 60 条运气医案，按 rag_key 可检索同格局逐年病机治法 | `rag-knowledge-base/asset9_cases.json`、`case-journal/cases/distilled_cases.md` | ✅ 已覆盖 |
 | 个人体质 | 出生年运气体质倾向、九种体质量表、当前岁运调理方向、地域修正 | `scripts/personal_yunqi_profile.py`、`scripts/constitution_assessment.py`、`advanced-alignment/` | ✅ 已覆盖 |
 | 天气对齐 | 实时气象 × 运气格局交叉分析，判断内外邪相合/相背/兼夹 | `scripts/weather_alignment.py`、`advanced-alignment/weather_integration.md` | ✅ 已接入 |
 | 天气 × 体质叠加 | 出生运气体质 × 当前岁运 × 天气实况三维分析 | `scripts/yunqi_weather_constitution.py` | ✅ 已接入 |
@@ -254,6 +255,7 @@ Agent 会自动调用本技能包的推算引擎、知识库和推理流程来�
 | [agent-workflow/react_workflow.md](agent-workflow/react_workflow.md) | ReAct 推理工作流规范 |
 | `rag-knowledge-base/*_guide.md` | 公版蒸馏指南（五层注释链 5 本 + 35 篇分组合并 5 册，Grep+Read 零依赖） |
 | `rag-knowledge-base/literature/` | 35 篇公版文献原文（61.6 万字，零依赖基础层） |
+| `rag-knowledge-base/asset9_cases.json` | 圣济总录 60 岁图医案（按 rag_key 可检索同格局医案） |
 | [`perspectives/`](perspectives/README.md) | 注家人格 perspective skill（刘完素/张介宾，深度扮演） |
 
 ### 仓库结构
@@ -314,7 +316,7 @@ Agent 会自动调用本技能包的推算引擎、知识库和推理流程来�
 ├── yunqi-classics/             # 子技能：经典文献
 ├── docs-generator/             # 子技能：报告生成
 ├── docs/                       # 技术文档
-└── case-journal/               # 医案沉淀系统
+└── case-journal/               # 医案沉淀系统（含圣济岁图医案蒸馏索引）
     └── examples/               # 脱敏示例案例库
 ```
 
@@ -324,17 +326,18 @@ Agent 会自动调用本技能包的推算引擎、知识库和推理流程来�
 
 ## 架构设计
 
-### 五层 RAG 知识库
+### 六层 RAG 知识库
 
 | 层 | Asset | 条目数 | 用途 |
 |----|-------|--------|------|
 | 经典病机 | asset1-3 | 52 | 岁运/司天/客主加临病机 |
-| 运气方剂 | asset4 | 16 | 三因司天方 |
+| 运气方剂 | asset4 | 16 | 三因司天方（含六步时令加减） |
 | 历代注家 | asset5 | 20 | 王冰到陆懋修 11 位医家 |
 | 地域修正 | asset6 | 8 | 八大气候区 |
 | 运气体质 | asset7 | 18 | 9 种体质 x 岁运 |
+| **岁图医案** | **asset9** | **60** | **圣济总录六十甲子岁图医案，按 rag_key 可检索同格局逐年病机治法** |
 
-**104 个唯一键**覆盖五层，通过 `rag_keys` 精确匹配。
+**104 个唯一键**覆盖前五层；asset9 按 rag_keys（suiyun/sitian/zaiquan）索引，推算引擎算出格局后可召回所有同格局岁图医案。
 
 ### 五层注释链（公版蒸馏指南）
 
@@ -390,7 +393,7 @@ RAG asset 是精炼键值（回答"是什么"）；下列五本公版古籍蒸�
 ### Agent 集成层
 
 1. **强规则计算工具**（`calculate_yunqi_api`）：大寒定年 + 标准化 JSON + rag_key 生成
-2. **RAG 知识库**（`rag-knowledge-base/`）：5 层 key-value 结构化存储 + 10 本公版蒸馏指南（Grep+Read）+ 35 篇文献原文
+2. **RAG 知识库**（`rag-knowledge-base/`）：6 层 key-value 结构化存储（含 asset9 岁图医案）+ 10 本公版蒸馏指南（Grep+Read）+ 35 篇文献原文
 3. **ReAct 推理工作流**（`agent-workflow/`）：查工具 -> 查知识库 -> 辨证推理闭环
 4. **System Prompt**（`prompts/`）：TCM 运气专家角色约束（临床模式 + 讲解模式双语态）
 5. **注家人格**（`perspectives/`）：刘完素/张介宾可运行 perspective skill（深度注家扮演）
