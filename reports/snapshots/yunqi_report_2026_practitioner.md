@@ -88,8 +88,7 @@
 - **客主加临依据**（rag-knowledge-base/asset3_kezhujialin.json，key: `zhu_yangming_ke_shaoyang`）：五之气主气阳明燥金，客气少阳相火，火克金，客气克主气为最逆。秋季燥金当令，客气相火加之则秋行夏令，燥与火争。相火犯燥金则肺金受邪，火盛伤津则见咳喘、咳血、咽痛。此为客犯主之重证，秋行夏令则阳气不收，影响冬藏。
   - 临床关注：秋行夏令，相火犯金。关注肺金受邪：咳喘、咳血、咽痛、发热。相火伤津则口渴、皮肤干。治宜咸冷泻火佐以苦温润肺清燥。此为不相得之重证。
 - **历代注家关联**：
-  - 唐代·王冰《《次注黄帝内经素问》》：运气七篇补入与系统整理（rag-knowledge-base/asset5_commentary.json，key: `wangbing_qipian_buzhu`）
-  - 唐代·王冰《《次注黄帝内经素问》》：六气升降出入论（rag-knowledge-base/asset5_commentary.json，key: `wangbing_liuqi_shengjiang`）
+  - 清·王旭高《运气证治歌诀》：运气证治歌诀·反刻板宣言（rag-knowledge-base/asset5_commentary.json，key: `yunqi_zhengzhi`）
 
 ## 知识库精确命中（按日 rag_keys）
 

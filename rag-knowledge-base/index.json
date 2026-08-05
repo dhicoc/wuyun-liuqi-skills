@@ -97,7 +97,7 @@
       "asset_name": "历代注家运气学说数据库",
       "asset_category": "commentary",
       "description": "唐代至清代主要医家对五运六气学说的核心贡献与独特见解，涵盖王冰、刘完素、张元素、李东垣、汪石山、张景岳、吴谦、缪问、徐灵胎、张志聪、陆懋修等。每条目包含医家简介、核心理论、经典原文、临床意义。",
-      "total_entries": 20,
+      "total_entries": 30,
       "lookup_fields": [
         "related_yunqi_keys",
         "commentary_id"
