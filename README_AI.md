@@ -352,11 +352,9 @@ python scripts/self_evolve.py log \
 | [scripts/self_evolve.py](scripts/self_evolve.py) | 自进化引擎 |
 | [tests/verify_expansion.py](tests/verify_expansion.py) | 端到端验证 |
 | [tests/full_regression_test.py](tests/full_regression_test.py) | 全量 CLI 回归测试 |
-| [scripts/verify_expansion.py](scripts/verify_expansion.py) | 兼容入口，转发到 tests/ |
 | [rag-knowledge-base/](rag-knowledge-base/) | RAG 知识库 |
 | [rag-knowledge-base/index.json](rag-knowledge-base/index.json) | RAG 资产索引 |
 | [docs/architecture.md](docs/architecture.md) | 项目架构说明 |
-| [docs/function-coverage.md](docs/function-coverage.md) | 功能覆盖说明 |
 | [docs/roadmap.md](docs/roadmap.md) | 后续路线图 |
 | [reports/examples/](reports/examples/) | 标准输出样例、示例报告与预览图 |
 | [case-journal/examples/](case-journal/examples/) | 脱敏示例案例库 |

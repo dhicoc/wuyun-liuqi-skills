@@ -106,7 +106,6 @@ def main():
     scripts_to_check = [
         'calculate_yunqi_api.py',
         'yunqi_report.py',
-        'verify_expansion.py',
     ]
     print("\n[脚本]")
     script_statuses = {}

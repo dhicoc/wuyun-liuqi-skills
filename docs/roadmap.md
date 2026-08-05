@@ -57,7 +57,7 @@
 
 ## 当前工程冲刺（2026-07）
 
-执行计划与任务状态见：**[docs/optimization-sprint.md](./optimization-sprint.md)**  
+  
 （文档去漂移 · CLI 统一 · 去 subprocess · 测试加固 · 包结构准备）
 
 ## 未来迭代方向（P6+）
