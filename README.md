@@ -262,62 +262,66 @@ Agent 会自动调用本技能包的推算引擎、知识库和推理流程来�
 
 ```
 .
-├── README.md                   # 本文件
-├── SKILL.md                    # 总控路由入口
-├── routing.yaml                # 路由单一真相源
-├── routing.md                  # 路由人类索引
-├── AGENTS.md / CLAUDE.md       # 跨工具薄壳
+├── 入口与配置 ──────────────────────────────────────────────
+├── SKILL.md                    # ★ 总控路由入口（AI 必读）
+├── routing.yaml / routing.md   # ★ 路由真相源 / 人类索引
+├── CLAUDE.md / AGENTS.md       # 跨工具薄壳（Claude / Codex / Copilot）
 ├── CODEX.md / GEMINI.md        # Codex / Gemini 薄壳
-├── .claude-plugin/             # Claude Code 插件清单（P2）
-├── .cursor/skills/wuyun-liuqi/ # Cursor 技能注册
-├── .cursor/rules/              # Cursor 规则薄壳
-├── workflows/                  # bootstrap、routing-contract、task-closure
-├── rules/                      # medical-safety、calculation、agent-behavior、output
-├── references/                 # script-index、module-index、gotchas
-├── RULES.md                    # 行为规则索引
-├── CONTRIBUTING.md             # 新增子技能指南
-├── LICENSE                     # MIT 许可证
+├── README.md / README_AI.md    # 开发者 / AI 引导
+├── RULES.md                    # 行为规则索引 → rules/
+├── CONTRIBUTING.md / LICENSE   # 贡献指南 / MIT
+├── conformance.yaml            # 一致性配置
+├── pyproject.toml / requirements.txt / package.json  # 依赖
 │
-├── scripts/                    # 推算引擎（Python 主链路 + JS 可选接口）
-│   ├── calculate_yunqi_api.py  # ★ Python 主链路统一计算接口
-│   ├── weather_alignment.py    # ★ 天气实况 × 运气格局高级对齐
-│   ├── constitution_assessment.py # ★ 九种体质量表评估
-│   ├── yunqi_weather_constitution.py # ★ 天气 × 体质三维叠加分析
-│   ├── advanced_alignment.py   # ★ 高级对齐统一入口
-│   ├── calculate_yunqi_api.js  # JS / Node.js 可选接口
-│   ├── self_evolve.py          # ★ 自进化引擎（含 rule-gap）
-│   ├── check_skill_structure.py # P1 技能结构校验
-│   ├── check_routing_scenarios.py # P2 Agent 路由场景测试
-│   ├── sync_routing.py           # P3 routing.yaml → SKILL/routing 同步
-│   ├── check_conformance.py      # P3 内容一致性
-│   ├── audit_orphans.py          # P3 内容层孤儿审计
-│   ├── verify_expansion.py     # 兼容入口 → tests/verify_expansion.py
-│   └── full_regression_test.py # 兼容入口 → tests/full_regression_test.py
+├── 推算引擎 ────────────────────────────────────────────────
+├── scripts/                    # 46 个 Python 脚本 + JS 可选接口
+│   ├── calculate_yunqi_api.py  #   ★ 主链路（大寒定年 + rag_keys）
+│   ├── rag_search.py           #   ★ RAG 键值检索
+│   ├── yunqi_report.py         #   ★ 报告生成
+│   ├── personal_yunqi_profile.py #   个人体质
+│   ├── self_evolve.py          #   自进化引擎
+│   └── …                       #   校验/同步/学习/导出等
+├── wuyun_liuqi/                # 可导入 Python 包
 │
-├── tests/                      # 测试脚本与夹具
-├── reports/                    # 报告与可视化输出
-│   ├── examples/               # 标准输出样例、示例报告与预览图
-│   ├── generated/              # 本地生成报告（默认忽略）
-│   └── test-results/           # 测试输出（默认忽略）
-├── rag-knowledge-base/         # ★ RAG 知识库（asset JSON + 10 本蒸馏指南 + 35 篇文献原文）
-│   ├── literature/             #   35 篇公版文献原文（61.6 万字，零依赖基础层）
-│   └── *_guide.md              #   五层注释链 5 本 + 35 篇分组合并 5 册
-├── .github/workflows/          # CI 工作流
-├── agent-workflow/             # ★ ReAct 推理工作流
-├── prompts/                    # System Prompt + 讲解人格 expression_style
-├── perspectives/               # ★ 注家人格（刘完素/张介宾 perspective skill）
-├── advanced-alignment/         # 高级对齐（天气 / 体质）
+├── 知识库（零依赖 Grep+Read）──────────────────────────────
+├── rag-knowledge-base/         # ★ RAG asset + 蒸馏指南 + 文献原文
+│   ├── asset1-10 *.json        #   10 个键值 asset（病机/方/注家/体质/医案/治法）
+│   ├── terminology.json        #   700 条术语
+│   ├── *_guide.md              #   10 本公版蒸馏指南（五层注释链 + 35篇合并）
+│   ├── literature/             #   35 篇公版文献原文（61.6 万字）
+│   └── schemas/                #   asset JSON schema
+├── teaching-modules/           # 10 个概念五段式教学模块
+├── perspectives/               # 注家人格（刘完素/张介宾 perspective skill）
+│
+├── 子技能（routing.yaml 路由目标）─────────────────────────
+├── ganzhi-basics/              # 干支基础
+├── yunqi-calc/                 # 运气推算（核心）
+├── yunqi-pathogenesis/         # 病机分析
+├── yunqi-clinical/             # 临床应用
+├── yunqi-classics/             # 经典文献
+├── docs-generator/             # 报告生成
+├── advanced-alignment/         # 天气/体质高级对齐
+│
+├── 规则与工作流 ────────────────────────────────────────────
+├── rules/                      # medical-safety / calculation / agent-behavior / output
+├── workflows/                  # bootstrap / routing-contract / task-closure
+├── prompts/                    # system_prompt + expression_style（讲解人格）
+├── agent-workflow/             # ReAct 推理工作流
 ├── self-evolve/                # 自进化运行时
 │
-├── ganzhi-basics/              # 子技能：干支基础
-├── yunqi-calc/                 # 子技能：运气推算（核心）
-├── yunqi-pathogenesis/         # 子技能：病机分析
-├── yunqi-clinical/             # 子技能：临床应用
-├── yunqi-classics/             # 子技能：经典文献
-├── docs-generator/             # 子技能：报告生成
-├── docs/                       # 技术文档
-└── case-journal/               # 医案沉淀系统（含圣济岁图医案蒸馏索引）
-    └── examples/               # 脱敏示例案例库
+├── 医案与报告 ──────────────────────────────────────────────
+├── case-journal/               # 医案沉淀（模板 + 圣济岁图医案索引）
+├── reports/                    # 报告样例 / 快照 / 测试输出
+│
+├── 测试与校验 ──────────────────────────────────────────────
+├── tests/                      # 全量回归 / 端到端 / 大寒边界 / pip 冒烟
+│
+├── 工具集成 ────────────────────────────────────────────────
+├── .claude-plugin/             # Claude Code 插件清单
+├── .cursor/                    # Cursor 技能注册 + 规则
+├── .github/workflows/          # CI
+├── references/                 # script-index / module-index / gotchas
+└── docs/                       # architecture / roadmap / SAG 评估
 ```
 
 <p align="right">(<a href="#使用说明">返回顶部</a>)</p>
