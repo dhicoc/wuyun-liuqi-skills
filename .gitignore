@@ -47,3 +47,9 @@ reports/test-results/**
 !reports/test-results/.gitkeep
 !reports/snapshots/
 !reports/snapshots/**
+
+# 本地构建/临时产物
+artifacts/
+*.egg-info/
+dist/
+build/
