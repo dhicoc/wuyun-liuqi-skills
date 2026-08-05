@@ -373,7 +373,7 @@ RAG asset 是精炼键值（回答"是什么"）；下列五本公版古籍蒸�
 | `rag-knowledge-base/jinyuan_yijia_yunqi_guide.md` | 玄机原病式节录/医学启源/脾胃论/格致余论 4 篇 | 金元四家运气观（河间寒凉/易水/补土/养阴） |
 | `rag-knowledge-base/xianqin_cunmu_yuanliu_guide.md` | 太始天元册/管子/月令等 10 篇 | 运学渊源（先秦思想源头）+ 已佚书目 + 晚清温病运气 |
 
-**可选向量语义检索**：本地装 `ollama pull bge-m3` 后，可对 444 个段落做 1024 维向量语义检索（建索引脚本与向量文件不进仓库，仿 nihaixia 模式）。基础检索仍走 Grep+Read，零依赖。
+**全部零依赖开箱即用**：文献库与蒸馏指南均通过 Grep+Read 检索，不依赖任何外部模型或向量数据库。
 
 ### 注家人格 Perspective Skills
 
