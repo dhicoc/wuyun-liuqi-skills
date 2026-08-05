@@ -9,6 +9,7 @@
 | 经典文献 | `yunqi-classics/` | 素问七篇、历代学说、现代研究 |
 | 报告生成 | `docs-generator/` | 综合分析报告、医案报告 |
 | 医案沉淀 | `case-journal/` | 运气应用医案记录 |
+| 圣济岁图医案库 | `rag-knowledge-base/asset9_cases.json` + `case-journal/cases/distilled_cases.md` | 60 甲子岁图蒸馏医案，按 rag_key 可检索（asset9） |
 | 统一计算 | `scripts/calculate_yunqi_api.py` | 大寒定年 + 日期输入 + JSON + rag_keys |
 | RAG 知识库 | `rag-knowledge-base/` | 7 个 asset JSON（岁运/司天/客主/方药/注家/地域/体质） |
 | ReAct 工作流 | `agent-workflow/` | 查工具→查知识库→辨证推理 |
