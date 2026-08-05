@@ -67,4 +67,4 @@
 - [x] 统一 CLI / 菜单交互 — `scripts/yunqi_cli.py`
 - [x] 个性化学习路径仪表盘 — `scripts/learning_dashboard.py`
 - [x] 文献关键词检索（轻量）— `scripts/rag_search.py`
-- 文献片段深度语境化 / 向量检索（可选增强）
+- [x] 文献片段深度语境化 — 10 本蒸馏指南 + 35 篇文献 Grep+Read（零依赖，开箱即用）
