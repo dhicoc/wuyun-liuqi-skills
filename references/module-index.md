@@ -77,14 +77,17 @@ RAG asset 是精炼键值（回答"是什么"）；下列五本公版古籍蒸�
 
 ## RAG Asset 速查
 
-| Asset | 文件 | 用途 |
-|-------|------|------|
-| 岁运病机 | `asset1_suiyun.json` | 五运太过/不及 |
-| 司天在泉 | `asset2_sitian_zaiquan.json` | 上下半年六气 |
-| 客主加临 | `asset3_kezhujialin.json` | 当前步位主客关系 |
-| 运气方 | `asset4_formula.json` | 三因司天方 16 方（含蒸馏的六步加减） |
-| 历代注家 | `asset5_commentary.json` | 王冰→陆懋修 11 家 |
-| 地域修正 | `asset6_regional.json` | 八大区域修正系数 |
-| 体质交叉 | `asset7_constitution.json` | 出生运气×体质调理 |
+| Asset | 文件 | 条目 | 用途 |
+|-------|------|------|------|
+| 岁运病机 | `asset1_suiyun.json` | 10 | 五运太过/不及 |
+| 司天在泉 | `asset2_sitian_zaiquan.json` | 6 | 上下半年六气 |
+| 客主加临 | `asset3_kezhujialin.json` | 36 | 当前步位主客关系 |
+| 运气方 | `asset4_formula.json` | 16 | 三因司天方（含蒸馏的六步加减） |
+| 历代注家 | `asset5_commentary.json` | 30 | 王冰→高世栻 20 位医家 |
+| 地域修正 | `asset6_regional.json` | 8 | 八大区域修正系数 |
+| 体质交叉 | `asset7_constitution.json` | 108 | 9 体质×10 岁运完整覆盖 |
+| 岁图医案 | `asset9_cases.json` | 60 | 圣济总录六十甲子岁图医案（按 rag_key 检索） |
+| 岁宜治法 | `asset10_suiyi_zhifa.json` | 6 | 六气司天岁宜治法表 |
+| 术语 | `terminology.json` | 700 | 运气学术语白话解释 |
 
 检索流程：`calculate_yunqi_api.py --json` → 取 `rag_keys` → 按 key 检索对应 asset。
