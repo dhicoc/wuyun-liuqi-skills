@@ -78,11 +78,11 @@ description: >
 | 苏格拉底学习 | `scripts/socratic_learn.py` / `yunqi_cli.py learn` |
 | 统一 CLI | `scripts/yunqi_cli.py` |
 | 学习仪表盘 | `scripts/learning_dashboard.py` / `yunqi_cli.py dashboard` |
-| RAG 检索 | `yunqi_cli.py search --date today` · `--key` · `--semantic 口语` |
+| RAG 检索 | `yunqi_cli.py search --date today` · `--key` · `--asset asset9` 查同格局岁图医案 · `--semantic 口语` |
 | 公版文献库 | `rag-knowledge-base/literature/`（35 篇原文 61.6 万字，Grep+Read 零依赖；详见 `检索说明.md`） |
 | 公版蒸馏指南 | `rag-knowledge-base/*_guide.md`（五层注释链 5 本 + 35 篇分组合并 5 册，Grep+Read 零依赖；详见 `references/module-index.md`） |
-| 讲解人格 | `prompts/expression_style.md`（运气导师表达 DNA，讲解模式加载） |
-| 教学模块 | `teaching-modules/`（10 个概念五段式可加载模块） |
+| 岁图医案库 | `rag-knowledge-base/asset9_cases.json`（圣济总录 60 岁图医案，按 rag_key 可检索同格局医案） |
+| 讲解人格/教学模块 | `prompts/expression_style.md`（运气导师 DNA）+ `teaching-modules/`（10 概念五段式） |
 | 注家人格 | `perspectives/`（刘完素/张介宾 perspective skill，深度注家扮演） |
 | 可导入包 | `wuyun_liuqi`（`from wuyun_liuqi import calculate, semantic_search`） |
 | HTML 报告 | `generate_html_report.py`（含知识库精确命中章节） |

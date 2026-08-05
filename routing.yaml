@@ -184,11 +184,12 @@ tasks:
     script: python scripts/self_evolve.py stats
 
   - id: case-journal
-    labels: { zh: 写医案, en: Case journal }
+    labels: { zh: 写医案/查岁图医案, en: Case journal }
     trigger_examples:
       - 写医案
       - 记录运气应用
-    route: case-journal/_template.md
+      - 查同类格局医案
+    route: case-journal/_template.md → rag-knowledge-base/asset9_cases.json（rag_search --key <rag_key> --asset asset9 按格局检索同格局岁图医案）
 
   - id: ganzhi-basics
     labels: { zh: 干支基础, en: Ganzhi basics }
