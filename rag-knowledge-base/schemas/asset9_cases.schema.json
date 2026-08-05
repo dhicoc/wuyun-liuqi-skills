@@ -54,7 +54,8 @@
           },
           "year_pathogenesis": {"type": "string", "description": "该年总体病机"},
           "year_treatment": {"type": "string", "description": "该年总体治法"},
-          "source_quote": {"type": "string", "description": "原文关键句摘录（逐字保留）"}
+          "source_quote": {"type": "string", "description": "原文关键句摘录（逐字保留）"},
+          "modern_reading": {"type": "string", "description": "运气导师口吻的现代解读（80-150字，回扣天人合一/气化/中和）"}
         }
       }
     }
