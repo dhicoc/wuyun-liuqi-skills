@@ -110,6 +110,7 @@
 ### 在泉 · `yangming_zaojin_zaiquan`
 
 - **司天少阴君火 / 在泉阳明燥金**（asset2/yangming_zaojin_zaiquan）：《素问·至真要大论》云：「少阴司天，热淫所胜。」少阴君火司天，则上半年热气偏盛。君火主心，热气淫胜则火克金，肺金受邪。热邪伤津灼络，上扰神明。病本于肺。
+- **甲子岁图**（asset9/yangming_zaojin_zaiquan）：yangming_zaojin_zaiquan
 
 ### 当前步位（代表日） · `zhu_shaoyang_ke_shaoyin`
 

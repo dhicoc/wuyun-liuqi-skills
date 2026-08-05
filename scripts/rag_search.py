@@ -49,6 +49,9 @@ ASSET_FILES = {
     "asset6_regional": "asset6_regional.json",
     "asset7": "asset7_constitution.json",
     "asset7_constitution": "asset7_constitution.json",
+    "asset9": "asset9_cases.json",
+    "asset9_cases": "asset9_cases.json",
+    "cases": "asset9_cases.json",
     "terminology": "terminology.json",
     "term": "terminology.json",
     "index": "index.json",
@@ -187,7 +190,7 @@ def _default_asset_keys() -> List[str]:
     keys: List[str] = []
     for k, f in ASSET_FILES.items():
         if f not in seen_files and k in (
-            "asset1", "asset2", "asset3", "asset4", "asset5", "asset6", "asset7", "terminology"
+            "asset1", "asset2", "asset3", "asset4", "asset5", "asset6", "asset7", "asset9", "terminology"
         ):
             seen_files.add(f)
             keys.append(k)

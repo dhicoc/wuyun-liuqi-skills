@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wuyun-liuqi.local/schemas/asset9_cases.schema.json",
+  "title": "asset9 — 圣济总录六十甲子岁图医案库",
+  "description": "宋《圣济总录》运气门六十甲子岁图蒸馏的逐年运气医案。每条含岁运/司天在泉/rag_keys/六步客气病机与治法/年病机/年治法/原文摘录。",
+  "type": "object",
+  "required": ["asset_id", "asset_name", "asset_description", "data_source", "entry_count", "entries"],
+  "properties": {
+    "asset_id": {"type": "string", "const": "asset9_cases"},
+    "asset_name": {"type": "string"},
+    "asset_description": {"type": "string"},
+    "data_source": {"type": "string"},
+    "distill_method": {"type": "string"},
+    "entry_count": {"type": "integer", "minimum": 60, "maximum": 60},
+    "lookup_fields": {"type": "array", "items": {"type": "string"}},
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["case_id", "ganzhi", "suiyun", "sitian", "zaiquan", "rag_keys", "six_steps", "year_pathogenesis", "year_treatment"],
+        "properties": {
+          "case_id": {"type": "string", "description": "医案 ID，如 shengji_jiazi"},
+          "ganzhi": {"type": "string", "description": "干支名，如 甲子"},
+          "year_chart": {"type": "string", "description": "岁图名，如 甲子岁图"},
+          "name": {"type": "string", "description": "可读名（干支+岁图）"},
+          "suiyun": {"type": "string", "description": "岁运，如 土运太过"},
+          "sitian": {"type": "string", "description": "司天，如 少阴君火司天"},
+          "zaiquan": {"type": "string", "description": "在泉，如 阳明燥金在泉"},
+          "code": {"type": "string", "description": "岁运 rag_key，如 earth_excess（检索字段）"},
+          "sitian_key": {"type": "string", "description": "司天 rag_key（检索字段）"},
+          "zaiquan_key": {"type": "string", "description": "在泉 rag_key（检索字段）"},
+          "rag_key": {"type": "string", "description": "主检索键（司天 rag_key）"},
+          "rag_keys": {
+            "type": "object",
+            "properties": {
+              "suiyun": {"type": "string"},
+              "sitian": {"type": "string"},
+              "zaiquan": {"type": "string"}
+            }
+          },
+          "six_steps": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["step", "keqi", "bingji", "zhifa"],
+              "properties": {
+                "step": {"type": "string", "description": "初之气/二之气/三之气/四之气/五之气/终之气"},
+                "keqi": {"type": "string", "description": "客气"},
+                "zhuqi": {"type": "string", "description": "主气"},
+                "bingji": {"type": "string", "description": "病机"},
+                "zhifa": {"type": "string", "description": "治法"}
+              }
+            }
+          },
+          "year_pathogenesis": {"type": "string", "description": "该年总体病机"},
+          "year_treatment": {"type": "string", "description": "该年总体治法"},
+          "source_quote": {"type": "string", "description": "原文关键句摘录（逐字保留）"}
+        }
+      }
+    }
+  }
+}

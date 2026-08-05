@@ -2,7 +2,7 @@
   "asset_name": "wuyun-liuqi-rag-index",
   "asset_type": "knowledge_base_index",
   "description": "五运六气 RAG 知识库资产索引。用于说明各 asset 的用途、检索键和维护状态。",
-  "total_entries": 8,
+  "total_entries": 9,
   "primary_api": "scripts/calculate_yunqi_api.py",
   "entries": [
     {
@@ -151,6 +151,29 @@
         "qi_xu"
       ],
       "rag_key": "asset7_constitution"
+    },
+    {
+      "entry_id": "rag_index_asset9_cases",
+      "entry_type": "asset_index",
+      "title": "圣济总录六十甲子岁图医案库",
+      "file": "asset9_cases.json",
+      "asset_id": "asset9_cases",
+      "asset_name": "圣济总录六十甲子岁图医案库",
+      "asset_category": "custom_asset",
+      "description": "宋《圣济总录》运气门六十甲子岁图蒸馏的逐年运气医案。每条含岁运/司天在泉/rag_keys/六步客气病机与治法/年病机/年治法/原文摘录。可按 rag_key 检索同类格局医案。",
+      "total_entries": 60,
+      "lookup_fields": [
+        "code",
+        "rag_key",
+        "sitian_key",
+        "zaiquan_key"
+      ],
+      "example_keys": [
+        "earth_excess",
+        "shaoyin_junhuo_sitian",
+        "yangming_zaojin_zaiquan"
+      ],
+      "rag_key": "asset9_cases"
     },
     {
       "entry_id": "rag_index_terminology",
