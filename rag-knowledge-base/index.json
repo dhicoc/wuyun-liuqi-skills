@@ -2,7 +2,7 @@
   "asset_name": "wuyun-liuqi-rag-index",
   "asset_type": "knowledge_base_index",
   "description": "五运六气 RAG 知识库资产索引。用于说明各 asset 的用途、检索键和维护状态。",
-  "total_entries": 10,
+  "total_entries": 11,
   "primary_api": "scripts/calculate_yunqi_api.py",
   "entries": [
     {
@@ -159,7 +159,7 @@
       "file": "asset9_cases.json",
       "asset_id": "asset9_cases",
       "asset_name": "圣济总录六十甲子岁图医案库",
-      "asset_category": "custom_asset",
+      "asset_category": "yunqi_cases",
       "description": "宋《圣济总录》运气门六十甲子岁图蒸馏的逐年运气医案。每条含岁运/司天在泉/rag_keys/六步客气病机与治法/年病机/年治法/原文摘录。可按 rag_key 检索同类格局医案。",
       "total_entries": 60,
       "lookup_fields": [
@@ -182,7 +182,7 @@
       "file": "asset10_suiyi_zhifa.json",
       "asset_id": "asset10_suiyi_zhifa",
       "asset_name": "六气岁宜治法库",
-      "asset_category": "custom_asset",
+      "asset_category": "suiyi_zhifa",
       "description": "金·刘完素《素问病机气宜保命集·气宜论》录《内经》六气司天之政岁宜治法。六气司天各一条，为三因司天方背后的治则原文依据。仅作运气学理论参考，具体诊疗须遵医嘱。",
       "total_entries": 6,
       "lookup_fields": [
@@ -194,6 +194,27 @@
         "shaoyang_xianghuo_sitian"
       ],
       "rag_key": "asset10_suiyi_zhifa"
+    },
+    {
+      "entry_id": "rag_index_asset11_mingyi_cases",
+      "entry_type": "asset_index",
+      "title": "名医类案 — 病证分类真实医案库",
+      "file": "asset11_mingyi_cases.json",
+      "asset_id": "asset11_mingyi_cases",
+      "asset_name": "名医类案 — 病证分类真实医案库",
+      "asset_category": "case_library",
+      "description": "明·江瓘《名医类案》公版蒸馏的真实医案库，按病证分类（中风/虚风/伤风/伤寒等）。每条含病证/医家/主诉/辨证/治法/方药/疗效/原文摘录。是 asset9（岁图医案，按格局检索）的补充——asset11 按病证检索，覆盖真实历史医案。",
+      "total_entries": 20,
+      "lookup_fields": [
+        "rag_key",
+        "entry_id"
+      ],
+      "example_keys": [
+        "中风",
+        "mingyi_001",
+        "mingyi_002"
+      ],
+      "rag_key": "asset11_mingyi_cases"
     },
     {
       "entry_id": "rag_index_terminology",
