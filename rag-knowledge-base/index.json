@@ -204,7 +204,7 @@
       "asset_name": "名医类案 — 病证分类真实医案库",
       "asset_category": "case_library",
       "description": "明·江瓘《名医类案》公版蒸馏的真实医案库，按病证分类（中风/虚风/伤风/伤寒等）。每条含病证/医家/主诉/辨证/治法/方药/疗效/原文摘录。是 asset9（岁图医案，按格局检索）的补充——asset11 按病证检索，覆盖真实历史医案。",
-      "total_entries": 32,
+      "total_entries": 78,
       "lookup_fields": [
         "rag_key",
         "entry_id"
