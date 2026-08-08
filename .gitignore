@@ -50,6 +50,7 @@ reports/test-results/**
 
 # 本地构建/临时产物
 artifacts/
+_distill_in/
 *.egg-info/
 dist/
 build/
