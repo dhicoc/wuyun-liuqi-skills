@@ -288,7 +288,7 @@
       "asset_name": "伤寒九十论 — 经方病证真实医案库",
       "asset_category": "case_library",
       "description": "宋·许叔微《伤寒九十论》公版蒸馏的伤寒经方医案库。90 则伤寒医案，每案一个经方证治（桂枝/麻黄/青龙/承气等），附'论曰'评注，是最精准的经方辨证医案源。",
-      "total_entries": 35,
+      "total_entries": 49,
       "lookup_fields": [
         "rag_key",
         "entry_id"
