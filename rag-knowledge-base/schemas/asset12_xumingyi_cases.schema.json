@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wuyun-liuqi.local/schemas/asset12_xumingyi_cases.schema.json",
+  "title": "asset12 — 续名医类案病证分类真实医案库",
+  "description": "清·魏之琇《续名医类案》公版蒸馏真实医案库，按病证分类。",
+  "type": "object",
+  "required": [
+    "asset_id",
+    "asset_name",
+    "entries"
+  ],
+  "properties": {
+    "asset_id": {
+      "type": "string",
+      "const": "asset12_xumingyi_cases"
+    },
+    "asset_name": {
+      "type": "string"
+    },
+    "asset_description": {
+      "type": "string"
+    },
+    "data_source": {
+      "type": "string"
+    },
+    "distill_method": {
+      "type": "string"
+    },
+    "entry_count": {
+      "type": "integer"
+    },
+    "lookup_fields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "case_id",
+          "category",
+          "source",
+          "chief_complaint",
+          "syndrome",
+          "treatment"
+        ],
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "description": "医案 ID，如 mingyi_001"
+          },
+          "category": {
+            "type": "string",
+            "description": "病证分类，如 中风/伤寒/疟"
+          },
+          "physician": {
+            "type": "string",
+            "description": "医家名"
+          },
+          "source": {
+            "type": "string",
+            "description": "出处"
+          },
+          "chief_complaint": {
+            "type": "string",
+            "description": "主诉/症状"
+          },
+          "syndrome": {
+            "type": "string",
+            "description": "病机辨证"
+          },
+          "treatment": {
+            "type": "string",
+            "description": "治法"
+          },
+          "formula": {
+            "type": "string",
+            "description": "方药"
+          },
+          "outcome": {
+            "type": "string",
+            "description": "疗效"
+          },
+          "source_quote": {
+            "type": "string",
+            "description": "原文摘录（逐字保留）"
+          },
+          "note": {
+            "type": "string",
+            "description": "一句话点评"
+          }
+        }
+      }
+    }
+  }
+}

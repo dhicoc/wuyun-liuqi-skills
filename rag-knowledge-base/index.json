@@ -2,7 +2,7 @@
   "asset_name": "wuyun-liuqi-rag-index",
   "asset_type": "knowledge_base_index",
   "description": "五运六气 RAG 知识库资产索引。用于说明各 asset 的用途、检索键和维护状态。",
-  "total_entries": 11,
+  "total_entries": 12,
   "primary_api": "scripts/calculate_yunqi_api.py",
   "entries": [
     {
@@ -215,6 +215,27 @@
         "mingyi_002"
       ],
       "rag_key": "asset11_mingyi_cases"
+    },
+    {
+      "entry_id": "rag_index_asset12_xumingyi_cases",
+      "entry_type": "asset_index",
+      "title": "续名医类案 — 病证分类真实医案库（续）",
+      "file": "asset12_xumingyi_cases.json",
+      "asset_id": "asset12_xumingyi_cases",
+      "asset_name": "续名医类案 — 病证分类真实医案库（续）",
+      "asset_category": "case_library",
+      "description": "清·魏之琇《续名医类案》公版蒸馏的真实医案库，按病证分类。魏之琇补《名医类案》之作，医案更详（万全/缪仲淳/许叔微/张子和等）。与 asset11（名医类案）同格式，按病证检索。",
+      "total_entries": 66,
+      "lookup_fields": [
+        "rag_key",
+        "entry_id"
+      ],
+      "example_keys": [
+        "伤寒",
+        "xumingyi_001",
+        "xumingyi_002"
+      ],
+      "rag_key": "asset12_xumingyi_cases"
     },
     {
       "entry_id": "rag_index_terminology",
