@@ -246,7 +246,7 @@
       "asset_name": "古今医案按 — 病证分类真实医案库（俞震精选）",
       "asset_category": "case_library",
       "description": "清·俞震《古今医案按》公版蒸馏的真实医案库。俞震精选历代医案并加'震按'评语，点评医家辨证思路，是医案按语类最高质量代表。按病证分类，与 asset11/12 同格式。",
-      "total_entries": 68,
+      "total_entries": 76,
       "lookup_fields": [
         "rag_key",
         "entry_id"
