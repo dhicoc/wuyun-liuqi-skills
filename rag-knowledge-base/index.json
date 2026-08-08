@@ -225,7 +225,7 @@
       "asset_name": "续名医类案 — 病证分类真实医案库（续）",
       "asset_category": "case_library",
       "description": "清·魏之琇《续名医类案》公版蒸馏的真实医案库，按病证分类。魏之琇补《名医类案》之作，医案更详（万全/缪仲淳/许叔微/张子和等）。与 asset11（名医类案）同格式，按病证检索。",
-      "total_entries": 66,
+      "total_entries": 84,
       "lookup_fields": [
         "rag_key",
         "entry_id"
