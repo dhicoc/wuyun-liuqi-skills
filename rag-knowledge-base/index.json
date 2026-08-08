@@ -2,7 +2,7 @@
   "asset_name": "wuyun-liuqi-rag-index",
   "asset_type": "knowledge_base_index",
   "description": "五运六气 RAG 知识库资产索引。用于说明各 asset 的用途、检索键和维护状态。",
-  "total_entries": 14,
+  "total_entries": 15,
   "primary_api": "scripts/calculate_yunqi_api.py",
   "entries": [
     {
@@ -278,6 +278,27 @@
         "dingganren_002"
       ],
       "rag_key": "asset14_dingganren_cases"
+    },
+    {
+      "entry_id": "rag_index_asset15_shanghan90_cases",
+      "entry_type": "asset_index",
+      "title": "伤寒九十论 — 经方病证真实医案库",
+      "file": "asset15_shanghan90_cases.json",
+      "asset_id": "asset15_shanghan90_cases",
+      "asset_name": "伤寒九十论 — 经方病证真实医案库",
+      "asset_category": "case_library",
+      "description": "宋·许叔微《伤寒九十论》公版蒸馏的伤寒经方医案库。90 则伤寒医案，每案一个经方证治（桂枝/麻黄/青龙/承气等），附'论曰'评注，是最精准的经方辨证医案源。",
+      "total_entries": 9,
+      "lookup_fields": [
+        "rag_key",
+        "entry_id"
+      ],
+      "example_keys": [
+        "伤寒",
+        "sh90_001",
+        "sh90_002"
+      ],
+      "rag_key": "asset15_shanghan90_cases"
     },
     {
       "entry_id": "rag_index_terminology",
