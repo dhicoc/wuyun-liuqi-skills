@@ -2,7 +2,7 @@
   "asset_name": "wuyun-liuqi-rag-index",
   "asset_type": "knowledge_base_index",
   "description": "五运六气 RAG 知识库资产索引。用于说明各 asset 的用途、检索键和维护状态。",
-  "total_entries": 12,
+  "total_entries": 13,
   "primary_api": "scripts/calculate_yunqi_api.py",
   "entries": [
     {
@@ -236,6 +236,27 @@
         "xumingyi_002"
       ],
       "rag_key": "asset12_xumingyi_cases"
+    },
+    {
+      "entry_id": "rag_index_asset13_gujin_an_cases",
+      "entry_type": "asset_index",
+      "title": "古今医案按 — 病证分类真实医案库（俞震精选）",
+      "file": "asset13_gujin_an_cases.json",
+      "asset_id": "asset13_gujin_an_cases",
+      "asset_name": "古今医案按 — 病证分类真实医案库（俞震精选）",
+      "asset_category": "case_library",
+      "description": "清·俞震《古今医案按》公版蒸馏的真实医案库。俞震精选历代医案并加'震按'评语，点评医家辨证思路，是医案按语类最高质量代表。按病证分类，与 asset11/12 同格式。",
+      "total_entries": 12,
+      "lookup_fields": [
+        "rag_key",
+        "entry_id"
+      ],
+      "example_keys": [
+        "中风",
+        "gujin_001",
+        "gujin_002"
+      ],
+      "rag_key": "asset13_gujin_an_cases"
     },
     {
       "entry_id": "rag_index_terminology",
