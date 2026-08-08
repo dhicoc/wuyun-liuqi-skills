@@ -2,7 +2,7 @@
   "asset_name": "wuyun-liuqi-rag-index",
   "asset_type": "knowledge_base_index",
   "description": "五运六气 RAG 知识库资产索引。用于说明各 asset 的用途、检索键和维护状态。",
-  "total_entries": 13,
+  "total_entries": 14,
   "primary_api": "scripts/calculate_yunqi_api.py",
   "entries": [
     {
@@ -257,6 +257,27 @@
         "gujin_002"
       ],
       "rag_key": "asset13_gujin_an_cases"
+    },
+    {
+      "entry_id": "rag_index_asset14_dingganren_cases",
+      "entry_type": "asset_index",
+      "title": "丁甘仁医案 — 病证分类真实医案库（孟河医派）",
+      "file": "asset14_dingganren_cases.json",
+      "asset_id": "asset14_dingganren_cases",
+      "asset_name": "丁甘仁医案 — 病证分类真实医案库（孟河医派）",
+      "asset_category": "case_library",
+      "description": "民国·丁甘仁《丁甘仁医案》公版蒸馏的真实医案库。丁甘仁为孟河医派代表，医案辨证精详，每条带病机+治法+方药+多诊随访，最贴近现代临床。与 asset11/12/13 同格式，按病证检索。",
+      "total_entries": 25,
+      "lookup_fields": [
+        "rag_key",
+        "entry_id"
+      ],
+      "example_keys": [
+        "伤寒",
+        "dingganren_001",
+        "dingganren_002"
+      ],
+      "rag_key": "asset14_dingganren_cases"
     },
     {
       "entry_id": "rag_index_terminology",
