@@ -2,7 +2,7 @@
   "asset_name": "wuyun-liuqi-rag-index",
   "asset_type": "knowledge_base_index",
   "description": "五运六气 RAG 知识库资产索引。用于说明各 asset 的用途、检索键和维护状态。",
-  "total_entries": 15,
+  "total_entries": 16,
   "primary_api": "scripts/calculate_yunqi_api.py",
   "entries": [
     {
@@ -278,6 +278,27 @@
         "dingganren_002"
       ],
       "rag_key": "asset14_dingganren_cases"
+    },
+    {
+      "entry_id": "rag_index_asset16_ye_cases",
+      "entry_type": "asset_index",
+      "title": "临证指南医案 — 病证分类真实医案库（叶桂）",
+      "file": "asset16_ye_cases.json",
+      "asset_id": "asset16_ye_cases",
+      "asset_name": "临证指南医案 — 病证分类真实医案库（叶桂）",
+      "asset_category": "case_library",
+      "description": "清·叶桂《临证指南医案》公版蒸馏的真实医案库。叶天士，清代温病大家，医案以'识病之巧、立方之简'著称，每案精审病机（华岫云按语总括治法）。按病证分类，与 asset11-15 同格式。",
+      "total_entries": 30,
+      "lookup_fields": [
+        "rag_key",
+        "entry_id"
+      ],
+      "example_keys": [
+        "肝风",
+        "ye_001",
+        "ye_002"
+      ],
+      "rag_key": "asset16_ye_cases"
     },
     {
       "entry_id": "rag_index_asset15_shanghan90_cases",
