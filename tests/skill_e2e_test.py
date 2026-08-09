@@ -176,6 +176,16 @@ def main():
     run("learning_dashboard", [PY, "scripts/learning_dashboard.py", "--stdout"], has("学习"))
     run("yunqi_cli doctor", [PY, "scripts/yunqi_cli.py", "doctor"], lambda r, o: True)
 
+    # ---- 14b. 可视化报告 ----
+    print("\n== 14b. 可视化报告 ==")
+    run("visualize ASCII 六气步位推移", [PY, "scripts/visualize_yunqi.py", "2026-06-29"], has("六气步位推移"))
+    run("visualize ASCII 司天", [PY, "scripts/visualize_yunqi.py", "2026-06-29"], has("司天"))
+    _html_rag = lambda r, o: (ROOT / "reports/test-results/e2e-html.html").exists() and "rag_keys" in (ROOT / "reports/test-results/e2e-html.html").read_text(encoding="utf-8")
+    run("generate_html 含 RAG 章节", [PY, "scripts/generate_html_report.py", "2026-06-29", "reports/test-results/e2e-html.html"], _html_rag)
+    _html_adv = lambda r, o: (ROOT / "reports/test-results/e2e-html-adv.html").exists() and "高级对齐" in (ROOT / "reports/test-results/e2e-html-adv.html").read_text(encoding="utf-8")
+    run("generate_html 含高级对齐", [PY, "scripts/generate_html_report.py", "2026-06-29", "reports/test-results/e2e-html-adv.html", "--with-advanced-alignment", "--birth-date", "2003-04-19", "--city", "杭州", "--constitution-demo", "--mock"], _html_adv)
+    run("report_quality_gate demo", [PY, "scripts/report_quality_gate.py", "--demo", "--json"], json_has(["passed"]))
+
     # ---- 15. 免责声明（Always Read 安全边界）----
     print("\n== 15. 安全边界（免责声明）==")
     _chk((ROOT / "case-journal" / "precedent-disclaimer.md").exists(), "precedent-disclaimer 存在")
