@@ -189,7 +189,7 @@ tasks:
       - 写医案
       - 记录运气应用
       - 查同类格局医案
-    route: case-journal/_template.md → rag-knowledge-base/asset9_cases.json（rag_search --key <rag_key> --asset asset9 按格局检索同格局岁图医案）
+    route: case-journal/_template.md → rag-knowledge-base/asset9_cases.json（rag_search --key <rag_key> --asset asset9 按格局检索同格局岁图医案）；历代名家临证医案检索 asset11-16（如 `--asset asset16` 按病证检索临证指南医案）
 
   - id: ganzhi-basics
     labels: { zh: 干支基础, en: Ganzhi basics }

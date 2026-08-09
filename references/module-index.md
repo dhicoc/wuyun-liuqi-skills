@@ -87,6 +87,12 @@ RAG asset 是精炼键值（回答"是什么"）；下列五本公版古籍蒸�
 | 体质交叉 | `asset7_constitution.json` | 108 | 9 体质×10 岁运完整覆盖 |
 | 岁图医案 | `asset9_cases.json` | 60 | 圣济总录六十甲子岁图医案（按 rag_key 检索） |
 | 岁宜治法 | `asset10_suiyi_zhifa.json` | 6 | 六气司天岁宜治法表 |
+| 名医类案 | `asset11_mingyi_cases.json` | 102 | 明·江瓘，历代医案汇编 |
+| 续名医类案 | `asset12_xumingyi_cases.json` | 84 | 清·魏之琇，续补医案 |
+| 古今医案按 | `asset13_gujin_an_cases.json` | 159 | 清·俞震，含"震按"辨证 |
+| 丁甘仁医案 | `asset14_dingganren_cases.json` | 177 | 近代丁甘仁，孟河医派 |
+| 伤寒九十论 | `asset15_shanghan90_cases.json` | 49 | 宋·许叔微，伤寒经方 |
+| 临证指南医案 | `asset16_ye_cases.json` | 330 | 清·叶桂，含华岫云按语 |
 | 术语 | `terminology.json` | 700 | 运气学术语白话解释 |
 
-检索流程：`calculate_yunqi_api.py --json` → 取 `rag_keys` → 按 key 检索对应 asset。
+检索流程：`calculate_yunqi_api.py --json` → 取 `rag_keys` → 按 key 检索对应 asset。asset11-16 六部历代名家医案库（共 901 条）可按病证分类检索临证真实医案。

@@ -38,7 +38,7 @@
 | personal-profile | 个人运气/体质 | `personal_yunqi_profile.py` |
 | weather-alignment | 天气对齐 | `weather_alignment.py` |
 | export-thought | 导出思想材料 | `export_thought.py` |
-| case-journal | 写医案/查岁图医案 | `case-journal/_template.md` |
+| case-journal | 写医案/查岁图医案 | `case-journal/_template.md`（岁图医案 asset9；历代名家临证医案 asset11-16） |
 | claude-plugin-install | Claude Code 插件安装 | `workflows/claude-plugin-install.md` |
 
 完整列表与触发词见 `routing.yaml` → `tasks`。Agent 路由场景证明见 `tests/routing_scenarios.json`。
