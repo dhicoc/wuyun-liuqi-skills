@@ -170,7 +170,7 @@ def build_markdown(
         parts.append("")
     parts.append("---")
     parts.append("")
-    parts.append("_由 export_thought_map.py 生成 · 详见 docs/optimization-sprint.md_")
+    parts.append("_由 export_thought_map.py 生成 · 详见 references/module-index.md_")
     return "\n".join(parts)
 
 

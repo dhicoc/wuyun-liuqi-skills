@@ -340,7 +340,7 @@ def build_parser() -> argparse.ArgumentParser:
   python scripts/yunqi_cli.py interactive
 
 底层脚本仍可直接调用；本入口为聚合与发现层。
-详见 docs/optimization-sprint.md
+详见 references/module-index.md
 """,
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )

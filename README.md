@@ -323,7 +323,7 @@ Agent 会自动调用本技能包的推算引擎、知识库和推理流程来�
 ├── .cursor/                    # Cursor 技能注册 + 规则
 ├── .github/workflows/          # CI
 ├── references/                 # script-index / module-index / gotchas
-└── docs/                       # architecture / roadmap / SAG 评估
+└── references/                 # 模块地图 / 架构 / 路线图 / SAG 评估
 ```
 
 <p align="right">(<a href="#使用说明">返回顶部</a>)</p>
@@ -573,7 +573,7 @@ prompts/                 Agent system prompts (thought-partner tone)
 reports/examples/        Versioned sample reports and preview images
 reports/generated/       Local generated reports (ignored by Git)
 reports/test-results/    Test outputs (ignored by Git)
-docs/                    Architecture, feature coverage, roadmap, optimization plans (self-evolve, thought understanding, UX)
+references/                    Module map, architecture, roadmap, evaluations (self-evolve, thought understanding, UX)
 tests/                   Test fixtures; full_regression_test.py (63/0)
 .github/workflows/       CI workflow
 ganzhi-basics/           Stem-Branch learning skill
