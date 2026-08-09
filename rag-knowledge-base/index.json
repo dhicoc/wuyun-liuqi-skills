@@ -267,7 +267,7 @@
       "asset_name": "丁甘仁医案 — 病证分类真实医案库（孟河医派）",
       "asset_category": "case_library",
       "description": "民国·丁甘仁《丁甘仁医案》公版蒸馏的真实医案库。丁甘仁为孟河医派代表，医案辨证精详，每条带病机+治法+方药+多诊随访，最贴近现代临床。与 asset11/12/13 同格式，按病证检索。",
-      "total_entries": 148,
+      "total_entries": 177,
       "lookup_fields": [
         "rag_key",
         "entry_id"
