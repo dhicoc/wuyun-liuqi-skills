@@ -53,7 +53,7 @@ tasks:
       - 最近运气怎么样
       - 我这个月要注意什么
       - 我现在运气如何
-    route: scripts/calculate_yunqi_api.py --focus current-step → yunqi-clinical/
+    route: scripts/calculate_yunqi_api.py --focus current-step → modules/yunqi-clinical/
     script: python scripts/calculate_yunqi_api.py today --focus current-step
 
   - id: full-year-analysis
@@ -62,8 +62,8 @@ tasks:
       - 完整分析2026年
       - 全年运气分析
       - 生成运气报告
-    route: ganzhi-basics/ → yunqi-calc/ → yunqi-pathogenesis/ → yunqi-clinical/ → docs-generator/
-    workflow: docs-generator/SKILL.md
+    route: modules/ganzhi-basics/ → modules/yunqi-calc/ → modules/yunqi-pathogenesis/ → modules/yunqi-clinical/ → modules/docs-generator/
+    workflow: modules/docs-generator/SKILL.md
     script: python scripts/yunqi_report.py <年份> --audience practitioner
 
   - id: year-calc
@@ -71,8 +71,8 @@ tasks:
     trigger_examples:
       - 推算XX年运气
       - 今年大运是什么
-    route: yunqi-calc/SKILL.md
-    required_reads: [ganzhi-basics/SKILL.md]
+    route: modules/yunqi-calc/SKILL.md
+    required_reads: [modules/ganzhi-basics/SKILL.md]
 
   - id: pathogenesis
     labels: { zh: 运气病机, en: Yunqi pathogenesis }
@@ -80,7 +80,7 @@ tasks:
       - 今年容易发什么病
       - 运气病机
       - 五运病机
-    route: yunqi-pathogenesis/SKILL.md
+    route: modules/yunqi-pathogenesis/SKILL.md
     script: python scripts/calculate_yunqi_api.py <日期> --json
 
   - id: clinical
@@ -90,8 +90,8 @@ tasks:
       - 运气方药
       - 运气养生
       - 运气针灸
-    route: yunqi-clinical/SKILL.md
-    required_reads: [yunqi-pathogenesis/SKILL.md]
+    route: modules/yunqi-clinical/SKILL.md
+    required_reads: [modules/yunqi-pathogenesis/SKILL.md]
 
   - id: classics
     labels: { zh: 经典文献/七篇大论, en: Classics }
@@ -99,7 +99,7 @@ tasks:
       - 七篇大论
       - 运气学说历史
       - 历代运气学说
-    route: yunqi-classics/SKILL.md
+    route: modules/yunqi-classics/SKILL.md
 
   - id: learn-concept
     labels: { zh: 学习概念/思想, en: Learn concepts }
@@ -197,7 +197,7 @@ tasks:
       - 天干地支怎么算
       - 六十甲子
       - 节气和运气
-    route: ganzhi-basics/SKILL.md
+    route: modules/ganzhi-basics/SKILL.md
 
   - id: one-line-install
     labels: { zh: 一句话安装/完整安装技能包, en: One-line install }
@@ -232,57 +232,57 @@ axes:
     - input: 公历日期 YYYY-MM-DD
       route: [scripts/calculate_yunqi_api.py, rag-knowledge-base/, agent-workflow/react_workflow.md]
     - input: 公历年份
-      route: [ganzhi-basics/, yunqi-calc/]
+      route: [modules/ganzhi-basics/, modules/yunqi-calc/]
     - input: 农历年份
-      route: [ganzhi-basics/references/liushijiazi.md, yunqi-calc/]
+      route: [modules/ganzhi-basics/references/liushijiazi.md, modules/yunqi-calc/]
     - input: 节气
-      route: [ganzhi-basics/references/jieqi.md, yunqi-calc/, yunqi-pathogenesis/]
+      route: [modules/ganzhi-basics/references/jieqi.md, modules/yunqi-calc/, modules/yunqi-pathogenesis/]
     - input: 当前时间（今年/当下）
-      route: [ganzhi-basics/, yunqi-calc/, yunqi-pathogenesis/, yunqi-clinical/]
+      route: [modules/ganzhi-basics/, modules/yunqi-calc/, modules/yunqi-pathogenesis/, modules/yunqi-clinical/]
     - input: 历史年份回溯
-      route: [yunqi-classics/, yunqi-calc/]
+      route: [modules/yunqi-classics/, modules/yunqi-calc/]
     - input: 未来年份预测
-      route: [ganzhi-basics/, yunqi-calc/, yunqi-pathogenesis/]
+      route: [modules/ganzhi-basics/, modules/yunqi-calc/, modules/yunqi-pathogenesis/]
 
   intent:
     - phrases: [推算XX年运气, 今年大运是什么]
-      route: yunqi-calc/SKILL.md
+      route: modules/yunqi-calc/SKILL.md
     - phrases: [今年容易发什么病, 运气病机]
-      route: yunqi-pathogenesis/SKILL.md
+      route: modules/yunqi-pathogenesis/SKILL.md
     - phrases: [运气治法, 运气方药, 运气养生, 运气针灸]
-      route: yunqi-clinical/SKILL.md
+      route: modules/yunqi-clinical/SKILL.md
     - phrases: [七篇大论, 运气学说历史, 历代运气学说, 运气现代研究]
-      route: yunqi-classics/SKILL.md
+      route: modules/yunqi-classics/SKILL.md
     - phrases: [天干化五运, 甲己化土]
-      route: yunqi-calc/references/tiangan_huayun.md
+      route: modules/yunqi-calc/references/tiangan_huayun.md
     - phrases: [地支化六气, 子午少阴]
-      route: yunqi-calc/references/dizhi_huaqi.md
+      route: modules/yunqi-calc/references/dizhi_huaqi.md
     - phrases: [主运客运, 五运推移]
-      route: yunqi-calc/references/zhuyun_keyun.md
+      route: modules/yunqi-calc/references/zhuyun_keyun.md
     - phrases: [主气客气, 六气推移]
-      route: yunqi-calc/references/zhuqi_keqi.md
+      route: modules/yunqi-calc/references/zhuqi_keqi.md
     - phrases: [司天在泉, 上半年下半年]
-      route: yunqi-calc/references/sitian_zaiquan.md
+      route: modules/yunqi-calc/references/sitian_zaiquan.md
     - phrases: [客主加临, 顺逆]
-      route: yunqi-calc/references/kezhujialin.md
+      route: modules/yunqi-calc/references/kezhujialin.md
     - phrases: [天符岁会, 运气同化, 太乙天符]
-      route: yunqi-calc/references/yunqi_tonghua.md
+      route: modules/yunqi-calc/references/yunqi_tonghua.md
     - phrases: [太过不及, 平气]
-      route: yunqi-calc/references/taiguo_buji.md
+      route: modules/yunqi-calc/references/taiguo_buji.md
     - phrases: [五运病机, 木运太过什么病]
-      route: yunqi-pathogenesis/references/wuyun_bingji.md
+      route: modules/yunqi-pathogenesis/references/wuyun_bingji.md
     - phrases: [六气病机, 厥阴风木病机]
-      route: yunqi-pathogenesis/references/liuqi_bingji.md
+      route: modules/yunqi-pathogenesis/references/liuqi_bingji.md
     - phrases: [运气合病]
-      route: yunqi-pathogenesis/references/yunqi_hebing.md
+      route: modules/yunqi-pathogenesis/references/yunqi_hebing.md
     - phrases: [学生版报告, 学习报告]
-      route: docs-generator/SKILL.md
+      route: modules/docs-generator/SKILL.md
       report_type: student
     - phrases: [临床版报告, 医师版报告]
-      route: docs-generator/SKILL.md
+      route: modules/docs-generator/SKILL.md
       report_type: practitioner
     - phrases: [研究版报告, 文献版报告]
-      route: docs-generator/SKILL.md
+      route: modules/docs-generator/SKILL.md
       report_type: researcher
     - phrases: [运气方, 三因司天方]
       route: rag-knowledge-base/asset4_formula.json
@@ -295,16 +295,16 @@ axes:
 
   knowledge_level:
     - level: 推算层
-      modules: [ganzhi-basics/, yunqi-calc/]
+      modules: [modules/ganzhi-basics/, modules/yunqi-calc/]
       scripts: [ganzhi_calc.py, dayun_calc.py, keyun_calc.py, liuqi_calc.py, kezhujialin.py]
     - level: 病机层
-      modules: [yunqi-pathogenesis/]
+      modules: [modules/yunqi-pathogenesis/]
       scripts: []
     - level: 临床层
-      modules: [yunqi-clinical/]
+      modules: [modules/yunqi-clinical/]
       scripts: []
     - level: 文献层
-      modules: [yunqi-classics/]
+      modules: [modules/yunqi-classics/]
       scripts: []
     - level: Agent层
       modules: [rag-knowledge-base/, agent-workflow/, prompts/, advanced-alignment/, self-evolve/]
@@ -314,24 +314,24 @@ cross_paths:
   - id: full-annual
     name: 完整年度分析
     steps:
-      - ganzhi-basics/SKILL.md
-      - yunqi-calc/SKILL.md
-      - yunqi-pathogenesis/SKILL.md
-      - yunqi-clinical/SKILL.md
-      - docs-generator/SKILL.md
+      - modules/ganzhi-basics/SKILL.md
+      - modules/yunqi-calc/SKILL.md
+      - modules/yunqi-pathogenesis/SKILL.md
+      - modules/yunqi-clinical/SKILL.md
+      - modules/docs-generator/SKILL.md
 
   - id: calc-plus-classics
     name: 推算+文献
     steps:
-      - yunqi-classics/SKILL.md
-      - yunqi-calc/SKILL.md
+      - modules/yunqi-classics/SKILL.md
+      - modules/yunqi-calc/SKILL.md
 
   - id: case-record
     name: 医案沉淀
     steps:
-      - yunqi-calc/
-      - yunqi-pathogenesis/
-      - yunqi-clinical/
+      - modules/yunqi-calc/
+      - modules/yunqi-pathogenesis/
+      - modules/yunqi-clinical/
       - case-journal/_template.md
 
   - id: react-agent
@@ -347,9 +347,9 @@ cross_paths:
   - id: student-learning
     name: 学习路径
     steps:
-      - ganzhi-basics/
-      - yunqi-calc/references/
-      - yunqi-calc/SKILL.md
+      - modules/ganzhi-basics/
+      - modules/yunqi-calc/references/
+      - modules/yunqi-calc/SKILL.md
 
 fuzzy_intent:
   conditions:
@@ -365,7 +365,7 @@ fuzzy_intent:
     - user: 完整分析2026年
       action: python scripts/yunqi_report.py 2026 --audience practitioner
     - user: 学习客主加临
-      action: yunqi-calc/references/kezhujialin.md
+      action: modules/yunqi-calc/references/kezhujialin.md
     - user: 我1990年出生
       action: python scripts/personal_yunqi_profile.py 1990-XX-XX
 

@@ -3,7 +3,7 @@
 > **模块**：advanced-alignment / constitution_alignment
 > **版本**：1.0.0
 > **定位**：五运六气优化计划 Step 5 — 高级对齐模块
-> **依赖**：`yunqi-calc/`（运气推算结果）、`yunqi-pathogenesis/`（病机分析结果）
+> **依赖**：`modules/yunqi-calc/`（运气推算结果）、`modules/yunqi-pathogenesis/`（病机分析结果）
 
 ---
 
@@ -449,7 +449,7 @@ Agent 按以下优先级获取体质数据：
 |------|------|
 | `api_specs.json` | 本模块的机器可读API规范（含Schema、九种体质、交叉矩阵的JSON结构化定义） |
 | `weather_integration.md` | 天气对齐模块（与本模块可叠加使用） |
-| `../yunqi-calc/SKILL.md` | 运气推算子技能（提供当年及出生年运气推算） |
-| `../yunqi-pathogenesis/SKILL.md` | 病机分析子技能（接收对齐结果进行增强分析） |
-| `../yunqi-clinical/SKILL.md` | 临床应用子技能（结合体质给出个体化调理方向） |
+| `../modules/yunqi-calc/SKILL.md` | 运气推算子技能（提供当年及出生年运气推算） |
+| `../modules/yunqi-pathogenesis/SKILL.md` | 病机分析子技能（接收对齐结果进行增强分析） |
+| `../modules/yunqi-clinical/SKILL.md` | 临床应用子技能（结合体质给出个体化调理方向） |
 | `../case-journal/precedent-disclaimer.md` | 医学免责声明（MUST 前置读取） |

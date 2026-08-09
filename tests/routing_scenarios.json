@@ -20,27 +20,27 @@
       "prompt": "完整分析2026年",
       "task_id": "full-year-analysis",
       "expect_script_contains": "yunqi_report.py",
-      "expect_workflow": "docs-generator/SKILL.md"
+      "expect_workflow": "modules/docs-generator/SKILL.md"
     },
     {
       "name": "运气病机",
       "prompt": "今年容易发什么病",
       "task_id": "pathogenesis",
-      "expect_route": "yunqi-pathogenesis/SKILL.md",
+      "expect_route": "modules/yunqi-pathogenesis/SKILL.md",
       "expect_script_contains": "calculate_yunqi_api.py"
     },
     {
       "name": "临床治法须先病机",
       "prompt": "运气方药",
       "task_id": "clinical",
-      "expect_route": "yunqi-clinical/SKILL.md",
-      "expect_required_reads": ["yunqi-pathogenesis/SKILL.md"]
+      "expect_route": "modules/yunqi-clinical/SKILL.md",
+      "expect_required_reads": ["modules/yunqi-pathogenesis/SKILL.md"]
     },
     {
       "name": "经典文献",
       "prompt": "七篇大论",
       "task_id": "classics",
-      "expect_route": "yunqi-classics/SKILL.md"
+      "expect_route": "modules/yunqi-classics/SKILL.md"
     },
     {
       "name": "学习概念",
@@ -98,11 +98,11 @@
       "name": "完整年度分析链路",
       "path_id": "full-annual",
       "expect_steps": [
-        "ganzhi-basics/SKILL.md",
-        "yunqi-calc/SKILL.md",
-        "yunqi-pathogenesis/SKILL.md",
-        "yunqi-clinical/SKILL.md",
-        "docs-generator/SKILL.md"
+        "modules/ganzhi-basics/SKILL.md",
+        "modules/yunqi-calc/SKILL.md",
+        "modules/yunqi-pathogenesis/SKILL.md",
+        "modules/yunqi-clinical/SKILL.md",
+        "modules/docs-generator/SKILL.md"
       ]
     },
     {

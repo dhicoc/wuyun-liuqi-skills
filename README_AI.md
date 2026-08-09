@@ -111,7 +111,7 @@ AI Agent 首次进入本技能包时执行：
 | “当前步位/最近如何” | `python scripts/calculate_yunqi_api.py today --focus current-step` |
 | “完整年度报告” | `python scripts/yunqi_report.py <YYYY> --audience student|practitioner|researcher`（含思想层解读） |
 | “个人运气/出生日期分析” | `python scripts/personal_yunqi_profile.py <出生日期> [地区]` |
-| “病机/治法/养生” | 先调用 `calculate_yunqi_api.py --json`，再读取 `yunqi-pathogenesis/` 与 `yunqi-clinical/` |
+| “病机/治法/养生” | 先调用 `calculate_yunqi_api.py --json`，再读取 `modules/yunqi-pathogenesis/` 与 `modules/yunqi-clinical/` |
 | “自进化反馈 / 理解追踪” | `python scripts/self_evolve.py feedback ...` / `stats` / `report` / `cleanup`（支持哲学概念 + 理解评分 + session 哈希隐私 + 自动建议） |
 | “测试全部功能” | 运行 `health_check.py`、`tests/verify_expansion.py`、`tests/full_regression_test.py`（完整回归 63/0） |
 | “生成含高级对齐的报告” | 先运行 `advanced_alignment.py --json` 生成 JSON，再用 `yunqi_report.py --advanced-json` 或 `generate_html_report.py --with-advanced-alignment` |
@@ -223,21 +223,21 @@ node scripts/calculate_yunqi_api.js <YYYY-MM-DD> --json
 | 功能层级 | 覆盖能力 | 主入口 / 文件 | 状态 |
 |----------|----------|---------------|------|
 | 干支基础 | 年干支、六十甲子序号、生肖 | `scripts/ganzhi_calc.py` | ✅ 已覆盖 |
-| 五运推算 | 天干化五运、大运太过/不及、平气判断 | `scripts/dayun_calc.py`、`yunqi-calc/` | ✅ 已覆盖 |
+| 五运推算 | 天干化五运、大运太过/不及、平气判断 | `scripts/dayun_calc.py`、`modules/yunqi-calc/` | ✅ 已覆盖 |
 | 主运客运 | 主运五步、客运五步、太少推移 | `scripts/keyun_calc.py` | ✅ 已覆盖 |
 | 六气推算 | 司天、在泉、主气六步、客气六步 | `scripts/liuqi_calc.py` | ✅ 已覆盖 |
 | 客主加临 | 六步客主关系、相得/不相得、顺逆分析 | `scripts/kezhujialin.py` | ✅ 已覆盖 |
 | 日期统一接口 | 大寒定年、日干支、当前步位、RAG keys、JSON 输出 | `scripts/calculate_yunqi_api.py` | ✅ Python 主链路 |
 | Node.js 接口 | 前端 / Node.js 集成 JSON 输出 | `scripts/calculate_yunqi_api.js` | 🟡 可选接口 |
-| 病机分析 | 五运病机、六气病机、胜复、运气合病 | `yunqi-pathogenesis/` | ✅ 文档化推理 |
-| 临床应用 | 治则治法、方药方向、针灸选穴、养生调理 | `yunqi-clinical/` | ✅ 参考建议，需免责声明 |
-| 经典文献 | 素问七篇、历代学说、现代研究 | `yunqi-classics/` | ✅ 已覆盖 |
+| 病机分析 | 五运病机、六气病机、胜复、运气合病 | `modules/yunqi-pathogenesis/` | ✅ 文档化推理 |
+| 临床应用 | 治则治法、方药方向、针灸选穴、养生调理 | `modules/yunqi-clinical/` | ✅ 参考建议，需免责声明 |
+| 经典文献 | 素问七篇、历代学说、现代研究 | `modules/yunqi-classics/` | ✅ 已覆盖 |
 | RAG 知识库 | 岁运、司天在泉、客主加临、方剂、注家、地域、体质 | `rag-knowledge-base/asset*.json` | ✅ 已覆盖 |
 | 个人体质 | 出生年运气倾向、九种体质量表、当前岁运调理、地域修正 | `scripts/personal_yunqi_profile.py`、`scripts/constitution_assessment.py` | ✅ 已覆盖 |
 | 天气对齐 | 实时气象 × 运气格局交叉分析，判断相合/相背/兼夹 | `scripts/weather_alignment.py`、`advanced-alignment/weather_integration.md` | ✅ 已覆盖 |
 | 天气 × 体质叠加 | 出生运气体质 × 当前岁运 × 天气实况三维分析 | `scripts/yunqi_weather_constitution.py` | ✅ 已覆盖 |
 | 统一高级对齐 | 基础运气、出生运气体质、九种体质量表、天气对齐统一入口 | `scripts/advanced_alignment.py` | ✅ 已覆盖 |
-| 报告生成 | 学生版、临床版、研究版报告；支持注入高级对齐章节 | `scripts/yunqi_report.py --advanced-json`、`scripts/generate_html_report.py --with-advanced-alignment`、`docs-generator/` | ✅ 已覆盖 |
+| 报告生成 | 学生版、临床版、研究版报告；支持注入高级对齐章节 | `scripts/yunqi_report.py --advanced-json`、`scripts/generate_html_report.py --with-advanced-alignment`、`modules/docs-generator/` | ✅ 已覆盖 |
 | 可视化 | 终端 ASCII、HTML 可视化报告 | `scripts/visualize_yunqi.py`、`scripts/generate_html_report.py` | ✅ 已覆盖 |
 | 自进化 | 使用日志、盲区检测、反馈、月度报告 | `scripts/self_evolve.py` | ✅ 已覆盖 |
 | 校验测试 | 环境检查、知识库校验、端到端测试、全量回归 | `scripts/health_check.py`、`scripts/validate_knowledge_base.py`、`tests/verify_expansion.py`、`tests/full_regression_test.py` | ✅ 已覆盖 |
@@ -294,13 +294,13 @@ scripts/calculate_yunqi_api.py → 获取推算结果 + rag_keys
   ↓
 rag-knowledge-base/ → 多层知识检索
   ↓
-yunqi-pathogenesis/ → 病机分析
+modules/yunqi-pathogenesis/ → 病机分析
   ↓
-yunqi-clinical/ → 治则、方药方向、针灸参考、养生调理
+modules/yunqi-clinical/ → 治则、方药方向、针灸参考、养生调理
   ↓
 advanced-alignment/ → 可选：天气对齐、地域修正、体质交叉
   ↓
-docs-generator/ → 结构化报告
+modules/docs-generator/ → 结构化报告
   ↓
 scripts/self_evolve.py → 记录使用与反馈
 ```
@@ -372,7 +372,7 @@ python scripts/self_evolve.py log \
 | [case-journal/examples/](case-journal/examples/) | 脱敏示例案例库 |
 | [reports/generated/](reports/generated/) | 本地生成报告 |
 | [reports/test-results/](reports/test-results/) | 测试输出 |
-| [docs-generator/](docs-generator/) | 报告模板 |
+| [modules/docs-generator/](modules/docs-generator/) | 报告模板 |
 | [advanced-alignment/](advanced-alignment/) | 天气、地域、体质高级对齐 |
 
 ---

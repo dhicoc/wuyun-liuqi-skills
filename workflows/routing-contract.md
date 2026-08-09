@@ -17,7 +17,7 @@
 
 ## THEN（完成后执行）
 
-1. 按 `docs-generator/` 格式输出结构化报告（`rules/output.md`）
+1. 按 `modules/docs-generator/` 格式输出结构化报告（`rules/output.md`）
 2. 临床案例 → 按 `case-journal/_template.md` 沉淀医案
 3. 所有临床输出 MUST 附加医学免责声明（`rules/medical-safety.md`）
 4. 非平凡任务 → 执行 `workflows/task-closure.md`
@@ -46,5 +46,5 @@
 - [ ] 推算结果已通过脚本验证
 - [ ] 病机分析已引用对应 references
 - [ ] 临床建议已附加免责声明
-- [ ] 报告格式符合 `docs-generator/` 规范
+- [ ] 报告格式符合 `modules/docs-generator/` 规范
 - [ ] 医案已按 `case-journal/_template.md` 沉淀（如适用）

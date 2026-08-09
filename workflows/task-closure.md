@@ -7,7 +7,7 @@
 - [ ] 推算是否经 Python 脚本验证？（`rules/calculation.md`）
 - [ ] 临床输出是否含免责声明？（`rules/medical-safety.md`）
 - [ ] 路由是否匹配 `routing.yaml` 且无强行套模块？
-- [ ] 报告格式是否符合 `docs-generator/`？
+- [ ] 报告格式是否符合 `modules/docs-generator/`？
 
 ## 2. 记录门槛（2/3 原则）
 

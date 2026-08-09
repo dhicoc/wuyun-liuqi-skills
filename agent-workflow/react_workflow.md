@@ -470,16 +470,16 @@ ACTION: 体质交叉比对完成，结果纳入Step 7输出。
 | 异常场景 | 处理策略 |
 |---------|---------|
 | `calculate_yunqi_api` 返回非 JSON 或字段缺失 | 1. 重试一次（排除瞬时故障）<br>2. 仍失败则降级为手动调用 `scripts/yunqi_report.py <year> --json`<br>3. 手动调用也失败 → 告知用户"推算工具暂时不可用"，输出纯文献分析（无推算数据），附加免责声明 |
-| `sui_yun.code` 为未知值（不在 RAG key 表中） | 1. 降级为语义检索（用 `sui_yun.element` + `tai_shao` 组合检索）<br>2. 仍无结果 → 使用 `yunqi-pathogenesis/references/wuyun_bingji.md` 全文检索<br>3. 标注"此运为罕见格局，病机分析基于通论推导" |
+| `sui_yun.code` 为未知值（不在 RAG key 表中） | 1. 降级为语义检索（用 `sui_yun.element` + `tai_shao` 组合检索）<br>2. 仍无结果 → 使用 `modules/yunqi-pathogenesis/references/wuyun_bingji.md` 全文检索<br>3. 标注"此运为罕见格局，病机分析基于通论推导" |
 | `current_step` 为 null（用户仅给年份无日期） | 1. 输出全年运气格局（不含动态步位分析）<br>2. 在病机分析中省略"客主加临层"<br>3. 提示用户"如需当前步位动态分析，请提供具体日期" |
 
 ### 4.2 RAG 检索未命中
 
 | 未命中场景 | 处理策略 |
 |-----------|---------|
-| asset1（岁运）检索无结果 | 1. 降级检索 `yunqi-pathogenesis/references/wuyun_bingji.md`<br>2. 以 `sui_yun.element` 为 key 全文匹配<br>3. 仍无 → 依据五行生克通论推导，标注"基于通论推导，未经文献验证" |
-| asset2（司天在泉）检索无结果 | 1. 降级检索 `yunqi-pathogenesis/references/liuqi_bingji.md`<br>2. 以六气名为 key 全文匹配<br>3. 仍无 → 依据《至真要大论》六气病机通论推导 |
-| asset3（客主加临）检索无结果 | 1. 降级检索 `yunqi-calc/references/kezhujialin.md`<br>2. 依据客主加临顺逆通论推导（相得→平和、不相得→异常）<br>3. 标注"客主加临病机基于顺逆通论推导" |
+| asset1（岁运）检索无结果 | 1. 降级检索 `modules/yunqi-pathogenesis/references/wuyun_bingji.md`<br>2. 以 `sui_yun.element` 为 key 全文匹配<br>3. 仍无 → 依据五行生克通论推导，标注"基于通论推导，未经文献验证" |
+| asset2（司天在泉）检索无结果 | 1. 降级检索 `modules/yunqi-pathogenesis/references/liuqi_bingji.md`<br>2. 以六气名为 key 全文匹配<br>3. 仍无 → 依据《至真要大论》六气病机通论推导 |
+| asset3（客主加临）检索无结果 | 1. 降级检索 `modules/yunqi-calc/references/kezhujialin.md`<br>2. 依据客主加临顺逆通论推导（相得→平和、不相得→异常）<br>3. 标注"客主加临病机基于顺逆通论推导" |
 | 全部 asset 均未命中 | 1. 回退为纯推算+LLM通论推理模式<br>2. 在输出中显著标注"本次分析未经知识库验证，仅为理论推导"<br>3. 强化免责声明措辞 |
 
 ### 4.3 用户输入歧义
@@ -507,10 +507,10 @@ ACTION: 体质交叉比对完成，结果纳入Step 7输出。
 | 本工作流步骤 | 对应技能包模块 | 关系 |
 |-------------|--------------|------|
 | Step 1 (ACT 工具调用) | `scripts/` | `calculate_yunqi_api` 封装了 scripts 下的推算引擎 |
-| Step 3 (ACT RAG检索) | `yunqi-pathogenesis/references/` | RAG 知识库 asset 内容来源于此 |
-| Step 3 (ACT RAG检索) | `yunqi-clinical/references/` | 治法方药 RAG 内容来源于此 |
-| Step 5 (THINK 三层推理) | `yunqi-pathogenesis/SKILL.md` | 推理策略与病机分析子技能一致 |
-| Step 7 (OUTPUT 结构化输出) | `docs-generator/SKILL.md` | 输出格式遵循报告生成子技能规范 |
+| Step 3 (ACT RAG检索) | `modules/yunqi-pathogenesis/references/` | RAG 知识库 asset 内容来源于此 |
+| Step 3 (ACT RAG检索) | `modules/yunqi-clinical/references/` | 治法方药 RAG 内容来源于此 |
+| Step 5 (THINK 三层推理) | `modules/yunqi-pathogenesis/SKILL.md` | 推理策略与病机分析子技能一致 |
+| Step 7 (OUTPUT 结构化输出) | `modules/docs-generator/SKILL.md` | 输出格式遵循报告生成子技能规范 |
 | Step 7 (免责声明) | `case-journal/precedent-disclaimer.md` | 免责声明文本来源 |
 
 > 本工作流是技能包的**Agent 编排层**，将现有的推算脚本、病机文档、临床文档、报告模板串联为可由 Agent 框架（LangChain / AutoGen / Dify）执行的闭环推理链。

@@ -88,10 +88,10 @@ def main():
     skill = (ROOT / "SKILL.md").read_text(encoding="utf-8")
     route_targets = {
         "quick-lookup": "calculate_yunqi_api.py",
-        "year-calc": "yunqi-calc/SKILL.md",
-        "pathogenesis": "yunqi-pathogenesis/SKILL.md",
-        "clinical": "yunqi-clinical/SKILL.md",
-        "classics": "yunqi-classics/SKILL.md",
+        "year-calc": "modules/yunqi-calc/SKILL.md",
+        "pathogenesis": "modules/yunqi-pathogenesis/SKILL.md",
+        "clinical": "modules/yunqi-clinical/SKILL.md",
+        "classics": "modules/yunqi-classics/SKILL.md",
         "learn-concept": "prompts/expression_style.md",
         "personal-profile": "personal_yunqi_profile.py",
         "weather-alignment": "weather_alignment.py",
@@ -134,11 +134,11 @@ def main():
 
     # ---- 6. 治法/方药/养生（clinical）----
     print("\n== 6. 临床 ==")
-    _chk((ROOT / "yunqi-clinical" / "SKILL.md").exists(), "clinical SKILL.md 存在")
+    _chk((ROOT / "modules" / "yunqi-clinical" / "SKILL.md").exists(), "clinical SKILL.md 存在")
 
     # ---- 7. 经典文献（classics）----
     print("\n== 7. 经典文献 ==")
-    _chk((ROOT / "yunqi-classics" / "SKILL.md").exists(), "classics SKILL.md 存在")
+    _chk((ROOT / "modules" / "yunqi-classics" / "SKILL.md").exists(), "classics SKILL.md 存在")
 
     # ---- 8. 学概念/思想（learn-concept）----
     print("\n== 8. 学习概念 ==")

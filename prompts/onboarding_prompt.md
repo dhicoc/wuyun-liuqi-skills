@@ -49,8 +49,8 @@
 | "1" / "快速了解" | 调用 `--summary` + 思想层解读；也可用 `yunqi_cli.py calc today --summary` |
 | "导出复习材料" | 调用 `export_thought.py --format all`（思想摘要 + 卡片 + PDF） |
 | "2" / "完整分析" | 询问受众后调用对应报告（优先学生版思想解读） |
-| "3" / "病机" | 调用计算 + `yunqi-pathogenesis/references/` |
-| "4" / "养生" / "思想启发" | 调用计算 + `yunqi-clinical/references/` + 思想层 |
+| "3" / "病机" | 调用计算 + `modules/yunqi-pathogenesis/references/` |
+| "4" / "养生" / "思想启发" | 调用计算 + `modules/yunqi-clinical/references/` + 思想层 |
 | "6" / "个人体质" | 调用 `scripts/personal_yunqi_profile.py` |
 
 ## 注意事项
