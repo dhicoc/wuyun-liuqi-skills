@@ -227,6 +227,7 @@ Agent 会自动调用本技能包的推算引擎、知识库和推理流程来�
 | 公版蒸馏指南 | 10 本公版古籍蒸馏成可 Grep+Read 的结构化指南（五层注释链 + 35 篇分组合并） | `rag-knowledge-base/*_guide.md` | ✅ 已覆盖 |
 | 注家人格 | 刘完素/张介宾可运行 perspective skill（深度注家扮演，nuwa 模式） | `perspectives/` | ✅ 已覆盖 |
 | 岁图医案库 | 圣济总录六十甲子岁图蒸馏的 60 条运气医案，按 rag_key 可检索同格局逐年病机治法 | `rag-knowledge-base/asset9_cases.json`、`case-journal/cases/distilled_cases.md` | ✅ 已覆盖 |
+| 历代名家医案库 | 6 部公版经典医案蒸馏（名医类案/续名医类案/古今医案按/丁甘仁/伤寒九十论/临证指南），共 901 条真实医案 | `rag-knowledge-base/asset11-16_*_cases.json` | ✅ 已覆盖 |
 | 个人体质 | 出生年运气体质倾向、九种体质量表、当前岁运调理方向、地域修正 | `scripts/personal_yunqi_profile.py`、`scripts/constitution_assessment.py`、`advanced-alignment/` | ✅ 已覆盖 |
 | 天气对齐 | 实时气象 × 运气格局交叉分析，判断内外邪相合/相背/兼夹 | `scripts/weather_alignment.py`、`advanced-alignment/weather_integration.md` | ✅ 已接入 |
 | 天气 × 体质叠加 | 出生运气体质 × 当前岁运 × 天气实况三维分析 | `scripts/yunqi_weather_constitution.py` | ✅ 已接入 |
@@ -256,6 +257,7 @@ Agent 会自动调用本技能包的推算引擎、知识库和推理流程来�
 | `rag-knowledge-base/*_guide.md` | 公版蒸馏指南（五层注释链 5 本 + 35 篇分组合并 5 册，Grep+Read 零依赖） |
 | `rag-knowledge-base/literature/` | 35 篇公版文献原文（61.6 万字，零依赖基础层） |
 | `rag-knowledge-base/asset9_cases.json` | 圣济总录 60 岁图医案（按 rag_key 可检索同格局医案） |
+| `rag-knowledge-base/asset11-16_*_cases.json` | 6 部历代名家医案库（名医类案/续名医类案/古今医案按/丁甘仁/伤寒九十论/临证指南，共 901 条临证真实医案） |
 | [`perspectives/`](perspectives/README.md) | 注家人格 perspective skill（刘完素/张介宾，深度扮演） |
 
 ### 仓库结构
@@ -285,7 +287,7 @@ Agent 会自动调用本技能包的推算引擎、知识库和推理流程来�
 │
 ├── 知识库（零依赖 Grep+Read）──────────────────────────────
 ├── rag-knowledge-base/         # ★ RAG asset + 蒸馏指南 + 文献原文
-│   ├── asset1-10 *.json        #   10 个键值 asset（病机/方/注家/体质/医案/治法）
+│   ├── asset1-16 *.json        #   16 个键值 asset（病机/方/注家/体质/医案/治法，含 6 部历代名家医案库）
 │   ├── terminology.json        #   700 条术语
 │   ├── *_guide.md              #   10 本公版蒸馏指南（五层注释链 + 35篇合并）
 │   ├── literature/             #   35 篇公版文献原文（61.6 万字）
@@ -330,7 +332,7 @@ Agent 会自动调用本技能包的推算引擎、知识库和推理流程来�
 
 ## 架构设计
 
-### 七层 RAG 知识库
+### RAG 知识库资产
 
 | 层 | Asset | 条目数 | 用途 |
 |----|-------|--------|------|
@@ -341,8 +343,14 @@ Agent 会自动调用本技能包的推算引擎、知识库和推理流程来�
 | 运气体质 | asset7 | 108 | 9 种体质 × 10 岁运完整覆盖 |
 | **岁图医案** | **asset9** | **60** | **圣济总录六十甲子岁图医案，按 rag_key 可检索同格局逐年病机治法** |
 | **岁宜治法** | **asset10** | **6** | **六气司天岁宜治法表（保命集气宜论）** |
+| **名医类案** | **asset11** | **102** | **明·江瓘，历代医案汇编，按病证/rag_key 检索** |
+| **续名医类案** | **asset12** | **84** | **清·魏之琇，续补名医类案，按病证检索** |
+| **古今医案按** | **asset13** | **159** | **清·俞震，医案按语，含"震按"辨证要点** |
+| **丁甘仁医案** | **asset14** | **177** | **近代丁甘仁，临证实录，孟河医派** |
+| **伤寒九十论** | **asset15** | **49** | **宋·许叔微，伤寒经方医案** |
+| **临证指南医案** | **asset16** | **330** | **清·叶桂（叶天士），辨病机精审，含华岫云按语** |
 
-配合 **700 条术语库**（terminology.json），通过 `rag_keys` 精确匹配。asset9/asset10 按推算引擎输出的 rag_keys 索引，可召回同格局医案与岁宜治法。
+配合 **700 条术语库**（terminology.json），通过 `rag_keys` 精确匹配。asset9/asset10 按推算引擎输出的 rag_keys 索引，可召回同格局医案与岁宜治法；asset11-16 六部历代名家医案库（共 901 条）可按病证分类检索临证真实医案。
 
 ### 五层注释链（公版蒸馏指南）
 
@@ -398,7 +406,7 @@ RAG asset 是精炼键值（回答"是什么"）；下列五本公版古籍蒸�
 ### Agent 集成层
 
 1. **强规则计算工具**（`calculate_yunqi_api`）：大寒定年 + 标准化 JSON + rag_key 生成
-2. **RAG 知识库**（`rag-knowledge-base/`）：6 层 key-value 结构化存储（含 asset9 岁图医案）+ 10 本公版蒸馏指南（Grep+Read）+ 35 篇文献原文
+2. **RAG 知识库**（`rag-knowledge-base/`）：16 个键值 asset（含 asset9 岁图医案 + asset11-16 六部历代名家医案库 901 条）+ 10 本公版蒸馏指南（Grep+Read）+ 35 篇文献原文
 3. **ReAct 推理工作流**（`agent-workflow/`）：查工具 -> 查知识库 -> 辨证推理闭环
 4. **System Prompt**（`prompts/`）：TCM 运气专家角色约束（临床模式 + 讲解模式双语态）
 5. **注家人格**（`perspectives/`）：刘完素/张介宾可运行 perspective skill（深度注家扮演）
@@ -463,12 +471,12 @@ scripts/self_evolve.py -> 自动记录
 
 **WuYun-LiuQi** (Five Movements and Six Qi, 运气学) is an AI Agent skill pack designed to help humans deeply understand the ancient Yunqi thought system (天人合一 / Heaven-Human Oneness, 气化 / Qi transformation, 中和 / moderation, time rhythms, and life view) through accurate calculation, philosophical interpretation, and exportable study materials.
 
-It is based on the Yunqi theory in the seven major Suwen treatises of the *Huangdi Neijing*. The pack provides rule-based Ganzhi/Yunqi calculation (Dahan boundary), a 7-layer RAG knowledge base, thought-layer explanations, progressive learning depth, self-evolution with privacy, and tools to export thought summaries, Anki cards, and printable reports.
+It is based on the Yunqi theory in the seven major Suwen treatises of the *Huangdi Neijing*. The pack provides rule-based Ganzhi/Yunqi calculation (Dahan boundary), a 16-asset RAG knowledge base (incl. 6 classical case libraries), thought-layer explanations, progressive learning depth, self-evolution with privacy, and tools to export thought summaries, Anki cards, and printable reports.
 
 The project provides an end-to-end workflow focused on helping humans deeply understand the Yunqi thought system (天人合一, 气化, 中和, time rhythms, life view):
 
 ```text
-User input (natural language) → routing + onboarding (fuzzy intent handling) → Python engine (Dahan boundary) → 7-layer RAG → pathogenesis + **thought-layer interpretation** → reports with guiding/reflection questions → visualization → self-evolution (concept tracking + understanding feedback + privacy) → export (plain-text thought summary / Anki cards / PDF/HTML)
+User input (natural language) → routing + onboarding (fuzzy intent handling) → Python engine (Dahan boundary) → 16-asset RAG (incl. 6 classical case libraries) → pathogenesis + **thought-layer interpretation** → reports with guiding/reflection questions → visualization → self-evolution (concept tracking + understanding feedback + privacy) → export (plain-text thought summary / Anki cards / PDF/HTML)
 ```
 
 Core value: Reliable calculation + philosophical interpretation + exportable study materials so humans can truly internalize the ideas rather than just receive numbers.
@@ -527,7 +535,7 @@ python tests/full_regression_test.py   # 63 tests, 0 failures
 | Pathogenesis | Five-movement, Six-Qi, excess/deficiency, combined Yunqi reasoning | `yunqi-pathogenesis/` | ✅ Documented reasoning |
 | Clinical reference | Treatment principles, formula direction, acupuncture references, lifestyle guidance | `yunqi-clinical/` | ✅ Reference only |
 | Classics | Suwen treatises, historical schools, modern research notes | `yunqi-classics/` | ✅ Covered |
-| RAG knowledge base | 7-layer structured assets (pathogenesis, formulas, commentaries, regional, constitution + more) | `rag-knowledge-base/asset*.json` | ✅ Covered |
+| RAG knowledge base | 16 structured assets (pathogenesis, formulas, commentaries, regional, constitution + 6 classical case libraries) | `rag-knowledge-base/asset*.json` | ✅ Covered |
 | Personal profile | Birth-year Yunqi tendency, constitution score assessment, current-year adjustment, regional modifier | `scripts/personal_yunqi_profile.py`, `scripts/constitution_assessment.py` | ✅ Covered |
 | Weather alignment | Real weather × Yunqi pattern alignment for same-direction, opposite, or mixed climate signals | `scripts/weather_alignment.py` | ✅ Covered |
 | Weather × constitution | Birth Yunqi constitution × current-year Yunqi × weather reality combined analysis | `scripts/yunqi_weather_constitution.py` | ✅ Covered |
@@ -544,7 +552,7 @@ python tests/full_regression_test.py   # 63 tests, 0 failures
 - Standardized JSON + rich text output for LLM / Agent integration
 - **Thought-layer interpretation** in reports: philosophical explanations (天人合一, 气化, 中和), modern analogies, year-specific insights
 - Progressive depth: `--level simple|standard|deep` and `--explain-concept`
-- 7-layer RAG knowledge base (pathogenesis, formulas, commentaries, regional, constitution + more)
+- 16-asset RAG knowledge base (pathogenesis, formulas, commentaries, regional, constitution + 6 classical case libraries, 901 cases)
 - Weather & constitution advanced alignment (three-dimensional analysis)
 - ReAct-style reasoning workflow
 - Markdown / styled HTML report generation (student / practitioner / researcher)

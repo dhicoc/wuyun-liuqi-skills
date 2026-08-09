@@ -21,6 +21,7 @@
 - 讲解模式触发（学概念/思想/注家对照）→ 加载 `prompts/expression_style.md`，深度扮演加载 `perspectives/`
 - 注家对照/引经据典 → 优先 Grep `rag-knowledge-base/*_guide.md`（蒸馏指南）或 `literature/`（原文）
 - 同格局医案 → `rag_search --key <rag_key> --asset asset9`（圣济总录 60 岁图医案，按格局检索）
+- 历代名家临证医案 → `rag_search --asset asset11/12/13/14/15/16`（名医类案/续名医类案/古今医案按/丁甘仁/伤寒九十论/临证指南，共 901 条，按病证检索）
 
 </always-applicable>
 

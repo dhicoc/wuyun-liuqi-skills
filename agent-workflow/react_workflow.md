@@ -131,7 +131,7 @@ INPUT: {"date_str": "1996-08-18"}
 
 ### Step 3 — ACT：检索 RAG 知识库
 
-**动作**：以 Step 2 提取的键值为检索词，查询 RAG 知识库的三个 asset。
+**动作**：以 Step 2 提取的键值为检索词，查询 RAG 知识库。核心病机查 asset1-3，补充方药/注家/地域/体质查 asset4-7，需医案佐证时查 asset9（同格局）或 asset11-16（历代名家病证医案）。
 
 ```
 TOOL_CALL: rag_search
@@ -140,7 +140,8 @@ INPUT: {
     {"asset": "asset1", "query": "water_excess"},           // 岁运层
     {"asset": "asset2", "query": "少阴君火司天"},              // 司天层
     {"asset": "asset2", "query": "阳明燥金在泉"},              // 在泉层
-    {"asset": "asset3", "query": "四之气_太阴湿土_客主同气"}    // 客主加临层
+    {"asset": "asset3", "query": "四之气_太阴湿土_客主同气"},    // 客主加临层
+    {"asset": "asset16", "query": "诸痛"}                    // 医案佐证层（asset11-16 按病证检索）
   ]
 }
 ```
@@ -152,6 +153,9 @@ INPUT: {
 | asset1 | `rag-knowledge-base/asset1_suiyun.json` | 岁运病机（《气交变大论》《五常政大论》） | `water_excess`、`wood_deficiency` |
 | asset2 | `rag-knowledge-base/asset2_sitian_zaiquan.json` | 司天在泉病机（《至真要大论》） | `少阴君火司天`、`阳明燥金在泉` |
 | asset3 | `rag-knowledge-base/asset3_kezhujialin.json` | 客主加临顺逆病机（《六元正纪大论》） | `zhu_shaoyang_ke_shaoyin`、`四之气_客主同气` |
+| asset4-7 | `rag-knowledge-base/asset4-7_*.json` | 方药/注家/地域/体质补充层 | `water_excess`、related keys、region_id |
+| asset9 | `rag-knowledge-base/asset9_cases.json` | 圣济总录六十甲子岁图医案（同格局） | 岁运 / rag_key |
+| asset11-16 | `rag-knowledge-base/asset11-16_*_cases.json` | 六部历代名家医案库（名医类案/续名医类案/古今医案按/丁甘仁/伤寒九十论/临证指南，901 条） | `entry_id` / `category` |
 
 **检索策略**：
 - 优先精确匹配 `sui_yun.code`（如 `water_excess`）

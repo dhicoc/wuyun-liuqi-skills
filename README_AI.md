@@ -255,7 +255,17 @@ node scripts/calculate_yunqi_api.js <YYYY-MM-DD> --json
 | 历代注家 | `asset5_commentary.json` | 王冰、刘完素、张景岳等观点 | related keys |
 | 地域修正 | `asset6_regional.json` | 八大区域气候修正 | 地区名 / region_id |
 | 体质交叉 | `asset7_constitution.json` | 出生运气体质、岁运调理 | `fire_deficient` |
+| 岁图医案 | `asset9_cases.json` | 圣济总录六十甲子岁图医案（同格局检索） | 岁运 / rag_key |
+| 岁宜治法 | `asset10_suiyi_zhifa.json` | 六气司天岁宜治法表 | 岁运 / 司天 |
+| 名医类案 | `asset11_mingyi_cases.json` | 明·江瓘，历代医案汇编 | `entry_id` / `category` |
+| 续名医类案 | `asset12_xumingyi_cases.json` | 清·魏之琇，续补名医案 | `entry_id` / `category` |
+| 古今医案按 | `asset13_gujin_an_cases.json` | 清·俞震，含"震按"辨证要点 | `entry_id` / `category` |
+| 丁甘仁医案 | `asset14_dingganren_cases.json` | 近代丁甘仁，临证实录 | `entry_id` / `category` |
+| 伤寒九十论 | `asset15_shanghan90_cases.json` | 宋·许叔微，伤寒经方医案 | `entry_id` / `category` |
+| 临证指南医案 | `asset16_ye_cases.json` | 清·叶桂，辨证精审含华岫云按语 | `entry_id` / `category` |
 | 术语解释 | `terminology.json` | 术语解释与教学辅助 | term / entry_id |
+
+> asset11-16 六部历代名家医案库共 **901 条**临证真实医案。
 
 检索流程：
 
@@ -266,7 +276,9 @@ node scripts/calculate_yunqi_api.js <YYYY-MM-DD> --json
 4. 如需注家观点，检索 asset5
 5. 如用户提供地区，检索 asset6
 6. 如用户提供出生日期或体质，检索 asset7
-7. 汇总进入结构化报告
+7. 如需岁图医案 / 岁宜治法，检索 asset9 / asset10
+8. 如需历代名家临证医案，检索 asset11-16（按 entry_id / category）
+9. 汇总进入结构化报告
 ```
 
 ---

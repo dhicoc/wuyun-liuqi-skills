@@ -19,6 +19,14 @@ rag-knowledge-base/schemas/
 | `asset5_commentary.json` | `schemas/asset5_commentary.schema.json` |
 | `asset6_regional.json` | `schemas/asset6_regional.schema.json` |
 | `asset7_constitution.json` | `schemas/asset7_constitution.schema.json` |
+| `asset9_cases.json` | `schemas/asset9_cases.schema.json` |
+| `asset10_suiyi_zhifa.json` | `schemas/asset10_suiyi_zhifa.schema.json` |
+| `asset11_mingyi_cases.json` | `schemas/asset11_mingyi_cases.schema.json` |
+| `asset12_xumingyi_cases.json` | `schemas/asset12_xumingyi_cases.schema.json` |
+| `asset13_gujin_an_cases.json` | `schemas/asset13_gujin_an_cases.schema.json` |
+| `asset14_dingganren_cases.json` | `schemas/asset14_dingganren_cases.schema.json` |
+| `asset15_shanghan90_cases.json` | `schemas/asset15_shanghan90_cases.schema.json` |
+| `asset16_ye_cases.json` | `schemas/asset16_ye_cases.schema.json` |
 | `terminology.json` | `schemas/terminology.schema.json` |
 | `index.json` | `schemas/index.schema.json` |
 
@@ -33,7 +41,17 @@ rag-knowledge-base/schemas/
 | asset5 | `asset5_commentary.json` | 历代注家 | 王冰、刘完素、张景岳等注家观点 | `related_yunqi_keys` |
 | asset6 | `asset6_regional.json` | 地域修正 | 八大区域气候与体质倾向修正 | 地区名 / `region_id` |
 | asset7 | `asset7_constitution.json` | 运气体质 | 出生年运气体质映射、岁运调理 | `fire_deficient` |
+| asset9 | `asset9_cases.json` | 岁图医案 | 圣济总录六十甲子岁图医案（按 rag_key 检索） | `jiezi`, `bingyin` |
+| asset10 | `asset10_suiyi_zhifa.json` | 岁宜治法 | 六气司天岁宜治法表 | 岁运 / 司天 |
+| asset11 | `asset11_mingyi_cases.json` | 名医类案 | 明·江瓘，历代医案汇编 | `entry_id`, `category` |
+| asset12 | `asset12_xumingyi_cases.json` | 续名医类案 | 清·魏之琇，续补名医案 | `entry_id`, `category` |
+| asset13 | `asset13_gujin_an_cases.json` | 古今医案按 | 清·俞震，含"震按"辨证要点 | `entry_id`, `category` |
+| asset14 | `asset14_dingganren_cases.json` | 丁甘仁医案 | 近代丁甘仁，临证实录 | `entry_id`, `category` |
+| asset15 | `asset15_shanghan90_cases.json` | 伤寒九十论 | 宋·许叔微，伤寒经方医案 | `entry_id`, `category` |
+| asset16 | `asset16_ye_cases.json` | 临证指南医案 | 清·叶桂，辨证精审含华岫云按语 | `entry_id`, `category` |
 | terminology | `terminology.json` | 术语库 | 学习解释、报告术语扩展 | term / pinyin / entry_id |
+
+> asset11-16 六部历代名家医案库共 **901 条**临证真实医案，按 `entry_id` / `category` 可检索。
 
 ## 推荐检索顺序
 
@@ -47,6 +65,7 @@ rag-knowledge-base/schemas/
 7. 如用户提供地区 → asset6
 8. 如用户提供出生日期或体质 → asset7
 9. 如需教学解释 → terminology
+10. 如需岁图医案 / 岁宜治法 / 历代名家临证医案 → asset9 / asset10 / asset11-16（按 `entry_id` 或 `category` 检索）
 ```
 
 ## 与脚本的关系
