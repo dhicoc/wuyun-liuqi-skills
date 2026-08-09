@@ -262,7 +262,7 @@ def search(
 # 精确匹配时检查的字段（与 calculate_yunqi_api.rag_keys 对齐）
 _EXACT_ID_FIELDS = (
     "code", "key", "rag_key", "sitian_key", "zaiquan_key",
-    "entry_id", "term", "pinyin", "id",
+    "entry_id", "term", "pinyin", "id", "category",
 )
 
 
