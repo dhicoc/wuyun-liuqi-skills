@@ -97,7 +97,8 @@ def test_report_rag_section():
 def test_html_rag_section():
     import generate_html_report as ghr
     html = ghr.generate_html(ghr.get_data("2026-06-29"), with_rag_bundle=True)
-    if "知识库精确命中" not in html or "water_excess" not in html:
+    # 读者化报告不再内嵌原始检索键（water_excess），改以读者友好标记（水运）断言
+    if "知识库精确命中" not in html or ("water_excess" not in html and "水运" not in html):
         _fail("html_rag", "section missing in HTML")
     html_off = ghr.generate_html(ghr.get_data("2026-06-29"), with_rag_bundle=False)
     if "知识库精确命中" in html_off:
