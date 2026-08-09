@@ -77,7 +77,7 @@ description: >
 | 苏格拉底学习 | `scripts/socratic_learn.py` / `yunqi_cli.py learn` |
 | 统一 CLI | `scripts/yunqi_cli.py` |
 | 学习仪表盘 | `scripts/learning_dashboard.py` / `yunqi_cli.py dashboard` |
-| RAG 检索 | `yunqi_cli.py search --date today` · `--key` · `--asset asset9` 查同格局岁图医案 · 历代名家临证医案 `--asset asset11/12/13/14/15/16` 按病证检索 · `--semantic 口语` |
+| RAG 检索 | `yunqi_cli.py search --date today` · `--key` · `--asset asset9` 查同格局岁图医案 · 历代名家临证医案 `--asset asset11/12/13/14/15/16` 按病证检索（默认已含医案库，病证路由见 `prompts/system_prompt.md` §2.4） · `--semantic 口语` |
 | 公版文献库 | `rag-knowledge-base/literature/`（35 篇原文 61.6 万字，Grep+Read 零依赖；详见 `检索说明.md`） |
 | 公版蒸馏指南 | `rag-knowledge-base/*_guide.md`（五层注释链 5 本 + 35 篇分组合并 5 册，Grep+Read 零依赖；详见 `references/module-index.md`） |
 | 岁图医案库 | `rag-knowledge-base/asset9_cases.json`（圣济总录 60 岁图医案，按 rag_key 可检索同格局医案） |

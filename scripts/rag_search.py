@@ -207,11 +207,18 @@ def score_entry(entry: Dict[str, Any], terms: Sequence[str]) -> Tuple[int, List[
 
 
 def _default_asset_keys() -> List[str]:
+    """默认检索范围：核心病机 asset1-7 + 岁图医案 asset9 + 六部历代名家医案库 asset11-16 + 术语。
+
+    包含 asset11-16 医案库，使默认关键词/语义检索即可命中临证真实医案。
+    """
     seen_files = set()
     keys: List[str] = []
     for k, f in ASSET_FILES.items():
         if f not in seen_files and k in (
-            "asset1", "asset2", "asset3", "asset4", "asset5", "asset6", "asset7", "asset9", "terminology"
+            "asset1", "asset2", "asset3", "asset4", "asset5", "asset6", "asset7",
+            "asset9", "asset10",
+            "asset11", "asset12", "asset13", "asset14", "asset15", "asset16",
+            "terminology",
         ):
             seen_files.add(f)
             keys.append(k)
@@ -255,7 +262,7 @@ def search(
 # 精确匹配时检查的字段（与 calculate_yunqi_api.rag_keys 对齐）
 _EXACT_ID_FIELDS = (
     "code", "key", "rag_key", "sitian_key", "zaiquan_key",
-    "entry_id", "term", "pinyin", "id",
+    "entry_id", "term", "pinyin", "id", "category",
 )
 
 
