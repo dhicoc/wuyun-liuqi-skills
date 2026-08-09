@@ -248,7 +248,7 @@ def to_markdown(data: Dict[str, Any]) -> str:
         "",
         "---",
         "",
-        "_由 learning_dashboard.py 生成 · 见 docs/optimization-sprint.md_",
+        "_由 learning_dashboard.py 生成 · 见 references/module-index.md_",
     ]
     return "\n".join(lines)
 
