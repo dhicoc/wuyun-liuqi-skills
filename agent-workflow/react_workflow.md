@@ -70,18 +70,17 @@ INPUT: {"date_str": "1996-08-18"}
 
 **说明**：
 - `date_str` 支持格式：`YYYY`、`YYYY-MM-DD`、`YYYY-MM-DD HH:MM`
-- 该工具封装了 `scripts/` 下的 Python 推算引擎（`ganzhi_calc.py`、`dayun_calc.py`、`keyun_calc.py`、`liuqi_calc.py`、`kezhujialin.py`），统一返回 JSON
+- 该工具封装了 `scripts/calculate_yunqi_api.py` 统一推算引擎，返回干支/大运/司天在泉/客主加临等完整运气 JSON
 - 工具返回的数据是**绝对准确的**（R2 推算准确性规则），Agent 不得自行修正
 
-**底层脚本映射**：
+**底层引擎映射（统一入口 calculate_yunqi_api.py）**：
 
-| 工具输出字段 | 底层脚本 | 说明 |
+| 工具输出字段 | 底层引擎 | 说明 |
 |-------------|---------|------|
-| year_gz | `ganzhi_calc.py` | 年干支（如"丙子"） |
-| day_gz | `ganzhi_calc.py` | 日干支（需完整日期） |
-| sui_yun | `dayun_calc.py` | 岁运（大运）含 code 与太过/不及 |
-| si_tian / zai_quan | `liuqi_calc.py` | 司天/在泉 |
-| current_step | `liuqi_calc.py` + `kezhujialin.py` | 当前所处六步步位及客主加临关系 |
+| year_gz / day_gz | `calculate_yunqi_api.py` | 年/日干支 |
+| sui_yun | `calculate_yunqi_api.py` | 岁运（大运）含 code 与太过/不及 |
+| si_tian / zai_quan | `calculate_yunqi_api.py` | 司天/在泉 |
+| current_step | `calculate_yunqi_api.py` | 当前所处六步步位及客主加临关系 |
 
 ---
 

@@ -212,11 +212,11 @@ Agent 会自动调用本技能包的推算引擎、知识库和推理流程来�
 
 | 功能层级 | 覆盖能力 | 主入口 / 文件 | 状态 |
 |----------|----------|---------------|------|
-| 干支基础 | 年干支、六十甲子序号、生肖 | `scripts/ganzhi_calc.py` | ✅ 已覆盖 |
-| 五运推算 | 天干化五运、大运太过/不及、平气判断 | `scripts/dayun_calc.py`、`modules/yunqi-calc/references/taiguo_buji.md` | ✅ 已覆盖 |
-| 主运客运 | 主运五步、客运五步、太少推移 | `scripts/keyun_calc.py` | ✅ 已覆盖 |
-| 六气推算 | 司天、在泉、主气六步、客气六步 | `scripts/liuqi_calc.py` | ✅ 已覆盖 |
-| 客主加临 | 六步客主关系、相得/不相得、顺逆分析 | `scripts/kezhujialin.py` | ✅ 已覆盖 |
+| 干支基础 | 年干支、六十甲子序号、生肖 | `scripts/calculate_yunqi_api.py`（统一入口） | ✅ 已覆盖 |
+| 五运推算 | 天干化五运、大运太过/不及、平气判断 | `scripts/calculate_yunqi_api.py`、`modules/yunqi-calc/references/taiguo_buji.md` | ✅ 已覆盖 |
+| 主运客运 | 主运五步、客运五步、太少推移 | `scripts/calculate_yunqi_api.py` | ✅ 已覆盖 |
+| 六气推算 | 司天、在泉、主气六步、客气六步 | `scripts/calculate_yunqi_api.py` | ✅ 已覆盖 |
+| 客主加临 | 六步客主关系、相得/不相得、顺逆分析 | `scripts/calculate_yunqi_api.py` | ✅ 已覆盖 |
 | 日期统一接口 | 大寒定年、日干支、当前步位、RAG keys、JSON 输出 | `scripts/calculate_yunqi_api.py` | ✅ Python 主链路 |
 | Node.js 接口 | 面向前端/Node 集成的 JSON 输出 | `scripts/calculate_yunqi_api.js` | 🟡 可选接口 |
 | 病机分析 | 五运病机、六气病机、太过不及、运气合病 | `modules/yunqi-pathogenesis/` | ✅ 文档化推理 |
@@ -525,11 +525,11 @@ python tests/full_regression_test.py   # 63 tests, 0 failures
 
 | Layer | Capability | Main Entry | Status |
 |-------|------------|------------|--------|
-| Ganzhi basics | Year Stem-Branch, sexagenary index, zodiac | `scripts/ganzhi_calc.py` | ✅ Covered |
-| Five Movements | Dayun, excess/deficiency, Pingqi conditions | `scripts/dayun_calc.py` | ✅ Covered |
-| Movement steps | Host movement and guest movement progression | `scripts/keyun_calc.py` | ✅ Covered |
-| Six Qi | Sitian, Zaiquan, host Qi, guest Qi | `scripts/liuqi_calc.py` | ✅ Covered |
-| Kezhu-Jialin | Guest-host Qi relationship and favorable/unfavorable analysis | `scripts/kezhujialin.py` | ✅ Covered |
+| Ganzhi basics | Year Stem-Branch, sexagenary index, zodiac | `scripts/calculate_yunqi_api.py` (unified) | ✅ Covered |
+| Five Movements | Dayun, excess/deficiency, Pingqi conditions | `scripts/calculate_yunqi_api.py` | ✅ Covered |
+| Movement steps | Host movement and guest movement progression | `scripts/calculate_yunqi_api.py` | ✅ Covered |
+| Six Qi | Sitian, Zaiquan, host Qi, guest Qi | `scripts/calculate_yunqi_api.py` | ✅ Covered |
+| Kezhu-Jialin | Guest-host Qi relationship and favorable/unfavorable analysis | `scripts/calculate_yunqi_api.py` | ✅ Covered |
 | Unified date API | Dahan year boundary, current Qi step, RAG keys, JSON output | `scripts/calculate_yunqi_api.py` | ✅ Primary Python path |
 | Node.js API | JSON output for frontend / Node.js integrations | `scripts/calculate_yunqi_api.js` | 🟡 Optional |
 | Pathogenesis | Five-movement, Six-Qi, excess/deficiency, combined Yunqi reasoning | `modules/yunqi-pathogenesis/` | ✅ Documented reasoning |

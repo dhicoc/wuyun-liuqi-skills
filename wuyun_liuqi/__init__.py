@@ -2,7 +2,7 @@
 """
 五运六气可导入 API（渐进包骨架）
 
-不搬迁 scripts/ 实现，仅通过 bootstrap 暴露稳定 import 面：
+不搬迁 scripts/ 实现，仅通过 bootstrap 暴露稳定 import 面。算法唯一实现位于 scripts/lib/yunqi_data.py；本包为薄转发壳，不持有推算逻辑：
 
   from wuyun_liuqi import calculate, search, lookup_key, fetch_by_date
   from wuyun_liuqi import calculate_yunqi_api  # 别名

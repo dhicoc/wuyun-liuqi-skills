@@ -480,5 +480,5 @@
       "zhu_taiyang_ke_taiyin（土克水，冬行长夏令）"
     ]
   },
-  "usage_note": "根据key（如zhu_shaoyang_ke_taiyang）检索对应客主加临条目。先由liuqi_calc.py获取某年客气六步，再与主气六步匹配key，检索病机分析。relation字段判断顺逆，不相得（逆）者疾病多发且重。"
+  "usage_note": "根据key（如zhu_shaoyang_ke_taiyang）检索对应客主加临条目。先由 calculate_yunqi_api.py 获取某年客气六步（ke_qi_six_steps）与客主加临分析（ke_zhu_jia_lin），再匹配 key，检索病机分析。relation 字段判断顺逆，不相得（逆）者疾病多发且重。"
 }

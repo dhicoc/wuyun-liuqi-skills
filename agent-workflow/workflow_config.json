@@ -239,11 +239,7 @@
         "date_str": {"type": "string", "required": true, "formats": ["YYYY", "YYYY-MM-DD", "YYYY-MM-DD HH:MM"]}
       },
       "underlying_scripts": [
-        "scripts/ganzhi_calc.py",
-        "scripts/dayun_calc.py",
-        "scripts/keyun_calc.py",
-        "scripts/liuqi_calc.py",
-        "scripts/kezhujialin.py"
+        "scripts/calculate_yunqi_api.py"
       ],
       "returns": "JSON object with year_gz, day_gz, sui_yun, si_tian, zai_quan, current_step, tianfu, suihui, pingqi"
     },

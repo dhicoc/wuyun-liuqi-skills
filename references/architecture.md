@@ -98,20 +98,22 @@ node scripts/calculate_yunqi_api.js 2026-06-29 --json
 
 所有病机、方药、针灸与养生内容均为传统中医运气学理论参考，不构成现代医学诊断或治疗建议。涉及临床内容时必须附加免责声明，并提醒具体诊疗须由执业医师辨证处理。
 
-## 8. 可导入包布局（渐进 v0.1）
+## 8. 可导入包布局与单一内核（渐进 v0.1）
 
-> **已落地轻量骨架**：仓库根目录 `wuyun_liuqi/` 通过 bootstrap 复用 `scripts/` 实现，**不强制搬迁**全部逻辑。  
-> 详见 `pyproject.toml`。
+> **单一算法内核**：所有推算规则的唯一实现位于 `scripts/lib/yunqi_data.py`（加载 `yunqi_constants.json`）。
+> `scripts/calculate_yunqi_api.py` 是其 CLI / Agent 入口（封装日期解析、JSON、rag_keys）；`wuyun_liuqi/` 仅是**薄转发壳**，通过 bootstrap 复用 `scripts/` 实现并 re-export 稳定 API 面，**不持有任何算法代码**。
+> 因此「升级只需改一处」：`yunqi_data.py` 是唯一需要同步的实现；CLI 与包都是它的消费者，不存在两边重复维护。详见 `pyproject.toml`。
 
 ```text
-wuyun_liuqi/                 # 可 import 的稳定 API 面
-├── __init__.py              # calculate / search / lookup_key / fetch_by_date
-├── _bootstrap.py            # 注入 scripts/ 路径
-├── core.py                  # 推算薄封装
-├── rag.py                   # RAG 检索薄封装
-└── __main__.py              # python -m wuyun_liuqi → yunqi_cli
-scripts/                     # 实现与 CLI 仍在此（主维护区）
-pyproject.toml               # 可选 pip install -e .
+scripts/lib/yunqi_data.py      # ★ 唯一算法内核（single source of truth）
+scripts/calculate_yunqi_api.py # CLI / Agent 入口（封装 yunqi_data）
+wuyun_liuqi/                  # 可 import 的薄转发壳（re-export，无算法）
+├── __init__.py               # calculate / search / lookup_key / fetch_by_date
+├── _bootstrap.py             # 注入 scripts/ 路径
+├── core.py                   # 推算薄封装（from calculate_yunqi_api import ...）
+├── rag.py                    # RAG 检索薄封装（from rag_search/rag_semantic import ...）
+└── __main__.py               # python -m wuyun_liuqi → yunqi_cli
+pyproject.toml                # 可选 pip install -e .
 ```
 
 用法示例：
@@ -125,8 +127,8 @@ bundle = fetch_by_date("today")  # 推算 + 精确拉取 rag_keys 对应知识
 ```bash
 python -m wuyun_liuqi calc today --summary
 python -m wuyun_liuqi search --date today --json
-# 或继续使用:
+# 或继续使用 CLI：
 python scripts/yunqi_cli.py ...
 ```
 
-Agent 路由仍以 `python scripts/...` 与 `routing.yaml` 为准；包导入供程序化集成。
+> **层级约定**：Agent 路由以 `python scripts/...` 与 `routing.yaml` 为准；`wuyun_liuqi` 供程序化集成（如 `from wuyun_liuqi import calculate`）。两者都是 `yunqi_data.py` 内核的消费者，不互为替代实现。

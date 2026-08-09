@@ -20,25 +20,21 @@ description: 五运六气推算核心子技能。根据年份计算天干地支�
 
 | 脚本 | 用途 | 必需 |
 |------|------|------|
-| ganzhi_calc.py | 年份→天干地支 | 是 |
-| dayun_calc.py | 大运推算+太过不及+天符岁会 | 是 |
-| keyun_calc.py | 主运+客运五步 | 是 |
-| liuqi_calc.py | 司天在泉+客气六步+主气六步 | 是 |
-| kezhujialin.py | 客主加临顺逆分析 | 是 |
+| calculate_yunqi_api.py | 统一推算：干支/大运/主运客运/司天在泉/客主加临，单次返回全部域 | 是 |
 
 ### 推荐工作流
 
 Step 1/5: 干支推算
-ACT: 调用 `python scripts/ganzhi_calc.py <年份>` 获取该年的天干地支
+ACT: 调用 `python scripts/calculate_yunqi_api.py <年份>` 获取该年的天干地支（year_gz）
 
 Step 2/5: 大运推算
-ACT: 调用 `python scripts/dayun_calc.py <年份>` 获取大运五行、太过不及判断
+ACT: 调用 `python scripts/calculate_yunqi_api.py <年份>` 获取大运五行、太过不及判断（sui_yun）
 
 Step 3/5: 六气推算
-ACT: 调用 `python scripts/liuqi_calc.py <年份>` 获取司天在泉及客气六步排列
+ACT: 调用 `python scripts/calculate_yunqi_api.py <年份>` 获取司天在泉及客气六步排列（si_tian / zai_quan / ke_qi_six_steps）
 
 Step 4/5: 客主加临
-ACT: 调用 `python scripts/kezhujialin.py <年份>` 获取六步客主加临顺逆分析
+ACT: 调用 `python scripts/calculate_yunqi_api.py <年份>` 获取六步客主加临顺逆分析（ke_zhu_jia_lin）
 
 Step 5/5: 运气同化判断
 ACT: 查 references/yunqi_tonghua.md 判断天符/岁会/太乙天符

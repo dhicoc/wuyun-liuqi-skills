@@ -18,18 +18,17 @@
 
 输出含 `rag_keys`，可直接检索 `rag-knowledge-base/`。
 
-## 分项推算（legacy）
+## 分项推算（已并入统一入口）
 
-> 以下为**兼容分项入口**，均支持 `--help` / `--json`。  
-> 日常与 Agent 请优先使用上方统一入口 `calculate_yunqi_api.py`。
+> 原 `ganzhi_calc.py` / `dayun_calc.py` / `keyun_calc.py` / `liuqi_calc.py` / `kezhujialin.py` 五项单项脚本已合并进统一入口 `calculate_yunqi_api.py`，单次调用即返回全部域（干支/大运/主运客运/司天在泉/客主加临）。
 
-| 脚本 | 用途 | 调用方式 |
-|------|------|----------|
-| `ganzhi_calc.py` | 年份→天干地支 | `python scripts/ganzhi_calc.py <年份> [--json]` |
-| `dayun_calc.py` | 大运+太过不及+天符岁会 | `python scripts/dayun_calc.py <年份> [--json]` |
-| `keyun_calc.py` | 主运+客运五步 | `python scripts/keyun_calc.py <年份> [--json]` |
-| `liuqi_calc.py` | 司天在泉+客气主气六步 | `python scripts/liuqi_calc.py <年份> [--json]` |
-| `kezhujialin.py` | 客主加临顺逆 | `python scripts/kezhujialin.py <年份> [--json]` |
+| 域 | 在统一 JSON 中的关键键 |
+|------|------|
+| 干支 | `year_gz` / `sexagenary_index` |
+| 大运 | `sui_yun` |
+| 主运/客运 | `zhu_yun` / `ke_yun` |
+| 六气 | `si_tian` / `zai_quan` / `ke_qi_six_steps` |
+| 客主加临 | `ke_zhu_jia_lin` |
 
 ## 高级对齐与导出
 

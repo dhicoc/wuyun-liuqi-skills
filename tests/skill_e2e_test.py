@@ -125,8 +125,8 @@ def main():
 
     # ---- 4. 推算某年运气（year-calc）----
     print("\n== 4. 推算某年运气 ==")
-    run("ganzhi_calc 2026", [PY, "scripts/ganzhi_calc.py", "2026"], has("丙午"))
-    run("dayun_calc 2026", [PY, "scripts/dayun_calc.py", "2026"], has("水运"))
+    run("calculate 2026 丙午/水运", [PY, "scripts/calculate_yunqi_api.py", "2026"],
+        lambda r, o: ("丙午" in o) and ("水运" in o))
 
     # ---- 5. 运气病机（pathogenesis）----
     print("\n== 5. 运气病机 ==")
@@ -180,7 +180,7 @@ def main():
     print("\n== 14b. 可视化报告 ==")
     run("visualize ASCII 六气步位推移", [PY, "scripts/visualize_yunqi.py", "2026-06-29"], has("六气步位推移"))
     run("visualize ASCII 司天", [PY, "scripts/visualize_yunqi.py", "2026-06-29"], has("司天"))
-    _html_rag = lambda r, o: (ROOT / "reports/test-results/e2e-html.html").exists() and "rag_keys" in (ROOT / "reports/test-results/e2e-html.html").read_text(encoding="utf-8")
+    _html_rag = lambda r, o: (ROOT / "reports/test-results/e2e-html.html").exists() and "知识库精确命中" in (ROOT / "reports/test-results/e2e-html.html").read_text(encoding="utf-8")
     run("generate_html 含 RAG 章节", [PY, "scripts/generate_html_report.py", "2026-06-29", "reports/test-results/e2e-html.html"], _html_rag)
     _html_adv = lambda r, o: (ROOT / "reports/test-results/e2e-html-adv.html").exists() and "高级对齐" in (ROOT / "reports/test-results/e2e-html-adv.html").read_text(encoding="utf-8")
     run("generate_html 含高级对齐", [PY, "scripts/generate_html_report.py", "2026-06-29", "reports/test-results/e2e-html-adv.html", "--with-advanced-alignment", "--birth-date", "2003-04-19", "--city", "杭州", "--constitution-demo", "--mock"], _html_adv)

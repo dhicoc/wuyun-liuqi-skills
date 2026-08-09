@@ -6,7 +6,7 @@
 覆盖：
   1. 随机日期 → calculate_yunqi_api（JSON 校验 + 字段完整性）
   2. 随机日期 → RAG 精确命中（rag_keys 全部命中）
-  3. 随机年份 → 分项脚本（ganzhi/dayun/keyun/liuqi/kezhujialin）
+  3. 随机年份 → 统一推算 API（calculate_yunqi_api.py --json 全域覆盖）
   4. 随机年份 → yunqi_report（student/practitioner/researcher + RAG 章节）
   5. 随机日期 → HTML 报告生成（含 RAG 章节）
   6. 包 API wuyun_liuqi.calculate / fetch_by_date
@@ -156,33 +156,28 @@ def test_rag_fetch_by_date(dates: list[str]):
         ok(name)
 
 
-def test_legacy_scripts(years: list[int]):
-    print("\n=== 3. 随机年份 → 分项脚本 (legacy --json) ===")
-    scripts = [
-        ("ganzhi_calc.py", ["干支"]),
-        ("dayun_calc.py", ["大运"]),
-        ("keyun_calc.py", ["五步"]),
-        ("liuqi_calc.py", ["六步"]),
-        ("kezhujialin.py", ["六步"]),
+def test_unified_api(years: list[int]):
+    print("\n=== 3. 随机年份 → 统一推算 API (calculate_yunqi_api.py --json) ===")
+    required_keys = [
+        "year_gz", "sui_yun", "zhu_yun", "ke_yun",
+        "ke_qi_six_steps", "ke_zhu_jia_lin", "si_tian", "zai_quan",
     ]
     for year in years:
-        for script, check_keys in scripts:
-            name = f"{script} {year}"
-            rc, out, err = run_cmd([PY, f"scripts/{script}", str(year), "--json"])
-            if rc != 0:
-                fail(name, f"rc={rc} err={err[:200]}")
-                continue
-            try:
-                data = json.loads(out)
-            except json.JSONDecodeError:
-                fail(name, "JSON decode error")
-                continue
-            # 检查关键 key 存在
-            found = any(k in data for k in check_keys)
-            if not found:
-                fail(name, f"missing keys {check_keys} in {list(data.keys())[:6]}")
-                continue
-            ok(name)
+        name = f"calculate_yunqi_api {year}"
+        rc, out, err = run_cmd([PY, "scripts/calculate_yunqi_api.py", str(year), "--json"])
+        if rc != 0:
+            fail(name, f"rc={rc} err={err[:200]}")
+            continue
+        try:
+            data = json.loads(out)
+        except json.JSONDecodeError:
+            fail(name, "JSON decode error")
+            continue
+        missing = [k for k in required_keys if k not in data]
+        if missing:
+            fail(name, f"missing keys {missing} in {list(data.keys())[:8]}")
+            continue
+        ok(name)
 
 
 def test_yunqi_report(years: list[int]):
@@ -379,7 +374,7 @@ def main():
     test_package_api(dates)
 
     # 随机年份全链路
-    test_legacy_scripts(years)
+    test_unified_api(years)
     test_yunqi_report(years)
 
     # 语义检索 + Py/JS

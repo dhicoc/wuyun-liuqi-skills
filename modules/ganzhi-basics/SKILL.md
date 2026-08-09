@@ -18,12 +18,12 @@ description: 干支基础子技能。用于天干地支推算、六十甲子查�
 
 | 脚本名称 | 功能说明 | 输入 | 输出 |
 |---------|---------|------|------|
-| `ganzhi_calc.py` | 公历年份→天干地支 | 年份（整数，如2024） | 天干、地支、完整干支（如"甲辰"）、甲子序号 |
+| `calculate_yunqi_api.py` | 公历年份→天干地支（统一推算引擎） | 年份（整数，如2024） | 天干、地支、完整干支（如"甲辰"）、甲子序号（year_gz / sexagenary_index） |
 
 ## 推荐工作流
 
 1. **ACT: 接收用户请求**，明确需要查询的公历年份或干支。若用户仅提供干支（如"甲辰"），需反推年份范围。
-2. **ACT: 调用 `ganzhi_calc.py`**，传入年份参数，获取该年的天干、地支、完整干支及甲子序号。命令示例：`python ganzhi_calc.py --year 2024`
+2. **ACT: 调用 `calculate_yunqi_api.py`**，传入年份参数，获取该年的天干、地支、完整干支及甲子序号。命令示例：`python scripts/calculate_yunqi_api.py 2024 --json`
 3. **ACT: 查阅六十甲子表**（参考文件 `references/liushijiazi.md`），确认该干支在六十甲子中的序号位置，并关联该甲子年的大运与司天在泉信息。
 4. **ACT: 查阅节气对应表**（参考文件 `references/jieqi.md`），确定当前或目标节气所处的六气步位（初之气至终之气）与五运步位（初运至终运）。
 5. **ACT: 查阅天干地支基础理论**（参考文件 `references/tiangan_dizhi.md`），根据天干确定中运（大运）五行属性，根据地支确定司天在泉六气。
@@ -57,7 +57,7 @@ description: 干支基础子技能。用于天干地支推算、六十甲子查�
 
 ## ACTION REQUIRED
 
-- [ ] 确认 `ganzhi_calc.py` 脚本可用且路径正确
+- [ ] 确认 `calculate_yunqi_api.py` 脚本可用且路径正确
 - [ ] 确认参考文件 `references/tiangan_dizhi.md`、`references/liushijiazi.md`、`references/jieqi.md` 均存在且内容完整
 - [ ] 运行脚本验证至少3个已知年份（如2024甲辰、2025乙巳、2026丙午）
 - [ ] 确认输出格式符合下游子技能的输入要求

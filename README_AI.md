@@ -197,11 +197,7 @@ python scripts/calculate_yunqi_api.py <YYYY-MM-DD> --json
 
 | 场景 | 命令 |
 |------|------|
-| 干支推算 | `python scripts/ganzhi_calc.py 2026 [--json]` |
-| 大运太过不及 | `python scripts/dayun_calc.py 2026 [--json]` |
-| 主运客运 | `python scripts/keyun_calc.py 2026 [--json]` |
-| 六气推算 | `python scripts/liuqi_calc.py 2026 [--json]` |
-| 客主加临 | `python scripts/kezhujialin.py 2026 [--json]` |
+| 统一推算（干支/大运/主运客运/六气/客主加临） | `python scripts/calculate_yunqi_api.py 2026 [--json]` |
 | 年度综合报告 | `python scripts/yunqi_report.py 2026 --audience student|practitioner|researcher` |
 
 ### 3.4 JavaScript 可选接口
@@ -222,11 +218,11 @@ node scripts/calculate_yunqi_api.js <YYYY-MM-DD> --json
 
 | 功能层级 | 覆盖能力 | 主入口 / 文件 | 状态 |
 |----------|----------|---------------|------|
-| 干支基础 | 年干支、六十甲子序号、生肖 | `scripts/ganzhi_calc.py` | ✅ 已覆盖 |
-| 五运推算 | 天干化五运、大运太过/不及、平气判断 | `scripts/dayun_calc.py`、`modules/yunqi-calc/` | ✅ 已覆盖 |
-| 主运客运 | 主运五步、客运五步、太少推移 | `scripts/keyun_calc.py` | ✅ 已覆盖 |
-| 六气推算 | 司天、在泉、主气六步、客气六步 | `scripts/liuqi_calc.py` | ✅ 已覆盖 |
-| 客主加临 | 六步客主关系、相得/不相得、顺逆分析 | `scripts/kezhujialin.py` | ✅ 已覆盖 |
+| 干支基础 | 年干支、六十甲子序号、生肖 | `scripts/calculate_yunqi_api.py`（统一入口） | ✅ 已覆盖 |
+| 五运推算 | 天干化五运、大运太过/不及、平气判断 | `scripts/calculate_yunqi_api.py`、`modules/yunqi-calc/` | ✅ 已覆盖 |
+| 主运客运 | 主运五步、客运五步、太少推移 | `scripts/calculate_yunqi_api.py` | ✅ 已覆盖 |
+| 六气推算 | 司天、在泉、主气六步、客气六步 | `scripts/calculate_yunqi_api.py` | ✅ 已覆盖 |
+| 客主加临 | 六步客主关系、相得/不相得、顺逆分析 | `scripts/calculate_yunqi_api.py` | ✅ 已覆盖 |
 | 日期统一接口 | 大寒定年、日干支、当前步位、RAG keys、JSON 输出 | `scripts/calculate_yunqi_api.py` | ✅ Python 主链路 |
 | Node.js 接口 | 前端 / Node.js 集成 JSON 输出 | `scripts/calculate_yunqi_api.js` | 🟡 可选接口 |
 | 病机分析 | 五运病机、六气病机、胜复、运气合病 | `modules/yunqi-pathogenesis/` | ✅ 文档化推理 |

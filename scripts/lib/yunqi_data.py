@@ -183,9 +183,14 @@ def check_suihui(year):
 
 def check_pingqi(year):
     """
-    平气判断:
-    - 太过之年，大运被司天所克 → 平气
-    - 不及之年，大运得司天所生 → 平气
+    平气判断（据 modules/yunqi-calc/references/taiguo_buji.md 三条规则）:
+
+    规则一  太过被抑:   大运太过 且 司天五行 克 大运五行        → 平气
+    规则二A 不及同气相助: 大运不及 且 司天五行 == 大运五行       → 平气
+    规则二B 不及得司天生运: 大运不及 且 司天五行 生 大运五行     → 平气
+
+    注: 太过 + 司天同气 属「天符」(同化更盛)，非平气；
+        不及 + 司天克运 属「不及更衰」，非平气。
     """
     dayun, _ = get_dayun(year)
     sitian = get_sitian(year)
@@ -193,11 +198,14 @@ def check_pingqi(year):
     taiguo = is_taiguo(year)
 
     if taiguo:
-        # 太过被司天所克 → 平气
+        # 规则一：太过之运被司天所克 → 太过被抑 → 平气
         if ke(sitian_elem, dayun):
             return True
     else:
-        # 不及得司天所生 → 平气
+        # 规则二A：不及之运得司天同气相助 → 平气
+        if sitian_elem == dayun:
+            return True
+        # 规则二B：不及之运得司天所生 → 平气
         if sheng(sitian_elem, dayun):
             return True
     return False

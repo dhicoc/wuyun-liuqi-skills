@@ -11,11 +11,11 @@
 
 - 就诊年份:
 - 干支:
-- 大运: （调用 `dayun_calc.py` 获取）
+- 大运: （调用 `python scripts/calculate_yunqi_api.py <年份>` 获取）
 - 太过/不及:
-- 司天: （调用 `liuqi_calc.py` 获取）
+- 司天: （调用 `python scripts/calculate_yunqi_api.py <年份>` 获取）
 - 在泉:
-- 客主加临: （调用 `kezhujialin.py` 获取，标注不相得步数）
+- 客主加临: （调用 `python scripts/calculate_yunqi_api.py <年份>` 获取，标注不相得步数）
 - 当下节气: （查 `modules/ganzhi-basics/references/jieqi.md`）
 - 当下主气/客气:
 

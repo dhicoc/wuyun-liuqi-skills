@@ -296,7 +296,7 @@ axes:
   knowledge_level:
     - level: 推算层
       modules: [modules/ganzhi-basics/, modules/yunqi-calc/]
-      scripts: [ganzhi_calc.py, dayun_calc.py, keyun_calc.py, liuqi_calc.py, kezhujialin.py]
+      scripts: [calculate_yunqi_api.py]
     - level: 病机层
       modules: [modules/yunqi-pathogenesis/]
       scripts: []

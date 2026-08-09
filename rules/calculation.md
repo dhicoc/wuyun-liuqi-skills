@@ -13,7 +13,7 @@
 
 ## SHOULD
 
-- 关键结果与分项脚本交叉核对（如 `dayun_calc.py` 与 API 输出一致）
+- 关键结果与统一推算 API 交叉核对（如 `calculate_yunqi_api.py` 输出）
 - JS 版仅在前端/Node 集成时使用；与 Python 不一致时 **以 Python 为准**
 
 脚本索引：`references/script-index.md`

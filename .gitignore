@@ -54,3 +54,7 @@ _distill_in/
 *.egg-info/
 dist/
 build/
+
+# 本地 Agent / IDE 数据（非项目源码，勿提交）
+.workbuddy/
+.inscode/

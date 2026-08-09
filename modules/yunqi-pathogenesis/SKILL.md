@@ -20,14 +20,14 @@ description: >-
 ### 前置依赖
 
 > **MUST**：本子技能无独立脚本依赖（文档化推理），但 MUST 先调用 `yunqi-calc` 获取推算结果。
-> 具体而言，需先通过 `dayun_calc.py` 获取大运（中运）信息，通过 `liuqi_calc.py` 获取司天、在泉、客主加临等六气格局。
+> 具体而言，需先通过 `calculate_yunqi_api.py` 获取大运（中运）信息及司天、在泉、客主加临等六气格局。
 > 未获取推算结果前，不得进行病机分析。
 
 ### 推荐工作流
 
 #### Step 1/4：获取推算结果
 
-ACT: 调用 `dayun_calc.py` 和 `liuqi_calc.py` 获取当年运气格局
+ACT: 调用 `python scripts/calculate_yunqi_api.py <年份>` 获取当年运气格局（sui_yun / si_tian / zai_quan / ke_zhu_jia_lin）
 
 - 从 `yunqi-calc` 获取以下关键数据：
   - 大运（中运）：何运主岁、太过或不及

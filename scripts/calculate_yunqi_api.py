@@ -52,7 +52,8 @@ from yunqi_data import (
 
 def _resolve_date(date_input: Optional[Union[str, date]] = None) -> str:
     """
-    UX 优化：支持 'today'、'今天'、None（默认今天）、或标准 YYYY-MM-DD。
+    UX 优化：支持 'today'、'今天'、None（默认今天）、标准 YYYY-MM-DD，
+    以及裸 4 位年份（如 '2026'，兼容原单项脚本的年份入口）。
     返回标准 YYYY-MM-DD 字符串。
     """
     if date_input is None:
@@ -64,6 +65,10 @@ def _resolve_date(date_input: Optional[Union[str, date]] = None) -> str:
     s = str(date_input).strip().lower()
     if s in ("today", "今天", "now", "当前", ""):
         return date.today().isoformat()
+
+    # 兼容：裸 4 位年份（如 "2026"）视为该运气年，映射到年中以确定大寒定年
+    if s.isdigit() and len(s) == 4:
+        return f"{s}-07-01"
 
     # 否则假定是标准日期，让下游 _parse_date 做校验
     return str(date_input).strip()

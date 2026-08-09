@@ -75,17 +75,17 @@ def main():
     global passed, failed
     print('=== CLI 全量功能测试 ===')
 
-    # 单项推算脚本
-    run('ganzhi_calc text', [PY, 'scripts/ganzhi_calc.py', '2026'], has('丙午'))
-    run('ganzhi_calc json', [PY, 'scripts/ganzhi_calc.py', '2026', '--json'], json_has(['干支']))
-    run('dayun_calc text', [PY, 'scripts/dayun_calc.py', '2026'], has('水运'))
-    run('dayun_calc json', [PY, 'scripts/dayun_calc.py', '2026', '--json'], json_has(['大运']))
-    run('keyun_calc text', [PY, 'scripts/keyun_calc.py', '2026'], has('客运初运'))
-    run('keyun_calc json', [PY, 'scripts/keyun_calc.py', '2026', '--json'], json_has(['五步']))
-    run('liuqi_calc text', [PY, 'scripts/liuqi_calc.py', '2026'], has('少阴君火'))
-    run('liuqi_calc json', [PY, 'scripts/liuqi_calc.py', '2026', '--json'], json_has(['六步']))
-    run('kezhujialin text', [PY, 'scripts/kezhujialin.py', '2026'], has('相得'))
-    run('kezhujialin json', [PY, 'scripts/kezhujialin.py', '2026', '--json'], json_has(['六步']))
+    # 统一 API 已合并原单项推算脚本的全部域（legacy 脚本已删除）
+    # 文本模式保留关键子串校验
+    run('unified text 丙午/水运', [PY, 'scripts/calculate_yunqi_api.py', '2026'],
+        lambda result, output: ('丙午' in output) and ('水运' in output))
+    # JSON 模式校验全部域关键键
+    run('unified json all-domains', [PY, 'scripts/calculate_yunqi_api.py', '2026', '--json'],
+        lambda result, output: all(
+            k in json.loads(result.stdout)
+            for k in ['year_gz', 'sui_yun', 'zhu_yun', 'ke_yun',
+                      'ke_qi_six_steps', 'ke_zhu_jia_lin', 'si_tian', 'zai_quan']
+        ))
 
     # 统一 API 各模式
     run('calculate default', [PY, 'scripts/calculate_yunqi_api.py', '2026-06-29'], has('RAG检索键'))
