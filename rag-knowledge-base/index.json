@@ -288,7 +288,7 @@
       "asset_name": "临证指南医案 — 病证分类真实医案库（叶桂）",
       "asset_category": "case_library",
       "description": "清·叶桂《临证指南医案》公版蒸馏的真实医案库。叶天士，清代温病大家，医案以'识病之巧、立方之简'著称，每案精审病机（华岫云按语总括治法）。按病证分类，与 asset11-15 同格式。",
-      "total_entries": 150,
+      "total_entries": 180,
       "lookup_fields": [
         "rag_key",
         "entry_id"
