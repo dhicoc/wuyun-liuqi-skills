@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "五运六气高级对齐模块：天气数据对齐 + 体质对齐。将运气推算与实时气象数据和个体体质交叉分析，实现内外邪相合判断与个体化病机预判。",
   "dependencies": [
-    "yunqi-calc/",
-    "yunqi-pathogenesis/",
+    "modules/yunqi-calc/",
+    "modules/yunqi-pathogenesis/",
     "case-journal/precedent-disclaimer.md"
   ],
   "disclaimer": "运气学说与体质学说均为中医传统理论，非现代医学诊断标准。本模块输出的临床分析仅供参考，具体诊疗须由执业中医师辨证论治。",

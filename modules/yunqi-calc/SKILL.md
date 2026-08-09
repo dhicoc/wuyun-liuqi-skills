@@ -66,8 +66,8 @@ ACT: 查 references/yunqi_tonghua.md 判断天符/岁会/太乙天符
 ### 路由上下文
 
 - 上游入口: SKILL.md, routing.yaml
-- 下游出口: 病机分析→yunqi-pathogenesis/; 临床方案→yunqi-clinical/
-- 同级关联: 干支基础→ganzhi-basics/
+- 下游出口: 病机分析→modules/yunqi-pathogenesis/; 临床方案→modules/yunqi-clinical/
+- 同级关联: 干支基础→modules/ganzhi-basics/
 
 ### ACTION REQUIRED
 

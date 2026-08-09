@@ -74,9 +74,9 @@
 ## 七、治法参考
 
 - 治则: 抑其太过，扶其不胜
-- 具体方药参考 yunqi-clinical/references/fangyao_xuanze.md
-- 针灸选穴参考 yunqi-clinical/references/zhenjiu_xuanxue.md
-- 养生调理参考 yunqi-clinical/references/yangsheng_tiaoli.md
+- 具体方药参考 modules/yunqi-clinical/references/fangyao_xuanze.md
+- 针灸选穴参考 modules/yunqi-clinical/references/zhenjiu_xuanxue.md
+- 养生调理参考 modules/yunqi-clinical/references/yangsheng_tiaoli.md
 
 ## 经典与注家依据
 

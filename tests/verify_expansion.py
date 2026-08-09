@@ -262,7 +262,7 @@ new_files = [
     "rag-knowledge-base/terminology.json",
     "rag-knowledge-base/_entry_template.json",
     "rag-knowledge-base/LITERATURE_EXPANSION.md",
-    "yunqi-classics/references/lingqu_jiugong_bafeng.md",
+    "modules/yunqi-classics/references/lingqu_jiugong_bafeng.md",
 ]
 for rel in new_files:
     fpath = os.path.join(BASE, rel)

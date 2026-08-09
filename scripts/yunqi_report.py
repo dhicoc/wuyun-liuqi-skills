@@ -560,17 +560,17 @@ def generate_report(year, audience='student', advanced=None, with_rag_bundle=Tru
     # === 按人群定制 ===
     if audience == 'student':
         sections.append("## 六、学习要点\n")
-        sections.append(f"- {tg}年天干化{dayun}运（参考 yunqi-calc/references/tiangan_huayun.md）")
-        sections.append(f"- {dz}年地支化{sitian}（参考 yunqi-calc/references/dizhi_huaqi.md）")
+        sections.append(f"- {tg}年天干化{dayun}运（参考 modules/yunqi-calc/references/tiangan_huayun.md）")
+        sections.append(f"- {dz}年地支化{sitian}（参考 modules/yunqi-calc/references/dizhi_huaqi.md）")
         sections.append(f"- 司天{sitian}与在泉{zaiquan}互为阴阳配对")
-        sections.append(f"- 太过/不及: {'阳干太过' if taiguo else '阴干不及'}（参考 yunqi-calc/references/taiguo_buji.md）")
+        sections.append(f"- 太过/不及: {'阳干太过' if taiguo else '阴干不及'}（参考 modules/yunqi-calc/references/taiguo_buji.md）")
         if tianfu or suihui:
             tonghua = []
             if tianfu:
                 tonghua.append("天符")
             if suihui:
                 tonghua.append("岁会")
-            sections.append(f"- 运气同化: {'、'.join(tonghua)}（参考 yunqi-calc/references/yunqi_tonghua.md）")
+            sections.append(f"- 运气同化: {'、'.join(tonghua)}（参考 modules/yunqi-calc/references/yunqi_tonghua.md）")
         sections.append("")
 
     elif audience == 'practitioner':
@@ -592,9 +592,9 @@ def generate_report(year, audience='student', advanced=None, with_rag_bundle=Tru
         sections.append("")
         sections.append("## 七、治法参考\n")
         sections.append(f"- 治则: {'抑其太过，扶其不胜' if taiguo else '扶其不足，抑其所不胜'}")
-        sections.append("- 具体方药参考 yunqi-clinical/references/fangyao_xuanze.md")
-        sections.append("- 针灸选穴参考 yunqi-clinical/references/zhenjiu_xuanxue.md")
-        sections.append("- 养生调理参考 yunqi-clinical/references/yangsheng_tiaoli.md")
+        sections.append("- 具体方药参考 modules/yunqi-clinical/references/fangyao_xuanze.md")
+        sections.append("- 针灸选穴参考 modules/yunqi-clinical/references/zhenjiu_xuanxue.md")
+        sections.append("- 养生调理参考 modules/yunqi-clinical/references/yangsheng_tiaoli.md")
         sections.append("")
 
     elif audience == 'researcher':
@@ -608,7 +608,7 @@ def generate_report(year, audience='student', advanced=None, with_rag_bundle=Tru
         sections.append(f"- 本年大运{dayun}运{'太过' if taiguo else '不及'}，可对比历史同干年")
         sections.append(f"- 司天{sitian}在泉{zaiquan}，可检索同类年份的流行病学数据")
         sections.append(f"- 客主加临{xiangde}步相得{6-xiangde}步不相得，可分析气候异常程度")
-        sections.append("- 参考文献详见 yunqi-classics/references/")
+        sections.append("- 参考文献详见 modules/yunqi-classics/references/")
         sections.append("")
 
     # 经典与注家依据

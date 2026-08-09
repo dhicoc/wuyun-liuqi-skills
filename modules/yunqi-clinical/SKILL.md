@@ -105,9 +105,9 @@ ACT: 查阅 `references/yangsheng_tiaoli.md`
 
 ### 路由上下文
 
-- **上游入口**：`yunqi-pathogenesis/`（提供病机分析结果：脏腑定位、太过不及、运气合病判断）
+- **上游入口**：`modules/yunqi-pathogenesis/`（提供病机分析结果：脏腑定位、太过不及、运气合病判断）
 - **下游出口**：医案沉淀 → `case-journal/`（记录运气临床应用医案）
-- **同级关联**：文献支撑 → `yunqi-classics/`（提供经典原文引用与理论依据）
+- **同级关联**：文献支撑 → `modules/yunqi-classics/`（提供经典原文引用与理论依据）
 
 ### ACTION REQUIRED
 

@@ -2,12 +2,12 @@
 
 | 模块 | 目录 | 适用场景 |
 |------|------|----------|
-| 干支基础 | `ganzhi-basics/` | 天干地支、六十甲子、节气与运气 |
-| 运气推算 | `yunqi-calc/` | 大运/主运客运/司天在泉/客主加临/天符岁会 |
-| 病机分析 | `yunqi-pathogenesis/` | 五运六气病机、运气合病 |
-| 临床应用 | `yunqi-clinical/` | 治则治法、方药、针灸、养生 |
-| 经典文献 | `yunqi-classics/` | 素问七篇、历代学说、现代研究 |
-| 报告生成 | `docs-generator/` | 综合分析报告、医案报告 |
+| 干支基础 | `modules/ganzhi-basics/` | 天干地支、六十甲子、节气与运气 |
+| 运气推算 | `modules/yunqi-calc/` | 大运/主运客运/司天在泉/客主加临/天符岁会 |
+| 病机分析 | `modules/yunqi-pathogenesis/` | 五运六气病机、运气合病 |
+| 临床应用 | `modules/yunqi-clinical/` | 治则治法、方药、针灸、养生 |
+| 经典文献 | `modules/yunqi-classics/` | 素问七篇、历代学说、现代研究 |
+| 报告生成 | `modules/docs-generator/` | 综合分析报告、医案报告 |
 | 医案沉淀 | `case-journal/` | 运气应用医案记录 |
 | 圣济岁图医案库 | `rag-knowledge-base/asset9_cases.json` + `case-journal/cases/distilled_cases.md` | 60 甲子岁图蒸馏医案，按 rag_key 可检索（asset9） |
 | 统一计算 | `scripts/calculate_yunqi_api.py` | 大寒定年 + 日期输入 + JSON + rag_keys |

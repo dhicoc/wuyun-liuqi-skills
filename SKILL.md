@@ -41,10 +41,10 @@ description: >
 | 今天/某日运气 | `tasks/quick-lookup` → `calculate_yunqi_api.py today --summary` |
 | 最近/当前步位 | `tasks/current-step` → `--focus current-step` |
 | 完整年度分析 | `tasks/full-year-analysis` → `yunqi_report.py` |
-| 推算某年运气 | `tasks/year-calc` → `yunqi-calc/SKILL.md` |
-| 运气病机 | `tasks/pathogenesis` → `yunqi-pathogenesis/SKILL.md` |
-| 治法/方药/养生 | `tasks/clinical` → `yunqi-clinical/SKILL.md` |
-| 七篇大论/文献 | `tasks/classics` → `yunqi-classics/SKILL.md` |
+| 推算某年运气 | `tasks/year-calc` → `modules/yunqi-calc/SKILL.md` |
+| 运气病机 | `tasks/pathogenesis` → `modules/yunqi-pathogenesis/SKILL.md` |
+| 治法/方药/养生 | `tasks/clinical` → `modules/yunqi-clinical/SKILL.md` |
+| 七篇大论/文献 | `tasks/classics` → `modules/yunqi-classics/SKILL.md` |
 | 学概念/思想 | `tasks/learn-concept` → `--explain-concept` |
 | 个人运气/体质 | `tasks/personal-profile` → `personal_yunqi_profile.py` |
 | 结合天气 | `tasks/weather-alignment` → `weather_alignment.py` |
@@ -72,7 +72,7 @@ description: >
 | 路由同步 | `scripts/sync_routing.py`（改 `routing.yaml` 后 `--write`） |
 | 一致性/孤儿 | `conformance.yaml`、`scripts/check_conformance.py`、`scripts/audit_orphans.py` |
 | ReAct 推理 | `agent-workflow/react_workflow.md` |
-| 报告规范 | `docs-generator/SKILL.md` |
+| 报告规范 | `modules/docs-generator/SKILL.md` |
 | 思想地图 | `scripts/export_thought_map.py` |
 | 苏格拉底学习 | `scripts/socratic_learn.py` / `yunqi_cli.py learn` |
 | 统一 CLI | `scripts/yunqi_cli.py` |

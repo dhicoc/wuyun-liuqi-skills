@@ -27,7 +27,7 @@ scripts/calculate_yunqi_api.py（Python 主链路，支持 today / --level / --e
   ↓
 rag-knowledge-base/ (7 assets) 精确检索
   ↓
-yunqi-pathogenesis/ 病机分析
+modules/yunqi-pathogenesis/ 病机分析
   ↓
 yunqi_report.py / generate_html_report.py（含思想层解读 build_thought_layer_section）
   ↓
@@ -45,13 +45,13 @@ reports/generated/ + scripts/self_evolve.py（概念追踪 + 理解反馈 + 隐�
 | `scripts/` | 可执行工具、推算引擎（含 --level/--export）、export_thought.py、报告生成、自进化 CLI |
 | `scripts/lib/` | 推算共享数据表与底层规则 |
 | `rag-knowledge-base/` | RAG 结构化知识资产（7 assets） |
-| `ganzhi-basics/` | 干支基础子技能 |
-| `yunqi-calc/` | 五运六气推算子技能 |
-| `yunqi-pathogenesis/` | 病机分析子技能 |
-| `yunqi-clinical/` | 临床参考与养生调理子技能 |
-| `yunqi-classics/` | 经典文献与研究资料子技能 |
+| `modules/ganzhi-basics/` | 干支基础子技能 |
+| `modules/yunqi-calc/` | 五运六气推算子技能 |
+| `modules/yunqi-pathogenesis/` | 病机分析子技能 |
+| `modules/yunqi-clinical/` | 临床参考与养生调理子技能 |
+| `modules/yunqi-classics/` | 经典文献与研究资料子技能 |
 | `prompts/` | onboarding + system prompt（思想伙伴语气） |
-| `docs-generator/` | 报告模板与输出规范 |
+| `modules/docs-generator/` | 报告模板与输出规范 |
 | `advanced-alignment/` | 天气、地域、体质等高级对齐设计 |
 | `agent-workflow/` | ReAct 工作流与 Agent 执行链路 |
 | `prompts/` | System Prompt 与首次引导模板 |

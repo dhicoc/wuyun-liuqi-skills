@@ -16,7 +16,7 @@
 - 司天: （调用 `liuqi_calc.py` 获取）
 - 在泉:
 - 客主加临: （调用 `kezhujialin.py` 获取，标注不相得步数）
-- 当下节气: （查 `ganzhi-basics/references/jieqi.md`）
+- 当下节气: （查 `modules/ganzhi-basics/references/jieqi.md`）
 - 当下主气/客气:
 
 ## 患者信息（脱敏）
@@ -30,11 +30,11 @@
 ## 运气病机分析
 
 <!-- 结合当年运气格局分析患者病机 -->
-<!-- 参考 yunqi-pathogenesis/references/ 下的对应文档 -->
+<!-- 参考 modules/yunqi-pathogenesis/references/ 下的对应文档 -->
 
 ## 治则治法
 
-<!-- 基于运气理论的治则，参考 yunqi-clinical/references/zhize_zhifa.md -->
+<!-- 基于运气理论的治则，参考 modules/yunqi-clinical/references/zhize_zhifa.md -->
 
 ## 方药/针灸
 

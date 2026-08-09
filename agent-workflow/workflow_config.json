@@ -93,10 +93,10 @@
       "on_error": {
         "strategy": "degrade_to_fulltext_search",
         "fallback_sources": [
-          "yunqi-pathogenesis/references/wuyun_bingji.md",
-          "yunqi-pathogenesis/references/liuqi_bingji.md",
-          "yunqi-pathogenesis/references/taiguo_bingji.md",
-          "yunqi-calc/references/kezhujialin.md"
+          "modules/yunqi-pathogenesis/references/wuyun_bingji.md",
+          "modules/yunqi-pathogenesis/references/liuqi_bingji.md",
+          "modules/yunqi-pathogenesis/references/taiguo_bingji.md",
+          "modules/yunqi-calc/references/kezhujialin.md"
         ],
         "if_all_fail": "llm_general_reasoning_with_label"
       }
@@ -186,9 +186,9 @@
             "name": "调理建议",
             "subsections": ["治则", "食疗", "养生"],
             "references": [
-              "yunqi-clinical/references/zhize_zhifa.md",
-              "yunqi-clinical/references/fangyao_xuanze.md",
-              "yunqi-clinical/references/yangsheng_tiaoli.md"
+              "modules/yunqi-clinical/references/zhize_zhifa.md",
+              "modules/yunqi-clinical/references/fangyao_xuanze.md",
+              "modules/yunqi-clinical/references/yangsheng_tiaoli.md"
             ]
           },
           {
@@ -212,21 +212,21 @@
       "path": "rag-knowledge-base/asset1_suiyun.json",
       "description": "岁运病机知识库（五运太过不及）",
       "classic_source": "素问·气交变大论、素问·五常政大论",
-      "fallback_source": "yunqi-pathogenesis/references/wuyun_bingji.md",
+      "fallback_source": "modules/yunqi-pathogenesis/references/wuyun_bingji.md",
       "keys_example": ["water_excess", "wood_deficiency", "fire_excess", "earth_deficiency", "metal_excess"]
     },
     "asset2": {
       "path": "rag-knowledge-base/asset2_sitian_zaiquan.json",
       "description": "司天在泉病机知识库（六气病机）",
       "classic_source": "素问·至真要大论",
-      "fallback_source": "yunqi-pathogenesis/references/liuqi_bingji.md",
+      "fallback_source": "modules/yunqi-pathogenesis/references/liuqi_bingji.md",
       "keys_example": ["少阴君火司天", "阳明燥金在泉", "太阴湿土司天", "太阳寒水在泉"]
     },
     "asset3": {
       "path": "rag-knowledge-base/asset3_kezhujialin.json",
       "description": "客主加临顺逆病机知识库（六步动态）",
       "classic_source": "素问·六元正纪大论",
-      "fallback_source": "yunqi-calc/references/kezhujialin.md",
+      "fallback_source": "modules/yunqi-calc/references/kezhujialin.md",
       "keys_example": ["zhu_shaoyang_ke_shaoyin", "四之气_太阴湿土_客主同气", "初之气_厥阴风木_客气生主气"]
     }
   },

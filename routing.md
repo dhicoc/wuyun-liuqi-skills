@@ -30,10 +30,10 @@
 | quick-lookup | 快速查某日/今天运气 | `calculate_yunqi_api.py today --summary` |
 | current-step | 当前步位/最近注意 | `--focus current-step` |
 | full-year-analysis | 完整年度分析 | `yunqi_report.py` |
-| year-calc | 推算某年运气 | `yunqi-calc/SKILL.md` |
-| pathogenesis | 运气病机 | `yunqi-pathogenesis/SKILL.md` |
-| clinical | 运气治法/方药/养生 | `yunqi-clinical/SKILL.md` |
-| classics | 经典文献/七篇大论 | `yunqi-classics/SKILL.md` |
+| year-calc | 推算某年运气 | `modules/yunqi-calc/SKILL.md` |
+| pathogenesis | 运气病机 | `modules/yunqi-pathogenesis/SKILL.md` |
+| clinical | 运气治法/方药/养生 | `modules/yunqi-clinical/SKILL.md` |
+| classics | 经典文献/七篇大论 | `modules/yunqi-classics/SKILL.md` |
 | learn-concept | 学习概念/思想 | `--explain-concept` |
 | personal-profile | 个人运气/体质 | `personal_yunqi_profile.py` |
 | weather-alignment | 天气对齐 | `weather_alignment.py` |

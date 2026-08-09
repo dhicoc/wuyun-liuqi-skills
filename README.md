@@ -213,15 +213,15 @@ Agent 会自动调用本技能包的推算引擎、知识库和推理流程来�
 | 功能层级 | 覆盖能力 | 主入口 / 文件 | 状态 |
 |----------|----------|---------------|------|
 | 干支基础 | 年干支、六十甲子序号、生肖 | `scripts/ganzhi_calc.py` | ✅ 已覆盖 |
-| 五运推算 | 天干化五运、大运太过/不及、平气判断 | `scripts/dayun_calc.py`、`yunqi-calc/references/taiguo_buji.md` | ✅ 已覆盖 |
+| 五运推算 | 天干化五运、大运太过/不及、平气判断 | `scripts/dayun_calc.py`、`modules/yunqi-calc/references/taiguo_buji.md` | ✅ 已覆盖 |
 | 主运客运 | 主运五步、客运五步、太少推移 | `scripts/keyun_calc.py` | ✅ 已覆盖 |
 | 六气推算 | 司天、在泉、主气六步、客气六步 | `scripts/liuqi_calc.py` | ✅ 已覆盖 |
 | 客主加临 | 六步客主关系、相得/不相得、顺逆分析 | `scripts/kezhujialin.py` | ✅ 已覆盖 |
 | 日期统一接口 | 大寒定年、日干支、当前步位、RAG keys、JSON 输出 | `scripts/calculate_yunqi_api.py` | ✅ Python 主链路 |
 | Node.js 接口 | 面向前端/Node 集成的 JSON 输出 | `scripts/calculate_yunqi_api.js` | 🟡 可选接口 |
-| 病机分析 | 五运病机、六气病机、太过不及、运气合病 | `yunqi-pathogenesis/` | ✅ 文档化推理 |
-| 临床应用 | 治则治法、方药方向、针灸选穴、养生调理 | `yunqi-clinical/` | ✅ 参考建议，含免责声明 |
-| 经典文献 | 素问七篇、历代运气学说、现代研究索引 | `yunqi-classics/`、`rag-knowledge-base/asset5_commentary.json` | ✅ 已覆盖 |
+| 病机分析 | 五运病机、六气病机、太过不及、运气合病 | `modules/yunqi-pathogenesis/` | ✅ 文档化推理 |
+| 临床应用 | 治则治法、方药方向、针灸选穴、养生调理 | `modules/yunqi-clinical/` | ✅ 参考建议，含免责声明 |
+| 经典文献 | 素问七篇、历代运气学说、现代研究索引 | `modules/yunqi-classics/`、`rag-knowledge-base/asset5_commentary.json` | ✅ 已覆盖 |
 | RAG 知识库 | 岁运、司天在泉、客主加临、运气方、注家、地域、体质 | `rag-knowledge-base/asset*.json` | ✅ 已覆盖 |
 | 公版文献库 | 35 篇公版五运六气文献原文（61.6 万字，先秦至清） | `rag-knowledge-base/literature/` | ✅ 已覆盖 |
 | 公版蒸馏指南 | 10 本公版古籍蒸馏成可 Grep+Read 的结构化指南（五层注释链 + 35 篇分组合并） | `rag-knowledge-base/*_guide.md` | ✅ 已覆盖 |
@@ -232,7 +232,7 @@ Agent 会自动调用本技能包的推算引擎、知识库和推理流程来�
 | 天气对齐 | 实时气象 × 运气格局交叉分析，判断内外邪相合/相背/兼夹 | `scripts/weather_alignment.py`、`advanced-alignment/weather_integration.md` | ✅ 已接入 |
 | 天气 × 体质叠加 | 出生运气体质 × 当前岁运 × 天气实况三维分析 | `scripts/yunqi_weather_constitution.py` | ✅ 已接入 |
 | 统一高级对齐 | 基础运气、出生运气体质、九种体质量表、天气对齐的统一入口 | `scripts/advanced_alignment.py` | ✅ 已接入 |
-| 报告生成 | 学生版、临床版、研究版 Markdown 报告；支持注入高级对齐章节 | `scripts/yunqi_report.py --advanced-json`、`scripts/generate_html_report.py --with-advanced-alignment`、`docs-generator/` | ✅ 已覆盖 |
+| 报告生成 | 学生版、临床版、研究版 Markdown 报告；支持注入高级对齐章节 | `scripts/yunqi_report.py --advanced-json`、`scripts/generate_html_report.py --with-advanced-alignment`、`modules/docs-generator/` | ✅ 已覆盖 |
 | 可视化 | 终端 ASCII 图、HTML 可视化报告 | `scripts/visualize_yunqi.py`、`scripts/generate_html_report.py` | ✅ 已覆盖 |
 | 自进化 | 使用日志 + 概念/哲学追踪 + 理解反馈 + 隐私哈希/清洗 + 月报 + 清理 + 自动建议 | `scripts/self_evolve.py`、`self-evolve/` | ✅ 已覆盖（含思想理解维度） |
 | 校验测试 | 环境检查、知识库校验、端到端测试、全量回归（63/0） | `scripts/health_check.py`、`scripts/validate_knowledge_base.py`、`tests/verify_expansion.py`、`tests/full_regression_test.py` | ✅ 已覆盖 |
@@ -296,12 +296,12 @@ Agent 会自动调用本技能包的推算引擎、知识库和推理流程来�
 ├── perspectives/               # 注家人格（刘完素/张介宾 perspective skill）
 │
 ├── 子技能（routing.yaml 路由目标）─────────────────────────
-├── ganzhi-basics/              # 干支基础
-├── yunqi-calc/                 # 运气推算（核心）
-├── yunqi-pathogenesis/         # 病机分析
-├── yunqi-clinical/             # 临床应用
-├── yunqi-classics/             # 经典文献
-├── docs-generator/             # 报告生成
+├── modules/ganzhi-basics/              # 干支基础
+├── modules/yunqi-calc/                 # 运气推算（核心）
+├── modules/yunqi-pathogenesis/         # 病机分析
+├── modules/yunqi-clinical/             # 临床应用
+├── modules/yunqi-classics/             # 经典文献
+├── modules/docs-generator/             # 报告生成
 ├── advanced-alignment/         # 天气/体质高级对齐
 │
 ├── 规则与工作流 ────────────────────────────────────────────
@@ -532,9 +532,9 @@ python tests/full_regression_test.py   # 63 tests, 0 failures
 | Kezhu-Jialin | Guest-host Qi relationship and favorable/unfavorable analysis | `scripts/kezhujialin.py` | ✅ Covered |
 | Unified date API | Dahan year boundary, current Qi step, RAG keys, JSON output | `scripts/calculate_yunqi_api.py` | ✅ Primary Python path |
 | Node.js API | JSON output for frontend / Node.js integrations | `scripts/calculate_yunqi_api.js` | 🟡 Optional |
-| Pathogenesis | Five-movement, Six-Qi, excess/deficiency, combined Yunqi reasoning | `yunqi-pathogenesis/` | ✅ Documented reasoning |
-| Clinical reference | Treatment principles, formula direction, acupuncture references, lifestyle guidance | `yunqi-clinical/` | ✅ Reference only |
-| Classics | Suwen treatises, historical schools, modern research notes | `yunqi-classics/` | ✅ Covered |
+| Pathogenesis | Five-movement, Six-Qi, excess/deficiency, combined Yunqi reasoning | `modules/yunqi-pathogenesis/` | ✅ Documented reasoning |
+| Clinical reference | Treatment principles, formula direction, acupuncture references, lifestyle guidance | `modules/yunqi-clinical/` | ✅ Reference only |
+| Classics | Suwen treatises, historical schools, modern research notes | `modules/yunqi-classics/` | ✅ Covered |
 | RAG knowledge base | 16 structured assets (pathogenesis, formulas, commentaries, regional, constitution + 6 classical case libraries) | `rag-knowledge-base/asset*.json` | ✅ Covered |
 | Personal profile | Birth-year Yunqi tendency, constitution score assessment, current-year adjustment, regional modifier | `scripts/personal_yunqi_profile.py`, `scripts/constitution_assessment.py` | ✅ Covered |
 | Weather alignment | Real weather × Yunqi pattern alignment for same-direction, opposite, or mixed climate signals | `scripts/weather_alignment.py` | ✅ Covered |
@@ -576,12 +576,12 @@ reports/test-results/    Test outputs (ignored by Git)
 references/                    Module map, architecture, roadmap, evaluations (self-evolve, thought understanding, UX)
 tests/                   Test fixtures; full_regression_test.py (63/0)
 .github/workflows/       CI workflow
-ganzhi-basics/           Stem-Branch learning skill
-yunqi-calc/              Core Yunqi calculation skill
-yunqi-pathogenesis/      Pathogenesis reasoning skill
-yunqi-clinical/          Clinical reference and lifestyle guidance skill
-yunqi-classics/          Classical literature and research references
-docs-generator/          Report templates
+modules/ganzhi-basics/           Stem-Branch learning skill
+modules/yunqi-calc/              Core Yunqi calculation skill
+modules/yunqi-pathogenesis/      Pathogenesis reasoning skill
+modules/yunqi-clinical/          Clinical reference and lifestyle guidance skill
+modules/yunqi-classics/          Classical literature and research references
+modules/docs-generator/          Report templates
 advanced-alignment/      Weather and constitution alignment
 self-evolve/             Logs + concept tracking + understanding feedback + privacy + reports + cleanup
 case-journal/            Case record templates, disclaimers, and example cases

@@ -99,9 +99,9 @@ ACT: 查阅 `references/yunqi_hebing.md`
 
 ### 路由上下文
 
-- **上游入口**：`yunqi-calc/`（提供推算结果：大运、司天在泉、客主加临、运气同化判断）
-- **下游出口**：临床方案 → `yunqi-clinical/`（接收病机结论，进入治则治法、方药、针灸、养生环节）
-- **同级关联**：文献支撑 → `yunqi-classics/`（提供经典原文引用与理论依据）
+- **上游入口**：`modules/yunqi-calc/`（提供推算结果：大运、司天在泉、客主加临、运气同化判断）
+- **下游出口**：临床方案 → `modules/yunqi-clinical/`（接收病机结论，进入治则治法、方药、针灸、养生环节）
+- **同级关联**：文献支撑 → `modules/yunqi-classics/`（提供经典原文引用与理论依据）
 
 ### ACTION REQUIRED
 
