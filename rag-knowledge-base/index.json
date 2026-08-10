@@ -2,7 +2,7 @@
   "asset_name": "wuyun-liuqi-rag-index",
   "asset_type": "knowledge_base_index",
   "description": "五运六气 RAG 知识库资产索引。用于说明各 asset 的用途、检索键和维护状态。",
-  "total_entries": 23,
+  "total_entries": 24,
   "primary_api": "scripts/calculate_yunqi_api.py",
   "entries": [
     {
@@ -462,6 +462,29 @@
         "hyl_001"
       ],
       "rag_key": "asset23_huayunlou_cases"
+    },
+    {
+      "entry_id": "rag_index_asset24_zhenyu_juji_cases",
+      "entry_type": "asset_index",
+      "title": "诊余举隅录医案库",
+      "file": "asset24_zhenyu_juji_cases.json",
+      "asset_id": "asset24_zhenyu_juji_cases",
+      "asset_name": "诊余举隅录医案库",
+      "asset_category": "case_library",
+      "description": "清·陈廷儒（匊生）《诊余举隅录》蒸馏。陈廷儒辨证精审，善辨阴阳寒热虚实、表里气血，治疑难杂证每举一隅而反三。本库按病证分节蒸馏，覆盖四时感冒、春温、冬月伤寒、咳嗽吐血、霍乱、痢疾、泄泻、中风、水肿、自汗、厥逆、眩晕、妇科经闭、痛经、崩漏、胎前、产后、小儿惊风等内伤外感与妇儿杂病。",
+      "total_entries": 14,
+      "lookup_fields": [
+        "category",
+        "physician",
+        "rag_key",
+        "case_id"
+      ],
+      "example_keys": [
+        "感冒",
+        "陈廷儒",
+        "zj_001"
+      ],
+      "rag_key": "asset24_zhenyu_juji_cases"
     },
     {
       "entry_id": "rag_index_asset15_shanghan90_cases",

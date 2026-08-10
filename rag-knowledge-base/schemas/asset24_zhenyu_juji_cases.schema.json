@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wuyun-liuqi.local/schemas/asset24_zhenyu_juji_cases.schema.json",
+  "title": "asset24 — 诊余举隅录医案库",
+  "description": "清·陈廷儒（匊生）《诊余举隅录》蒸馏。陈廷儒辨证精审，善辨阴阳寒热虚实、表里气血，治疑难杂证每举一隅而反三。覆盖四时感冒、春温、霍乱、痢疾、泄泻、中风、经闭等。",
+  "type": "object",
+  "required": [
+    "asset_id",
+    "asset_name",
+    "asset_description",
+    "data_source",
+    "entry_count",
+    "entries"
+  ],
+  "properties": {
+    "asset_id": {
+      "type": "string",
+      "const": "asset24_zhenyu_juji_cases"
+    },
+    "asset_name": {
+      "type": "string"
+    },
+    "asset_description": {
+      "type": "string"
+    },
+    "data_source": {
+      "type": "string"
+    },
+    "distill_method": {
+      "type": "string"
+    },
+    "asset_type": {
+      "type": "string",
+      "const": "case_library"
+    },
+    "entry_count": {
+      "type": "integer",
+      "minimum": 14,
+      "maximum": 14
+    },
+    "total_entries": {
+      "type": "integer",
+      "minimum": 14,
+      "maximum": 14
+    },
+    "lookup_fields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "case_id",
+          "category",
+          "physician",
+          "chief_complaint",
+          "syndrome",
+          "treatment",
+          "formula",
+          "outcome",
+          "source",
+          "source_quote",
+          "entry_id",
+          "entry_type"
+        ],
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "description": "医案 ID，如 zj_001"
+          },
+          "category": {
+            "type": "string",
+            "description": "病证分类"
+          },
+          "physician": {
+            "type": "string",
+            "description": "医家，如 陈廷儒"
+          },
+          "source": {
+            "type": "string",
+            "description": "出处"
+          },
+          "chief_complaint": {
+            "type": "string",
+            "description": "主诉/病案起由"
+          },
+          "syndrome": {
+            "type": "string",
+            "description": "辨证（病机分析）"
+          },
+          "treatment": {
+            "type": "string",
+            "description": "治法"
+          },
+          "formula": {
+            "type": "string",
+            "description": "方药"
+          },
+          "outcome": {
+            "type": "string",
+            "description": "疗效/转归"
+          },
+          "source_quote": {
+            "type": "string",
+            "description": "原文逐字摘录"
+          },
+          "note": {
+            "type": "string",
+            "description": "辨治要点注释"
+          },
+          "entry_id": {
+            "type": "string",
+            "description": "条目 ID"
+          },
+          "entry_type": {
+            "type": "string",
+            "const": "zhenyujuji_case"
+          },
+          "rag_key": {
+            "type": "string",
+            "description": "病证检索键"
+          },
+          "name": {
+            "type": "string",
+            "description": "可读名"
+          }
+        }
+      }
+    }
+  }
+}
