@@ -130,7 +130,7 @@ INPUT: {"date_str": "1996-08-18"}
 
 ### Step 3 — ACT：检索 RAG 知识库
 
-**动作**：以 Step 2 提取的键值为检索词，查询 RAG 知识库。核心病机查 asset1-3，补充方药/注家/地域/体质查 asset4-7，需医案佐证时查 asset9（同格局）或 asset11-16（历代名家病证医案）。
+**动作**：以 Step 2 提取的键值为检索词，查询 RAG 知识库。核心病机查 asset1-3，补充方药/注家/地域/体质查 asset4-7，需医案佐证时查 asset9（同格局）、asset11-16（历代名家病证医案）、asset17（运气瘟疫防治）或 asset18（回春录湿热温病医案）。
 
 ```
 TOOL_CALL: rag_search
@@ -155,6 +155,8 @@ INPUT: {
 | asset4-7 | `rag-knowledge-base/asset4-7_*.json` | 方药/注家/地域/体质补充层 | `water_excess`、related keys、region_id |
 | asset9 | `rag-knowledge-base/asset9_cases.json` | 圣济总录六十甲子岁图医案（同格局） | 岁运 / rag_key |
 | asset11-16 | `rag-knowledge-base/asset11-16_*_cases.json` | 六部历代名家医案库（名医类案/续名医类案/古今医案按/丁甘仁/伤寒九十论/临证指南，901 条） | `entry_id` / `category` |
+| asset17 | `rag-knowledge-base/asset17_wenyi_yunqi.json` | 松峰说疫·运气瘟疫防治库（五运瘟疫侧重、六气司天民病、五郁治法、刚柔失守疫病专方，34 条） | `code` / `sitian_key` / `zaiquan_key` / `rag_key` / `ganzhi` |
+| asset18 | `rag-knowledge-base/asset18_huichunlu_cases.json` | 回春录·王孟英湿热温病医案库（外感温病/内科杂病/妇科/儿科，40 条） | `category` / `rag_key` / `case_id` |
 
 **检索策略**：
 - 优先精确匹配 `sui_yun.code`（如 `water_excess`）
@@ -293,6 +295,13 @@ ELSE:
   - 治则：遵循《至真要大论》五味制约原则
   - 食疗：按运气偏盛推荐食疗方向
   - 养生：起居、情志、运动建议
+
+【相关医案佐证】（可选增强：当 Step 3 检索到医案时必填；未检索到或用户未问医案时省略）
+  - 呈现 ≥1 个召回医案，每条按「一句话白话转述 + 原文关键句引用」格式：
+    - 白话转述：用大白话讲清该案的病机、关键治法与转归（如"某案也是湿热困住气机，孟英用豁痰通腑让大便一通，痰排出来就好了"）
+    - 原文引用：附 source_quote 关键句（文言原文，注明出库，如"《回春录·霍乱》：……"）
+  - 若医案与本次运气病机吻合，点明"与本次推算的 X 病机相印证"；不吻合则如实说明差异，不强行套用
+  - 医案仅作佐证参考，不得代替本次辨证结论
 
 【免责声明】
   ⚠️ 免责声明：以上分析基于中医运气学说理论推算，仅供参考。
