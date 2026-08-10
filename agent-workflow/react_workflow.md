@@ -157,7 +157,7 @@ INPUT: {
 | asset11-16 | `rag-knowledge-base/asset11-16_*_cases.json` | 六部历代名家医案库（名医类案/续名医类案/古今医案按/丁甘仁/伤寒九十论/临证指南，901 条） | `entry_id` / `category` |
 | asset17 | `rag-knowledge-base/asset17_wenyi_yunqi.json` | 松峰说疫·运气瘟疫防治库（五运瘟疫侧重、六气司天民病、五郁治法、刚柔失守疫病专方，34 条） | `code` / `sitian_key` / `zaiquan_key` / `rag_key` / `ganzhi` |
 | asset18 | `rag-knowledge-base/asset18_huichunlu_cases.json` | 回春录·王孟英湿热温病医案库（外感温病/内科杂病/妇科/儿科，40 条） | `category` / `rag_key` / `case_id` |
-| asset19 | `rag-knowledge-base/asset19_zhangyuqing_cases.json` | 张聿青医案库（湿温伏暑/痰饮肝风/虚损血证/内科杂病，40 条） | `category` / `rag_key` / `case_id` |
+| asset19 | `rag-knowledge-base/asset19_zhangyuqing_cases.json` | 张聿青医案库（湿温伏暑/痰饮肝风/虚损血证/内科杂病，70 条） | `category` / `rag_key` / `case_id` |
 | asset20 | `rag-knowledge-base/asset20_wujutong_cases.json` | 吴鞠通医案库（温病三焦辨证/风温暑温伏暑/痹证痰饮，120 条） | `category` / `rag_key` / `case_id` |
 | asset21 | `rag-knowledge-base/asset21_yuyicao_cases.json` | 寓意草医案库（议病式医案/伤寒危证/真阳上脱/误治救逆，17 条） | `category` / `rag_key` / `case_id` |
 | asset22 | `rag-knowledge-base/asset22_huixi_cases.json` | 洄溪医案库（经方辨证/中风伤寒/温疫/痰喘/血痢/产后/外科痈疽，23 条） | `category` / `rag_key` / `case_id` |
