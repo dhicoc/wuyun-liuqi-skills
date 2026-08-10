@@ -2,7 +2,7 @@
   "asset_name": "wuyun-liuqi-rag-index",
   "asset_type": "knowledge_base_index",
   "description": "五运六气 RAG 知识库资产索引。用于说明各 asset 的用途、检索键和维护状态。",
-  "total_entries": 29,
+  "total_entries": 30,
   "primary_api": "scripts/calculate_yunqi_api.py",
   "entries": [
     {
@@ -602,6 +602,31 @@
         "wk_001"
       ],
       "rag_key": "asset29_waike_zhengzong"
+    },
+    {
+      "entry_id": "rag_index_asset30_lizhai_waike",
+      "entry_type": "asset_index",
+      "title": "立斋外科发挥·内外联动医案库",
+      "file": "asset30_lizhai_waike.json",
+      "asset_id": "asset30_lizhai_waike",
+      "asset_name": "立斋外科发挥·内外联动医案库",
+      "asset_category": "case_library",
+      "description": "明·薛己（薛立斋）《立斋外科发挥》（八卷）蒸馏。薛己为明代外科大家，主张『痈疽以气血为本，最忌攻伐』，辨内因（气血虚实、脏腑寒热）以决外候（痈疽起发/溃脓/收敛），内外并治。本库精选治验医案，覆盖痈疽、溃疡、发背、疔疮、脱疽、瘰疬、流注、乳痈等，每条含内因病机与外候症候联动字段。",
+      "total_entries": 8,
+      "lookup_fields": [
+        "category",
+        "physician",
+        "rag_key",
+        "case_id",
+        "internal_key",
+        "external_key"
+      ],
+      "example_keys": [
+        "痈疽",
+        "薛己",
+        "lz_001"
+      ],
+      "rag_key": "asset30_lizhai_waike"
     },
     {
       "entry_id": "rag_index_asset15_shanghan90_cases",

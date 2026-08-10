@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wuyun-liuqi.local/schemas/asset30_lizhai_waike.schema.json",
+  "title": "asset30 — 立斋外科发挥·内外联动医案库",
+  "description": "明·薛己《立斋外科发挥》（八卷）蒸馏。薛己主张痈疽以气血为本最忌攻伐，辨内因（气血虚实、脏腑寒热）以决外候（痈疽起发/溃脓/收敛），内外并治。覆盖痈疽、溃疡、发背、脱疽、瘰疬、疔疮等，每条含内因病机与外候症候联动字段。",
+  "type": "object",
+  "required": [
+    "asset_id",
+    "asset_name",
+    "asset_description",
+    "data_source",
+    "entry_count",
+    "entries"
+  ],
+  "properties": {
+    "asset_id": {
+      "type": "string",
+      "const": "asset30_lizhai_waike"
+    },
+    "asset_name": {
+      "type": "string"
+    },
+    "asset_description": {
+      "type": "string"
+    },
+    "data_source": {
+      "type": "string"
+    },
+    "distill_method": {
+      "type": "string"
+    },
+    "asset_type": {
+      "type": "string",
+      "const": "case_library"
+    },
+    "entry_count": {
+      "type": "integer",
+      "minimum": 8,
+      "maximum": 8
+    },
+    "total_entries": {
+      "type": "integer",
+      "minimum": 8,
+      "maximum": 8
+    },
+    "lookup_fields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "case_id",
+          "category",
+          "physician",
+          "chief_complaint",
+          "syndrome",
+          "treatment",
+          "formula",
+          "outcome",
+          "source",
+          "source_quote",
+          "entry_id",
+          "entry_type"
+        ],
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "description": "医案 ID，如 lz_001"
+          },
+          "category": {
+            "type": "string",
+            "description": "病证分类（外科）"
+          },
+          "physician": {
+            "type": "string",
+            "description": "医家，如 薛己"
+          },
+          "source": {
+            "type": "string",
+            "description": "出处"
+          },
+          "chief_complaint": {
+            "type": "string",
+            "description": "主诉/病案起由"
+          },
+          "syndrome": {
+            "type": "string",
+            "description": "辨证（内因+病机）"
+          },
+          "treatment": {
+            "type": "string",
+            "description": "治法（含外治法）"
+          },
+          "formula": {
+            "type": "string",
+            "description": "方药（内服+外治）"
+          },
+          "outcome": {
+            "type": "string",
+            "description": "疗效/转归"
+          },
+          "source_quote": {
+            "type": "string",
+            "description": "原文逐字摘录"
+          },
+          "note": {
+            "type": "string",
+            "description": "辨治要点注释"
+          },
+          "internal_cause": {
+            "type": "string",
+            "description": "内因病机（内外联动）"
+          },
+          "internal_key": {
+            "type": "string",
+            "description": "内因检索键（内外联动）"
+          },
+          "external_manifestation": {
+            "type": "string",
+            "description": "外候症候（内外联动）"
+          },
+          "external_key": {
+            "type": "string",
+            "description": "外候检索键（内外联动）"
+          },
+          "chain": {
+            "type": "string",
+            "description": "内因→病机→外候推演链（内外联动）"
+          },
+          "entry_id": {
+            "type": "string",
+            "description": "条目 ID"
+          },
+          "entry_type": {
+            "type": "string",
+            "const": "lizhai_waike_case"
+          },
+          "rag_key": {
+            "type": "string",
+            "description": "病证检索键"
+          },
+          "name": {
+            "type": "string",
+            "description": "可读名"
+          }
+        }
+      }
+    }
+  }
+}

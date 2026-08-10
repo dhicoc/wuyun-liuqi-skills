@@ -106,6 +106,7 @@ RAG asset 是精炼键值（回答"是什么"）；下列五本公版古籍蒸�
 | 孙文垣医案 | `asset27_sunwenyuan_cases.json` | 12 | 明·孙一奎《孙文垣医案》：温补命门、大头疫、目疾虚实、产后发热、痰火胁痛 |
 | 丛桂草堂医案 | `asset28_conggui_cases.json` | 8 | 清·袁焯《丛桂草堂医案》：痰饮闭塞、喉痧阴亏、孕产寒痛 |
 | 外科正宗·外用 | `asset29_waike_zhengzong.json` | 12 | 明·陈实功《外科正宗》：痈疽疔疮瘰疬脱疽，艾灸/火针/蟾酥饼/琥珀膏外治 |
+| 立斋外科发挥 | `asset30_lizhai_waike.json` | 8 | 明·薛己《立斋外科发挥》：痈疽以气血为本最忌攻伐，内因→外候联动 |
 | 术语 | `terminology.json` | 700 | 运气学术语白话解释 |
 
 检索流程：`calculate_yunqi_api.py --json` → 取 `rag_keys` → 按 key 检索对应 asset。asset11-16 六部历代名家医案库（共 901 条）可按病证分类检索临证真实医案。

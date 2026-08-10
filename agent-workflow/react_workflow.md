@@ -130,7 +130,7 @@ INPUT: {"date_str": "1996-08-18"}
 
 ### Step 3 — ACT：检索 RAG 知识库
 
-**动作**：以 Step 2 提取的键值为检索词，查询 RAG 知识库。核心病机查 asset1-3，补充方药/注家/地域/体质查 asset4-7，需医案佐证时查 asset9（同格局）、asset11-16（历代名家病证医案）、asset17（运气瘟疫防治）、asset18（回春录）、asset19（张聿青）、asset20（吴鞠通）、asset21（寓意草）、asset22（洄溪）、asset23（花韵楼）、asset24（诊余举隅录）、asset25（许氏）、asset26（杏轩）、asset27（孙文垣）、asset28（丛桂草堂）或 asset29（外科正宗外用医案）。
+**动作**：以 Step 2 提取的键值为检索词，查询 RAG 知识库。核心病机查 asset1-3，补充方药/注家/地域/体质查 asset4-7，需医案佐证时查 asset9（同格局）、asset11-16（历代名家病证医案）、asset17（运气瘟疫防治）、asset18（回春录）、asset19（张聿青）、asset20（吴鞠通）、asset21（寓意草）、asset22（洄溪）、asset23（花韵楼）、asset24（诊余举隅录）、asset25（许氏）、asset26（杏轩）、asset27（孙文垣）、asset28（丛桂草堂）、asset29（外科正宗外用）或 asset30（立斋外科发挥内外联动）。
 
 ```
 TOOL_CALL: rag_search
@@ -168,6 +168,7 @@ INPUT: {
 | asset27 | `rag-knowledge-base/asset27_sunwenyuan_cases.json` | 孙文垣医案库（温补命门/大头疫/目疾虚实/产后发热/痰火胁痛，12 条） | `category` / `rag_key` / `case_id` |
 | asset28 | `rag-knowledge-base/asset28_conggui_cases.json` | 丛桂草堂医案库（痰饮闭塞/喉痧阴亏/孕产寒痛/疮疡阴亏，8 条） | `category` / `rag_key` / `case_id` |
 | asset29 | `rag-knowledge-base/asset29_waike_zhengzong.json` | 外科正宗·外用医案库（痈疽/疔疮/瘰疬/脱疽，艾灸火针蟾酥饼琥珀膏外治，12 条） | `category` / `rag_key` / `case_id` |
+| asset30 | `rag-knowledge-base/asset30_lizhai_waike.json` | 立斋外科发挥·内外联动医案库（痈疽以气血为本，内因→外候联动，8 条） | `category` / `rag_key` / `internal_key` / `external_key` |
 
 **检索策略**：
 - 优先精确匹配 `sui_yun.code`（如 `water_excess`）

@@ -40,6 +40,7 @@ rag-knowledge-base/schemas/
 | `asset27_sunwenyuan_cases.json` | `schemas/asset27_sunwenyuan_cases.schema.json` |
 | `asset28_conggui_cases.json` | `schemas/asset28_conggui_cases.schema.json` |
 | `asset29_waike_zhengzong.json` | `schemas/asset29_waike_zhengzong.schema.json` |
+| `asset30_lizhai_waike.json` | `schemas/asset30_lizhai_waike.schema.json` |
 | `terminology.json` | `schemas/terminology.schema.json` |
 | `index.json` | `schemas/index.schema.json` |
 
@@ -75,6 +76,7 @@ rag-knowledge-base/schemas/
 | asset27 | `asset27_sunwenyuan_cases.json` | 孙文垣医案 | 明·孙一奎《孙文垣医案》：温补命门、大头疫、目疾虚实、产后发热、痰火胁痛、心痹 | `category`, `physician`, `rag_key`, `case_id` |
 | asset28 | `asset28_conggui_cases.json` | 丛桂草堂医案 | 清·袁焯《丛桂草堂医案》：痰饮闭塞、喉痧阴亏、孕产寒痛、疮疡阴亏 | `category`, `physician`, `rag_key`, `case_id` |
 | asset29 | `asset29_waike_zhengzong.json` | 外科正宗·外用医案 | 明·陈实功《外科正宗》：痈疽疔疮瘰疬脱疽，艾灸/火针/蟾酥饼/琥珀膏外治 | `category`, `physician`, `rag_key`, `case_id` |
+| asset30 | `asset30_lizhai_waike.json` | 立斋外科发挥·内外联动 | 明·薛己《立斋外科发挥》：痈疽以气血为本最忌攻伐，内因→外候联动 | `category`, `physician`, `rag_key`, `internal_key`, `external_key` |
 | terminology | `terminology.json` | 术语库 | 学习解释、报告术语扩展 | term / pinyin / entry_id |
 
 > asset11-16 六部历代名家医案库共 **901 条**临证真实医案，按 `entry_id` / `category` 可检索。
