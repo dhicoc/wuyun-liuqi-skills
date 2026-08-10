@@ -190,6 +190,19 @@ try:
     check("search --key xs_001 asset25 精确命中", d.get("count", 0) >= 1, f'{d.get("count")}条')
 except Exception as e:
     check("search --key xs_001", False, str(e))
+# 7i. asset26 杏轩医案
+rc, out, err = run([os.path.join("scripts", "yunqi_cli.py"), "search", "产后", "--asset", "asset26", "--json"])
+try:
+    d = json.loads(out)
+    check("search 产后 asset26 命中", d.get("count", 0) >= 1, f'{d.get("count")}条')
+except Exception as e:
+    check("search 产后 asset26", False, str(e))
+rc, out, err = run([os.path.join("scripts", "yunqi_cli.py"), "search", "--key", "xx_001", "--asset", "asset26", "--json"])
+try:
+    d = json.loads(out)
+    check("search --key xx_001 asset26 精确命中", d.get("count", 0) >= 1, f'{d.get("count")}条')
+except Exception as e:
+    check("search --key xx_001", False, str(e))
 # 7c. 医案白话转述模拟（模拟 agent 将文言医案转成大白话）
 rc, out, err = run([os.path.join("scripts", "yunqi_cli.py"), "search", "霍乱", "--asset", "asset18", "--json"])
 try:

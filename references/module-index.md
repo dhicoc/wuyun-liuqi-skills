@@ -102,6 +102,7 @@ RAG asset 是精炼键值（回答"是什么"）；下列五本公版古籍蒸�
 | 花韵楼医案 | `asset23_huayunlou_cases.json` | 20 | 清·顾德华（女医）《花韵楼医案》：妇科专案，崩漏、月经、产后、胎产、乳癖 |
 | 诊余举隅录 | `asset24_zhenyu_juji_cases.json` | 14 | 清·陈廷儒《诊余举隅录》：辨证精审，霍乱痢疾泄泻、感冒春温、中风、妇科经闭 |
 | 许氏医案 | `asset25_xushi_cases.json` | 15 | 清·许恩普《许氏医案》：断证如折狱，伤寒痢疾中风、胎产妇科、误治救逆 |
+| 杏轩医案 | `asset26_xingxuan_cases.json` | 14 | 清·程文囿（新安医派）《杏轩医案》：产后感邪、格阳证、大头时疫、半产血晕、蓄瘀脱血 |
 | 术语 | `terminology.json` | 700 | 运气学术语白话解释 |
 
 检索流程：`calculate_yunqi_api.py --json` → 取 `rag_keys` → 按 key 检索对应 asset。asset11-16 六部历代名家医案库（共 901 条）可按病证分类检索临证真实医案。

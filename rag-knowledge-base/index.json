@@ -2,7 +2,7 @@
   "asset_name": "wuyun-liuqi-rag-index",
   "asset_type": "knowledge_base_index",
   "description": "五运六气 RAG 知识库资产索引。用于说明各 asset 的用途、检索键和维护状态。",
-  "total_entries": 25,
+  "total_entries": 26,
   "primary_api": "scripts/calculate_yunqi_api.py",
   "entries": [
     {
@@ -508,6 +508,29 @@
         "xs_001"
       ],
       "rag_key": "asset25_xushi_cases"
+    },
+    {
+      "entry_id": "rag_index_asset26_xingxuan_cases",
+      "entry_type": "asset_index",
+      "title": "杏轩医案库",
+      "file": "asset26_xingxuan_cases.json",
+      "asset_id": "asset26_xingxuan_cases",
+      "asset_name": "杏轩医案库",
+      "asset_category": "case_library",
+      "description": "清·程文囿（程杏轩）《杏轩医案》（初集/续录/辑录）蒸馏。程杏轩为新安医派代表，辨证精审，善辨寒热真假、虚实错杂，用药以古为师兼出新意。本库按治验标题蒸馏，覆盖产后感邪、先天不足、格阳证、大头时疫真热假寒、半产血晕、暑风惊证、中寒脱阳、肝郁气厥、单腹胀、休息痢等病证。",
+      "total_entries": 14,
+      "lookup_fields": [
+        "category",
+        "physician",
+        "rag_key",
+        "case_id"
+      ],
+      "example_keys": [
+        "产后",
+        "程文囿",
+        "xx_001"
+      ],
+      "rag_key": "asset26_xingxuan_cases"
     },
     {
       "entry_id": "rag_index_asset15_shanghan90_cases",
