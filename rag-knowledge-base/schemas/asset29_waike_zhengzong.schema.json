@@ -35,13 +35,13 @@
     },
     "entry_count": {
       "type": "integer",
-      "minimum": 48,
-      "maximum": 48
+      "minimum": 58,
+      "maximum": 58
     },
     "total_entries": {
       "type": "integer",
-      "minimum": 48,
-      "maximum": 48
+      "minimum": 58,
+      "maximum": 58
     },
     "lookup_fields": {
       "type": "array",
