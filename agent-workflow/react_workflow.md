@@ -165,7 +165,7 @@ INPUT: {
 | asset24 | `rag-knowledge-base/asset24_zhenyu_juji_cases.json` | 诊余举隅录医案库（辨证精审/霍乱/痢疾/泄泻/感冒/中风/经闭，14 条） | `category` / `rag_key` / `case_id` |
 | asset25 | `rag-knowledge-base/asset25_xushi_cases.json` | 许氏医案库（断证如折狱/伤寒/痢疾/中风/胎产/误治救逆，15 条） | `category` / `rag_key` / `case_id` |
 | asset26 | `rag-knowledge-base/asset26_xingxuan_cases.json` | 杏轩医案库（新安医派/产后感邪/格阳证/大头时疫/蓄瘀脱血，14 条） | `category` / `rag_key` / `case_id` |
-| asset27 | `rag-knowledge-base/asset27_sunwenyuan_cases.json` | 孙文垣医案库（温补命门/大头疫/目疾虚实/产后发热/痰火胁痛，12 条） | `category` / `rag_key` / `case_id` |
+| asset27 | `rag-knowledge-base/asset27_sunwenyuan_cases.json` | 孙文垣医案库（12→26）（温补命门/大头疫/目疾虚实/产后发热/痰火胁痛，12 条） | `category` / `rag_key` / `case_id` |
 | asset28 | `rag-knowledge-base/asset28_conggui_cases.json` | 丛桂草堂医案库（痰饮闭塞/喉痧阴亏/孕产寒痛/疮疡阴亏，8 条） | `category` / `rag_key` / `case_id` |
 | asset29 | `rag-knowledge-base/asset29_waike_zhengzong.json` | 外科正宗·外用医案库（痈疽/疔疮/瘰疬/脱疽/咽喉/肺痈/腿痈/囊痈/臋痈/肛痈/痔漏/下疳/瘤/多骨疮/结毒/脚气/乳痈，70 条） | `category` / `rag_key` / `case_id` |
 | asset30 | `rag-knowledge-base/asset30_lizhai_waike.json` | 立斋外科发挥·内外联动医案库（痈疽以气血为本，内因→外候联动，108 条） | `category` / `rag_key` / `internal_key` / `external_key` |
