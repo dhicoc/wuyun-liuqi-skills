@@ -2,7 +2,7 @@
   "asset_name": "wuyun-liuqi-rag-index",
   "asset_type": "knowledge_base_index",
   "description": "五运六气 RAG 知识库资产索引。用于说明各 asset 的用途、检索键和维护状态。",
-  "total_entries": 18,
+  "total_entries": 19,
   "primary_api": "scripts/calculate_yunqi_api.py",
   "entries": [
     {
@@ -347,6 +347,29 @@
         "hc_001"
       ],
       "rag_key": "asset18_huichunlu_cases"
+    },
+    {
+      "entry_id": "rag_index_asset19_zhangyuqing_cases",
+      "entry_type": "asset_index",
+      "title": "张聿青医案库",
+      "file": "asset19_zhangyuqing_cases.json",
+      "asset_id": "asset19_zhangyuqing_cases",
+      "asset_name": "张聿青医案库",
+      "asset_category": "case_library",
+      "description": "清·张乃修（张聿青）医案蒸馏。张聿青精于辨证，善治湿温伏暑、痰饮肝风、虚损血证，用药轻灵，注重脾胃气化斡旋。本库按病证分节蒸馏，覆盖中风、风温、湿温、伏暑、疟、霍乱、咳嗽、吐血、痰饮、肝风、眩晕、脘痛、泄泻、痢、肿胀、风痹、遗精、不寐、调经、产后等病证。",
+      "total_entries": 40,
+      "lookup_fields": [
+        "category",
+        "physician",
+        "rag_key",
+        "case_id"
+      ],
+      "example_keys": [
+        "中风",
+        "张聿青",
+        "zyq_001"
+      ],
+      "rag_key": "asset19_zhangyuqing_cases"
     },
     {
       "entry_id": "rag_index_asset15_shanghan90_cases",

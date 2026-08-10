@@ -29,6 +29,7 @@ rag-knowledge-base/schemas/
 | `asset16_ye_cases.json` | `schemas/asset16_ye_cases.schema.json` |
 | `asset17_wenyi_yunqi.json` | `schemas/asset17_wenyi_yunqi.schema.json` |
 | `asset18_huichunlu_cases.json` | `schemas/asset18_huichunlu_cases.schema.json` |
+| `asset19_zhangyuqing_cases.json` | `schemas/asset19_zhangyuqing_cases.schema.json` |
 | `terminology.json` | `schemas/terminology.schema.json` |
 | `index.json` | `schemas/index.schema.json` |
 
@@ -53,6 +54,7 @@ rag-knowledge-base/schemas/
 | asset16 | `asset16_ye_cases.json` | 临证指南医案 | 清·叶桂，辨证精审含华岫云按语 | `entry_id`, `category` |
 | asset17 | `asset17_wenyi_yunqi.json` | 运气瘟疫防治 | 清·刘奎《松峰说疫》卷六运气专篇：五运太过不及瘟疫侧重、六气司天民病、五郁治法、刚柔失守疫病专方 | `code`, `sitian_key`, `zaiquan_key`, `rag_key`, `ganzhi`, `category` |
 | asset18 | `asset18_huichunlu_cases.json` | 回春录医案 | 清·王孟英《回春录》（王氏医案）：湿热温病、内科杂病、妇科、儿科医案 | `category`, `physician`, `rag_key`, `case_id` |
+| asset19 | `asset19_zhangyuqing_cases.json` | 张聿青医案 | 清·张乃修《张聿青医案》：湿温伏暑、痰饮肝风、虚损血证、内科杂病医案 | `category`, `physician`, `rag_key`, `case_id` |
 | terminology | `terminology.json` | 术语库 | 学习解释、报告术语扩展 | term / pinyin / entry_id |
 
 > asset11-16 六部历代名家医案库共 **901 条**临证真实医案，按 `entry_id` / `category` 可检索。
