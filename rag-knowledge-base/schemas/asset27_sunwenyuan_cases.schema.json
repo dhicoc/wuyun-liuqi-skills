@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wuyun-liuqi.local/schemas/asset27_sunwenyuan_cases.schema.json",
+  "title": "asset27 — 孙文垣医案库",
+  "description": "明·孙一奎（孙文垣，东宿）《孙文垣医案》（三吴/新都/宜兴治验）蒸馏。孙一奎为明代温补学派代表，重命门学说，辨证精审，善辨阴阳虚实、上盛下虚，用药灵活。覆盖大头疫、目疾、痛风、疟痢、半身不遂、产后发热、脾胃疾、便血、痰火胁痛、心痹、肠风、白浊等。",
+  "type": "object",
+  "required": [
+    "asset_id",
+    "asset_name",
+    "asset_description",
+    "data_source",
+    "entry_count",
+    "entries"
+  ],
+  "properties": {
+    "asset_id": {
+      "type": "string",
+      "const": "asset27_sunwenyuan_cases"
+    },
+    "asset_name": {
+      "type": "string"
+    },
+    "asset_description": {
+      "type": "string"
+    },
+    "data_source": {
+      "type": "string"
+    },
+    "distill_method": {
+      "type": "string"
+    },
+    "asset_type": {
+      "type": "string",
+      "const": "case_library"
+    },
+    "entry_count": {
+      "type": "integer",
+      "minimum": 12,
+      "maximum": 12
+    },
+    "total_entries": {
+      "type": "integer",
+      "minimum": 12,
+      "maximum": 12
+    },
+    "lookup_fields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "case_id",
+          "category",
+          "physician",
+          "chief_complaint",
+          "syndrome",
+          "treatment",
+          "formula",
+          "outcome",
+          "source",
+          "source_quote",
+          "entry_id",
+          "entry_type"
+        ],
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "description": "医案 ID，如 swy_001"
+          },
+          "category": {
+            "type": "string",
+            "description": "病证分类"
+          },
+          "physician": {
+            "type": "string",
+            "description": "医家，如 孙一奎"
+          },
+          "source": {
+            "type": "string",
+            "description": "出处"
+          },
+          "chief_complaint": {
+            "type": "string",
+            "description": "主诉/病案起由"
+          },
+          "syndrome": {
+            "type": "string",
+            "description": "辨证（病机分析）"
+          },
+          "treatment": {
+            "type": "string",
+            "description": "治法"
+          },
+          "formula": {
+            "type": "string",
+            "description": "方药"
+          },
+          "outcome": {
+            "type": "string",
+            "description": "疗效/转归"
+          },
+          "source_quote": {
+            "type": "string",
+            "description": "原文逐字摘录"
+          },
+          "note": {
+            "type": "string",
+            "description": "辨治要点注释"
+          },
+          "entry_id": {
+            "type": "string",
+            "description": "条目 ID"
+          },
+          "entry_type": {
+            "type": "string",
+            "const": "sunwenyuan_case"
+          },
+          "rag_key": {
+            "type": "string",
+            "description": "病证检索键"
+          },
+          "name": {
+            "type": "string",
+            "description": "可读名"
+          }
+        }
+      }
+    }
+  }
+}

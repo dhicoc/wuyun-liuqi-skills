@@ -2,7 +2,7 @@
   "asset_name": "wuyun-liuqi-rag-index",
   "asset_type": "knowledge_base_index",
   "description": "五运六气 RAG 知识库资产索引。用于说明各 asset 的用途、检索键和维护状态。",
-  "total_entries": 26,
+  "total_entries": 27,
   "primary_api": "scripts/calculate_yunqi_api.py",
   "entries": [
     {
@@ -531,6 +531,29 @@
         "xx_001"
       ],
       "rag_key": "asset26_xingxuan_cases"
+    },
+    {
+      "entry_id": "rag_index_asset27_sunwenyuan_cases",
+      "entry_type": "asset_index",
+      "title": "孙文垣医案库",
+      "file": "asset27_sunwenyuan_cases.json",
+      "asset_id": "asset27_sunwenyuan_cases",
+      "asset_name": "孙文垣医案库",
+      "asset_category": "case_library",
+      "description": "明·孙一奎（孙文垣，东宿）《孙文垣医案》（三吴/新都/宜兴治验）蒸馏。孙一奎为明代温补学派代表，重命门学说，辨证精审，善辨阴阳虚实、上盛下虚，用药灵活。本库按治验标题蒸馏，覆盖大头疫、目疾、痛风、疟痢、半身不遂、产后发热、脾胃疾、便血、白浊、妊娠吐血、耳鸣等病证。",
+      "total_entries": 12,
+      "lookup_fields": [
+        "category",
+        "physician",
+        "rag_key",
+        "case_id"
+      ],
+      "example_keys": [
+        "大头疫",
+        "孙一奎",
+        "swy_001"
+      ],
+      "rag_key": "asset27_sunwenyuan_cases"
     },
     {
       "entry_id": "rag_index_asset15_shanghan90_cases",

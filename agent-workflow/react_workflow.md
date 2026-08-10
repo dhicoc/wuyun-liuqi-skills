@@ -130,7 +130,7 @@ INPUT: {"date_str": "1996-08-18"}
 
 ### Step 3 — ACT：检索 RAG 知识库
 
-**动作**：以 Step 2 提取的键值为检索词，查询 RAG 知识库。核心病机查 asset1-3，补充方药/注家/地域/体质查 asset4-7，需医案佐证时查 asset9（同格局）、asset11-16（历代名家病证医案）、asset17（运气瘟疫防治）、asset18（回春录）、asset19（张聿青）、asset20（吴鞠通）、asset21（寓意草）、asset22（洄溪）、asset23（花韵楼）、asset24（诊余举隅录）、asset25（许氏）或 asset26（杏轩医案）。
+**动作**：以 Step 2 提取的键值为检索词，查询 RAG 知识库。核心病机查 asset1-3，补充方药/注家/地域/体质查 asset4-7，需医案佐证时查 asset9（同格局）、asset11-16（历代名家病证医案）、asset17（运气瘟疫防治）、asset18（回春录）、asset19（张聿青）、asset20（吴鞠通）、asset21（寓意草）、asset22（洄溪）、asset23（花韵楼）、asset24（诊余举隅录）、asset25（许氏）、asset26（杏轩）或 asset27（孙文垣医案）。
 
 ```
 TOOL_CALL: rag_search
@@ -165,6 +165,7 @@ INPUT: {
 | asset24 | `rag-knowledge-base/asset24_zhenyu_juji_cases.json` | 诊余举隅录医案库（辨证精审/霍乱/痢疾/泄泻/感冒/中风/经闭，14 条） | `category` / `rag_key` / `case_id` |
 | asset25 | `rag-knowledge-base/asset25_xushi_cases.json` | 许氏医案库（断证如折狱/伤寒/痢疾/中风/胎产/误治救逆，15 条） | `category` / `rag_key` / `case_id` |
 | asset26 | `rag-knowledge-base/asset26_xingxuan_cases.json` | 杏轩医案库（新安医派/产后感邪/格阳证/大头时疫/蓄瘀脱血，14 条） | `category` / `rag_key` / `case_id` |
+| asset27 | `rag-knowledge-base/asset27_sunwenyuan_cases.json` | 孙文垣医案库（温补命门/大头疫/目疾虚实/产后发热/痰火胁痛，12 条） | `category` / `rag_key` / `case_id` |
 
 **检索策略**：
 - 优先精确匹配 `sui_yun.code`（如 `water_excess`）

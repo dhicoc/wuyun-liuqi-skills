@@ -37,6 +37,7 @@ rag-knowledge-base/schemas/
 | `asset24_zhenyu_juji_cases.json` | `schemas/asset24_zhenyu_juji_cases.schema.json` |
 | `asset25_xushi_cases.json` | `schemas/asset25_xushi_cases.schema.json` |
 | `asset26_xingxuan_cases.json` | `schemas/asset26_xingxuan_cases.schema.json` |
+| `asset27_sunwenyuan_cases.json` | `schemas/asset27_sunwenyuan_cases.schema.json` |
 | `terminology.json` | `schemas/terminology.schema.json` |
 | `index.json` | `schemas/index.schema.json` |
 
@@ -69,6 +70,7 @@ rag-knowledge-base/schemas/
 | asset24 | `asset24_zhenyu_juji_cases.json` | 诊余举隅录 | 清·陈廷儒《诊余举隅录》：辨证精审，霍乱痢疾泄泻、感冒春温、中风、妇科经闭 | `category`, `physician`, `rag_key`, `case_id` |
 | asset25 | `asset25_xushi_cases.json` | 许氏医案 | 清·许恩普《许氏医案》：断证如折狱，伤寒痢疾中风、胎产妇科、误治救逆 | `category`, `physician`, `rag_key`, `case_id` |
 | asset26 | `asset26_xingxuan_cases.json` | 杏轩医案 | 清·程文囿（新安医派）《杏轩医案》：产后感邪、格阳证、大头时疫、半产血晕、蓄瘀脱血 | `category`, `physician`, `rag_key`, `case_id` |
+| asset27 | `asset27_sunwenyuan_cases.json` | 孙文垣医案 | 明·孙一奎《孙文垣医案》：温补命门、大头疫、目疾虚实、产后发热、痰火胁痛、心痹 | `category`, `physician`, `rag_key`, `case_id` |
 | terminology | `terminology.json` | 术语库 | 学习解释、报告术语扩展 | term / pinyin / entry_id |
 
 > asset11-16 六部历代名家医案库共 **901 条**临证真实医案，按 `entry_id` / `category` 可检索。
