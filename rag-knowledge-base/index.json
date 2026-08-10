@@ -587,7 +587,7 @@
       "asset_name": "外科正宗·外用医案库",
       "asset_category": "case_library",
       "description": "明·陈实功《外科正宗》蒸馏。陈实功为明代外科大家，其治验以内服方药配合外治诸法（艾灸、火针、针刺放血、蟾酥饼贴、琥珀膏、冰蛳散、金箍散箍围等）为特色，内外兼施，是中医外治法医案的典范。本库精选含外用治法的治验医案，覆盖痈疽、疔疮、瘰疬、脱疽等病证。",
-      "total_entries": 58,
+      "total_entries": 70,
       "lookup_fields": [
         "category",
         "physician",
