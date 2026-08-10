@@ -2,7 +2,7 @@
   "asset_name": "wuyun-liuqi-rag-index",
   "asset_type": "knowledge_base_index",
   "description": "五运六气 RAG 知识库资产索引。用于说明各 asset 的用途、检索键和维护状态。",
-  "total_entries": 19,
+  "total_entries": 20,
   "primary_api": "scripts/calculate_yunqi_api.py",
   "entries": [
     {
@@ -370,6 +370,29 @@
         "zyq_001"
       ],
       "rag_key": "asset19_zhangyuqing_cases"
+    },
+    {
+      "entry_id": "rag_index_asset20_wujutong_cases",
+      "entry_type": "asset_index",
+      "title": "吴鞠通医案库",
+      "file": "asset20_wujutong_cases.json",
+      "asset_id": "asset20_wujutong_cases",
+      "asset_name": "吴鞠通医案库",
+      "asset_category": "case_library",
+      "description": "清·吴瑭（吴鞠通）医案蒸馏。吴鞠通为温病学派三焦辨证大家，著《温病条辨》，善辨卫气营血、三焦传变，治温病重辛凉清透、养阴护液。本库按病证分节蒸馏，覆盖风温、温疫、暑温、伏暑、温毒、湿温、冬温、中风、肝风、吐血、便血、肿胀、滞下、泄泻、噎、呕吐、痹、痰饮、疟、伤寒、咳嗽等病证。",
+      "total_entries": 40,
+      "lookup_fields": [
+        "category",
+        "physician",
+        "rag_key",
+        "case_id"
+      ],
+      "example_keys": [
+        "风温",
+        "吴鞠通",
+        "wjt_001"
+      ],
+      "rag_key": "asset20_wujutong_cases"
     },
     {
       "entry_id": "rag_index_asset15_shanghan90_cases",

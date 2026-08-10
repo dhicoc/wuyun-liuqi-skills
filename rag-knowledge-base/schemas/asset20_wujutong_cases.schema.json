@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wuyun-liuqi.local/schemas/asset20_wujutong_cases.schema.json",
+  "title": "asset20 — 吴鞠通医案库",
+  "description": "清·吴瑭（吴鞠通）医案蒸馏。吴鞠通为温病学派三焦辨证大家，治温病重辛凉清透、养阴护液。覆盖风温、温疫、暑温、伏暑、湿温、冬温、中风、肝风、吐血、便血、肿胀、滞下、泄泻、噎、呕吐、痹、痰饮、疟、伤寒、咳嗽等病证。",
+  "type": "object",
+  "required": [
+    "asset_id",
+    "asset_name",
+    "asset_description",
+    "data_source",
+    "entry_count",
+    "entries"
+  ],
+  "properties": {
+    "asset_id": {
+      "type": "string",
+      "const": "asset20_wujutong_cases"
+    },
+    "asset_name": {
+      "type": "string"
+    },
+    "asset_description": {
+      "type": "string"
+    },
+    "data_source": {
+      "type": "string"
+    },
+    "distill_method": {
+      "type": "string"
+    },
+    "asset_type": {
+      "type": "string",
+      "const": "case_library"
+    },
+    "entry_count": {
+      "type": "integer",
+      "minimum": 40,
+      "maximum": 40
+    },
+    "total_entries": {
+      "type": "integer",
+      "minimum": 40,
+      "maximum": 40
+    },
+    "lookup_fields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "case_id",
+          "category",
+          "physician",
+          "chief_complaint",
+          "syndrome",
+          "treatment",
+          "formula",
+          "outcome",
+          "source",
+          "source_quote",
+          "entry_id",
+          "entry_type"
+        ],
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "description": "医案 ID，如 wjt_001"
+          },
+          "category": {
+            "type": "string",
+            "description": "病证分类，如 风温/暑温/痹等"
+          },
+          "physician": {
+            "type": "string",
+            "description": "医家，如 吴鞠通"
+          },
+          "source": {
+            "type": "string",
+            "description": "出处，如 吴鞠通医案·风温"
+          },
+          "chief_complaint": {
+            "type": "string",
+            "description": "主诉/病案起由"
+          },
+          "syndrome": {
+            "type": "string",
+            "description": "辨证（病机分析）"
+          },
+          "treatment": {
+            "type": "string",
+            "description": "治法"
+          },
+          "formula": {
+            "type": "string",
+            "description": "方药"
+          },
+          "outcome": {
+            "type": "string",
+            "description": "疗效/转归"
+          },
+          "source_quote": {
+            "type": "string",
+            "description": "原文逐字摘录"
+          },
+          "note": {
+            "type": "string",
+            "description": "辨治要点注释"
+          },
+          "entry_id": {
+            "type": "string",
+            "description": "条目 ID"
+          },
+          "entry_type": {
+            "type": "string",
+            "const": "wujutong_case"
+          },
+          "rag_key": {
+            "type": "string",
+            "description": "病证检索键"
+          },
+          "name": {
+            "type": "string",
+            "description": "可读名"
+          }
+        }
+      }
+    }
+  }
+}

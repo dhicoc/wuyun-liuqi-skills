@@ -96,6 +96,7 @@ RAG asset 是精炼键值（回答"是什么"）；下列五本公版古籍蒸�
 | 运气瘟疫防治 | `asset17_wenyi_yunqi.json` | 34 | 清·刘奎《松峰说疫》卷六：五运瘟疫侧重、六气司天民病、五郁治法、刚柔失守疫病专方 |
 | 回春录医案 | `asset18_huichunlu_cases.json` | 40 | 清·王孟英《回春录》：湿热温病、内科杂病、妇科、儿科医案 |
 | 张聿青医案 | `asset19_zhangyuqing_cases.json` | 40 | 清·张乃修《张聿青医案》：湿温伏暑、痰饮肝风、虚损血证医案 |
+| 吴鞠通医案 | `asset20_wujutong_cases.json` | 40 | 清·吴瑭《吴鞠通医案》：温病三焦辨证、风温暑温伏暑、痹证痰饮医案 |
 | 术语 | `terminology.json` | 700 | 运气学术语白话解释 |
 
 检索流程：`calculate_yunqi_api.py --json` → 取 `rag_keys` → 按 key 检索对应 asset。asset11-16 六部历代名家医案库（共 901 条）可按病证分类检索临证真实医案。
