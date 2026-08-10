@@ -88,6 +88,9 @@ jobs:
       - name: SKILL.md end-to-end scenario suite
         run: python tests/skill_e2e_test.py
 
+      - name: Full scenario user-flow suite
+        run: python tests/full_scenario_test.py
+
       - name: Dahan boundary fixture test
         run: python tests/test_dahan_boundary.py
 
