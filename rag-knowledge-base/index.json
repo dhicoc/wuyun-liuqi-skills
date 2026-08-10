@@ -2,7 +2,7 @@
   "asset_name": "wuyun-liuqi-rag-index",
   "asset_type": "knowledge_base_index",
   "description": "五运六气 RAG 知识库资产索引。用于说明各 asset 的用途、检索键和维护状态。",
-  "total_entries": 30,
+  "total_entries": 31,
   "primary_api": "scripts/calculate_yunqi_api.py",
   "entries": [
     {
@@ -627,6 +627,29 @@
         "lz_001"
       ],
       "rag_key": "asset30_lizhai_waike"
+    },
+    {
+      "entry_id": "rag_index_asset31_zuihuachuang_cases",
+      "entry_type": "asset_index",
+      "title": "醉花窗医案库",
+      "file": "asset31_zuihuachuang_cases.json",
+      "asset_id": "asset31_zuihuachuang_cases",
+      "asset_name": "醉花窗医案库",
+      "asset_category": "case_library",
+      "description": "清·王堉（醉花窗主人）《醉花窗医案》蒸馏。王堉辨证精审、善辨脉理，长于鉴别误治与病机本源（阴虚/实热/脾虚/肝郁/寒湿），医案多含脉证互参、四问鉴别、溯源求本之论，并常记载误治救逆案例。本库按病证标题蒸馏，覆盖阴热目痛、中风臂痛、脾虚便秘、阴虚发热、食积致痢、邪风中府、肝热郁血、寒湿关节痛、产后瘀血、湿热遗精等病证。",
+      "total_entries": 10,
+      "lookup_fields": [
+        "category",
+        "physician",
+        "rag_key",
+        "case_id"
+      ],
+      "example_keys": [
+        "目疾",
+        "王堉",
+        "zhc_001"
+      ],
+      "rag_key": "asset31_zuihuachuang_cases"
     },
     {
       "entry_id": "rag_index_asset15_shanghan90_cases",
