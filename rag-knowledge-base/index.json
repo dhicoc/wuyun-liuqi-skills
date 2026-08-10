@@ -2,7 +2,7 @@
   "asset_name": "wuyun-liuqi-rag-index",
   "asset_type": "knowledge_base_index",
   "description": "五运六气 RAG 知识库资产索引。用于说明各 asset 的用途、检索键和维护状态。",
-  "total_entries": 24,
+  "total_entries": 25,
   "primary_api": "scripts/calculate_yunqi_api.py",
   "entries": [
     {
@@ -485,6 +485,29 @@
         "zj_001"
       ],
       "rag_key": "asset24_zhenyu_juji_cases"
+    },
+    {
+      "entry_id": "rag_index_asset25_xushi_cases",
+      "entry_type": "asset_index",
+      "title": "许氏医案库",
+      "file": "asset25_xushi_cases.json",
+      "asset_id": "asset25_xushi_cases",
+      "asset_name": "许氏医案库",
+      "asset_category": "case_library",
+      "description": "清·许恩普《许氏医案》（一卷）蒸馏。许恩普断证如折狱，处方若用兵，言简意赅，善辨虚实真假，多救误治之案。本库按年代验案蒸馏，覆盖伤寒、瘟疫、痢疾、霍乱、中风、产后、胎产、妇科、喉痹、目疾、疟疾等病证。",
+      "total_entries": 15,
+      "lookup_fields": [
+        "category",
+        "physician",
+        "rag_key",
+        "case_id"
+      ],
+      "example_keys": [
+        "伤寒",
+        "许恩普",
+        "xs_001"
+      ],
+      "rag_key": "asset25_xushi_cases"
     },
     {
       "entry_id": "rag_index_asset15_shanghan90_cases",

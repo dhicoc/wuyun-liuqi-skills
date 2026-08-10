@@ -35,6 +35,7 @@ rag-knowledge-base/schemas/
 | `asset22_huixi_cases.json` | `schemas/asset22_huixi_cases.schema.json` |
 | `asset23_huayunlou_cases.json` | `schemas/asset23_huayunlou_cases.schema.json` |
 | `asset24_zhenyu_juji_cases.json` | `schemas/asset24_zhenyu_juji_cases.schema.json` |
+| `asset25_xushi_cases.json` | `schemas/asset25_xushi_cases.schema.json` |
 | `terminology.json` | `schemas/terminology.schema.json` |
 | `index.json` | `schemas/index.schema.json` |
 
@@ -65,6 +66,7 @@ rag-knowledge-base/schemas/
 | asset22 | `asset22_huixi_cases.json` | 洄溪医案 | 清·徐灵胎《洄溪医案》（王孟英编）：经方辨证、中风伤寒、温疫、痰喘、血痢、产后、外科痈疽 | `category`, `physician`, `rag_key`, `case_id` |
 | asset23 | `asset23_huayunlou_cases.json` | 花韵楼医案 | 清·顾德华（女医）《花韵楼医案》：妇科专案，崩漏、月经不调、产后、胎产、乳癖 | `category`, `physician`, `rag_key`, `case_id` |
 | asset24 | `asset24_zhenyu_juji_cases.json` | 诊余举隅录 | 清·陈廷儒《诊余举隅录》：辨证精审，霍乱痢疾泄泻、感冒春温、中风、妇科经闭 | `category`, `physician`, `rag_key`, `case_id` |
+| asset25 | `asset25_xushi_cases.json` | 许氏医案 | 清·许恩普《许氏医案》：断证如折狱，伤寒痢疾中风、胎产妇科、误治救逆 | `category`, `physician`, `rag_key`, `case_id` |
 | terminology | `terminology.json` | 术语库 | 学习解释、报告术语扩展 | term / pinyin / entry_id |
 
 > asset11-16 六部历代名家医案库共 **901 条**临证真实医案，按 `entry_id` / `category` 可检索。
