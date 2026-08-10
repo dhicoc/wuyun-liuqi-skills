@@ -2,7 +2,7 @@
   "asset_name": "wuyun-liuqi-rag-index",
   "asset_type": "knowledge_base_index",
   "description": "五运六气 RAG 知识库资产索引。用于说明各 asset 的用途、检索键和维护状态。",
-  "total_entries": 27,
+  "total_entries": 28,
   "primary_api": "scripts/calculate_yunqi_api.py",
   "entries": [
     {
@@ -554,6 +554,29 @@
         "swy_001"
       ],
       "rag_key": "asset27_sunwenyuan_cases"
+    },
+    {
+      "entry_id": "rag_index_asset28_conggui_cases",
+      "entry_type": "asset_index",
+      "title": "丛桂草堂医案库",
+      "file": "asset28_conggui_cases.json",
+      "asset_id": "asset28_conggui_cases",
+      "asset_name": "丛桂草堂医案库",
+      "asset_category": "case_library",
+      "description": "清·袁焯《丛桂草堂医案》（四卷）蒸馏。袁焯为近代医家，辨证精审，善治痰饮、温病、喉痧、孕产杂病，辨病机求本、立方切当。覆盖痰饮闭塞、温病、喉痧、孕妇寒痛漏血、肿胀呕吐、疟疾、产后等。",
+      "total_entries": 8,
+      "lookup_fields": [
+        "category",
+        "physician",
+        "rag_key",
+        "case_id"
+      ],
+      "example_keys": [
+        "痰饮",
+        "袁焯",
+        "cg_001"
+      ],
+      "rag_key": "asset28_conggui_cases"
     },
     {
       "entry_id": "rag_index_asset15_shanghan90_cases",
