@@ -157,6 +157,10 @@
           "source": {
             "type": "string",
             "description": "出处"
+          },
+          "zaiquan_key": {
+            "type": "string",
+            "description": "在泉检索键"
           }
         }
       }
