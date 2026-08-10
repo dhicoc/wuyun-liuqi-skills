@@ -49,6 +49,7 @@ rag-knowledge-base/schemas/
 | asset14 | `asset14_dingganren_cases.json` | 丁甘仁医案 | 近代丁甘仁，临证实录 | `entry_id`, `category` |
 | asset15 | `asset15_shanghan90_cases.json` | 伤寒九十论 | 宋·许叔微，伤寒经方医案 | `entry_id`, `category` |
 | asset16 | `asset16_ye_cases.json` | 临证指南医案 | 清·叶桂，辨证精审含华岫云按语 | `entry_id`, `category` |
+| asset17 | `asset17_wenyi_yunqi.json` | 运气瘟疫防治 | 清·刘奎《松峰说疫》卷六运气专篇：五运太过不及瘟疫侧重、六气司天民病、五郁治法、刚柔失守疫病专方 | `code`, `sitian_key`, `zaiquan_key`, `rag_key`, `ganzhi`, `category` |
 | terminology | `terminology.json` | 术语库 | 学习解释、报告术语扩展 | term / pinyin / entry_id |
 
 > asset11-16 六部历代名家医案库共 **901 条**临证真实医案，按 `entry_id` / `category` 可检索。

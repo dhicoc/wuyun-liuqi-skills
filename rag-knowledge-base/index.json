@@ -2,7 +2,7 @@
   "asset_name": "wuyun-liuqi-rag-index",
   "asset_type": "knowledge_base_index",
   "description": "五运六气 RAG 知识库资产索引。用于说明各 asset 的用途、检索键和维护状态。",
-  "total_entries": 16,
+  "total_entries": 17,
   "primary_api": "scripts/calculate_yunqi_api.py",
   "entries": [
     {
@@ -299,6 +299,31 @@
         "ye_002"
       ],
       "rag_key": "asset16_ye_cases"
+    },
+    {
+      "entry_id": "rag_index_asset17_wenyi_yunqi",
+      "entry_type": "asset_index",
+      "title": "运气瘟疫防治资产",
+      "file": "asset17_wenyi_yunqi.json",
+      "asset_id": "asset17_wenyi_yunqi",
+      "asset_name": "松峰说疫·运气瘟疫防治库",
+      "asset_category": "wenyi_yunqi",
+      "description": "清·刘奎《松峰说疫》卷六运气专篇蒸馏。将运气格局与瘟疫防治对接：五运太过不及之瘟疫侧重、六气司天在泉之民病预警、五郁治法（郁之发/夺/泄/折/达/发）、以及刚柔失守对应疫病之专属防治方（五瘟丹等）。是现有病机资产未覆盖的『运气—疫病—防治专方』维度。",
+      "total_entries": 34,
+      "lookup_fields": [
+        "code",
+        "sitian_key",
+        "zaiquan_key",
+        "rag_key",
+        "ganzhi",
+        "category"
+      ],
+      "example_keys": [
+        "earth_excess",
+        "甲",
+        "五运太过"
+      ],
+      "rag_key": "asset17_wenyi_yunqi"
     },
     {
       "entry_id": "rag_index_asset15_shanghan90_cases",

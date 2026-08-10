@@ -1,0 +1,165 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wuyun-liuqi.local/schemas/asset17_wenyi_yunqi.schema.json",
+  "title": "asset17 — 松峰说疫·运气瘟疫防治库",
+  "description": "清·刘奎《松峰说疫》卷六运气专篇蒸馏。含五运太过不及瘟疫侧重、六气司天在泉民病预警、五郁治法、刚柔失守疫病专属防治方、瘟疫防治方五类条目。",
+  "type": "object",
+  "required": [
+    "asset_id",
+    "asset_name",
+    "asset_description",
+    "data_source",
+    "entry_count",
+    "entries"
+  ],
+  "properties": {
+    "asset_id": {
+      "type": "string",
+      "const": "asset17_wenyi_yunqi"
+    },
+    "asset_name": {
+      "type": "string"
+    },
+    "asset_description": {
+      "type": "string"
+    },
+    "data_source": {
+      "type": "string"
+    },
+    "distill_method": {
+      "type": "string"
+    },
+    "asset_type": {
+      "type": "string",
+      "const": "wenyi_yunqi"
+    },
+    "entry_count": {
+      "type": "integer",
+      "minimum": 34,
+      "maximum": 34
+    },
+    "total_entries": {
+      "type": "integer",
+      "minimum": 34,
+      "maximum": 34
+    },
+    "lookup_fields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "entry_id",
+          "entry_type",
+          "category",
+          "source",
+          "source_quote"
+        ],
+        "properties": {
+          "entry_id": {
+            "type": "string",
+            "description": "条目 ID，如 wenyi_suiyun_01 / wuyu_zhifa_01 / shishou_yi_01 / wenyi_fang_01"
+          },
+          "entry_type": {
+            "type": "string",
+            "enum": [
+              "wenyi_suiyun",
+              "wenyi_sitian",
+              "wuyu_zhifa",
+              "shishou_yi",
+              "wenyi_fang"
+            ],
+            "description": "条目类型：五运瘟疫侧重/六气司天民病/五郁治法/刚柔失守疫病专方/瘟疫防治方"
+          },
+          "category": {
+            "type": "string",
+            "description": "分类，如 五运太过/五运不及/六气司天/五郁治法/刚柔失守疫病专方/瘟疫防治方"
+          },
+          "code": {
+            "type": "string",
+            "description": "岁运检索键，与 calculate_yunqi_api rag_keys.suiyun 对齐，如 wood_excess"
+          },
+          "sitian_key": {
+            "type": "string",
+            "description": "司天检索键，与 rag_keys.sitian 对齐，如 shaoyin_junhuo_sitian"
+          },
+          "rag_key": {
+            "type": "string",
+            "description": "直接检索键（五郁治法/方剂用）"
+          },
+          "ganzhi": {
+            "type": "string",
+            "description": "干支或干支组，如 甲 / 甲子甲午"
+          },
+          "name": {
+            "type": "string"
+          },
+          "suiyun": {
+            "type": "string"
+          },
+          "sitian": {
+            "type": "string"
+          },
+          "zaiquan": {
+            "type": "string"
+          },
+          "wuyun": {
+            "type": "string"
+          },
+          "pathogenesis": {
+            "type": "string"
+          },
+          "minbing": {
+            "type": "string",
+            "description": "民病（时人病状）"
+          },
+          "zhifa": {
+            "type": "string",
+            "description": "治法"
+          },
+          "duanya": {
+            "type": "string",
+            "description": "断要（死穴/预后）"
+          },
+          "wenyi_tendency": {
+            "type": "string",
+            "description": "瘟疫倾向（五运条目）"
+          },
+          "yug_type": {
+            "type": "string",
+            "description": "郁发疫病类型，如火疫/水疫/木疫（刚柔失守条目）"
+          },
+          "tianshi": {
+            "type": "string",
+            "description": "天时之候（五郁条目）"
+          },
+          "indication": {
+            "type": "string",
+            "description": "方剂主治（方剂条目）"
+          },
+          "composition": {
+            "type": "string",
+            "description": "方剂组成（方剂条目）"
+          },
+          "zouxiao": {
+            "type": "string",
+            "description": "用法/服法（方剂条目）"
+          },
+          "source_quote": {
+            "type": "string",
+            "description": "原文逐字摘录"
+          },
+          "source": {
+            "type": "string",
+            "description": "出处"
+          }
+        }
+      }
+    }
+  }
+}

@@ -43,6 +43,7 @@ ASSET_CATEGORY_BY_FILE = {
 }
 
 TITLE_BY_CATEGORY = {
+    'wenyi_yunqi': '运气瘟疫防治资产',
     'suiyun_pathogenesis': '岁运病机资产',
     'sitian_zaiquan_pathogenesis': '司天在泉资产',
     'kezhujialin_pathogenesis': '客主加临资产',
@@ -51,6 +52,7 @@ TITLE_BY_CATEGORY = {
     'regional_modifier': '地域修正资产',
     'constitution_alignment': '运气体质资产',
     'terminology': '术语解释资产',
+    'wenyi_yunqi': '运气瘟疫防治资产',
 }
 
 DESCRIPTION_BY_CATEGORY = {
@@ -62,6 +64,7 @@ DESCRIPTION_BY_CATEGORY = {
     'regional_modifier': '地域气候修正与体质倾向。',
     'constitution_alignment': '出生年运气体质映射与当前岁运调理。',
     'terminology': '术语解释库，用于教学和报告解释。',
+    'wenyi_yunqi': '松峰说疫运气瘟疫防治：五运太过不及瘟疫侧重、六气司天在泉民病、五郁治法、刚柔失守疫病专方。',
 }
 
 PREFERRED_LOOKUP_FIELDS = {
@@ -73,6 +76,7 @@ PREFERRED_LOOKUP_FIELDS = {
     'asset6_regional.json': ['region_id', 'region_name'],
     'asset7_constitution.json': ['birth_yunqi_keys', 'suiyun_code', 'constitution_code'],
     'terminology.json': ['term', 'pinyin', 'entry_id'],
+    'asset17_wenyi_yunqi.json': ['code', 'sitian_key', 'zaiquan_key', 'rag_key', 'ganzhi', 'category'],
 }
 
 
