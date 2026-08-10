@@ -77,6 +77,7 @@ PREFERRED_LOOKUP_FIELDS = {
     'asset7_constitution.json': ['birth_yunqi_keys', 'suiyun_code', 'constitution_code'],
     'terminology.json': ['term', 'pinyin', 'entry_id'],
     'asset17_wenyi_yunqi.json': ['code', 'sitian_key', 'zaiquan_key', 'rag_key', 'ganzhi', 'category'],
+    'asset18_huichunlu_cases.json': ['category', 'physician', 'rag_key', 'case_id'],
 }
 
 

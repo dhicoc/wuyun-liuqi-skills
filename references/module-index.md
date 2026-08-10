@@ -94,6 +94,7 @@ RAG asset 是精炼键值（回答"是什么"）；下列五本公版古籍蒸�
 | 伤寒九十论 | `asset15_shanghan90_cases.json` | 49 | 宋·许叔微，伤寒经方 |
 | 临证指南医案 | `asset16_ye_cases.json` | 330 | 清·叶桂，含华岫云按语 |
 | 运气瘟疫防治 | `asset17_wenyi_yunqi.json` | 34 | 清·刘奎《松峰说疫》卷六：五运瘟疫侧重、六气司天民病、五郁治法、刚柔失守疫病专方 |
+| 回春录医案 | `asset18_huichunlu_cases.json` | 40 | 清·王孟英《回春录》：湿热温病、内科杂病、妇科、儿科医案 |
 | 术语 | `terminology.json` | 700 | 运气学术语白话解释 |
 
 检索流程：`calculate_yunqi_api.py --json` → 取 `rag_keys` → 按 key 检索对应 asset。asset11-16 六部历代名家医案库（共 901 条）可按病证分类检索临证真实医案。

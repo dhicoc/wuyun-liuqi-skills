@@ -2,7 +2,7 @@
   "asset_name": "wuyun-liuqi-rag-index",
   "asset_type": "knowledge_base_index",
   "description": "五运六气 RAG 知识库资产索引。用于说明各 asset 的用途、检索键和维护状态。",
-  "total_entries": 17,
+  "total_entries": 18,
   "primary_api": "scripts/calculate_yunqi_api.py",
   "entries": [
     {
@@ -324,6 +324,29 @@
         "五运太过"
       ],
       "rag_key": "asset17_wenyi_yunqi"
+    },
+    {
+      "entry_id": "rag_index_asset18_huichunlu_cases",
+      "entry_type": "asset_index",
+      "title": "回春录·王孟英湿热温病医案库",
+      "file": "asset18_huichunlu_cases.json",
+      "asset_id": "asset18_huichunlu_cases",
+      "asset_name": "回春录·王孟英湿热温病医案库",
+      "asset_category": "case_library",
+      "description": "清·王士雄（王孟英）《回春录》（王氏医案）蒸馏。王孟英为湿热温病大家，善辨伏气温病、湿热氤氲、痰气交阻，用药轻清流动，擅调升降出入气机。本库按病证分节蒸馏，覆盖外感温病（风温/春温/暑温/湿温/伏暑/冬温）、内科杂病（咳嗽/痰证/血证/胃脘痛/疟疾/霍乱/泄泻/痢疾/惊悸怔忡）、妇科（月经/产后）及儿科（痘疫/惊风）等病证。",
+      "total_entries": 40,
+      "lookup_fields": [
+        "category",
+        "physician",
+        "rag_key",
+        "case_id"
+      ],
+      "example_keys": [
+        "风温",
+        "王孟英",
+        "hc_001"
+      ],
+      "rag_key": "asset18_huichunlu_cases"
     },
     {
       "entry_id": "rag_index_asset15_shanghan90_cases",
