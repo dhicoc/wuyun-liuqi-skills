@@ -26,8 +26,6 @@ REFERENCES_MD_MAX_LINES = 300
 THIN_SHELLS = [
     "AGENTS.md",
     "CLAUDE.md",
-    "CODEX.md",
-    "GEMINI.md",
     ".cursor/rules/wuyun-liuqi.mdc",
     ".cursor/skills/wuyun-liuqi/SKILL.md",
     ".claude/skills/wuyun-liuqi/SKILL.md",
@@ -118,8 +116,6 @@ def main() -> int:
     ALWAYS_READ_SHELLS = [
         "AGENTS.md",
         "CLAUDE.md",
-        "CODEX.md",
-        "GEMINI.md",
         ".cursor/rules/wuyun-liuqi.mdc",
     ]
 

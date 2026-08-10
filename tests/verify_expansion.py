@@ -225,8 +225,6 @@ print("  薄壳入口检查")
 thin_shells = [
     ("AGENTS.md", os.path.join(BASE, "AGENTS.md")),
     ("CLAUDE.md", os.path.join(BASE, "CLAUDE.md")),
-    ("CODEX.md", os.path.join(BASE, "CODEX.md")),
-    ("GEMINI.md", os.path.join(BASE, "GEMINI.md")),
     (".cursor/rules/wuyun-liuqi.mdc", os.path.join(BASE, ".cursor", "rules", "wuyun-liuqi.mdc")),
     (".cursor/skills/wuyun-liuqi/SKILL.md", os.path.join(BASE, ".cursor", "skills", "wuyun-liuqi", "SKILL.md")),
     (".claude/skills/wuyun-liuqi/SKILL.md", os.path.join(BASE, ".claude", "skills", "wuyun-liuqi", "SKILL.md")),
