@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wuyun-liuqi.local/schemas/asset29_waike_zhengzong.schema.json",
+  "title": "asset29 — 外科正宗·外用医案库",
+  "description": "明·陈实功《外科正宗》蒸馏。陈实功为明代外科大家，治验以内服方药配合外治诸法（艾灸、火针、针刺放血、蟾酥饼贴、琥珀膏、冰蛳散等）为特色，内外兼施。覆盖痈疽、疔疮、瘰疬、脱疽等病证。",
+  "type": "object",
+  "required": [
+    "asset_id",
+    "asset_name",
+    "asset_description",
+    "data_source",
+    "entry_count",
+    "entries"
+  ],
+  "properties": {
+    "asset_id": {
+      "type": "string",
+      "const": "asset29_waike_zhengzong"
+    },
+    "asset_name": {
+      "type": "string"
+    },
+    "asset_description": {
+      "type": "string"
+    },
+    "data_source": {
+      "type": "string"
+    },
+    "distill_method": {
+      "type": "string"
+    },
+    "asset_type": {
+      "type": "string",
+      "const": "case_library"
+    },
+    "entry_count": {
+      "type": "integer",
+      "minimum": 12,
+      "maximum": 12
+    },
+    "total_entries": {
+      "type": "integer",
+      "minimum": 12,
+      "maximum": 12
+    },
+    "lookup_fields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "case_id",
+          "category",
+          "physician",
+          "chief_complaint",
+          "syndrome",
+          "treatment",
+          "formula",
+          "outcome",
+          "source",
+          "source_quote",
+          "entry_id",
+          "entry_type"
+        ],
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "description": "医案 ID，如 wk_001"
+          },
+          "category": {
+            "type": "string",
+            "description": "病证分类（外科）"
+          },
+          "physician": {
+            "type": "string",
+            "description": "医家，如 陈实功"
+          },
+          "source": {
+            "type": "string",
+            "description": "出处"
+          },
+          "chief_complaint": {
+            "type": "string",
+            "description": "主诉/病案起由"
+          },
+          "syndrome": {
+            "type": "string",
+            "description": "辨证（病机分析）"
+          },
+          "treatment": {
+            "type": "string",
+            "description": "治法（含外治法）"
+          },
+          "formula": {
+            "type": "string",
+            "description": "方药（内服+外治）"
+          },
+          "outcome": {
+            "type": "string",
+            "description": "疗效/转归"
+          },
+          "source_quote": {
+            "type": "string",
+            "description": "原文逐字摘录"
+          },
+          "note": {
+            "type": "string",
+            "description": "辨治要点注释"
+          },
+          "entry_id": {
+            "type": "string",
+            "description": "条目 ID"
+          },
+          "entry_type": {
+            "type": "string",
+            "const": "waike_zhengzong_case"
+          },
+          "rag_key": {
+            "type": "string",
+            "description": "病证检索键"
+          },
+          "name": {
+            "type": "string",
+            "description": "可读名"
+          }
+        }
+      }
+    }
+  }
+}

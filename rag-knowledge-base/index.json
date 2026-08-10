@@ -2,7 +2,7 @@
   "asset_name": "wuyun-liuqi-rag-index",
   "asset_type": "knowledge_base_index",
   "description": "五运六气 RAG 知识库资产索引。用于说明各 asset 的用途、检索键和维护状态。",
-  "total_entries": 28,
+  "total_entries": 29,
   "primary_api": "scripts/calculate_yunqi_api.py",
   "entries": [
     {
@@ -577,6 +577,29 @@
         "cg_001"
       ],
       "rag_key": "asset28_conggui_cases"
+    },
+    {
+      "entry_id": "rag_index_asset29_waike_zhengzong",
+      "entry_type": "asset_index",
+      "title": "外科正宗·外用医案库",
+      "file": "asset29_waike_zhengzong.json",
+      "asset_id": "asset29_waike_zhengzong",
+      "asset_name": "外科正宗·外用医案库",
+      "asset_category": "case_library",
+      "description": "明·陈实功《外科正宗》蒸馏。陈实功为明代外科大家，其治验以内服方药配合外治诸法（艾灸、火针、针刺放血、蟾酥饼贴、琥珀膏、冰蛳散、金箍散箍围等）为特色，内外兼施，是中医外治法医案的典范。本库精选含外用治法的治验医案，覆盖痈疽、疔疮、瘰疬、脱疽等病证。",
+      "total_entries": 12,
+      "lookup_fields": [
+        "category",
+        "physician",
+        "rag_key",
+        "case_id"
+      ],
+      "example_keys": [
+        "脱疽",
+        "陈实功",
+        "wk_001"
+      ],
+      "rag_key": "asset29_waike_zhengzong"
     },
     {
       "entry_id": "rag_index_asset15_shanghan90_cases",
