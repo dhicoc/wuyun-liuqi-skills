@@ -52,7 +52,7 @@
 
 ## 跨工具入口
 
-薄壳文件（`AGENTS.md`、`CLAUDE.md`、`CODEX.md`、`GEMINI.md`、`.cursor/rules/wuyun-liuqi.mdc`）均引导至本 `routing.yaml`，不重复规则正文。
+薄壳文件（`AGENTS.md`、`CLAUDE.md`、`.cursor/rules/wuyun-liuqi.mdc`）均引导至本 `routing.yaml`，不重复规则正文。
 
 ## 维护说明
 

@@ -134,8 +134,6 @@ bash scripts/setup.sh
 |------|----------|
 | Codex / Copilot / OpenCode | [AGENTS.md](AGENTS.md) |
 | Claude Code | [CLAUDE.md](CLAUDE.md) + 可选 [.claude/skills/wuyun-liuqi/](.claude/skills/wuyun-liuqi/) |
-| Codex 兼容镜像 | [CODEX.md](CODEX.md) |
-| Gemini CLI | [GEMINI.md](GEMINI.md) |
 | Cursor | [.cursor/rules/wuyun-liuqi.mdc](.cursor/rules/wuyun-liuqi.mdc) + [.cursor/skills/wuyun-liuqi/SKILL.md](.cursor/skills/wuyun-liuqi/SKILL.md) |
 
 **一句话安装后的两种激活方式：**
@@ -268,7 +266,6 @@ Agent 会自动调用本技能包的推算引擎、知识库和推理流程来�
 ├── SKILL.md                    # ★ 总控路由入口（AI 必读）
 ├── routing.yaml / routing.md   # ★ 路由真相源 / 人类索引
 ├── CLAUDE.md / AGENTS.md       # 跨工具薄壳（Claude / Codex / Copilot）
-├── CODEX.md / GEMINI.md        # Codex / Gemini 薄壳
 ├── README.md / README_AI.md    # 开发者 / AI 引导
 ├── RULES.md                    # 行为规则索引 → rules/
 ├── CONTRIBUTING.md / LICENSE   # 贡献指南 / MIT
