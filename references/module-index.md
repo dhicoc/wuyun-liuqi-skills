@@ -108,6 +108,7 @@ RAG asset 是精炼键值（回答"是什么"）；下列五本公版古籍蒸�
 | 外科正宗·外用 | `asset29_waike_zhengzong.json` | 12 | 明·陈实功《外科正宗》：痈疽疔疮瘰疬脱疽，艾灸/火针/蟾酥饼/琥珀膏外治 |
 | 立斋外科发挥 | `asset30_lizhai_waike.json` | 8 | 明·薛己《立斋外科发挥》：痈疽以气血为本最忌攻伐，内因→外候联动 |
 | 醉花窗医案 | `asset31_zuihuachuang_cases.json` | 10 | 清·王堉《醉花窗医案》：脉证互参、虚实鉴别、误治救逆 |
+| 医验随笔 | `asset32_yiyan_suibi.json` | 12 | 近代·沈奉江《医验随笔》：温病痰喘、温毒发痘、疙瘩瘟，内外兼治 |
 | 术语 | `terminology.json` | 700 | 运气学术语白话解释 |
 
 检索流程：`calculate_yunqi_api.py --json` → 取 `rag_keys` → 按 key 检索对应 asset。asset11-16 六部历代名家医案库（共 901 条）可按病证分类检索临证真实医案。

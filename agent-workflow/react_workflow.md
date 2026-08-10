@@ -130,7 +130,7 @@ INPUT: {"date_str": "1996-08-18"}
 
 ### Step 3 — ACT：检索 RAG 知识库
 
-**动作**：以 Step 2 提取的键值为检索词，查询 RAG 知识库。核心病机查 asset1-3，补充方药/注家/地域/体质查 asset4-7，需医案佐证时查 asset9（同格局）、asset11-16（历代名家病证医案）、asset17（运气瘟疫防治）、asset18（回春录）、asset19（张聿青）、asset20（吴鞠通）、asset21（寓意草）、asset22（洄溪）、asset23（花韵楼）、asset24（诊余举隅录）、asset25（许氏）、asset26（杏轩）、asset27（孙文垣）、asset28（丛桂草堂）、asset29（外科正宗外用）、asset30（立斋内外联动）或 asset31（醉花窗医案）。
+**动作**：以 Step 2 提取的键值为检索词，查询 RAG 知识库。核心病机查 asset1-3，补充方药/注家/地域/体质查 asset4-7，需医案佐证时查 asset9（同格局）、asset11-16（历代名家病证医案）、asset17（运气瘟疫防治）、asset18（回春录）、asset19（张聿青）、asset20（吴鞠通）、asset21（寓意草）、asset22（洄溪）、asset23（花韵楼）、asset24（诊余举隅录）、asset25（许氏）、asset26（杏轩）、asset27（孙文垣）、asset28（丛桂草堂）、asset29（外科正宗外用）、asset30（立斋内外联动）、asset31（醉花窗）或 asset32（医验随笔）。
 
 ```
 TOOL_CALL: rag_search
@@ -170,6 +170,7 @@ INPUT: {
 | asset29 | `rag-knowledge-base/asset29_waike_zhengzong.json` | 外科正宗·外用医案库（痈疽/疔疮/瘰疬/脱疽，艾灸火针蟾酥饼琥珀膏外治，12 条） | `category` / `rag_key` / `case_id` |
 | asset30 | `rag-knowledge-base/asset30_lizhai_waike.json` | 立斋外科发挥·内外联动医案库（痈疽以气血为本，内因→外候联动，8 条） | `category` / `rag_key` / `internal_key` / `external_key` |
 | asset31 | `rag-knowledge-base/asset31_zuihuachuang_cases.json` | 醉花窗医案库（脉证互参/虚实鉴别/误治救逆，10 条） | `category` / `rag_key` / `case_id` |
+| asset32 | `rag-knowledge-base/asset32_yiyan_suibi.json` | 医验随笔医案库（温病/痰喘/便秘/温毒发痘/疙瘩瘟，内外兼治，12 条） | `category` / `rag_key` / `case_id` |
 
 **检索策略**：
 - 优先精确匹配 `sui_yun.code`（如 `water_excess`）

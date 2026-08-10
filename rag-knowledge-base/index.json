@@ -2,7 +2,7 @@
   "asset_name": "wuyun-liuqi-rag-index",
   "asset_type": "knowledge_base_index",
   "description": "五运六气 RAG 知识库资产索引。用于说明各 asset 的用途、检索键和维护状态。",
-  "total_entries": 31,
+  "total_entries": 32,
   "primary_api": "scripts/calculate_yunqi_api.py",
   "entries": [
     {
@@ -650,6 +650,29 @@
         "zhc_001"
       ],
       "rag_key": "asset31_zuihuachuang_cases"
+    },
+    {
+      "entry_id": "rag_index_asset32_yiyan_suibi",
+      "entry_type": "asset_index",
+      "title": "医验随笔医案库",
+      "file": "asset32_yiyan_suibi.json",
+      "asset_id": "asset32_yiyan_suibi",
+      "asset_name": "医验随笔医案库",
+      "asset_category": "case_library",
+      "description": "近代·沈奉江（孟河马培之高足）《医验随笔》蒸馏，门人周逢儒笔记。沈氏诊断精确、用药工稳，内外兼治：内科善治温病、痰喘、便秘、伏暑，外科善治温毒发痘、疙瘩瘟、痧疹，每能辨病机本源、坚持主见驳误治。本库按验案蒸馏，覆盖气虚胃弱、攻下救急、痰火扰神、肝阴不足、温病、痰喘、便秘、温毒发痘、疙瘩瘟、伏暑、白痦透发等病证。",
+      "total_entries": 12,
+      "lookup_fields": [
+        "category",
+        "physician",
+        "rag_key",
+        "case_id"
+      ],
+      "example_keys": [
+        "脾胃",
+        "沈奉江",
+        "ysb_001"
+      ],
+      "rag_key": "asset32_yiyan_suibi"
     },
     {
       "entry_id": "rag_index_asset15_shanghan90_cases",

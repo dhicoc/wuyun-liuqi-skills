@@ -91,6 +91,7 @@ PREFERRED_LOOKUP_FIELDS = {
     'asset29_waike_zhengzong.json': ['category', 'physician', 'rag_key', 'case_id', 'internal_key', 'external_key'],
     'asset30_lizhai_waike.json': ['category', 'physician', 'rag_key', 'case_id', 'internal_key', 'external_key'],
     'asset31_zuihuachuang_cases.json': ['category', 'physician', 'rag_key', 'case_id'],
+    'asset32_yiyan_suibi.json': ['category', 'physician', 'rag_key', 'case_id'],
 }
 
 

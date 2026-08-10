@@ -271,6 +271,7 @@ Agent 会自动调用本技能包的推算引擎、知识库和推理流程来�
 | `rag-knowledge-base/asset29_waike_zhengzong.json` | 外科正宗·外用医案库（痈疽/疔疮/瘰疬/脱疽，艾灸火针蟾酥饼琥珀膏外治，12 条） |
 | `rag-knowledge-base/asset30_lizhai_waike.json` | 立斋外科发挥·内外联动医案库（痈疽以气血为本，内因→外候联动，8 条） |
 | `rag-knowledge-base/asset31_zuihuachuang_cases.json` | 醉花窗医案库（脉证互参/虚实鉴别/误治救逆，10 条） |
+| `rag-knowledge-base/asset32_yiyan_suibi.json` | 医验随笔医案库（温病/痰喘/便秘/温毒发痘/疙瘩瘟，内外兼治，12 条） |
 | [`perspectives/`](perspectives/README.md) | 注家人格 perspective skill（刘完素/张介宾，深度扮演） |
 
 ### 仓库结构
@@ -299,7 +300,7 @@ Agent 会自动调用本技能包的推算引擎、知识库和推理流程来�
 │
 ├── 知识库（零依赖 Grep+Read）──────────────────────────────
 ├── rag-knowledge-base/         # ★ RAG asset + 蒸馏指南 + 文献原文
-│   ├── asset1-31 *.json        #   31 个键值 asset（病机/方/注家/体质/医案/治法/瘟疫，含 20 部历代名家医案库）
+│   ├── asset1-32 *.json        #   32 个键值 asset（病机/方/注家/体质/医案/治法/瘟疫，含 21 部历代名家医案库）
 │   ├── terminology.json        #   700 条术语
 │   ├── *_guide.md              #   10 本公版蒸馏指南（五层注释链 + 35篇合并）
 │   ├── literature/             #   35 篇公版文献原文（61.6 万字）
@@ -376,6 +377,7 @@ Agent 会自动调用本技能包的推算引擎、知识库和推理流程来�
 | **外科正宗·外用医案** | **asset29** | **12** | **明·陈实功《外科正宗》：痈疽疔疮瘰疬脱疽，艾灸/火针/蟾酥饼/琥珀膏外治** |
 | **立斋外科发挥·内外联动** | **asset30** | **8** | **明·薛己《立斋外科发挥》：痈疽以气血为本最忌攻伐，内因→外候联动** |
 | **醉花窗医案** | **asset31** | **10** | **清·王堉《醉花窗医案》：脉证互参、阴虚实热脾虚肝郁鉴别、误治救逆** |
+| **医验随笔** | **asset32** | **12** | **近代·沈奉江《医验随笔》：温病痰喘便秘、温毒发痘、疙瘩瘟，内外兼治** |
 
 配合 **700 条术语库**（terminology.json），通过 `rag_keys` 精确匹配。asset9/asset10 按推算引擎输出的 rag_keys 索引，可召回同格局医案与岁宜治法；asset11-16 六部历代名家医案库（共 901 条）可按病证分类检索临证真实医案。
 
@@ -433,7 +435,7 @@ RAG asset 是精炼键值（回答"是什么"）；下列五本公版古籍蒸�
 ### Agent 集成层
 
 1. **强规则计算工具**（`calculate_yunqi_api`）：大寒定年 + 标准化 JSON + rag_key 生成
-2. **RAG 知识库**（`rag-knowledge-base/`）：31 个键值 asset（含 asset9 岁图医案 + asset11-16 六部历代名家医案库 901 条 + asset17 运气瘟疫防治 + asset18 回春录医案 + asset19 张聿青医案 + asset20 吴鞠通医案 + asset21 寓意草医案 + asset22 洄溪医案 + asset23 花韵楼医案 + asset24 诊余举隅录 + asset25 许氏医案 + asset26 杏轩医案 + asset27 孙文垣医案 + asset28 丛桂草堂医案 + asset29 外科正宗外用医案 + asset30 立斋外科发挥 + asset31 醉花窗医案）+ 10 本公版蒸馏指南（Grep+Read）+ 35 篇文献原文
+2. **RAG 知识库**（`rag-knowledge-base/`）：32 个键值 asset（含 asset9 岁图医案 + asset11-16 六部历代名家医案库 901 条 + asset17 运气瘟疫防治 + asset18 回春录医案 + asset19 张聿青医案 + asset20 吴鞠通医案 + asset21 寓意草医案 + asset22 洄溪医案 + asset23 花韵楼医案 + asset24 诊余举隅录 + asset25 许氏医案 + asset26 杏轩医案 + asset27 孙文垣医案 + asset28 丛桂草堂医案 + asset29 外科正宗外用医案 + asset30 立斋外科发挥 + asset31 醉花窗医案 + asset32 医验随笔）+ 10 本公版蒸馏指南（Grep+Read）+ 35 篇文献原文
 3. **ReAct 推理工作流**（`agent-workflow/`）：查工具 -> 查知识库 -> 辨证推理闭环
 4. **System Prompt**（`prompts/`）：TCM 运气专家角色约束（临床模式 + 讲解模式双语态）
 5. **注家人格**（`perspectives/`）：刘完素/张介宾可运行 perspective skill（深度注家扮演）
@@ -498,12 +500,12 @@ scripts/self_evolve.py -> 自动记录
 
 **WuYun-LiuQi** (Five Movements and Six Qi, 运气学) is an AI Agent skill pack designed to help humans deeply understand the ancient Yunqi thought system (天人合一 / Heaven-Human Oneness, 气化 / Qi transformation, 中和 / moderation, time rhythms, and life view) through accurate calculation, philosophical interpretation, and exportable study materials.
 
-It is based on the Yunqi theory in the seven major Suwen treatises of the *Huangdi Neijing*. The pack provides rule-based Ganzhi/Yunqi calculation (Dahan boundary), a 31-asset RAG knowledge base (incl. 20 classical case libraries), thought-layer explanations, progressive learning depth, self-evolution with privacy, and tools to export thought summaries, Anki cards, and printable reports.
+It is based on the Yunqi theory in the seven major Suwen treatises of the *Huangdi Neijing*. The pack provides rule-based Ganzhi/Yunqi calculation (Dahan boundary), a 32-asset RAG knowledge base (incl. 21 classical case libraries), thought-layer explanations, progressive learning depth, self-evolution with privacy, and tools to export thought summaries, Anki cards, and printable reports.
 
 The project provides an end-to-end workflow focused on helping humans deeply understand the Yunqi thought system (天人合一, 气化, 中和, time rhythms, life view):
 
 ```text
-User input (natural language) → routing + onboarding (fuzzy intent handling) → Python engine (Dahan boundary) → 31-asset RAG (incl. 20 classical case libraries) → pathogenesis + **thought-layer interpretation** → reports with guiding/reflection questions → visualization → self-evolution (concept tracking + understanding feedback + privacy) → export (plain-text thought summary / Anki cards / PDF/HTML)
+User input (natural language) → routing + onboarding (fuzzy intent handling) → Python engine (Dahan boundary) → 32-asset RAG (incl. 21 classical case libraries) → pathogenesis + **thought-layer interpretation** → reports with guiding/reflection questions → visualization → self-evolution (concept tracking + understanding feedback + privacy) → export (plain-text thought summary / Anki cards / PDF/HTML)
 ```
 
 Core value: Reliable calculation + philosophical interpretation + exportable study materials so humans can truly internalize the ideas rather than just receive numbers.
@@ -579,7 +581,7 @@ python tests/full_regression_test.py   # 63 tests, 0 failures
 - Standardized JSON + rich text output for LLM / Agent integration
 - **Thought-layer interpretation** in reports: philosophical explanations (天人合一, 气化, 中和), modern analogies, year-specific insights
 - Progressive depth: `--level simple|standard|deep` and `--explain-concept`
-- 31-asset RAG knowledge base (pathogenesis, formulas, commentaries, regional, constitution + 20 classical case libraries, 901+ cases)
+- 32-asset RAG knowledge base (pathogenesis, formulas, commentaries, regional, constitution + 21 classical case libraries, 901+ cases)
 - Weather & constitution advanced alignment (three-dimensional analysis)
 - ReAct-style reasoning workflow
 - Markdown / styled HTML report generation (student / practitioner / researcher)
