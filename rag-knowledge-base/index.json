@@ -612,7 +612,7 @@
       "asset_name": "立斋外科发挥·内外联动医案库",
       "asset_category": "case_library",
       "description": "明·薛己（薛立斋）《立斋外科发挥》（八卷）蒸馏。薛己为明代外科大家，主张『痈疽以气血为本，最忌攻伐』，辨内因（气血虚实、脏腑寒热）以决外候（痈疽起发/溃脓/收敛），内外并治。本库精选治验医案，覆盖痈疽、溃疡、发背、疔疮、脱疽、瘰疬、流注、乳痈等，每条含内因病机与外候症候联动字段。",
-      "total_entries": 96,
+      "total_entries": 108,
       "lookup_fields": [
         "category",
         "physician",
