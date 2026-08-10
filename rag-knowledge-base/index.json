@@ -2,7 +2,7 @@
   "asset_name": "wuyun-liuqi-rag-index",
   "asset_type": "knowledge_base_index",
   "description": "五运六气 RAG 知识库资产索引。用于说明各 asset 的用途、检索键和维护状态。",
-  "total_entries": 20,
+  "total_entries": 21,
   "primary_api": "scripts/calculate_yunqi_api.py",
   "entries": [
     {
@@ -393,6 +393,29 @@
         "wjt_001"
       ],
       "rag_key": "asset20_wujutong_cases"
+    },
+    {
+      "entry_id": "rag_index_asset21_yuyicao_cases",
+      "entry_type": "asset_index",
+      "title": "寓意草医案库",
+      "file": "asset21_yuyicao_cases.json",
+      "asset_id": "asset21_yuyicao_cases",
+      "asset_name": "寓意草医案库",
+      "asset_category": "case_library",
+      "description": "清·喻嘉言（喻昌）《寓意草》蒸馏。喻嘉言首创『议病式』医案（先议病后用药），辨证精审，善治伤寒危证、误治救逆、真阳上脱、血证、痢疾、肺痈、痰病等。其医案议论详尽，重病机辨析、病因求本与治法权衡，是中医辨证论治的高峰之作。本库精选议病式医案，覆盖伤寒、真阳上脱、痢疾、血症、肺痈、痰病、小儿惊风、膈气、危症救逆等。",
+      "total_entries": 17,
+      "lookup_fields": [
+        "category",
+        "physician",
+        "rag_key",
+        "case_id"
+      ],
+      "example_keys": [
+        "真阳上脱",
+        "喻嘉言",
+        "yyc_001"
+      ],
+      "rag_key": "asset21_yuyicao_cases"
     },
     {
       "entry_id": "rag_index_asset15_shanghan90_cases",

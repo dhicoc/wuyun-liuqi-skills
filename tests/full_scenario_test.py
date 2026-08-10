@@ -119,6 +119,25 @@ try:
     check("search --key zyq_020 asset19 精确命中", d.get("count", 0) >= 1, f'{d.get("count")}条')
 except Exception as e:
     check("search --key zyq_020", False, str(e))
+# 7d. asset20 吴鞠通 + asset21 寓意草
+rc, out, err = run([os.path.join("scripts", "yunqi_cli.py"), "search", "风温", "--asset", "asset20", "--json"])
+try:
+    d = json.loads(out)
+    check("search 风温 asset20 命中", d.get("count", 0) >= 1, f'{d.get("count")}条')
+except Exception as e:
+    check("search 风温 asset20", False, str(e))
+rc, out, err = run([os.path.join("scripts", "yunqi_cli.py"), "search", "痢疾", "--asset", "asset21", "--json"])
+try:
+    d = json.loads(out)
+    check("search 痢疾 asset21 命中", d.get("count", 0) >= 1, f'{d.get("count")}条')
+except Exception as e:
+    check("search 痢疾 asset21", False, str(e))
+rc, out, err = run([os.path.join("scripts", "yunqi_cli.py"), "search", "--key", "yyc_001", "--asset", "asset21", "--json"])
+try:
+    d = json.loads(out)
+    check("search --key yyc_001 asset21 精确命中", d.get("count", 0) >= 1, f'{d.get("count")}条')
+except Exception as e:
+    check("search --key yyc_001", False, str(e))
 # 7c. 医案白话转述模拟（模拟 agent 将文言医案转成大白话）
 rc, out, err = run([os.path.join("scripts", "yunqi_cli.py"), "search", "霍乱", "--asset", "asset18", "--json"])
 try:

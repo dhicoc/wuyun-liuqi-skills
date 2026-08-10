@@ -31,6 +31,7 @@ rag-knowledge-base/schemas/
 | `asset18_huichunlu_cases.json` | `schemas/asset18_huichunlu_cases.schema.json` |
 | `asset19_zhangyuqing_cases.json` | `schemas/asset19_zhangyuqing_cases.schema.json` |
 | `asset20_wujutong_cases.json` | `schemas/asset20_wujutong_cases.schema.json` |
+| `asset21_yuyicao_cases.json` | `schemas/asset21_yuyicao_cases.schema.json` |
 | `terminology.json` | `schemas/terminology.schema.json` |
 | `index.json` | `schemas/index.schema.json` |
 
@@ -57,6 +58,7 @@ rag-knowledge-base/schemas/
 | asset18 | `asset18_huichunlu_cases.json` | 回春录医案 | 清·王孟英《回春录》（王氏医案）：湿热温病、内科杂病、妇科、儿科医案 | `category`, `physician`, `rag_key`, `case_id` |
 | asset19 | `asset19_zhangyuqing_cases.json` | 张聿青医案 | 清·张乃修《张聿青医案》：湿温伏暑、痰饮肝风、虚损血证、内科杂病医案 | `category`, `physician`, `rag_key`, `case_id` |
 | asset20 | `asset20_wujutong_cases.json` | 吴鞠通医案 | 清·吴瑭《吴鞠通医案》：温病三焦辨证、风温暑温伏暑、痹证痰饮医案 | `category`, `physician`, `rag_key`, `case_id` |
+| asset21 | `asset21_yuyicao_cases.json` | 寓意草医案 | 清·喻嘉言《寓意草》：议病式医案、伤寒危证、真阳上脱、误治救逆、痢疾疫情、肺痈痰病 | `category`, `physician`, `rag_key`, `case_id` |
 | terminology | `terminology.json` | 术语库 | 学习解释、报告术语扩展 | term / pinyin / entry_id |
 
 > asset11-16 六部历代名家医案库共 **901 条**临证真实医案，按 `entry_id` / `category` 可检索。
