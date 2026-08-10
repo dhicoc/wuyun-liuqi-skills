@@ -130,7 +130,7 @@ INPUT: {"date_str": "1996-08-18"}
 
 ### Step 3 — ACT：检索 RAG 知识库
 
-**动作**：以 Step 2 提取的键值为检索词，查询 RAG 知识库。核心病机查 asset1-3，补充方药/注家/地域/体质查 asset4-7，需医案佐证时查 asset9（同格局）、asset11-16（历代名家病证医案）、asset17（运气瘟疫防治）、asset18（回春录）、asset19（张聿青）、asset20（吴鞠通）或 asset21（寓意草医案）。
+**动作**：以 Step 2 提取的键值为检索词，查询 RAG 知识库。核心病机查 asset1-3，补充方药/注家/地域/体质查 asset4-7，需医案佐证时查 asset9（同格局）、asset11-16（历代名家病证医案）、asset17（运气瘟疫防治）、asset18（回春录）、asset19（张聿青）、asset20（吴鞠通）、asset21（寓意草）或 asset22（洄溪医案）。
 
 ```
 TOOL_CALL: rag_search
@@ -160,6 +160,7 @@ INPUT: {
 | asset19 | `rag-knowledge-base/asset19_zhangyuqing_cases.json` | 张聿青医案库（湿温伏暑/痰饮肝风/虚损血证/内科杂病，40 条） | `category` / `rag_key` / `case_id` |
 | asset20 | `rag-knowledge-base/asset20_wujutong_cases.json` | 吴鞠通医案库（温病三焦辨证/风温暑温伏暑/痹证痰饮，40 条） | `category` / `rag_key` / `case_id` |
 | asset21 | `rag-knowledge-base/asset21_yuyicao_cases.json` | 寓意草医案库（议病式医案/伤寒危证/真阳上脱/误治救逆，17 条） | `category` / `rag_key` / `case_id` |
+| asset22 | `rag-knowledge-base/asset22_huixi_cases.json` | 洄溪医案库（经方辨证/中风伤寒/温疫/痰喘/血痢/产后/外科痈疽，23 条） | `category` / `rag_key` / `case_id` |
 
 **检索策略**：
 - 优先精确匹配 `sui_yun.code`（如 `water_excess`）
