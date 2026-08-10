@@ -99,6 +99,7 @@ RAG asset 是精炼键值（回答"是什么"）；下列五本公版古籍蒸�
 | 吴鞠通医案 | `asset20_wujutong_cases.json` | 40 | 清·吴瑭《吴鞠通医案》：温病三焦辨证、风温暑温伏暑、痹证痰饮医案 |
 | 寓意草医案 | `asset21_yuyicao_cases.json` | 17 | 清·喻嘉言《寓意草》：议病式医案、伤寒危证、真阳上脱、误治救逆 |
 | 洄溪医案 | `asset22_huixi_cases.json` | 23 | 清·徐灵胎《洄溪医案》（王孟英编）：经方辨证、中风伤寒、温疫、痰喘、血痢、产后、外科 |
+| 花韵楼医案 | `asset23_huayunlou_cases.json` | 20 | 清·顾德华（女医）《花韵楼医案》：妇科专案，崩漏、月经、产后、胎产、乳癖 |
 | 术语 | `terminology.json` | 700 | 运气学术语白话解释 |
 
 检索流程：`calculate_yunqi_api.py --json` → 取 `rag_keys` → 按 key 检索对应 asset。asset11-16 六部历代名家医案库（共 901 条）可按病证分类检索临证真实医案。

@@ -2,7 +2,7 @@
   "asset_name": "wuyun-liuqi-rag-index",
   "asset_type": "knowledge_base_index",
   "description": "五运六气 RAG 知识库资产索引。用于说明各 asset 的用途、检索键和维护状态。",
-  "total_entries": 22,
+  "total_entries": 23,
   "primary_api": "scripts/calculate_yunqi_api.py",
   "entries": [
     {
@@ -439,6 +439,29 @@
         "hx_001"
       ],
       "rag_key": "asset22_huixi_cases"
+    },
+    {
+      "entry_id": "rag_index_asset23_huayunlou_cases",
+      "entry_type": "asset_index",
+      "title": "花韵楼医案库",
+      "file": "asset23_huayunlou_cases.json",
+      "asset_id": "asset23_huayunlou_cases",
+      "asset_name": "花韵楼医案库",
+      "asset_category": "case_library",
+      "description": "清·顾德华（顾云女士）《花韵楼医案》蒸馏。顾德华为清代女医、妇科名医，专治妇人杂症，辨证透彻、立方平善。以妇科（崩漏、月经不调、产后、胎产、乳癖）为主，兼内科杂病（痢疾、疟疾、温病、咳嗽、肝风、痹痛）。",
+      "total_entries": 20,
+      "lookup_fields": [
+        "category",
+        "physician",
+        "rag_key",
+        "case_id"
+      ],
+      "example_keys": [
+        "崩漏",
+        "顾德华",
+        "hyl_001"
+      ],
+      "rag_key": "asset23_huayunlou_cases"
     },
     {
       "entry_id": "rag_index_asset15_shanghan90_cases",

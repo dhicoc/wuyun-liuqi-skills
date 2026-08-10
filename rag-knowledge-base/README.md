@@ -33,6 +33,7 @@ rag-knowledge-base/schemas/
 | `asset20_wujutong_cases.json` | `schemas/asset20_wujutong_cases.schema.json` |
 | `asset21_yuyicao_cases.json` | `schemas/asset21_yuyicao_cases.schema.json` |
 | `asset22_huixi_cases.json` | `schemas/asset22_huixi_cases.schema.json` |
+| `asset23_huayunlou_cases.json` | `schemas/asset23_huayunlou_cases.schema.json` |
 | `terminology.json` | `schemas/terminology.schema.json` |
 | `index.json` | `schemas/index.schema.json` |
 
@@ -61,6 +62,7 @@ rag-knowledge-base/schemas/
 | asset20 | `asset20_wujutong_cases.json` | 吴鞠通医案 | 清·吴瑭《吴鞠通医案》：温病三焦辨证、风温暑温伏暑、痹证痰饮医案 | `category`, `physician`, `rag_key`, `case_id` |
 | asset21 | `asset21_yuyicao_cases.json` | 寓意草医案 | 清·喻嘉言《寓意草》：议病式医案、伤寒危证、真阳上脱、误治救逆、痢疾疫情、肺痈痰病 | `category`, `physician`, `rag_key`, `case_id` |
 | asset22 | `asset22_huixi_cases.json` | 洄溪医案 | 清·徐灵胎《洄溪医案》（王孟英编）：经方辨证、中风伤寒、温疫、痰喘、血痢、产后、外科痈疽 | `category`, `physician`, `rag_key`, `case_id` |
+| asset23 | `asset23_huayunlou_cases.json` | 花韵楼医案 | 清·顾德华（女医）《花韵楼医案》：妇科专案，崩漏、月经不调、产后、胎产、乳癖 | `category`, `physician`, `rag_key`, `case_id` |
 | terminology | `terminology.json` | 术语库 | 学习解释、报告术语扩展 | term / pinyin / entry_id |
 
 > asset11-16 六部历代名家医案库共 **901 条**临证真实医案，按 `entry_id` / `category` 可检索。
