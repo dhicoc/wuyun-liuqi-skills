@@ -31,7 +31,12 @@
       "entry_id": "wk_001",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "脱疽",
-      "name": "wk_001 脱疽针艾泄毒"
+      "name": "wk_001 脱疽针艾泄毒",
+      "internal_cause": "火毒蕴结、气滞血瘀",
+      "internal_key": "heat_toxin",
+      "external_manifestation": "足趾脱疽（紫肿腐烂）",
+      "external_key": "脱疽",
+      "chain": "火毒内蕴→气血瘀滞→肢端失养成脱疽"
     },
     {
       "case_id": "wk_002",
@@ -48,7 +53,12 @@
       "entry_id": "wk_002",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "瘰疬",
-      "name": "wk_002 瘰疬火针攻核"
+      "name": "wk_002 瘰疬火针攻核",
+      "internal_cause": "劳伤气血、肝火妄动（情志郁结）",
+      "internal_key": "liver_fire",
+      "external_manifestation": "颈部瘰疬成核",
+      "external_key": "瘰疬",
+      "chain": "肝郁化火→气血亏虚→痰核结聚颈部成瘰疬"
     },
     {
       "case_id": "wk_003",
@@ -65,7 +75,12 @@
       "entry_id": "wk_003",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "瘰疬",
-      "name": "wk_003 瘰疬琥珀膏"
+      "name": "wk_003 瘰疬琥珀膏",
+      "internal_cause": "肝火妄动、脾热（性急郁怒）",
+      "internal_key": "liver_fire",
+      "external_manifestation": "左项瘰疬坚硬如石",
+      "external_key": "瘰疬",
+      "chain": "肝火脾热→痰凝气结→项侧瘰疬硬核"
     },
     {
       "case_id": "wk_004",
@@ -82,7 +97,12 @@
       "entry_id": "wk_004",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "疔疮",
-      "name": "wk_004 疔疮灸贴"
+      "name": "wk_004 疔疮灸贴",
+      "internal_cause": "肝经湿热",
+      "internal_key": "liver_damp_heat",
+      "external_manifestation": "疔疮顶高红活",
+      "external_key": "疔疮",
+      "chain": "肝经湿热→热毒上壅→疔疮"
     },
     {
       "case_id": "wk_005",
@@ -99,7 +119,12 @@
       "entry_id": "wk_005",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "项痈",
-      "name": "wk_005 项核琥珀膏"
+      "name": "wk_005 项核琥珀膏",
+      "internal_cause": "痰核凝结（表解后余邪）",
+      "internal_key": "phlegm_stasis",
+      "external_manifestation": "项核不消",
+      "external_key": "项痈",
+      "chain": "痰气凝结→项部痰核"
     },
     {
       "case_id": "wk_006",
@@ -116,7 +141,12 @@
       "entry_id": "wk_006",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "项痈",
-      "name": "wk_006 项痈脓熟针之"
+      "name": "wk_006 项痈脓熟针之",
+      "internal_cause": "雾露外袭、惊恐内伤（正虚感邪）",
+      "internal_key": "wind_cold_external",
+      "external_manifestation": "头面耳项俱肿",
+      "external_key": "项痈",
+      "chain": "外感雾露+内伤惊恐→营卫不和→项间毒聚成痈"
     },
     {
       "case_id": "wk_007",
@@ -133,7 +163,12 @@
       "entry_id": "wk_007",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "疔疮",
-      "name": "wk_007 疔疮托里"
+      "name": "wk_007 疔疮托里",
+      "internal_cause": "表邪未解、热毒将成脓",
+      "internal_key": "exterior_pathogen",
+      "external_manifestation": "疔疮肿痛",
+      "external_key": "疔疮",
+      "chain": "表邪未解→热毒郁结→疔疮欲脓"
     },
     {
       "case_id": "wk_008",
@@ -150,7 +185,12 @@
       "entry_id": "wk_008",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "疔疮",
-      "name": "wk_008 疔疮水竭"
+      "name": "wk_008 疔疮水竭",
+      "internal_cause": "肾水已竭、水竭火旺（内虚之极）",
+      "internal_key": "kidney_yin_exhausted",
+      "external_manifestation": "疔疮色暗紫黑",
+      "external_key": "疔疮",
+      "chain": "肾水竭→虚火无制→疔疮形色紫黑（死证）"
     },
     {
       "case_id": "wk_009",
@@ -167,7 +207,12 @@
       "entry_id": "wk_009",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "脱疽",
-      "name": "wk_009 脱疽肾败"
+      "name": "wk_009 脱疽肾败",
+      "internal_cause": "肾经伤败、精力已竭（纵欲大饮）",
+      "internal_key": "kidney_deficiency",
+      "external_manifestation": "足趾脱疽（紫色阴疼）",
+      "external_key": "脱疽",
+      "chain": "肾精耗竭→肢末失养→脱疽"
     },
     {
       "case_id": "wk_010",
@@ -184,7 +229,12 @@
       "entry_id": "wk_010",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "瘰疬",
-      "name": "wk_010 室女瘰疬"
+      "name": "wk_010 室女瘰疬",
+      "internal_cause": "肝经凝结、阴虚火动（情志不遂）",
+      "internal_key": "liver_qi_stagnation",
+      "external_manifestation": "项生数核坚硬如石",
+      "external_key": "瘰疬",
+      "chain": "情志郁结→肝经筋缩→项核瘰疬"
     },
     {
       "case_id": "wk_011",
@@ -201,7 +251,12 @@
       "entry_id": "wk_011",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "脱疽",
-      "name": "wk_011 趾紫泡辨毒"
+      "name": "wk_011 趾紫泡辨毒",
+      "internal_cause": "肝肾二经之毒",
+      "internal_key": "liver_kidney_toxin",
+      "external_manifestation": "足趾紫泡、甲紫骨黑",
+      "external_key": "脱疽",
+      "chain": "肝肾毒盛→循经达趾→甲紫骨黑"
     },
     {
       "case_id": "wk_012",
@@ -218,7 +273,12 @@
       "entry_id": "wk_012",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "项痈",
-      "name": "wk_012 项核误消"
+      "name": "wk_012 项核误消",
+      "internal_cause": "元气受伤、气血亏虚",
+      "internal_key": "qi_blood_deficiency",
+      "external_manifestation": "项生数核",
+      "external_key": "项痈",
+      "chain": "元气亏→正虚不托→项核难消"
     }
   ]
 }

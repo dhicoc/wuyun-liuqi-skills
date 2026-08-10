@@ -592,7 +592,9 @@
         "category",
         "physician",
         "rag_key",
-        "case_id"
+        "case_id",
+        "internal_key",
+        "external_key"
       ],
       "example_keys": [
         "脱疽",

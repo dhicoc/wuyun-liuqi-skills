@@ -127,6 +127,26 @@
           "name": {
             "type": "string",
             "description": "可读名"
+          },
+          "internal_cause": {
+            "type": "string",
+            "description": "内外联动字段"
+          },
+          "internal_key": {
+            "type": "string",
+            "description": "内外联动字段"
+          },
+          "external_manifestation": {
+            "type": "string",
+            "description": "内外联动字段"
+          },
+          "external_key": {
+            "type": "string",
+            "description": "内外联动字段"
+          },
+          "chain": {
+            "type": "string",
+            "description": "内外联动字段"
           }
         }
       }

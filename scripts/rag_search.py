@@ -302,9 +302,11 @@ def search(
 
 
 # 精确匹配时检查的字段（与 calculate_yunqi_api.rag_keys 对齐）
+# internal_key/external_key：内外联动字段（内因病机 key → 外候医案）
 _EXACT_ID_FIELDS = (
     "code", "key", "rag_key", "sitian_key", "zaiquan_key",
     "entry_id", "term", "pinyin", "id", "category",
+    "internal_key", "external_key",
 )
 
 
