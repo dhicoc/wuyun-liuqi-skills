@@ -380,7 +380,7 @@
       "asset_name": "吴鞠通医案库",
       "asset_category": "case_library",
       "description": "清·吴瑭（吴鞠通）医案蒸馏。吴鞠通为温病学派三焦辨证大家，著《温病条辨》，善辨卫气营血、三焦传变，治温病重辛凉清透、养阴护液。本库按病证分节蒸馏，覆盖风温、温疫、暑温、伏暑、温毒、湿温、冬温、中风、肝风、吐血、便血、肿胀、滞下、泄泻、噎、呕吐、痹、痰饮、疟、伤寒、咳嗽等病证。",
-      "total_entries": 40,
+      "total_entries": 60,
       "lookup_fields": [
         "category",
         "physician",
