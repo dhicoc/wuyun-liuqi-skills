@@ -106,6 +106,32 @@ try:
     check("语义检索 心火偏旺", "hits" in d, f'{len(d.get("hits", []))}条')
 except Exception as e:
     check("语义检索", False, str(e))
+# 7b. asset19 张聿青医案病证检索
+rc, out, err = run([os.path.join("scripts", "yunqi_cli.py"), "search", "湿温", "--asset", "asset19", "--json"])
+try:
+    d = json.loads(out)
+    check("search 湿温 asset19 命中", d.get("count", 0) >= 1, f'{d.get("count")}条')
+except Exception as e:
+    check("search 湿温 asset19", False, str(e))
+rc, out, err = run([os.path.join("scripts", "yunqi_cli.py"), "search", "--key", "zyq_020", "--asset", "asset19", "--json"])
+try:
+    d = json.loads(out)
+    check("search --key zyq_020 asset19 精确命中", d.get("count", 0) >= 1, f'{d.get("count")}条')
+except Exception as e:
+    check("search --key zyq_020", False, str(e))
+# 7c. 医案白话转述模拟（模拟 agent 将文言医案转成大白话）
+rc, out, err = run([os.path.join("scripts", "yunqi_cli.py"), "search", "霍乱", "--asset", "asset18", "--json"])
+try:
+    d = json.loads(out)
+    hits = d.get("hits", [])
+    if hits:
+        h = hits[0]
+        # 白话转述检测：preview 应含可读的病机描述
+        preview = h.get("preview", "")
+        has_plain = any(k in preview for k in ("暑湿", "气机", "转筋", "霍乱", "辨证", "治法"))
+        check("医案 preview 可作白话转述素材", has_plain, preview[:40])
+except Exception as e:
+    check("医案白话转述素材", False, str(e))
 
 
 section("场景四：个人运气体质（体质咨询用户）")
