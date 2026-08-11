@@ -19,6 +19,18 @@
 - 临床/方药/针灸 → 必须附加免责声明
 - 意图模糊 → 先读 `prompts/onboarding_prompt.md`
 
+**工具速查（按用户问题类型，agent 首读即可见）**
+
+| 用户问 | 调用 |
+|---|---|
+| 今年运气/推算 | `python scripts/calculate_yunqi_api.py today` |
+| 今年什么病机/该用什么治法/三因司天方 | `python scripts/infer_pathogenesis.py today` |
+| 历代医家怎么治某病 | `python scripts/rag_search.py <病证> --asset asset26,asset27,asset16` |
+| 哪些医案用了某药/某方 | `python scripts/rag_search.py --field herbs 石膏` 或 `--field formulas_referenced 小柴胡汤` |
+| 两位医家治某病有什么不同 | `python scripts/case_relations.py --compare 孙一奎,叶桂 --tag 中风` |
+| 这个医案还有谁治过类似的 | `python scripts/case_relations.py --related swy_174` |
+| 生成运气时间轴 | `python scripts/visualize_timeline.py 2026 --output timeline.html` |
+
 </always-applicable>
 
 <task-routing>
