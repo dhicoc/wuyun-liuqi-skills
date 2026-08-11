@@ -44,6 +44,8 @@ from yunqi_data import (
     get_sitian, get_zaiquan, get_keqi_six_steps, get_zhuqi_six_steps,
     get_zhuyun_five_steps, get_keyun_five_steps,
     kezhujialin_relation, check_tianfu, check_suihui, check_pingqi,
+    check_tong_tianfu, check_tong_suihui,
+    get_qihua, get_jianhua, get_zhengdui_huaqi,
     get_yunqi_year, get_current_qi_step, get_day_ganzhi,
     get_suiyun_code, get_kezhujialin_detail, get_jieqi_date,
     generate_summary, generate_current_step_focus,
@@ -128,6 +130,11 @@ def calculate_yunqi_api(date_str: Optional[Union[str, date]] = None) -> Dict[str
     suihui = check_suihui(yq_year)
     taiyi_tianfu = tianfu and suihui
     pingqi = check_pingqi(yq_year)
+    tong_tianfu = check_tong_tianfu(yq_year)
+    tong_suihui = check_tong_suihui(yq_year)
+    qihua = get_qihua(yq_year)
+    jianhua = get_jianhua(yq_year)
+    zhengdui_qi, zhengdui_type = get_zhengdui_huaqi(yq_year)
     
     # 8. 主运五步
     zhuyun_steps = get_zhuyun_five_steps(yq_year)
@@ -209,7 +216,17 @@ def calculate_yunqi_api(date_str: Optional[Union[str, date]] = None) -> Dict[str
             'tianfu': tianfu,
             'suihui': suihui,
             'taiyi_tianfu': taiyi_tianfu,
+            'tong_tianfu': tong_tianfu,
+            'tong_suihui': tong_suihui,
             'pingqi': pingqi,
+        },
+        'qi_hua': {
+            'qihua': qihua,
+            'jianhua': jianhua,
+        },
+        'zheng_dui': {
+            'qi': zhengdui_qi,
+            'type': zhengdui_type,
         },
         'zhu_yun': zhu_yun,
         'ke_yun': ke_yun,
@@ -258,12 +275,29 @@ def format_text(result: Dict[str, Any]) -> str:
         th_parts.append('岁会')
     if th['taiyi_tianfu']:
         th_parts.append('太乙天符')
+    if th['tong_tianfu']:
+        th_parts.append('同天符')
+    if th['tong_suihui']:
+        th_parts.append('同岁会')
     if th['pingqi']:
         th_parts.append('平气')
     if th_parts:
         lines.append(f"【运气同化】{'、'.join(th_parts)}")
     else:
         lines.append("【运气同化】无特殊同化")
+    
+    qh = result.get('qi_hua', {})
+    qh_parts = []
+    if qh.get('qihua'):
+        qh_parts.append(f"齐化({qh['qihua']})")
+    if qh.get('jianhua'):
+        qh_parts.append(f"兼化({qh['jianhua']})")
+    if qh_parts:
+        lines.append(f"【五运齐兼化】{'、'.join(qh_parts)}")
+    
+    zd = result.get('zheng_dui', {})
+    if zd.get('type'):
+        lines.append(f"【正化对化】{zd['qi']} - {zd['type']}")
     
     lines.append("")
     lines.append("【主运五步】")

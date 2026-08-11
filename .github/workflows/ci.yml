@@ -82,6 +82,9 @@ jobs:
       - name: Verify expansion suite
         run: python tests/verify_expansion.py
 
+      - name: Classic literature cross-check (52 cases)
+        run: python scripts/verify_cross_check.py
+
       - name: Full CLI regression suite
         run: python tests/full_regression_test.py
 

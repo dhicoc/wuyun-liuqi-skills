@@ -179,6 +179,63 @@ function checkPingqi(year) {
   return false;
 }
 
+// ═══════════════════════════════════════════════════════════════
+// 运气同化补充：同天符 / 同岁会（中运与在泉同气）
+// ═══════════════════════════════════════════════════════════════
+
+function checkTongTianfu(year) {
+  const [dayun] = getDayun(year);
+  const zaiquan = getZaiquan(year);
+  const zaiquanElem = LIUQI_WUXING[zaiquan];
+  return isTaiguo(year) && dayun === zaiquanElem;
+}
+
+function checkTongSuihui(year) {
+  const [dayun] = getDayun(year);
+  const zaiquan = getZaiquan(year);
+  const zaiquanElem = LIUQI_WUXING[zaiquan];
+  return !isTaiguo(year) && dayun === zaiquanElem;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// 五运齐化兼化
+// 太过 -> 齐化：克我者来齐；不及 -> 兼化：克我者来兼
+// ═══════════════════════════════════════════════════════════════
+
+// 五行相克反向映射：谁克我
+const _WUXING_KEME = {};
+for (const [k, v] of Object.entries(WUXING_KE)) { _WUXING_KEME[v] = k; }
+
+function getQihua(year) {
+  const [dayun] = getDayun(year);
+  if (!isTaiguo(year)) return null;
+  return _WUXING_KEME[dayun] || null;
+}
+
+function getJianhua(year) {
+  const [dayun] = getDayun(year);
+  if (isTaiguo(year)) return null;
+  return _WUXING_KEME[dayun] || null;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// 六气正化对化
+// ═══════════════════════════════════════════════════════════════
+
+const DIZHI_ZHENGDUI = {
+  '午': ['少阴君火', '正化'], '子': ['少阴君火', '对化'],
+  '未': ['太阴湿土', '正化'], '丑': ['太阴湿土', '对化'],
+  '寅': ['少阳相火', '正化'], '申': ['少阳相火', '对化'],
+  '酉': ['阳明燥金', '正化'], '卯': ['阳明燥金', '对化'],
+  '辰': ['太阳寒水', '正化'], '戌': ['太阳寒水', '对化'],
+  '巳': ['厥阴风木', '正化'], '亥': ['厥阴风木', '对化'],
+};
+
+function getZhengduiHuaqi(year) {
+  const [, dz] = getGanzhi(year);
+  return DIZHI_ZHENGDUI[dz] || [null, null];
+}
+
 function getZhuyunFiveSteps(year) {
   const [dayun] = getDayun(year);
   const dayunStep = WUYUN_STEP[dayun];
@@ -398,6 +455,7 @@ module.exports = {
   getGanzhi, getSexagenaryIndex, getDayun, isTaiguo,
   getSitian, getZaiquan, getKeqiSixSteps, getZhuqiSixSteps,
   kezhujialinRelation, checkTianfu, checkSuihui, checkPingqi,
+  checkTongTianfu, checkTongSuihui, getQihua, getJianhua, getZhengduiHuaqi,
   getZhuyunFiveSteps, getKeyunFiveSteps, getSuiyunCode,
   // Step 1 增强
   getJieqiDate, getYunqiYear, getCurrentQiStep, getDayGanzhi, getKezhujialinDetail,

@@ -62,9 +62,74 @@
 
 ## 未来迭代方向（P6+）
 
-- [x] 思想地图（Mermaid 概念关系图）— `scripts/export_thought_map.py`
-- [x] 交互式苏格拉底学习模式 — `scripts/socratic_learn.py`
-- [x] 统一 CLI / 菜单交互 — `scripts/yunqi_cli.py`
-- [x] 个性化学习路径仪表盘 — `scripts/learning_dashboard.py`
-- [x] 文献关键词检索（轻量）— `scripts/rag_search.py`
-- [x] 文献片段深度语境化 — 10 本蒸馏指南 + 35 篇文献 Grep+Read（零依赖，开箱即用）
+- [x] 思想地图（Mermaid 概念关系图）- `scripts/export_thought_map.py`
+- [x] 交互式苏格拉底学习模式 - `scripts/socratic_learn.py`
+- [x] 统一 CLI / 菜单交互 - `scripts/yunqi_cli.py`
+- [x] 个性化学习路径仪表盘 - `scripts/learning_dashboard.py`
+- [x] 文献关键词检索（轻量）- `scripts/rag_search.py`
+- [x] 文献片段深度语境化 - 10 本蒸馏指南 + 35 篇文献 Grep+Read（零依赖，开箱即用）
+
+---
+
+## P7：算法完整性与知识库扩展（2026-08 规划）
+
+> 依据：`references/research-2026-08-11.md` 外部生态调研
+
+### P7-1 推算算法覆盖度校验
+
+- [x] 对照 `seLc7/YunQiXueShuo` 检查「五运齐化兼化」推算覆盖，缺失则补充到 `calculate_yunqi_api.py` -- 新增 `get_qihua` / `get_jianhua` 函数，输出到 `qi_hua` 字段
+- [x] 对照检查「六气正化对化」推算覆盖 -- 新增 `get_zhengdui_huaqi` 函数 + `DIZHI_ZHENGDUI` 表，输出到 `zheng_dui` 字段
+- [x] 补充「同天符 / 同岁会」推算 -- 新增 `check_tong_tianfu` / `check_tong_suihui` 函数，输出到 `tong_hua` 字段
+- [x] 新增推算结果交叉验证：基于《医宗金鉴·运气要诀》《素问·天元纪大论》经典文献蒸馏的 52 项验证基线（天符12/岁会8/太乙天符4/同天符6/同岁会6/正化对化12/齐化兼化4）-- `scripts/verify_cross_check.py`，完全本地化无外部依赖
+- [x] CI 增加「经典文献交叉验证」测试项 -- 52 项验证基线已纳入 CI 流程
+
+### P7-2 疾病易感性 RAG
+
+- [ ] 新增 `rag-knowledge-base/asset33_disease_susceptibility.json`
+- [ ] 收录「出生运气格局 × 疾病易感性」临床数据
+- [ ] 数据来源：高血压运气研究（33669 例 + 691 例，太阴湿土司天/金运不及/阳明燥金）
+- [ ] `rag_search.py` 支持按疾病名检索易感性数据
+- [ ] `infer_pathogenesis.py` 推理链增加疾病易感性提示
+
+### P7-3 skill 级 evals（对齐官方标准）
+
+> 依据：anthropics/skills 官方标准要求每个 skill 附 eval spec + golden cases
+
+- [ ] 为 6 个子技能模块各增加 `evals/` 目录
+- [ ] 每个 eval 含：golden cases（正确输入 -> 期望输出）+ 触发场景测试（正确场景触发/错误场景不触发）
+- [ ] `check_skill_structure.py` 增加 evals 目录存在性校验
+- [ ] CI 增加 skill 级 eval 运行步骤
+
+### P7-4 Skill 可移植性增强
+
+- [ ] SKILL.md 内引用文件改用 `${CLAUDE_SKILL_DIR}` 路径变量（对齐 Claude Code 官方标准）
+- [ ] 评估 `context: fork` 子 agent 隔离模式适用场景
+- [ ] 评估 `disable-model-invocation` 对部分 skill 的适用性（手动触发 vs 自动触发）
+
+## P8：生态协作与数据导出（远期）
+
+### P8-1 内经方法论交叉引用
+
+- [ ] 在 `teaching-modules/` 中引用 `kangarooking/huangdi-neijing-skill` 的 22 个思维工具 skill
+- [ ] 形成「内经方法论 + 运气推算」完整中医 Agent 能力栈
+- [ ] README 增加「相关项目」章节
+
+### P8-2 Parquet 数据导出
+
+- [ ] 为 RAG asset 增加 Parquet 导出能力，服务 ML 研究者
+- [ ] 参考 Pokkoa 数据集格式（HuggingFace `pokkoa/chinese-five-circuits-six-qi`）
+- [ ] `generate_rag_index.py` 增加 `--format parquet` 选项
+
+### P8-3 推算引擎第三方验证
+
+- [ ] 对接 `ZhuChaozheng/next-live-card` API 做长期推算结果一致性监控
+- [ ] 对接 `ccjaread/five_circuits_six_qi` 做算法对照
+- [ ] 沉淀验证结果到 `case-journal/field-journal/`
+
+## 不建议跟进
+
+| 方向 | 原因 |
+|------|------|
+| 改用 `-skill` 后缀命名 | modules/ 已稳定，改名破坏性大、收益低 |
+| 接入命理学说（三命通会等） | 与本项目「纯运气学」定位冲突 |
+| 强行 L0-L4 显式分层 | 扁平路由已够用，强行分层增加复杂度 |

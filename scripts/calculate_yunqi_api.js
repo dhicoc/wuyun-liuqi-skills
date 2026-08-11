@@ -51,6 +51,11 @@ function calculateYunqiApi(dateStr) {
   const suihui = D.checkSuihui(yqYear);
   const taiyiTianfu = tianfu && suihui;
   const pingqi = D.checkPingqi(yqYear);
+  const tongTianfu = D.checkTongTianfu(yqYear);
+  const tongSuihui = D.checkTongSuihui(yqYear);
+  const qihua = D.getQihua(yqYear);
+  const jianhua = D.getJianhua(yqYear);
+  const [zhengduiQi, zhengduiType] = D.getZhengduiHuaqi(yqYear);
 
   // 8. 主运五步
   const zhuYun = D.getZhuyunFiveSteps(yqYear);
@@ -114,8 +119,11 @@ function calculateYunqiApi(dateStr) {
       },
     },
     tong_hua: {
-      tianfu, suihui, taiyi_tianfu: taiyiTianfu, pingqi,
+      tianfu, suihui, taiyi_tianfu: taiyiTianfu,
+      tong_tianfu: tongTianfu, tong_suihui: tongSuihui, pingqi,
     },
+    qi_hua: { qihua, jianhua },
+    zheng_dui: { qi: zhengduiQi, type: zhengduiType },
     zhu_yun: zhuYun,
     ke_yun: keYun,
     ke_qi_six_steps: keQiSix,
@@ -152,8 +160,19 @@ function formatText(result) {
   if (th.tianfu) thParts.push('天符');
   if (th.suihui) thParts.push('岁会');
   if (th.taiyi_tianfu) thParts.push('太乙天符');
+  if (th.tong_tianfu) thParts.push('同天符');
+  if (th.tong_suihui) thParts.push('同岁会');
   if (th.pingqi) thParts.push('平气');
   lines.push(`【运气同化】${thParts.length ? thParts.join('、') : '无特殊同化'}`);
+
+  const qh = result.qi_hua || {};
+  const qhParts = [];
+  if (qh.qihua) qhParts.push(`齐化(${qh.qihua})`);
+  if (qh.jianhua) qhParts.push(`兼化(${qh.jianhua})`);
+  if (qhParts.length) lines.push(`【五运齐兼化】${qhParts.join('、')}`);
+
+  const zd = result.zheng_dui || {};
+  if (zd.type) lines.push(`【正化对化】${zd.qi} - ${zd.type}`);
 
   lines.push('', '【主运五步】');
   for (const s of result.zhu_yun) lines.push(`  ${s.step}. ${s.tai_shao}${s.element}运`);
