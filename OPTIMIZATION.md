@@ -11,11 +11,10 @@
 - **改动文件**：`scripts/rag_search.py`
 - **验证**：`python scripts/rag_search.py 头痛 --asset asset26,asset27 --json` 返回跨库结果
 
-### OPT-02 embedding 语义检索落地 `[P0]`
-- **现状**：`rag_semantic.py` 是 n-gram 退化方案，`sentence-transformers` 已声明但未实际使用
-- **目标**：接入 sentence-transformers，预计算全部医案 embedding 缓存，支持"以案找案"
-- **改动文件**：`scripts/rag_semantic.py`、新增 `scripts/build_embeddings.py`
-- **验证**：`python scripts/rag_search.py --semantic "湿热身黄小便不利" --json` 返回语义相似医案
+### OPT-02 embedding 语义检索 `[P0]` ~~已移除~~
+- **决策**：知识库已蒸馏，不需要向量模型；sentence-transformers 对用户配置极不友好
+- **现状**：已移除 embedding 后端，只保留 n-gram TF 余弦（零依赖）
+- **改动**：从 rag_semantic.py 移除全部 embedding 代码，从 pyproject.toml/requirements.txt 移除依赖
 
 ### OPT-03 按字段检索 + 方药索引 `[P1]`
 - **现状**：`_EXACT_ID_FIELDS` 只做精确匹配，`search()` 做全字段关键词，无法按 `formula`/`syndrome` 等单字段检索
@@ -87,7 +86,7 @@
 | 日期 | 优化项 | 状态 | 提交 |
 |------|--------|------|------|
 | 2026-08-11 | OPT-01 多库联合检索 | ✅ 已完成 | - |
-| 2026-08-11 | OPT-02 embedding 语义检索 | ✅ 已有（安装依赖即启用） | - |
+| 2026-08-11 | OPT-02 embedding 语义检索 | ❌ 已移除（蒸馏库不需向量模型） | - |
 | 2026-08-11 | OPT-03 按字段检索 | ✅ 已完成 | - |
 | 2026-08-11 | OPT-06 运气病机自动推理链 | ✅ 已完成 | - |
 | 2026-08-11 | OPT-12 CI 自动化 | ✅ 已有 | - |

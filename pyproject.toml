@@ -14,7 +14,6 @@ dependencies = []
 
 [project.optional-dependencies]
 lunar = ["lunar-python>=1.0.0"]
-semantic = ["sentence-transformers>=2.2.0"]
 
 [project.scripts]
 wuyun-liuqi = "wuyun_liuqi.__main__:main"

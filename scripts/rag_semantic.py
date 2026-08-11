@@ -3,13 +3,9 @@
 """
 轻量「语义」检索，可选升级为真·向量语义检索。
 
-两层后端：
-1. 默认（零依赖）：字符 unigram + bigram 的 TF 余弦，纯标准库，适合中医运气口语化提问。
-2. 可选 embedding（需 sentence-transformers）：`pip install -e ".[semantic]"` 后自动启用，
-   使用 sentence-transformers 中文模型做真·语义向量检索；不可用时（未安装/模型下载失败）
-   自动降级回 n-gram，行为与旧版完全一致。
+轻量语义检索（字符 n-gram TF 余弦，零外部依赖）。
 
-模型选择：环境变量 WUYUN_SEMANTIC_MODEL（默认 shibing624/text2vec-base-chinese）。
+知识库已蒸馏，无需向量模型。n-gram 对中医运气口语化提问召回效果良好。
 
 精确推算仍用 --key / --date；本模块只负责模糊口语召回。
 
@@ -17,7 +13,6 @@
   python scripts/rag_semantic.py 心火偏旺
   python scripts/rag_semantic.py 气候干燥 皮肤 咳嗽 --limit 5
   python scripts/rag_semantic.py 天人相应 --json
-  python scripts/rag_semantic.py 心火偏旺 --backend embedding
   python scripts/rag_search.py --semantic 心火偏旺
 """
 from __future__ import annotations
@@ -41,51 +36,6 @@ import rag_search as rs  # noqa: E402
 # 简单停用/噪声字符
 _NOISE = set(" \t\n\r　，。、；：！？,.!?;:\"'（）()【】[]《》<>·—-…的了是在与及和或等")
 _CACHE: Optional[List[Dict[str, Any]]] = None
-
-# ── 可选 embedding 后端（真·语义检索）──
-# 默认不加载：CI / 未安装依赖时自动降级为字符 n-gram。
-SEMANTIC_MODEL = os.environ.get("WUYUN_SEMANTIC_MODEL", "shibing624/text2vec-base-chinese")
-EMBED_MIN_SCORE = 0.20  # embedding 余弦合理下限（n-gram 仍用 min_score）
-_EMBEDDER = None
-_EMBEDDER_TRIED = False
-
-
-def _get_embedder():
-    """懒加载 embedding 模型；任何失败都返回 None（降级 n-gram）。"""
-    global _EMBEDDER, _EMBEDDER_TRIED
-    if _EMBEDDER_TRIED:
-        return _EMBEDDER
-    _EMBEDDER_TRIED = True
-    try:
-        from sentence_transformers import SentenceTransformer
-        _EMBEDDER = SentenceTransformer(SEMANTIC_MODEL)
-    except Exception as e:  # noqa: BLE001 — 任何失败都降级
-        _EMBEDDER = None
-        print(
-            f"⚠️ 未启用 embedding 语义检索（{e}），降级为字符 n-gram。",
-            file=sys.stderr,
-        )
-    return _EMBEDDER
-
-
-def _resolve_embedder(backend: str):
-    """backend: 'ngram' 强制 n-gram；'auto'/'embedding' 尝试 embedding。"""
-    if backend == "ngram":
-        return None
-    return _get_embedder()
-
-
-def _embed(text: str) -> List[float]:
-    """文本 → 归一化向量(list[float])；依赖不可用时抛异常由调用方降级。"""
-    model = _get_embedder()
-    if model is None:
-        raise RuntimeError("embedder unavailable")
-    vec = model.encode(text, normalize_embeddings=True)
-    try:
-        return vec.tolist()
-    except AttributeError:
-        return list(vec)
-
 
 def _tokenize(text: str) -> List[str]:
     """中文友好：unigram + bigram 字符特征。"""
@@ -127,22 +77,6 @@ def _cosine(a: Dict[str, float], b: Dict[str, float]) -> float:
     return dot / (na * nb)
 
 
-def _cosine_vectors(a: Sequence[float], b: Sequence[float]) -> float:
-    """两个定长向量的余弦相似度（embedding 用）。"""
-    if not a or not b:
-        return 0.0
-    dot = 0.0
-    for x, y in zip(a, b):
-        dot += x * y
-    if dot <= 0:
-        return 0.0
-    na = math.sqrt(sum(x * x for x in a))
-    nb = math.sqrt(sum(y * y for y in b))
-    if na <= 0 or nb <= 0:
-        return 0.0
-    return dot / (na * nb)
-
-
 def _entry_document(entry: Dict[str, Any]) -> str:
     parts: List[str] = []
     for key in (
@@ -165,11 +99,9 @@ def _entry_document(entry: Dict[str, Any]) -> str:
 
 def build_index(
     assets: Optional[Sequence[str]] = None,
-    backend: str = "auto",
 ) -> List[Dict[str, Any]]:
-    """构建内存索引（带 n-gram 向量；embedding 可用时附带 emb）。"""
+    """构建内存索引（n-gram TF 向量，零外部依赖）。"""
     global _CACHE
-    embedder = _resolve_embedder(backend)
     keys = list(assets) if assets else rs._default_asset_keys()
     docs: List[Dict[str, Any]] = []
     for ak in keys:
@@ -185,12 +117,6 @@ def build_index(
                 continue
             tokens = _tokenize(text)
             vec = _tf(tokens)
-            emb = None
-            if embedder is not None:
-                try:
-                    emb = _embed(text)
-                except Exception:  # noqa: BLE001
-                    emb = None
             eid = rs._entry_id(entry, i)
             docs.append({
                 "asset": ak,
@@ -199,7 +125,6 @@ def build_index(
                 "title": rs._entry_title(entry, eid),
                 "text": text,
                 "vec": vec,
-                "emb": emb,
                 "entry": entry,
             })
     _CACHE = docs
@@ -219,46 +144,31 @@ def semantic_search(
     min_score: float = 0.02,
     assets: Optional[Sequence[str]] = None,
     full: bool = False,
-    backend: str = "auto",
+    backend: str = "ngram",
 ) -> List[Dict[str, Any]]:
     """
-    对口语查询做轻量/向量语义检索。
-    返回结构与 rag_search.search 兼容。mode: 'semantic'(n-gram) 或 'semantic-embedding'。
-    backend: 'auto' 可用 embedding 则用，否则 n-gram；'embedding' 强制 embedding（不可用则降级）；'ngram' 强制 n-gram。
+    对口语查询做轻量语义检索（字符 n-gram TF 余弦，零外部依赖）。
+    返回结构与 rag_search.search 兼容。mode: 'semantic'。
+    backend 参数保留兼容但始终使用 n-gram。
     """
     q = (query or "").strip()
     if not q:
         return []
 
-    embedder = _resolve_embedder(backend)
-    use_emb = embedder is not None
-
     if assets:
-        index = build_index(assets, backend=backend)
+        index = build_index(assets)
     else:
         index = get_index()
 
     scored: List[Tuple[float, Dict[str, Any]]] = []
-    if use_emb and any(d.get("emb") is not None for d in index):
-        q_emb = _embed(q)
-        eff = max(min_score, EMBED_MIN_SCORE)
-        for doc in index:
-            emb = doc.get("emb")
-            if emb is None:
-                continue
-            sc = _cosine_vectors(q_emb, emb)
-            if sc >= eff:
-                scored.append((sc, doc))
-        mode = "semantic-embedding"
-    else:
-        q_vec = _tf(_tokenize(q))
-        if not q_vec:
-            return []
-        for doc in index:
-            sc = _cosine(q_vec, doc["vec"])
-            if sc >= min_score:
-                scored.append((sc, doc))
-        mode = "semantic"
+    q_vec = _tf(_tokenize(q))
+    if not q_vec:
+        return []
+    for doc in index:
+        sc = _cosine(q_vec, doc["vec"])
+        if sc >= min_score:
+            scored.append((sc, doc))
+    mode = "semantic"
 
     scored.sort(key=lambda x: -x[0])
 
@@ -285,19 +195,11 @@ def semantic_search(
 
 
 def format_text(hits: List[Dict[str, Any]], query: str) -> str:
-    mode = hits[0]["mode"] if hits else "semantic"
-    if mode == "semantic-embedding":
-        lines = [
-            f"语义检索（embedding 向量）: {query}",
-            f"命中: {len(hits)} 条（sentence-transformers 真·语义）",
-            "",
-        ]
-    else:
-        lines = [
-            f"语义检索（轻量）: {query}",
-            f"命中: {len(hits)} 条（字符 n-gram 余弦，非外部 embedding）",
-            "",
-        ]
+    lines = [
+        f"语义检索（轻量）: {query}",
+        f"命中: {len(hits)} 条（字符 n-gram 余弦）",
+        "",
+    ]
     if not hits:
         lines.append("（无结果。可换口语说法，或改用关键词 / --key 精确直取）")
         return "\n".join(lines)
@@ -315,16 +217,14 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     parser.add_argument("--limit", type=int, default=8)
     parser.add_argument("--min-score", type=float, default=0.02)
     parser.add_argument("--asset", action="append", dest="assets")
-    parser.add_argument("--backend", default="auto",
-                        choices=["auto", "embedding", "ngram"],
-                        help="检索后端：auto(可用则embedding)/embedding/ngram")
+    # backend 参数保留兼容但始终使用 n-gram（已移除 embedding 依赖）
     parser.add_argument("--json", action="store_true")
     parser.add_argument("--full", action="store_true")
     parser.add_argument("--rebuild", action="store_true", help="强制重建索引")
     args = parser.parse_args(list(argv) if argv is not None else None)
 
     if args.rebuild:
-        build_index(args.assets, backend=args.backend)
+        build_index(args.assets)
     query = " ".join(args.query)
     hits = semantic_search(
         query,
@@ -332,7 +232,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         min_score=args.min_score,
         assets=args.assets,
         full=args.full,
-        backend=args.backend,
+        # backend 已弃用，始终 n-gram
     )
     if args.json:
         print(json.dumps({

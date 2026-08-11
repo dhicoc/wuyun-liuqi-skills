@@ -4,12 +4,9 @@
 rag_semantic 回归测试。
 
 验证：
-1. 无 embedding 依赖（CI）时自动降级为字符 n-gram，不崩溃、返回结构正确。
-2. 强制 backend='embedding' 但无依赖时同样优雅降级。
-3. 空查询返回 []。
-4. 既有 _tokenize / _cosine 行为保持稳定（防回归）。
-
-（embedding 真·语义路径需 `pip install -e ".[semantic]"` 后由人工/集成测试覆盖。）
+1. 字符 n-gram 语义检索不崩溃、返回结构正确。
+2. 空查询返回 []。
+3. 既有 _tokenize / _cosine 行为保持稳定（防回归）。
 
 直接运行: python tests/test_rag_semantic.py
 pytest 运行: pytest tests/test_rag_semantic.py
@@ -30,30 +27,14 @@ def test_empty_query_returns_empty():
     assert rsem.semantic_search("   ") == []
 
 
-def test_fallback_no_crash_and_structure():
-    """无 embedding 依赖时降级 n-gram，返回结构正确、mode=semantic。"""
-    hits = rsem.semantic_search("心火偏旺", backend="auto")
+def test_no_crash_and_structure():
+    """n-gram 语义检索返回结构正确、mode=semantic。"""
+    hits = rsem.semantic_search("心火偏旺")
     assert isinstance(hits, list)
     for h in hits:
         assert set(["score", "asset", "id", "title", "mode"]).issubset(h.keys())
-        assert h["mode"] == "semantic"  # CI 无依赖 → n-gram 降级
+        assert h["mode"] == "semantic"
         assert isinstance(h["score"], (int, float))
-
-
-def test_backend_embedding_falls_back_gracefully():
-    """强制 embedding 但无依赖：不抛异常，返回 list（降级）。"""
-    try:
-        from sentence_transformers import SentenceTransformer  # noqa: F401
-        have_dep = True
-    except Exception:
-        have_dep = False
-    hits = rsem.semantic_search("气候干燥 咳嗽", backend="embedding")
-    assert isinstance(hits, list)
-    if hits:
-        assert hits[0]["mode"] in ("semantic", "semantic-embedding")
-    # 若确实无依赖，应降级为 n-gram
-    if not have_dep:
-        assert all(h["mode"] == "semantic" for h in hits)
 
 
 def test_tokenize_stable():
@@ -71,8 +52,7 @@ def test_cosine_identical_is_one():
 if __name__ == "__main__":
     tests = [
         test_empty_query_returns_empty,
-        test_fallback_no_crash_and_structure,
-        test_backend_embedding_falls_back_gracefully,
+        test_no_crash_and_structure,
         test_tokenize_stable,
         test_cosine_identical_is_one,
     ]

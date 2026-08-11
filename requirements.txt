@@ -1,3 +1,1 @@
 lunar-python>=1.0.0
-# 可选：真·语义检索（embedding）。启用：pip install -e ".[semantic]"
-# sentence-transformers>=2.2.0
