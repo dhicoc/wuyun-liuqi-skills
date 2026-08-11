@@ -541,7 +541,7 @@
       "asset_name": "孙文垣医案库",
       "asset_category": "case_library",
       "description": "明·孙一奎（孙文垣，东宿）《孙文垣医案》（三吴/新都/宜兴治验）蒸馏。孙一奎为明代温补学派代表，重命门学说，辨证精审，善辨阴阳虚实、上盛下虚，用药灵活。本库按治验标题蒸馏，覆盖大头疫、目疾、痛风、疟痢、半身不遂、产后发热、脾胃疾、便血、白浊、妊娠吐血、耳鸣等病证。",
-      "total_entries": 270,
+      "total_entries": 276,
       "lookup_fields": [
         "category",
         "physician",
