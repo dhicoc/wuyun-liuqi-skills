@@ -47,6 +47,9 @@ reports/test-results/**
 !reports/test-results/.gitkeep
 !reports/snapshots/
 !reports/snapshots/**
+# reports/ 根目录散落的生成产物（HTML/MD），统一归入 generated/ 或 test-results/
+reports/*.html
+reports/*.md
 
 # 本地构建/临时产物
 artifacts/
