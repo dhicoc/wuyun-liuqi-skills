@@ -518,7 +518,7 @@
       "asset_name": "杏轩医案库",
       "asset_category": "case_library",
       "description": "清·程文囿（程杏轩）《杏轩医案》（初集/续录/辑录）蒸馏。程杏轩为新安医派代表，辨证精审，善辨寒热真假、虚实错杂，用药以古为师兼出新意。本库按治验标题蒸馏，覆盖产后感邪、先天不足、格阳证、大头时疫真热假寒、半产血晕、暑风惊证、中寒脱阳、肝郁气厥、单腹胀、休息痢等病证。",
-      "total_entries": 140,
+      "total_entries": 144,
       "lookup_fields": [
         "category",
         "physician",
