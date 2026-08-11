@@ -267,65 +267,149 @@ def cmd_dashboard(args: argparse.Namespace) -> int:
 
 
 def cmd_interactive(_args: argparse.Namespace) -> int:
-    """简易菜单交互。"""
-    menu = """
-  1) 今天运气摘要 (calc today --summary)
-  2) 当前步位聚焦 (calc today --focus current-step)
-  3) 苏格拉底学习会话 (learn today)
-  4) 思想地图 (map today)
-  5) 年度报告学生版 (report today)
-  6) 健康检查 (doctor)
-  7) 学习路径仪表盘 (dashboard)
-  8) 文献检索提示 (search --list-assets)
-  0) 退出
-"""
-    print(color("五运六气 · 统一入口", CYAN))
-    print(menu)
+    """增强菜单交互（OPT-08）。"""
+    try:
+        from rich.console import Console
+        from rich.panel import Panel
+        from rich.table import Table
+        from rich.prompt import IntPrompt
+        console = Console()
+        _has_rich = True
+    except ImportError:
+        _has_rich = False
+        console = None
+
+    menu_items = [
+        ("今天运气摘要", "calc today --summary"),
+        ("当前步位聚焦", "calc today --focus current-step"),
+        ("运气病机推理链", "infer_pathogenesis today"),
+        ("运气时间轴可视化", "visualize_timeline today"),
+        ("苏格拉底学习会话", "learn today"),
+        ("思想地图", "map today"),
+        ("年度报告学生版", "report today"),
+        ("医案检索（关键词）", "search <关键词>"),
+        ("医案跨库检索", "search <词> --asset asset26,asset27"),
+        ("医案按字段检索", "search --field formula 石膏"),
+        ("医案对比（跨医家）", "case_relations --compare"),
+        ("医案相似检索", "case_relations --related"),
+        ("学习路径仪表盘", "dashboard"),
+        ("文献检索提示", "search --list-assets"),
+        ("健康检查", "doctor"),
+    ]
+
+    if _has_rich:
+        table = Table(title="五运六气 · 交互菜单", show_header=True, header_style="bold red")
+        table.add_column("序号", style="cyan", width=4)
+        table.add_column("功能", style="white")
+        table.add_column("命令", style="dim")
+        for i, (name, cmd) in enumerate(menu_items, 1):
+            table.add_row(str(i), name, cmd)
+        table.add_row("0", "退出", "")
+        console.print(table)
+    else:
+        print(color("五运六气 · 交互菜单", CYAN))
+        for i, (name, cmd) in enumerate(menu_items, 1):
+            print(f"  {i}) {name} ({cmd})")
+        print("  0) 退出")
+
     while True:
         try:
-            choice = input(color("选择> ", GREEN)).strip()
-        except (EOFError, KeyboardInterrupt):
+            if _has_rich:
+                console.print()
+                choice = IntPrompt.ask("[green]选择[/green]", default=0)
+            else:
+                choice = int(input(color("选择> ", GREEN)).strip() or "0")
+        except (EOFError, KeyboardInterrupt, ValueError):
             print()
             return 0
-        if choice in ("0", "q", "quit", "exit"):
+
+        if choice == 0:
             return 0
-        if choice == "1":
-            # 直接调用 cmd_calc，避免 subprocess 开销
+        elif choice == 1:
             ns = argparse.Namespace(date='today', json=False, summary=True, visual=False,
                                     html=False, explain=False, focus=None, report_type=None,
                                     level='standard', explain_concept=None, export=None)
             rc = cmd_calc(ns)
-        elif choice == "2":
+        elif choice == 2:
             ns = argparse.Namespace(date='today', json=False, summary=False, visual=False,
                                     html=False, explain=False, focus='current-step', report_type=None,
                                     level='standard', explain_concept=None, export=None)
             rc = cmd_calc(ns)
-        elif choice == "3":
+        elif choice == 3:
+            import infer_pathogenesis
+            rc = infer_pathogenesis.main(["today"])
+        elif choice == 4:
+            import visualize_timeline
+            rc = visualize_timeline.main(["today"])
+        elif choice == 5:
             import socratic_learn
             rc = socratic_learn.main(["today"])
-        elif choice == "4":
+        elif choice == 6:
             import export_thought_map
             rc = export_thought_map.main(["today", "--format", "both"])
-        elif choice == "5":
+        elif choice == 7:
             ns = argparse.Namespace(year='today', audience='student', json=False)
             rc = cmd_report(ns)
-        elif choice == "6":
-            rc = cmd_doctor(argparse.Namespace())
-        elif choice == "7":
+        elif choice == 8:
+            kw = input(color("输入关键词: ", GREEN)).strip()
+            if kw:
+                ns = argparse.Namespace(terms=[kw], assets=None, keys=None, date=None,
+                                        semantic=None, full=False, limit=10, json=False,
+                                        list_assets=False)
+                rc = cmd_search(ns)
+        elif choice == 9:
+            kw = input(color("输入关键词: ", GREEN)).strip()
+            if kw:
+                ns = argparse.Namespace(terms=[kw], assets=["asset26,asset27"], keys=None, date=None,
+                                        semantic=None, full=False, limit=10, json=False,
+                                        list_assets=False)
+                rc = cmd_search(ns)
+        elif choice == 10:
+            field = input(color("字段名(formula/syndrome/herbs/physician): ", GREEN)).strip()
+            kw = input(color("检索词: ", GREEN)).strip()
+            if field and kw:
+                import rag_search
+                rc = rag_search.main(["--field", field, kw, "--json"])
+        elif choice == 11:
+            phys = input(color("医家(逗号分隔，如 孙一奎,叶桂): ", GREEN)).strip()
+            tag = input(color("证型(如 中风/湿热/伤寒): ", GREEN)).strip()
+            if phys and tag:
+                import case_relations
+                rc = case_relations.main(["--compare", phys, "--tag", tag])
+        elif choice == 12:
+            cid = input(color("case_id(如 swy_174): ", GREEN)).strip()
+            if cid:
+                import case_relations
+                rc = case_relations.main(["--related", cid])
+        elif choice == 13:
             import learning_dashboard
             rc = learning_dashboard.main([])
-        elif choice == "8":
+        elif choice == 14:
             ns = argparse.Namespace(terms=None, assets=None, keys=None, date=None,
                                     semantic=None, full=False, limit=10, json=False,
                                     list_assets=True)
             rc = cmd_search(ns)
+        elif choice == 15:
+            rc = cmd_doctor(argparse.Namespace())
         else:
-            print(color("无效选项，请输入 0-8", YELLOW))
+            if _has_rich:
+                console.print("[yellow]无效选项[/yellow]")
+            else:
+                print(color("无效选项", YELLOW))
             continue
-        if rc != 0:
-            print(color(f"（子命令退出码 {rc}）", YELLOW))
-        print()
-        print(menu)
+
+        if rc and rc != 0:
+            if _has_rich:
+                console.print(f"[yellow]（子命令退出码 {rc}）[/yellow]")
+            else:
+                print(color(f"（子命令退出码 {rc}）", YELLOW))
+
+        if _has_rich:
+            console.print()
+            console.print(Panel("按 Enter 继续...", style="dim"))
+            input()
+        else:
+            input(color("\n按 Enter 继续...", YELLOW))
 
 
 def build_parser() -> argparse.ArgumentParser:
