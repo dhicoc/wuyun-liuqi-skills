@@ -261,9 +261,11 @@ node scripts/calculate_yunqi_api.js <YYYY-MM-DD> --json
 | 临证指南医案 | `asset16_ye_cases.json` | 清·叶桂，辨证精审含华岫云按语 | `entry_id` / `category` |
 | 术语解释 | `terminology.json` | 术语解释与教学辅助 | term / entry_id |
 
-> asset11-16 六部历代名家医案库共 **901 条**临证真实医案。
+> asset11-32 共 21 部历代名家医案库 **2124 条**临证真实医案（含 herbs 药味 + formulas_referenced 方剂结构化字段）。
+>
+> 扩展库：`asset17` 运气瘟疫 · `asset18` 回春录 · `asset19` 张聿青138条 · `asset20` 吴鞠通120条 · `asset21` 寓意草 · `asset22` 洄溪 · `asset23` 花韵楼 · `asset24` 诊余举隅录 · `asset25` 许氏 · `asset26` 杏轩184条 · `asset27` 孙文垣390条 · `asset28` 丛桂草堂 · `asset29` 外科正宗 · `asset30` 立斋外科 · `asset31` 醉花窗 · `asset32` 医验随笔
 
-检索流程：
+检索流程与进阶工具：
 
 ```text
 1. 调用 calculate_yunqi_api.py 获取 rag_keys
@@ -273,9 +275,22 @@ node scripts/calculate_yunqi_api.js <YYYY-MM-DD> --json
 5. 如用户提供地区，检索 asset6
 6. 如用户提供出生日期或体质，检索 asset7
 7. 如需岁图医案 / 岁宜治法，检索 asset9 / asset10
-8. 如需历代名家临证医案，检索 asset11-16（按 entry_id / category）
+8. 如需历代名家临证医案，检索 asset11-32（按 entry_id / category）
 9. 汇总进入结构化报告
 ```
+
+**进阶工具（按需调用）**：
+
+| 工具 | 命令 | 何时用 |
+|------|------|--------|
+| 病机推理链 | `python scripts/infer_pathogenesis.py <年份>` | 用户问"今年什么病机/该用什么治法" |
+| 按字段检索 | `python scripts/rag_search.py --field herbs 石膏` | 用户问"哪些医案用了某药/某方" |
+| 跨库联合检索 | `python scripts/rag_search.py <词> --asset asset26,asset27` | 多库同时检索 |
+| 医案对比 | `python scripts/case_relations.py --compare 孙一奎,叶桂 --tag 中风` | 跨医家同证型对比 |
+| 相似医案 | `python scripts/case_relations.py --related swy_174` | 查找相似医案 |
+| 运气时间轴 | `python scripts/visualize_timeline.py <年份> --output out.html` | 生成时间轴 HTML |
+
+**Fallback 策略**：工具未命中 -> 查 `case-journal/field-journal/` 经验库 -> 仍未命中 -> 联网搜索 -> 沉淀到经验库。详见 `system_prompt.md` §2.6。
 
 ---
 
