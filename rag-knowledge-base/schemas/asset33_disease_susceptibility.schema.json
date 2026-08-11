@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Asset33 疾病易感性数据库 Schema",
+  "description": "出生运气格局与疾病易感性的临床数据挖掘结果",
+  "type": "object",
+  "required": ["asset_id", "asset_name", "asset_description", "data_source", "entry_count", "entries"],
+  "properties": {
+    "asset_id": { "type": "string", "const": "asset33_disease_susceptibility" },
+    "asset_name": { "type": "string" },
+    "asset_description": { "type": "string" },
+    "data_source": { "type": "string" },
+    "distill_method": { "type": "string" },
+    "entry_count": { "type": "integer" },
+    "total_entries": { "type": "integer" },
+    "asset_type": { "type": "string", "const": "disease_susceptibility" },
+    "description": { "type": "string" },
+    "lookup_fields": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "primary_api": { "type": "string" },
+    "disclaimer": { "type": "string" },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["entry_id", "entry_type", "dimension", "rag_key", "code", "susceptible_diseases", "susceptibility_direction", "pathogenesis", "source"],
+        "properties": {
+          "entry_id": { "type": "string" },
+          "entry_type": { "type": "string", "const": "disease_susceptibility" },
+          "dimension": {
+            "type": "string",
+            "enum": ["suiyun", "sitian", "zaiquan", "zhuqi", "sitian_zaiquan", "yunqi_xianghe"]
+          },
+          "rag_key": { "type": "string" },
+          "code": { "type": "string" },
+          "suiyun": { "type": "string" },
+          "sitian": { "type": "string" },
+          "zaiquan": { "type": "string" },
+          "zhuqi": { "type": "string" },
+          "yunqi_xianghe": { "type": "string" },
+          "susceptible_diseases": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "susceptibility_direction": {
+            "type": "string",
+            "enum": ["升高", "降低"]
+          },
+          "evidence": { "type": "string" },
+          "pathogenesis": { "type": "string" },
+          "constitution_tendency": { "type": "string" },
+          "regulation_direction": { "type": "string" },
+          "source_quote": { "type": "string" },
+          "source": { "type": "string" }
+        }
+      }
+    }
+  }
+}

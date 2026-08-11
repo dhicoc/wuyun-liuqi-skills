@@ -74,7 +74,7 @@ description: >
 | ReAct 推理 | `agent-workflow/react_workflow.md` |
 | 报告规范 | `modules/docs-generator/SKILL.md` |
 | 思想地图 / 苏格拉底 / CLI / 仪表盘 | `export_thought_map.py` · `socratic_learn.py` · `yunqi_cli.py` · `learning_dashboard.py` |
-| RAG 检索 | `rag_search.py --date today` · `--key` · `--asset asset9` 同格局岁图 · `--asset asset11-32` 历代名家医案（2124条/21部库，病证路由见 `system_prompt.md` §2.4）· `--asset asset26,asset27` 逗号多库 · `--field herbs 石膏` 按字段 · `--semantic 口语` |
+| RAG 检索 | `rag_search.py --date today` · `--key` · `--asset asset9` 同格局岁图 · `--asset asset11-32` 历代名家医案（2124条/21部库，病证路由见 `system_prompt.md` §2.4）· `--asset asset33` 疾病易感性（12条，含33669例+691例高血压运气研究） · `--asset asset26,asset27` 逗号多库 · `--field herbs 石膏` 按字段 · `--semantic 口语` |
 | 公版文献库/蒸馏指南 | `rag-knowledge-base/literature/`（35篇原文61.6万字）· `*_guide.md`（五层注释链+分组合并，Grep+Read 零依赖） |
 | 医案库 | `asset9` 圣济总录岁图 + `asset11-32` 历代名家21部库共2124条（含杏轩184/孙文垣390/临证指南330等，按病证检索，含 herbs+formulas_referenced 结构化字段） |
 | 讲解人格/教学模块/注家 | `expression_style.md` + `teaching-modules/` + `perspectives/`（刘完素/张介宾） |

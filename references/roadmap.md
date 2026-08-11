@@ -85,11 +85,14 @@
 
 ### P7-2 疾病易感性 RAG
 
-- [ ] 新增 `rag-knowledge-base/asset33_disease_susceptibility.json`
-- [ ] 收录「出生运气格局 × 疾病易感性」临床数据
-- [ ] 数据来源：高血压运气研究（33669 例 + 691 例，太阴湿土司天/金运不及/阳明燥金）
-- [ ] `rag_search.py` 支持按疾病名检索易感性数据
-- [ ] `infer_pathogenesis.py` 推理链增加疾病易感性提示
+- [x] 新增 `rag-knowledge-base/asset33_disease_susceptibility.json` -- 12 条，覆盖岁运/司天/在泉/主气/运气相合五维度
+- [x] 收录「出生运气格局 × 疾病易感性」临床数据 -- 33669 例 + 691 例高血压运气研究
+- [x] 数据来源：高血压运气研究（太阴湿土司天/金运不及/阳明燥金/太阳寒水司天/顺化/天刑等）
+- [x] `rag_search.py` 支持按疾病名/rag_key 检索易感性数据 -- `--asset asset33 高血压` / `--key taiyin_shitu_sitian --asset asset33`
+- [x] `infer_pathogenesis.py` 推理链增加疾病易感性提示 -- 自动匹配岁运/司天/在泉组合 key
+- [x] `system_prompt.md` 增加 asset33 路由说明
+- [x] `SKILL.md` 延伸索引增加 asset33
+- [x] schema 文件 + index.json 更新
 
 ### P7-3 skill 级 evals（对齐官方标准）
 

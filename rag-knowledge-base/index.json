@@ -2,7 +2,7 @@
   "asset_name": "wuyun-liuqi-rag-index",
   "asset_type": "knowledge_base_index",
   "description": "五运六气 RAG 知识库资产索引。用于说明各 asset 的用途、检索键和维护状态。",
-  "total_entries": 32,
+  "total_entries": 33,
   "primary_api": "scripts/calculate_yunqi_api.py",
   "entries": [
     {
@@ -673,6 +673,28 @@
         "ysb_001"
       ],
       "rag_key": "asset32_yiyan_suibi"
+    },
+    {
+      "entry_id": "rag_index_asset33_disease_susceptibility",
+      "entry_type": "asset_index",
+      "title": "疾病易感性数据库",
+      "file": "asset33_disease_susceptibility.json",
+      "asset_id": "asset33_disease_susceptibility",
+      "asset_name": "疾病易感性数据库",
+      "asset_category": "disease_susceptibility",
+      "description": "出生运气格局与疾病易感性的临床数据挖掘结果。基于公版学术文献中出生时间五运六气与疾病相关性的流行病学研究，提供运气格局对应的先天体质倾向与易感疾病方向。仅供研究参考，不构成医学诊断。",
+      "total_entries": 12,
+      "lookup_fields": [
+        "code",
+        "rag_key",
+        "entry_id"
+      ],
+      "example_keys": [
+        "taiyin_shitu_susceptibility",
+        "taiyin_shitu_sitian",
+        "ds_001"
+      ],
+      "rag_key": "asset33_disease_susceptibility"
     },
     {
       "entry_id": "rag_index_asset15_shanghan90_cases",

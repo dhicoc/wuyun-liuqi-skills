@@ -85,6 +85,28 @@ def _find_formula(rag_key: str) -> list:
     return [e for e in formula_kb if e.get("rag_key") == rag_key]
 
 
+def _find_disease_susceptibility(suiyun_code: str, sitian_key: str, zaiquan_key: str = "") -> list:
+    """按岁运/司天/在泉/运气相合检索疾病易感性提示（asset33）。"""
+    ds_kb = _load_kb("asset33_disease_susceptibility.json")
+    # 组合 key：司天_在泉
+    sitian_zaiquan_key = f"{sitian_key}_{zaiquan_key}" if zaiquan_key else ""
+    results = []
+    for e in ds_kb:
+        rag_key = e.get("rag_key", "")
+        # 匹配岁运 code、司天 key、或司天+在泉组合 key
+        if rag_key == suiyun_code or rag_key == sitian_key or rag_key == sitian_zaiquan_key:
+            results.append({
+                "dimension": e.get("dimension", ""),
+                "susceptible_diseases": e.get("susceptible_diseases", []),
+                "susceptibility_direction": e.get("susceptibility_direction", ""),
+                "pathogenesis": e.get("pathogenesis", ""),
+                "regulation_direction": e.get("regulation_direction", ""),
+                "evidence": e.get("evidence", ""),
+                "source": e.get("source", ""),
+            })
+    return results
+
+
 def infer_pathogenesis(year: int) -> dict:
     """运气病机自动推理主函数。
 
@@ -194,6 +216,7 @@ def infer_pathogenesis(year: int) -> dict:
             }
             for f in formulas
         ],
+        "disease_susceptibility": _find_disease_susceptibility(suiyun_code, sitian_entry.get("sitian_key", ""), sitian_entry.get("zaiquan_key", "")),
     }
 
     return result

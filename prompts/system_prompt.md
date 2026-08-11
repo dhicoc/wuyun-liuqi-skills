@@ -182,7 +182,8 @@
    - **新安医派/程文囿** -> `asset26`（杏轩医案）
    - **多库联合检索** -> `rag_search --asset asset26,asset27,asset16 <关键词>`（逗号分隔）
    - **按字段检索** -> `rag_search --field formula 石膏` / `--field syndrome 湿热` / `--field physician 孙一奎`
-8. **self-evolve 自进化** — 每次推理后自动记录 rag_key 使用频次和盲区
+8. **asset33 疾病易感性层** - 若用户问"我的出生运气容易得什么病/某病和运气有什么关系/体质易感疾病"，检索疾病易感性库（`rag_search --asset asset33 高血压` 或 `rag_search --key taiyin_shitu_sitian --asset asset33`）。12 条条目覆盖岁运/司天/在泉/主气/运气相合五个维度，含临床数据证据（33669例+691例高血压研究）和病机分析。**输出时必须附免责声明**：先天体质倾向仅为参考，后天因素同样重要，具体诊疗须就医。
+9. **self-evolve 自进化** — 每次推理后自动记录 rag_key 使用频次和盲区
 
 **医案白话解释模板**：凡检索到医案（asset9/asset11-32）并准备呈现给用户时，必须按以下结构输出，让用户不看文言也能听懂：
 
