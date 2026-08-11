@@ -526,7 +526,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         "--asset",
         action="append",
         dest="assets",
-        help="限定资产，可多次。如 asset1 / terminology / asset5",
+        help="限定资产，可多次或逗号分隔。如 asset1 / asset26,asset27 / terminology",
     )
     parser.add_argument("--key", "-k", action="append", dest="keys",
                         help="精确 rag_key/code（可多次）")
@@ -544,6 +544,13 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     if args.list_assets:
         print(list_assets())
         return 0
+
+    # 拆分逗号分隔的 asset 列表（支持 --asset asset26,asset27 形式）
+    if args.assets:
+        expanded = []
+        for a in args.assets:
+            expanded.extend(x.strip() for x in a.split(",") if x.strip())
+        args.assets = expanded or None
 
     # 模式 0：轻量语义
     if args.semantic:
