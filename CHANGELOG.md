@@ -1,0 +1,34 @@
+# Changelog
+
+本文件记录五运六气技能包的重要变更，遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
+
+## [Unreleased]
+
+### Added
+- **OPT-04 医案结构化字段**：自动提取 `herbs`（药味列表）+ `formulas_referenced`（方剂引用），2124 条中 68.2% 含药味、24.2% 含方剂引用。支持 `rag_search --field herbs 石膏` 精准检索。
+- **OPT-Agent 医案白话解释能力**：system_prompt 路由表覆盖全 32 库（原仅 6 库），新增医案白话解释四段模板（医案故事/为什么这么治/原文存证/与运气关系）。
+- **OPT-09 医案知识库浏览器**：`generate_case_browser.py` 生成 2124 条医案静态 HTML 浏览器，复用报告 UI 体系。
+- **OPT-07 运气时间轴可视化**：`visualize_timeline.py` 生成全年六步客主加临时间轴 HTML，复用报告 UI 体系。
+- **OPT-06 运气病机自动推理链**：`infer_pathogenesis.py` 实现年份→岁运病机→司天在泉→六步加临→推荐方剂五层推理闭环。
+- **OPT-03 按字段检索**：`rag_search --field formula 茵陈` 按指定字段精准检索。
+- **OPT-01 多库联合检索**：`rag_search --asset asset26,asset27` 逗号分隔跨库检索。
+
+### Changed
+- 孙文垣医案库（asset27）：12→390 条（覆盖率 98%），新增命门学说/新安医派视角
+- 杏轩医案库（asset26）：14→184 条（覆盖率 93%），新增伤寒温病辨证/误治救逆
+- 全库医案总数：~1100→2124 条（+1024 条真实原文医案）
+
+### Fixed
+- 修复杏轩医案 case_id 重复（xx_014/15/20/145/146/147 → xx_153-158）
+
+## [0.1.0] - 2026-08-10
+
+### Added
+- 五运六气推算引擎（干支/大运/司天在泉/客主加临/平气/太少）
+- RAG 知识库（32 资产：岁运病机/司天在泉/客主加临/三因方/注家/体质/地域/术语 + 21 部医案库）
+- HTML 可视化报告（宣纸水墨设计体系）
+- ReAct 推理工作流 + 自进化引擎
+- 注家人格（刘完素/张介宾）
+- 内外联动机制（外科正宗/立斋外科）
+- CI 自动化（Python 3.10/3.11/3.12 + Node 18/20/22 矩阵）
+- 全链路测试（17 项：validate/index/regression/scenario/e2e/package/rag/pingqi/taishao/semantic/chain/random）
