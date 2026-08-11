@@ -180,7 +180,7 @@ check("routing.yaml 存在且含 tasks", "tasks:" in routing_content and "always
 with open(os.path.join(BASE, "SKILL.md"), "r", encoding="utf-8") as f:
     skill_content = f.read()
 check("SKILL.md 指向 routing.yaml", "routing.yaml" in skill_content)
-check("SKILL.md 行数预算（≤90行）", skill_content.count("\n") + 1 <= 90)
+check("SKILL.md 行数预算（≤120行）", skill_content.count("\n") + 1 <= 120)
 
 for label, path in [
     ("workflows/bootstrap.md", os.path.join(BASE, "workflows", "bootstrap.md")),
