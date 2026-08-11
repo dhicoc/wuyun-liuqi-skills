@@ -311,6 +311,64 @@ def search(
     return hits[:limit]
 
 
+def search_by_field(
+    field: str,
+    terms: Sequence[str],
+    assets: Optional[Sequence[str]] = None,
+    limit: int = 50,
+) -> List[Dict[str, Any]]:
+    """按指定字段检索医案（如 field='formula', terms=['茵陈']）。
+
+    支持的字段包括但不限于：formula, syndrome, treatment, chief_complaint,
+    physician, category, source_quote, outcome, note, herbs, rag_key 等。
+    多个 terms 为 AND 关系。
+    """
+    keys = list(assets) if assets else _default_asset_keys()
+    hits: List[Dict[str, Any]] = []
+    terms_norm = [t.strip() for t in terms if t and t.strip()]
+
+    for ak in keys:
+        try:
+            fname, entries = load_entries(ak)
+        except FileNotFoundError:
+            continue
+        for i, entry in enumerate(entries):
+            if not isinstance(entry, dict):
+                continue
+            val = entry.get(field)
+            if val is None:
+                continue
+            val_str = str(val)
+            val_lower = val_str.lower()
+
+            all_match = True
+            for t in terms_norm:
+                if t.lower() not in val_lower and t not in val_str:
+                    all_match = False
+                    break
+            if not all_match:
+                continue
+
+            eid = _entry_id(entry, i)
+            preview = val_str.strip().replace("\n", " ")
+            if len(preview) > 180:
+                preview = preview[:180] + "…"
+
+            hits.append({
+                "score": 100,
+                "asset": ak,
+                "file": fname,
+                "id": eid,
+                "title": _entry_title(entry, eid),
+                "matched_fields": [field],
+                "preview": preview,
+                "mode": "field",
+            })
+
+    hits.sort(key=lambda x: (x["asset"], x["id"]))
+    return hits[:limit]
+
+
 # 精确匹配时检查的字段（与 calculate_yunqi_api.rag_keys 对齐）
 # internal_key/external_key：内外联动字段（内因病机 key → 外候医案）
 _EXACT_ID_FIELDS = (
@@ -534,6 +592,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                         help="按日期推算 rag_keys 并精确拉取（today / YYYY-MM-DD）")
     parser.add_argument("--semantic", "-s", default=None,
                         help="轻量语义/口语检索（字符 n-gram，无外部模型）")
+    parser.add_argument("--field", default=None,
+                        help="按指定字段检索（如 --field formula 茵陈 / --field syndrome 湿热 / --field physician 孙一奎）")
     parser.add_argument("--full", action="store_true",
                         help="JSON 输出中附带完整 entry 对象")
     parser.add_argument("--limit", type=int, default=10, help="关键词/语义模式最多条数（默认 10）")
@@ -595,6 +655,25 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         else:
             print(format_text(all_hits, args.keys, mode="exact_key"))
         return 0 if all_hits else 1
+
+    # 模式 2.5：按字段检索
+    if args.field:
+        if not args.terms:
+            print("错误：--field 需要配合检索词，如 --field formula 茵陈")
+            return 1
+        hits = search_by_field(args.field, args.terms, assets=args.assets, limit=args.limit)
+        if args.json:
+            print(json.dumps({
+                "field": args.field,
+                "terms": args.terms,
+                "assets": args.assets,
+                "count": len(hits),
+                "hits": hits,
+                "mode": "field",
+            }, ensure_ascii=False, indent=2))
+        else:
+            print(format_text(hits, args.terms, mode="field"))
+        return 0 if hits else 1
 
     # 模式 3：关键词
     if not args.terms:
