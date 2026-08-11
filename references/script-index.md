@@ -42,7 +42,12 @@
 | `socratic_learn.py` | 苏格拉底学习会话 | `python scripts/socratic_learn.py today` |
 | `yunqi_cli.py` | 统一入口（见上） | `python scripts/yunqi_cli.py learn today` |
 | `learning_dashboard.py` | 学习路径仪表盘 | `python scripts/learning_dashboard.py` / `yunqi_cli.py dashboard` |
-| `rag_search.py` | RAG 关键词 / 精确 key / 按日 / 语义 | `--key` · `--date today` · `--semantic 心火偏旺` |
+| `rag_search.py` | RAG 关键词 / 精确 key / 按日 / 语义 / 按字段 / 多库 | `--key` · `--date today` · `--semantic 心火偏旺` · `--field herbs 石膏` · `--asset asset26,asset27` |
+| `infer_pathogenesis.py` | 运气病机推理链（岁运->司天在泉->六步->方剂） | `python scripts/infer_pathogenesis.py 2026` |
+| `case_relations.py` | 医案关联图谱（跨医家对比+相似检索） | `--compare 孙一奎,叶桂 --tag 中风` · `--related swy_174` |
+| `visualize_timeline.py` | 运气时间轴 HTML（复用报告 UI） | `python scripts/visualize_timeline.py 2026 --output timeline.html` |
+| `generate_case_browser.py` | 医案知识库浏览器（2124条 HTML） | `python scripts/generate_case_browser.py --output browser.html` |
+| `extract_structured_fields.py` | 医案结构化字段提取（herbs+formulas） | `python scripts/extract_structured_fields.py` |
 | `rag_semantic.py` | 轻量语义检索（字符 n-gram） | `python scripts/rag_semantic.py 气候干燥 咳嗽` |
 | `compare_py_js_yunqi.py` | Py/JS 关键字段一致性 | `python scripts/compare_py_js_yunqi.py` |
 | `ingest_literature.py` | 文献注入 RAG | `python scripts/ingest_literature.py --source <文件> --category <分类>` |
