@@ -73,17 +73,11 @@ description: >
 | 一致性/孤儿 | `conformance.yaml`、`scripts/check_conformance.py`、`scripts/audit_orphans.py` |
 | ReAct 推理 | `agent-workflow/react_workflow.md` |
 | 报告规范 | `modules/docs-generator/SKILL.md` |
-| 思想地图 | `scripts/export_thought_map.py` |
-| 苏格拉底学习 | `scripts/socratic_learn.py` / `yunqi_cli.py learn` |
-| 统一 CLI | `scripts/yunqi_cli.py` |
-| 学习仪表盘 | `scripts/learning_dashboard.py` / `yunqi_cli.py dashboard` |
+| 思想地图 / 苏格拉底 / CLI / 仪表盘 | `export_thought_map.py` · `socratic_learn.py` · `yunqi_cli.py` · `learning_dashboard.py` |
 | RAG 检索 | `rag_search.py --date today` · `--key` · `--asset asset9` 同格局岁图 · `--asset asset11-32` 历代名家医案（2124条/21部库，病证路由见 `system_prompt.md` §2.4）· `--asset asset26,asset27` 逗号多库 · `--field herbs 石膏` 按字段 · `--semantic 口语` |
-| 公版文献库 | `rag-knowledge-base/literature/`（35 篇原文 61.6 万字，Grep+Read 零依赖；详见 `检索说明.md`） |
-| 公版蒸馏指南 | `rag-knowledge-base/*_guide.md`（五层注释链 5 本 + 35 篇分组合并 5 册，Grep+Read 零依赖；详见 `references/module-index.md`） |
-| 岁图医案库 | `rag-knowledge-base/asset9_cases.json`（圣济总录 60 岁图医案，按 rag_key 可检索同格局医案） |
-| 历代名家医案库 | `rag-knowledge-base/asset11-32_*_cases.json`（21部库共 2124 条：名医类案/续名医类案/古今医案按/丁甘仁/伤寒九十论/临证指南/回春录/张聿青/吴鞠通/寓意草/洄溪/花韵楼/诊余举隅录/许氏/杏轩184条/孙文垣390条/丛桂草堂/外科正宗/立斋外科/醉花窗/医验随笔，按病证检索，含 herbs 药味+formulas_referenced 方剂结构化字段） |
-| 讲解人格/教学模块 | `prompts/expression_style.md`（运气导师 DNA）+ `teaching-modules/`（10 概念五段式） |
-| 注家人格 | `perspectives/`（刘完素/张介宾 perspective skill，深度注家扮演） |
+| 公版文献库/蒸馏指南 | `rag-knowledge-base/literature/`（35篇原文61.6万字）· `*_guide.md`（五层注释链+分组合并，Grep+Read 零依赖） |
+| 医案库 | `asset9` 圣济总录岁图 + `asset11-32` 历代名家21部库共2124条（含杏轩184/孙文垣390/临证指南330等，按病证检索，含 herbs+formulas_referenced 结构化字段） |
+| 讲解人格/教学模块/注家 | `expression_style.md` + `teaching-modules/` + `perspectives/`（刘完素/张介宾） |
 | 可导入包 | `wuyun_liuqi`（`from wuyun_liuqi import calculate, semantic_search`） |
 | HTML 报告 | `generate_html_report.py`（含知识库精确命中章节） |
 | 病机推理链 | `infer_pathogenesis.py <年份>`（岁运->司天在泉->六步->方剂五层推理） |
