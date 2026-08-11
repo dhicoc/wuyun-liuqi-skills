@@ -1,0 +1,42 @@
+/* 医案浏览器补充样式 - 复用报告 _STYLE 体系 */
+
+.filter-section{margin-bottom:1.5rem}
+.filter-section h3{font-family:var(--serif);font-size:.95rem;color:var(--ink-3);margin-bottom:.6rem;letter-spacing:.1em}
+.filter-tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.filter-tag{font-family:var(--serif);font-size:.82rem;padding:.3rem .7rem;border:1px solid var(--hairline);border-radius:999px;background:var(--card);color:var(--ink-2);cursor:pointer;transition:all .2s}
+.filter-tag:hover{border-color:var(--vermilion);color:var(--vermilion)}
+.filter-tag.active{background:var(--vermilion);border-color:var(--vermilion);color:#f7f1e3}
+.tag-count{font-size:.72rem;color:var(--ink-4);margin-left:.2rem}
+.filter-tag.active .tag-count{color:rgba(247,241,227,.7)}
+
+.search-bar{margin-bottom:1.5rem}
+.search-bar input{width:100%;font-family:var(--serif);font-size:1rem;padding:.7rem 1rem;border:1px solid var(--hairline);border-radius:6px;background:var(--card);color:var(--ink)}
+.search-bar input:focus{outline:none;border-color:var(--vermilion)}
+.search-bar input::placeholder{color:var(--ink-4)}
+
+.result-info{color:var(--ink-4);font-size:.85rem;margin-bottom:1rem;font-family:var(--serif)}
+
+.case-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.2rem}
+.case-card{background:var(--card);border:1px solid var(--hairline);border-top:3px solid var(--vermilion);border-radius:5px;padding:1rem 1.2rem;cursor:pointer;transition:all .2s}
+.case-card:hover{box-shadow:0 4px 16px rgba(178,58,46,.12);transform:translateY(-2px)}
+.case-card .cc-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.5rem}
+.case-card .cc-id{font-family:var(--serif);font-size:.78rem;color:var(--ink-4)}
+.case-card .cc-cat{font-family:var(--serif);font-size:.72rem;padding:.1rem .5rem;border:1px solid var(--hairline);border-radius:999px;color:var(--vermilion)}
+.case-card .cc-title{font-family:var(--serif);font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:.4rem}
+.case-card .cc-physician{font-size:.8rem;color:var(--ink-3);margin-bottom:.4rem}
+.case-card .cc-quote{font-size:.82rem;color:var(--ink-2);line-height:1.6;max-height:4.5em;overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical}
+.case-card .cc-source{font-size:.72rem;color:var(--ink-4);margin-top:.4rem;font-style:italic}
+
+.case-detail-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:100;display:none;backdrop-filter:blur(4px)}
+.case-detail-overlay.show{display:flex;align-items:center;justify-content:center;padding:2rem}
+.case-detail{background:var(--paper);border:1px solid var(--hairline);border-radius:8px;max-width:680px;max-height:80vh;overflow-y:auto;padding:2rem;position:relative}
+.case-detail .cd-close{position:absolute;top:.8rem;right:.8rem;font-size:1.5rem;cursor:pointer;color:var(--ink-4);background:none;border:none;font-family:var(--serif)}
+.case-detail .cd-close:hover{color:var(--vermilion)}
+.case-detail h2{font-family:var(--serif);font-size:1.3rem;color:var(--ink);margin-bottom:.5rem}
+.case-detail .cd-meta{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1rem;font-size:.82rem;color:var(--ink-3)}
+.case-detail .cd-section{margin-bottom:1rem}
+.case-detail .cd-label{font-family:var(--serif);font-size:.78rem;color:var(--vermilion);letter-spacing:.1em;margin-bottom:.3rem}
+.case-detail .cd-content{font-size:.9rem;color:var(--ink-2);line-height:1.8}
+.case-detail .cd-quote{background:var(--card);border-left:3px solid var(--vermilion);padding:.8rem 1rem;font-size:.88rem;color:var(--ink-2);line-height:1.8;margin:.5rem 0}
+
+.no-result{text-align:center;padding:3rem;color:var(--ink-4);font-family:var(--serif)}
