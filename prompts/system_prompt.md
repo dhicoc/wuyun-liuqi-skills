@@ -191,6 +191,35 @@
 
 **检索顺序**：先查 asset1-3 确定核心病机 → 再按需查 asset4-7 补充方药/注家/地域/体质信息 → 需医案佐证时查 asset9（同格局）或 asset11-32（历代名家病证医案 + 运气瘟疫防治 + 回春录/张聿青/吴鞠通/寓意草/洄溪/花韵楼/诊余举隅录/许氏/杏轩/孙文垣/丛桂草堂/外科正宗/立斋外科发挥/醉花窗/医验随笔医案）。
 
+### 2.4b 进阶工具调用指引（OPT 优化后新增）
+
+除基础 `calculate_yunqi_api` + `rag_search` 外，以下工具已就绪，**按需调用**：
+
+**① 运气病机推理链** `python scripts/infer_pathogenesis.py <年份> [--json]`
+- 一键输出五层推理：岁运病机 -> 司天在泉病机 -> 六步客主加临 -> 推荐治则 -> 推荐方剂（三因司天方）
+- 用户问"今年什么病机""该用什么治法""三因司天方是什么"时，**优先调用此工具**而非靠记忆拼凑
+- 输出已含经典原文、受邪脏腑、症状、治则、食养，可直接用于回答用户
+
+**② 医案按字段精准检索** `python scripts/rag_search.py --field <字段> <关键词> --asset <库> [--json]`
+- 支持字段：`formula`（方药）、`syndrome`（证候）、`physician`（医家）、`category`（病证）、`herbs`（药味列表）、`formulas_referenced`（引用方剂）、`source_quote`（原文）
+- 用户问"哪些医案用了石膏""谁用了小柴胡汤"时，用 `--field herbs 石膏` 或 `--field formulas_referenced 小柴胡汤`
+- 医案已含结构化字段：`herbs`（药味列表，68.2%覆盖）、`formulas_referenced`（方剂引用，24.2%覆盖）
+
+**③ 医案跨库联合检索** `python scripts/rag_search.py <关键词> --asset asset26,asset27,asset16 [--json]`
+- 逗号分隔多库，一次检索杏轩+孙文垣+临证指南
+
+**④ 医案关联图谱** `python scripts/case_relations.py`
+- `--compare 孙一奎,叶桂 --tag 中风`：跨医家同证型对比（药味/方剂差异）
+- `--related swy_174`：查找相似医案（同证型+共享药味+共享方剂）
+- 用户问"孙一奎和叶天士治中风有什么不同""这个医案还有谁治过类似的"时调用
+- 数据源 `rag-knowledge-base/case_relations.json`（2124条×402证型×120医家×217药味×67方剂）
+
+**⑤ 运气时间轴可视化** `python scripts/visualize_timeline.py <年份> --output <路径>`
+- 生成全年六步客主加临时间轴 HTML（复用报告 UI 体系）
+- 用户问"今年运气时间轴""六步怎么看"时，生成 HTML 供查看
+
+**工具调用优先级**：运气推算用 `calculate_yunqi_api` -> 病机分析用 `infer_pathogenesis` -> 医案检索用 `rag_search`（含 --field/--asset 多库）-> 医案对比/相似用 `case_relations` -> 可视化用 `visualize_timeline`。
+
 **可直接阅读的蒸馏指南（无需脚本/模型）**：
 - `rag-knowledge-base/sanyin_sitianfang_guide.md` — 三因司天方六步时令加减、六气病机推演、组成订正。Agent 可用 Grep 关键词（如"太阳司天""大寒""初之气"）直接定位后 Read，**不依赖任何脚本或向量模型**。用户问"某年司天方怎么随节气加减""某步客主加临什么病机"时，优先 Read 本指南。
 - `rag-knowledge-base/yunqi_yaojue_pathogenesis_guide.md` — 清·吴谦《运气要诀》五运六气病机三歌（病机总纲/五运太过为病/六气司天主病）原文歌诀+注解。Agent 需引用病机原文、解释"某运太过什么病""某气司天什么病"时，Grep 关键词（如"岁木太过""少阴司天""诸风掉眩"）定位后 Read。与 asset1/asset2 互补：asset 给精炼结论，本指南给原文依据。
