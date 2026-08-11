@@ -289,7 +289,7 @@
       "name": "xx_013 郁伤心脾"
     },
     {
-      "case_id": "xx_014",
+      "case_id": "xx_153",
       "category": "中风",
       "physician": "程文囿",
       "source": "杏轩医案·洪楚峰孝廉中脏殆证再生",
@@ -300,13 +300,13 @@
       "outcome": "半载后见翁矍铄如常矣",
       "source_quote": "此中臟也。高年臟真已虧，况見五絕之候，不可為矣！勉處地黃飲子，合大補元煎。",
       "note": "中脏五绝勉治地黄饮子大补元煎再生",
-      "entry_id": "xx_014",
+      "entry_id": "xx_153",
       "entry_type": "xingxuan_case",
       "rag_key": "中风",
-      "name": "xx_014 中脏再生"
+      "name": "xx_153 中脏再生"
     },
     {
-      "case_id": "xx_015",
+      "case_id": "xx_154",
       "category": "遗精",
       "physician": "程文囿",
       "source": "杏轩医案·方萃岩翁公郎滑精证治",
@@ -317,10 +317,10 @@
       "outcome": "守服两旬虚阳渐敛精下日减，丸方调养而瘳",
       "source_quote": "是精藏於腎，非生於腎也。譬諸錢糧雖貯庫中，然非庫中自出。須補脾胃化源。",
       "note": "滑精水火失济六味固涩，补脾胃化源",
-      "entry_id": "xx_015",
+      "entry_id": "xx_154",
       "entry_type": "xingxuan_case",
       "rag_key": "遗精",
-      "name": "xx_015 滑精固涩"
+      "name": "xx_154 滑精固涩"
     },
     {
       "case_id": "xx_016",
@@ -374,7 +374,7 @@
       "name": "xx_019 大头时疫"
     },
     {
-      "case_id": "xx_020",
+      "case_id": "xx_155",
       "category": "子嗽",
       "physician": "程文囿",
       "source": "杏轩医案·荔翁夫人子嗽",
@@ -385,10 +385,10 @@
       "outcome": "再服数剂胸宽喘定逾月分娩无恙",
       "source_quote": "補肺阿膠湯，内有甘草、兜鈴、杏仁、牛蒡，清金降火，糯米、阿膠潤肺安胎，一方而胎病兩調，至穩至當。",
       "note": "子嗽胎火上冲补肺阿胶汤胎病两调",
-      "entry_id": "xx_020",
+      "entry_id": "xx_155",
       "entry_type": "xingxuan_case",
       "rag_key": "子嗽",
-      "name": "xx_020 子嗽安胎"
+      "name": "xx_155 子嗽安胎"
     },
     {
       "case_id": "xx_021",
@@ -2465,7 +2465,7 @@
       "name": "xx_147 疫存津液"
     },
     {
-      "case_id": "xx_145",
+      "case_id": "xx_156",
       "category": "虚损",
       "physician": "程文囿",
       "source": "杏轩医案·鲍觉生宫詹精气内亏详叙证治次第",
@@ -2476,13 +2476,13 @@
       "outcome": "服药旬余脉象稍转寝食略安",
       "source_quote": "《金匱》治虛勞，首用建中。越人言損其脾者，調其飲食。脾元日健，飲食日增，變化精微，滋荣臟腑，不治火而火自熄，不潤燥而燥自濡。",
       "note": "精气内亏误苦寒伤胃，培养脾胃建中为要",
-      "entry_id": "xx_145",
+      "entry_id": "xx_156",
       "entry_type": "xingxuan_case",
       "rag_key": "虚损",
-      "name": "xx_145 精气内亏"
+      "name": "xx_156 精气内亏"
     },
     {
-      "case_id": "xx_146",
+      "case_id": "xx_157",
       "category": "筋挛",
       "physician": "程文囿",
       "source": "杏轩医案·殷仲周先生筋挛便浊",
@@ -2493,13 +2493,13 @@
       "outcome": "（依方获效）",
       "source_quote": "金清則水生而熱降，此荣筋即可以治濁也。水足則木暢而筋柔，此治濁即可以荣筋也。",
       "note": "筋挛便浊血不荣筋，人参清肺虎潜法",
-      "entry_id": "xx_146",
+      "entry_id": "xx_157",
       "entry_type": "xingxuan_case",
       "rag_key": "筋挛",
-      "name": "xx_146 筋挛便浊"
+      "name": "xx_157 筋挛便浊"
     },
     {
-      "case_id": "xx_147",
+      "case_id": "xx_158",
       "category": "虚损",
       "physician": "程文囿",
       "source": "杏轩医案·张佩韦先生肝肾两亏证治",
@@ -2510,10 +2510,10 @@
       "outcome": "（依方获效）",
       "source_quote": "目得血而能視，耳得血而能聽，血氣衰耗，不能上充，故視聽失其常度。形不足溫之以氣，精不足補之以味。",
       "note": "肝肾两亏视听失度，人参地黄河车鹿胶",
-      "entry_id": "xx_147",
+      "entry_id": "xx_158",
       "entry_type": "xingxuan_case",
       "rag_key": "虚损",
-      "name": "xx_147 肝肾两亏"
+      "name": "xx_158 肝肾两亏"
     },
     {
       "case_id": "xx_148",
