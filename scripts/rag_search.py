@@ -262,9 +262,10 @@ def score_entry(entry: Dict[str, Any], terms: Sequence[str]) -> Tuple[int, List[
 
 
 def _default_asset_keys() -> List[str]:
-    """默认检索范围：核心病机 asset1-7 + 岁图医案 asset9 + 六部历代名家医案库 asset11-16 + 术语。
+    """默认检索范围：核心病机 asset1-7 + 岁图医案 asset9 + 六部历代名家医案库 asset11-16 + 疾病易感性 asset33 + 术语。
 
     包含 asset11-16 医案库，使默认关键词/语义检索即可命中临证真实医案。
+    包含 asset33 疾病易感性，使按日期检索时自动附带疾病易感性提示。
     """
     seen_files = set()
     keys: List[str] = []
@@ -273,6 +274,7 @@ def _default_asset_keys() -> List[str]:
             "asset1", "asset2", "asset3", "asset4", "asset5", "asset6", "asset7",
             "asset9", "asset10",
             "asset11", "asset12", "asset13", "asset14", "asset15", "asset16",
+            "asset33",
             "terminology",
         ):
             seen_files.add(f)
@@ -492,6 +494,20 @@ def fetch_by_date(
                 h = dict(h)
                 h["role"] = role
                 all_hits.append(h)
+
+    # 组合 key 检索：司天_在泉（如 taiyang_hanshui_sitian_taiyin_shitu_zaiquan）
+    sitian_key = rag_keys.get("sitian", "")
+    zaiquan_key = rag_keys.get("zaiquan", "")
+    if sitian_key and zaiquan_key:
+        combo_key = f"{sitian_key}_{zaiquan_key}"
+        combo_hits = lookup_key(combo_key, full=full)
+        if combo_hits:
+            hits_by_role["sitian_zaiquan_combo"] = combo_hits
+            for h in combo_hits:
+                h = dict(h)
+                h["role"] = "sitian_zaiquan_combo"
+                all_hits.append(h)
+        # 否则 combo_key 不在 missing 中（非必命中）
 
     return {
         "date": resolved,
