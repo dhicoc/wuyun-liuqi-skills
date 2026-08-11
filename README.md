@@ -77,6 +77,68 @@ AI Agent Skill Pack that enables humans to deeply understand WuYun-LiuQi (Five M
 
 <p align="right">(<a href="#关于项目">返回顶部</a>)</p>
 
+<a id="项目亮点"></a>
+
+## 项目亮点
+
+### 🔮 运气推算引擎（确定性数学规则，非幻觉）
+
+- 干支推算 · 大运太过不及 · 司天在泉 · 客主加临六步 · 平气判定 · 天符岁会
+- 一键病机推理链：`infer_pathogenesis.py <年份>` -> 岁运病机 -> 司天在泉病机 -> 六步加临 -> 推荐方剂（三因司天方）
+- Python/JS 双引擎一致性校验，推算结果可信
+
+### 📚 2124 条真实医案 · 21 部公版典籍蒸馏
+
+- 从维基文库公版原文逐字蒸馏，**零占位、零编造**，每条医案附 `source_quote` 原文存证
+- 覆盖：名医类案 · 续名医类案 · 古今医案按 · 丁甘仁 · 伤寒九十论 · 临证指南 · 回春录 · 张聿青 · 吴鞠通 · 寓意草 · 洄溪 · 花韵楼 · 诊余举隅录 · 许氏 · **杏轩184条** · **孙文垣390条** · 丛桂草堂 · 外科正宗 · 立斋外科 · 醉花窗 · 医验随笔
+- 结构化字段：`herbs`（药味列表，68.2%覆盖）+ `formulas_referenced`（方剂引用，24.2%覆盖）
+
+### 🔍 多维检索能力
+
+| 检索方式 | 示例 |
+|----------|------|
+| 关键词检索 | `rag_search.py 头痛` |
+| 跨库联合检索 | `rag_search.py 头痛 --asset asset26,asset27` |
+| 按字段精准检索 | `rag_search.py --field herbs 石膏` · `--field formulas_referenced 小柴胡汤` |
+| 精确 key 检索 | `rag_search.py --key water_excess` |
+| 口语语义检索 | `rag_search.py --semantic 心火偏旺` |
+| 医案对比检索 | `case_relations.py --compare 孙一奎,叶桂 --tag 中风` |
+| 相似医案发现 | `case_relations.py --related swy_174` |
+
+### 🧠 Agent 自进化 Fallback 策略
+
+工具无法回答时，Agent 不拒绝不硬编，而是：
+1. 联网搜索 -> 总结回答用户（标注来源 + 免责声明）
+2. 沉淀经验到 `case-journal/field-journal/` 经验库
+3. 下次类似问题先查经验库，命中则直接引用
+
+```
+用户问题 -> 知识库(rag_search) -> 经验库(field-journal) -> 联网搜索 -> 沉淀
+```
+
+技能包越用越聪明，高频问题自动积累经验。
+
+### 🎨 宣纸水墨可视化体系（统一设计系统）
+
+- HTML 报告 · 运气时间轴 · 医案浏览器，**全部复用同一套 `_STYLE` + `ink_theme` 设计 token**
+- 深色屏幕 / 浅色打印双态 · 朱砂干支印章 · 五行语义色 · 滚动揭示动画
+- 一键生成 PDF 纯净版
+
+### 🏥 医学安全边界
+
+- 所有临床输出 MUST 附加免责声明
+- 运气理论分析 ≠ 医疗建议，后者 MUST 建议就医
+- 方药标注"参考方药，须辨证加减"
+- 不给出具体药物剂量
+
+### 🔄 CI 全自动验证
+
+- GitHub Actions: Python 3.10/3.11/3.12 + Node 18/20/22 矩阵
+- 22 项全链路测试：validate · index · conformance · routing · regression · e2e · scenario · random-chain
+- 每次推送前本地跑通全部 CI 同款测试，全绿才推送
+
+<p align="right">(<a href="#关于项目">返回顶部</a>)</p>
+
 <a id="快速开始"></a>
 
 ## 快速开始
