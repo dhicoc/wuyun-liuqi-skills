@@ -24,6 +24,10 @@
   <a href="#贡献">贡献</a>
 </p>
 
+<p align="center">
+  🌐 <a href="README_EN.md">English</a>
+</p>
+
 ---
 
 ## 这是什么
