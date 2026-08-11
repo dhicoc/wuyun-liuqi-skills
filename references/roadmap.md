@@ -93,6 +93,8 @@
 - [x] `system_prompt.md` 增加 asset33 路由说明
 - [x] `SKILL.md` 延伸索引增加 asset33
 - [x] schema 文件 + index.json 更新
+- [x] 补全缺失的 21 个条目（6 岁运 + 4 司天 + 6 在泉 + 5 组合），总计 33 条，28 个 rag_key 全覆盖
+- [x] 任意年份 --date 检索均命中 4 条疾病易感性（岁运+司天+在泉+组合）
 
 ### P7-3 skill 级 evals -- 不采纳
 

@@ -4,11 +4,15 @@
   "asset_description": "出生运气格局与疾病易感性的临床数据挖掘结果。基于公版学术文献中出生时间五运六气与疾病相关性的流行病学研究，提供运气格局对应的先天体质倾向与易感疾病方向。仅供研究参考，不构成医学诊断。",
   "data_source": "公版学术文献蒸馏：\n1. 《出生时间五运六气与高血压的数据挖掘研究》（天津中医药大学学报2019年第4期）- 33669例高血压+103106例对照\n2. 《五运六气视域下的691例高血压病患者先天禀赋研究》（浙江中医药大学学报2021年第3期）- 691例高血压\n3. 《近50年五运六气理论与相关气象资料研究概述》- 50年文献综述",
   "distill_method": "从公版学术文献中提取统计显著（P<0.05）的运气-疾病相关性结论，结构化为可检索的键值条目",
-  "entry_count": 12,
-  "total_entries": 12,
+  "entry_count": 33,
+  "total_entries": 33,
   "asset_type": "disease_susceptibility",
   "description": "出生运气格局对应的疾病易感性。按岁运/司天/在泉/运气相合四个维度组织，每条含易感倾向、病机分析、调理方向。",
-  "lookup_fields": ["rag_key", "dimension", "code"],
+  "lookup_fields": [
+    "rag_key",
+    "dimension",
+    "code"
+  ],
   "primary_api": "scripts/calculate_yunqi_api.py -> rag_keys + scripts/infer_pathogenesis.py",
   "disclaimer": "本数据库基于运气学说与传统体质理论的文献研究，仅供学术参考。出生运气格局仅为先天体质倾向之一，后天环境、生活方式、情志等因素同样重要。具体诊疗须由执业中医师辨证处理。",
   "entries": [
@@ -19,7 +23,12 @@
       "rag_key": "taiyin_shitu_sitian",
       "code": "taiyin_shitu_susceptibility",
       "sitian": "太阴湿土",
-      "susceptible_diseases": ["高血压", "脾胃病", "湿证", "水肿"],
+      "susceptible_diseases": [
+        "高血压",
+        "脾胃病",
+        "湿证",
+        "水肿"
+      ],
       "susceptibility_direction": "升高",
       "evidence": "33669例高血压+103106例对照研究：太阴湿土司天人群患高血压OR=1.07（95%CI:1.02-1.11），P<0.05",
       "pathogenesis": "寒湿交迫。太阴湿土司天，湿气偏盛，脾土受困，水湿内停，痰浊内生，阻滞气机，血行不畅，易致血压升高。",
@@ -35,7 +44,11 @@
       "rag_key": "metal_deficient",
       "code": "metal_deficient_susceptibility",
       "suiyun": "金运不及",
-      "susceptible_diseases": ["高血压", "肺系疾病", "皮肤病变"],
+      "susceptible_diseases": [
+        "高血压",
+        "肺系疾病",
+        "皮肤病变"
+      ],
       "susceptibility_direction": "升高",
       "evidence": "691例高血压患者研究：主运金运不及的患者数显著高于其他（P=0.042）",
       "pathogenesis": "金运不及则肺金虚弱，金不制木，肝木偏亢，肝阳上亢则血压升高。肺主气，金虚则卫外不固，易感外邪。",
@@ -51,7 +64,11 @@
       "rag_key": "yangming_zaojin_zhuqi",
       "code": "yangming_zaojin_susceptibility",
       "zhuqi": "阳明燥金",
-      "susceptible_diseases": ["高血压", "燥证", "便秘"],
+      "susceptible_diseases": [
+        "高血压",
+        "燥证",
+        "便秘"
+      ],
       "susceptibility_direction": "升高",
       "evidence": "691例高血压患者研究：主气阳明燥金的患者数最多（147例），P=0.017",
       "pathogenesis": "阳明燥金主气，燥邪伤津，津血同源，津亏则血燥，血行涩滞。阳明胃经为多气多血之经，燥化太过则胃热炽盛，气血上冲。",
@@ -68,7 +85,11 @@
       "code": "taiyang_taiyin_susceptibility",
       "sitian": "太阳寒水",
       "zaiquan": "太阴湿土",
-      "susceptible_diseases": ["高血压", "寒湿证", "阳虚证"],
+      "susceptible_diseases": [
+        "高血压",
+        "寒湿证",
+        "阳虚证"
+      ],
       "susceptibility_direction": "升高",
       "evidence": "691例高血压患者研究：太阳寒水司天/太阴湿土在泉时段患者数最多，P=0.021",
       "pathogenesis": "寒水司天，湿土在泉，寒湿合邪。寒则血脉凝泣，湿则气机阻滞，寒湿交阻，血行不畅，血压升高。",
@@ -84,7 +105,9 @@
       "rag_key": "shunhua",
       "code": "shunhua_susceptibility",
       "yunqi_xianghe": "顺化",
-      "susceptible_diseases": ["高血压"],
+      "susceptible_diseases": [
+        "高血压"
+      ],
       "susceptibility_direction": "升高",
       "evidence": "691例高血压患者研究：运气相合中顺化高于理论患者数，P=0.001",
       "pathogenesis": "顺化为运气相合之年，气化偏盛。盛则气血壅实，实证居多，肝阳偏盛者易发高血压。",
@@ -100,7 +123,9 @@
       "rag_key": "tianxing",
       "code": "tianxing_susceptibility",
       "yunqi_xianghe": "天刑",
-      "susceptible_diseases": ["高血压"],
+      "susceptible_diseases": [
+        "高血压"
+      ],
       "susceptibility_direction": "升高",
       "evidence": "691例高血压患者研究：运气相合中天刑高于理论患者数，P=0.001",
       "pathogenesis": "天刑为运气不相得之年，气化逆乱。逆则脏腑功能失调，气血紊乱，易发高血压等慢性病。",
@@ -116,7 +141,9 @@
       "rag_key": "suihui",
       "code": "suihui_protective",
       "yunqi_xianghe": "岁会",
-      "susceptible_diseases": ["高血压"],
+      "susceptible_diseases": [
+        "高血压"
+      ],
       "susceptibility_direction": "降低",
       "evidence": "691例高血压患者研究：岁会低于理论患者数，P=0.001",
       "pathogenesis": "岁会为运气平和之年，气归本位，天地气化协调，先天禀赋中和，疾病易感性降低。",
@@ -132,7 +159,9 @@
       "rag_key": "tianfu",
       "code": "tianfu_protective",
       "yunqi_xianghe": "天符",
-      "susceptible_diseases": ["高血压"],
+      "susceptible_diseases": [
+        "高血压"
+      ],
       "susceptibility_direction": "降低",
       "evidence": "691例高血压患者研究：天符低于理论患者数，P=0.001",
       "pathogenesis": "天符之年气化专一，虽偏盛但气纯不杂，脏腑受气专一，反而不易紊乱。",
@@ -148,7 +177,12 @@
       "rag_key": "wood_excess",
       "code": "wood_excess_susceptibility",
       "suiyun": "木运太过",
-      "susceptible_diseases": ["肝系疾病", "脾胃病", "情志病", "眩晕"],
+      "susceptible_diseases": [
+        "肝系疾病",
+        "脾胃病",
+        "情志病",
+        "眩晕"
+      ],
       "susceptibility_direction": "升高",
       "evidence": "运气理论推演：木运太过则肝木偏亢，木克土则脾胃受伐",
       "pathogenesis": "木运太过，肝气偏亢，疏泄太过，易化风化火。木旺克土，脾胃受伐。肝阳上亢则眩晕头痛，肝木乘脾则脘腹胀痛。",
@@ -164,7 +198,12 @@
       "rag_key": "fire_excess",
       "code": "fire_excess_susceptibility",
       "suiyun": "火运太过",
-      "susceptible_diseases": ["心血管疾病", "热证", "出血证", "失眠"],
+      "susceptible_diseases": [
+        "心血管疾病",
+        "热证",
+        "出血证",
+        "失眠"
+      ],
       "susceptibility_direction": "升高",
       "evidence": "运气理论推演：火运太过则心火偏亢，火热灼金则肺金受伐",
       "pathogenesis": "火运太过，心火偏亢，心主血脉，火盛则血行加速，易致出血。火克金则肺金受伐，咳喘咯血。心火上炎则失眠烦躁。",
@@ -180,7 +219,12 @@
       "rag_key": "water_deficient",
       "code": "water_deficient_susceptibility",
       "suiyun": "水运不及",
-      "susceptible_diseases": ["肾系疾病", "骨病", "虚寒证", "发育迟缓"],
+      "susceptible_diseases": [
+        "肾系疾病",
+        "骨病",
+        "虚寒证",
+        "发育迟缓"
+      ],
       "susceptibility_direction": "升高",
       "evidence": "运气理论推演：水运不及则肾水不足，水不涵木则肝木偏亢",
       "pathogenesis": "水运不及，肾水不足，肾主骨生髓，水虚则骨枯髓减。水不涵木则肝阳偏亢。肾阳虚则虚寒内生。",
@@ -196,7 +240,11 @@
       "rag_key": "shaoyin_junhuo_sitian",
       "code": "shaoyin_junhuo_susceptibility",
       "sitian": "少阴君火",
-      "susceptible_diseases": ["高血压", "心病", "热证"],
+      "susceptible_diseases": [
+        "高血压",
+        "心病",
+        "热证"
+      ],
       "susceptibility_direction": "升高",
       "evidence": "33669例高血压研究：少阴君火司天人群高血压比例高于预期（P<0.05）",
       "pathogenesis": "少阴君火司天，心火偏盛，心主血脉，火盛则气血奔涌，血压升高。君火以明，火明太过则神不宁。",
@@ -204,6 +252,452 @@
       "regulation_direction": "清心降火，养心安神。饮食宜清淡，少食辛温助火之品。",
       "source_quote": "出生时司天的分布在病例组和对照组之间存在差异（χ²=16.817，P=0.005）。其中出生在司天为少阴君火、太阴湿土的人患高血压的比例高于预期。",
       "source": "天津中医药大学学报2019年第4期《出生时间五运六气与高血压的数据挖掘研究》"
+    },
+    {
+      "entry_id": "ds_013",
+      "entry_type": "disease_susceptibility",
+      "dimension": "suiyun",
+      "rag_key": "wood_deficient",
+      "code": "wood_deficient_susceptibility",
+      "suiyun": "木运不及",
+      "susceptible_diseases": [
+        "肝病",
+        "脾虚证",
+        "眩晕",
+        "风证"
+      ],
+      "susceptibility_direction": "升高",
+      "evidence": "运气理论推演：木运不及则肝木虚弱，金来乘木，肝失疏泄",
+      "pathogenesis": "木运不及，肝木虚弱，疏泄不及，气机郁滞。木不制土则脾土偏盛反乘肝木。肝虚则血不养筋，风动眩晕。",
+      "constitution_tendency": "肝虚气郁体质",
+      "regulation_direction": "养血柔肝，疏肝理气。饮食宜酸甘化阴，避免过劳伤肝。",
+      "source_quote": "木运不及……委和之纪，木不及，金来乘之，肝乃受伤。",
+      "source": "素问·气交变大论 / 素问·五常政大论"
+    },
+    {
+      "entry_id": "ds_014",
+      "entry_type": "disease_susceptibility",
+      "dimension": "suiyun",
+      "rag_key": "fire_deficient",
+      "code": "fire_deficient_susceptibility",
+      "suiyun": "火运不及",
+      "susceptible_diseases": [
+        "心病",
+        "寒证",
+        "血脉病",
+        "抑郁"
+      ],
+      "susceptibility_direction": "升高",
+      "evidence": "运气理论推演：火运不及则心火不足，水来乘之，心阳虚弱",
+      "pathogenesis": "火运不及，心火不足，心阳虚弱，血行迟缓。水来乘火则寒凝经脉。火不明则神不宁，情志抑郁。",
+      "constitution_tendency": "心阳不足体质",
+      "regulation_direction": "温补心阳，益气活血。饮食宜温补，少食寒凉。",
+      "source_quote": "火运不及……伏明之纪，火不及，水来乘之，心乃受伤。",
+      "source": "素问·气交变大论 / 素问·五常政大论"
+    },
+    {
+      "entry_id": "ds_015",
+      "entry_type": "disease_susceptibility",
+      "dimension": "suiyun",
+      "rag_key": "earth_excess",
+      "code": "earth_excess_susceptibility",
+      "suiyun": "土运太过",
+      "susceptible_diseases": [
+        "脾胃病",
+        "湿证",
+        "肾虚水泛",
+        "水肿"
+      ],
+      "susceptibility_direction": "升高",
+      "evidence": "运气理论推演：土运太过则湿气偏盛，土盛乘水，肾水受邪",
+      "pathogenesis": "土运太过，湿气敦阜，壅滞中焦。土盛乘水，肾水受邪。湿阻气机则脘腹胀满，水湿泛溢则水肿。",
+      "constitution_tendency": "湿盛脾亢体质",
+      "regulation_direction": "健脾化湿，温肾利水。饮食宜清淡燥湿，少食肥甘厚味。",
+      "source_quote": "岁土太过，雨湿流行，肾水受邪。",
+      "source": "素问·气交变大论 / 素问·五常政大论"
+    },
+    {
+      "entry_id": "ds_016",
+      "entry_type": "disease_susceptibility",
+      "dimension": "suiyun",
+      "rag_key": "earth_deficient",
+      "code": "earth_deficient_susceptibility",
+      "suiyun": "土运不及",
+      "susceptible_diseases": [
+        "脾虚证",
+        "泄泻",
+        "营养不良",
+        "内脏下垂"
+      ],
+      "susceptibility_direction": "升高",
+      "evidence": "运气理论推演：土运不及则脾土虚弱，木来乘之，运化失职",
+      "pathogenesis": "土运不及，脾土虚弱，运化失职。木来乘土则肝脾不调。脾虚则气血生化不足，内脏失于固摄。",
+      "constitution_tendency": "脾虚气弱体质",
+      "regulation_direction": "健脾益气，调和肝脾。饮食宜温补脾胃，少食生冷。",
+      "source_quote": "土运不及……卑监之纪，土不及，木来乘之，脾乃受伤。",
+      "source": "素问·气交变大论 / 素问·五常政大论"
+    },
+    {
+      "entry_id": "ds_017",
+      "entry_type": "disease_susceptibility",
+      "dimension": "suiyun",
+      "rag_key": "metal_excess",
+      "code": "metal_excess_susceptibility",
+      "suiyun": "金运太过",
+      "susceptible_diseases": [
+        "肺病",
+        "肝系疾病",
+        "燥证",
+        "便秘"
+      ],
+      "susceptibility_direction": "升高",
+      "evidence": "运气理论推演：金运太过则燥气偏盛，金旺克木，肝木受伐",
+      "pathogenesis": "金运太过，燥气偏盛，肺金偏亢。金旺克木则肝木受伐。燥伤津液则便秘皮肤干。肝郁则胁痛情志不畅。",
+      "constitution_tendency": "燥盛肝郁体质",
+      "regulation_direction": "润肺养阴，柔肝理气。饮食宜滋润，少食辛燥。",
+      "source_quote": "岁金太过，燥气流行，肝木受邪。",
+      "source": "素问·气交变大论 / 素问·五常政大论"
+    },
+    {
+      "entry_id": "ds_018",
+      "entry_type": "disease_susceptibility",
+      "dimension": "suiyun",
+      "rag_key": "water_excess",
+      "code": "water_excess_susceptibility",
+      "suiyun": "水运太过",
+      "susceptible_diseases": [
+        "肾病",
+        "心病",
+        "寒证",
+        "水肿"
+      ],
+      "susceptibility_direction": "升高",
+      "evidence": "运气理论推演：水运太过则寒气偏盛，水盛乘火，心火受邪",
+      "pathogenesis": "水运太过，寒气偏盛，肾水偏亢。水盛乘火则心火受邪。寒凝经脉则心痛肢冷。水泛则水肿。",
+      "constitution_tendency": "寒盛水偏体质",
+      "regulation_direction": "温阳利水，交通心肾。饮食宜温热，少食寒凉。",
+      "source_quote": "岁水太过，寒气流行，邪害心火。",
+      "source": "素问·气交变大论 / 素问·五常政大论"
+    },
+    {
+      "entry_id": "ds_019",
+      "entry_type": "disease_susceptibility",
+      "dimension": "sitian",
+      "rag_key": "jueyin_fengmu_sitian",
+      "code": "jueyin_fengmu_sitian_susceptibility",
+      "sitian": "厥阴风木",
+      "susceptible_diseases": [
+        "肝系疾病",
+        "风证",
+        "眩晕",
+        "脾虚"
+      ],
+      "susceptibility_direction": "升高",
+      "evidence": "厥阴风木司天，风木偏盛，木克土则脾胃受伐",
+      "pathogenesis": "厥阴风木司天，风气偏盛，肝木偏亢。木旺克土则脾胃受伐。风性善行则游走疼痛，肝风内动则眩晕。",
+      "constitution_tendency": "肝风偏盛体质",
+      "regulation_direction": "平肝息风，健脾和胃。饮食宜酸甘柔肝，少食辛散助风。",
+      "source_quote": "厥阴司天，风淫所胜……民病胃脘当心而痛，上支两胁，膈咽不通，饮食不下。",
+      "source": "素问·至真要大论"
+    },
+    {
+      "entry_id": "ds_020",
+      "entry_type": "disease_susceptibility",
+      "dimension": "sitian",
+      "rag_key": "shaoyang_xianghuo_sitian",
+      "code": "shaoyang_xianghuo_sitian_susceptibility",
+      "sitian": "少阳相火",
+      "susceptible_diseases": [
+        "热证",
+        "火证",
+        "心病",
+        "黄疸"
+      ],
+      "susceptibility_direction": "升高",
+      "evidence": "少阳相火司天，火气偏盛，火克金则肺金受伐",
+      "pathogenesis": "少阳相火司天，火气偏盛，相火寄于肝胆。火旺克金则肺金受伐。火炎则发热黄疸，热扰心神则烦躁失眠。",
+      "constitution_tendency": "火盛体质",
+      "regulation_direction": "清热泻火，疏利肝胆。饮食宜苦寒清热，少食辛温助火。",
+      "source_quote": "少阳司天，火淫所胜……民病头痛发热恶寒而疟，热上皮肤痛，色变黄赤。",
+      "source": "素问·至真要大论"
+    },
+    {
+      "entry_id": "ds_021",
+      "entry_type": "disease_susceptibility",
+      "dimension": "sitian",
+      "rag_key": "yangming_zaojin_sitian",
+      "code": "yangming_zaojin_sitian_susceptibility",
+      "sitian": "阳明燥金",
+      "susceptible_diseases": [
+        "肺病",
+        "燥证",
+        "肝病",
+        "便秘"
+      ],
+      "susceptibility_direction": "升高",
+      "evidence": "阳明燥金司天，燥气偏盛，金克木则肝木受伐",
+      "pathogenesis": "阳明燥金司天，燥气偏盛，肺金偏亢。金旺克木则肝木受伐。燥伤津液则干咳便秘皮肤燥。肝郁则胁痛。",
+      "constitution_tendency": "燥盛体质",
+      "regulation_direction": "润燥养阴，柔肝益肺。饮食宜滋润，少食辛燥。",
+      "source_quote": "阳明司天，燥淫所胜……民病左胠胁痛，寒清于中，感而疟，咳。",
+      "source": "素问·至真要大论"
+    },
+    {
+      "entry_id": "ds_022",
+      "entry_type": "disease_susceptibility",
+      "dimension": "sitian",
+      "rag_key": "taiyang_hanshui_sitian",
+      "code": "taiyang_hanshui_sitian_susceptibility",
+      "sitian": "太阳寒水",
+      "susceptible_diseases": [
+        "寒证",
+        "肾病",
+        "心病",
+        "关节痛"
+      ],
+      "susceptibility_direction": "升高",
+      "evidence": "太阳寒水司天，寒气偏盛，水克火则心火受伐",
+      "pathogenesis": "太阳寒水司天，寒气偏盛，肾水偏亢。水旺克火则心火受伐。寒凝经脉则心痛关节痛。寒邪伤阳则畏寒肢冷。",
+      "constitution_tendency": "寒盛体质",
+      "regulation_direction": "温阳散寒，交通心肾。饮食宜温热，避寒就温。",
+      "source_quote": "太阳司天，寒淫所胜……民病血变于中，发为痈疡，心痛痞满。",
+      "source": "素问·至真要大论"
+    },
+    {
+      "entry_id": "ds_023",
+      "entry_type": "disease_susceptibility",
+      "dimension": "zaiquan",
+      "rag_key": "jueyin_fengmu_zaiquan",
+      "code": "jueyin_fengmu_zaiquan_susceptibility",
+      "zaiquan": "厥阴风木",
+      "susceptible_diseases": [
+        "肝系疾病",
+        "风证",
+        "筋病",
+        "腹胀"
+      ],
+      "susceptibility_direction": "升高",
+      "evidence": "厥阴风木在泉，下半年风气偏盛，肝木偏亢",
+      "pathogenesis": "厥阴风木在泉，下半年风气偏盛。肝木偏亢则筋脉拘急。木克土则腹胀飧泄。风胜则动摇眩晕。",
+      "constitution_tendency": "肝风偏盛体质",
+      "regulation_direction": "平肝息风，健脾止泻。下半年注意养肝柔筋。",
+      "source_quote": "厥阴在泉，风淫所胜……民病洒洒振寒，善伸数欠，心痛支满。",
+      "source": "素问·至真要大论"
+    },
+    {
+      "entry_id": "ds_024",
+      "entry_type": "disease_susceptibility",
+      "dimension": "zaiquan",
+      "rag_key": "shaoyin_junhuo_zaiquan",
+      "code": "shaoyin_junhuo_zaiquan_susceptibility",
+      "zaiquan": "少阴君火",
+      "susceptible_diseases": [
+        "心病",
+        "热证",
+        "失眠",
+        "血症"
+      ],
+      "susceptibility_direction": "升高",
+      "evidence": "少阴君火在泉，下半年热气偏盛，心火偏亢",
+      "pathogenesis": "少阴君火在泉，下半年热气偏盛。心火偏亢则心烦失眠。热迫血妄行则吐衄。火灼肺金则燥咳。",
+      "constitution_tendency": "心火偏盛体质",
+      "regulation_direction": "清心降火，养阴安神。下半年注意清心降火。",
+      "source_quote": "少阴在泉，热淫所胜……民病腹中常鸣，气上冲胸，喘不能久立。",
+      "source": "素问·至真要大论"
+    },
+    {
+      "entry_id": "ds_025",
+      "entry_type": "disease_susceptibility",
+      "dimension": "zaiquan",
+      "rag_key": "taiyin_shitu_zaiquan",
+      "code": "taiyin_shitu_zaiquan_susceptibility",
+      "zaiquan": "太阴湿土",
+      "susceptible_diseases": [
+        "脾胃病",
+        "湿证",
+        "水肿",
+        "痹证"
+      ],
+      "susceptibility_direction": "升高",
+      "evidence": "太阴湿土在泉，下半年湿气偏盛，脾土受困",
+      "pathogenesis": "太阴湿土在泉，下半年湿气偏盛。湿困脾土则运化失职。湿停则水肿。湿阻经络则痹证。",
+      "constitution_tendency": "湿盛体质",
+      "regulation_direction": "健脾化湿，利水消肿。下半年注意避湿健脾。",
+      "source_quote": "太阴在泉，湿淫所胜……民病饮积，心痛，耳聋浑浑焞焞。",
+      "source": "素问·至真要大论"
+    },
+    {
+      "entry_id": "ds_026",
+      "entry_type": "disease_susceptibility",
+      "dimension": "zaiquan",
+      "rag_key": "shaoyang_xianghuo_zaiquan",
+      "code": "shaoyang_xianghuo_zaiquan_susceptibility",
+      "zaiquan": "少阳相火",
+      "susceptible_diseases": [
+        "热证",
+        "火证",
+        "心病",
+        "黄疸"
+      ],
+      "susceptibility_direction": "升高",
+      "evidence": "少阳相火在泉，下半年火气偏盛，相火妄动",
+      "pathogenesis": "少阳相火在泉，下半年火气偏盛。相火寄于肝胆，妄动则发热黄疸。火扰心神则惊悸。火灼津液则便秘。",
+      "constitution_tendency": "火盛体质",
+      "regulation_direction": "清热泻火，疏利肝胆。下半年注意清相火。",
+      "source_quote": "少阳在泉，火淫所胜……民病注泄赤白，少腹痛，溺赤。",
+      "source": "素问·至真要大论"
+    },
+    {
+      "entry_id": "ds_027",
+      "entry_type": "disease_susceptibility",
+      "dimension": "zaiquan",
+      "rag_key": "yangming_zaojin_zaiquan",
+      "code": "yangming_zaojin_zaiquan_susceptibility",
+      "zaiquan": "阳明燥金",
+      "susceptible_diseases": [
+        "肺病",
+        "燥证",
+        "便秘",
+        "皮肤病"
+      ],
+      "susceptibility_direction": "升高",
+      "evidence": "阳明燥金在泉，下半年燥气偏盛，肺金偏亢",
+      "pathogenesis": "阳明燥金在泉，下半年燥气偏盛。燥伤肺金则干咳。燥伤津液则便秘皮肤干。金克木则肝郁胁痛。",
+      "constitution_tendency": "燥盛体质",
+      "regulation_direction": "润燥养阴，益肺润肠。下半年注意滋阴润燥。",
+      "source_quote": "阳明在泉，燥淫所胜……民病喜呕，呕有苦，善太息，心胁痛不能反侧。",
+      "source": "素问·至真要大论"
+    },
+    {
+      "entry_id": "ds_028",
+      "entry_type": "disease_susceptibility",
+      "dimension": "zaiquan",
+      "rag_key": "taiyang_hanshui_zaiquan",
+      "code": "taiyang_hanshui_zaiquan_susceptibility",
+      "zaiquan": "太阳寒水",
+      "susceptible_diseases": [
+        "寒证",
+        "肾病",
+        "心病",
+        "关节痛"
+      ],
+      "susceptibility_direction": "升高",
+      "evidence": "太阳寒水在泉，下半年寒气偏盛，肾水偏亢",
+      "pathogenesis": "太阳寒水在泉，下半年寒气偏盛。寒凝下焦则腰膝冷痛。水盛乘火则心阳受损。寒邪伤阳则四肢厥冷。",
+      "constitution_tendency": "寒盛体质",
+      "regulation_direction": "温阳散寒，补肾固本。下半年注意避寒就温。",
+      "source_quote": "太阳在泉，寒淫所胜……民病少腹控睾，引腰脊，上冲心痛。",
+      "source": "素问·至真要大论"
+    },
+    {
+      "entry_id": "ds_029",
+      "entry_type": "disease_susceptibility",
+      "dimension": "sitian_zaiquan",
+      "rag_key": "jueyin_fengmu_sitian_shaoyang_xianghuo_zaiquan",
+      "code": "jueyin_fengmu_sitian_shaoyang_xianghuo_zaiquan_susceptibility",
+      "sitian": "厥阴风木",
+      "zaiquan": "少阳相火",
+      "susceptible_diseases": [
+        "肝胆病",
+        "风火证",
+        "眩晕",
+        "热证"
+      ],
+      "susceptibility_direction": "升高",
+      "evidence": "厥阴风木司天+少阳相火在泉，风火相煽，肝胆火旺",
+      "pathogenesis": "风木司天，相火在泉，风火相煽。肝木偏亢，相火妄动。风火上炎则眩晕头痛，火灼津液则口苦咽干。",
+      "constitution_tendency": "风火偏盛体质",
+      "regulation_direction": "平肝泻火，清热息风。饮食宜清凉，少食辛温助火。",
+      "source_quote": "厥阴司天，少阳在泉，风火相煽，民病眩晕目赤，胁痛口苦。",
+      "source": "素问·至真要大论（组合推演）"
+    },
+    {
+      "entry_id": "ds_030",
+      "entry_type": "disease_susceptibility",
+      "dimension": "sitian_zaiquan",
+      "rag_key": "shaoyin_junhuo_sitian_yangming_zaojin_zaiquan",
+      "code": "shaoyin_junhuo_sitian_yangming_zaojin_zaiquan_susceptibility",
+      "sitian": "少阴君火",
+      "zaiquan": "阳明燥金",
+      "susceptible_diseases": [
+        "心肺病",
+        "燥热证",
+        "失眠",
+        "便秘"
+      ],
+      "susceptibility_direction": "升高",
+      "evidence": "少阴君火司天+阳明燥金在泉，上火下燥，心肺受困",
+      "pathogenesis": "君火司天，燥金在泉，上火下燥。心火偏盛则心烦失眠。燥金偏盛则肺燥便秘。火克金则肺金受伐。",
+      "constitution_tendency": "燥热体质",
+      "regulation_direction": "清心润肺，养阴润燥。饮食宜清润，少食辛燥助火。",
+      "source_quote": "少阴司天，阳明在泉，火燥合邪，民病心烦失眠，咳逆便秘。",
+      "source": "素问·至真要大论（组合推演）"
+    },
+    {
+      "entry_id": "ds_031",
+      "entry_type": "disease_susceptibility",
+      "dimension": "sitian_zaiquan",
+      "rag_key": "taiyin_shitu_sitian_taiyang_hanshui_zaiquan",
+      "code": "taiyin_shitu_sitian_taiyang_hanshui_zaiquan_susceptibility",
+      "sitian": "太阴湿土",
+      "zaiquan": "太阳寒水",
+      "susceptible_diseases": [
+        "脾胃病",
+        "寒湿证",
+        "水肿",
+        "痹证"
+      ],
+      "susceptibility_direction": "升高",
+      "evidence": "太阴湿土司天+太阳寒水在泉，寒湿合邪，脾肾受困",
+      "pathogenesis": "湿土司天，寒水在泉，寒湿合邪。湿困脾土则运化失职。寒凝下焦则腰膝冷痛。寒湿交阻则水肿痹证。",
+      "constitution_tendency": "寒湿体质",
+      "regulation_direction": "温阳散寒，健脾化湿。饮食宜温热燥湿，避寒湿。",
+      "source_quote": "太阴司天，太阳在泉，寒湿合邪，民病水肿痹证，脘腹冷痛。",
+      "source": "素问·至真要大论（组合推演）"
+    },
+    {
+      "entry_id": "ds_032",
+      "entry_type": "disease_susceptibility",
+      "dimension": "sitian_zaiquan",
+      "rag_key": "shaoyang_xianghuo_sitian_jueyin_fengmu_zaiquan",
+      "code": "shaoyang_xianghuo_sitian_jueyin_fengmu_zaiquan_susceptibility",
+      "sitian": "少阳相火",
+      "zaiquan": "厥阴风木",
+      "susceptible_diseases": [
+        "肝胆病",
+        "风火证",
+        "惊悸",
+        "眩晕"
+      ],
+      "susceptibility_direction": "升高",
+      "evidence": "少阳相火司天+厥阴风木在泉，风火上炎，肝胆偏亢",
+      "pathogenesis": "相火司天，风木在泉，风火上炎。相火妄动则发热惊悸。风木偏亢则眩晕抽搐。木火同气则肝胆火旺。",
+      "constitution_tendency": "风火体质",
+      "regulation_direction": "清泻肝胆，息风降火。饮食宜清凉泻火，少食辛温助风。",
+      "source_quote": "少阳司天，厥阴在泉，风火相煽，民病惊悸眩晕，胁痛口苦。",
+      "source": "素问·至真要大论（组合推演）"
+    },
+    {
+      "entry_id": "ds_033",
+      "entry_type": "disease_susceptibility",
+      "dimension": "sitian_zaiquan",
+      "rag_key": "yangming_zaojin_sitian_shaoyin_junhuo_zaiquan",
+      "code": "yangming_zaojin_sitian_shaoyin_junhuo_zaiquan_susceptibility",
+      "sitian": "阳明燥金",
+      "zaiquan": "少阴君火",
+      "susceptible_diseases": [
+        "肺心病",
+        "燥热证",
+        "失眠",
+        "干咳"
+      ],
+      "susceptibility_direction": "升高",
+      "evidence": "阳明燥金司天+少阴君火在泉，上燥下火，心肺受困",
+      "pathogenesis": "燥金司天，君火在泉，上燥下火。燥伤肺金则干咳。火扰心神则失眠。金火相克则心肺俱病。",
+      "constitution_tendency": "燥热体质",
+      "regulation_direction": "润肺清心，养阴润燥。饮食宜清润，少食辛燥。",
+      "source_quote": "阳明司天，少阴在泉，金火相克，民病干咳心烦，皮肤燥裂。",
+      "source": "素问·至真要大论（组合推演）"
     }
   ]
 }

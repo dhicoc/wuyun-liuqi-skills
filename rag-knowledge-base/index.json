@@ -683,7 +683,7 @@
       "asset_name": "疾病易感性数据库",
       "asset_category": "disease_susceptibility",
       "description": "出生运气格局与疾病易感性的临床数据挖掘结果。基于公版学术文献中出生时间五运六气与疾病相关性的流行病学研究，提供运气格局对应的先天体质倾向与易感疾病方向。仅供研究参考，不构成医学诊断。",
-      "total_entries": 12,
+      "total_entries": 33,
       "lookup_fields": [
         "code",
         "rag_key",

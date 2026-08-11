@@ -30,7 +30,7 @@
           "entry_type": { "type": "string", "const": "disease_susceptibility" },
           "dimension": {
             "type": "string",
-            "enum": ["suiyun", "sitian", "zaiquan", "zhuqi", "sitian_zaiquan", "yunqi_xianghe"]
+            "enum": ["suiyun", "sitian", "zaiquan", "zhuqi", "zhuyun", "sitian_zaiquan", "yunqi_xianghe"]
           },
           "rag_key": { "type": "string" },
           "code": { "type": "string" },
