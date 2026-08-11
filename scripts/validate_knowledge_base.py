@@ -135,6 +135,9 @@ def validate_directory(directory: str) -> dict[str, list[str]]:
     for fname in sorted(os.listdir(directory)):
         if not fname.endswith(".json"):
             continue
+        # 跳过非 asset 文件（关联图谱、索引、模板等）
+        if fname in ('index.json', '_entry_template.json', 'case_relations.json', 'embeddings.json'):
+            continue
         path = os.path.join(directory, fname)
         if os.path.isfile(path):
             results[fname] = validate_asset_file(path)

@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RAG_DIR = os.path.join(BASE_DIR, 'rag-knowledge-base')
 DEFAULT_INDEX_PATH = os.path.join(RAG_DIR, 'index.json')
 
-SKIP_FILES = {'index.json', '_entry_template.json'}
+SKIP_FILES = {'index.json', '_entry_template.json', 'case_relations.json', 'embeddings.json'}
 KEY_FIELDS = [
     'key', 'code', 'rag_key', 'sitian_key', 'zaiquan_key', 'constitution_code',
     'region_id', 'region_name', 'commentary_id', 'formula_id', 'term', 'pinyin',
