@@ -5,9 +5,10 @@
 ## NOW（立即执行）
 
 1. 读取 `routing.yaml` 完成路由匹配（三轴：时间维度 + 用户意图 + 知识层级）
-2. 若用户意图模糊或仅发送触发词 → 读取 `prompts/onboarding_prompt.md`，不得直接进入完整推算/临床报告
+2. 若用户意图模糊或仅发送触发词 -> 读取 `prompts/onboarding_prompt.md`，不得直接进入完整推算/临床报告
 3. 读取 `case-journal/precedent-disclaimer.md`（医学免责声明前置）
-4. 读取目标子技能的 `SKILL.md`
+4. **先查经验库** `case-journal/field-journal/_index.md`——若命中历史经验条目，直接复用（标注"经验库存档"），无需重复推算/检索
+5. 读取目标子技能的 `SKILL.md`
 
 ## NEXT（路由后执行）
 
@@ -43,8 +44,23 @@
 
 ## 任务完成自检
 
-- [ ] 推算结果已通过脚本验证
-- [ ] 病机分析已引用对应 references
+**推算层**
+- [ ] 推算结果已通过脚本验证（非凭记忆）
+- [ ] 病机分析已引用对应 references / `infer_pathogenesis.py`
+
+**临床层**
 - [ ] 临床建议已附加免责声明
-- [ ] 报告格式符合 `modules/docs-generator/` 规范
+- [ ] 方药已标注"参考方药，须辨证加减"
+- [ ] 未给出具体药物剂量
+
+**医案层**
 - [ ] 医案已按 `case-journal/_template.md` 沉淀（如适用）
+- [ ] 医案引用已标注出处（source_quote）
+
+**经验层**
+- [ ] 本次 fallback 经验已写入 `field-journal/`（如触发了联网搜索）
+- [ ] `field-journal/_index.md` 索引已更新
+
+**报告层**
+- [ ] 报告格式符合 `modules/docs-generator/` 规范
+- [ ] 文献引用已标注出处
