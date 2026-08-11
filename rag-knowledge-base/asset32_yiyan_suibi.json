@@ -31,7 +31,10 @@
       "entry_id": "ysb_001",
       "entry_type": "yiyan_suibi_case",
       "rag_key": "脾胃",
-      "name": "ysb_001 高年气虚"
+      "name": "ysb_001 高年气虚",
+      "formulas_referenced": [
+        "补中益气汤"
+      ]
     },
     {
       "case_id": "ysb_002",
@@ -48,7 +51,10 @@
       "entry_id": "ysb_002",
       "entry_type": "yiyan_suibi_case",
       "rag_key": "伤寒",
-      "name": "ysb_002 实证昏厥"
+      "name": "ysb_002 实证昏厥",
+      "herbs": [
+        "枳实"
+      ]
     },
     {
       "case_id": "ysb_003",
@@ -65,7 +71,11 @@
       "entry_id": "ysb_003",
       "entry_type": "yiyan_suibi_case",
       "rag_key": "痰火",
-      "name": "ysb_003 痰火扰神"
+      "name": "ysb_003 痰火扰神",
+      "herbs": [
+        "羚羊角",
+        "人参"
+      ]
     },
     {
       "case_id": "ysb_004",
@@ -82,7 +92,10 @@
       "entry_id": "ysb_004",
       "entry_type": "yiyan_suibi_case",
       "rag_key": "头痛",
-      "name": "ysb_004 肝阴不足"
+      "name": "ysb_004 肝阴不足",
+      "herbs": [
+        "阿胶"
+      ]
     },
     {
       "case_id": "ysb_005",
@@ -99,7 +112,15 @@
       "entry_id": "ysb_005",
       "entry_type": "yiyan_suibi_case",
       "rag_key": "温病",
-      "name": "ysb_005 疙瘩瘟"
+      "name": "ysb_005 疙瘩瘟",
+      "herbs": [
+        "牛蒡子",
+        "银花",
+        "丹皮",
+        "茅根",
+        "连翘",
+        "生地"
+      ]
     },
     {
       "case_id": "ysb_006",
@@ -116,7 +137,15 @@
       "entry_id": "ysb_006",
       "entry_type": "yiyan_suibi_case",
       "rag_key": "温病",
-      "name": "ysb_006 伏暑透痦"
+      "name": "ysb_006 伏暑透痦",
+      "herbs": [
+        "滑石",
+        "茅根",
+        "薄荷",
+        "猪苓",
+        "佩兰",
+        "郁金"
+      ]
     },
     {
       "case_id": "ysb_007",
@@ -133,7 +162,15 @@
       "entry_id": "ysb_007",
       "entry_type": "yiyan_suibi_case",
       "rag_key": "痰喘",
-      "name": "ysb_007 痰喘气阴伤"
+      "name": "ysb_007 痰喘气阴伤",
+      "herbs": [
+        "五味子",
+        "人参",
+        "生姜",
+        "茯苓",
+        "牡蛎",
+        "半夏"
+      ]
     },
     {
       "case_id": "ysb_008",
@@ -167,7 +204,15 @@
       "entry_id": "ysb_009",
       "entry_type": "yiyan_suibi_case",
       "rag_key": "温病",
-      "name": "ysb_009 温毒发痘"
+      "name": "ysb_009 温毒发痘",
+      "herbs": [
+        "银花",
+        "丹皮",
+        "茅根",
+        "连翘",
+        "生地",
+        "紫草"
+      ]
     },
     {
       "case_id": "ysb_010",
@@ -184,7 +229,12 @@
       "entry_id": "ysb_010",
       "entry_type": "yiyan_suibi_case",
       "rag_key": "温病",
-      "name": "ysb_010 伏邪透痦"
+      "name": "ysb_010 伏邪透痦",
+      "herbs": [
+        "薄荷",
+        "连翘",
+        "豆豉"
+      ]
     },
     {
       "case_id": "ysb_011",
@@ -218,7 +268,13 @@
       "entry_id": "ysb_012",
       "entry_type": "yiyan_suibi_case",
       "rag_key": "伤寒",
-      "name": "ysb_012 痰迷回阳"
+      "name": "ysb_012 痰迷回阳",
+      "herbs": [
+        "人参",
+        "附子",
+        "干姜",
+        "半夏"
+      ]
     }
   ]
 }

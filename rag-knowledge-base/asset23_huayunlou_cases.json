@@ -31,7 +31,17 @@
       "entry_id": "hyl_001",
       "entry_type": "huayunlou_case",
       "rag_key": "崩漏",
-      "name": "hyl_001 小产血崩"
+      "name": "hyl_001 小产血崩",
+      "herbs": [
+        "地榆",
+        "丹皮",
+        "人参",
+        "熟地",
+        "白芍",
+        "牡蛎",
+        "黄芪",
+        "阿胶"
+      ]
     },
     {
       "case_id": "hyl_002",
@@ -48,7 +58,10 @@
       "entry_id": "hyl_002",
       "entry_type": "huayunlou_case",
       "rag_key": "脾胃",
-      "name": "hyl_002 脾肾阳衰"
+      "name": "hyl_002 脾肾阳衰",
+      "herbs": [
+        "肉桂"
+      ]
     },
     {
       "case_id": "hyl_003",
@@ -184,7 +197,10 @@
       "entry_id": "hyl_010",
       "entry_type": "huayunlou_case",
       "rag_key": "疟疾",
-      "name": "hyl_010 大疟太阴"
+      "name": "hyl_010 大疟太阴",
+      "herbs": [
+        "人参"
+      ]
     },
     {
       "case_id": "hyl_011",
@@ -201,7 +217,11 @@
       "entry_id": "hyl_011",
       "entry_type": "huayunlou_case",
       "rag_key": "血症",
-      "name": "hyl_011 咳呛血痰"
+      "name": "hyl_011 咳呛血痰",
+      "herbs": [
+        "人参",
+        "贝母"
+      ]
     },
     {
       "case_id": "hyl_012",
@@ -252,7 +272,13 @@
       "entry_id": "hyl_014",
       "entry_type": "huayunlou_case",
       "rag_key": "产后",
-      "name": "hyl_014 产后腹膨"
+      "name": "hyl_014 产后腹膨",
+      "herbs": [
+        "人参",
+        "白芍",
+        "茯苓",
+        "牡蛎"
+      ]
     },
     {
       "case_id": "hyl_015",
@@ -269,7 +295,10 @@
       "entry_id": "hyl_015",
       "entry_type": "huayunlou_case",
       "rag_key": "月经不调",
-      "name": "hyl_015 临经腹痛"
+      "name": "hyl_015 临经腹痛",
+      "herbs": [
+        "郁金"
+      ]
     },
     {
       "case_id": "hyl_016",
@@ -303,7 +332,12 @@
       "entry_id": "hyl_017",
       "entry_type": "huayunlou_case",
       "rag_key": "痹痛",
-      "name": "hyl_017 历节风"
+      "name": "hyl_017 历节风",
+      "herbs": [
+        "天麻",
+        "黄芪",
+        "半夏"
+      ]
     },
     {
       "case_id": "hyl_018",
@@ -320,7 +354,10 @@
       "entry_id": "hyl_018",
       "entry_type": "huayunlou_case",
       "rag_key": "暑温",
-      "name": "hyl_018 暑风犯胃"
+      "name": "hyl_018 暑风犯胃",
+      "herbs": [
+        "生地"
+      ]
     },
     {
       "case_id": "hyl_019",
@@ -337,7 +374,10 @@
       "entry_id": "hyl_019",
       "entry_type": "huayunlou_case",
       "rag_key": "胎产",
-      "name": "hyl_019 胎堕防崩"
+      "name": "hyl_019 胎堕防崩",
+      "herbs": [
+        "人参"
+      ]
     },
     {
       "case_id": "hyl_020",
@@ -354,7 +394,12 @@
       "entry_id": "hyl_020",
       "entry_type": "huayunlou_case",
       "rag_key": "月经不调",
-      "name": "hyl_020 经行先期"
+      "name": "hyl_020 经行先期",
+      "herbs": [
+        "人参",
+        "天冬",
+        "牡蛎"
+      ]
     }
   ]
 }

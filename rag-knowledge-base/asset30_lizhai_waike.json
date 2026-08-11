@@ -60,7 +60,15 @@
       "external_manifestation": "溃后作痛、疮口不合",
       "external_key": "溃疡",
       "chain": "脾气虚→气血不足→溃后疮口不合",
-      "name": "lz_002 溃后疮口不合"
+      "name": "lz_002 溃后疮口不合",
+      "herbs": [
+        "黄芪",
+        "当归",
+        "川芎"
+      ],
+      "formulas_referenced": [
+        "六君子汤"
+      ]
     },
     {
       "case_id": "lz_003",
@@ -82,7 +90,10 @@
       "external_manifestation": "溃后发热",
       "external_key": "溃疡",
       "chain": "溃后余邪兼表→发热脉数→解表托里",
-      "name": "lz_003 溃后发热"
+      "name": "lz_003 溃后发热",
+      "herbs": [
+        "人参"
+      ]
     },
     {
       "case_id": "lz_004",
@@ -236,7 +247,14 @@
       "external_manifestation": "胸痈痛烦躁发热作渴",
       "external_key": "胸痈",
       "chain": "热毒内蓄→胸痈痛烦→舍时从症清泄",
-      "name": "lz_014 胸痈舍时"
+      "name": "lz_014 胸痈舍时",
+      "herbs": [
+        "金银花",
+        "连翘"
+      ],
+      "formulas_referenced": [
+        "托里消毒散"
+      ]
     },
     {
       "case_id": "lz_015",
@@ -258,7 +276,10 @@
       "external_manifestation": "溃后发热痛便秘烦躁",
       "external_key": "溃疡",
       "chain": "实热内结→溃后发热便秘→清凉饮",
-      "name": "lz_015 溃后实热"
+      "name": "lz_015 溃后实热",
+      "formulas_referenced": [
+        "托里消毒散"
+      ]
     },
     {
       "case_id": "lz_016",
@@ -280,7 +301,14 @@
       "external_manifestation": "项毒溃后作痛",
       "external_key": "溃疡",
       "chain": "气血虚→溃后作痛→参芪八珍补托",
-      "name": "lz_016 溃后补托"
+      "name": "lz_016 溃后补托",
+      "herbs": [
+        "桔梗",
+        "黄芪"
+      ],
+      "formulas_referenced": [
+        "八珍汤"
+      ]
     },
     {
       "case_id": "lz_017",
@@ -346,7 +374,14 @@
       "external_manifestation": "溃后发热服凉药愈甚",
       "external_key": "溃疡",
       "chain": "血虚→溃后发热→四物养血",
-      "name": "lz_019 溃后血虚热"
+      "name": "lz_019 溃后血虚热",
+      "herbs": [
+        "没药",
+        "乳香"
+      ],
+      "formulas_referenced": [
+        "四物汤"
+      ]
     },
     {
       "case_id": "lz_020",
@@ -368,7 +403,12 @@
       "external_manifestation": "溃后日晡发热头微痛",
       "external_key": "溃疡",
       "chain": "阴虚→溃后日晡热→养荣滋阴",
-      "name": "lz_020 溃后日晡热"
+      "name": "lz_020 溃后日晡热",
+      "herbs": [
+        "地骨皮",
+        "人参",
+        "柴胡"
+      ]
     },
     {
       "case_id": "lz_021",
@@ -390,7 +430,13 @@
       "external_manifestation": "溃后畏寒脉虚",
       "external_key": "溃疡",
       "chain": "阳气不足→溃后畏寒→温补阳气",
-      "name": "lz_021 溃后畏寒"
+      "name": "lz_021 溃后畏寒",
+      "herbs": [
+        "炮姜"
+      ],
+      "formulas_referenced": [
+        "十全大补汤"
+      ]
     },
     {
       "case_id": "lz_022",
@@ -412,7 +458,10 @@
       "external_manifestation": "肿作痛脉浮数",
       "external_key": "痈疽",
       "chain": "热毒欲溃→肿痛浮数→托里透脓",
-      "name": "lz_022 肿疡透脓"
+      "name": "lz_022 肿疡透脓",
+      "formulas_referenced": [
+        "仙方活命饮"
+      ]
     },
     {
       "case_id": "lz_023",
@@ -434,7 +483,13 @@
       "external_manifestation": "毒势炽甚痛不可忍",
       "external_key": "痈疽",
       "chain": "热毒炽盛→痛不可忍→活命饮",
-      "name": "lz_023 痈毒炽盛"
+      "name": "lz_023 痈毒炽盛",
+      "herbs": [
+        "金银花"
+      ],
+      "formulas_referenced": [
+        "仙方活命饮"
+      ]
     },
     {
       "case_id": "lz_024",
@@ -456,7 +511,10 @@
       "external_manifestation": "背痈痛饮冷便秘谵语",
       "external_key": "痈疽",
       "chain": "热毒内结→便秘谵语→破棺丹攻毒",
-      "name": "lz_024 背痈谵语"
+      "name": "lz_024 背痈谵语",
+      "herbs": [
+        "金银花"
+      ]
     },
     {
       "case_id": "lz_025",
@@ -522,7 +580,18 @@
       "external_manifestation": "头项大溃肿痛作泻烦躁",
       "external_key": "痈疽",
       "chain": "正虚毒炽→大溃作泻→托里健脾",
-      "name": "lz_027 头项痈正虚"
+      "name": "lz_027 头项痈正虚",
+      "herbs": [
+        "金银花",
+        "白术",
+        "白芷",
+        "桔梗"
+      ],
+      "formulas_referenced": [
+        "参苓白术散",
+        "十全大补汤",
+        "托里消毒散"
+      ]
     },
     {
       "case_id": "lz_028",
@@ -544,7 +613,11 @@
       "external_manifestation": "色赤肿痛脉数有力",
       "external_key": "痈疽",
       "chain": "热毒→色赤肿痛→黄连消毒",
-      "name": "lz_028 痈色赤实"
+      "name": "lz_028 痈色赤实",
+      "herbs": [
+        "黄连",
+        "莲子"
+      ]
     },
     {
       "case_id": "lz_029",
@@ -566,7 +639,17 @@
       "external_manifestation": "溃后脓微清饮食无味",
       "external_key": "溃疡",
       "chain": "脾虚→脓清食无味→十宣健脾",
-      "name": "lz_029 溃后脾虚"
+      "name": "lz_029 溃后脾虚",
+      "herbs": [
+        "白术",
+        "茯苓",
+        "白芷",
+        "防风",
+        "陈皮"
+      ],
+      "formulas_referenced": [
+        "十宣散"
+      ]
     },
     {
       "case_id": "lz_030",
@@ -588,7 +671,10 @@
       "external_manifestation": "疮口翻肉如菌",
       "external_key": "溃疡",
       "chain": "风寒束→疮口翻肉→藜芦脂涂",
-      "name": "lz_030 翻肉如菌"
+      "name": "lz_030 翻肉如菌",
+      "herbs": [
+        "乌梅"
+      ]
     },
     {
       "case_id": "lz_031",
@@ -610,7 +696,10 @@
       "external_manifestation": "肿硬不脓疮头出水",
       "external_key": "痈疽",
       "chain": "热毒欲脓→肿硬出水→活命饮",
-      "name": "lz_031 痈肿硬出水"
+      "name": "lz_031 痈肿硬出水",
+      "formulas_referenced": [
+        "仙方活命饮"
+      ]
     },
     {
       "case_id": "lz_032",
@@ -676,7 +765,16 @@
       "external_manifestation": "臀痈脓水不止肌瘦食少",
       "external_key": "臀痈",
       "chain": "脾虚→脓水不止→六君十全",
-      "name": "lz_034 臀痈脾虚"
+      "name": "lz_034 臀痈脾虚",
+      "herbs": [
+        "豆豉",
+        "当归",
+        "藿香"
+      ],
+      "formulas_referenced": [
+        "十全大补汤",
+        "六君子汤"
+      ]
     },
     {
       "case_id": "lz_035",
@@ -698,7 +796,10 @@
       "external_manifestation": "臀痈脓成不溃",
       "external_key": "臀痈",
       "chain": "气血亏→脓成不溃→十全托起",
-      "name": "lz_035 臀痈脓不溃"
+      "name": "lz_035 臀痈脓不溃",
+      "formulas_referenced": [
+        "十全大补汤"
+      ]
     },
     {
       "case_id": "lz_036",
@@ -720,7 +821,10 @@
       "external_manifestation": "附骨疽痛彻骨骨痛筋挛",
       "external_key": "附骨疽",
       "chain": "湿热入骨→附骨疽痛彻骨→拈痛托里",
-      "name": "lz_036 附骨疽"
+      "name": "lz_036 附骨疽",
+      "herbs": [
+        "当归"
+      ]
     },
     {
       "case_id": "lz_037",
@@ -742,7 +846,15 @@
       "external_manifestation": "两腿痛脉滑迟",
       "external_key": "腿痈",
       "chain": "湿痰→腿痛滑迟→二陈燥湿",
-      "name": "lz_037 腿痛湿痰"
+      "name": "lz_037 腿痛湿痰",
+      "herbs": [
+        "黄柏",
+        "羌活",
+        "泽泻"
+      ],
+      "formulas_referenced": [
+        "二陈汤"
+      ]
     },
     {
       "case_id": "lz_038",
@@ -764,7 +876,20 @@
       "external_manifestation": "两腿痛脉涩数",
       "external_key": "腿痈",
       "chain": "血虚湿热→腿痛→清湿热养血",
-      "name": "lz_038 腿痛血虚湿热"
+      "name": "lz_038 腿痛血虚湿热",
+      "herbs": [
+        "知母",
+        "木瓜",
+        "茯苓",
+        "黄柏",
+        "防风",
+        "羌活",
+        "苍术",
+        "牛膝"
+      ],
+      "formulas_referenced": [
+        "四物汤"
+      ]
     },
     {
       "case_id": "lz_039",
@@ -830,7 +955,10 @@
       "external_manifestation": "腹胀痛不食小便不利",
       "external_key": "肠痈",
       "chain": "肠热→成脓胀痛→太乙膏排脓",
-      "name": "lz_041 肠痈排脓"
+      "name": "lz_041 肠痈排脓",
+      "herbs": [
+        "栝蒌"
+      ]
     },
     {
       "case_id": "lz_042",
@@ -918,7 +1046,10 @@
       "external_manifestation": "流注脓清不溃发热",
       "external_key": "流注",
       "chain": "郁结脾虚→流注→固元气解郁",
-      "name": "lz_045 流注固元"
+      "name": "lz_045 流注固元",
+      "herbs": [
+        "附子"
+      ]
     },
     {
       "case_id": "lz_046",
@@ -940,7 +1071,14 @@
       "external_manifestation": "患毒作渴右关脉数",
       "external_key": "疮疡",
       "chain": "胃热→作渴→竹叶黄芪",
-      "name": "lz_046 疮疡作渴"
+      "name": "lz_046 疮疡作渴",
+      "herbs": [
+        "黄芩",
+        "黄芪"
+      ],
+      "formulas_referenced": [
+        "补中益气汤"
+      ]
     },
     {
       "case_id": "lz_047",
@@ -962,7 +1100,10 @@
       "external_manifestation": "杨梅疮上溃蚀鼻腿大溃不敛",
       "external_key": "杨梅疮",
       "chain": "湿毒→杨梅大溃→萆薢健脾",
-      "name": "lz_047 杨梅疮"
+      "name": "lz_047 杨梅疮",
+      "herbs": [
+        "萆薢"
+      ]
     },
     {
       "case_id": "lz_048",
@@ -984,7 +1125,10 @@
       "external_manifestation": "便痈肿痛便秘",
       "external_key": "便痈",
       "chain": "湿热→便痈便秘→玉烛龙胆",
-      "name": "lz_048 便痈通利"
+      "name": "lz_048 便痈通利",
+      "formulas_referenced": [
+        "龙胆泻肝汤"
+      ]
     },
     {
       "case_id": "lz_049",
@@ -1006,7 +1150,10 @@
       "external_manifestation": "溃后痛不止脉大数",
       "external_key": "便痈",
       "chain": "毒未解→溃后痛不止→活命饮",
-      "name": "lz_049 便痈毒未解"
+      "name": "lz_049 便痈毒未解",
+      "formulas_referenced": [
+        "仙方活命饮"
+      ]
     },
     {
       "case_id": "lz_050",
@@ -1028,7 +1175,11 @@
       "external_manifestation": "泻利少食肿不消",
       "external_key": "便痈",
       "chain": "误攻→泻利→二神十全补脾",
-      "name": "lz_050 便痈误攻"
+      "name": "lz_050 便痈误攻",
+      "herbs": [
+        "白术",
+        "茯苓"
+      ]
     },
     {
       "case_id": "lz_051",
@@ -1050,7 +1201,16 @@
       "external_manifestation": "悬痈肿痛势甚脉洪",
       "external_key": "悬痈",
       "chain": "湿毒→悬痈势甚→除湿滋阴",
-      "name": "lz_051 悬痈除湿"
+      "name": "lz_051 悬痈除湿",
+      "herbs": [
+        "知母",
+        "黄柏",
+        "黄芪"
+      ],
+      "formulas_referenced": [
+        "仙方活命饮",
+        "八珍汤"
+      ]
     },
     {
       "case_id": "lz_052",
@@ -1094,7 +1254,10 @@
       "external_manifestation": "茎窍作痒出白物",
       "external_key": "囊痈",
       "chain": "心火肾虚→茎痒白物→清心莲子",
-      "name": "lz_053 茎痒清心"
+      "name": "lz_053 茎痒清心",
+      "herbs": [
+        "莲子"
+      ]
     },
     {
       "case_id": "lz_054",
@@ -1116,7 +1279,11 @@
       "external_manifestation": "右乳肿发热怠惰嗜卧",
       "external_key": "乳痈",
       "chain": "脾虚肝郁→乳肿发热→补中逍遥",
-      "name": "lz_054 乳痈补中"
+      "name": "lz_054 乳痈补中",
+      "formulas_referenced": [
+        "补中益气汤",
+        "逍遥散"
+      ]
     },
     {
       "case_id": "lz_055",
@@ -1160,7 +1327,12 @@
       "external_manifestation": "疮疥作痒午后尤甚",
       "external_key": "疮疥",
       "chain": "血虚风热→午后痒→当归饮子",
-      "name": "lz_056 疮疥血虚"
+      "name": "lz_056 疮疥血虚",
+      "herbs": [
+        "人参",
+        "当归",
+        "荆芥"
+      ]
     },
     {
       "case_id": "lz_057",
@@ -1182,7 +1354,10 @@
       "external_manifestation": "下体痛日晡甚腿腕筋紫胀",
       "external_key": "疮疥",
       "chain": "瘀热→筋紫胀痛→刺血四物",
-      "name": "lz_057 疮疥刺血"
+      "name": "lz_057 疮疥刺血",
+      "formulas_referenced": [
+        "四物汤"
+      ]
     },
     {
       "case_id": "lz_058",
@@ -1226,7 +1401,15 @@
       "external_manifestation": "腿痛痰盛嘈杂",
       "external_key": "脚气",
       "chain": "湿痰→腿痛痰盛→二陈燥湿",
-      "name": "lz_059 腿痛痰盛"
+      "name": "lz_059 腿痛痰盛",
+      "herbs": [
+        "升麻",
+        "羌活",
+        "泽泻"
+      ],
+      "formulas_referenced": [
+        "二陈汤"
+      ]
     },
     {
       "case_id": "lz_060",
@@ -1336,7 +1519,10 @@
       "external_manifestation": "粪后下血",
       "external_key": "便血",
       "chain": "湿热→粪后下血→黄连丸",
-      "name": "lz_064 便血湿热"
+      "name": "lz_064 便血湿热",
+      "herbs": [
+        "黄连"
+      ]
     },
     {
       "case_id": "lz_065",
@@ -1380,7 +1566,15 @@
       "external_manifestation": "脏毒下血",
       "external_key": "便血",
       "chain": "脾弱→下血→六君槐花",
-      "name": "lz_066 便血六君"
+      "name": "lz_066 便血六君",
+      "herbs": [
+        "地榆",
+        "枳壳",
+        "槐花"
+      ],
+      "formulas_referenced": [
+        "六君子汤"
+      ]
     },
     {
       "case_id": "lz_067",
@@ -1402,7 +1596,15 @@
       "external_manifestation": "坠马两胁作痛",
       "external_key": "坠伤",
       "chain": "跌扑→瘀血胁痛→复元活血",
-      "name": "lz_067 坠马胁痛"
+      "name": "lz_067 坠马胁痛",
+      "herbs": [
+        "桃仁",
+        "柴胡",
+        "当归"
+      ],
+      "formulas_referenced": [
+        "小柴胡汤"
+      ]
     },
     {
       "case_id": "lz_068",
@@ -1424,7 +1626,16 @@
       "external_manifestation": "坠马腹作痛",
       "external_key": "坠伤",
       "chain": "跌扑→瘀血腹痛→桃仁承气",
-      "name": "lz_068 坠马腹痛"
+      "name": "lz_068 坠马腹痛",
+      "herbs": [
+        "天花粉",
+        "桃仁",
+        "柴胡",
+        "红花"
+      ],
+      "formulas_referenced": [
+        "四物汤"
+      ]
     },
     {
       "case_id": "lz_069",
@@ -1468,7 +1679,14 @@
       "external_manifestation": "疮疥作痒五心烦热",
       "external_key": "疮疥",
       "chain": "肝郁→作痒烦热→逍遥",
-      "name": "lz_070 疮疥逍遥"
+      "name": "lz_070 疮疥逍遥",
+      "herbs": [
+        "人参",
+        "荆芥"
+      ],
+      "formulas_referenced": [
+        "逍遥散"
+      ]
     },
     {
       "case_id": "lz_071",
@@ -1490,7 +1708,14 @@
       "external_manifestation": "疹色微赤作痒发热",
       "external_key": "斑疹",
       "chain": "风热→疹痒发热→败毒补中",
-      "name": "lz_071 斑疹发热"
+      "name": "lz_071 斑疹发热",
+      "herbs": [
+        "黄芩",
+        "人参"
+      ],
+      "formulas_referenced": [
+        "补中益气汤"
+      ]
     },
     {
       "case_id": "lz_072",
@@ -1512,7 +1737,14 @@
       "external_manifestation": "疔疮痛发寒热",
       "external_key": "疔疮",
       "chain": "热毒兼表→疔疮寒热→小柴胡",
-      "name": "lz_072 疔疮寒热"
+      "name": "lz_072 疔疮寒热",
+      "herbs": [
+        "甘草",
+        "柴胡"
+      ],
+      "formulas_referenced": [
+        "小柴胡汤"
+      ]
     },
     {
       "case_id": "lz_073",
@@ -1534,7 +1766,17 @@
       "external_manifestation": "足趾患痛色赤发热",
       "external_key": "脱疽",
       "chain": "热毒→足趾色赤→隔蒜灸清毒",
-      "name": "lz_073 脱疽色赤"
+      "name": "lz_073 脱疽色赤",
+      "herbs": [
+        "金银花",
+        "天花粉",
+        "人参",
+        "白芷",
+        "桔梗"
+      ],
+      "formulas_referenced": [
+        "十宣散"
+      ]
     },
     {
       "case_id": "lz_074",
@@ -1556,7 +1798,10 @@
       "external_manifestation": "肺痿咳喘吐痰腥臭",
       "external_key": "肺痿",
       "chain": "肺热阴虚→肺痿腥臭→平肺童便",
-      "name": "lz_074 肺痿平肺"
+      "name": "lz_074 肺痿平肺",
+      "herbs": [
+        "人参"
+      ]
     },
     {
       "case_id": "lz_075",
@@ -1578,7 +1823,10 @@
       "external_manifestation": "肺痿咳腥臭日晡热",
       "external_key": "肺痿",
       "chain": "阴虚→肺痿日晡热→地骨皮",
-      "name": "lz_075 肺痿阴虚"
+      "name": "lz_075 肺痿阴虚",
+      "herbs": [
+        "地骨皮"
+      ]
     },
     {
       "case_id": "lz_076",
@@ -1600,7 +1848,10 @@
       "external_manifestation": "丹毒痛便秘",
       "external_key": "丹毒",
       "chain": "热毒→丹毒便秘→砭血",
-      "name": "lz_076 丹毒砭血"
+      "name": "lz_076 丹毒砭血",
+      "herbs": [
+        "防风"
+      ]
     },
     {
       "case_id": "lz_077",
@@ -1644,7 +1895,13 @@
       "external_manifestation": "乳肿发热夜甚",
       "external_key": "乳痈",
       "chain": "肝热→乳肿夜热→小柴胡",
-      "name": "lz_078 乳肿血室"
+      "name": "lz_078 乳肿血室",
+      "herbs": [
+        "柴胡"
+      ],
+      "formulas_referenced": [
+        "小柴胡汤"
+      ]
     },
     {
       "case_id": "lz_079",
@@ -1666,7 +1923,17 @@
       "external_manifestation": "怒后左乳作痛",
       "external_key": "乳痈",
       "chain": "怒伤肝→乳痛→流气饮",
-      "name": "lz_079 怒乳作痛"
+      "name": "lz_079 怒乳作痛",
+      "herbs": [
+        "香附",
+        "柴胡",
+        "青皮",
+        "木香",
+        "贝母"
+      ],
+      "formulas_referenced": [
+        "小柴胡汤"
+      ]
     },
     {
       "case_id": "lz_080",
@@ -1688,7 +1955,10 @@
       "external_manifestation": "臀痈后破伤风发热搐搦",
       "external_key": "破伤风",
       "chain": "血虚风毒→破伤风搐搦→当归地黄",
-      "name": "lz_080 破伤风"
+      "name": "lz_080 破伤风",
+      "herbs": [
+        "当归"
+      ]
     },
     {
       "case_id": "lz_081",
@@ -1710,7 +1980,11 @@
       "external_manifestation": "疮疥久痒搔起白屑",
       "external_key": "疮疥",
       "chain": "血虚风燥→久痒白屑→四生散",
-      "name": "lz_081 疮疥久痒"
+      "name": "lz_081 疮疥久痒",
+      "herbs": [
+        "人参",
+        "荆芥"
+      ]
     },
     {
       "case_id": "lz_082",
@@ -1732,7 +2006,12 @@
       "external_manifestation": "坠马腹作痛",
       "external_key": "坠伤",
       "chain": "跌扑→瘀血腹痛→复元通气",
-      "name": "lz_082 坠马通气"
+      "name": "lz_082 坠马通气",
+      "herbs": [
+        "桃仁",
+        "柴胡",
+        "红花"
+      ]
     },
     {
       "case_id": "lz_083",
@@ -1776,7 +2055,13 @@
       "external_manifestation": "杨梅疮遍身脉浮数",
       "external_key": "杨梅疮",
       "chain": "湿毒兼表→遍身疮→败毒活命",
-      "name": "lz_084 杨梅疮表"
+      "name": "lz_084 杨梅疮表",
+      "herbs": [
+        "萆薢"
+      ],
+      "formulas_referenced": [
+        "仙方活命饮"
+      ]
     },
     {
       "case_id": "lz_085",
@@ -1798,7 +2083,13 @@
       "external_manifestation": "瘰疬痰盛胸膈痞闷",
       "external_key": "瘰疬",
       "chain": "脾虚肝乘→瘰疬痰盛→实脾伐肝",
-      "name": "lz_085 瘰疬脾虚"
+      "name": "lz_085 瘰疬脾虚",
+      "herbs": [
+        "白术"
+      ],
+      "formulas_referenced": [
+        "补中益气汤"
+      ]
     },
     {
       "case_id": "lz_086",
@@ -1842,7 +2133,18 @@
       "external_manifestation": "耳下肿痛发热",
       "external_key": "瘰疬",
       "chain": "肝风怒郁→耳下肿→薄荷丹小柴胡",
-      "name": "lz_087 耳下肿"
+      "name": "lz_087 耳下肿",
+      "herbs": [
+        "薄荷",
+        "桃仁",
+        "柴胡",
+        "青皮",
+        "木香",
+        "红花"
+      ],
+      "formulas_referenced": [
+        "小柴胡汤"
+      ]
     },
     {
       "case_id": "lz_088",
@@ -1886,7 +2188,14 @@
       "external_manifestation": "臂肿不痛不溃半载",
       "external_key": "臀痈",
       "chain": "脾弱→臂肿不溃→六君十全灸",
-      "name": "lz_089 臂肿脾弱"
+      "name": "lz_089 臂肿脾弱",
+      "herbs": [
+        "附子"
+      ],
+      "formulas_referenced": [
+        "十全大补汤",
+        "六君子汤"
+      ]
     },
     {
       "case_id": "lz_090",
@@ -1908,7 +2217,12 @@
       "external_manifestation": "腋下患毒咳逆肢冷脉细",
       "external_key": "腋痈",
       "chain": "中阳虚→腋痈咳逆→托里理中",
-      "name": "lz_090 腋痈理中"
+      "name": "lz_090 腋痈理中",
+      "formulas_referenced": [
+        "十全大补汤",
+        "六君子汤",
+        "理中汤"
+      ]
     },
     {
       "case_id": "lz_091",
@@ -1974,7 +2288,15 @@
       "external_manifestation": "齿痛甚",
       "external_key": "齿痛",
       "chain": "胃热或气虚→齿痛→承气或补中",
-      "name": "lz_093 齿痛辨治"
+      "name": "lz_093 齿痛辨治",
+      "herbs": [
+        "生地黄",
+        "黄连",
+        "石膏"
+      ],
+      "formulas_referenced": [
+        "补中益气汤"
+      ]
     },
     {
       "case_id": "lz_094",
@@ -1996,7 +2318,15 @@
       "external_manifestation": "痔肿痛甚",
       "external_key": "痔漏",
       "chain": "湿热瘀→痔肿痛→四物清瘀",
-      "name": "lz_094 痔肿四物"
+      "name": "lz_094 痔肿四物",
+      "herbs": [
+        "牡丹皮",
+        "桃仁",
+        "红花"
+      ],
+      "formulas_referenced": [
+        "四物汤"
+      ]
     },
     {
       "case_id": "lz_095",
@@ -2018,7 +2348,14 @@
       "external_manifestation": "粪后下血萎黄嗜卧",
       "external_key": "便血",
       "chain": "中气虚→便血萎黄→补中升阳",
-      "name": "lz_095 便血中虚"
+      "name": "lz_095 便血中虚",
+      "herbs": [
+        "麦门冬",
+        "五味子"
+      ],
+      "formulas_referenced": [
+        "补中益气汤"
+      ]
     },
     {
       "case_id": "lz_096",
@@ -2040,7 +2377,10 @@
       "external_manifestation": "便血春间尤甚腹痛",
       "external_key": "便血",
       "chain": "湿热→便血春甚→除湿和血",
-      "name": "lz_096 便血湿热和血"
+      "name": "lz_096 便血湿热和血",
+      "herbs": [
+        "槐花"
+      ]
     },
     {
       "case_id": "lz_097",
@@ -2084,7 +2424,13 @@
       "external_manifestation": "疮疥痛发热脉浮数",
       "external_key": "疮疥",
       "chain": "风热→疮疥痛热→败毒当归",
-      "name": "lz_098 疮疥表证"
+      "name": "lz_098 疮疥表证",
+      "herbs": [
+        "黄芩",
+        "人参",
+        "防风",
+        "当归"
+      ]
     },
     {
       "case_id": "lz_099",
@@ -2128,7 +2474,10 @@
       "external_manifestation": "脓未成大痛脉洪大",
       "external_key": "痈疽",
       "chain": "热毒盛→脓未成痛→活命饮",
-      "name": "lz_100 痈毒活命饮"
+      "name": "lz_100 痈毒活命饮",
+      "formulas_referenced": [
+        "仙方活命饮"
+      ]
     },
     {
       "case_id": "lz_101",
@@ -2150,7 +2499,14 @@
       "external_manifestation": "腿痛筋挛骨痛脉弦紧",
       "external_key": "腿痈",
       "chain": "风寒→腿痛筋挛→大防风汤",
-      "name": "lz_101 腿痛大防风"
+      "name": "lz_101 腿痛大防风",
+      "herbs": [
+        "防风"
+      ],
+      "formulas_referenced": [
+        "十全大补汤",
+        "大防风汤"
+      ]
     },
     {
       "case_id": "lz_102",
@@ -2172,7 +2528,13 @@
       "external_manifestation": "膝肿痛遇寒益甚",
       "external_key": "膝痈",
       "chain": "寒伏→膝肿痛→大防风汤",
-      "name": "lz_102 膝肿寒伏"
+      "name": "lz_102 膝肿寒伏",
+      "herbs": [
+        "防风"
+      ],
+      "formulas_referenced": [
+        "大防风汤"
+      ]
     },
     {
       "case_id": "lz_103",
@@ -2216,7 +2578,10 @@
       "external_manifestation": "咳嗽气急胸膈胀满",
       "external_key": "肺痈",
       "chain": "肺壅→咳喘胀满→葶苈桔梗",
-      "name": "lz_104 咳喘葶苈"
+      "name": "lz_104 咳喘葶苈",
+      "herbs": [
+        "桔梗"
+      ]
     },
     {
       "case_id": "lz_105",
@@ -2260,7 +2625,18 @@
       "external_manifestation": "小腹作痛有块或水声",
       "external_key": "肠痈",
       "chain": "瘀血脓成→小腹痛→四物梅仁",
-      "name": "lz_106 小腹痛辨"
+      "name": "lz_106 小腹痛辨",
+      "herbs": [
+        "薏苡仁",
+        "玄胡索",
+        "桃仁",
+        "木香",
+        "红花",
+        "牛膝"
+      ],
+      "formulas_referenced": [
+        "四物汤"
+      ]
     },
     {
       "case_id": "lz_107",
@@ -2282,7 +2658,17 @@
       "external_manifestation": "乳内结核不消",
       "external_key": "乳痈",
       "chain": "久郁→乳核→连翘八珍",
-      "name": "lz_107 乳核久郁"
+      "name": "lz_107 乳核久郁",
+      "herbs": [
+        "连翘",
+        "香附",
+        "桔梗",
+        "青皮",
+        "贝母"
+      ],
+      "formulas_referenced": [
+        "八珍汤"
+      ]
     },
     {
       "case_id": "lz_108",
@@ -2304,7 +2690,16 @@
       "external_manifestation": "怒后两乳肿头痛寒热",
       "external_key": "乳痈",
       "chain": "怒伤肝→乳肿寒热→败毒小柴胡",
-      "name": "lz_108 怒乳表证"
+      "name": "lz_108 怒乳表证",
+      "herbs": [
+        "人参",
+        "柴胡",
+        "枳壳",
+        "桔梗"
+      ],
+      "formulas_referenced": [
+        "小柴胡汤"
+      ]
     },
     {
       "case_id": "lz_109",
@@ -2370,7 +2765,10 @@
       "external_manifestation": "脑疽发热脉数无力",
       "external_key": "脑疽",
       "chain": "阴虚火动→脑疽无力→八味丸",
-      "name": "lz_111 脑疽八味丸"
+      "name": "lz_111 脑疽八味丸",
+      "formulas_referenced": [
+        "八味丸"
+      ]
     },
     {
       "case_id": "lz_112",

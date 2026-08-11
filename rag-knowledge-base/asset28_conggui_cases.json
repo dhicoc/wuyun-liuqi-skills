@@ -31,7 +31,15 @@
       "entry_id": "cg_001",
       "entry_type": "conggui_case",
       "rag_key": "痰饮",
-      "name": "cg_001 痰饮闭塞"
+      "name": "cg_001 痰饮闭塞",
+      "herbs": [
+        "禹余粮",
+        "山药",
+        "茯苓"
+      ],
+      "formulas_referenced": [
+        "二陈汤"
+      ]
     },
     {
       "case_id": "cg_002",
@@ -48,7 +56,19 @@
       "entry_id": "cg_002",
       "entry_type": "conggui_case",
       "rag_key": "孕产",
-      "name": "cg_002 孕妇寒痛"
+      "name": "cg_002 孕妇寒痛",
+      "herbs": [
+        "生姜",
+        "砂仁",
+        "白芍",
+        "附子",
+        "当归",
+        "木香",
+        "桂枝",
+        "阿胶",
+        "肉桂",
+        "川芎"
+      ]
     },
     {
       "case_id": "cg_003",
@@ -82,7 +102,19 @@
       "entry_id": "cg_004",
       "entry_type": "conggui_case",
       "rag_key": "喉痧",
-      "name": "cg_004 喉痧阴亏"
+      "name": "cg_004 喉痧阴亏",
+      "herbs": [
+        "金银花",
+        "麦门冬",
+        "黄芩",
+        "连翘",
+        "天冬",
+        "生地",
+        "元参"
+      ],
+      "formulas_referenced": [
+        "增液汤"
+      ]
     },
     {
       "case_id": "cg_005",
@@ -116,7 +148,24 @@
       "entry_id": "cg_006",
       "entry_type": "conggui_case",
       "rag_key": "喉痧",
-      "name": "cg_006 喉痧阴亏"
+      "name": "cg_006 喉痧阴亏",
+      "herbs": [
+        "金银花",
+        "甘草",
+        "莲子",
+        "连翘",
+        "知母",
+        "熟地",
+        "谷芽",
+        "生地",
+        "麦冬",
+        "元参",
+        "贝母"
+      ],
+      "formulas_referenced": [
+        "四君子汤",
+        "增液汤"
+      ]
     },
     {
       "case_id": "cg_007",
@@ -133,7 +182,16 @@
       "entry_id": "cg_007",
       "entry_type": "conggui_case",
       "rag_key": "疮疡",
-      "name": "cg_007 疮疡阴亏"
+      "name": "cg_007 疮疡阴亏",
+      "herbs": [
+        "柏子仁",
+        "枸杞子",
+        "莲子",
+        "熟地",
+        "麦冬",
+        "黄芪",
+        "桂枝"
+      ]
     },
     {
       "case_id": "cg_008",

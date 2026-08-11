@@ -27,7 +27,11 @@
       "entry_id": "mingyi_001",
       "entry_type": "mingyi_case",
       "rag_key": "中风",
-      "name": "mingyi_001 中风"
+      "name": "mingyi_001 中风",
+      "herbs": [
+        "防风",
+        "黄芪"
+      ]
     },
     {
       "case_id": "mingyi_002",
@@ -44,7 +48,14 @@
       "entry_id": "mingyi_002",
       "entry_type": "mingyi_case",
       "rag_key": "中风",
-      "name": "mingyi_002 中风"
+      "name": "mingyi_002 中风",
+      "herbs": [
+        "秦艽",
+        "升麻",
+        "白芷",
+        "防风",
+        "桂枝"
+      ]
     },
     {
       "case_id": "mingyi_003",
@@ -61,7 +72,20 @@
       "entry_id": "mingyi_003",
       "entry_type": "mingyi_case",
       "rag_key": "中风",
-      "name": "mingyi_003 中风"
+      "name": "mingyi_003 中风",
+      "herbs": [
+        "黄芩",
+        "甘草",
+        "升麻",
+        "人参",
+        "柴胡",
+        "黄柏",
+        "黄芪",
+        "当归",
+        "半夏",
+        "陈皮",
+        "朱砂"
+      ]
     },
     {
       "case_id": "mingyi_004",
@@ -78,7 +102,13 @@
       "entry_id": "mingyi_004",
       "entry_type": "mingyi_case",
       "rag_key": "中风",
-      "name": "mingyi_004 中风"
+      "name": "mingyi_004 中风",
+      "herbs": [
+        "龙骨"
+      ],
+      "formulas_referenced": [
+        "至宝丹"
+      ]
     },
     {
       "case_id": "mingyi_005",
@@ -95,7 +125,10 @@
       "entry_id": "mingyi_005",
       "entry_type": "mingyi_case",
       "rag_key": "中风",
-      "name": "mingyi_005 中风"
+      "name": "mingyi_005 中风",
+      "herbs": [
+        "人参"
+      ]
     },
     {
       "case_id": "mingyi_006",
@@ -112,7 +145,22 @@
       "entry_id": "mingyi_006",
       "entry_type": "mingyi_case",
       "rag_key": "中风",
-      "name": "mingyi_006 中风"
+      "name": "mingyi_006 中风",
+      "herbs": [
+        "天花粉",
+        "威灵仙",
+        "黄芩",
+        "黄连",
+        "甘草",
+        "白术",
+        "黄柏",
+        "防风",
+        "羌活",
+        "半夏",
+        "陈皮",
+        "贝母",
+        "荆芥"
+      ]
     },
     {
       "case_id": "mingyi_007",
@@ -129,7 +177,24 @@
       "entry_id": "mingyi_007",
       "entry_type": "mingyi_case",
       "rag_key": "中风",
-      "name": "mingyi_007 中风"
+      "name": "mingyi_007 中风",
+      "herbs": [
+        "没药",
+        "甘草",
+        "茯苓",
+        "防风",
+        "桔梗",
+        "羌活",
+        "乳香",
+        "木通",
+        "红花",
+        "荆芥",
+        "厚朴",
+        "麻黄"
+      ],
+      "formulas_referenced": [
+        "四君子汤"
+      ]
     },
     {
       "case_id": "mingyi_008",
@@ -146,7 +211,10 @@
       "entry_id": "mingyi_008",
       "entry_type": "mingyi_case",
       "rag_key": "中风",
-      "name": "mingyi_008 中风"
+      "name": "mingyi_008 中风",
+      "herbs": [
+        "生姜"
+      ]
     },
     {
       "case_id": "mingyi_009",
@@ -163,7 +231,15 @@
       "entry_id": "mingyi_009",
       "entry_type": "mingyi_case",
       "rag_key": "中风",
-      "name": "mingyi_009 中风"
+      "name": "mingyi_009 中风",
+      "herbs": [
+        "防风",
+        "羌活",
+        "麻黄"
+      ],
+      "formulas_referenced": [
+        "二陈汤"
+      ]
     },
     {
       "case_id": "mingyi_010",
@@ -180,7 +256,11 @@
       "entry_id": "mingyi_010",
       "entry_type": "mingyi_case",
       "rag_key": "中风",
-      "name": "mingyi_010 中风"
+      "name": "mingyi_010 中风",
+      "herbs": [
+        "秦艽",
+        "天麻"
+      ]
     },
     {
       "case_id": "mingyi_011",
@@ -197,7 +277,13 @@
       "entry_id": "mingyi_011",
       "entry_type": "mingyi_case",
       "rag_key": "中风",
-      "name": "mingyi_011 中风"
+      "name": "mingyi_011 中风",
+      "herbs": [
+        "麦门冬",
+        "甘草",
+        "柴胡",
+        "元参"
+      ]
     },
     {
       "case_id": "mingyi_012",
@@ -214,7 +300,19 @@
       "entry_id": "mingyi_012",
       "entry_type": "mingyi_case",
       "rag_key": "中风",
-      "name": "mingyi_012 中风"
+      "name": "mingyi_012 中风",
+      "herbs": [
+        "甘草",
+        "人参",
+        "天麻",
+        "枳壳",
+        "附子",
+        "防风",
+        "黄芪",
+        "半夏",
+        "陈皮",
+        "川芎"
+      ]
     },
     {
       "case_id": "mingyi_013",
@@ -231,7 +329,12 @@
       "entry_id": "mingyi_013",
       "entry_type": "mingyi_case",
       "rag_key": "中风",
-      "name": "mingyi_013 中风"
+      "name": "mingyi_013 中风",
+      "herbs": [
+        "神曲",
+        "茯苓",
+        "半夏"
+      ]
     },
     {
       "case_id": "mingyi_014",
@@ -248,7 +351,12 @@
       "entry_id": "mingyi_014",
       "entry_type": "mingyi_case",
       "rag_key": "中风",
-      "name": "mingyi_014 中风"
+      "name": "mingyi_014 中风",
+      "formulas_referenced": [
+        "补中益气汤",
+        "六味地黄丸",
+        "逍遥散"
+      ]
     },
     {
       "case_id": "mingyi_015",
@@ -265,7 +373,12 @@
       "entry_id": "mingyi_015",
       "entry_type": "mingyi_case",
       "rag_key": "虚风",
-      "name": "mingyi_015 虚风"
+      "name": "mingyi_015 虚风",
+      "herbs": [
+        "黄连",
+        "枸杞",
+        "半夏"
+      ]
     },
     {
       "case_id": "mingyi_016",
@@ -282,7 +395,10 @@
       "entry_id": "mingyi_016",
       "entry_type": "mingyi_case",
       "rag_key": "虚风",
-      "name": "mingyi_016 虚风"
+      "name": "mingyi_016 虚风",
+      "formulas_referenced": [
+        "归脾汤"
+      ]
     },
     {
       "case_id": "mingyi_017",
@@ -299,7 +415,16 @@
       "entry_id": "mingyi_017",
       "entry_type": "mingyi_case",
       "rag_key": "伤风",
-      "name": "mingyi_017 伤风"
+      "name": "mingyi_017 伤风",
+      "herbs": [
+        "桃仁",
+        "柴胡",
+        "枳壳",
+        "羌活"
+      ],
+      "formulas_referenced": [
+        "小柴胡汤"
+      ]
     },
     {
       "case_id": "mingyi_018",
@@ -316,7 +441,17 @@
       "entry_id": "mingyi_018",
       "entry_type": "mingyi_case",
       "rag_key": "伤风",
-      "name": "mingyi_018 伤风"
+      "name": "mingyi_018 伤风",
+      "herbs": [
+        "天花粉",
+        "连翘",
+        "杜仲",
+        "柴胡",
+        "牛膝"
+      ],
+      "formulas_referenced": [
+        "小柴胡汤"
+      ]
     },
     {
       "case_id": "mingyi_019",
@@ -333,7 +468,14 @@
       "entry_id": "mingyi_019",
       "entry_type": "mingyi_case",
       "rag_key": "伤风",
-      "name": "mingyi_019 伤风"
+      "name": "mingyi_019 伤风",
+      "herbs": [
+        "前胡",
+        "神曲",
+        "白术",
+        "羌活",
+        "苍术"
+      ]
     },
     {
       "case_id": "mingyi_020",
@@ -350,7 +492,10 @@
       "entry_id": "mingyi_020",
       "entry_type": "mingyi_case",
       "rag_key": "伤寒",
-      "name": "mingyi_020 伤寒"
+      "name": "mingyi_020 伤寒",
+      "formulas_referenced": [
+        "白虎汤"
+      ]
     },
     {
       "case_id": "mingyi_021",
@@ -401,7 +546,11 @@
       "entry_id": "mingyi_023",
       "entry_type": "mingyi_case",
       "rag_key": "火热",
-      "name": "mingyi_023 火热"
+      "name": "mingyi_023 火热",
+      "herbs": [
+        "柴胡",
+        "枳壳"
+      ]
     },
     {
       "case_id": "mingyi_024",
@@ -418,7 +567,12 @@
       "entry_id": "mingyi_024",
       "entry_type": "mingyi_case",
       "rag_key": "火热",
-      "name": "mingyi_024 火热"
+      "name": "mingyi_024 火热",
+      "herbs": [
+        "知母",
+        "黄柏",
+        "干姜"
+      ]
     },
     {
       "case_id": "mingyi_025",
@@ -435,7 +589,10 @@
       "entry_id": "mingyi_025",
       "entry_type": "mingyi_case",
       "rag_key": "火热",
-      "name": "mingyi_025 火热"
+      "name": "mingyi_025 火热",
+      "herbs": [
+        "白术"
+      ]
     },
     {
       "case_id": "mingyi_026",
@@ -571,7 +728,16 @@
       "entry_id": "mingyi_033",
       "entry_type": "mingyi_case",
       "rag_key": "吞酸吐酸",
-      "name": "mingyi_033 吞酸吐酸"
+      "name": "mingyi_033 吞酸吐酸",
+      "herbs": [
+        "黄连",
+        "白术",
+        "桃仁",
+        "泽泻"
+      ],
+      "formulas_referenced": [
+        "二陈汤"
+      ]
     },
     {
       "case_id": "mingyi_034",
@@ -588,7 +754,11 @@
       "entry_id": "mingyi_034",
       "entry_type": "mingyi_case",
       "rag_key": "吞酸吐酸",
-      "name": "mingyi_034 吞酸吐酸"
+      "name": "mingyi_034 吞酸吐酸",
+      "herbs": [
+        "炮姜",
+        "木香"
+      ]
     },
     {
       "case_id": "mingyi_035",
@@ -673,7 +843,11 @@
       "entry_id": "mingyi_039",
       "entry_type": "mingyi_case",
       "rag_key": "积块",
-      "name": "mingyi_039 积块"
+      "name": "mingyi_039 积块",
+      "herbs": [
+        "白术",
+        "陈皮"
+      ]
     },
     {
       "case_id": "mingyi_040",
@@ -707,7 +881,13 @@
       "entry_id": "mingyi_041",
       "entry_type": "mingyi_case",
       "rag_key": "虚损",
-      "name": "mingyi_041 虚损"
+      "name": "mingyi_041 虚损",
+      "herbs": [
+        "黄连",
+        "人参",
+        "当归",
+        "厚朴"
+      ]
     },
     {
       "case_id": "mingyi_042",
@@ -775,7 +955,11 @@
       "entry_id": "mingyi_045",
       "entry_type": "mingyi_case",
       "rag_key": "遍身痛",
-      "name": "mingyi_045 遍身痛"
+      "name": "mingyi_045 遍身痛",
+      "herbs": [
+        "延胡索",
+        "当归"
+      ]
     },
     {
       "case_id": "mingyi_046",
@@ -860,7 +1044,10 @@
       "entry_id": "mingyi_050",
       "entry_type": "mingyi_case",
       "rag_key": "耳",
-      "name": "mingyi_050 耳"
+      "name": "mingyi_050 耳",
+      "formulas_referenced": [
+        "六味地黄丸"
+      ]
     },
     {
       "case_id": "mingyi_051",
@@ -911,7 +1098,11 @@
       "entry_id": "mingyi_055",
       "entry_type": "mingyi_case",
       "rag_key": "秘结",
-      "name": "mingyi_055 秘结"
+      "name": "mingyi_055 秘结",
+      "herbs": [
+        "甘草",
+        "陈皮"
+      ]
     },
     {
       "case_id": "mingyi_056",
@@ -928,7 +1119,10 @@
       "entry_id": "mingyi_056",
       "entry_type": "mingyi_case",
       "rag_key": "秘结",
-      "name": "mingyi_056 秘结"
+      "name": "mingyi_056 秘结",
+      "herbs": [
+        "紫菀"
+      ]
     },
     {
       "case_id": "mingyi_057",
@@ -945,7 +1139,13 @@
       "entry_id": "mingyi_057",
       "entry_type": "mingyi_case",
       "rag_key": "秘结",
-      "name": "mingyi_057 秘结"
+      "name": "mingyi_057 秘结",
+      "herbs": [
+        "桃仁"
+      ],
+      "formulas_referenced": [
+        "四物汤"
+      ]
     },
     {
       "case_id": "mingyi_058",
@@ -962,7 +1162,10 @@
       "entry_id": "mingyi_058",
       "entry_type": "mingyi_case",
       "rag_key": "秘结",
-      "name": "mingyi_058 秘结"
+      "name": "mingyi_058 秘结",
+      "formulas_referenced": [
+        "六味地黄丸"
+      ]
     },
     {
       "case_id": "mingyi_059",
@@ -1047,7 +1250,13 @@
       "entry_id": "mingyi_063",
       "entry_type": "mingyi_case",
       "rag_key": "淋",
-      "name": "mingyi_063 淋"
+      "name": "mingyi_063 淋",
+      "herbs": [
+        "山栀子",
+        "瞿麦",
+        "赤芍",
+        "木通"
+      ]
     },
     {
       "case_id": "mingyi_064",
@@ -1064,7 +1273,16 @@
       "entry_id": "mingyi_064",
       "entry_type": "mingyi_case",
       "rag_key": "黄疸",
-      "name": "mingyi_064 黄疸"
+      "name": "mingyi_064 黄疸",
+      "herbs": [
+        "人参",
+        "石膏"
+      ],
+      "formulas_referenced": [
+        "补中益气汤",
+        "竹叶石膏汤",
+        "益元散"
+      ]
     },
     {
       "case_id": "mingyi_065",
@@ -1098,7 +1316,12 @@
       "entry_id": "mingyi_066",
       "entry_type": "mingyi_case",
       "rag_key": "经水不调",
-      "name": "mingyi_066 经水不调"
+      "name": "mingyi_066 经水不调",
+      "herbs": [
+        "五灵脂",
+        "黄连",
+        "香附"
+      ]
     },
     {
       "case_id": "mingyi_067",
@@ -1115,7 +1338,12 @@
       "entry_id": "mingyi_067",
       "entry_type": "mingyi_case",
       "rag_key": "经水不调",
-      "name": "mingyi_067 经水不调"
+      "name": "mingyi_067 经水不调",
+      "herbs": [
+        "五灵脂",
+        "黄连",
+        "香附"
+      ]
     },
     {
       "case_id": "mingyi_068",
@@ -1149,7 +1377,13 @@
       "entry_id": "mingyi_069",
       "entry_type": "mingyi_case",
       "rag_key": "热入血室",
-      "name": "mingyi_069 热入血室"
+      "name": "mingyi_069 热入血室",
+      "herbs": [
+        "柴胡"
+      ],
+      "formulas_referenced": [
+        "小柴胡汤"
+      ]
     },
     {
       "case_id": "mingyi_070",
@@ -1183,7 +1417,14 @@
       "entry_id": "mingyi_071",
       "entry_type": "mingyi_case",
       "rag_key": "经水不调",
-      "name": "mingyi_071 经水不调"
+      "name": "mingyi_071 经水不调",
+      "herbs": [
+        "升麻",
+        "丹皮",
+        "柴胡",
+        "麦冬",
+        "远志"
+      ]
     },
     {
       "case_id": "mingyi_072",
@@ -1200,7 +1441,11 @@
       "entry_id": "mingyi_072",
       "entry_type": "mingyi_case",
       "rag_key": "经水不调",
-      "name": "mingyi_072 经水不调"
+      "name": "mingyi_072 经水不调",
+      "formulas_referenced": [
+        "补中益气汤",
+        "归脾汤"
+      ]
     },
     {
       "case_id": "mingyi_073",
@@ -1234,7 +1479,16 @@
       "entry_id": "mingyi_074",
       "entry_type": "mingyi_case",
       "rag_key": "经水不调",
-      "name": "mingyi_074 经水不调"
+      "name": "mingyi_074 经水不调",
+      "herbs": [
+        "甘草",
+        "柴胡",
+        "麦冬",
+        "元参"
+      ],
+      "formulas_referenced": [
+        "逍遥散"
+      ]
     },
     {
       "case_id": "mingyi_075",
@@ -1336,7 +1590,13 @@
       "entry_id": "mingyi_080",
       "entry_type": "mingyi_case",
       "rag_key": "翻花疮",
-      "name": "mingyi_080 翻花疮"
+      "name": "mingyi_080 翻花疮",
+      "herbs": [
+        "麦冬"
+      ],
+      "formulas_referenced": [
+        "十全大补汤"
+      ]
     },
     {
       "case_id": "mingyi_081",
@@ -1387,7 +1647,11 @@
       "entry_id": "mingyi_083",
       "entry_type": "mingyi_case",
       "rag_key": "多骨疽",
-      "name": "mingyi_083 多骨疽"
+      "name": "mingyi_083 多骨疽",
+      "formulas_referenced": [
+        "归脾汤",
+        "逍遥散"
+      ]
     },
     {
       "case_id": "mingyi_084",
@@ -1438,7 +1702,10 @@
       "entry_id": "mingyi_086",
       "entry_type": "mingyi_case",
       "rag_key": "疮疡",
-      "name": "mingyi_086 疮疡"
+      "name": "mingyi_086 疮疡",
+      "herbs": [
+        "人参"
+      ]
     },
     {
       "case_id": "mingyi_087",
@@ -1472,7 +1739,13 @@
       "entry_id": "mingyi_088",
       "entry_type": "mingyi_case",
       "rag_key": "疮疡",
-      "name": "mingyi_088 疮疡"
+      "name": "mingyi_088 疮疡",
+      "herbs": [
+        "麦冬"
+      ],
+      "formulas_referenced": [
+        "十全大补汤"
+      ]
     },
     {
       "case_id": "mingyi_089",
@@ -1557,7 +1830,10 @@
       "entry_id": "mingyi_093",
       "entry_type": "mingyi_case",
       "rag_key": "恶阻",
-      "name": "mingyi_093 恶阻"
+      "name": "mingyi_093 恶阻",
+      "herbs": [
+        "茯苓"
+      ]
     },
     {
       "case_id": "mingyi_094",
@@ -1574,7 +1850,10 @@
       "entry_id": "mingyi_094",
       "entry_type": "mingyi_case",
       "rag_key": "恶阻",
-      "name": "mingyi_094 恶阻"
+      "name": "mingyi_094 恶阻",
+      "herbs": [
+        "沉香"
+      ]
     },
     {
       "case_id": "mingyi_095",
@@ -1591,7 +1870,13 @@
       "entry_id": "mingyi_095",
       "entry_type": "mingyi_case",
       "rag_key": "产后",
-      "name": "mingyi_095 产后"
+      "name": "mingyi_095 产后",
+      "herbs": [
+        "桃仁",
+        "茯苓",
+        "黄芪",
+        "陈皮"
+      ]
     },
     {
       "case_id": "mingyi_096",
@@ -1608,7 +1893,12 @@
       "entry_id": "mingyi_096",
       "entry_type": "mingyi_case",
       "rag_key": "产后",
-      "name": "mingyi_096 产后"
+      "name": "mingyi_096 产后",
+      "herbs": [
+        "升麻",
+        "白术",
+        "黄芪"
+      ]
     },
     {
       "case_id": "mingyi_097",
@@ -1676,7 +1966,10 @@
       "entry_id": "mingyi_100",
       "entry_type": "mingyi_case",
       "rag_key": "虫积",
-      "name": "mingyi_100 虫积"
+      "name": "mingyi_100 虫积",
+      "herbs": [
+        "槟榔"
+      ]
     },
     {
       "case_id": "mingyi_101",
@@ -1693,7 +1986,10 @@
       "entry_id": "mingyi_101",
       "entry_type": "mingyi_case",
       "rag_key": "耳",
-      "name": "mingyi_101 耳"
+      "name": "mingyi_101 耳",
+      "herbs": [
+        "麦冬"
+      ]
     },
     {
       "case_id": "mingyi_102",
@@ -1727,7 +2023,13 @@
       "entry_id": "mingyi_103",
       "entry_type": "mingyi_case",
       "rag_key": "疮疡",
-      "name": "mingyi_103 疮疡"
+      "name": "mingyi_103 疮疡",
+      "herbs": [
+        "麦冬"
+      ],
+      "formulas_referenced": [
+        "十全大补汤"
+      ]
     },
     {
       "case_id": "mingyi_104",

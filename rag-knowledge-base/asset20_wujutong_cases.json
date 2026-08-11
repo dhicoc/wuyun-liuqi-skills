@@ -31,7 +31,18 @@
       "entry_id": "wjt_001",
       "entry_type": "wujutong_case",
       "rag_key": "风温",
-      "name": "wjt_001 风温·养阴护液"
+      "name": "wjt_001 风温·养阴护液",
+      "herbs": [
+        "黄芩",
+        "丹皮",
+        "知母",
+        "白芍",
+        "生地",
+        "黄柏",
+        "麦冬",
+        "牡蛎",
+        "鳖甲"
+      ]
     },
     {
       "case_id": "wjt_002",
@@ -48,7 +59,19 @@
       "entry_id": "wjt_002",
       "entry_type": "wujutong_case",
       "rag_key": "风温",
-      "name": "wjt_002 风温·辛凉轻透"
+      "name": "wjt_002 风温·辛凉轻透",
+      "herbs": [
+        "牛蒡子",
+        "甘草",
+        "银花",
+        "薄荷",
+        "连翘",
+        "生地",
+        "豆豉",
+        "麦冬",
+        "桔梗",
+        "杏仁"
+      ]
     },
     {
       "case_id": "wjt_003",
@@ -65,7 +88,18 @@
       "entry_id": "wjt_003",
       "entry_type": "wujutong_case",
       "rag_key": "风温",
-      "name": "wjt_003 风温·发疹肢厥"
+      "name": "wjt_003 风温·发疹肢厥",
+      "herbs": [
+        "牛蒡子",
+        "荆芥穗",
+        "桑叶",
+        "甘草",
+        "薄荷",
+        "连翘",
+        "桔梗",
+        "元参",
+        "郁金"
+      ]
     },
     {
       "case_id": "wjt_004",
@@ -82,7 +116,14 @@
       "entry_id": "wjt_004",
       "entry_type": "wujutong_case",
       "rag_key": "风温",
-      "name": "wjt_004 风温·误辛温"
+      "name": "wjt_004 风温·误辛温",
+      "herbs": [
+        "桑叶",
+        "甘草",
+        "麦冬",
+        "桔梗",
+        "杏仁"
+      ]
     },
     {
       "case_id": "wjt_005",
@@ -99,7 +140,29 @@
       "entry_id": "wjt_005",
       "entry_type": "wujutong_case",
       "rag_key": "温疫",
-      "name": "wjt_005 温疫·发斑入血"
+      "name": "wjt_005 温疫·发斑入血",
+      "herbs": [
+        "牛蒡子",
+        "白茅根",
+        "黄芩",
+        "黄连",
+        "甘草",
+        "银花",
+        "丹皮",
+        "连翘",
+        "知母",
+        "白芍",
+        "马勃",
+        "石膏",
+        "生地",
+        "麦冬",
+        "桔梗",
+        "元参",
+        "射干"
+      ],
+      "formulas_referenced": [
+        "紫雪丹"
+      ]
     },
     {
       "case_id": "wjt_006",
@@ -116,7 +179,20 @@
       "entry_id": "wjt_006",
       "entry_type": "wujutong_case",
       "rag_key": "暑温",
-      "name": "wjt_006 暑温·邪传心包"
+      "name": "wjt_006 暑温·邪传心包",
+      "herbs": [
+        "甘草",
+        "银花",
+        "连翘",
+        "知母",
+        "石膏",
+        "生地",
+        "麦冬",
+        "元参"
+      ],
+      "formulas_referenced": [
+        "紫雪丹"
+      ]
     },
     {
       "case_id": "wjt_007",
@@ -133,7 +209,19 @@
       "entry_id": "wjt_007",
       "entry_type": "wujutong_case",
       "rag_key": "暑温",
-      "name": "wjt_007 暑温·邪入血分"
+      "name": "wjt_007 暑温·邪入血分",
+      "herbs": [
+        "羚羊角",
+        "桑叶",
+        "丹皮",
+        "滑石",
+        "白芍",
+        "生地",
+        "麦冬",
+        "杏仁",
+        "元参",
+        "鳖甲"
+      ]
     },
     {
       "case_id": "wjt_008",
@@ -150,7 +238,12 @@
       "entry_id": "wjt_008",
       "entry_type": "wujutong_case",
       "rag_key": "伏暑",
-      "name": "wjt_008 伏暑·清暑化湿"
+      "name": "wjt_008 伏暑·清暑化湿",
+      "herbs": [
+        "银花",
+        "滑石",
+        "连翘"
+      ]
     },
     {
       "case_id": "wjt_009",
@@ -303,7 +396,18 @@
       "entry_id": "wjt_017",
       "entry_type": "wujutong_case",
       "rag_key": "痹",
-      "name": "wjt_017 痹·表里两伤"
+      "name": "wjt_017 痹·表里两伤",
+      "herbs": [
+        "甘草",
+        "生姜",
+        "香附",
+        "茯苓",
+        "石膏",
+        "半夏",
+        "苍术",
+        "杏仁",
+        "桂枝"
+      ]
     },
     {
       "case_id": "wjt_018",
@@ -371,7 +475,18 @@
       "entry_id": "wjt_021",
       "entry_type": "wujutong_case",
       "rag_key": "咳嗽",
-      "name": "wjt_021 咳嗽·胃咳"
+      "name": "wjt_021 咳嗽·胃咳",
+      "herbs": [
+        "葶苈子",
+        "旋覆花",
+        "生姜",
+        "苏子",
+        "茯苓",
+        "枳实",
+        "半夏",
+        "杏仁",
+        "陈皮"
+      ]
     },
     {
       "case_id": "wjt_022",
@@ -388,7 +503,14 @@
       "entry_id": "wjt_022",
       "entry_type": "wujutong_case",
       "rag_key": "咳嗽",
-      "name": "wjt_022 咳嗽·痰热壅肺"
+      "name": "wjt_022 咳嗽·痰热壅肺",
+      "herbs": [
+        "葶苈子",
+        "白茅根"
+      ],
+      "formulas_referenced": [
+        "苇茎汤"
+      ]
     },
     {
       "case_id": "wjt_023",
@@ -711,7 +833,22 @@
       "entry_id": "wjt_041",
       "entry_type": "wujutong_case",
       "rag_key": "风温",
-      "name": "wjt_041 风温误汗入血"
+      "name": "wjt_041 风温误汗入血",
+      "herbs": [
+        "桑叶",
+        "黄芩",
+        "甘草",
+        "银花",
+        "丹皮",
+        "连翘",
+        "生地",
+        "麦冬",
+        "牡蛎",
+        "元参"
+      ],
+      "formulas_referenced": [
+        "牛黄清心丸"
+      ]
     },
     {
       "case_id": "wjt_042",
@@ -728,7 +865,14 @@
       "entry_id": "wjt_042",
       "entry_type": "wujutong_case",
       "rag_key": "伏暑",
-      "name": "wjt_042 伏暑通宣三焦"
+      "name": "wjt_042 伏暑通宣三焦",
+      "herbs": [
+        "黄芩",
+        "生姜",
+        "茯苓",
+        "半夏",
+        "杏仁"
+      ]
     },
     {
       "case_id": "wjt_043",
@@ -745,7 +889,13 @@
       "entry_id": "wjt_043",
       "entry_type": "wujutong_case",
       "rag_key": "胃痛",
-      "name": "wjt_043 阳虚胃痛"
+      "name": "wjt_043 阳虚胃痛",
+      "herbs": [
+        "川椒",
+        "干姜",
+        "半夏",
+        "桂枝"
+      ]
     },
     {
       "case_id": "wjt_044",
@@ -779,7 +929,15 @@
       "entry_id": "wjt_045",
       "entry_type": "wujutong_case",
       "rag_key": "淋浊",
-      "name": "wjt_045 尿血肝郁"
+      "name": "wjt_045 尿血肝郁",
+      "herbs": [
+        "旋覆花",
+        "丹皮",
+        "桃仁",
+        "香附",
+        "生地",
+        "青皮"
+      ]
     },
     {
       "case_id": "wjt_046",
@@ -796,7 +954,13 @@
       "entry_id": "wjt_046",
       "entry_type": "wujutong_case",
       "rag_key": "便秘",
-      "name": "wjt_046 怒郁便秘"
+      "name": "wjt_046 怒郁便秘",
+      "herbs": [
+        "黄芩",
+        "黄连",
+        "桃仁",
+        "郁金"
+      ]
     },
     {
       "case_id": "wjt_047",
@@ -813,7 +977,17 @@
       "entry_id": "wjt_047",
       "entry_type": "wujutong_case",
       "rag_key": "痹证",
-      "name": "wjt_047 寒痹"
+      "name": "wjt_047 寒痹",
+      "herbs": [
+        "川楝子",
+        "小茴香",
+        "萆薢",
+        "附子",
+        "川椒",
+        "木通",
+        "苍术",
+        "桂枝"
+      ]
     },
     {
       "case_id": "wjt_048",
@@ -830,7 +1004,14 @@
       "entry_id": "wjt_048",
       "entry_type": "wujutong_case",
       "rag_key": "疟疾",
-      "name": "wjt_048 少阴三疟"
+      "name": "wjt_048 少阴三疟",
+      "herbs": [
+        "人参",
+        "鹿茸",
+        "附子",
+        "当归",
+        "桂枝"
+      ]
     },
     {
       "case_id": "wjt_049",
@@ -847,7 +1028,15 @@
       "entry_id": "wjt_049",
       "entry_type": "wujutong_case",
       "rag_key": "疟疾",
-      "name": "wjt_049 伏暑疟"
+      "name": "wjt_049 伏暑疟",
+      "herbs": [
+        "黄芩",
+        "知母",
+        "茯苓",
+        "半夏",
+        "杏仁",
+        "桂枝"
+      ]
     },
     {
       "case_id": "wjt_050",
@@ -864,7 +1053,12 @@
       "entry_id": "wjt_050",
       "entry_type": "wujutong_case",
       "rag_key": "中燥",
-      "name": "wjt_050 直中燥气"
+      "name": "wjt_050 直中燥气",
+      "herbs": [
+        "人参",
+        "丁香",
+        "川椒"
+      ]
     },
     {
       "case_id": "wjt_051",
@@ -898,7 +1092,18 @@
       "entry_id": "wjt_052",
       "entry_type": "wujutong_case",
       "rag_key": "咳嗽",
-      "name": "wjt_052 春温咳嗽"
+      "name": "wjt_052 春温咳嗽",
+      "herbs": [
+        "桑叶",
+        "甘草",
+        "银花",
+        "薄荷",
+        "连翘",
+        "天冬",
+        "生地",
+        "麦冬",
+        "桔梗"
+      ]
     },
     {
       "case_id": "wjt_053",
@@ -915,7 +1120,13 @@
       "entry_id": "wjt_053",
       "entry_type": "wujutong_case",
       "rag_key": "肝厥",
-      "name": "wjt_053 肝厥犯胃"
+      "name": "wjt_053 肝厥犯胃",
+      "herbs": [
+        "乌药",
+        "川椒",
+        "枳实",
+        "半夏"
+      ]
     },
     {
       "case_id": "wjt_054",
@@ -932,7 +1143,16 @@
       "entry_id": "wjt_054",
       "entry_type": "wujutong_case",
       "rag_key": "暑温",
-      "name": "wjt_054 少阳头痛"
+      "name": "wjt_054 少阳头痛",
+      "herbs": [
+        "羚羊角",
+        "桑叶",
+        "菊花",
+        "甘草",
+        "丹皮",
+        "薄荷",
+        "桔梗"
+      ]
     },
     {
       "case_id": "wjt_055",
@@ -949,7 +1169,17 @@
       "entry_id": "wjt_055",
       "entry_type": "wujutong_case",
       "rag_key": "寒湿",
-      "name": "wjt_055 寒湿化热"
+      "name": "wjt_055 寒湿化热",
+      "herbs": [
+        "旋覆花",
+        "黄芩",
+        "滑石",
+        "茯苓",
+        "枳实",
+        "半夏",
+        "杏仁",
+        "郁金"
+      ]
     },
     {
       "case_id": "wjt_056",
@@ -966,7 +1196,11 @@
       "entry_id": "wjt_056",
       "entry_type": "wujutong_case",
       "rag_key": "伏暑",
-      "name": "wjt_056 伏暑入血分"
+      "name": "wjt_056 伏暑入血分",
+      "herbs": [
+        "麦冬",
+        "元参"
+      ]
     },
     {
       "case_id": "wjt_057",
@@ -983,7 +1217,20 @@
       "entry_id": "wjt_057",
       "entry_type": "wujutong_case",
       "rag_key": "湿温",
-      "name": "wjt_057 湿温通降"
+      "name": "wjt_057 湿温通降",
+      "herbs": [
+        "黄芩",
+        "黄连",
+        "生姜",
+        "香附",
+        "茯苓",
+        "薏仁",
+        "干姜",
+        "半夏"
+      ],
+      "formulas_referenced": [
+        "玉女煎"
+      ]
     },
     {
       "case_id": "wjt_058",
@@ -1000,7 +1247,22 @@
       "entry_id": "wjt_058",
       "entry_type": "wujutong_case",
       "rag_key": "温毒",
-      "name": "wjt_058 温毒"
+      "name": "wjt_058 温毒",
+      "herbs": [
+        "牛蒡子",
+        "荆芥穗",
+        "板蓝根",
+        "桑叶",
+        "黄芩",
+        "黄连",
+        "银花",
+        "薄荷",
+        "连翘",
+        "马勃",
+        "桔梗",
+        "元参",
+        "射干"
+      ]
     },
     {
       "case_id": "wjt_059",
@@ -1017,7 +1279,10 @@
       "entry_id": "wjt_059",
       "entry_type": "wujutong_case",
       "rag_key": "咳嗽",
-      "name": "wjt_059 幼孩呛咳"
+      "name": "wjt_059 幼孩呛咳",
+      "formulas_referenced": [
+        "苇茎汤"
+      ]
     },
     {
       "case_id": "wjt_060",
@@ -1034,7 +1299,16 @@
       "entry_id": "wjt_060",
       "entry_type": "wujutong_case",
       "rag_key": "肝郁",
-      "name": "wjt_060 肝厥开郁"
+      "name": "wjt_060 肝厥开郁",
+      "herbs": [
+        "川楝子",
+        "生姜",
+        "乌药",
+        "川椒",
+        "青皮",
+        "半夏",
+        "郁金"
+      ]
     },
     {
       "case_id": "wjt_062",
@@ -1051,7 +1325,21 @@
       "entry_id": "wjt_062",
       "entry_type": "wujutong_case",
       "rag_key": "温疫",
-      "name": "wjt_062 温疫浊湿"
+      "name": "wjt_062 温疫浊湿",
+      "herbs": [
+        "金银花",
+        "桑叶",
+        "黄芩",
+        "黄连",
+        "银花",
+        "滑石",
+        "薄荷",
+        "连翘",
+        "豆豉",
+        "麦冬",
+        "杏仁",
+        "藿香"
+      ]
     },
     {
       "case_id": "wjt_063",
@@ -1068,7 +1356,21 @@
       "entry_id": "wjt_063",
       "entry_type": "wujutong_case",
       "rag_key": "温疫",
-      "name": "wjt_063 温疫发疹"
+      "name": "wjt_063 温疫发疹",
+      "herbs": [
+        "牛蒡子",
+        "桑叶",
+        "黄芩",
+        "黄连",
+        "银花",
+        "薄荷",
+        "连翘",
+        "马勃",
+        "石膏",
+        "桔梗",
+        "元参",
+        "射干"
+      ]
     },
     {
       "case_id": "wjt_064",
@@ -1085,7 +1387,21 @@
       "entry_id": "wjt_064",
       "entry_type": "wujutong_case",
       "rag_key": "温疫",
-      "name": "wjt_064 温疫四损"
+      "name": "wjt_064 温疫四损",
+      "herbs": [
+        "羚羊角",
+        "桑叶",
+        "菊花",
+        "甘草",
+        "银花",
+        "丹皮",
+        "薄荷",
+        "连翘",
+        "生地",
+        "麦冬",
+        "桔梗",
+        "郁金"
+      ]
     },
     {
       "case_id": "wjt_065",
@@ -1102,7 +1418,16 @@
       "entry_id": "wjt_065",
       "entry_type": "wujutong_case",
       "rag_key": "温疫",
-      "name": "wjt_065 温疫清宫"
+      "name": "wjt_065 温疫清宫",
+      "herbs": [
+        "生地黄",
+        "丹皮",
+        "莲子",
+        "连翘",
+        "石膏",
+        "麦冬",
+        "元参"
+      ]
     },
     {
       "case_id": "wjt_067",
@@ -1119,7 +1444,14 @@
       "entry_id": "wjt_067",
       "entry_type": "wujutong_case",
       "rag_key": "温疫",
-      "name": "wjt_067 温疫便溏"
+      "name": "wjt_067 温疫便溏",
+      "herbs": [
+        "黄芩",
+        "甘草",
+        "黄柏",
+        "牡蛎",
+        "鳖甲"
+      ]
     },
     {
       "case_id": "wjt_071",
@@ -1136,7 +1468,20 @@
       "entry_id": "wjt_071",
       "entry_type": "wujutong_case",
       "rag_key": "温疫",
-      "name": "wjt_071 温疫秽浊"
+      "name": "wjt_071 温疫秽浊",
+      "herbs": [
+        "牛蒡子",
+        "黄芩",
+        "银花",
+        "丹皮",
+        "连翘",
+        "知母",
+        "石膏",
+        "豆豉",
+        "桔梗",
+        "郁金",
+        "藿香"
+      ]
     },
     {
       "case_id": "wjt_072",
@@ -1153,7 +1498,17 @@
       "entry_id": "wjt_072",
       "entry_type": "wujutong_case",
       "rag_key": "温疫",
-      "name": "wjt_072 误汗入包"
+      "name": "wjt_072 误汗入包",
+      "herbs": [
+        "甘草",
+        "丹皮",
+        "白芍",
+        "生地",
+        "麦冬",
+        "元参",
+        "鳖甲",
+        "阿胶"
+      ]
     },
     {
       "case_id": "wjt_082",
@@ -1170,7 +1525,15 @@
       "entry_id": "wjt_082",
       "entry_type": "wujutong_case",
       "rag_key": "虚劳",
-      "name": "wjt_082 三焦俱损"
+      "name": "wjt_082 三焦俱损",
+      "herbs": [
+        "桑叶",
+        "莲子",
+        "白芍",
+        "茯苓",
+        "芡实",
+        "桂枝"
+      ]
     },
     {
       "case_id": "wjt_085",
@@ -1187,7 +1550,10 @@
       "entry_id": "wjt_085",
       "entry_type": "wujutong_case",
       "rag_key": "虚劳",
-      "name": "wjt_085 劳伤吐血"
+      "name": "wjt_085 劳伤吐血",
+      "formulas_referenced": [
+        "小建中汤"
+      ]
     },
     {
       "case_id": "wjt_091",
@@ -1204,7 +1570,18 @@
       "entry_id": "wjt_091",
       "entry_type": "wujutong_case",
       "rag_key": "痹证",
-      "name": "wjt_091 风湿痹"
+      "name": "wjt_091 风湿痹",
+      "herbs": [
+        "甘草",
+        "生姜",
+        "香附",
+        "茯苓",
+        "石膏",
+        "半夏",
+        "苍术",
+        "杏仁",
+        "桂枝"
+      ]
     },
     {
       "case_id": "wjt_092",
@@ -1221,7 +1598,20 @@
       "entry_id": "wjt_092",
       "entry_type": "wujutong_case",
       "rag_key": "痹证",
-      "name": "wjt_092 行痹风湿"
+      "name": "wjt_092 行痹风湿",
+      "herbs": [
+        "甘草",
+        "生姜",
+        "茯苓",
+        "石膏",
+        "附子",
+        "羌活",
+        "苍术",
+        "杏仁",
+        "桂枝",
+        "牛膝",
+        "麻黄"
+      ]
     },
     {
       "case_id": "wjt_093",
@@ -1238,7 +1628,19 @@
       "entry_id": "wjt_093",
       "entry_type": "wujutong_case",
       "rag_key": "痹证",
-      "name": "wjt_093 湿热痹"
+      "name": "wjt_093 湿热痹",
+      "herbs": [
+        "海金沙",
+        "甘草",
+        "银花",
+        "滑石",
+        "萆薢",
+        "猪苓",
+        "石膏",
+        "半夏",
+        "阿胶",
+        "泽泻"
+      ]
     },
     {
       "case_id": "wjt_094",
@@ -1255,7 +1657,15 @@
       "entry_id": "wjt_094",
       "entry_type": "wujutong_case",
       "rag_key": "痹证",
-      "name": "wjt_094 寒湿痹"
+      "name": "wjt_094 寒湿痹",
+      "herbs": [
+        "附子",
+        "羌活",
+        "杏仁",
+        "桂枝",
+        "厚朴",
+        "泽泻"
+      ]
     },
     {
       "case_id": "wjt_095",
@@ -1272,7 +1682,13 @@
       "entry_id": "wjt_095",
       "entry_type": "wujutong_case",
       "rag_key": "痹证",
-      "name": "wjt_095 太阳寒痹"
+      "name": "wjt_095 太阳寒痹",
+      "herbs": [
+        "附子",
+        "川椒",
+        "木通",
+        "桂枝"
+      ]
     },
     {
       "case_id": "wjt_097",
@@ -1289,7 +1705,19 @@
       "entry_id": "wjt_097",
       "entry_type": "wujutong_case",
       "rag_key": "痰饮",
-      "name": "wjt_097 风寒痰饮"
+      "name": "wjt_097 风寒痰饮",
+      "herbs": [
+        "五味子",
+        "甘草",
+        "白术",
+        "生姜",
+        "白芍",
+        "茯苓",
+        "干姜",
+        "枳实",
+        "半夏",
+        "桂枝"
+      ]
     },
     {
       "case_id": "wjt_098",
@@ -1306,7 +1734,15 @@
       "entry_id": "wjt_098",
       "entry_type": "wujutong_case",
       "rag_key": "痰饮",
-      "name": "wjt_098 孕妇痰饮"
+      "name": "wjt_098 孕妇痰饮",
+      "herbs": [
+        "甘草",
+        "白芍",
+        "干姜",
+        "枳实",
+        "半夏",
+        "桂枝"
+      ]
     },
     {
       "case_id": "wjt_099",
@@ -1323,7 +1759,12 @@
       "entry_id": "wjt_099",
       "entry_type": "wujutong_case",
       "rag_key": "痰饮",
-      "name": "wjt_099 寒饮胃咳"
+      "name": "wjt_099 寒饮胃咳",
+      "herbs": [
+        "生姜",
+        "枳实",
+        "杏仁"
+      ]
     },
     {
       "case_id": "wjt_100",
@@ -1340,7 +1781,16 @@
       "entry_id": "wjt_100",
       "entry_type": "wujutong_case",
       "rag_key": "痰饮",
-      "name": "wjt_100 饮癖真武"
+      "name": "wjt_100 饮癖真武",
+      "herbs": [
+        "白豆蔻",
+        "生姜",
+        "茯苓",
+        "附子",
+        "枳实",
+        "半夏",
+        "细辛"
+      ]
     },
     {
       "case_id": "wjt_103",
@@ -1357,7 +1807,16 @@
       "entry_id": "wjt_103",
       "entry_type": "wujutong_case",
       "rag_key": "中燥",
-      "name": "wjt_103 燥金克木"
+      "name": "wjt_103 燥金克木",
+      "herbs": [
+        "生姜",
+        "茯苓",
+        "丁香",
+        "川椒",
+        "枳实",
+        "半夏",
+        "陈皮"
+      ]
     },
     {
       "case_id": "wjt_105",
@@ -1374,7 +1833,21 @@
       "entry_id": "wjt_105",
       "entry_type": "wujutong_case",
       "rag_key": "中燥",
-      "name": "wjt_105 金凉胸痹"
+      "name": "wjt_105 金凉胸痹",
+      "herbs": [
+        "益智仁",
+        "旋覆花",
+        "生姜",
+        "苏子",
+        "香附",
+        "茯苓",
+        "川椒",
+        "干姜",
+        "半夏",
+        "陈皮",
+        "桂枝",
+        "厚朴"
+      ]
     },
     {
       "case_id": "wjt_108",
@@ -1391,7 +1864,14 @@
       "entry_id": "wjt_108",
       "entry_type": "wujutong_case",
       "rag_key": "胃痛",
-      "name": "wjt_108 肝厥经暴"
+      "name": "wjt_108 肝厥经暴",
+      "herbs": [
+        "黄芩",
+        "乌药",
+        "香附",
+        "半夏",
+        "郁金"
+      ]
     },
     {
       "case_id": "wjt_106",
@@ -1408,7 +1888,13 @@
       "entry_id": "wjt_106",
       "entry_type": "wujutong_case",
       "rag_key": "咳嗽",
-      "name": "wjt_106 风温痰咳"
+      "name": "wjt_106 风温痰咳",
+      "herbs": [
+        "黄芩",
+        "茯苓",
+        "石膏",
+        "杏仁"
+      ]
     },
     {
       "case_id": "wjt_107",
@@ -1425,7 +1911,13 @@
       "entry_id": "wjt_107",
       "entry_type": "wujutong_case",
       "rag_key": "咳嗽",
-      "name": "wjt_107 干嗽无痰"
+      "name": "wjt_107 干嗽无痰",
+      "herbs": [
+        "桑叶",
+        "连翘",
+        "麦冬",
+        "杏仁"
+      ]
     },
     {
       "case_id": "wjt_111",
@@ -1442,7 +1934,15 @@
       "entry_id": "wjt_111",
       "entry_type": "wujutong_case",
       "rag_key": "肺痈",
-      "name": "wjt_111 肺痈脓成"
+      "name": "wjt_111 肺痈脓成",
+      "herbs": [
+        "甘草",
+        "桃仁",
+        "桔梗"
+      ],
+      "formulas_referenced": [
+        "苇茎汤"
+      ]
     },
     {
       "case_id": "wjt_112",
@@ -1459,7 +1959,15 @@
       "entry_id": "wjt_112",
       "entry_type": "wujutong_case",
       "rag_key": "肺痈",
-      "name": "wjt_112 肺痈吐脓"
+      "name": "wjt_112 肺痈吐脓",
+      "herbs": [
+        "甘草",
+        "桃仁",
+        "桔梗"
+      ],
+      "formulas_referenced": [
+        "苇茎汤"
+      ]
     },
     {
       "case_id": "wjt_113",
@@ -1476,7 +1984,13 @@
       "entry_id": "wjt_113",
       "entry_type": "wujutong_case",
       "rag_key": "肺痈",
-      "name": "wjt_113 肺痈误汗"
+      "name": "wjt_113 肺痈误汗",
+      "herbs": [
+        "葶苈子"
+      ],
+      "formulas_referenced": [
+        "苇茎汤"
+      ]
     },
     {
       "case_id": "wjt_114",
@@ -1493,7 +2007,19 @@
       "entry_id": "wjt_114",
       "entry_type": "wujutong_case",
       "rag_key": "喉痹",
-      "name": "wjt_114 喉痹木火"
+      "name": "wjt_114 喉痹木火",
+      "herbs": [
+        "牛蒡子",
+        "荆芥穗",
+        "黄芩",
+        "银花",
+        "薄荷",
+        "连翘",
+        "马勃",
+        "桔梗",
+        "元参",
+        "射干"
+      ]
     },
     {
       "case_id": "wjt_115",
@@ -1510,7 +2036,17 @@
       "entry_id": "wjt_115",
       "entry_type": "wujutong_case",
       "rag_key": "疟疾",
-      "name": "wjt_115 伏暑疟寒"
+      "name": "wjt_115 伏暑疟寒",
+      "herbs": [
+        "天花粉",
+        "黄芩",
+        "滑石",
+        "知母",
+        "杏仁",
+        "郁金",
+        "厚朴",
+        "藿香"
+      ]
     },
     {
       "case_id": "wjt_116",
@@ -1527,7 +2063,15 @@
       "entry_id": "wjt_116",
       "entry_type": "wujutong_case",
       "rag_key": "疟疾",
-      "name": "wjt_116 孕妇疟"
+      "name": "wjt_116 孕妇疟",
+      "herbs": [
+        "黄芩",
+        "甘草",
+        "人参",
+        "生姜",
+        "柴胡",
+        "半夏"
+      ]
     },
     {
       "case_id": "wjt_117",
@@ -1544,7 +2088,18 @@
       "entry_id": "wjt_117",
       "entry_type": "wujutong_case",
       "rag_key": "疟疾",
-      "name": "wjt_117 脾湿疟"
+      "name": "wjt_117 脾湿疟",
+      "herbs": [
+        "益智仁",
+        "黄芩",
+        "茯苓",
+        "附子",
+        "草果",
+        "半夏",
+        "苍术",
+        "杏仁",
+        "槟榔"
+      ]
     },
     {
       "case_id": "wjt_118",
@@ -1561,7 +2116,14 @@
       "entry_id": "wjt_118",
       "entry_type": "wujutong_case",
       "rag_key": "痘症",
-      "name": "wjt_118 痘因暑发"
+      "name": "wjt_118 痘因暑发",
+      "herbs": [
+        "甘草",
+        "银花",
+        "薄荷",
+        "连翘",
+        "桔梗"
+      ]
     },
     {
       "case_id": "wjt_119",
@@ -1578,7 +2140,17 @@
       "entry_id": "wjt_119",
       "entry_type": "wujutong_case",
       "rag_key": "痘症",
-      "name": "wjt_119 痘毒重"
+      "name": "wjt_119 痘毒重",
+      "herbs": [
+        "羚羊角",
+        "甘草",
+        "丹皮",
+        "薄荷",
+        "连翘",
+        "白芷",
+        "桔梗",
+        "紫草"
+      ]
     },
     {
       "case_id": "wjt_120",
@@ -1595,7 +2167,15 @@
       "entry_id": "wjt_120",
       "entry_type": "wujutong_case",
       "rag_key": "伤寒",
-      "name": "wjt_120 中风漏汗"
+      "name": "wjt_120 中风漏汗",
+      "herbs": [
+        "甘草",
+        "生姜",
+        "白芍",
+        "附子",
+        "半夏",
+        "桂枝"
+      ]
     },
     {
       "case_id": "wjt_121",
@@ -1612,7 +2192,18 @@
       "entry_id": "wjt_121",
       "entry_type": "wujutong_case",
       "rag_key": "伤寒",
-      "name": "wjt_121 太阳中风"
+      "name": "wjt_121 太阳中风",
+      "herbs": [
+        "甘草",
+        "生姜",
+        "白芍",
+        "羌活",
+        "桂枝",
+        "麻黄"
+      ],
+      "formulas_referenced": [
+        "麻黄汤"
+      ]
     },
     {
       "case_id": "wjt_122",
@@ -1629,7 +2220,15 @@
       "entry_id": "wjt_122",
       "entry_type": "wujutong_case",
       "rag_key": "伤寒",
-      "name": "wjt_122 伤寒寒雨"
+      "name": "wjt_122 伤寒寒雨",
+      "herbs": [
+        "甘草",
+        "生姜",
+        "附子",
+        "杏仁",
+        "桂枝",
+        "麻黄"
+      ]
     },
     {
       "case_id": "wjt_123",
@@ -1646,7 +2245,19 @@
       "entry_id": "wjt_123",
       "entry_type": "wujutong_case",
       "rag_key": "淋浊",
-      "name": "wjt_123 便泄带血"
+      "name": "wjt_123 便泄带血",
+      "herbs": [
+        "川楝子",
+        "小茴香",
+        "甘草",
+        "滑石",
+        "萆薢",
+        "猪苓",
+        "茯苓",
+        "生地",
+        "木通",
+        "泽泻"
+      ]
     },
     {
       "case_id": "wjt_124",
@@ -1663,7 +2274,16 @@
       "entry_id": "wjt_124",
       "entry_type": "wujutong_case",
       "rag_key": "淋浊",
-      "name": "wjt_124 湿热淋"
+      "name": "wjt_124 湿热淋",
+      "herbs": [
+        "车前子",
+        "甘草",
+        "滑石",
+        "萆薢",
+        "茯苓",
+        "黄柏",
+        "泽泻"
+      ]
     },
     {
       "case_id": "wjt_125",
@@ -1680,7 +2300,11 @@
       "entry_id": "wjt_125",
       "entry_type": "wujutong_case",
       "rag_key": "淋浊",
-      "name": "wjt_125 肝郁二便闭"
+      "name": "wjt_125 肝郁二便闭",
+      "herbs": [
+        "丹皮",
+        "琥珀"
+      ]
     },
     {
       "case_id": "wjt_126",
@@ -1697,7 +2321,15 @@
       "entry_id": "wjt_126",
       "entry_type": "wujutong_case",
       "rag_key": "水气",
-      "name": "wjt_126 水气发汗"
+      "name": "wjt_126 水气发汗",
+      "herbs": [
+        "甘草",
+        "白术",
+        "生姜",
+        "石膏",
+        "桂枝",
+        "麻黄"
+      ]
     },
     {
       "case_id": "wjt_127",
@@ -1714,7 +2346,16 @@
       "entry_id": "wjt_127",
       "entry_type": "wujutong_case",
       "rag_key": "单腹胀",
-      "name": "wjt_127 肝郁单腹胀"
+      "name": "wjt_127 肝郁单腹胀",
+      "herbs": [
+        "旋覆花",
+        "小茴香",
+        "苏子",
+        "香附",
+        "青皮",
+        "半夏",
+        "郁金"
+      ]
     },
     {
       "case_id": "wjt_128",
@@ -1731,7 +2372,20 @@
       "entry_id": "wjt_128",
       "entry_type": "wujutong_case",
       "rag_key": "肝痈",
-      "name": "wjt_128 肝著咳血"
+      "name": "wjt_128 肝著咳血",
+      "herbs": [
+        "旋覆花",
+        "五味子",
+        "甘草",
+        "人参",
+        "茯苓",
+        "枸杞",
+        "麦冬",
+        "牡蛎",
+        "当归",
+        "半夏",
+        "郁金"
+      ]
     },
     {
       "case_id": "wjt_129",
@@ -1748,7 +2402,10 @@
       "entry_id": "wjt_129",
       "entry_type": "wujutong_case",
       "rag_key": "癫狂",
-      "name": "wjt_129 如狂肝风"
+      "name": "wjt_129 如狂肝风",
+      "formulas_referenced": [
+        "紫雪丹"
+      ]
     },
     {
       "case_id": "wjt_130",
@@ -1765,7 +2422,13 @@
       "entry_id": "wjt_130",
       "entry_type": "wujutong_case",
       "rag_key": "噎",
-      "name": "wjt_130 噎辨阴阳"
+      "name": "wjt_130 噎辨阴阳",
+      "herbs": [
+        "黄连"
+      ],
+      "formulas_referenced": [
+        "旋覆代赭汤"
+      ]
     },
     {
       "case_id": "wjt_131",
@@ -1782,7 +2445,15 @@
       "entry_id": "wjt_131",
       "entry_type": "wujutong_case",
       "rag_key": "失音",
-      "name": "wjt_131 金实失音"
+      "name": "wjt_131 金实失音",
+      "herbs": [
+        "甘草",
+        "石膏",
+        "桔梗",
+        "半夏",
+        "杏仁",
+        "麻黄"
+      ]
     },
     {
       "case_id": "wjt_132",
@@ -1799,7 +2470,19 @@
       "entry_id": "wjt_132",
       "entry_type": "wujutong_case",
       "rag_key": "泄泻",
-      "name": "wjt_132 木泄"
+      "name": "wjt_132 木泄",
+      "herbs": [
+        "甘草",
+        "生姜",
+        "猪苓",
+        "茯苓",
+        "柴胡",
+        "半夏",
+        "苍术",
+        "陈皮",
+        "桂枝",
+        "泽泻"
+      ]
     },
     {
       "case_id": "wjt_133",
@@ -1816,7 +2499,12 @@
       "entry_id": "wjt_133",
       "entry_type": "wujutong_case",
       "rag_key": "失音",
-      "name": "wjt_133 失音提肺"
+      "name": "wjt_133 失音提肺",
+      "herbs": [
+        "甘草",
+        "桔梗",
+        "半夏"
+      ]
     },
     {
       "case_id": "wjt_134",
@@ -1833,7 +2521,17 @@
       "entry_id": "wjt_134",
       "entry_type": "wujutong_case",
       "rag_key": "寒湿",
-      "name": "wjt_134 太阴中湿"
+      "name": "wjt_134 太阴中湿",
+      "herbs": [
+        "生姜",
+        "茯苓",
+        "附子",
+        "川椒",
+        "草果",
+        "枳实",
+        "半夏",
+        "桂枝"
+      ]
     },
     {
       "case_id": "wjt_135",
@@ -1850,7 +2548,17 @@
       "entry_id": "wjt_135",
       "entry_type": "wujutong_case",
       "rag_key": "风淫",
-      "name": "wjt_135 风淫末疾"
+      "name": "wjt_135 风淫末疾",
+      "herbs": [
+        "桑叶",
+        "菊花",
+        "银花",
+        "丹皮",
+        "薄荷",
+        "连翘",
+        "生地",
+        "麦冬"
+      ]
     },
     {
       "case_id": "wjt_136",
@@ -1867,7 +2575,14 @@
       "entry_id": "wjt_136",
       "entry_type": "wujutong_case",
       "rag_key": "反胃",
-      "name": "wjt_136 胸痹反胃"
+      "name": "wjt_136 胸痹反胃",
+      "herbs": [
+        "茯苓",
+        "枳实",
+        "半夏",
+        "桂枝",
+        "栝蒌"
+      ]
     },
     {
       "case_id": "wjt_137",
@@ -1884,7 +2599,12 @@
       "entry_id": "wjt_137",
       "entry_type": "wujutong_case",
       "rag_key": "噦",
-      "name": "wjt_137 湿郁作噦"
+      "name": "wjt_137 湿郁作噦",
+      "herbs": [
+        "滑石",
+        "竹茹",
+        "茯苓"
+      ]
     },
     {
       "case_id": "wjt_138",
@@ -1901,7 +2621,17 @@
       "entry_id": "wjt_138",
       "entry_type": "wujutong_case",
       "rag_key": "食积",
-      "name": "wjt_138 幼孩食积"
+      "name": "wjt_138 幼孩食积",
+      "herbs": [
+        "白豆蔻",
+        "鸡内金",
+        "神曲",
+        "白术",
+        "山药",
+        "茯苓",
+        "半夏",
+        "厚朴"
+      ]
     },
     {
       "case_id": "wjt_139",
@@ -1918,7 +2648,17 @@
       "entry_id": "wjt_139",
       "entry_type": "wujutong_case",
       "rag_key": "滞下",
-      "name": "wjt_139 滞下冷积"
+      "name": "wjt_139 滞下冷积",
+      "herbs": [
+        "黄芩",
+        "白芍",
+        "附子",
+        "枳实",
+        "木香",
+        "槟榔",
+        "陈皮",
+        "厚朴"
+      ]
     },
     {
       "case_id": "wjt_140",
@@ -1935,7 +2675,16 @@
       "entry_id": "wjt_140",
       "entry_type": "wujutong_case",
       "rag_key": "便血",
-      "name": "wjt_140 粪后便红"
+      "name": "wjt_140 粪后便红",
+      "herbs": [
+        "生地黄",
+        "黄芩",
+        "甘草",
+        "白芍",
+        "附子",
+        "苍术",
+        "阿胶"
+      ]
     },
     {
       "case_id": "wjt_141",
@@ -1952,7 +2701,14 @@
       "entry_id": "wjt_141",
       "entry_type": "wujutong_case",
       "rag_key": "呕吐",
-      "name": "wjt_141 痰饮呕吐"
+      "name": "wjt_141 痰饮呕吐",
+      "herbs": [
+        "人参",
+        "生姜",
+        "茯苓",
+        "干姜",
+        "半夏"
+      ]
     },
     {
       "case_id": "wjt_142",
@@ -1969,7 +2725,13 @@
       "entry_id": "wjt_142",
       "entry_type": "wujutong_case",
       "rag_key": "呕吐",
-      "name": "wjt_142 肝厥大呕"
+      "name": "wjt_142 肝厥大呕",
+      "herbs": [
+        "黄芩",
+        "乌梅",
+        "川椒",
+        "半夏"
+      ]
     },
     {
       "case_id": "wjt_143",
@@ -1986,7 +2748,16 @@
       "entry_id": "wjt_143",
       "entry_type": "wujutong_case",
       "rag_key": "肝风",
-      "name": "wjt_143 少阳风动"
+      "name": "wjt_143 少阳风动",
+      "herbs": [
+        "羚羊角",
+        "桑叶",
+        "菊花",
+        "甘草",
+        "薄荷",
+        "连翘",
+        "桔梗"
+      ]
     },
     {
       "case_id": "wjt_144",
@@ -2003,7 +2774,20 @@
       "entry_id": "wjt_144",
       "entry_type": "wujutong_case",
       "rag_key": "肝风",
-      "name": "wjt_144 肝风窍闭"
+      "name": "wjt_144 肝风窍闭",
+      "herbs": [
+        "羚羊角",
+        "桑叶",
+        "菊花",
+        "甘草",
+        "莲子",
+        "白芍",
+        "生地",
+        "麦冬",
+        "桔梗",
+        "鳖甲",
+        "阿胶"
+      ]
     },
     {
       "case_id": "wjt_145",
@@ -2020,7 +2804,20 @@
       "entry_id": "wjt_145",
       "entry_type": "wujutong_case",
       "rag_key": "瘛瘲",
-      "name": "wjt_145 瘛瘲"
+      "name": "wjt_145 瘛瘲",
+      "herbs": [
+        "羚羊角",
+        "钩藤",
+        "桑叶",
+        "菊花",
+        "甘草",
+        "丹皮",
+        "生地",
+        "桔梗"
+      ],
+      "formulas_referenced": [
+        "紫雪丹"
+      ]
     },
     {
       "case_id": "wjt_146",
@@ -2037,7 +2834,19 @@
       "entry_id": "wjt_146",
       "entry_type": "wujutong_case",
       "rag_key": "吐血",
-      "name": "wjt_146 吐血肝络"
+      "name": "wjt_146 吐血肝络",
+      "herbs": [
+        "旋覆花",
+        "桑叶",
+        "丹皮",
+        "苏子",
+        "桃仁",
+        "白芍",
+        "香附",
+        "生地",
+        "麦冬",
+        "郁金"
+      ]
     },
     {
       "case_id": "wjt_147",
@@ -2054,7 +2863,11 @@
       "entry_id": "wjt_147",
       "entry_type": "wujutong_case",
       "rag_key": "吐血",
-      "name": "wjt_147 倒经吐血"
+      "name": "wjt_147 倒经吐血",
+      "herbs": [
+        "小茴香",
+        "桃仁"
+      ]
     }
   ]
 }

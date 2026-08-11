@@ -65,7 +65,10 @@
       "entry_id": "hx_004",
       "entry_type": "huixi_case",
       "rag_key": "伤寒",
-      "name": "hx_004 伤寒失下"
+      "name": "hx_004 伤寒失下",
+      "formulas_referenced": [
+        "大承气汤"
+      ]
     },
     {
       "case_id": "hx_005",
@@ -116,7 +119,12 @@
       "entry_id": "hx_007",
       "entry_type": "huixi_case",
       "rag_key": "温疫",
-      "name": "hx_007 温疫化燥"
+      "name": "hx_007 温疫化燥",
+      "herbs": [
+        "茅根",
+        "薄荷",
+        "菖蒲"
+      ]
     },
     {
       "case_id": "hx_008",
@@ -184,7 +192,10 @@
       "entry_id": "hx_012",
       "entry_type": "huixi_case",
       "rag_key": "翻胃",
-      "name": "hx_012 翻胃痰火"
+      "name": "hx_012 翻胃痰火",
+      "herbs": [
+        "半夏"
+      ]
     },
     {
       "case_id": "hx_013",
@@ -269,7 +280,11 @@
       "entry_id": "hx_017",
       "entry_type": "huixi_case",
       "rag_key": "亢阳",
-      "name": "hx_017 亢阳泻肾"
+      "name": "hx_017 亢阳泻肾",
+      "herbs": [
+        "知母",
+        "黄柏"
+      ]
     },
     {
       "case_id": "hx_018",
@@ -320,7 +335,13 @@
       "entry_id": "hx_020",
       "entry_type": "huixi_case",
       "rag_key": "产后",
-      "name": "hx_020 产后血臌"
+      "name": "hx_020 产后血臌",
+      "herbs": [
+        "五灵脂",
+        "黄连",
+        "人参",
+        "肉桂"
+      ]
     },
     {
       "case_id": "hx_021",
@@ -337,7 +358,10 @@
       "entry_id": "hx_021",
       "entry_type": "huixi_case",
       "rag_key": "产后",
-      "name": "hx_021 产后风热"
+      "name": "hx_021 产后风热",
+      "herbs": [
+        "石膏"
+      ]
     },
     {
       "case_id": "hx_022",

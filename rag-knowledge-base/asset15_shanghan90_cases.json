@@ -27,7 +27,13 @@
       "entry_id": "sh90_001",
       "entry_type": "shanghan90_case",
       "rag_key": "伤寒",
-      "name": "sh90_001 伤寒"
+      "name": "sh90_001 伤寒",
+      "herbs": [
+        "桂枝"
+      ],
+      "formulas_referenced": [
+        "桂枝汤"
+      ]
     },
     {
       "case_id": "sh90_002",
@@ -44,7 +50,12 @@
       "entry_id": "sh90_002",
       "entry_type": "shanghan90_case",
       "rag_key": "伤寒",
-      "name": "sh90_002 伤寒"
+      "name": "sh90_002 伤寒",
+      "herbs": [
+        "甘草",
+        "附子",
+        "桂枝"
+      ]
     },
     {
       "case_id": "sh90_003",
@@ -61,7 +72,11 @@
       "entry_id": "sh90_003",
       "entry_type": "shanghan90_case",
       "rag_key": "伤寒",
-      "name": "sh90_003 伤寒"
+      "name": "sh90_003 伤寒",
+      "herbs": [
+        "桂枝",
+        "厚朴"
+      ]
     },
     {
       "case_id": "sh90_004",
@@ -78,7 +93,15 @@
       "entry_id": "sh90_004",
       "entry_type": "shanghan90_case",
       "rag_key": "伤寒",
-      "name": "sh90_004 伤寒"
+      "name": "sh90_004 伤寒",
+      "herbs": [
+        "黄芪",
+        "当归",
+        "麻黄"
+      ],
+      "formulas_referenced": [
+        "麻黄汤"
+      ]
     },
     {
       "case_id": "sh90_005",
@@ -112,7 +135,10 @@
       "entry_id": "sh90_006",
       "entry_type": "shanghan90_case",
       "rag_key": "伤寒",
-      "name": "sh90_006 伤寒"
+      "name": "sh90_006 伤寒",
+      "formulas_referenced": [
+        "大承气汤"
+      ]
     },
     {
       "case_id": "sh90_007",
@@ -180,7 +206,13 @@
       "entry_id": "sh90_011",
       "entry_type": "shanghan90_case",
       "rag_key": "伤寒",
-      "name": "sh90_011 伤寒"
+      "name": "sh90_011 伤寒",
+      "herbs": [
+        "柴胡"
+      ],
+      "formulas_referenced": [
+        "大柴胡汤"
+      ]
     },
     {
       "case_id": "sh90_012",
@@ -197,7 +229,14 @@
       "entry_id": "sh90_012",
       "entry_type": "shanghan90_case",
       "rag_key": "伤寒",
-      "name": "sh90_012 伤寒"
+      "name": "sh90_012 伤寒",
+      "herbs": [
+        "生地黄",
+        "柴胡"
+      ],
+      "formulas_referenced": [
+        "小柴胡汤"
+      ]
     },
     {
       "case_id": "sh90_013",
@@ -282,7 +321,13 @@
       "entry_id": "sh90_017",
       "entry_type": "shanghan90_case",
       "rag_key": "伤寒",
-      "name": "sh90_017 伤寒"
+      "name": "sh90_017 伤寒",
+      "herbs": [
+        "柴胡"
+      ],
+      "formulas_referenced": [
+        "大柴胡汤"
+      ]
     },
     {
       "case_id": "sh90_018",
@@ -316,7 +361,10 @@
       "entry_id": "sh90_019",
       "entry_type": "shanghan90_case",
       "rag_key": "伤寒",
-      "name": "sh90_019 伤寒"
+      "name": "sh90_019 伤寒",
+      "herbs": [
+        "柴胡"
+      ]
     },
     {
       "case_id": "sh90_020",
@@ -333,7 +381,14 @@
       "entry_id": "sh90_020",
       "entry_type": "shanghan90_case",
       "rag_key": "伤寒",
-      "name": "sh90_020 伤寒"
+      "name": "sh90_020 伤寒",
+      "herbs": [
+        "葛根",
+        "桂枝"
+      ],
+      "formulas_referenced": [
+        "葛根汤"
+      ]
     },
     {
       "case_id": "sh90_021",
@@ -350,7 +405,13 @@
       "entry_id": "sh90_021",
       "entry_type": "shanghan90_case",
       "rag_key": "伤寒",
-      "name": "sh90_021 伤寒"
+      "name": "sh90_021 伤寒",
+      "herbs": [
+        "葛根"
+      ],
+      "formulas_referenced": [
+        "葛根汤"
+      ]
     },
     {
       "case_id": "sh90_022",
@@ -401,7 +462,13 @@
       "entry_id": "sh90_024",
       "entry_type": "shanghan90_case",
       "rag_key": "伤寒",
-      "name": "sh90_024 伤寒"
+      "name": "sh90_024 伤寒",
+      "herbs": [
+        "桂枝"
+      ],
+      "formulas_referenced": [
+        "桂枝汤"
+      ]
     },
     {
       "case_id": "sh90_025",
@@ -418,7 +485,10 @@
       "entry_id": "sh90_025",
       "entry_type": "shanghan90_case",
       "rag_key": "伤寒",
-      "name": "sh90_025 伤寒"
+      "name": "sh90_025 伤寒",
+      "herbs": [
+        "柴胡"
+      ]
     },
     {
       "case_id": "sh90_026",
@@ -452,7 +522,13 @@
       "entry_id": "sh90_027",
       "entry_type": "shanghan90_case",
       "rag_key": "伤寒",
-      "name": "sh90_027 伤寒"
+      "name": "sh90_027 伤寒",
+      "herbs": [
+        "人参"
+      ],
+      "formulas_referenced": [
+        "白虎加人参汤"
+      ]
     },
     {
       "case_id": "sh90_028",
@@ -486,7 +562,13 @@
       "entry_id": "sh90_029",
       "entry_type": "shanghan90_case",
       "rag_key": "伤寒",
-      "name": "sh90_029 伤寒"
+      "name": "sh90_029 伤寒",
+      "herbs": [
+        "柴胡"
+      ],
+      "formulas_referenced": [
+        "小柴胡汤"
+      ]
     },
     {
       "case_id": "sh90_030",
@@ -503,7 +585,10 @@
       "entry_id": "sh90_030",
       "entry_type": "shanghan90_case",
       "rag_key": "伤寒",
-      "name": "sh90_030 伤寒"
+      "name": "sh90_030 伤寒",
+      "herbs": [
+        "桃仁"
+      ]
     },
     {
       "case_id": "sh90_031",
@@ -605,7 +690,13 @@
       "entry_id": "sh90_036",
       "entry_type": "shanghan90_case",
       "rag_key": "伤寒",
-      "name": "sh90_036 伤寒"
+      "name": "sh90_036 伤寒",
+      "herbs": [
+        "麻黄"
+      ],
+      "formulas_referenced": [
+        "麻黄汤"
+      ]
     },
     {
       "case_id": "sh90_037",
@@ -656,7 +747,10 @@
       "entry_id": "sh90_039",
       "entry_type": "shanghan90_case",
       "rag_key": "伤寒",
-      "name": "sh90_039 伤寒"
+      "name": "sh90_039 伤寒",
+      "herbs": [
+        "柴胡"
+      ]
     },
     {
       "case_id": "sh90_040",
@@ -758,7 +852,10 @@
       "entry_id": "sh90_045",
       "entry_type": "shanghan90_case",
       "rag_key": "伤寒",
-      "name": "sh90_045 伤寒"
+      "name": "sh90_045 伤寒",
+      "formulas_referenced": [
+        "白虎汤"
+      ]
     },
     {
       "case_id": "sh90_046",
@@ -843,7 +940,10 @@
       "entry_id": "sh90_050",
       "entry_type": "shanghan90_case",
       "rag_key": "伤寒",
-      "name": "sh90_050 伤寒"
+      "name": "sh90_050 伤寒",
+      "herbs": [
+        "桃仁"
+      ]
     }
   ],
   "asset_type": "case_library",

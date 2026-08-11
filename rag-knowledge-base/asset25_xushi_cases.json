@@ -31,7 +31,14 @@
       "entry_id": "xs_001",
       "entry_type": "xushi_case",
       "rag_key": "伤寒",
-      "name": "xs_001 伤寒虚热"
+      "name": "xs_001 伤寒虚热",
+      "herbs": [
+        "人参",
+        "石膏"
+      ],
+      "formulas_referenced": [
+        "竹叶石膏汤"
+      ]
     },
     {
       "case_id": "xs_002",
@@ -48,7 +55,10 @@
       "entry_id": "xs_002",
       "entry_type": "xushi_case",
       "rag_key": "产后",
-      "name": "xs_002 产后血晕"
+      "name": "xs_002 产后血晕",
+      "herbs": [
+        "当归"
+      ]
     },
     {
       "case_id": "xs_003",
@@ -65,7 +75,16 @@
       "entry_id": "xs_003",
       "entry_type": "xushi_case",
       "rag_key": "伤寒",
-      "name": "xs_003 伤寒误凉"
+      "name": "xs_003 伤寒误凉",
+      "herbs": [
+        "杜仲",
+        "半夏",
+        "牛膝"
+      ],
+      "formulas_referenced": [
+        "十全大补汤",
+        "生脉散"
+      ]
     },
     {
       "case_id": "xs_004",
@@ -82,7 +101,10 @@
       "entry_id": "xs_004",
       "entry_type": "xushi_case",
       "rag_key": "胎产",
-      "name": "xs_004 小产胎不下"
+      "name": "xs_004 小产胎不下",
+      "formulas_referenced": [
+        "十全大补汤"
+      ]
     },
     {
       "case_id": "xs_005",
@@ -99,7 +121,10 @@
       "entry_id": "xs_005",
       "entry_type": "xushi_case",
       "rag_key": "痢疾",
-      "name": "xs_005 痢疾清热"
+      "name": "xs_005 痢疾清热",
+      "herbs": [
+        "黄芩"
+      ]
     },
     {
       "case_id": "xs_006",
@@ -116,7 +141,10 @@
       "entry_id": "xs_006",
       "entry_type": "xushi_case",
       "rag_key": "中风",
-      "name": "xs_006 卒中痰闭"
+      "name": "xs_006 卒中痰闭",
+      "herbs": [
+        "乌梅"
+      ]
     },
     {
       "case_id": "xs_007",
@@ -150,7 +178,10 @@
       "entry_id": "xs_008",
       "entry_type": "xushi_case",
       "rag_key": "咳嗽",
-      "name": "xs_008 风寒咳嗽"
+      "name": "xs_008 风寒咳嗽",
+      "herbs": [
+        "麻黄"
+      ]
     },
     {
       "case_id": "xs_009",

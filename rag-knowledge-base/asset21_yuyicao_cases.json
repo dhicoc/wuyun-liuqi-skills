@@ -48,7 +48,10 @@
       "entry_id": "yyc_002",
       "entry_type": "yuyicao_case",
       "rag_key": "小儿惊风",
-      "name": "yyc_002 小儿惊风误治"
+      "name": "yyc_002 小儿惊风误治",
+      "formulas_referenced": [
+        "理中汤"
+      ]
     },
     {
       "case_id": "yyc_003",
@@ -65,7 +68,13 @@
       "entry_id": "yyc_003",
       "entry_type": "yuyicao_case",
       "rag_key": "伤寒",
-      "name": "yyc_003 阳证似阴"
+      "name": "yyc_003 阳证似阴",
+      "herbs": [
+        "柴胡"
+      ],
+      "formulas_referenced": [
+        "调胃承气汤"
+      ]
     },
     {
       "case_id": "yyc_004",
@@ -82,7 +91,10 @@
       "entry_id": "yyc_004",
       "entry_type": "yuyicao_case",
       "rag_key": "痢疾",
-      "name": "yyc_004 痢疾误治安胃"
+      "name": "yyc_004 痢疾误治安胃",
+      "formulas_referenced": [
+        "四君子汤"
+      ]
     },
     {
       "case_id": "yyc_005",
@@ -99,7 +111,11 @@
       "entry_id": "yyc_005",
       "entry_type": "yuyicao_case",
       "rag_key": "痢疾",
-      "name": "yyc_005 痢疾夹内伤"
+      "name": "yyc_005 痢疾夹内伤",
+      "herbs": [
+        "人参",
+        "附子"
+      ]
     },
     {
       "case_id": "yyc_006",
@@ -116,7 +132,13 @@
       "entry_id": "yyc_006",
       "entry_type": "yuyicao_case",
       "rag_key": "痢疾",
-      "name": "yyc_006 休息痢逆流挽舟"
+      "name": "yyc_006 休息痢逆流挽舟",
+      "herbs": [
+        "人参"
+      ],
+      "formulas_referenced": [
+        "补中益气汤"
+      ]
     },
     {
       "case_id": "yyc_007",
@@ -150,7 +172,15 @@
       "entry_id": "yyc_008",
       "entry_type": "yuyicao_case",
       "rag_key": "痢疾",
-      "name": "yyc_008 痢疾救胃"
+      "name": "yyc_008 痢疾救胃",
+      "herbs": [
+        "禹余粮",
+        "赤石脂",
+        "茯苓"
+      ],
+      "formulas_referenced": [
+        "四君子汤"
+      ]
     },
     {
       "case_id": "yyc_009",
@@ -167,7 +197,10 @@
       "entry_id": "yyc_009",
       "entry_type": "yuyicao_case",
       "rag_key": "肺痈",
-      "name": "yyc_009 肺痈燥金"
+      "name": "yyc_009 肺痈燥金",
+      "herbs": [
+        "阿胶"
+      ]
     },
     {
       "case_id": "yyc_010",
@@ -218,7 +251,13 @@
       "entry_id": "yyc_012",
       "entry_type": "yuyicao_case",
       "rag_key": "膈气",
-      "name": "yyc_012 膈气危症"
+      "name": "yyc_012 膈气危症",
+      "herbs": [
+        "代赭石"
+      ],
+      "formulas_referenced": [
+        "理中汤"
+      ]
     },
     {
       "case_id": "yyc_013",
@@ -235,7 +274,10 @@
       "entry_id": "yyc_013",
       "entry_type": "yuyicao_case",
       "rag_key": "伤寒",
-      "name": "yyc_013 伤寒津干"
+      "name": "yyc_013 伤寒津干",
+      "formulas_referenced": [
+        "白虎汤"
+      ]
     },
     {
       "case_id": "yyc_014",
@@ -269,7 +311,10 @@
       "entry_id": "yyc_015",
       "entry_type": "yuyicao_case",
       "rag_key": "疟",
-      "name": "yyc_015 截疟成胀"
+      "name": "yyc_015 截疟成胀",
+      "formulas_referenced": [
+        "理中汤"
+      ]
     },
     {
       "case_id": "yyc_016",
@@ -286,7 +331,11 @@
       "entry_id": "yyc_016",
       "entry_type": "yuyicao_case",
       "rag_key": "伤寒",
-      "name": "yyc_016 戴阳证"
+      "name": "yyc_016 戴阳证",
+      "herbs": [
+        "人参",
+        "附子"
+      ]
     },
     {
       "case_id": "yyc_017",
@@ -303,7 +352,10 @@
       "entry_id": "yyc_017",
       "entry_type": "yuyicao_case",
       "rag_key": "肠危证",
-      "name": "yyc_017 肠阴久泻"
+      "name": "yyc_017 肠阴久泻",
+      "herbs": [
+        "阿胶"
+      ]
     }
   ]
 }

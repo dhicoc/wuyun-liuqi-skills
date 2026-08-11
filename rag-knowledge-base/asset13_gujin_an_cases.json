@@ -129,7 +129,10 @@
       "entry_id": "gujin_008",
       "entry_type": "gujin_case",
       "rag_key": "中寒",
-      "name": "gujin_008 中寒"
+      "name": "gujin_008 中寒",
+      "herbs": [
+        "人参"
+      ]
     },
     {
       "case_id": "gujin_009",
@@ -163,7 +166,14 @@
       "entry_id": "gujin_010",
       "entry_type": "gujin_case",
       "rag_key": "中风",
-      "name": "gujin_010 中风"
+      "name": "gujin_010 中风",
+      "herbs": [
+        "秦艽",
+        "升麻",
+        "白芷",
+        "防风",
+        "桂枝"
+      ]
     },
     {
       "case_id": "gujin_011",
@@ -180,7 +190,13 @@
       "entry_id": "gujin_011",
       "entry_type": "gujin_case",
       "rag_key": "中风",
-      "name": "gujin_011 中风"
+      "name": "gujin_011 中风",
+      "herbs": [
+        "威灵仙",
+        "甘草",
+        "羌活",
+        "桂枝"
+      ]
     },
     {
       "case_id": "gujin_012",
@@ -197,7 +213,12 @@
       "entry_id": "gujin_012",
       "entry_type": "gujin_case",
       "rag_key": "中风",
-      "name": "gujin_012 中风"
+      "name": "gujin_012 中风",
+      "herbs": [
+        "神曲",
+        "茯苓",
+        "半夏"
+      ]
     },
     {
       "case_id": "gujin_013",
@@ -214,7 +235,12 @@
       "entry_id": "gujin_013",
       "entry_type": "gujin_case",
       "rag_key": "中风",
-      "name": "gujin_013 中风"
+      "name": "gujin_013 中风",
+      "formulas_referenced": [
+        "六味地黄丸",
+        "归脾汤",
+        "逍遥散"
+      ]
     },
     {
       "case_id": "gujin_016",
@@ -248,7 +274,11 @@
       "entry_id": "gujin_017",
       "entry_type": "gujin_case",
       "rag_key": "疟",
-      "name": "gujin_017 疟"
+      "name": "gujin_017 疟",
+      "herbs": [
+        "神曲",
+        "附子"
+      ]
     },
     {
       "case_id": "gujin_018",
@@ -265,7 +295,14 @@
       "entry_id": "gujin_018",
       "entry_type": "gujin_case",
       "rag_key": "疟",
-      "name": "gujin_018 疟"
+      "name": "gujin_018 疟",
+      "herbs": [
+        "人参",
+        "柴胡"
+      ],
+      "formulas_referenced": [
+        "小柴胡汤"
+      ]
     },
     {
       "case_id": "gujin_019",
@@ -282,7 +319,13 @@
       "entry_id": "gujin_019",
       "entry_type": "gujin_case",
       "rag_key": "疟",
-      "name": "gujin_019 疟"
+      "name": "gujin_019 疟",
+      "herbs": [
+        "炮姜"
+      ],
+      "formulas_referenced": [
+        "归脾汤"
+      ]
     },
     {
       "case_id": "gujin_020",
@@ -299,7 +342,17 @@
       "entry_id": "gujin_020",
       "entry_type": "gujin_case",
       "rag_key": "疟",
-      "name": "gujin_020 疟"
+      "name": "gujin_020 疟",
+      "herbs": [
+        "神曲",
+        "黄柏",
+        "麦冬",
+        "枳实",
+        "川芎"
+      ],
+      "formulas_referenced": [
+        "补中益气汤"
+      ]
     },
     {
       "case_id": "gujin_021",
@@ -316,7 +369,12 @@
       "entry_id": "gujin_021",
       "entry_type": "gujin_case",
       "rag_key": "疟",
-      "name": "gujin_021 疟"
+      "name": "gujin_021 疟",
+      "herbs": [
+        "升麻",
+        "柴胡",
+        "葛根"
+      ]
     },
     {
       "case_id": "gujin_022",
@@ -367,7 +425,13 @@
       "entry_id": "gujin_024",
       "entry_type": "gujin_case",
       "rag_key": "疟",
-      "name": "gujin_024 疟"
+      "name": "gujin_024 疟",
+      "herbs": [
+        "枸杞"
+      ],
+      "formulas_referenced": [
+        "四物汤"
+      ]
     },
     {
       "case_id": "gujin_025",
@@ -401,7 +465,11 @@
       "entry_id": "gujin_026",
       "entry_type": "gujin_case",
       "rag_key": "疟",
-      "name": "gujin_026 疟"
+      "name": "gujin_026 疟",
+      "herbs": [
+        "丹皮",
+        "滑石"
+      ]
     },
     {
       "case_id": "gujin_027",
@@ -435,7 +503,10 @@
       "entry_id": "gujin_028",
       "entry_type": "gujin_case",
       "rag_key": "百合病",
-      "name": "gujin_028 百合病"
+      "name": "gujin_028 百合病",
+      "formulas_referenced": [
+        "生脉散"
+      ]
     },
     {
       "case_id": "gujin_029",
@@ -588,7 +659,14 @@
       "entry_id": "gujin_038",
       "entry_type": "gujin_case",
       "rag_key": "溺血",
-      "name": "gujin_038 溺血"
+      "name": "gujin_038 溺血",
+      "herbs": [
+        "小蓟",
+        "滑石",
+        "生地",
+        "麦冬",
+        "牛膝"
+      ]
     },
     {
       "case_id": "gujin_039",
@@ -605,7 +683,15 @@
       "entry_id": "gujin_039",
       "entry_type": "gujin_case",
       "rag_key": "溺血",
-      "name": "gujin_039 溺血"
+      "name": "gujin_039 溺血",
+      "herbs": [
+        "升麻",
+        "苍术"
+      ],
+      "formulas_referenced": [
+        "补中益气汤",
+        "理中汤"
+      ]
     },
     {
       "case_id": "gujin_040",
@@ -673,7 +759,10 @@
       "entry_id": "gujin_043",
       "entry_type": "gujin_case",
       "rag_key": "虚损",
-      "name": "gujin_043 虚损"
+      "name": "gujin_043 虚损",
+      "herbs": [
+        "人参"
+      ]
     },
     {
       "case_id": "gujin_044",
@@ -707,7 +796,12 @@
       "entry_id": "gujin_045",
       "entry_type": "gujin_case",
       "rag_key": "痢",
-      "name": "gujin_045 痢"
+      "name": "gujin_045 痢",
+      "herbs": [
+        "乌梅",
+        "人参",
+        "木瓜"
+      ]
     },
     {
       "case_id": "gujin_046",
@@ -826,7 +920,11 @@
       "entry_id": "gujin_052",
       "entry_type": "gujin_case",
       "rag_key": "邪祟",
-      "name": "gujin_052 邪祟"
+      "name": "gujin_052 邪祟",
+      "herbs": [
+        "茯苓",
+        "陈皮"
+      ]
     },
     {
       "case_id": "gujin_053",
@@ -928,7 +1026,10 @@
       "entry_id": "gujin_058",
       "entry_type": "gujin_case",
       "rag_key": "消渴",
-      "name": "gujin_058 消渴"
+      "name": "gujin_058 消渴",
+      "formulas_referenced": [
+        "甘露饮"
+      ]
     },
     {
       "case_id": "gujin_059",
@@ -962,7 +1063,10 @@
       "entry_id": "gujin_060",
       "entry_type": "gujin_case",
       "rag_key": "发热",
-      "name": "gujin_060 发热"
+      "name": "gujin_060 发热",
+      "formulas_referenced": [
+        "十全大补汤"
+      ]
     },
     {
       "case_id": "gujin_061",
@@ -1098,7 +1202,17 @@
       "entry_id": "gujin_068",
       "entry_type": "gujin_case",
       "rag_key": "血证",
-      "name": "gujin_068 血证"
+      "name": "gujin_068 血证",
+      "herbs": [
+        "白术",
+        "知母",
+        "黄柏",
+        "麦冬",
+        "陈皮"
+      ],
+      "formulas_referenced": [
+        "四物汤"
+      ]
     },
     {
       "case_id": "gujin_069",
@@ -1166,7 +1280,16 @@
       "entry_id": "gujin_072",
       "entry_type": "gujin_case",
       "rag_key": "衄血",
-      "name": "gujin_072 衄血"
+      "name": "gujin_072 衄血",
+      "herbs": [
+        "麦门冬",
+        "人参",
+        "桂枝",
+        "麻黄"
+      ],
+      "formulas_referenced": [
+        "桂枝汤"
+      ]
     },
     {
       "case_id": "gujin_073",
@@ -1183,7 +1306,10 @@
       "entry_id": "gujin_073",
       "entry_type": "gujin_case",
       "rag_key": "喘",
-      "name": "gujin_073 喘"
+      "name": "gujin_073 喘",
+      "formulas_referenced": [
+        "生脉汤"
+      ]
     },
     {
       "case_id": "gujin_074",
@@ -1200,7 +1326,11 @@
       "entry_id": "gujin_074",
       "entry_type": "gujin_case",
       "rag_key": "喘",
-      "name": "gujin_074 喘"
+      "name": "gujin_074 喘",
+      "herbs": [
+        "人参",
+        "干姜"
+      ]
     },
     {
       "case_id": "gujin_075",
@@ -1217,7 +1347,10 @@
       "entry_id": "gujin_075",
       "entry_type": "gujin_case",
       "rag_key": "喘",
-      "name": "gujin_075 喘"
+      "name": "gujin_075 喘",
+      "herbs": [
+        "半夏"
+      ]
     },
     {
       "case_id": "gujin_076",
@@ -1285,7 +1418,13 @@
       "entry_id": "gujin_079",
       "entry_type": "gujin_case",
       "rag_key": "喘",
-      "name": "gujin_079 喘"
+      "name": "gujin_079 喘",
+      "herbs": [
+        "黄芩",
+        "白术",
+        "麦冬",
+        "陈皮"
+      ]
     },
     {
       "case_id": "gujin_080",
@@ -1302,7 +1441,10 @@
       "entry_id": "gujin_080",
       "entry_type": "gujin_case",
       "rag_key": "五淋",
-      "name": "gujin_080 五淋"
+      "name": "gujin_080 五淋",
+      "herbs": [
+        "茯苓"
+      ]
     },
     {
       "case_id": "gujin_081",
@@ -1353,7 +1495,13 @@
       "entry_id": "gujin_083",
       "entry_type": "gujin_case",
       "rag_key": "下血",
-      "name": "gujin_083 下血"
+      "name": "gujin_083 下血",
+      "herbs": [
+        "升麻",
+        "熟地",
+        "羌活",
+        "黄芪"
+      ]
     },
     {
       "case_id": "gujin_084",
@@ -1370,7 +1518,12 @@
       "entry_id": "gujin_084",
       "entry_type": "gujin_case",
       "rag_key": "下血",
-      "name": "gujin_084 下血"
+      "name": "gujin_084 下血",
+      "herbs": [
+        "升麻",
+        "附子",
+        "苍术"
+      ]
     },
     {
       "case_id": "gujin_085",
@@ -1421,7 +1574,14 @@
       "entry_id": "gujin_087",
       "entry_type": "gujin_case",
       "rag_key": "下血",
-      "name": "gujin_087 下血"
+      "name": "gujin_087 下血",
+      "herbs": [
+        "地榆",
+        "阿胶"
+      ],
+      "formulas_referenced": [
+        "补中益气汤"
+      ]
     },
     {
       "case_id": "gujin_088",
@@ -1438,7 +1598,14 @@
       "entry_id": "gujin_088",
       "entry_type": "gujin_case",
       "rag_key": "溺血",
-      "name": "gujin_088 溺血"
+      "name": "gujin_088 溺血",
+      "herbs": [
+        "小蓟",
+        "滑石",
+        "生地",
+        "麦冬",
+        "牛膝"
+      ]
     },
     {
       "case_id": "gujin_089",
@@ -1455,7 +1622,12 @@
       "entry_id": "gujin_089",
       "entry_type": "gujin_case",
       "rag_key": "喘胀",
-      "name": "gujin_089 喘胀"
+      "name": "gujin_089 喘胀",
+      "herbs": [
+        "青皮",
+        "槟榔",
+        "陈皮"
+      ]
     },
     {
       "case_id": "gujin_090",
@@ -1506,7 +1678,14 @@
       "entry_id": "gujin_092",
       "entry_type": "gujin_case",
       "rag_key": "咳嗽",
-      "name": "gujin_092 咳嗽"
+      "name": "gujin_092 咳嗽",
+      "herbs": [
+        "人参",
+        "半夏"
+      ],
+      "formulas_referenced": [
+        "甘露饮"
+      ]
     },
     {
       "case_id": "gujin_093",
@@ -1540,7 +1719,12 @@
       "entry_id": "gujin_094",
       "entry_type": "gujin_case",
       "rag_key": "咳嗽",
-      "name": "gujin_094 咳嗽"
+      "name": "gujin_094 咳嗽",
+      "herbs": [
+        "甘草",
+        "陈皮",
+        "麻黄"
+      ]
     },
     {
       "case_id": "gujin_095",
@@ -1557,7 +1741,15 @@
       "entry_id": "gujin_095",
       "entry_type": "gujin_case",
       "rag_key": "咳嗽",
-      "name": "gujin_095 咳嗽"
+      "name": "gujin_095 咳嗽",
+      "herbs": [
+        "黄连",
+        "人参",
+        "枳实",
+        "半夏",
+        "陈皮",
+        "栝蒌"
+      ]
     },
     {
       "case_id": "gujin_096",
@@ -1574,7 +1766,14 @@
       "entry_id": "gujin_096",
       "entry_type": "gujin_case",
       "rag_key": "咳嗽",
-      "name": "gujin_096 咳嗽"
+      "name": "gujin_096 咳嗽",
+      "herbs": [
+        "前胡",
+        "甘草",
+        "茯苓",
+        "麦冬",
+        "陈皮"
+      ]
     },
     {
       "case_id": "gujin_097",
@@ -1591,7 +1790,16 @@
       "entry_id": "gujin_097",
       "entry_type": "gujin_case",
       "rag_key": "咳嗽",
-      "name": "gujin_097 咳嗽"
+      "name": "gujin_097 咳嗽",
+      "herbs": [
+        "神曲",
+        "山楂",
+        "甘草",
+        "白术",
+        "麦冬",
+        "干姜",
+        "贝母"
+      ]
     },
     {
       "case_id": "gujin_098",
@@ -1608,7 +1816,14 @@
       "entry_id": "gujin_098",
       "entry_type": "gujin_case",
       "rag_key": "咳嗽",
-      "name": "gujin_098 咳嗽"
+      "name": "gujin_098 咳嗽",
+      "herbs": [
+        "炮姜"
+      ],
+      "formulas_referenced": [
+        "六君子汤",
+        "八味丸"
+      ]
     },
     {
       "case_id": "gujin_099",
@@ -1625,7 +1840,17 @@
       "entry_id": "gujin_099",
       "entry_type": "gujin_case",
       "rag_key": "咳嗽",
-      "name": "gujin_099 咳嗽"
+      "name": "gujin_099 咳嗽",
+      "herbs": [
+        "前胡",
+        "甘草",
+        "苏子",
+        "橘红",
+        "桔梗",
+        "半夏",
+        "杏仁",
+        "麻黄"
+      ]
     },
     {
       "case_id": "gujin_100",
@@ -1642,7 +1867,12 @@
       "entry_id": "gujin_100",
       "entry_type": "gujin_case",
       "rag_key": "咳嗽",
-      "name": "gujin_100 咳嗽"
+      "name": "gujin_100 咳嗽",
+      "herbs": [
+        "乌梅",
+        "槟榔",
+        "百部"
+      ]
     },
     {
       "case_id": "gujin_101",
@@ -1659,7 +1889,19 @@
       "entry_id": "gujin_101",
       "entry_type": "gujin_case",
       "rag_key": "咳嗽",
-      "name": "gujin_101 咳嗽"
+      "name": "gujin_101 咳嗽",
+      "herbs": [
+        "丹参",
+        "甘草",
+        "小蓟",
+        "丹皮",
+        "滑石",
+        "香附",
+        "桔梗",
+        "杏仁",
+        "贝母",
+        "郁金"
+      ]
     },
     {
       "case_id": "gujin_102",
@@ -1676,7 +1918,17 @@
       "entry_id": "gujin_102",
       "entry_type": "gujin_case",
       "rag_key": "咳嗽",
-      "name": "gujin_102 咳嗽"
+      "name": "gujin_102 咳嗽",
+      "herbs": [
+        "甘草",
+        "白芍",
+        "附子",
+        "细辛",
+        "麻黄"
+      ],
+      "formulas_referenced": [
+        "真武汤"
+      ]
     },
     {
       "case_id": "gujin_103",
@@ -1693,7 +1945,16 @@
       "entry_id": "gujin_103",
       "entry_type": "gujin_case",
       "rag_key": "咳嗽",
-      "name": "gujin_103 咳嗽"
+      "name": "gujin_103 咳嗽",
+      "herbs": [
+        "甘草",
+        "桔梗",
+        "黄芪",
+        "当归",
+        "杏仁",
+        "诃子",
+        "川芎"
+      ]
     },
     {
       "case_id": "gujin_104",
@@ -1778,7 +2039,14 @@
       "entry_id": "gujin_108",
       "entry_type": "gujin_case",
       "rag_key": "肿胀",
-      "name": "gujin_108 肿胀"
+      "name": "gujin_108 肿胀",
+      "herbs": [
+        "黄连",
+        "甘草",
+        "茯苓",
+        "陈皮",
+        "川芎"
+      ]
     },
     {
       "case_id": "gujin_109",
@@ -1795,7 +2063,13 @@
       "entry_id": "gujin_109",
       "entry_type": "gujin_case",
       "rag_key": "肿胀",
-      "name": "gujin_109 肿胀"
+      "name": "gujin_109 肿胀",
+      "herbs": [
+        "甘草",
+        "白术",
+        "黄芪",
+        "陈皮"
+      ]
     },
     {
       "case_id": "gujin_110",
@@ -1812,7 +2086,16 @@
       "entry_id": "gujin_110",
       "entry_type": "gujin_case",
       "rag_key": "肿胀",
-      "name": "gujin_110 肿胀"
+      "name": "gujin_110 肿胀",
+      "herbs": [
+        "甘草",
+        "白术",
+        "木通",
+        "陈皮"
+      ],
+      "formulas_referenced": [
+        "四物汤"
+      ]
     },
     {
       "case_id": "gujin_111",
@@ -1829,7 +2112,10 @@
       "entry_id": "gujin_111",
       "entry_type": "gujin_case",
       "rag_key": "肿胀",
-      "name": "gujin_111 肿胀"
+      "name": "gujin_111 肿胀",
+      "herbs": [
+        "禹余粮"
+      ]
     },
     {
       "case_id": "gujin_112",
@@ -1846,7 +2132,10 @@
       "entry_id": "gujin_112",
       "entry_type": "gujin_case",
       "rag_key": "肿胀",
-      "name": "gujin_112 肿胀"
+      "name": "gujin_112 肿胀",
+      "formulas_referenced": [
+        "苏合香丸"
+      ]
     },
     {
       "case_id": "gujin_113",
@@ -1880,7 +2169,11 @@
       "entry_id": "gujin_114",
       "entry_type": "gujin_case",
       "rag_key": "肿胀",
-      "name": "gujin_114 肿胀"
+      "name": "gujin_114 肿胀",
+      "formulas_referenced": [
+        "补中益气汤",
+        "肾气丸"
+      ]
     },
     {
       "case_id": "gujin_115",
@@ -1897,7 +2190,10 @@
       "entry_id": "gujin_115",
       "entry_type": "gujin_case",
       "rag_key": "肿胀",
-      "name": "gujin_115 肿胀"
+      "name": "gujin_115 肿胀",
+      "formulas_referenced": [
+        "香连丸"
+      ]
     },
     {
       "case_id": "gujin_116",
@@ -1914,7 +2210,15 @@
       "entry_id": "gujin_116",
       "entry_type": "gujin_case",
       "rag_key": "肿胀",
-      "name": "gujin_116 肿胀"
+      "name": "gujin_116 肿胀",
+      "herbs": [
+        "黄柏",
+        "木通",
+        "陈皮"
+      ],
+      "formulas_referenced": [
+        "四物汤"
+      ]
     },
     {
       "case_id": "gujin_117",
@@ -1931,7 +2235,12 @@
       "entry_id": "gujin_117",
       "entry_type": "gujin_case",
       "rag_key": "肿胀",
-      "name": "gujin_117 肿胀"
+      "name": "gujin_117 肿胀",
+      "herbs": [
+        "吴茱萸",
+        "人参",
+        "附子"
+      ]
     },
     {
       "case_id": "gujin_118",
@@ -1948,7 +2257,14 @@
       "entry_id": "gujin_118",
       "entry_type": "gujin_case",
       "rag_key": "肿胀",
-      "name": "gujin_118 肿胀"
+      "name": "gujin_118 肿胀",
+      "herbs": [
+        "黄连",
+        "人参"
+      ],
+      "formulas_referenced": [
+        "理中汤"
+      ]
     },
     {
       "case_id": "gujin_119",
@@ -1965,7 +2281,18 @@
       "entry_id": "gujin_119",
       "entry_type": "gujin_case",
       "rag_key": "肿胀",
-      "name": "gujin_119 肿胀"
+      "name": "gujin_119 肿胀",
+      "herbs": [
+        "甘草",
+        "白术",
+        "防风",
+        "木通",
+        "川芎",
+        "麻黄"
+      ],
+      "formulas_referenced": [
+        "保和丸"
+      ]
     },
     {
       "case_id": "gujin_120",
@@ -1982,7 +2309,20 @@
       "entry_id": "gujin_120",
       "entry_type": "gujin_case",
       "rag_key": "肿胀",
-      "name": "gujin_120 肿胀"
+      "name": "gujin_120 肿胀",
+      "herbs": [
+        "桑白皮",
+        "白术",
+        "桔梗",
+        "木通",
+        "草果",
+        "半夏",
+        "陈皮",
+        "泽泻"
+      ],
+      "formulas_referenced": [
+        "参苓白术散"
+      ]
     },
     {
       "case_id": "gujin_121",
@@ -1999,7 +2339,16 @@
       "entry_id": "gujin_121",
       "entry_type": "gujin_case",
       "rag_key": "肿胀",
-      "name": "gujin_121 肿胀"
+      "name": "gujin_121 肿胀",
+      "herbs": [
+        "人参",
+        "茯苓",
+        "牛膝"
+      ],
+      "formulas_referenced": [
+        "肾气丸",
+        "理中汤"
+      ]
     },
     {
       "case_id": "gujin_122",
@@ -2033,7 +2382,13 @@
       "entry_id": "gujin_123",
       "entry_type": "gujin_case",
       "rag_key": "肿胀",
-      "name": "gujin_123 肿胀"
+      "name": "gujin_123 肿胀",
+      "herbs": [
+        "甘草",
+        "银花",
+        "白芷",
+        "黄芪"
+      ]
     },
     {
       "case_id": "gujin_124",
@@ -2050,7 +2405,23 @@
       "entry_id": "gujin_124",
       "entry_type": "gujin_case",
       "rag_key": "肿胀",
-      "name": "gujin_124 肿胀"
+      "name": "gujin_124 肿胀",
+      "herbs": [
+        "甘草",
+        "升麻",
+        "炮姜",
+        "白术",
+        "人参",
+        "茯苓",
+        "防风",
+        "桔梗",
+        "木香",
+        "陈皮"
+      ],
+      "formulas_referenced": [
+        "六君子汤",
+        "至宝丹"
+      ]
     },
     {
       "case_id": "gujin_125",
@@ -2067,7 +2438,29 @@
       "entry_id": "gujin_125",
       "entry_type": "gujin_case",
       "rag_key": "肿胀",
-      "name": "gujin_125 肿胀"
+      "name": "gujin_125 肿胀",
+      "herbs": [
+        "补骨脂",
+        "白豆蔻",
+        "桂心",
+        "人参",
+        "生姜",
+        "砂仁",
+        "附子",
+        "防风",
+        "丁香",
+        "羌活",
+        "黄芪",
+        "苍术",
+        "陈皮",
+        "细辛"
+      ],
+      "formulas_referenced": [
+        "附子理中汤",
+        "温胆汤",
+        "理中汤",
+        "平胃散"
+      ]
     },
     {
       "case_id": "gujin_126",
@@ -2084,7 +2477,12 @@
       "entry_id": "gujin_126",
       "entry_type": "gujin_case",
       "rag_key": "肿胀",
-      "name": "gujin_126 肿胀"
+      "name": "gujin_126 肿胀",
+      "herbs": [
+        "吴茱萸",
+        "升麻",
+        "炮姜"
+      ]
     },
     {
       "case_id": "gujin_127",
@@ -2101,7 +2499,11 @@
       "entry_id": "gujin_127",
       "entry_type": "gujin_case",
       "rag_key": "肿胀",
-      "name": "gujin_127 肿胀"
+      "name": "gujin_127 肿胀",
+      "herbs": [
+        "升麻",
+        "黄柏"
+      ]
     },
     {
       "case_id": "gujin_128",
@@ -2135,7 +2537,10 @@
       "entry_id": "gujin_129",
       "entry_type": "gujin_case",
       "rag_key": "肿胀",
-      "name": "gujin_129 肿胀"
+      "name": "gujin_129 肿胀",
+      "herbs": [
+        "麻黄"
+      ]
     },
     {
       "case_id": "gujin_130",
@@ -2152,7 +2557,15 @@
       "entry_id": "gujin_130",
       "entry_type": "gujin_case",
       "rag_key": "伤寒",
-      "name": "gujin_130 伤寒"
+      "name": "gujin_130 伤寒",
+      "herbs": [
+        "黄芪",
+        "当归",
+        "麻黄"
+      ],
+      "formulas_referenced": [
+        "麻黄汤"
+      ]
     },
     {
       "case_id": "gujin_131",
@@ -2169,7 +2582,10 @@
       "entry_id": "gujin_131",
       "entry_type": "gujin_case",
       "rag_key": "伤寒",
-      "name": "gujin_131 伤寒"
+      "name": "gujin_131 伤寒",
+      "formulas_referenced": [
+        "小承气汤"
+      ]
     },
     {
       "case_id": "gujin_132",
@@ -2186,7 +2602,13 @@
       "entry_id": "gujin_132",
       "entry_type": "gujin_case",
       "rag_key": "伤寒",
-      "name": "gujin_132 伤寒"
+      "name": "gujin_132 伤寒",
+      "herbs": [
+        "人参"
+      ],
+      "formulas_referenced": [
+        "白虎加人参汤"
+      ]
     },
     {
       "case_id": "gujin_133",
@@ -2203,7 +2625,13 @@
       "entry_id": "gujin_133",
       "entry_type": "gujin_case",
       "rag_key": "伤寒",
-      "name": "gujin_133 伤寒"
+      "name": "gujin_133 伤寒",
+      "herbs": [
+        "柴胡"
+      ],
+      "formulas_referenced": [
+        "大柴胡汤"
+      ]
     },
     {
       "case_id": "gujin_134",
@@ -2237,7 +2665,13 @@
       "entry_id": "gujin_135",
       "entry_type": "gujin_case",
       "rag_key": "伤寒",
-      "name": "gujin_135 伤寒"
+      "name": "gujin_135 伤寒",
+      "herbs": [
+        "干姜",
+        "桂枝",
+        "细辛",
+        "川芎"
+      ]
     },
     {
       "case_id": "gujin_136",
@@ -2288,7 +2722,13 @@
       "entry_id": "gujin_138",
       "entry_type": "gujin_case",
       "rag_key": "伤寒",
-      "name": "gujin_138 伤寒"
+      "name": "gujin_138 伤寒",
+      "herbs": [
+        "黄连"
+      ],
+      "formulas_referenced": [
+        "大承气汤"
+      ]
     },
     {
       "case_id": "gujin_139",
@@ -2305,7 +2745,13 @@
       "entry_id": "gujin_139",
       "entry_type": "gujin_case",
       "rag_key": "伤寒",
-      "name": "gujin_139 伤寒"
+      "name": "gujin_139 伤寒",
+      "herbs": [
+        "人参"
+      ],
+      "formulas_referenced": [
+        "白虎加人参汤"
+      ]
     },
     {
       "case_id": "gujin_140",
@@ -2322,7 +2768,13 @@
       "entry_id": "gujin_140",
       "entry_type": "gujin_case",
       "rag_key": "伤寒",
-      "name": "gujin_140 伤寒"
+      "name": "gujin_140 伤寒",
+      "herbs": [
+        "柴胡"
+      ],
+      "formulas_referenced": [
+        "小柴胡汤"
+      ]
     },
     {
       "case_id": "gujin_141",
@@ -2339,7 +2791,13 @@
       "entry_id": "gujin_141",
       "entry_type": "gujin_case",
       "rag_key": "伤寒",
-      "name": "gujin_141 伤寒"
+      "name": "gujin_141 伤寒",
+      "herbs": [
+        "附子"
+      ],
+      "formulas_referenced": [
+        "理中汤"
+      ]
     },
     {
       "case_id": "gujin_142",
@@ -2356,7 +2814,12 @@
       "entry_id": "gujin_142",
       "entry_type": "gujin_case",
       "rag_key": "伤寒",
-      "name": "gujin_142 伤寒"
+      "name": "gujin_142 伤寒",
+      "herbs": [
+        "甘草",
+        "附子",
+        "陈皮"
+      ]
     },
     {
       "case_id": "gujin_143",
@@ -2373,7 +2836,13 @@
       "entry_id": "gujin_143",
       "entry_type": "gujin_case",
       "rag_key": "伤寒",
-      "name": "gujin_143 伤寒"
+      "name": "gujin_143 伤寒",
+      "herbs": [
+        "麻黄"
+      ],
+      "formulas_referenced": [
+        "麻黄汤"
+      ]
     },
     {
       "case_id": "gujin_144",
@@ -2390,7 +2859,10 @@
       "entry_id": "gujin_144",
       "entry_type": "gujin_case",
       "rag_key": "伤寒",
-      "name": "gujin_144 伤寒"
+      "name": "gujin_144 伤寒",
+      "formulas_referenced": [
+        "大承气汤"
+      ]
     },
     {
       "case_id": "gujin_145",
@@ -2407,7 +2879,13 @@
       "entry_id": "gujin_145",
       "entry_type": "gujin_case",
       "rag_key": "伤寒",
-      "name": "gujin_145 伤寒"
+      "name": "gujin_145 伤寒",
+      "herbs": [
+        "甘草",
+        "人参",
+        "附子",
+        "干姜"
+      ]
     },
     {
       "case_id": "gujin_146",
@@ -2424,7 +2902,10 @@
       "entry_id": "gujin_146",
       "entry_type": "gujin_case",
       "rag_key": "温热病",
-      "name": "gujin_146 温热病"
+      "name": "gujin_146 温热病",
+      "herbs": [
+        "麦门冬"
+      ]
     },
     {
       "case_id": "gujin_147",
@@ -2458,7 +2939,12 @@
       "entry_id": "gujin_148",
       "entry_type": "gujin_case",
       "rag_key": "温热病",
-      "name": "gujin_148 温热病"
+      "name": "gujin_148 温热病",
+      "herbs": [
+        "黄连",
+        "桔梗",
+        "阿胶"
+      ]
     },
     {
       "case_id": "gujin_149",
@@ -2475,7 +2961,11 @@
       "entry_id": "gujin_149",
       "entry_type": "gujin_case",
       "rag_key": "温热病",
-      "name": "gujin_149 温热病"
+      "name": "gujin_149 温热病",
+      "herbs": [
+        "生地黄",
+        "黄连"
+      ]
     },
     {
       "case_id": "gujin_150",
@@ -2492,7 +2982,11 @@
       "entry_id": "gujin_150",
       "entry_type": "gujin_case",
       "rag_key": "温热病",
-      "name": "gujin_150 温热病"
+      "name": "gujin_150 温热病",
+      "herbs": [
+        "升麻",
+        "麻黄"
+      ]
     },
     {
       "case_id": "gujin_151",
@@ -2509,7 +3003,14 @@
       "entry_id": "gujin_151",
       "entry_type": "gujin_case",
       "rag_key": "温热病",
-      "name": "gujin_151 温热病"
+      "name": "gujin_151 温热病",
+      "herbs": [
+        "人参",
+        "苍术"
+      ],
+      "formulas_referenced": [
+        "白虎加人参汤"
+      ]
     },
     {
       "case_id": "gujin_152",
@@ -2526,7 +3027,17 @@
       "entry_id": "gujin_152",
       "entry_type": "gujin_case",
       "rag_key": "温热病",
-      "name": "gujin_152 温热病"
+      "name": "gujin_152 温热病",
+      "herbs": [
+        "麦门冬",
+        "五味子",
+        "甘草",
+        "炮姜",
+        "人参",
+        "熟地",
+        "麦冬",
+        "黄芪"
+      ]
     },
     {
       "case_id": "gujin_153",
@@ -2543,7 +3054,11 @@
       "entry_id": "gujin_153",
       "entry_type": "gujin_case",
       "rag_key": "温热病",
-      "name": "gujin_153 温热病"
+      "name": "gujin_153 温热病",
+      "herbs": [
+        "人参",
+        "附子"
+      ]
     },
     {
       "case_id": "gujin_154",
@@ -2560,7 +3075,12 @@
       "entry_id": "gujin_154",
       "entry_type": "gujin_case",
       "rag_key": "温热病",
-      "name": "gujin_154 温热病"
+      "name": "gujin_154 温热病",
+      "herbs": [
+        "附子",
+        "细辛",
+        "麻黄"
+      ]
     },
     {
       "case_id": "gujin_155",
@@ -2577,7 +3097,18 @@
       "entry_id": "gujin_155",
       "entry_type": "gujin_case",
       "rag_key": "温热病",
-      "name": "gujin_155 温热病"
+      "name": "gujin_155 温热病",
+      "herbs": [
+        "甘草",
+        "丹皮",
+        "白术",
+        "山药",
+        "熟地",
+        "枸杞",
+        "生地",
+        "麦冬",
+        "干姜"
+      ]
     },
     {
       "case_id": "gujin_156",
@@ -2594,7 +3125,17 @@
       "entry_id": "gujin_156",
       "entry_type": "gujin_case",
       "rag_key": "瘟疫",
-      "name": "gujin_156 瘟疫"
+      "name": "gujin_156 瘟疫",
+      "herbs": [
+        "黄芩",
+        "石膏",
+        "生地",
+        "苍术",
+        "泽泻"
+      ],
+      "formulas_referenced": [
+        "清暑益气汤"
+      ]
     },
     {
       "case_id": "gujin_157",
@@ -2611,7 +3152,10 @@
       "entry_id": "gujin_157",
       "entry_type": "gujin_case",
       "rag_key": "瘟疫",
-      "name": "gujin_157 瘟疫"
+      "name": "gujin_157 瘟疫",
+      "herbs": [
+        "连翘"
+      ]
     },
     {
       "case_id": "gujin_158",
@@ -2628,7 +3172,10 @@
       "entry_id": "gujin_158",
       "entry_type": "gujin_case",
       "rag_key": "瘟疫",
-      "name": "gujin_158 瘟疫"
+      "name": "gujin_158 瘟疫",
+      "formulas_referenced": [
+        "四物汤"
+      ]
     },
     {
       "case_id": "gujin_159",
@@ -2645,7 +3192,10 @@
       "entry_id": "gujin_159",
       "entry_type": "gujin_case",
       "rag_key": "瘟疫",
-      "name": "gujin_159 瘟疫"
+      "name": "gujin_159 瘟疫",
+      "herbs": [
+        "柴胡"
+      ]
     },
     {
       "case_id": "gujin_160",
@@ -2662,7 +3212,27 @@
       "entry_id": "gujin_160",
       "entry_type": "gujin_case",
       "rag_key": "瘟疫",
-      "name": "gujin_160 瘟疫"
+      "name": "gujin_160 瘟疫",
+      "herbs": [
+        "黄芩",
+        "黄连",
+        "甘草",
+        "升麻",
+        "滑石",
+        "人参",
+        "竹茹",
+        "白芍",
+        "石膏",
+        "柴胡",
+        "枳实",
+        "苍术",
+        "元参",
+        "葛根"
+      ],
+      "formulas_referenced": [
+        "竹叶石膏汤",
+        "白虎汤"
+      ]
     },
     {
       "case_id": "gujin_161",
@@ -2679,7 +3249,14 @@
       "entry_id": "gujin_161",
       "entry_type": "gujin_case",
       "rag_key": "瘟疫",
-      "name": "gujin_161 瘟疫"
+      "name": "gujin_161 瘟疫",
+      "herbs": [
+        "甘草",
+        "桂枝"
+      ],
+      "formulas_referenced": [
+        "生脉散"
+      ]
     },
     {
       "case_id": "gujin_162",
@@ -2696,7 +3273,13 @@
       "entry_id": "gujin_162",
       "entry_type": "gujin_case",
       "rag_key": "瘟疫",
-      "name": "gujin_162 瘟疫"
+      "name": "gujin_162 瘟疫",
+      "herbs": [
+        "黄芩",
+        "黄连",
+        "连翘",
+        "葛根"
+      ]
     },
     {
       "case_id": "gujin_163",

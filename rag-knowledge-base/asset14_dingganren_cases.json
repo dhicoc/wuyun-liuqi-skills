@@ -231,7 +231,15 @@
       "entry_id": "dingganren_013",
       "entry_type": "dingganren_case",
       "rag_key": "中风",
-      "name": "dingganren_013 中风"
+      "name": "dingganren_013 中风",
+      "herbs": [
+        "天麻",
+        "竹茹",
+        "麦冬",
+        "枳实",
+        "半夏",
+        "玄参"
+      ]
     },
     {
       "case_id": "dingganren_014",
@@ -282,7 +290,17 @@
       "entry_id": "dingganren_016",
       "entry_type": "dingganren_case",
       "rag_key": "白喉",
-      "name": "dingganren_016 白喉"
+      "name": "dingganren_016 白喉",
+      "herbs": [
+        "金银花",
+        "荆芥穗",
+        "甘草",
+        "赤芍",
+        "连翘",
+        "马勃",
+        "豆豉",
+        "桔梗"
+      ]
     },
     {
       "case_id": "dingganren_017",
@@ -384,7 +402,14 @@
       "entry_id": "dingganren_023",
       "entry_type": "dingganren_case",
       "rag_key": "痢疾",
-      "name": "dingganren_023 痢疾"
+      "name": "dingganren_023 痢疾",
+      "herbs": [
+        "黄芩",
+        "黄连",
+        "枳实",
+        "半夏",
+        "藿香"
+      ]
     },
     {
       "case_id": "dingganren_024",
@@ -469,7 +494,16 @@
       "entry_id": "dingganren_031",
       "entry_type": "dingganren_case",
       "rag_key": "咳嗽",
-      "name": "dingganren_031 咳嗽"
+      "name": "dingganren_031 咳嗽",
+      "herbs": [
+        "甘草",
+        "苏子",
+        "石膏",
+        "半夏",
+        "杏仁",
+        "远志",
+        "麻黄"
+      ]
     },
     {
       "case_id": "dingganren_032",
@@ -996,7 +1030,10 @@
       "entry_id": "dingganren_062",
       "entry_type": "dingganren_case",
       "rag_key": "外科",
-      "name": "dingganren_062 外科"
+      "name": "dingganren_062 外科",
+      "herbs": [
+        "板蓝根"
+      ]
     },
     {
       "case_id": "dingganren_063",
@@ -1047,7 +1084,10 @@
       "entry_id": "dingganren_065",
       "entry_type": "dingganren_case",
       "rag_key": "外科",
-      "name": "dingganren_065 外科"
+      "name": "dingganren_065 外科",
+      "herbs": [
+        "板蓝根"
+      ]
     },
     {
       "case_id": "dingganren_066",
@@ -1064,7 +1104,16 @@
       "entry_id": "dingganren_066",
       "entry_type": "dingganren_case",
       "rag_key": "暑温",
-      "name": "dingganren_066 暑温"
+      "name": "dingganren_066 暑温",
+      "herbs": [
+        "天花粉",
+        "连翘",
+        "郁金"
+      ],
+      "formulas_referenced": [
+        "牛黄清心丸",
+        "益元散"
+      ]
     },
     {
       "case_id": "dingganren_067",
@@ -1081,7 +1130,20 @@
       "entry_id": "dingganren_067",
       "entry_type": "dingganren_case",
       "rag_key": "暑温",
-      "name": "dingganren_067 暑温"
+      "name": "dingganren_067 暑温",
+      "herbs": [
+        "石菖蒲",
+        "银花",
+        "薄荷",
+        "连翘",
+        "竹茹",
+        "枳实",
+        "贝母",
+        "郁金"
+      ],
+      "formulas_referenced": [
+        "苏合香丸"
+      ]
     },
     {
       "case_id": "dingganren_068",
@@ -1098,7 +1160,18 @@
       "entry_id": "dingganren_068",
       "entry_type": "dingganren_case",
       "rag_key": "暑温",
-      "name": "dingganren_068 暑温"
+      "name": "dingganren_068 暑温",
+      "herbs": [
+        "前胡",
+        "薄荷",
+        "竹茹",
+        "佩兰",
+        "豆豉",
+        "桔梗",
+        "枳实",
+        "半夏",
+        "藿香"
+      ]
     },
     {
       "case_id": "dingganren_069",
@@ -1115,7 +1188,16 @@
       "entry_id": "dingganren_069",
       "entry_type": "dingganren_case",
       "rag_key": "暑温",
-      "name": "dingganren_069 暑温"
+      "name": "dingganren_069 暑温",
+      "herbs": [
+        "淡豆豉",
+        "神曲",
+        "竹茹",
+        "佩兰",
+        "枳实",
+        "半夏",
+        "藿香"
+      ]
     },
     {
       "case_id": "dingganren_070",
@@ -1132,7 +1214,16 @@
       "entry_id": "dingganren_070",
       "entry_type": "dingganren_case",
       "rag_key": "暑温",
-      "name": "dingganren_070 暑温"
+      "name": "dingganren_070 暑温",
+      "herbs": [
+        "佩兰",
+        "枳壳",
+        "郁金",
+        "藿香"
+      ],
+      "formulas_referenced": [
+        "甘露消毒丹"
+      ]
     },
     {
       "case_id": "dingganren_071",
@@ -1149,7 +1240,22 @@
       "entry_id": "dingganren_071",
       "entry_type": "dingganren_case",
       "rag_key": "暑温",
-      "name": "dingganren_071 暑温"
+      "name": "dingganren_071 暑温",
+      "herbs": [
+        "金银花",
+        "天花粉",
+        "白茅根",
+        "桑叶",
+        "黄芩",
+        "连翘",
+        "竹茹",
+        "石膏",
+        "葛根"
+      ],
+      "formulas_referenced": [
+        "竹叶石膏汤",
+        "益元散"
+      ]
     },
     {
       "case_id": "dingganren_072",
@@ -1166,7 +1272,25 @@
       "entry_id": "dingganren_072",
       "entry_type": "dingganren_case",
       "rag_key": "暑温",
-      "name": "dingganren_072 暑温"
+      "name": "dingganren_072 暑温",
+      "herbs": [
+        "天花粉",
+        "甘草",
+        "薄荷",
+        "人参",
+        "竹茹",
+        "石膏",
+        "生地",
+        "枳实",
+        "葛根",
+        "贝母",
+        "玄参",
+        "栝蒌"
+      ],
+      "formulas_referenced": [
+        "白虎汤",
+        "增液汤"
+      ]
     },
     {
       "case_id": "dingganren_073",
@@ -1183,7 +1307,16 @@
       "entry_id": "dingganren_073",
       "entry_type": "dingganren_case",
       "rag_key": "暑温",
-      "name": "dingganren_073 暑温"
+      "name": "dingganren_073 暑温",
+      "herbs": [
+        "金银花",
+        "车前子",
+        "山楂",
+        "甘草",
+        "炮姜",
+        "白术",
+        "葛根"
+      ]
     },
     {
       "case_id": "dingganren_074",
@@ -1200,7 +1333,19 @@
       "entry_id": "dingganren_074",
       "entry_type": "dingganren_case",
       "rag_key": "湿温",
-      "name": "dingganren_074 湿温"
+      "name": "dingganren_074 湿温",
+      "herbs": [
+        "白蔻仁",
+        "黄芩",
+        "滑石",
+        "竹茹",
+        "佩兰",
+        "茯苓",
+        "枳实",
+        "半夏",
+        "杏仁",
+        "藿香"
+      ]
     },
     {
       "case_id": "dingganren_075",
@@ -1217,7 +1362,19 @@
       "entry_id": "dingganren_075",
       "entry_type": "dingganren_case",
       "rag_key": "湿温",
-      "name": "dingganren_075 湿温"
+      "name": "dingganren_075 湿温",
+      "herbs": [
+        "神曲",
+        "黄芩",
+        "银花",
+        "赤芍",
+        "竹茹",
+        "佩兰",
+        "枳实",
+        "半夏",
+        "陈皮",
+        "藿香"
+      ]
     },
     {
       "case_id": "dingganren_076",
@@ -1234,7 +1391,17 @@
       "entry_id": "dingganren_076",
       "entry_type": "dingganren_case",
       "rag_key": "湿温",
-      "name": "dingganren_076 湿温"
+      "name": "dingganren_076 湿温",
+      "herbs": [
+        "神曲",
+        "柴胡",
+        "半夏",
+        "葛根",
+        "泽泻"
+      ],
+      "formulas_referenced": [
+        "甘露消毒丹"
+      ]
     },
     {
       "case_id": "dingganren_077",
@@ -1251,7 +1418,15 @@
       "entry_id": "dingganren_077",
       "entry_type": "dingganren_case",
       "rag_key": "湿温",
-      "name": "dingganren_077 湿温"
+      "name": "dingganren_077 湿温",
+      "herbs": [
+        "生姜",
+        "木瓜",
+        "茯苓",
+        "枳实",
+        "半夏",
+        "苍术"
+      ]
     },
     {
       "case_id": "dingganren_078",
@@ -1268,7 +1443,25 @@
       "entry_id": "dingganren_078",
       "entry_type": "dingganren_case",
       "rag_key": "湿温",
-      "name": "dingganren_078 湿温"
+      "name": "dingganren_078 湿温",
+      "herbs": [
+        "前胡",
+        "神曲",
+        "银花",
+        "连翘",
+        "竹茹",
+        "佩兰",
+        "柴胡",
+        "豆豉",
+        "附子",
+        "菖蒲",
+        "枳实",
+        "半夏",
+        "藿香"
+      ],
+      "formulas_referenced": [
+        "益元散"
+      ]
     },
     {
       "case_id": "dingganren_079",
@@ -1285,7 +1478,17 @@
       "entry_id": "dingganren_079",
       "entry_type": "dingganren_case",
       "rag_key": "湿温",
-      "name": "dingganren_079 湿温"
+      "name": "dingganren_079 湿温",
+      "herbs": [
+        "枇杷叶",
+        "竹茹",
+        "佩兰",
+        "枳实",
+        "半夏",
+        "郁金",
+        "栝蒌",
+        "藿香"
+      ]
     },
     {
       "case_id": "dingganren_080",
@@ -1302,7 +1505,17 @@
       "entry_id": "dingganren_080",
       "entry_type": "dingganren_case",
       "rag_key": "湿温",
-      "name": "dingganren_080 湿温"
+      "name": "dingganren_080 湿温",
+      "herbs": [
+        "石菖蒲",
+        "薄荷",
+        "竹茹",
+        "柴胡",
+        "枳实",
+        "半夏",
+        "远志",
+        "郁金"
+      ]
     },
     {
       "case_id": "dingganren_081",
@@ -1319,7 +1532,24 @@
       "entry_id": "dingganren_081",
       "entry_type": "dingganren_case",
       "rag_key": "湿温",
-      "name": "dingganren_081 湿温"
+      "name": "dingganren_081 湿温",
+      "herbs": [
+        "神曲",
+        "银花",
+        "炮姜",
+        "人参",
+        "山药",
+        "连翘",
+        "佩兰",
+        "柴胡",
+        "谷芽",
+        "葛根",
+        "泽泻",
+        "藿香"
+      ],
+      "formulas_referenced": [
+        "甘露消毒丹"
+      ]
     },
     {
       "case_id": "dingganren_082",
@@ -1336,7 +1566,14 @@
       "entry_id": "dingganren_082",
       "entry_type": "dingganren_case",
       "rag_key": "湿温",
-      "name": "dingganren_082 湿温"
+      "name": "dingganren_082 湿温",
+      "herbs": [
+        "桑叶",
+        "甘草",
+        "丹皮",
+        "赤芍",
+        "枳实"
+      ]
     },
     {
       "case_id": "dingganren_083",
@@ -1353,7 +1590,17 @@
       "entry_id": "dingganren_083",
       "entry_type": "dingganren_case",
       "rag_key": "湿温",
-      "name": "dingganren_083 湿温"
+      "name": "dingganren_083 湿温",
+      "herbs": [
+        "天花粉",
+        "桑叶",
+        "甘草",
+        "银花",
+        "丹皮",
+        "连翘",
+        "生地",
+        "贝母"
+      ]
     },
     {
       "case_id": "dingganren_084",
@@ -1370,7 +1617,14 @@
       "entry_id": "dingganren_084",
       "entry_type": "dingganren_case",
       "rag_key": "湿温",
-      "name": "dingganren_084 湿温"
+      "name": "dingganren_084 湿温",
+      "herbs": [
+        "竹茹",
+        "柴胡",
+        "麦冬",
+        "枳实",
+        "贝母"
+      ]
     },
     {
       "case_id": "dingganren_085",
@@ -1387,7 +1641,21 @@
       "entry_id": "dingganren_085",
       "entry_type": "dingganren_case",
       "rag_key": "湿温",
-      "name": "dingganren_085 湿温"
+      "name": "dingganren_085 湿温",
+      "herbs": [
+        "白术",
+        "猪苓",
+        "砂仁",
+        "川椒",
+        "半夏",
+        "杏仁",
+        "陈皮",
+        "桂枝",
+        "泽泻"
+      ],
+      "formulas_referenced": [
+        "真武汤"
+      ]
     },
     {
       "case_id": "dingganren_086",
@@ -1404,7 +1672,19 @@
       "entry_id": "dingganren_086",
       "entry_type": "dingganren_case",
       "rag_key": "湿温",
-      "name": "dingganren_086 湿温"
+      "name": "dingganren_086 湿温",
+      "herbs": [
+        "延胡索",
+        "五灵脂",
+        "炮姜",
+        "白术",
+        "生姜",
+        "琥珀",
+        "砂仁",
+        "半夏",
+        "陈皮",
+        "泽泻"
+      ]
     },
     {
       "case_id": "dingganren_087",
@@ -1421,7 +1701,14 @@
       "entry_id": "dingganren_087",
       "entry_type": "dingganren_case",
       "rag_key": "湿温",
-      "name": "dingganren_087 湿温"
+      "name": "dingganren_087 湿温",
+      "herbs": [
+        "砂仁",
+        "牡蛎",
+        "半夏",
+        "远志",
+        "龙骨"
+      ]
     },
     {
       "case_id": "dingganren_088",
@@ -1438,7 +1725,18 @@
       "entry_id": "dingganren_088",
       "entry_type": "dingganren_case",
       "rag_key": "湿温",
-      "name": "dingganren_088 湿温"
+      "name": "dingganren_088 湿温",
+      "herbs": [
+        "神曲",
+        "白术",
+        "砂仁",
+        "佩兰",
+        "柴胡",
+        "谷芽",
+        "川椒",
+        "干姜",
+        "陈皮"
+      ]
     },
     {
       "case_id": "dingganren_089",
@@ -1455,7 +1753,23 @@
       "entry_id": "dingganren_089",
       "entry_type": "dingganren_case",
       "rag_key": "神志",
-      "name": "dingganren_089 神志"
+      "name": "dingganren_089 神志",
+      "herbs": [
+        "石菖蒲",
+        "珍珠母",
+        "黄连",
+        "甘草",
+        "竹茹",
+        "枳壳",
+        "木通",
+        "半夏",
+        "远志",
+        "贝母",
+        "栝蒌"
+      ],
+      "formulas_referenced": [
+        "温胆汤"
+      ]
     },
     {
       "case_id": "dingganren_090",
@@ -1472,7 +1786,15 @@
       "entry_id": "dingganren_090",
       "entry_type": "dingganren_case",
       "rag_key": "神志",
-      "name": "dingganren_090 神志"
+      "name": "dingganren_090 神志",
+      "herbs": [
+        "甘草",
+        "竹茹",
+        "麦冬",
+        "木通",
+        "远志",
+        "贝母"
+      ]
     },
     {
       "case_id": "dingganren_091",
@@ -1489,7 +1811,17 @@
       "entry_id": "dingganren_091",
       "entry_type": "dingganren_case",
       "rag_key": "神志",
-      "name": "dingganren_091 神志"
+      "name": "dingganren_091 神志",
+      "herbs": [
+        "珍珠母",
+        "丹皮",
+        "山药",
+        "熟地",
+        "白芍",
+        "麦冬",
+        "牡蛎",
+        "远志"
+      ]
     },
     {
       "case_id": "dingganren_092",
@@ -1506,7 +1838,16 @@
       "entry_id": "dingganren_092",
       "entry_type": "dingganren_case",
       "rag_key": "神志",
-      "name": "dingganren_092 神志"
+      "name": "dingganren_092 神志",
+      "herbs": [
+        "酸枣仁",
+        "柏子仁",
+        "枸杞子",
+        "菊花",
+        "谷芽",
+        "菖蒲",
+        "远志"
+      ]
     },
     {
       "case_id": "dingganren_093",
@@ -1523,7 +1864,15 @@
       "entry_id": "dingganren_093",
       "entry_type": "dingganren_case",
       "rag_key": "带下",
-      "name": "dingganren_093 带下"
+      "name": "dingganren_093 带下",
+      "herbs": [
+        "白术",
+        "山药",
+        "白芍",
+        "茯苓",
+        "杜仲",
+        "黄柏"
+      ]
     },
     {
       "case_id": "dingganren_094",
@@ -1540,7 +1889,18 @@
       "entry_id": "dingganren_094",
       "entry_type": "dingganren_case",
       "rag_key": "带下",
-      "name": "dingganren_094 带下"
+      "name": "dingganren_094 带下",
+      "herbs": [
+        "甘草",
+        "升麻",
+        "丹皮",
+        "枳壳",
+        "生地",
+        "黄柏",
+        "桔梗",
+        "黄芪",
+        "泽泻"
+      ]
     },
     {
       "case_id": "dingganren_095",
@@ -1557,7 +1917,16 @@
       "entry_id": "dingganren_095",
       "entry_type": "dingganren_case",
       "rag_key": "带下",
-      "name": "dingganren_095 带下"
+      "name": "dingganren_095 带下",
+      "herbs": [
+        "丹皮",
+        "白术",
+        "白芍",
+        "茯苓",
+        "杜仲",
+        "黄柏",
+        "泽泻"
+      ]
     },
     {
       "case_id": "dingganren_096",
@@ -1574,7 +1943,22 @@
       "entry_id": "dingganren_096",
       "entry_type": "dingganren_case",
       "rag_key": "喉痧",
-      "name": "dingganren_096 喉痧"
+      "name": "dingganren_096 喉痧",
+      "herbs": [
+        "金银花",
+        "淡豆豉",
+        "荆芥穗",
+        "白茅根",
+        "甘草",
+        "薄荷",
+        "赤芍",
+        "连翘",
+        "马勃",
+        "石膏",
+        "生地",
+        "桔梗",
+        "贝母"
+      ]
     },
     {
       "case_id": "dingganren_097",
@@ -1591,7 +1975,19 @@
       "entry_id": "dingganren_097",
       "entry_type": "dingganren_case",
       "rag_key": "喉痧",
-      "name": "dingganren_097 喉痧"
+      "name": "dingganren_097 喉痧",
+      "herbs": [
+        "金银花",
+        "赤芍",
+        "连翘",
+        "石膏",
+        "生地",
+        "桔梗",
+        "杏仁",
+        "贝母",
+        "玄参",
+        "麻黄"
+      ]
     },
     {
       "case_id": "dingganren_098",
@@ -1608,7 +2004,18 @@
       "entry_id": "dingganren_098",
       "entry_type": "dingganren_case",
       "rag_key": "喉痧",
-      "name": "dingganren_098 喉痧"
+      "name": "dingganren_098 喉痧",
+      "herbs": [
+        "淡豆豉",
+        "荆芥穗",
+        "薄荷",
+        "赤芍",
+        "连翘",
+        "竹茹",
+        "茯苓",
+        "枳壳",
+        "桔梗"
+      ]
     },
     {
       "case_id": "dingganren_099",
@@ -1625,7 +2032,16 @@
       "entry_id": "dingganren_099",
       "entry_type": "dingganren_case",
       "rag_key": "喉痧",
-      "name": "dingganren_099 喉痧"
+      "name": "dingganren_099 喉痧",
+      "herbs": [
+        "枇杷叶",
+        "前胡",
+        "猪苓",
+        "杏仁",
+        "陈皮",
+        "贝母",
+        "泽泻"
+      ]
     },
     {
       "case_id": "dingganren_100",
@@ -1642,7 +2058,18 @@
       "entry_id": "dingganren_100",
       "entry_type": "dingganren_case",
       "rag_key": "喉痧",
-      "name": "dingganren_100 喉痧"
+      "name": "dingganren_100 喉痧",
+      "herbs": [
+        "金银花",
+        "天花粉",
+        "枇杷叶",
+        "桑叶",
+        "甘草",
+        "丹皮",
+        "石膏",
+        "杏仁",
+        "玄参"
+      ]
     },
     {
       "case_id": "dingganren_101",
@@ -1659,7 +2086,15 @@
       "entry_id": "dingganren_101",
       "entry_type": "dingganren_case",
       "rag_key": "便血",
-      "name": "dingganren_101 便血"
+      "name": "dingganren_101 便血",
+      "herbs": [
+        "淡豆豉",
+        "黄芩",
+        "地榆",
+        "甘草",
+        "赤芍",
+        "当归"
+      ]
     },
     {
       "case_id": "dingganren_102",
@@ -1676,7 +2111,16 @@
       "entry_id": "dingganren_102",
       "entry_type": "dingganren_case",
       "rag_key": "便血",
-      "name": "dingganren_102 便血"
+      "name": "dingganren_102 便血",
+      "herbs": [
+        "桂心",
+        "甘草",
+        "炮姜",
+        "砂仁",
+        "赤芍",
+        "附子",
+        "当归"
+      ]
     },
     {
       "case_id": "dingganren_103",
@@ -1693,7 +2137,14 @@
       "entry_id": "dingganren_103",
       "entry_type": "dingganren_case",
       "rag_key": "便血",
-      "name": "dingganren_103 便血"
+      "name": "dingganren_103 便血",
+      "herbs": [
+        "甘草",
+        "炮姜",
+        "白芍",
+        "远志",
+        "阿胶"
+      ]
     },
     {
       "case_id": "dingganren_104",
@@ -1710,7 +2161,15 @@
       "entry_id": "dingganren_104",
       "entry_type": "dingganren_case",
       "rag_key": "便血",
-      "name": "dingganren_104 便血"
+      "name": "dingganren_104 便血",
+      "herbs": [
+        "丹皮",
+        "赤芍",
+        "竹茹",
+        "生地",
+        "麦冬",
+        "槐花"
+      ]
     },
     {
       "case_id": "dingganren_105",
@@ -1727,7 +2186,16 @@
       "entry_id": "dingganren_105",
       "entry_type": "dingganren_case",
       "rag_key": "便血",
-      "name": "dingganren_105 便血"
+      "name": "dingganren_105 便血",
+      "herbs": [
+        "甘草",
+        "炮姜",
+        "砂仁",
+        "白芍",
+        "谷芽",
+        "陈皮",
+        "阿胶"
+      ]
     },
     {
       "case_id": "dingganren_106",
@@ -1744,7 +2212,17 @@
       "entry_id": "dingganren_106",
       "entry_type": "dingganren_case",
       "rag_key": "溲血",
-      "name": "dingganren_106 溲血"
+      "name": "dingganren_106 溲血",
+      "herbs": [
+        "甘草",
+        "丹皮",
+        "山药",
+        "白芍",
+        "生地",
+        "蒲黄",
+        "黄柏",
+        "阿胶"
+      ]
     },
     {
       "case_id": "dingganren_107",
@@ -1761,7 +2239,17 @@
       "entry_id": "dingganren_107",
       "entry_type": "dingganren_case",
       "rag_key": "溲血",
-      "name": "dingganren_107 溲血"
+      "name": "dingganren_107 溲血",
+      "herbs": [
+        "枇杷叶",
+        "丹参",
+        "琥珀",
+        "白芍",
+        "谷芽",
+        "蒲黄",
+        "贯众",
+        "黄芪"
+      ]
     },
     {
       "case_id": "dingganren_108",
@@ -1778,7 +2266,16 @@
       "entry_id": "dingganren_108",
       "entry_type": "dingganren_case",
       "rag_key": "淋浊",
-      "name": "dingganren_108 淋浊"
+      "name": "dingganren_108 淋浊",
+      "herbs": [
+        "黄芩",
+        "丹皮",
+        "滑石",
+        "萆薢",
+        "琥珀",
+        "木通",
+        "远志"
+      ]
     },
     {
       "case_id": "dingganren_109",
@@ -1795,7 +2292,17 @@
       "entry_id": "dingganren_109",
       "entry_type": "dingganren_case",
       "rag_key": "淋浊",
-      "name": "dingganren_109 淋浊"
+      "name": "dingganren_109 淋浊",
+      "herbs": [
+        "威灵仙",
+        "丹皮",
+        "山药",
+        "茯苓",
+        "芡实",
+        "生地",
+        "黄柏",
+        "泽泻"
+      ]
     },
     {
       "case_id": "dingganren_110",
@@ -1812,7 +2319,14 @@
       "entry_id": "dingganren_110",
       "entry_type": "dingganren_case",
       "rag_key": "淋浊",
-      "name": "dingganren_110 淋浊"
+      "name": "dingganren_110 淋浊",
+      "herbs": [
+        "石决明",
+        "寒水石",
+        "黄连",
+        "滑石",
+        "连翘"
+      ]
     },
     {
       "case_id": "dingganren_111",
@@ -1829,7 +2343,12 @@
       "entry_id": "dingganren_111",
       "entry_type": "dingganren_case",
       "rag_key": "崩漏",
-      "name": "dingganren_111 崩漏"
+      "name": "dingganren_111 崩漏",
+      "herbs": [
+        "补骨脂",
+        "甘草",
+        "谷芽"
+      ]
     },
     {
       "case_id": "dingganren_112",
@@ -1846,7 +2365,16 @@
       "entry_id": "dingganren_112",
       "entry_type": "dingganren_case",
       "rag_key": "崩漏",
-      "name": "dingganren_112 崩漏"
+      "name": "dingganren_112 崩漏",
+      "herbs": [
+        "丹皮",
+        "白芍",
+        "生地",
+        "贯众",
+        "牡蛎",
+        "鳖甲",
+        "阿胶"
+      ]
     },
     {
       "case_id": "dingganren_113",
@@ -1863,7 +2391,14 @@
       "entry_id": "dingganren_113",
       "entry_type": "dingganren_case",
       "rag_key": "崩漏",
-      "name": "dingganren_113 崩漏"
+      "name": "dingganren_113 崩漏",
+      "herbs": [
+        "白芍",
+        "杜仲",
+        "黄芪",
+        "远志",
+        "阿胶"
+      ]
     },
     {
       "case_id": "dingganren_114",
@@ -1880,7 +2415,16 @@
       "entry_id": "dingganren_114",
       "entry_type": "dingganren_case",
       "rag_key": "崩漏",
-      "name": "dingganren_114 崩漏"
+      "name": "dingganren_114 崩漏",
+      "herbs": [
+        "丹参",
+        "炮姜",
+        "砂仁",
+        "白芍",
+        "生地",
+        "阿胶",
+        "麦芽"
+      ]
     },
     {
       "case_id": "dingganren_115",
@@ -1897,7 +2441,15 @@
       "entry_id": "dingganren_115",
       "entry_type": "dingganren_case",
       "rag_key": "产后",
-      "name": "dingganren_115 产后"
+      "name": "dingganren_115 产后",
+      "herbs": [
+        "石菖蒲",
+        "丹参",
+        "甘草",
+        "琥珀",
+        "远志",
+        "荆芥"
+      ]
     },
     {
       "case_id": "dingganren_116",
@@ -1914,7 +2466,10 @@
       "entry_id": "dingganren_116",
       "entry_type": "dingganren_case",
       "rag_key": "产后",
-      "name": "dingganren_116 产后"
+      "name": "dingganren_116 产后",
+      "herbs": [
+        "当归"
+      ]
     },
     {
       "case_id": "dingganren_117",
@@ -1931,7 +2486,20 @@
       "entry_id": "dingganren_117",
       "entry_type": "dingganren_case",
       "rag_key": "产后",
-      "name": "dingganren_117 产后"
+      "name": "dingganren_117 产后",
+      "herbs": [
+        "桂心",
+        "猪苓",
+        "苏子",
+        "白芍",
+        "橘红",
+        "川椒",
+        "杏仁",
+        "贝母"
+      ],
+      "formulas_referenced": [
+        "肾气丸"
+      ]
     },
     {
       "case_id": "dingganren_118",
@@ -1948,7 +2516,18 @@
       "entry_id": "dingganren_118",
       "entry_type": "dingganren_case",
       "rag_key": "产后",
-      "name": "dingganren_118 产后"
+      "name": "dingganren_118 产后",
+      "herbs": [
+        "桑叶",
+        "甘草",
+        "炮姜",
+        "桃仁",
+        "当归",
+        "杏仁",
+        "贝母",
+        "荆芥",
+        "川芎"
+      ]
     },
     {
       "case_id": "dingganren_119",
@@ -1965,7 +2544,17 @@
       "entry_id": "dingganren_119",
       "entry_type": "dingganren_case",
       "rag_key": "产后",
-      "name": "dingganren_119 产后"
+      "name": "dingganren_119 产后",
+      "herbs": [
+        "丹参",
+        "秦艽",
+        "白芍",
+        "木瓜",
+        "防风",
+        "当归",
+        "牛膝",
+        "川芎"
+      ]
     },
     {
       "case_id": "dingganren_120",
@@ -1982,7 +2571,21 @@
       "entry_id": "dingganren_120",
       "entry_type": "dingganren_case",
       "rag_key": "产后",
-      "name": "dingganren_120 产后"
+      "name": "dingganren_120 产后",
+      "herbs": [
+        "延胡索",
+        "益母草",
+        "五灵脂",
+        "没药",
+        "丹参",
+        "炮姜",
+        "桃仁",
+        "乌药",
+        "香附",
+        "当归",
+        "红花",
+        "川芎"
+      ]
     },
     {
       "case_id": "dingganren_121",
@@ -1999,7 +2602,16 @@
       "entry_id": "dingganren_121",
       "entry_type": "dingganren_case",
       "rag_key": "产后",
-      "name": "dingganren_121 产后"
+      "name": "dingganren_121 产后",
+      "herbs": [
+        "丹参",
+        "秦艽",
+        "杏仁",
+        "远志",
+        "红花",
+        "贝母",
+        "荆芥"
+      ]
     },
     {
       "case_id": "dingganren_122",
@@ -2016,7 +2628,17 @@
       "entry_id": "dingganren_122",
       "entry_type": "dingganren_case",
       "rag_key": "产后",
-      "name": "dingganren_122 产后"
+      "name": "dingganren_122 产后",
+      "herbs": [
+        "益母草",
+        "丹参",
+        "炮姜",
+        "谷芽",
+        "当归",
+        "红花",
+        "川芎",
+        "栝蒌"
+      ]
     },
     {
       "case_id": "dingganren_123",
@@ -2033,7 +2655,16 @@
       "entry_id": "dingganren_123",
       "entry_type": "dingganren_case",
       "rag_key": "产后",
-      "name": "dingganren_123 产后"
+      "name": "dingganren_123 产后",
+      "herbs": [
+        "炮姜",
+        "熟地",
+        "白芍",
+        "茯苓",
+        "柴胡",
+        "谷芽",
+        "当归"
+      ]
     },
     {
       "case_id": "dingganren_124",
@@ -2050,7 +2681,18 @@
       "entry_id": "dingganren_124",
       "entry_type": "dingganren_case",
       "rag_key": "产后",
-      "name": "dingganren_124 产后"
+      "name": "dingganren_124 产后",
+      "herbs": [
+        "益母草",
+        "丹参",
+        "甘草",
+        "生姜",
+        "桃仁",
+        "赤芍",
+        "黄芪",
+        "当归",
+        "红花"
+      ]
     },
     {
       "case_id": "dingganren_125",
@@ -2067,7 +2709,16 @@
       "entry_id": "dingganren_125",
       "entry_type": "dingganren_case",
       "rag_key": "调经",
-      "name": "dingganren_125 调经"
+      "name": "dingganren_125 调经",
+      "herbs": [
+        "代赭石",
+        "丹参",
+        "竹茹",
+        "白芍",
+        "柴胡",
+        "谷芽",
+        "半夏"
+      ]
     },
     {
       "case_id": "dingganren_126",
@@ -2084,7 +2735,16 @@
       "entry_id": "dingganren_126",
       "entry_type": "dingganren_case",
       "rag_key": "调经",
-      "name": "dingganren_126 调经"
+      "name": "dingganren_126 调经",
+      "herbs": [
+        "丹参",
+        "丹皮",
+        "竹茹",
+        "香附",
+        "当归",
+        "牛膝",
+        "荆芥"
+      ]
     },
     {
       "case_id": "dingganren_127",
@@ -2101,7 +2761,17 @@
       "entry_id": "dingganren_127",
       "entry_type": "dingganren_case",
       "rag_key": "调经",
-      "name": "dingganren_127 调经"
+      "name": "dingganren_127 调经",
+      "herbs": [
+        "延胡索",
+        "丹参",
+        "砂仁",
+        "乌药",
+        "香附",
+        "茯苓",
+        "当归",
+        "牛膝"
+      ]
     },
     {
       "case_id": "dingganren_128",
@@ -2118,7 +2788,18 @@
       "entry_id": "dingganren_128",
       "entry_type": "dingganren_case",
       "rag_key": "调经",
-      "name": "dingganren_128 调经"
+      "name": "dingganren_128 调经",
+      "herbs": [
+        "丹参",
+        "黄芩",
+        "柴胡",
+        "半夏",
+        "红花",
+        "牛膝"
+      ],
+      "formulas_referenced": [
+        "逍遥散"
+      ]
     },
     {
       "case_id": "dingganren_129",
@@ -2135,7 +2816,19 @@
       "entry_id": "dingganren_129",
       "entry_type": "dingganren_case",
       "rag_key": "调经",
-      "name": "dingganren_129 调经"
+      "name": "dingganren_129 调经",
+      "herbs": [
+        "丹参",
+        "甘草",
+        "丹皮",
+        "生姜",
+        "白芍",
+        "当归",
+        "半夏",
+        "桂枝",
+        "阿胶",
+        "川芎"
+      ]
     },
     {
       "case_id": "dingganren_130",
@@ -2152,7 +2845,15 @@
       "entry_id": "dingganren_130",
       "entry_type": "dingganren_case",
       "rag_key": "调经",
-      "name": "dingganren_130 调经"
+      "name": "dingganren_130 调经",
+      "herbs": [
+        "延胡索",
+        "小茴香",
+        "桂心",
+        "白芍",
+        "香附",
+        "青皮"
+      ]
     },
     {
       "case_id": "dingganren_131",
@@ -2169,7 +2870,15 @@
       "entry_id": "dingganren_131",
       "entry_type": "dingganren_case",
       "rag_key": "胎前",
-      "name": "dingganren_131 胎前"
+      "name": "dingganren_131 胎前",
+      "herbs": [
+        "桑寄生",
+        "白术",
+        "白芍",
+        "杜仲",
+        "生地",
+        "阿胶"
+      ]
     },
     {
       "case_id": "dingganren_132",
@@ -2186,7 +2895,13 @@
       "entry_id": "dingganren_132",
       "entry_type": "dingganren_case",
       "rag_key": "胎前",
-      "name": "dingganren_132 胎前"
+      "name": "dingganren_132 胎前",
+      "herbs": [
+        "白芍",
+        "生地",
+        "黄芪",
+        "阿胶"
+      ]
     },
     {
       "case_id": "dingganren_133",
@@ -2203,7 +2918,19 @@
       "entry_id": "dingganren_133",
       "entry_type": "dingganren_case",
       "rag_key": "胎前",
-      "name": "dingganren_133 胎前"
+      "name": "dingganren_133 胎前",
+      "herbs": [
+        "淡豆豉",
+        "荆芥穗",
+        "薄荷",
+        "连翘",
+        "竹茹",
+        "马勃",
+        "枳壳",
+        "桔梗",
+        "杏仁",
+        "贝母"
+      ]
     },
     {
       "case_id": "dingganren_134",
@@ -2220,7 +2947,16 @@
       "entry_id": "dingganren_134",
       "entry_type": "dingganren_case",
       "rag_key": "胎前",
-      "name": "dingganren_134 胎前"
+      "name": "dingganren_134 胎前",
+      "herbs": [
+        "桑寄生",
+        "白术",
+        "白芍",
+        "杜仲",
+        "生地",
+        "黄芪",
+        "阿胶"
+      ]
     },
     {
       "case_id": "dingganren_135",
@@ -2237,7 +2973,14 @@
       "entry_id": "dingganren_135",
       "entry_type": "dingganren_case",
       "rag_key": "胎前",
-      "name": "dingganren_135 胎前"
+      "name": "dingganren_135 胎前",
+      "herbs": [
+        "桑寄生",
+        "白术",
+        "茯苓",
+        "木香",
+        "麦芽"
+      ]
     },
     {
       "case_id": "dingganren_136",
@@ -2254,7 +2997,19 @@
       "entry_id": "dingganren_136",
       "entry_type": "dingganren_case",
       "rag_key": "肺痈",
-      "name": "dingganren_136 肺痈"
+      "name": "dingganren_136 肺痈",
+      "herbs": [
+        "桑叶",
+        "甘草",
+        "银花",
+        "丹皮",
+        "薄荷",
+        "桃仁",
+        "连翘",
+        "桔梗",
+        "杏仁",
+        "贝母"
+      ]
     },
     {
       "case_id": "dingganren_137",
@@ -2271,7 +3026,13 @@
       "entry_id": "dingganren_137",
       "entry_type": "dingganren_case",
       "rag_key": "肺痈",
-      "name": "dingganren_137 肺痈"
+      "name": "dingganren_137 肺痈",
+      "herbs": [
+        "枇杷叶",
+        "桑叶",
+        "杏仁",
+        "栝蒌"
+      ]
     },
     {
       "case_id": "dingganren_138",
@@ -2288,7 +3049,12 @@
       "entry_id": "dingganren_138",
       "entry_type": "dingganren_case",
       "rag_key": "肺痈",
-      "name": "dingganren_138 肺痈"
+      "name": "dingganren_138 肺痈",
+      "herbs": [
+        "甘草",
+        "阿胶",
+        "栝蒌"
+      ]
     },
     {
       "case_id": "dingganren_139",
@@ -2305,7 +3071,17 @@
       "entry_id": "dingganren_139",
       "entry_type": "dingganren_case",
       "rag_key": "肺痈",
-      "name": "dingganren_139 肺痈"
+      "name": "dingganren_139 肺痈",
+      "herbs": [
+        "甘草",
+        "紫菀",
+        "桔梗",
+        "杏仁",
+        "贝母",
+        "郁金",
+        "射干",
+        "麻黄"
+      ]
     },
     {
       "case_id": "dingganren_140",
@@ -2322,7 +3098,16 @@
       "entry_id": "dingganren_140",
       "entry_type": "dingganren_case",
       "rag_key": "遗精",
-      "name": "dingganren_140 遗精"
+      "name": "dingganren_140 遗精",
+      "herbs": [
+        "桑螵蛸",
+        "砂仁",
+        "熟地",
+        "天冬",
+        "芡实",
+        "黄柏",
+        "黄芪"
+      ]
     },
     {
       "case_id": "dingganren_141",
@@ -2339,7 +3124,18 @@
       "entry_id": "dingganren_141",
       "entry_type": "dingganren_case",
       "rag_key": "遗精",
-      "name": "dingganren_141 遗精"
+      "name": "dingganren_141 遗精",
+      "herbs": [
+        "砂仁",
+        "天冬",
+        "芡实",
+        "生地",
+        "黄柏",
+        "牡蛎",
+        "半夏",
+        "远志",
+        "龙骨"
+      ]
     },
     {
       "case_id": "dingganren_142",
@@ -2356,7 +3152,13 @@
       "entry_id": "dingganren_142",
       "entry_type": "dingganren_case",
       "rag_key": "遗精",
-      "name": "dingganren_142 遗精"
+      "name": "dingganren_142 遗精",
+      "herbs": [
+        "天冬",
+        "生地",
+        "黄柏",
+        "牡蛎"
+      ]
     },
     {
       "case_id": "dingganren_143",
@@ -2373,7 +3175,14 @@
       "entry_id": "dingganren_143",
       "entry_type": "dingganren_case",
       "rag_key": "瘕",
-      "name": "dingganren_143 瘕"
+      "name": "dingganren_143 瘕",
+      "herbs": [
+        "甘草",
+        "白术",
+        "香附",
+        "茯苓",
+        "谷芽"
+      ]
     },
     {
       "case_id": "dingganren_144",
@@ -2390,7 +3199,17 @@
       "entry_id": "dingganren_144",
       "entry_type": "dingganren_case",
       "rag_key": "瘕",
-      "name": "dingganren_144 瘕"
+      "name": "dingganren_144 瘕",
+      "herbs": [
+        "延胡索",
+        "白芍",
+        "香附",
+        "柴胡",
+        "当归",
+        "青皮",
+        "半夏",
+        "木香"
+      ]
     },
     {
       "case_id": "dingganren_145",
@@ -2407,7 +3226,15 @@
       "entry_id": "dingganren_145",
       "entry_type": "dingganren_case",
       "rag_key": "瘕",
-      "name": "dingganren_145 瘕"
+      "name": "dingganren_145 瘕",
+      "herbs": [
+        "炮姜",
+        "白术",
+        "桃仁",
+        "黄芪",
+        "木香",
+        "红花"
+      ]
     },
     {
       "case_id": "dingganren_146",
@@ -2424,7 +3251,16 @@
       "entry_id": "dingganren_146",
       "entry_type": "dingganren_case",
       "rag_key": "衄血",
-      "name": "dingganren_146 衄血"
+      "name": "dingganren_146 衄血",
+      "herbs": [
+        "丹皮",
+        "竹茹",
+        "白芍",
+        "生地",
+        "麦冬",
+        "贝母",
+        "牛膝"
+      ]
     },
     {
       "case_id": "dingganren_147",
@@ -2441,7 +3277,16 @@
       "entry_id": "dingganren_147",
       "entry_type": "dingganren_case",
       "rag_key": "衄血",
-      "name": "dingganren_147 衄血"
+      "name": "dingganren_147 衄血",
+      "herbs": [
+        "桑叶",
+        "甘草",
+        "丹皮",
+        "知母",
+        "生地",
+        "麦冬",
+        "槐花"
+      ]
     },
     {
       "case_id": "dingganren_148",
@@ -2458,7 +3303,13 @@
       "entry_id": "dingganren_148",
       "entry_type": "dingganren_case",
       "rag_key": "香港脚",
-      "name": "dingganren_148 香港脚"
+      "name": "dingganren_148 香港脚",
+      "herbs": [
+        "生姜",
+        "木瓜",
+        "桔梗",
+        "泽泻"
+      ]
     },
     {
       "case_id": "dingganren_149",
@@ -2475,7 +3326,15 @@
       "entry_id": "dingganren_149",
       "entry_type": "dingganren_case",
       "rag_key": "香港脚",
-      "name": "dingganren_149 香港脚"
+      "name": "dingganren_149 香港脚",
+      "herbs": [
+        "白术",
+        "木瓜",
+        "茯苓",
+        "附子",
+        "干姜",
+        "槟榔"
+      ]
     },
     {
       "case_id": "dingganren_150",
@@ -2492,7 +3351,15 @@
       "entry_id": "dingganren_150",
       "entry_type": "dingganren_case",
       "rag_key": "痉症",
-      "name": "dingganren_150 痉症"
+      "name": "dingganren_150 痉症",
+      "herbs": [
+        "佩兰",
+        "谷芽",
+        "半夏",
+        "葛根",
+        "桂枝",
+        "麻黄"
+      ]
     },
     {
       "case_id": "dingganren_151",
@@ -2509,7 +3376,13 @@
       "entry_id": "dingganren_151",
       "entry_type": "dingganren_case",
       "rag_key": "痉症",
-      "name": "dingganren_151 痉症"
+      "name": "dingganren_151 痉症",
+      "herbs": [
+        "石菖蒲",
+        "天花粉",
+        "葛根",
+        "桂枝"
+      ]
     },
     {
       "case_id": "dingganren_152",
@@ -2526,7 +3399,13 @@
       "entry_id": "dingganren_152",
       "entry_type": "dingganren_case",
       "rag_key": "痉症",
-      "name": "dingganren_152 痉症"
+      "name": "dingganren_152 痉症",
+      "herbs": [
+        "甘草",
+        "炮姜",
+        "谷芽",
+        "葛根"
+      ]
     },
     {
       "case_id": "dingganren_153",
@@ -2543,7 +3422,16 @@
       "entry_id": "dingganren_153",
       "entry_type": "dingganren_case",
       "rag_key": "虚劳",
-      "name": "dingganren_153 虚劳"
+      "name": "dingganren_153 虚劳",
+      "herbs": [
+        "补骨脂",
+        "白芍",
+        "茯苓",
+        "牡蛎",
+        "黄芪",
+        "龙骨",
+        "桂枝"
+      ]
     },
     {
       "case_id": "dingganren_154",
@@ -2560,7 +3448,17 @@
       "entry_id": "dingganren_154",
       "entry_type": "dingganren_case",
       "rag_key": "虚劳",
-      "name": "dingganren_154 虚劳"
+      "name": "dingganren_154 虚劳",
+      "herbs": [
+        "秦艽",
+        "生姜",
+        "砂仁",
+        "柴胡",
+        "谷芽",
+        "黄芪",
+        "当归",
+        "牛膝"
+      ]
     },
     {
       "case_id": "dingganren_155",
@@ -2577,7 +3475,14 @@
       "entry_id": "dingganren_155",
       "entry_type": "dingganren_case",
       "rag_key": "虚劳",
-      "name": "dingganren_155 虚劳"
+      "name": "dingganren_155 虚劳",
+      "herbs": [
+        "甘草",
+        "山药",
+        "麦冬",
+        "阿胶",
+        "栝蒌"
+      ]
     },
     {
       "case_id": "dingganren_156",
@@ -2594,7 +3499,16 @@
       "entry_id": "dingganren_156",
       "entry_type": "dingganren_case",
       "rag_key": "咳嗽",
-      "name": "dingganren_156 咳嗽"
+      "name": "dingganren_156 咳嗽",
+      "herbs": [
+        "天花粉",
+        "枇杷叶",
+        "桑叶",
+        "甘草",
+        "知母",
+        "阿胶",
+        "玄参"
+      ]
     },
     {
       "case_id": "dingganren_157",
@@ -2611,7 +3525,14 @@
       "entry_id": "dingganren_157",
       "entry_type": "dingganren_case",
       "rag_key": "咳嗽",
-      "name": "dingganren_157 咳嗽"
+      "name": "dingganren_157 咳嗽",
+      "herbs": [
+        "桑叶",
+        "甘草",
+        "贝母",
+        "阿胶",
+        "栝蒌"
+      ]
     },
     {
       "case_id": "dingganren_158",
@@ -2628,7 +3549,16 @@
       "entry_id": "dingganren_158",
       "entry_type": "dingganren_case",
       "rag_key": "痰饮",
-      "name": "dingganren_158 痰饮"
+      "name": "dingganren_158 痰饮",
+      "herbs": [
+        "五味子",
+        "苏子",
+        "干姜",
+        "半夏",
+        "杏仁",
+        "桂枝",
+        "麻黄"
+      ]
     },
     {
       "case_id": "dingganren_159",
@@ -2645,7 +3575,18 @@
       "entry_id": "dingganren_159",
       "entry_type": "dingganren_case",
       "rag_key": "痰饮",
-      "name": "dingganren_159 痰饮"
+      "name": "dingganren_159 痰饮",
+      "herbs": [
+        "补骨脂",
+        "猪苓",
+        "附子",
+        "陈皮",
+        "桂枝",
+        "泽泻"
+      ],
+      "formulas_referenced": [
+        "肾气丸"
+      ]
     },
     {
       "case_id": "dingganren_160",
@@ -2662,7 +3603,14 @@
       "entry_id": "dingganren_160",
       "entry_type": "dingganren_case",
       "rag_key": "痰饮",
-      "name": "dingganren_160 痰饮"
+      "name": "dingganren_160 痰饮",
+      "herbs": [
+        "山药",
+        "茯苓",
+        "生地",
+        "杏仁",
+        "贝母"
+      ]
     },
     {
       "case_id": "dingganren_161",
@@ -2679,7 +3627,17 @@
       "entry_id": "dingganren_161",
       "entry_type": "dingganren_case",
       "rag_key": "哮喘",
-      "name": "dingganren_161 哮喘"
+      "name": "dingganren_161 哮喘",
+      "herbs": [
+        "甘草",
+        "苏子",
+        "石膏",
+        "半夏",
+        "杏仁",
+        "远志",
+        "贝母",
+        "麻黄"
+      ]
     },
     {
       "case_id": "dingganren_162",
@@ -2696,7 +3654,14 @@
       "entry_id": "dingganren_162",
       "entry_type": "dingganren_case",
       "rag_key": "不寐",
-      "name": "dingganren_162 不寐"
+      "name": "dingganren_162 不寐",
+      "herbs": [
+        "甘草",
+        "白芍",
+        "半夏",
+        "远志",
+        "肉桂"
+      ]
     },
     {
       "case_id": "dingganren_163",
@@ -2713,7 +3678,20 @@
       "entry_id": "dingganren_163",
       "entry_type": "dingganren_case",
       "rag_key": "肝气",
-      "name": "dingganren_163 肝气"
+      "name": "dingganren_163 肝气",
+      "herbs": [
+        "银花",
+        "薄荷",
+        "白芍",
+        "香附",
+        "沉香",
+        "陈皮",
+        "贝母",
+        "郁金"
+      ],
+      "formulas_referenced": [
+        "苏合香丸"
+      ]
     },
     {
       "case_id": "dingganren_164",
@@ -2730,7 +3708,16 @@
       "entry_id": "dingganren_164",
       "entry_type": "dingganren_case",
       "rag_key": "肝阳",
-      "name": "dingganren_164 肝阳"
+      "name": "dingganren_164 肝阳",
+      "herbs": [
+        "石菖蒲",
+        "天麻",
+        "生姜",
+        "竹茹",
+        "白芍",
+        "远志",
+        "贝母"
+      ]
     },
     {
       "case_id": "dingganren_165",
@@ -2747,7 +3734,14 @@
       "entry_id": "dingganren_165",
       "entry_type": "dingganren_case",
       "rag_key": "头痛",
-      "name": "dingganren_165 头痛"
+      "name": "dingganren_165 头痛",
+      "herbs": [
+        "菊花",
+        "丹皮",
+        "薄荷",
+        "白芍",
+        "生地"
+      ]
     },
     {
       "case_id": "dingganren_166",
@@ -2764,7 +3758,15 @@
       "entry_id": "dingganren_166",
       "entry_type": "dingganren_case",
       "rag_key": "眩晕",
-      "name": "dingganren_166 眩晕"
+      "name": "dingganren_166 眩晕",
+      "herbs": [
+        "天麻",
+        "竹茹",
+        "白芍",
+        "枳实",
+        "半夏",
+        "陈皮"
+      ]
     },
     {
       "case_id": "dingganren_167",
@@ -2781,7 +3783,16 @@
       "entry_id": "dingganren_167",
       "entry_type": "dingganren_case",
       "rag_key": "调经",
-      "name": "dingganren_167 调经"
+      "name": "dingganren_167 调经",
+      "herbs": [
+        "丹参",
+        "白芍",
+        "柴胡",
+        "当归",
+        "远志",
+        "贝母",
+        "阿胶"
+      ]
     },
     {
       "case_id": "dingganren_168",
@@ -2798,7 +3809,14 @@
       "entry_id": "dingganren_168",
       "entry_type": "dingganren_case",
       "rag_key": "霍乱",
-      "name": "dingganren_168 霍乱"
+      "name": "dingganren_168 霍乱",
+      "herbs": [
+        "木瓜",
+        "附子",
+        "干姜",
+        "半夏",
+        "陈皮"
+      ]
     },
     {
       "case_id": "dingganren_169",
@@ -2815,7 +3833,13 @@
       "entry_id": "dingganren_169",
       "entry_type": "dingganren_case",
       "rag_key": "霍乱",
-      "name": "dingganren_169 霍乱"
+      "name": "dingganren_169 霍乱",
+      "herbs": [
+        "白术",
+        "附子",
+        "干姜",
+        "半夏"
+      ]
     },
     {
       "case_id": "dingganren_170",
@@ -2832,7 +3856,16 @@
       "entry_id": "dingganren_170",
       "entry_type": "dingganren_case",
       "rag_key": "霍乱",
-      "name": "dingganren_170 霍乱"
+      "name": "dingganren_170 霍乱",
+      "herbs": [
+        "神曲",
+        "黄芩",
+        "猪苓",
+        "白芍",
+        "枳实",
+        "半夏",
+        "藿香"
+      ]
     },
     {
       "case_id": "dingganren_171",
@@ -2849,7 +3882,15 @@
       "entry_id": "dingganren_171",
       "entry_type": "dingganren_case",
       "rag_key": "霍乱",
-      "name": "dingganren_171 霍乱"
+      "name": "dingganren_171 霍乱",
+      "herbs": [
+        "白蔻仁",
+        "神曲",
+        "生姜",
+        "猪苓",
+        "枳实",
+        "半夏"
+      ]
     },
     {
       "case_id": "dingganren_172",
@@ -2866,7 +3907,16 @@
       "entry_id": "dingganren_172",
       "entry_type": "dingganren_case",
       "rag_key": "外科",
-      "name": "dingganren_172 外科"
+      "name": "dingganren_172 外科",
+      "herbs": [
+        "鹿角霜",
+        "丹参",
+        "赤芍",
+        "黄芪",
+        "当归",
+        "远志",
+        "贝母"
+      ]
     },
     {
       "case_id": "dingganren_173",
@@ -2883,7 +3933,16 @@
       "entry_id": "dingganren_173",
       "entry_type": "dingganren_case",
       "rag_key": "外科",
-      "name": "dingganren_173 外科"
+      "name": "dingganren_173 外科",
+      "herbs": [
+        "防风",
+        "桔梗",
+        "羌活",
+        "黄芪",
+        "半夏",
+        "贝母",
+        "川芎"
+      ]
     },
     {
       "case_id": "dingganren_174",
@@ -2900,7 +3959,14 @@
       "entry_id": "dingganren_174",
       "entry_type": "dingganren_case",
       "rag_key": "外科",
-      "name": "dingganren_174 外科"
+      "name": "dingganren_174 外科",
+      "herbs": [
+        "琥珀",
+        "赤芍",
+        "柴胡",
+        "当归",
+        "远志"
+      ]
     },
     {
       "case_id": "dingganren_175",
@@ -2917,7 +3983,15 @@
       "entry_id": "dingganren_175",
       "entry_type": "dingganren_case",
       "rag_key": "外科",
-      "name": "dingganren_175 外科"
+      "name": "dingganren_175 外科",
+      "herbs": [
+        "鹿角霜",
+        "桂心",
+        "炮姜",
+        "生姜",
+        "熟地",
+        "麻黄"
+      ]
     },
     {
       "case_id": "dingganren_176",
@@ -2934,7 +4008,18 @@
       "entry_id": "dingganren_176",
       "entry_type": "dingganren_case",
       "rag_key": "外科",
-      "name": "dingganren_176 外科"
+      "name": "dingganren_176 外科",
+      "herbs": [
+        "荆芥穗",
+        "板蓝根",
+        "黄芩",
+        "甘草",
+        "连翘",
+        "马勃",
+        "柴胡",
+        "防风",
+        "桔梗"
+      ]
     },
     {
       "case_id": "dingganren_177",
@@ -2951,7 +4036,19 @@
       "entry_id": "dingganren_177",
       "entry_type": "dingganren_case",
       "rag_key": "外科",
-      "name": "dingganren_177 外科"
+      "name": "dingganren_177 外科",
+      "herbs": [
+        "板蓝根",
+        "黄芩",
+        "甘草",
+        "升麻",
+        "薄荷",
+        "马勃",
+        "柴胡",
+        "防风",
+        "桔梗",
+        "贝母"
+      ]
     },
     {
       "case_id": "dingganren_178",
@@ -2968,7 +4065,17 @@
       "entry_id": "dingganren_178",
       "entry_type": "dingganren_case",
       "rag_key": "外科",
-      "name": "dingganren_178 外科"
+      "name": "dingganren_178 外科",
+      "herbs": [
+        "石菖蒲",
+        "鹿角胶",
+        "丹参",
+        "谷芽",
+        "黄芪",
+        "当归",
+        "半夏",
+        "贝母"
+      ]
     },
     {
       "case_id": "dingganren_179",
@@ -2985,7 +4092,19 @@
       "entry_id": "dingganren_179",
       "entry_type": "dingganren_case",
       "rag_key": "外科",
-      "name": "dingganren_179 外科"
+      "name": "dingganren_179 外科",
+      "herbs": [
+        "枇杷叶",
+        "竹茹",
+        "白芍",
+        "谷芽",
+        "生地",
+        "麦冬",
+        "牡蛎",
+        "贝母",
+        "阿胶",
+        "栝蒌"
+      ]
     },
     {
       "case_id": "dingganren_180",
@@ -3002,7 +4121,19 @@
       "entry_id": "dingganren_180",
       "entry_type": "dingganren_case",
       "rag_key": "外科",
-      "name": "dingganren_180 外科"
+      "name": "dingganren_180 外科",
+      "herbs": [
+        "丹参",
+        "薄荷",
+        "赤芍",
+        "香附",
+        "柴胡",
+        "桔梗",
+        "当归",
+        "陈皮",
+        "贝母",
+        "栝蒌"
+      ]
     },
     {
       "case_id": "dingganren_181",
@@ -3019,7 +4150,18 @@
       "entry_id": "dingganren_181",
       "entry_type": "dingganren_case",
       "rag_key": "外科",
-      "name": "dingganren_181 外科"
+      "name": "dingganren_181 外科",
+      "herbs": [
+        "荆芥穗",
+        "板蓝根",
+        "薄荷",
+        "赤芍",
+        "连翘",
+        "竹茹",
+        "枳壳",
+        "桔梗",
+        "贝母"
+      ]
     }
   ],
   "asset_type": "case_library",

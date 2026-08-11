@@ -31,7 +31,10 @@
       "entry_id": "zhc_001",
       "entry_type": "zuihuachuang_case",
       "rag_key": "目疾",
-      "name": "zhc_001 阴热目痛"
+      "name": "zhc_001 阴热目痛",
+      "herbs": [
+        "生地"
+      ]
     },
     {
       "case_id": "zhc_002",
@@ -48,7 +51,12 @@
       "entry_id": "zhc_002",
       "entry_type": "zuihuachuang_case",
       "rag_key": "中风",
-      "name": "zhc_002 中风臂痛"
+      "name": "zhc_002 中风臂痛",
+      "herbs": [
+        "威灵仙",
+        "羌活",
+        "苍术"
+      ]
     },
     {
       "case_id": "zhc_003",
@@ -82,7 +90,11 @@
       "entry_id": "zhc_004",
       "entry_type": "zuihuachuang_case",
       "rag_key": "发热",
-      "name": "zhc_004 阴虚发热"
+      "name": "zhc_004 阴虚发热",
+      "herbs": [
+        "蝉蜕",
+        "生地"
+      ]
     },
     {
       "case_id": "zhc_005",
@@ -99,7 +111,14 @@
       "entry_id": "zhc_005",
       "entry_type": "zuihuachuang_case",
       "rag_key": "痢疾",
-      "name": "zhc_005 食积致痢"
+      "name": "zhc_005 食积致痢",
+      "herbs": [
+        "神曲",
+        "麦芽"
+      ],
+      "formulas_referenced": [
+        "平胃散"
+      ]
     },
     {
       "case_id": "zhc_006",
@@ -133,7 +152,13 @@
       "entry_id": "zhc_007",
       "entry_type": "zuihuachuang_case",
       "rag_key": "月经",
-      "name": "zhc_007 肝热郁血"
+      "name": "zhc_007 肝热郁血",
+      "herbs": [
+        "乌药"
+      ],
+      "formulas_referenced": [
+        "逍遥散"
+      ]
     },
     {
       "case_id": "zhc_008",
@@ -150,7 +175,14 @@
       "entry_id": "zhc_008",
       "entry_type": "zuihuachuang_case",
       "rag_key": "痹痛",
-      "name": "zhc_008 寒湿关节痛"
+      "name": "zhc_008 寒湿关节痛",
+      "herbs": [
+        "羌活",
+        "牛膝"
+      ],
+      "formulas_referenced": [
+        "理中汤"
+      ]
     },
     {
       "case_id": "zhc_009",
@@ -218,7 +250,10 @@
       "entry_id": "zhc_014",
       "entry_type": "zuihuachuang_case",
       "rag_key": "痧证",
-      "name": "zhc_014 红痧昏绝"
+      "name": "zhc_014 红痧昏绝",
+      "herbs": [
+        "麦芽"
+      ]
     },
     {
       "case_id": "zhc_015",
@@ -235,7 +270,10 @@
       "entry_id": "zhc_015",
       "entry_type": "zuihuachuang_case",
       "rag_key": "霍乱",
-      "name": "zhc_015 霍乱西瓜"
+      "name": "zhc_015 霍乱西瓜",
+      "herbs": [
+        "藿香"
+      ]
     },
     {
       "case_id": "zhc_016",
@@ -252,7 +290,10 @@
       "entry_id": "zhc_016",
       "entry_type": "zuihuachuang_case",
       "rag_key": "眩晕",
-      "name": "zhc_016 脾湿痰晕"
+      "name": "zhc_016 脾湿痰晕",
+      "herbs": [
+        "泽泻"
+      ]
     },
     {
       "case_id": "zhc_017",
@@ -269,7 +310,17 @@
       "entry_id": "zhc_017",
       "entry_type": "zuihuachuang_case",
       "rag_key": "疟疾",
-      "name": "zhc_017 寒疟误治"
+      "name": "zhc_017 寒疟误治",
+      "herbs": [
+        "白芍",
+        "附子",
+        "肉桂"
+      ],
+      "formulas_referenced": [
+        "补中益气汤",
+        "附子理中汤",
+        "理中汤"
+      ]
     },
     {
       "case_id": "zhc_018",
@@ -286,7 +337,16 @@
       "entry_id": "zhc_018",
       "entry_type": "zuihuachuang_case",
       "rag_key": "伤寒",
-      "name": "zhc_018 酒肉感寒"
+      "name": "zhc_018 酒肉感寒",
+      "herbs": [
+        "神曲",
+        "山楂",
+        "枳实",
+        "麦芽"
+      ],
+      "formulas_referenced": [
+        "二陈汤"
+      ]
     },
     {
       "case_id": "zhc_019",
@@ -320,7 +380,10 @@
       "entry_id": "zhc_020",
       "entry_type": "zuihuachuang_case",
       "rag_key": "中暑",
-      "name": "zhc_020 过劳中暑"
+      "name": "zhc_020 过劳中暑",
+      "formulas_referenced": [
+        "香薷饮"
+      ]
     },
     {
       "case_id": "zhc_021",
@@ -337,7 +400,14 @@
       "entry_id": "zhc_021",
       "entry_type": "zuihuachuang_case",
       "rag_key": "痘疹",
-      "name": "zhc_021 痘疹回阳"
+      "name": "zhc_021 痘疹回阳",
+      "herbs": [
+        "甘草",
+        "炮姜",
+        "附子",
+        "当归",
+        "肉桂"
+      ]
     },
     {
       "case_id": "zhc_022",
@@ -354,7 +424,10 @@
       "entry_id": "zhc_022",
       "entry_type": "zuihuachuang_case",
       "rag_key": "痔疮",
-      "name": "zhc_022 痔疮误补"
+      "name": "zhc_022 痔疮误补",
+      "herbs": [
+        "槐花"
+      ]
     },
     {
       "case_id": "zhc_023",
@@ -371,7 +444,10 @@
       "entry_id": "zhc_023",
       "entry_type": "zuihuachuang_case",
       "rag_key": "血症",
-      "name": "zhc_023 肝郁呕血"
+      "name": "zhc_023 肝郁呕血",
+      "formulas_referenced": [
+        "逍遥散"
+      ]
     },
     {
       "case_id": "zhc_024",
@@ -388,7 +464,12 @@
       "entry_id": "zhc_024",
       "entry_type": "zuihuachuang_case",
       "rag_key": "外感",
-      "name": "zhc_024 外感风热"
+      "name": "zhc_024 外感风热",
+      "herbs": [
+        "防风",
+        "桂枝",
+        "麻黄"
+      ]
     },
     {
       "case_id": "zhc_025",
@@ -405,7 +486,10 @@
       "entry_id": "zhc_025",
       "entry_type": "zuihuachuang_case",
       "rag_key": "食积",
-      "name": "zhc_025 饮食伤胃"
+      "name": "zhc_025 饮食伤胃",
+      "herbs": [
+        "槟榔"
+      ]
     },
     {
       "case_id": "zhc_026",
@@ -439,7 +523,10 @@
       "entry_id": "zhc_027",
       "entry_type": "zuihuachuang_case",
       "rag_key": "泄泻",
-      "name": "zhc_027 水泻误提"
+      "name": "zhc_027 水泻误提",
+      "formulas_referenced": [
+        "平胃散"
+      ]
     },
     {
       "case_id": "zhc_028",
@@ -490,7 +577,14 @@
       "entry_id": "zhc_030",
       "entry_type": "zuihuachuang_case",
       "rag_key": "疟疾",
-      "name": "zhc_030 积热伤风疟"
+      "name": "zhc_030 积热伤风疟",
+      "herbs": [
+        "桂枝",
+        "麻黄"
+      ],
+      "formulas_referenced": [
+        "白虎汤"
+      ]
     },
     {
       "case_id": "zhc_031",
@@ -507,7 +601,10 @@
       "entry_id": "zhc_031",
       "entry_type": "zuihuachuang_case",
       "rag_key": "阴疽",
-      "name": "zhc_031 阴疽托毒"
+      "name": "zhc_031 阴疽托毒",
+      "formulas_referenced": [
+        "补中益气汤"
+      ]
     },
     {
       "case_id": "zhc_032",
@@ -524,7 +621,10 @@
       "entry_id": "zhc_032",
       "entry_type": "zuihuachuang_case",
       "rag_key": "风痰",
-      "name": "zhc_032 风痰昏乱"
+      "name": "zhc_032 风痰昏乱",
+      "formulas_referenced": [
+        "至宝丹"
+      ]
     },
     {
       "case_id": "zhc_033",
@@ -541,7 +641,10 @@
       "entry_id": "zhc_033",
       "entry_type": "zuihuachuang_case",
       "rag_key": "肝郁",
-      "name": "zhc_033 肝郁气逆"
+      "name": "zhc_033 肝郁气逆",
+      "herbs": [
+        "苏子"
+      ]
     },
     {
       "case_id": "zhc_035",
@@ -558,7 +661,10 @@
       "entry_id": "zhc_035",
       "entry_type": "zuihuachuang_case",
       "rag_key": "发颐",
-      "name": "zhc_035 发颐"
+      "name": "zhc_035 发颐",
+      "herbs": [
+        "连翘"
+      ]
     },
     {
       "case_id": "zhc_036",
@@ -575,7 +681,11 @@
       "entry_id": "zhc_036",
       "entry_type": "zuihuachuang_case",
       "rag_key": "脾胃",
-      "name": "zhc_036 胃热脾寒"
+      "name": "zhc_036 胃热脾寒",
+      "formulas_referenced": [
+        "调胃承气汤",
+        "理中汤"
+      ]
     },
     {
       "case_id": "zhc_037",
@@ -592,7 +702,14 @@
       "entry_id": "zhc_037",
       "entry_type": "zuihuachuang_case",
       "rag_key": "痰饮",
-      "name": "zhc_037 痰扰心包"
+      "name": "zhc_037 痰扰心包",
+      "herbs": [
+        "人参",
+        "莲子"
+      ],
+      "formulas_referenced": [
+        "归脾汤"
+      ]
     },
     {
       "case_id": "zhc_038",
@@ -609,7 +726,14 @@
       "entry_id": "zhc_038",
       "entry_type": "zuihuachuang_case",
       "rag_key": "气郁",
-      "name": "zhc_038 气郁喘嗽"
+      "name": "zhc_038 气郁喘嗽",
+      "herbs": [
+        "青皮",
+        "木香"
+      ],
+      "formulas_referenced": [
+        "逍遥散"
+      ]
     },
     {
       "case_id": "zhc_039",
@@ -626,7 +750,11 @@
       "entry_id": "zhc_039",
       "entry_type": "zuihuachuang_case",
       "rag_key": "不寐",
-      "name": "zhc_039 劳倦不寐"
+      "name": "zhc_039 劳倦不寐",
+      "herbs": [
+        "生地",
+        "桔梗"
+      ]
     },
     {
       "case_id": "zhc_040",
@@ -643,7 +771,10 @@
       "entry_id": "zhc_040",
       "entry_type": "zuihuachuang_case",
       "rag_key": "气郁",
-      "name": "zhc_040 气郁吐逆"
+      "name": "zhc_040 气郁吐逆",
+      "herbs": [
+        "生姜"
+      ]
     },
     {
       "case_id": "zhc_041",
@@ -660,7 +791,10 @@
       "entry_id": "zhc_041",
       "entry_type": "zuihuachuang_case",
       "rag_key": "腹痛",
-      "name": "zhc_041 阴虚腹痛"
+      "name": "zhc_041 阴虚腹痛",
+      "herbs": [
+        "肉桂"
+      ]
     },
     {
       "case_id": "zhc_042",
@@ -677,7 +811,10 @@
       "entry_id": "zhc_042",
       "entry_type": "zuihuachuang_case",
       "rag_key": "肝郁",
-      "name": "zhc_042 肝郁土败"
+      "name": "zhc_042 肝郁土败",
+      "formulas_referenced": [
+        "逍遥散"
+      ]
     },
     {
       "case_id": "zhc_043",
@@ -694,7 +831,10 @@
       "entry_id": "zhc_043",
       "entry_type": "zuihuachuang_case",
       "rag_key": "产后",
-      "name": "zhc_043 产后气虚"
+      "name": "zhc_043 产后气虚",
+      "formulas_referenced": [
+        "补中益气汤"
+      ]
     },
     {
       "case_id": "zhc_044",
@@ -745,7 +885,14 @@
       "entry_id": "zhc_046",
       "entry_type": "zuihuachuang_case",
       "rag_key": "崩漏",
-      "name": "zhc_046 年老血崩"
+      "name": "zhc_046 年老血崩",
+      "herbs": [
+        "甘草",
+        "炮姜",
+        "附子",
+        "当归",
+        "肉桂"
+      ]
     },
     {
       "case_id": "zhc_047",
@@ -762,7 +909,13 @@
       "entry_id": "zhc_047",
       "entry_type": "zuihuachuang_case",
       "rag_key": "霍乱",
-      "name": "zhc_047 霍乱转筋"
+      "name": "zhc_047 霍乱转筋",
+      "herbs": [
+        "藿香"
+      ],
+      "formulas_referenced": [
+        "藿香正气散"
+      ]
     },
     {
       "case_id": "zhc_048",
@@ -779,7 +932,13 @@
       "entry_id": "zhc_048",
       "entry_type": "zuihuachuang_case",
       "rag_key": "疟疾",
-      "name": "zhc_048 热疟"
+      "name": "zhc_048 热疟",
+      "herbs": [
+        "石膏"
+      ],
+      "formulas_referenced": [
+        "白虎汤"
+      ]
     },
     {
       "case_id": "zhc_049",
@@ -796,7 +955,10 @@
       "entry_id": "zhc_049",
       "entry_type": "zuihuachuang_case",
       "rag_key": "肝郁",
-      "name": "zhc_049 脾虚肝郁"
+      "name": "zhc_049 脾虚肝郁",
+      "formulas_referenced": [
+        "逍遥散"
+      ]
     },
     {
       "case_id": "zhc_050",
@@ -813,7 +975,11 @@
       "entry_id": "zhc_050",
       "entry_type": "zuihuachuang_case",
       "rag_key": "食积",
-      "name": "zhc_050 食积腹痛"
+      "name": "zhc_050 食积腹痛",
+      "herbs": [
+        "槟榔",
+        "麦芽"
+      ]
     },
     {
       "case_id": "zhc_051",
@@ -830,7 +996,13 @@
       "entry_id": "zhc_051",
       "entry_type": "zuihuachuang_case",
       "rag_key": "月经",
-      "name": "zhc_051 胃热血结"
+      "name": "zhc_051 胃热血结",
+      "herbs": [
+        "连翘"
+      ],
+      "formulas_referenced": [
+        "四物汤"
+      ]
     },
     {
       "case_id": "zhc_052",
@@ -847,7 +1019,11 @@
       "entry_id": "zhc_052",
       "entry_type": "zuihuachuang_case",
       "rag_key": "咳嗽",
-      "name": "zhc_052 痰火郁肺"
+      "name": "zhc_052 痰火郁肺",
+      "herbs": [
+        "木通",
+        "枳实"
+      ]
     },
     {
       "case_id": "zhc_053",
@@ -915,7 +1091,10 @@
       "entry_id": "zhc_059",
       "entry_type": "zuihuachuang_case",
       "rag_key": "肝郁",
-      "name": "zhc_059 血虚肝郁"
+      "name": "zhc_059 血虚肝郁",
+      "herbs": [
+        "薄荷"
+      ]
     },
     {
       "case_id": "zhc_060",
@@ -932,7 +1111,10 @@
       "entry_id": "zhc_060",
       "entry_type": "zuihuachuang_case",
       "rag_key": "痢疾",
-      "name": "zhc_060 实证似虚"
+      "name": "zhc_060 实证似虚",
+      "formulas_referenced": [
+        "大承气汤"
+      ]
     },
     {
       "case_id": "zhc_061",
@@ -949,7 +1131,10 @@
       "entry_id": "zhc_061",
       "entry_type": "zuihuachuang_case",
       "rag_key": "崩漏",
-      "name": "zhc_061 脾虚血崩"
+      "name": "zhc_061 脾虚血崩",
+      "formulas_referenced": [
+        "补中益气汤"
+      ]
     },
     {
       "case_id": "zhc_062",
@@ -966,7 +1151,13 @@
       "entry_id": "zhc_062",
       "entry_type": "zuihuachuang_case",
       "rag_key": "经闭",
-      "name": "zhc_062 食积经闭"
+      "name": "zhc_062 食积经闭",
+      "herbs": [
+        "乌药"
+      ],
+      "formulas_referenced": [
+        "平胃散"
+      ]
     },
     {
       "case_id": "zhc_063",
@@ -983,7 +1174,10 @@
       "entry_id": "zhc_063",
       "entry_type": "zuihuachuang_case",
       "rag_key": "经闭",
-      "name": "zhc_063 气滞经闭"
+      "name": "zhc_063 气滞经闭",
+      "herbs": [
+        "琥珀"
+      ]
     },
     {
       "case_id": "zhc_064",
@@ -1051,7 +1245,10 @@
       "entry_id": "zhc_067",
       "entry_type": "zuihuachuang_case",
       "rag_key": "气郁",
-      "name": "zhc_067 气郁成痰"
+      "name": "zhc_067 气郁成痰",
+      "herbs": [
+        "枳实"
+      ]
     },
     {
       "case_id": "zhc_068",
@@ -1068,7 +1265,11 @@
       "entry_id": "zhc_068",
       "entry_type": "zuihuachuang_case",
       "rag_key": "水积",
-      "name": "zhc_068 水积吐食"
+      "name": "zhc_068 水积吐食",
+      "herbs": [
+        "木通",
+        "苍术"
+      ]
     },
     {
       "case_id": "zhc_069",

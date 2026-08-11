@@ -31,7 +31,14 @@
       "entry_id": "xx_001",
       "entry_type": "xingxuan_case",
       "rag_key": "产后",
-      "name": "xx_001 产后感邪清下"
+      "name": "xx_001 产后感邪清下",
+      "herbs": [
+        "柴胡"
+      ],
+      "formulas_referenced": [
+        "白虎汤",
+        "玉女煎"
+      ]
     },
     {
       "case_id": "xx_002",
@@ -48,7 +55,11 @@
       "entry_id": "xx_002",
       "entry_type": "xingxuan_case",
       "rag_key": "虚损",
-      "name": "xx_002 先天不足"
+      "name": "xx_002 先天不足",
+      "formulas_referenced": [
+        "归脾汤",
+        "生脉散"
+      ]
     },
     {
       "case_id": "xx_003",
@@ -65,7 +76,10 @@
       "entry_id": "xx_003",
       "entry_type": "xingxuan_case",
       "rag_key": "大头时疫",
-      "name": "xx_003 大头时疫"
+      "name": "xx_003 大头时疫",
+      "herbs": [
+        "黄连"
+      ]
     },
     {
       "case_id": "xx_004",
@@ -99,7 +113,13 @@
       "entry_id": "xx_005",
       "entry_type": "xingxuan_case",
       "rag_key": "胎产",
-      "name": "xx_005 半产血晕"
+      "name": "xx_005 半产血晕",
+      "herbs": [
+        "枸杞"
+      ],
+      "formulas_referenced": [
+        "归脾汤"
+      ]
     },
     {
       "case_id": "xx_014",
@@ -116,7 +136,10 @@
       "entry_id": "xx_014",
       "entry_type": "xingxuan_case",
       "rag_key": "便闭",
-      "name": "xx_014 偏中便闭"
+      "name": "xx_014 偏中便闭",
+      "formulas_referenced": [
+        "补中益气汤"
+      ]
     },
     {
       "case_id": "xx_015",
@@ -133,7 +156,14 @@
       "entry_id": "xx_015",
       "entry_type": "xingxuan_case",
       "rag_key": "伤暑",
-      "name": "xx_015 伤暑津伤"
+      "name": "xx_015 伤暑津伤",
+      "herbs": [
+        "白术",
+        "木瓜"
+      ],
+      "formulas_referenced": [
+        "六君子汤"
+      ]
     },
     {
       "case_id": "xx_020",
@@ -167,7 +197,10 @@
       "entry_id": "xx_006",
       "entry_type": "xingxuan_case",
       "rag_key": "中风",
-      "name": "xx_006 中脏再生"
+      "name": "xx_006 中脏再生",
+      "herbs": [
+        "鹿茸"
+      ]
     },
     {
       "case_id": "xx_007",
@@ -184,7 +217,17 @@
       "entry_id": "xx_007",
       "entry_type": "xingxuan_case",
       "rag_key": "遗精",
-      "name": "xx_007 滑精"
+      "name": "xx_007 滑精",
+      "herbs": [
+        "桑螵蛸",
+        "茯苓",
+        "芡实",
+        "麦冬",
+        "牡蛎",
+        "远志",
+        "龙骨",
+        "泽泻"
+      ]
     },
     {
       "case_id": "xx_008",
@@ -201,7 +244,15 @@
       "entry_id": "xx_008",
       "entry_type": "xingxuan_case",
       "rag_key": "蓄瘀",
-      "name": "xx_008 蓄瘀脱血"
+      "name": "xx_008 蓄瘀脱血",
+      "herbs": [
+        "丹参",
+        "白术"
+      ],
+      "formulas_referenced": [
+        "参苓白术散",
+        "归脾汤"
+      ]
     },
     {
       "case_id": "xx_009",
@@ -218,7 +269,11 @@
       "entry_id": "xx_009",
       "entry_type": "xingxuan_case",
       "rag_key": "血症",
-      "name": "xx_009 攻痞动血"
+      "name": "xx_009 攻痞动血",
+      "formulas_referenced": [
+        "归脾汤",
+        "八珍汤"
+      ]
     },
     {
       "case_id": "xx_010",
@@ -235,7 +290,11 @@
       "entry_id": "xx_010",
       "entry_type": "xingxuan_case",
       "rag_key": "暑病",
-      "name": "xx_010 暑病伤阴"
+      "name": "xx_010 暑病伤阴",
+      "herbs": [
+        "茯苓",
+        "麦冬"
+      ]
     },
     {
       "case_id": "xx_011",
@@ -269,7 +328,11 @@
       "entry_id": "xx_012",
       "entry_type": "xingxuan_case",
       "rag_key": "虚劳",
-      "name": "xx_012 心脾内亏"
+      "name": "xx_012 心脾内亏",
+      "formulas_referenced": [
+        "归脾汤",
+        "生脉散"
+      ]
     },
     {
       "case_id": "xx_013",
@@ -303,7 +366,10 @@
       "entry_id": "xx_153",
       "entry_type": "xingxuan_case",
       "rag_key": "中风",
-      "name": "xx_153 中脏再生"
+      "name": "xx_153 中脏再生",
+      "herbs": [
+        "鹿茸"
+      ]
     },
     {
       "case_id": "xx_154",
@@ -320,7 +386,21 @@
       "entry_id": "xx_154",
       "entry_type": "xingxuan_case",
       "rag_key": "遗精",
-      "name": "xx_154 滑精固涩"
+      "name": "xx_154 滑精固涩",
+      "herbs": [
+        "桑螵蛸",
+        "白术",
+        "茯苓",
+        "芡实",
+        "麦冬",
+        "牡蛎",
+        "远志",
+        "龙骨",
+        "泽泻"
+      ],
+      "formulas_referenced": [
+        "参苓白术散"
+      ]
     },
     {
       "case_id": "xx_016",
@@ -337,7 +417,11 @@
       "entry_id": "xx_016",
       "entry_type": "xingxuan_case",
       "rag_key": "儿科",
-      "name": "xx_016 疟后熄风"
+      "name": "xx_016 疟后熄风",
+      "herbs": [
+        "钩藤",
+        "甘草"
+      ]
     },
     {
       "case_id": "xx_018",
@@ -354,7 +438,17 @@
       "entry_id": "xx_018",
       "entry_type": "xingxuan_case",
       "rag_key": "儿科",
-      "name": "xx_018 暑风急惊"
+      "name": "xx_018 暑风急惊",
+      "herbs": [
+        "钩藤",
+        "甘草",
+        "连翘",
+        "石膏",
+        "柴胡",
+        "防风",
+        "菖蒲",
+        "木通"
+      ]
     },
     {
       "case_id": "xx_019",
@@ -371,7 +465,10 @@
       "entry_id": "xx_019",
       "entry_type": "xingxuan_case",
       "rag_key": "温疫",
-      "name": "xx_019 大头时疫"
+      "name": "xx_019 大头时疫",
+      "herbs": [
+        "黄连"
+      ]
     },
     {
       "case_id": "xx_155",
@@ -388,7 +485,12 @@
       "entry_id": "xx_155",
       "entry_type": "xingxuan_case",
       "rag_key": "子嗽",
-      "name": "xx_155 子嗽安胎"
+      "name": "xx_155 子嗽安胎",
+      "herbs": [
+        "甘草",
+        "杏仁",
+        "阿胶"
+      ]
     },
     {
       "case_id": "xx_021",
@@ -405,7 +507,15 @@
       "entry_id": "xx_021",
       "entry_type": "xingxuan_case",
       "rag_key": "伤寒",
-      "name": "xx_021 挟虚伤寒"
+      "name": "xx_021 挟虚伤寒",
+      "herbs": [
+        "山药",
+        "杜仲",
+        "附子"
+      ],
+      "formulas_referenced": [
+        "补中益气汤"
+      ]
     },
     {
       "case_id": "xx_022",
@@ -439,7 +549,10 @@
       "entry_id": "xx_024",
       "entry_type": "xingxuan_case",
       "rag_key": "食复",
-      "name": "xx_024 食复"
+      "name": "xx_024 食复",
+      "herbs": [
+        "枳实"
+      ]
     },
     {
       "case_id": "xx_025",
@@ -456,7 +569,10 @@
       "entry_id": "xx_025",
       "entry_type": "xingxuan_case",
       "rag_key": "温病",
-      "name": "xx_025 春温两感"
+      "name": "xx_025 春温两感",
+      "formulas_referenced": [
+        "左归饮"
+      ]
     },
     {
       "case_id": "xx_026",
@@ -490,7 +606,13 @@
       "entry_id": "xx_027",
       "entry_type": "xingxuan_case",
       "rag_key": "儿科",
-      "name": "xx_027 胎疟温补"
+      "name": "xx_027 胎疟温补",
+      "herbs": [
+        "炮姜"
+      ],
+      "formulas_referenced": [
+        "六君子汤"
+      ]
     },
     {
       "case_id": "xx_028",
@@ -507,7 +629,14 @@
       "entry_id": "xx_028",
       "entry_type": "xingxuan_case",
       "rag_key": "脱阳",
-      "name": "xx_028 中寒脱阳"
+      "name": "xx_028 中寒脱阳",
+      "herbs": [
+        "附子"
+      ],
+      "formulas_referenced": [
+        "右归饮",
+        "理中汤"
+      ]
     },
     {
       "case_id": "xx_030",
@@ -524,7 +653,15 @@
       "entry_id": "xx_030",
       "entry_type": "xingxuan_case",
       "rag_key": "血症",
-      "name": "xx_030 蓄瘀脱血"
+      "name": "xx_030 蓄瘀脱血",
+      "herbs": [
+        "丹参",
+        "白术"
+      ],
+      "formulas_referenced": [
+        "参苓白术散",
+        "归脾汤"
+      ]
     },
     {
       "case_id": "xx_031",
@@ -541,7 +678,11 @@
       "entry_id": "xx_031",
       "entry_type": "xingxuan_case",
       "rag_key": "血症",
-      "name": "xx_031 攻痞动血"
+      "name": "xx_031 攻痞动血",
+      "formulas_referenced": [
+        "归脾汤",
+        "八珍汤"
+      ]
     },
     {
       "case_id": "xx_032",
@@ -558,7 +699,12 @@
       "entry_id": "xx_032",
       "entry_type": "xingxuan_case",
       "rag_key": "暑病",
-      "name": "xx_032 暑病伤阴"
+      "name": "xx_032 暑病伤阴",
+      "herbs": [
+        "丹皮",
+        "茯苓",
+        "麦冬"
+      ]
     },
     {
       "case_id": "xx_033",
@@ -575,7 +721,10 @@
       "entry_id": "xx_033",
       "entry_type": "xingxuan_case",
       "rag_key": "郁证",
-      "name": "xx_033 肝郁外感"
+      "name": "xx_033 肝郁外感",
+      "formulas_referenced": [
+        "逍遥散"
+      ]
     },
     {
       "case_id": "xx_034",
@@ -592,7 +741,11 @@
       "entry_id": "xx_034",
       "entry_type": "xingxuan_case",
       "rag_key": "脚气",
-      "name": "xx_034 干脚气"
+      "name": "xx_034 干脚气",
+      "herbs": [
+        "鹿角胶",
+        "附子"
+      ]
     },
     {
       "case_id": "xx_036",
@@ -660,7 +813,16 @@
       "entry_id": "xx_039",
       "entry_type": "xingxuan_case",
       "rag_key": "疟疾",
-      "name": "xx_039 阴疟误截"
+      "name": "xx_039 阴疟误截",
+      "herbs": [
+        "熟地",
+        "当归"
+      ],
+      "formulas_referenced": [
+        "补中益气汤",
+        "香薷饮",
+        "八味丸"
+      ]
     },
     {
       "case_id": "xx_040",
@@ -694,7 +856,13 @@
       "entry_id": "xx_042",
       "entry_type": "xingxuan_case",
       "rag_key": "产后",
-      "name": "xx_042 半产血晕"
+      "name": "xx_042 半产血晕",
+      "herbs": [
+        "枸杞"
+      ],
+      "formulas_referenced": [
+        "归脾汤"
+      ]
     },
     {
       "case_id": "xx_043",
@@ -711,7 +879,14 @@
       "entry_id": "xx_043",
       "entry_type": "xingxuan_case",
       "rag_key": "暑病",
-      "name": "xx_043 伤暑津伤"
+      "name": "xx_043 伤暑津伤",
+      "herbs": [
+        "白术",
+        "木瓜"
+      ],
+      "formulas_referenced": [
+        "六君子汤"
+      ]
     },
     {
       "case_id": "xx_044",
@@ -728,7 +903,10 @@
       "entry_id": "xx_044",
       "entry_type": "xingxuan_case",
       "rag_key": "噎膈",
-      "name": "xx_044 类噎隔"
+      "name": "xx_044 类噎隔",
+      "formulas_referenced": [
+        "逍遥散"
+      ]
     },
     {
       "case_id": "xx_045",
@@ -745,7 +923,16 @@
       "entry_id": "xx_045",
       "entry_type": "xingxuan_case",
       "rag_key": "伤寒",
-      "name": "xx_045 挟阴伤寒"
+      "name": "xx_045 挟阴伤寒",
+      "herbs": [
+        "熟地",
+        "枸杞",
+        "附子",
+        "丁香"
+      ],
+      "formulas_referenced": [
+        "右归饮"
+      ]
     },
     {
       "case_id": "xx_046",
@@ -762,7 +949,10 @@
       "entry_id": "xx_046",
       "entry_type": "xingxuan_case",
       "rag_key": "便秘",
-      "name": "xx_046 虚闭寓攻"
+      "name": "xx_046 虚闭寓攻",
+      "formulas_referenced": [
+        "补中益气汤"
+      ]
     },
     {
       "case_id": "xx_048",
@@ -796,7 +986,19 @@
       "entry_id": "xx_049",
       "entry_type": "xingxuan_case",
       "rag_key": "暑风",
-      "name": "xx_049 暑风清解"
+      "name": "xx_049 暑风清解",
+      "herbs": [
+        "女贞子",
+        "羚羊角",
+        "钩藤",
+        "甘草",
+        "白芍",
+        "茯苓",
+        "防风",
+        "麦冬",
+        "当归",
+        "半夏"
+      ]
     },
     {
       "case_id": "xx_050",
@@ -813,7 +1015,20 @@
       "entry_id": "xx_050",
       "entry_type": "xingxuan_case",
       "rag_key": "郁证",
-      "name": "xx_050 肝郁气厥"
+      "name": "xx_050 肝郁气厥",
+      "herbs": [
+        "白术",
+        "香附",
+        "茯苓",
+        "枳壳",
+        "半夏",
+        "陈皮",
+        "郁金"
+      ],
+      "formulas_referenced": [
+        "越鞠丸",
+        "逍遥散"
+      ]
     },
     {
       "case_id": "xx_051",
@@ -830,7 +1045,18 @@
       "entry_id": "xx_051",
       "entry_type": "xingxuan_case",
       "rag_key": "伤寒",
-      "name": "xx_051 阳极似阴"
+      "name": "xx_051 阳极似阴",
+      "herbs": [
+        "丹皮",
+        "人参",
+        "柴胡",
+        "生地",
+        "半夏"
+      ],
+      "formulas_referenced": [
+        "小柴胡汤",
+        "甘露饮"
+      ]
     },
     {
       "case_id": "xx_052",
@@ -847,7 +1073,13 @@
       "entry_id": "xx_052",
       "entry_type": "xingxuan_case",
       "rag_key": "温病",
-      "name": "xx_052 误药致变"
+      "name": "xx_052 误药致变",
+      "herbs": [
+        "黄芩",
+        "丹皮",
+        "赤芍",
+        "生地"
+      ]
     },
     {
       "case_id": "xx_053",
@@ -864,7 +1096,10 @@
       "entry_id": "xx_053",
       "entry_type": "xingxuan_case",
       "rag_key": "痳疳",
-      "name": "xx_053 痳疳养阴"
+      "name": "xx_053 痳疳养阴",
+      "herbs": [
+        "阿胶"
+      ]
     },
     {
       "case_id": "xx_054",
@@ -881,7 +1116,13 @@
       "entry_id": "xx_054",
       "entry_type": "xingxuan_case",
       "rag_key": "痘证",
-      "name": "xx_054 痘证保元"
+      "name": "xx_054 痘证保元",
+      "herbs": [
+        "熟地",
+        "枸杞",
+        "鹿茸",
+        "当归"
+      ]
     },
     {
       "case_id": "xx_055",
@@ -915,7 +1156,15 @@
       "entry_id": "xx_056",
       "entry_type": "xingxuan_case",
       "rag_key": "伤寒",
-      "name": "xx_056 感证胃实"
+      "name": "xx_056 感证胃实",
+      "herbs": [
+        "银花",
+        "石膏"
+      ],
+      "formulas_referenced": [
+        "大承气汤",
+        "甘露饮"
+      ]
     },
     {
       "case_id": "xx_057",
@@ -932,7 +1181,14 @@
       "entry_id": "xx_057",
       "entry_type": "xingxuan_case",
       "rag_key": "热病",
-      "name": "xx_057 热病沸汤"
+      "name": "xx_057 热病沸汤",
+      "herbs": [
+        "竹茹",
+        "石膏"
+      ],
+      "formulas_referenced": [
+        "白虎汤"
+      ]
     },
     {
       "case_id": "xx_058",
@@ -949,7 +1205,14 @@
       "entry_id": "xx_058",
       "entry_type": "xingxuan_case",
       "rag_key": "阴暑",
-      "name": "xx_058 阴暑舍时"
+      "name": "xx_058 阴暑舍时",
+      "herbs": [
+        "附子"
+      ],
+      "formulas_referenced": [
+        "附子理中汤",
+        "理中汤"
+      ]
     },
     {
       "case_id": "xx_059",
@@ -966,7 +1229,16 @@
       "entry_id": "xx_059",
       "entry_type": "xingxuan_case",
       "rag_key": "温病",
-      "name": "xx_059 舌苔变易"
+      "name": "xx_059 舌苔变易",
+      "herbs": [
+        "黄芩",
+        "丹皮",
+        "竹茹",
+        "生地"
+      ],
+      "formulas_referenced": [
+        "白虎汤"
+      ]
     },
     {
       "case_id": "xx_060",
@@ -1000,7 +1272,10 @@
       "entry_id": "xx_061",
       "entry_type": "xingxuan_case",
       "rag_key": "伤寒",
-      "name": "xx_061 纯红舌"
+      "name": "xx_061 纯红舌",
+      "formulas_referenced": [
+        "理中汤"
+      ]
     },
     {
       "case_id": "xx_062",
@@ -1017,7 +1292,17 @@
       "entry_id": "xx_062",
       "entry_type": "xingxuan_case",
       "rag_key": "头痛",
-      "name": "xx_062 肝风头痛"
+      "name": "xx_062 肝风头痛",
+      "herbs": [
+        "钩藤",
+        "菊花",
+        "甘草",
+        "龟板",
+        "白芍",
+        "牡蛎",
+        "磁石",
+        "阿胶"
+      ]
     },
     {
       "case_id": "xx_063",
@@ -1051,7 +1336,10 @@
       "entry_id": "xx_064",
       "entry_type": "xingxuan_case",
       "rag_key": "目疾",
-      "name": "xx_064 目疾误治"
+      "name": "xx_064 目疾误治",
+      "formulas_referenced": [
+        "左归饮"
+      ]
     },
     {
       "case_id": "xx_065",
@@ -1068,7 +1356,10 @@
       "entry_id": "xx_065",
       "entry_type": "xingxuan_case",
       "rag_key": "脘痛",
-      "name": "xx_065 虚脘痛"
+      "name": "xx_065 虚脘痛",
+      "formulas_referenced": [
+        "归脾汤"
+      ]
     },
     {
       "case_id": "xx_066",
@@ -1119,7 +1410,12 @@
       "entry_id": "xx_068",
       "entry_type": "xingxuan_case",
       "rag_key": "衄血",
-      "name": "xx_068 鼻衄奇法"
+      "name": "xx_068 鼻衄奇法",
+      "herbs": [
+        "龟板",
+        "白芍",
+        "阿胶"
+      ]
     },
     {
       "case_id": "xx_069",
@@ -1136,7 +1432,14 @@
       "entry_id": "xx_069",
       "entry_type": "xingxuan_case",
       "rag_key": "妊娠",
-      "name": "xx_069 胎动下血"
+      "name": "xx_069 胎动下血",
+      "herbs": [
+        "黄芩",
+        "阿胶"
+      ],
+      "formulas_referenced": [
+        "补中益气汤"
+      ]
     },
     {
       "case_id": "xx_070",
@@ -1153,7 +1456,10 @@
       "entry_id": "xx_070",
       "entry_type": "xingxuan_case",
       "rag_key": "产后",
-      "name": "xx_070 胞衣误药"
+      "name": "xx_070 胞衣误药",
+      "formulas_referenced": [
+        "十全大补汤"
+      ]
     },
     {
       "case_id": "xx_071",
@@ -1170,7 +1476,10 @@
       "entry_id": "xx_071",
       "entry_type": "xingxuan_case",
       "rag_key": "血崩",
-      "name": "xx_071 老妇血崩"
+      "name": "xx_071 老妇血崩",
+      "formulas_referenced": [
+        "归脾汤"
+      ]
     },
     {
       "case_id": "xx_072",
@@ -1187,7 +1496,13 @@
       "entry_id": "xx_072",
       "entry_type": "xingxuan_case",
       "rag_key": "带下",
-      "name": "xx_072 幼女带下"
+      "name": "xx_072 幼女带下",
+      "herbs": [
+        "白术"
+      ],
+      "formulas_referenced": [
+        "参苓白术散"
+      ]
     },
     {
       "case_id": "xx_073",
@@ -1272,7 +1587,11 @@
       "entry_id": "xx_077",
       "entry_type": "xingxuan_case",
       "rag_key": "淋痛",
-      "name": "xx_077 忍精淋痛"
+      "name": "xx_077 忍精淋痛",
+      "herbs": [
+        "川楝子",
+        "牛膝"
+      ]
     },
     {
       "case_id": "xx_078",
@@ -1306,7 +1625,18 @@
       "entry_id": "xx_079",
       "entry_type": "xingxuan_case",
       "rag_key": "肺胀",
-      "name": "xx_079 风寒误补"
+      "name": "xx_079 风寒误补",
+      "herbs": [
+        "葶苈子",
+        "甘草",
+        "生姜",
+        "白芍",
+        "半夏",
+        "杏仁",
+        "桂枝",
+        "细辛",
+        "麻黄"
+      ]
     },
     {
       "case_id": "xx_080",
@@ -1323,7 +1653,13 @@
       "entry_id": "xx_080",
       "entry_type": "xingxuan_case",
       "rag_key": "脏躁",
-      "name": "xx_080 脏躁甘麦"
+      "name": "xx_080 脏躁甘麦",
+      "herbs": [
+        "甘草"
+      ],
+      "formulas_referenced": [
+        "甘麦大枣汤"
+      ]
     },
     {
       "case_id": "xx_081",
@@ -1340,7 +1676,19 @@
       "entry_id": "xx_081",
       "entry_type": "xingxuan_case",
       "rag_key": "胎痫",
-      "name": "xx_081 胎痫"
+      "name": "xx_081 胎痫",
+      "herbs": [
+        "半夏曲",
+        "桑寄生",
+        "丹参",
+        "钩藤",
+        "菊花",
+        "甘草",
+        "白芍",
+        "橘红",
+        "麦冬",
+        "远志"
+      ]
     },
     {
       "case_id": "xx_082",
@@ -1357,7 +1705,13 @@
       "entry_id": "xx_082",
       "entry_type": "xingxuan_case",
       "rag_key": "热病",
-      "name": "xx_082 战汗而解"
+      "name": "xx_082 战汗而解",
+      "herbs": [
+        "石膏"
+      ],
+      "formulas_referenced": [
+        "竹叶石膏汤"
+      ]
     },
     {
       "case_id": "xx_083",
@@ -1374,7 +1728,10 @@
       "entry_id": "xx_083",
       "entry_type": "xingxuan_case",
       "rag_key": "虚脱",
-      "name": "xx_083 虚脱急补"
+      "name": "xx_083 虚脱急补",
+      "formulas_referenced": [
+        "归脾汤"
+      ]
     },
     {
       "case_id": "xx_084",
@@ -1391,7 +1748,14 @@
       "entry_id": "xx_084",
       "entry_type": "xingxuan_case",
       "rag_key": "眩晕",
-      "name": "xx_084 情志眩晕"
+      "name": "xx_084 情志眩晕",
+      "herbs": [
+        "菊花",
+        "白芍",
+        "牡蛎",
+        "磁石",
+        "阿胶"
+      ]
     },
     {
       "case_id": "xx_085",
@@ -1408,7 +1772,10 @@
       "entry_id": "xx_085",
       "entry_type": "xingxuan_case",
       "rag_key": "妊娠",
-      "name": "xx_085 胎动血晕"
+      "name": "xx_085 胎动血晕",
+      "formulas_referenced": [
+        "独参汤"
+      ]
     },
     {
       "case_id": "xx_086",
@@ -1425,7 +1792,10 @@
       "entry_id": "xx_086",
       "entry_type": "xingxuan_case",
       "rag_key": "痢疾",
-      "name": "xx_086 竹筒痢"
+      "name": "xx_086 竹筒痢",
+      "herbs": [
+        "桑螵蛸"
+      ]
     },
     {
       "case_id": "xx_087",
@@ -1442,7 +1812,14 @@
       "entry_id": "xx_087",
       "entry_type": "xingxuan_case",
       "rag_key": "疳疾",
-      "name": "xx_087 疳疾布袋丸"
+      "name": "xx_087 疳疾布袋丸",
+      "herbs": [
+        "使君子",
+        "甘草",
+        "白术",
+        "人参",
+        "茯苓"
+      ]
     },
     {
       "case_id": "xx_088",
@@ -1476,7 +1853,15 @@
       "entry_id": "xx_089",
       "entry_type": "xingxuan_case",
       "rag_key": "肝郁",
-      "name": "xx_089 肝郁痛呕"
+      "name": "xx_089 肝郁痛呕",
+      "herbs": [
+        "谷芽",
+        "陈皮",
+        "郁金"
+      ],
+      "formulas_referenced": [
+        "逍遥散"
+      ]
     },
     {
       "case_id": "xx_090",
@@ -1493,7 +1878,15 @@
       "entry_id": "xx_090",
       "entry_type": "xingxuan_case",
       "rag_key": "暑邪",
-      "name": "xx_090 暑邪扰胃"
+      "name": "xx_090 暑邪扰胃",
+      "herbs": [
+        "黄连",
+        "甘草",
+        "乌梅",
+        "木瓜",
+        "茯苓",
+        "半夏"
+      ]
     },
     {
       "case_id": "xx_091",
@@ -1510,7 +1903,22 @@
       "entry_id": "xx_091",
       "entry_type": "xingxuan_case",
       "rag_key": "湿温",
-      "name": "xx_091 湿温霉气"
+      "name": "xx_091 湿温霉气",
+      "herbs": [
+        "秦艽",
+        "黄芩",
+        "甘草",
+        "滑石",
+        "连翘",
+        "知母",
+        "石膏",
+        "桔梗",
+        "泽泻",
+        "藿香"
+      ],
+      "formulas_referenced": [
+        "白虎汤"
+      ]
     },
     {
       "case_id": "xx_092",
@@ -1544,7 +1952,25 @@
       "entry_id": "xx_093",
       "entry_type": "xingxuan_case",
       "rag_key": "暑风",
-      "name": "xx_093 暑入心包"
+      "name": "xx_093 暑入心包",
+      "herbs": [
+        "甘草",
+        "银花",
+        "滑石",
+        "连翘",
+        "知母",
+        "茯苓",
+        "生地",
+        "防风",
+        "麦冬",
+        "菖蒲",
+        "半夏",
+        "元参",
+        "葛根"
+      ],
+      "formulas_referenced": [
+        "至宝丹"
+      ]
     },
     {
       "case_id": "xx_094",
@@ -1561,7 +1987,12 @@
       "entry_id": "xx_094",
       "entry_type": "xingxuan_case",
       "rag_key": "胁痛",
-      "name": "xx_094 胁痛栝蒌"
+      "name": "xx_094 胁痛栝蒌",
+      "herbs": [
+        "甘草",
+        "红花",
+        "栝蒌"
+      ]
     },
     {
       "case_id": "xx_095",
@@ -1578,7 +2009,11 @@
       "entry_id": "xx_095",
       "entry_type": "xingxuan_case",
       "rag_key": "儿科",
-      "name": "xx_095 颏脱音哑"
+      "name": "xx_095 颏脱音哑",
+      "formulas_referenced": [
+        "生脉散",
+        "左归饮"
+      ]
     },
     {
       "case_id": "xx_096",
@@ -1612,7 +2047,10 @@
       "entry_id": "xx_097",
       "entry_type": "xingxuan_case",
       "rag_key": "胃气",
-      "name": "xx_097 药伤胃气"
+      "name": "xx_097 药伤胃气",
+      "herbs": [
+        "人参"
+      ]
     },
     {
       "case_id": "xx_098",
@@ -1629,7 +2067,15 @@
       "entry_id": "xx_098",
       "entry_type": "xingxuan_case",
       "rag_key": "阴疽",
-      "name": "xx_098 阴疽中寒"
+      "name": "xx_098 阴疽中寒",
+      "herbs": [
+        "白芷",
+        "附子",
+        "干姜"
+      ],
+      "formulas_referenced": [
+        "十全大补汤"
+      ]
     },
     {
       "case_id": "xx_099",
@@ -1663,7 +2109,17 @@
       "entry_id": "xx_100",
       "entry_type": "xingxuan_case",
       "rag_key": "痘证",
-      "name": "xx_100 布痘闭逆"
+      "name": "xx_100 布痘闭逆",
+      "herbs": [
+        "黄连",
+        "升麻",
+        "赤芍",
+        "连翘",
+        "石膏",
+        "羌活",
+        "元参",
+        "紫草"
+      ]
     },
     {
       "case_id": "xx_101",
@@ -1697,7 +2153,10 @@
       "entry_id": "xx_102",
       "entry_type": "xingxuan_case",
       "rag_key": "腹痛",
-      "name": "xx_102 腹痛庞杂"
+      "name": "xx_102 腹痛庞杂",
+      "formulas_referenced": [
+        "真武汤"
+      ]
     },
     {
       "case_id": "xx_103",
@@ -1714,7 +2173,17 @@
       "entry_id": "xx_103",
       "entry_type": "xingxuan_case",
       "rag_key": "脾肾阳虚",
-      "name": "xx_103 伏寒温补"
+      "name": "xx_103 伏寒温补",
+      "herbs": [
+        "吴茱萸",
+        "巴戟天",
+        "砂仁",
+        "枸杞",
+        "鹿茸",
+        "附子",
+        "川椒",
+        "肉桂"
+      ]
     },
     {
       "case_id": "xx_104",
@@ -1731,7 +2200,11 @@
       "entry_id": "xx_104",
       "entry_type": "xingxuan_case",
       "rag_key": "中寒",
-      "name": "xx_104 中寒参附"
+      "name": "xx_104 中寒参附",
+      "herbs": [
+        "人参",
+        "附子"
+      ]
     },
     {
       "case_id": "xx_105",
@@ -1748,7 +2221,10 @@
       "entry_id": "xx_105",
       "entry_type": "xingxuan_case",
       "rag_key": "齿痛",
-      "name": "xx_105 齿痛虚寒"
+      "name": "xx_105 齿痛虚寒",
+      "herbs": [
+        "骨碎补"
+      ]
     },
     {
       "case_id": "xx_106",
@@ -1765,7 +2241,14 @@
       "entry_id": "xx_106",
       "entry_type": "xingxuan_case",
       "rag_key": "痘后",
-      "name": "xx_106 痘后温补"
+      "name": "xx_106 痘后温补",
+      "herbs": [
+        "人参",
+        "杜仲",
+        "枸杞",
+        "鹿茸",
+        "附子"
+      ]
     },
     {
       "case_id": "xx_107",
@@ -1782,7 +2265,12 @@
       "entry_id": "xx_107",
       "entry_type": "xingxuan_case",
       "rag_key": "温病",
-      "name": "xx_107 春温两感"
+      "name": "xx_107 春温两感",
+      "herbs": [
+        "甘草",
+        "熟地",
+        "当归"
+      ]
     },
     {
       "case_id": "xx_108",
@@ -1799,7 +2287,20 @@
       "entry_id": "xx_108",
       "entry_type": "xingxuan_case",
       "rag_key": "怔忡",
-      "name": "xx_108 怔忡解郁"
+      "name": "xx_108 怔忡解郁",
+      "herbs": [
+        "柏子仁",
+        "丹参",
+        "白芍",
+        "柴胡",
+        "麦冬",
+        "牡蛎",
+        "木香"
+      ],
+      "formulas_referenced": [
+        "归脾汤",
+        "逍遥散"
+      ]
     },
     {
       "case_id": "xx_109",
@@ -1816,7 +2317,13 @@
       "entry_id": "xx_109",
       "entry_type": "xingxuan_case",
       "rag_key": "儿科",
-      "name": "xx_109 泻甚挽元"
+      "name": "xx_109 泻甚挽元",
+      "herbs": [
+        "人参"
+      ],
+      "formulas_referenced": [
+        "独参汤"
+      ]
     },
     {
       "case_id": "xx_110",
@@ -1833,7 +2340,15 @@
       "entry_id": "xx_110",
       "entry_type": "xingxuan_case",
       "rag_key": "肺痹",
-      "name": "xx_110 误药肺痹"
+      "name": "xx_110 误药肺痹",
+      "herbs": [
+        "橘红",
+        "桔梗",
+        "半夏",
+        "杏仁",
+        "桂枝",
+        "麻黄"
+      ]
     },
     {
       "case_id": "xx_111",
@@ -1850,7 +2365,16 @@
       "entry_id": "xx_111",
       "entry_type": "xingxuan_case",
       "rag_key": "头痛",
-      "name": "xx_111 头痛痉厥"
+      "name": "xx_111 头痛痉厥",
+      "herbs": [
+        "甘草",
+        "龟板",
+        "熟地",
+        "白芍",
+        "麦冬",
+        "牡蛎",
+        "阿胶"
+      ]
     },
     {
       "case_id": "xx_112",
@@ -1884,7 +2408,15 @@
       "entry_id": "xx_113",
       "entry_type": "xingxuan_case",
       "rag_key": "子痫",
-      "name": "xx_113 子痫"
+      "name": "xx_113 子痫",
+      "herbs": [
+        "羚羊角",
+        "甘草",
+        "熟地",
+        "当归",
+        "木香",
+        "杏仁"
+      ]
     },
     {
       "case_id": "xx_114",
@@ -1918,7 +2450,17 @@
       "entry_id": "xx_115",
       "entry_type": "xingxuan_case",
       "rag_key": "脘痛",
-      "name": "xx_115 脘痛治胃"
+      "name": "xx_115 脘痛治胃",
+      "herbs": [
+        "乌梅",
+        "白芍",
+        "木瓜",
+        "川椒",
+        "干姜"
+      ],
+      "formulas_referenced": [
+        "六君子汤"
+      ]
     },
     {
       "case_id": "xx_116",
@@ -1935,7 +2477,15 @@
       "entry_id": "xx_116",
       "entry_type": "xingxuan_case",
       "rag_key": "伏暑",
-      "name": "xx_116 伏暑似疟"
+      "name": "xx_116 伏暑似疟",
+      "herbs": [
+        "甘草",
+        "人参",
+        "茯苓",
+        "当归",
+        "半夏",
+        "陈皮"
+      ]
     },
     {
       "case_id": "xx_117",
@@ -1952,7 +2502,15 @@
       "entry_id": "xx_117",
       "entry_type": "xingxuan_case",
       "rag_key": "风温",
-      "name": "xx_117 风温清解"
+      "name": "xx_117 风温清解",
+      "herbs": [
+        "牛蒡子",
+        "桑叶",
+        "甘草",
+        "桔梗",
+        "杏仁",
+        "贝母"
+      ]
     },
     {
       "case_id": "xx_118",
@@ -1969,7 +2527,16 @@
       "entry_id": "xx_118",
       "entry_type": "xingxuan_case",
       "rag_key": "儿科",
-      "name": "xx_118 因热生风"
+      "name": "xx_118 因热生风",
+      "herbs": [
+        "石决明",
+        "羚羊角",
+        "桑叶",
+        "菊花",
+        "甘草",
+        "丹皮",
+        "生地"
+      ]
     },
     {
       "case_id": "xx_119",
@@ -1986,7 +2553,17 @@
       "entry_id": "xx_119",
       "entry_type": "xingxuan_case",
       "rag_key": "肝风",
-      "name": "xx_119 内风勿散"
+      "name": "xx_119 内风勿散",
+      "herbs": [
+        "五味子",
+        "甘草",
+        "熟地",
+        "白芍",
+        "麦冬",
+        "牡蛎",
+        "当归",
+        "阿胶"
+      ]
     },
     {
       "case_id": "xx_120",
@@ -2003,7 +2580,12 @@
       "entry_id": "xx_120",
       "entry_type": "xingxuan_case",
       "rag_key": "痢疾",
-      "name": "xx_120 休息痢鸦胆子"
+      "name": "xx_120 休息痢鸦胆子",
+      "herbs": [
+        "人参",
+        "山药",
+        "白芍"
+      ]
     },
     {
       "case_id": "xx_121",
@@ -2020,7 +2602,10 @@
       "entry_id": "xx_121",
       "entry_type": "xingxuan_case",
       "rag_key": "衄血",
-      "name": "xx_121 齿衄犀角"
+      "name": "xx_121 齿衄犀角",
+      "herbs": [
+        "升麻"
+      ]
     },
     {
       "case_id": "xx_122",
@@ -2037,7 +2622,20 @@
       "entry_id": "xx_122",
       "entry_type": "xingxuan_case",
       "rag_key": "血症",
-      "name": "xx_122 血涌纳气"
+      "name": "xx_122 血涌纳气",
+      "herbs": [
+        "龟板",
+        "山药",
+        "熟地",
+        "白芍",
+        "茯苓",
+        "磁石",
+        "阿胶",
+        "牛膝"
+      ],
+      "formulas_referenced": [
+        "生脉散"
+      ]
     },
     {
       "case_id": "xx_123",
@@ -2071,7 +2669,16 @@
       "entry_id": "xx_124",
       "entry_type": "xingxuan_case",
       "rag_key": "脱证",
-      "name": "xx_124 脱证救苏"
+      "name": "xx_124 脱证救苏",
+      "herbs": [
+        "五味子",
+        "人参",
+        "熟地",
+        "麦冬"
+      ],
+      "formulas_referenced": [
+        "生脉散"
+      ]
     },
     {
       "case_id": "xx_125",
@@ -2088,7 +2695,18 @@
       "entry_id": "xx_125",
       "entry_type": "xingxuan_case",
       "rag_key": "痹证",
-      "name": "xx_125 风寒袭络"
+      "name": "xx_125 风寒袭络",
+      "herbs": [
+        "鹿角胶",
+        "五加皮",
+        "巴戟天",
+        "秦艽",
+        "杜仲",
+        "枸杞",
+        "附子",
+        "当归",
+        "狗脊"
+      ]
     },
     {
       "case_id": "xx_126",
@@ -2105,7 +2723,11 @@
       "entry_id": "xx_126",
       "entry_type": "xingxuan_case",
       "rag_key": "腹痛",
-      "name": "xx_126 腹痛瘀血"
+      "name": "xx_126 腹痛瘀血",
+      "herbs": [
+        "神曲",
+        "谷芽"
+      ]
     },
     {
       "case_id": "xx_127",
@@ -2139,7 +2761,10 @@
       "entry_id": "xx_128",
       "entry_type": "xingxuan_case",
       "rag_key": "痘证",
-      "name": "xx_128 痘证养浆"
+      "name": "xx_128 痘证养浆",
+      "herbs": [
+        "鹿茸"
+      ]
     },
     {
       "case_id": "xx_129",
@@ -2173,7 +2798,10 @@
       "entry_id": "xx_130",
       "entry_type": "xingxuan_case",
       "rag_key": "哮嗽",
-      "name": "xx_130 哮嗽窠囊"
+      "name": "xx_130 哮嗽窠囊",
+      "formulas_referenced": [
+        "肾气丸"
+      ]
     },
     {
       "case_id": "xx_131",
@@ -2190,7 +2818,10 @@
       "entry_id": "xx_131",
       "entry_type": "xingxuan_case",
       "rag_key": "寒热",
-      "name": "xx_131 阴阳两亏"
+      "name": "xx_131 阴阳两亏",
+      "herbs": [
+        "鹿茸"
+      ]
     },
     {
       "case_id": "xx_132",
@@ -2207,7 +2838,11 @@
       "entry_id": "xx_132",
       "entry_type": "xingxuan_case",
       "rag_key": "不寐",
-      "name": "xx_132 不寐引灵"
+      "name": "xx_132 不寐引灵",
+      "herbs": [
+        "龟板",
+        "琥珀"
+      ]
     },
     {
       "case_id": "xx_133",
@@ -2224,7 +2859,11 @@
       "entry_id": "xx_133",
       "entry_type": "xingxuan_case",
       "rag_key": "中寒",
-      "name": "xx_133 中寒阳脱"
+      "name": "xx_133 中寒阳脱",
+      "herbs": [
+        "人参",
+        "附子"
+      ]
     },
     {
       "case_id": "xx_134",
@@ -2275,7 +2914,13 @@
       "entry_id": "xx_136",
       "entry_type": "xingxuan_case",
       "rag_key": "便泻",
-      "name": "xx_136 便泻双补"
+      "name": "xx_136 便泻双补",
+      "herbs": [
+        "枸杞"
+      ],
+      "formulas_referenced": [
+        "补中益气汤"
+      ]
     },
     {
       "case_id": "xx_137",
@@ -2292,7 +2937,12 @@
       "entry_id": "xx_137",
       "entry_type": "xingxuan_case",
       "rag_key": "痢疾",
-      "name": "xx_137 痢疾黄金汤"
+      "name": "xx_137 痢疾黄金汤",
+      "herbs": [
+        "金银花",
+        "茯苓",
+        "谷芽"
+      ]
     },
     {
       "case_id": "xx_138",
@@ -2309,7 +2959,10 @@
       "entry_id": "xx_138",
       "entry_type": "xingxuan_case",
       "rag_key": "月经",
-      "name": "xx_138 经期不调"
+      "name": "xx_138 经期不调",
+      "formulas_referenced": [
+        "归脾汤"
+      ]
     },
     {
       "case_id": "xx_139",
@@ -2428,7 +3081,11 @@
       "entry_id": "xx_145",
       "entry_type": "xingxuan_case",
       "rag_key": "虚损",
-      "name": "xx_145 足膝软弱"
+      "name": "xx_145 足膝软弱",
+      "herbs": [
+        "鹿茸",
+        "阿胶"
+      ]
     },
     {
       "case_id": "xx_146",
@@ -2462,7 +3119,13 @@
       "entry_id": "xx_147",
       "entry_type": "xingxuan_case",
       "rag_key": "疫证",
-      "name": "xx_147 疫存津液"
+      "name": "xx_147 疫存津液",
+      "herbs": [
+        "柴胡"
+      ],
+      "formulas_referenced": [
+        "甘露饮"
+      ]
     },
     {
       "case_id": "xx_156",
@@ -2496,7 +3159,10 @@
       "entry_id": "xx_157",
       "entry_type": "xingxuan_case",
       "rag_key": "筋挛",
-      "name": "xx_157 筋挛便浊"
+      "name": "xx_157 筋挛便浊",
+      "herbs": [
+        "人参"
+      ]
     },
     {
       "case_id": "xx_158",
@@ -2513,7 +3179,10 @@
       "entry_id": "xx_158",
       "entry_type": "xingxuan_case",
       "rag_key": "虚损",
-      "name": "xx_158 肝肾两亏"
+      "name": "xx_158 肝肾两亏",
+      "herbs": [
+        "人参"
+      ]
     },
     {
       "case_id": "xx_148",
@@ -2547,7 +3216,11 @@
       "entry_id": "xx_149",
       "entry_type": "xingxuan_case",
       "rag_key": "水肿",
-      "name": "xx_149 水肿肾气丸"
+      "name": "xx_149 水肿肾气丸",
+      "formulas_referenced": [
+        "补中益气汤",
+        "肾气丸"
+      ]
     },
     {
       "case_id": "xx_150",
@@ -2564,7 +3237,10 @@
       "entry_id": "xx_150",
       "entry_type": "xingxuan_case",
       "rag_key": "产后",
-      "name": "xx_150 产后心脾亏"
+      "name": "xx_150 产后心脾亏",
+      "formulas_referenced": [
+        "归脾汤"
+      ]
     },
     {
       "case_id": "xx_151",
@@ -2598,7 +3274,10 @@
       "entry_id": "xx_152",
       "entry_type": "xingxuan_case",
       "rag_key": "喘嗽",
-      "name": "xx_152 息贲喘嗽"
+      "name": "xx_152 息贲喘嗽",
+      "formulas_referenced": [
+        "苇茎汤"
+      ]
     },
     {
       "case_id": "xx_159",
@@ -2632,7 +3311,10 @@
       "entry_id": "xx_160",
       "entry_type": "xingxuan_case",
       "rag_key": "脾阳虚",
-      "name": "xx_160 脾阳虚寒湿"
+      "name": "xx_160 脾阳虚寒湿",
+      "formulas_referenced": [
+        "理中汤"
+      ]
     },
     {
       "case_id": "xx_161",
@@ -2649,7 +3331,11 @@
       "entry_id": "xx_161",
       "entry_type": "xingxuan_case",
       "rag_key": "肝风",
-      "name": "xx_161 肝风眩仆"
+      "name": "xx_161 肝风眩仆",
+      "herbs": [
+        "乌梅",
+        "牡蛎"
+      ]
     },
     {
       "case_id": "xx_162",
@@ -2683,7 +3369,10 @@
       "entry_id": "xx_163",
       "entry_type": "xingxuan_case",
       "rag_key": "吐血",
-      "name": "xx_163 吐血归脾"
+      "name": "xx_163 吐血归脾",
+      "formulas_referenced": [
+        "归脾汤"
+      ]
     },
     {
       "case_id": "xx_164",
@@ -2717,7 +3406,10 @@
       "entry_id": "xx_165",
       "entry_type": "xingxuan_case",
       "rag_key": "痉厥",
-      "name": "xx_165 痉厥泻心"
+      "name": "xx_165 痉厥泻心",
+      "herbs": [
+        "半夏"
+      ]
     },
     {
       "case_id": "xx_166",
@@ -2802,7 +3494,10 @@
       "entry_id": "xx_170",
       "entry_type": "xingxuan_case",
       "rag_key": "伏暑",
-      "name": "xx_170 伏暑危证"
+      "name": "xx_170 伏暑危证",
+      "formulas_referenced": [
+        "甘露饮"
+      ]
     },
     {
       "case_id": "xx_171",
@@ -2819,7 +3514,10 @@
       "entry_id": "xx_171",
       "entry_type": "xingxuan_case",
       "rag_key": "血崩",
-      "name": "xx_171 血崩辨治"
+      "name": "xx_171 血崩辨治",
+      "formulas_referenced": [
+        "归脾汤"
+      ]
     },
     {
       "case_id": "xx_172",
@@ -2904,7 +3602,10 @@
       "entry_id": "xx_176",
       "entry_type": "xingxuan_case",
       "rag_key": "麻木",
-      "name": "xx_176 麻木培土"
+      "name": "xx_176 麻木培土",
+      "formulas_referenced": [
+        "肾气丸"
+      ]
     },
     {
       "case_id": "xx_177",
@@ -2921,7 +3622,10 @@
       "entry_id": "xx_177",
       "entry_type": "xingxuan_case",
       "rag_key": "泻血",
-      "name": "xx_177 脾虚泻血"
+      "name": "xx_177 脾虚泻血",
+      "herbs": [
+        "乌梅"
+      ]
     },
     {
       "case_id": "xx_178",
@@ -2938,7 +3642,11 @@
       "entry_id": "xx_178",
       "entry_type": "xingxuan_case",
       "rag_key": "暑病",
-      "name": "xx_178 风疿加暑"
+      "name": "xx_178 风疿加暑",
+      "formulas_referenced": [
+        "清暑益气汤",
+        "玉女煎"
+      ]
     },
     {
       "case_id": "xx_179",
@@ -2972,7 +3680,10 @@
       "entry_id": "xx_180",
       "entry_type": "xingxuan_case",
       "rag_key": "胁痛",
-      "name": "xx_180 胁痛肝著"
+      "name": "xx_180 胁痛肝著",
+      "formulas_referenced": [
+        "旋复花汤"
+      ]
     },
     {
       "case_id": "xx_181",
@@ -3006,7 +3717,10 @@
       "entry_id": "xx_182",
       "entry_type": "xingxuan_case",
       "rag_key": "产后",
-      "name": "xx_182 半产崩晕"
+      "name": "xx_182 半产崩晕",
+      "herbs": [
+        "人参"
+      ]
     },
     {
       "case_id": "xx_183",
@@ -3057,7 +3771,10 @@
       "entry_id": "xx_185",
       "entry_type": "xingxuan_case",
       "rag_key": "背疡",
-      "name": "xx_185 背疡余毒"
+      "name": "xx_185 背疡余毒",
+      "formulas_referenced": [
+        "玉女煎"
+      ]
     },
     {
       "case_id": "xx_186",

@@ -27,7 +27,10 @@
       "entry_id": "xumingyi_001",
       "entry_type": "xumingyi_case",
       "rag_key": "伤寒",
-      "name": "xumingyi_001 伤寒"
+      "name": "xumingyi_001 伤寒",
+      "formulas_referenced": [
+        "小承气汤"
+      ]
     },
     {
       "case_id": "xumingyi_002",
@@ -78,7 +81,10 @@
       "entry_id": "xumingyi_004",
       "entry_type": "xumingyi_case",
       "rag_key": "伤寒",
-      "name": "xumingyi_004 伤寒"
+      "name": "xumingyi_004 伤寒",
+      "herbs": [
+        "人参"
+      ]
     },
     {
       "case_id": "xumingyi_005",
@@ -95,7 +101,10 @@
       "entry_id": "xumingyi_005",
       "entry_type": "xumingyi_case",
       "rag_key": "伤寒",
-      "name": "xumingyi_005 伤寒"
+      "name": "xumingyi_005 伤寒",
+      "herbs": [
+        "人参"
+      ]
     },
     {
       "case_id": "xumingyi_006",
@@ -112,7 +121,10 @@
       "entry_id": "xumingyi_006",
       "entry_type": "xumingyi_case",
       "rag_key": "伤寒",
-      "name": "xumingyi_006 伤寒"
+      "name": "xumingyi_006 伤寒",
+      "herbs": [
+        "石膏"
+      ]
     },
     {
       "case_id": "xumingyi_007",
@@ -129,7 +141,14 @@
       "entry_id": "xumingyi_007",
       "entry_type": "xumingyi_case",
       "rag_key": "伤寒",
-      "name": "xumingyi_007 伤寒"
+      "name": "xumingyi_007 伤寒",
+      "herbs": [
+        "柴胡"
+      ],
+      "formulas_referenced": [
+        "大柴胡汤",
+        "白虎汤"
+      ]
     },
     {
       "case_id": "xumingyi_008",
@@ -197,7 +216,14 @@
       "entry_id": "xumingyi_011",
       "entry_type": "xumingyi_case",
       "rag_key": "伤寒",
-      "name": "xumingyi_011 伤寒"
+      "name": "xumingyi_011 伤寒",
+      "herbs": [
+        "前胡",
+        "甘草",
+        "麦冬",
+        "羌活",
+        "细辛"
+      ]
     },
     {
       "case_id": "xumingyi_012",
@@ -214,7 +240,12 @@
       "entry_id": "xumingyi_012",
       "entry_type": "xumingyi_case",
       "rag_key": "伤寒",
-      "name": "xumingyi_012 伤寒"
+      "name": "xumingyi_012 伤寒",
+      "herbs": [
+        "黄连",
+        "豆豉",
+        "枳实"
+      ]
     },
     {
       "case_id": "xumingyi_013",
@@ -265,7 +296,12 @@
       "entry_id": "xumingyi_015",
       "entry_type": "xumingyi_case",
       "rag_key": "伤寒",
-      "name": "xumingyi_015 伤寒"
+      "name": "xumingyi_015 伤寒",
+      "herbs": [
+        "知母",
+        "石膏",
+        "麦冬"
+      ]
     },
     {
       "case_id": "xumingyi_016",
@@ -299,7 +335,10 @@
       "entry_id": "xumingyi_017",
       "entry_type": "xumingyi_case",
       "rag_key": "热病",
-      "name": "xumingyi_017 热病"
+      "name": "xumingyi_017 热病",
+      "herbs": [
+        "桃仁"
+      ]
     },
     {
       "case_id": "xumingyi_018",
@@ -316,7 +355,13 @@
       "entry_id": "xumingyi_018",
       "entry_type": "xumingyi_case",
       "rag_key": "热病",
-      "name": "xumingyi_018 热病"
+      "name": "xumingyi_018 热病",
+      "herbs": [
+        "当归"
+      ],
+      "formulas_referenced": [
+        "当归龙荟丸"
+      ]
     },
     {
       "case_id": "xumingyi_019",
@@ -333,7 +378,13 @@
       "entry_id": "xumingyi_019",
       "entry_type": "xumingyi_case",
       "rag_key": "热病",
-      "name": "xumingyi_019 热病"
+      "name": "xumingyi_019 热病",
+      "herbs": [
+        "葛根"
+      ],
+      "formulas_referenced": [
+        "葛根汤"
+      ]
     },
     {
       "case_id": "xumingyi_020",
@@ -384,7 +435,10 @@
       "entry_id": "xumingyi_022",
       "entry_type": "xumingyi_case",
       "rag_key": "热病",
-      "name": "xumingyi_022 热病"
+      "name": "xumingyi_022 热病",
+      "herbs": [
+        "熟地"
+      ]
     },
     {
       "case_id": "xumingyi_023",
@@ -418,7 +472,10 @@
       "entry_id": "xumingyi_024",
       "entry_type": "xumingyi_case",
       "rag_key": "热病",
-      "name": "xumingyi_024 热病"
+      "name": "xumingyi_024 热病",
+      "herbs": [
+        "熟地"
+      ]
     },
     {
       "case_id": "xumingyi_025",
@@ -452,7 +509,12 @@
       "entry_id": "xumingyi_026",
       "entry_type": "xumingyi_case",
       "rag_key": "热病",
-      "name": "xumingyi_026 热病"
+      "name": "xumingyi_026 热病",
+      "herbs": [
+        "白术",
+        "人参",
+        "干姜"
+      ]
     },
     {
       "case_id": "xumingyi_027",
@@ -520,7 +582,10 @@
       "entry_id": "xumingyi_030",
       "entry_type": "xumingyi_case",
       "rag_key": "积滞",
-      "name": "xumingyi_030 积滞"
+      "name": "xumingyi_030 积滞",
+      "herbs": [
+        "肉桂"
+      ]
     },
     {
       "case_id": "xumingyi_031",
@@ -622,7 +687,11 @@
       "entry_id": "xumingyi_037",
       "entry_type": "xumingyi_case",
       "rag_key": "脾胃",
-      "name": "xumingyi_037 脾胃"
+      "name": "xumingyi_037 脾胃",
+      "herbs": [
+        "人参",
+        "山药"
+      ]
     },
     {
       "case_id": "xumingyi_038",
@@ -741,7 +810,11 @@
       "entry_id": "xumingyi_044",
       "entry_type": "xumingyi_case",
       "rag_key": "血症",
-      "name": "xumingyi_044 血症"
+      "name": "xumingyi_044 血症",
+      "herbs": [
+        "枸杞",
+        "阿胶"
+      ]
     },
     {
       "case_id": "xumingyi_045",
@@ -758,7 +831,10 @@
       "entry_id": "xumingyi_045",
       "entry_type": "xumingyi_case",
       "rag_key": "血症",
-      "name": "xumingyi_045 血症"
+      "name": "xumingyi_045 血症",
+      "herbs": [
+        "桔梗"
+      ]
     },
     {
       "case_id": "xumingyi_046",
@@ -809,7 +885,12 @@
       "entry_id": "xumingyi_048",
       "entry_type": "xumingyi_case",
       "rag_key": "咳嗽",
-      "name": "xumingyi_048 咳嗽"
+      "name": "xumingyi_048 咳嗽",
+      "formulas_referenced": [
+        "补中益气汤",
+        "六君子汤",
+        "八珍汤"
+      ]
     },
     {
       "case_id": "xumingyi_049",
@@ -826,7 +907,10 @@
       "entry_id": "xumingyi_049",
       "entry_type": "xumingyi_case",
       "rag_key": "咳嗽",
-      "name": "xumingyi_049 咳嗽"
+      "name": "xumingyi_049 咳嗽",
+      "formulas_referenced": [
+        "八珍汤"
+      ]
     },
     {
       "case_id": "xumingyi_050",
@@ -911,7 +995,17 @@
       "entry_id": "xumingyi_054",
       "entry_type": "xumingyi_case",
       "rag_key": "咳嗽",
-      "name": "xumingyi_054 咳嗽"
+      "name": "xumingyi_054 咳嗽",
+      "herbs": [
+        "黄连",
+        "甘草",
+        "小蓟",
+        "丹皮",
+        "滑石",
+        "生地",
+        "麦冬",
+        "青皮"
+      ]
     },
     {
       "case_id": "xumingyi_055",
@@ -962,7 +1056,15 @@
       "entry_id": "xumingyi_057",
       "entry_type": "xumingyi_case",
       "rag_key": "咳嗽",
-      "name": "xumingyi_057 咳嗽"
+      "name": "xumingyi_057 咳嗽",
+      "herbs": [
+        "地骨皮",
+        "丹皮",
+        "柴胡"
+      ],
+      "formulas_referenced": [
+        "肾气丸"
+      ]
     },
     {
       "case_id": "xumingyi_058",
@@ -979,7 +1081,10 @@
       "entry_id": "xumingyi_058",
       "entry_type": "xumingyi_case",
       "rag_key": "腰痛",
-      "name": "xumingyi_058 腰痛"
+      "name": "xumingyi_058 腰痛",
+      "herbs": [
+        "杜仲"
+      ]
     },
     {
       "case_id": "xumingyi_059",
@@ -996,7 +1101,11 @@
       "entry_id": "xumingyi_059",
       "entry_type": "xumingyi_case",
       "rag_key": "腰痛",
-      "name": "xumingyi_059 腰痛"
+      "name": "xumingyi_059 腰痛",
+      "herbs": [
+        "白芍",
+        "香附"
+      ]
     },
     {
       "case_id": "xumingyi_060",
@@ -1013,7 +1122,10 @@
       "entry_id": "xumingyi_060",
       "entry_type": "xumingyi_case",
       "rag_key": "腰痛",
-      "name": "xumingyi_060 腰痛"
+      "name": "xumingyi_060 腰痛",
+      "herbs": [
+        "当归"
+      ]
     },
     {
       "case_id": "xumingyi_061",
@@ -1115,7 +1227,13 @@
       "entry_id": "xumingyi_066",
       "entry_type": "xumingyi_case",
       "rag_key": "腰痛",
-      "name": "xumingyi_066 腰痛"
+      "name": "xumingyi_066 腰痛",
+      "herbs": [
+        "茯苓",
+        "黄柏",
+        "羌活",
+        "肉桂"
+      ]
     },
     {
       "case_id": "xumingyi_067",
@@ -1132,7 +1250,14 @@
       "entry_id": "xumingyi_067",
       "entry_type": "xumingyi_case",
       "rag_key": "腰痛",
-      "name": "xumingyi_067 腰痛"
+      "name": "xumingyi_067 腰痛",
+      "herbs": [
+        "升麻",
+        "柴胡"
+      ],
+      "formulas_referenced": [
+        "归脾汤"
+      ]
     },
     {
       "case_id": "xumingyi_068",
@@ -1149,7 +1274,11 @@
       "entry_id": "xumingyi_068",
       "entry_type": "xumingyi_case",
       "rag_key": "产后",
-      "name": "xumingyi_068 产后"
+      "name": "xumingyi_068 产后",
+      "herbs": [
+        "没药",
+        "桃仁"
+      ]
     },
     {
       "case_id": "xumingyi_069",
@@ -1183,7 +1312,13 @@
       "entry_id": "xumingyi_070",
       "entry_type": "xumingyi_case",
       "rag_key": "产后",
-      "name": "xumingyi_070 产后"
+      "name": "xumingyi_070 产后",
+      "herbs": [
+        "人参",
+        "生地",
+        "麦冬",
+        "黄芪"
+      ]
     },
     {
       "case_id": "xumingyi_071",
@@ -1200,7 +1335,12 @@
       "entry_id": "xumingyi_071",
       "entry_type": "xumingyi_case",
       "rag_key": "产后",
-      "name": "xumingyi_071 产后"
+      "name": "xumingyi_071 产后",
+      "herbs": [
+        "半夏曲",
+        "石菖蒲",
+        "橘红"
+      ]
     },
     {
       "case_id": "xumingyi_072",
@@ -1251,7 +1391,11 @@
       "entry_id": "xumingyi_074",
       "entry_type": "xumingyi_case",
       "rag_key": "产后",
-      "name": "xumingyi_074 产后"
+      "name": "xumingyi_074 产后",
+      "herbs": [
+        "炮姜",
+        "黄芪"
+      ]
     },
     {
       "case_id": "xumingyi_075",
@@ -1302,7 +1446,11 @@
       "entry_id": "xumingyi_077",
       "entry_type": "xumingyi_case",
       "rag_key": "产后",
-      "name": "xumingyi_077 产后"
+      "name": "xumingyi_077 产后",
+      "herbs": [
+        "石菖蒲",
+        "五灵脂"
+      ]
     },
     {
       "case_id": "xumingyi_078",
@@ -1319,7 +1467,15 @@
       "entry_id": "xumingyi_078",
       "entry_type": "xumingyi_case",
       "rag_key": "痔漏",
-      "name": "xumingyi_078 痔漏"
+      "name": "xumingyi_078 痔漏",
+      "herbs": [
+        "地骨皮",
+        "柴胡",
+        "黄芪"
+      ],
+      "formulas_referenced": [
+        "八珍汤"
+      ]
     },
     {
       "case_id": "xumingyi_079",
@@ -1336,7 +1492,11 @@
       "entry_id": "xumingyi_079",
       "entry_type": "xumingyi_case",
       "rag_key": "痔漏",
-      "name": "xumingyi_079 痔漏"
+      "name": "xumingyi_079 痔漏",
+      "herbs": [
+        "白术",
+        "黄芪"
+      ]
     },
     {
       "case_id": "xumingyi_080",
@@ -1370,7 +1530,14 @@
       "entry_id": "xumingyi_081",
       "entry_type": "xumingyi_case",
       "rag_key": "痈疽",
-      "name": "xumingyi_081 痈疽"
+      "name": "xumingyi_081 痈疽",
+      "herbs": [
+        "当归",
+        "藿香"
+      ],
+      "formulas_referenced": [
+        "六君子汤"
+      ]
     },
     {
       "case_id": "xumingyi_082",
@@ -1387,7 +1554,16 @@
       "entry_id": "xumingyi_082",
       "entry_type": "xumingyi_case",
       "rag_key": "痈疽",
-      "name": "xumingyi_082 痈疽"
+      "name": "xumingyi_082 痈疽",
+      "herbs": [
+        "柴胡",
+        "黄柏",
+        "牛膝"
+      ],
+      "formulas_referenced": [
+        "龙胆泻肝汤",
+        "八珍汤"
+      ]
     },
     {
       "case_id": "xumingyi_083",
@@ -1438,7 +1614,11 @@
       "entry_id": "xumingyi_087",
       "entry_type": "xumingyi_case",
       "rag_key": "产后",
-      "name": "xumingyi_087 产后"
+      "name": "xumingyi_087 产后",
+      "herbs": [
+        "蝉蜕",
+        "荆芥"
+      ]
     }
   ],
   "asset_type": "case_library",

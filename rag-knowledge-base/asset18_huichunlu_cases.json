@@ -31,7 +31,11 @@
       "entry_id": "hc_001",
       "entry_type": "huichunlu_case",
       "rag_key": "风温",
-      "name": "hc_001 风温·顺传胃腑"
+      "name": "hc_001 风温·顺传胃腑",
+      "herbs": [
+        "枳实",
+        "厚朴"
+      ]
     },
     {
       "case_id": "hc_002",
@@ -48,7 +52,14 @@
       "entry_id": "hc_002",
       "entry_type": "huichunlu_case",
       "rag_key": "风温",
-      "name": "hc_002 风温·阴虚痰湿"
+      "name": "hc_002 风温·阴虚痰湿",
+      "herbs": [
+        "龟板",
+        "白芍",
+        "牡蛎",
+        "鳖甲",
+        "阿胶"
+      ]
     },
     {
       "case_id": "hc_003",
@@ -65,7 +76,17 @@
       "entry_id": "hc_003",
       "entry_type": "huichunlu_case",
       "rag_key": "风温",
-      "name": "hc_003 风温·痰热致厥"
+      "name": "hc_003 风温·痰热致厥",
+      "herbs": [
+        "羚羊角",
+        "桑叶",
+        "菊花",
+        "丹皮",
+        "连翘",
+        "竹茹",
+        "栀子",
+        "贝母"
+      ]
     },
     {
       "case_id": "hc_004",
@@ -82,7 +103,10 @@
       "entry_id": "hc_004",
       "entry_type": "huichunlu_case",
       "rag_key": "暑温",
-      "name": "hc_004 暑疟·白虎汤"
+      "name": "hc_004 暑疟·白虎汤",
+      "formulas_referenced": [
+        "白虎汤"
+      ]
     },
     {
       "case_id": "hc_005",
@@ -99,7 +123,13 @@
       "entry_id": "hc_005",
       "entry_type": "huichunlu_case",
       "rag_key": "暑温",
-      "name": "hc_005 阳明暑疟"
+      "name": "hc_005 阳明暑疟",
+      "herbs": [
+        "石膏"
+      ],
+      "formulas_referenced": [
+        "竹叶石膏汤"
+      ]
     },
     {
       "case_id": "hc_006",
@@ -116,7 +146,10 @@
       "entry_id": "hc_006",
       "entry_type": "huichunlu_case",
       "rag_key": "暑温",
-      "name": "hc_006 暑疟·白虎加参"
+      "name": "hc_006 暑疟·白虎加参",
+      "formulas_referenced": [
+        "白虎汤"
+      ]
     },
     {
       "case_id": "hc_007",
@@ -133,7 +166,21 @@
       "entry_id": "hc_007",
       "entry_type": "huichunlu_case",
       "rag_key": "湿温",
-      "name": "hc_007 湿温·湿热误补"
+      "name": "hc_007 湿温·湿热误补",
+      "herbs": [
+        "滑石",
+        "茅根",
+        "知母",
+        "白芍",
+        "栀子",
+        "黄柏",
+        "麦冬",
+        "鳖甲",
+        "贝母"
+      ],
+      "formulas_referenced": [
+        "温胆汤"
+      ]
     },
     {
       "case_id": "hc_008",
@@ -150,7 +197,17 @@
       "entry_id": "hc_008",
       "entry_type": "huichunlu_case",
       "rag_key": "湿温",
-      "name": "hc_008 湿温·痰蒙清窍"
+      "name": "hc_008 湿温·痰蒙清窍",
+      "herbs": [
+        "石菖蒲",
+        "甘草",
+        "杏仁",
+        "鳖甲",
+        "玄参"
+      ],
+      "formulas_referenced": [
+        "白虎汤"
+      ]
     },
     {
       "case_id": "hc_009",
@@ -184,7 +241,11 @@
       "entry_id": "hc_010",
       "entry_type": "huichunlu_case",
       "rag_key": "伏暑",
-      "name": "hc_010 久疟·热留血分"
+      "name": "hc_010 久疟·热留血分",
+      "herbs": [
+        "秦艽",
+        "鳖甲"
+      ]
     },
     {
       "case_id": "hc_011",
@@ -235,7 +296,19 @@
       "entry_id": "hc_013",
       "entry_type": "huichunlu_case",
       "rag_key": "咳嗽",
-      "name": "hc_013 咳嗽·孤阳燥火"
+      "name": "hc_013 咳嗽·孤阳燥火",
+      "herbs": [
+        "黄芩",
+        "龟板",
+        "青黛",
+        "鳖甲",
+        "贝母"
+      ],
+      "formulas_referenced": [
+        "清燥救肺汤",
+        "苇茎汤",
+        "白虎汤"
+      ]
     },
     {
       "case_id": "hc_014",
@@ -252,7 +325,15 @@
       "entry_id": "hc_014",
       "entry_type": "huichunlu_case",
       "rag_key": "痰证",
-      "name": "hc_014 痰证·温邪挟饮"
+      "name": "hc_014 痰证·温邪挟饮",
+      "herbs": [
+        "石菖蒲",
+        "淡豆豉",
+        "滑石",
+        "知母",
+        "杏仁",
+        "贝母"
+      ]
     },
     {
       "case_id": "hc_015",
@@ -269,7 +350,16 @@
       "entry_id": "hc_015",
       "entry_type": "huichunlu_case",
       "rag_key": "血证",
-      "name": "hc_015 吐血·气虚不摄"
+      "name": "hc_015 吐血·气虚不摄",
+      "herbs": [
+        "甘草",
+        "白术",
+        "山药",
+        "白芍",
+        "木瓜",
+        "茯苓",
+        "黄芪"
+      ]
     },
     {
       "case_id": "hc_016",
@@ -286,7 +376,10 @@
       "entry_id": "hc_016",
       "entry_type": "huichunlu_case",
       "rag_key": "血证",
-      "name": "hc_016 吐血·气火逆上"
+      "name": "hc_016 吐血·气火逆上",
+      "formulas_referenced": [
+        "白虎汤"
+      ]
     },
     {
       "case_id": "hc_017",
@@ -303,7 +396,10 @@
       "entry_id": "hc_017",
       "entry_type": "huichunlu_case",
       "rag_key": "血证",
-      "name": "hc_017 吐血·火不归元"
+      "name": "hc_017 吐血·火不归元",
+      "herbs": [
+        "桂心"
+      ]
     },
     {
       "case_id": "hc_018",
@@ -320,7 +416,17 @@
       "entry_id": "hc_018",
       "entry_type": "huichunlu_case",
       "rag_key": "血证",
-      "name": "hc_018 吐血·肺胃痰热"
+      "name": "hc_018 吐血·肺胃痰热",
+      "herbs": [
+        "枇杷叶",
+        "滑石",
+        "知母",
+        "竹茹",
+        "石膏"
+      ],
+      "formulas_referenced": [
+        "苇茎汤"
+      ]
     },
     {
       "case_id": "hc_019",
@@ -337,7 +443,12 @@
       "entry_id": "hc_019",
       "entry_type": "huichunlu_case",
       "rag_key": "血证",
-      "name": "hc_019 吐血·气分阴亏"
+      "name": "hc_019 吐血·气分阴亏",
+      "herbs": [
+        "枇杷叶",
+        "桑叶",
+        "知母"
+      ]
     },
     {
       "case_id": "hc_020",
@@ -371,7 +482,13 @@
       "entry_id": "hc_021",
       "entry_type": "huichunlu_case",
       "rag_key": "胃脘痛",
-      "name": "hc_021 胃脘痛·暑伏脾胃"
+      "name": "hc_021 胃脘痛·暑伏脾胃",
+      "herbs": [
+        "竹茹"
+      ],
+      "formulas_referenced": [
+        "白虎汤"
+      ]
     },
     {
       "case_id": "hc_022",
@@ -388,7 +505,18 @@
       "entry_id": "hc_022",
       "entry_type": "huichunlu_case",
       "rag_key": "胃脘痛",
-      "name": "hc_022 胃脘痛·痰饮呕逆"
+      "name": "hc_022 胃脘痛·痰饮呕逆",
+      "herbs": [
+        "枇杷叶",
+        "黄芩",
+        "黄连",
+        "生姜",
+        "竹茹",
+        "栀子",
+        "茯苓",
+        "半夏",
+        "泽泻"
+      ]
     },
     {
       "case_id": "hc_023",
@@ -422,7 +550,14 @@
       "entry_id": "hc_024",
       "entry_type": "huichunlu_case",
       "rag_key": "疟疾",
-      "name": "hc_024 疟疾·白虎加减"
+      "name": "hc_024 疟疾·白虎加减",
+      "herbs": [
+        "苍术",
+        "桂枝"
+      ],
+      "formulas_referenced": [
+        "白虎汤"
+      ]
     },
     {
       "case_id": "hc_025",
@@ -473,7 +608,19 @@
       "entry_id": "hc_027",
       "entry_type": "huichunlu_case",
       "rag_key": "霍乱",
-      "name": "hc_027 霍乱·伏暑扰营"
+      "name": "hc_027 霍乱·伏暑扰营",
+      "herbs": [
+        "石菖蒲",
+        "枇杷叶",
+        "丹参",
+        "黄芩",
+        "连翘",
+        "竹茹",
+        "桔梗"
+      ],
+      "formulas_referenced": [
+        "紫雪丹"
+      ]
     },
     {
       "case_id": "hc_028",
@@ -490,7 +637,19 @@
       "entry_id": "hc_028",
       "entry_type": "huichunlu_case",
       "rag_key": "霍乱",
-      "name": "hc_028 霍乱·血热转筋"
+      "name": "hc_028 霍乱·血热转筋",
+      "herbs": [
+        "薏苡仁",
+        "益母草",
+        "蒲公英",
+        "甘草",
+        "木瓜",
+        "生地",
+        "黄柏"
+      ],
+      "formulas_referenced": [
+        "白虎汤"
+      ]
     },
     {
       "case_id": "hc_029",
@@ -507,7 +666,13 @@
       "entry_id": "hc_029",
       "entry_type": "huichunlu_case",
       "rag_key": "泄泻",
-      "name": "hc_029 泄泻·土虚木贼"
+      "name": "hc_029 泄泻·土虚木贼",
+      "herbs": [
+        "乌梅",
+        "莲子",
+        "山药",
+        "木瓜"
+      ]
     },
     {
       "case_id": "hc_030",
@@ -524,7 +689,14 @@
       "entry_id": "hc_030",
       "entry_type": "huichunlu_case",
       "rag_key": "泄泻",
-      "name": "hc_030 晨泻·木土相凌"
+      "name": "hc_030 晨泻·木土相凌",
+      "herbs": [
+        "黄连",
+        "白术",
+        "木瓜",
+        "茯苓",
+        "桂枝"
+      ]
     },
     {
       "case_id": "hc_031",
@@ -541,7 +713,19 @@
       "entry_id": "hc_031",
       "entry_type": "huichunlu_case",
       "rag_key": "痢疾",
-      "name": "hc_031 痢疾·暑挟食滞"
+      "name": "hc_031 痢疾·暑挟食滞",
+      "herbs": [
+        "枇杷叶",
+        "神曲",
+        "黄芩",
+        "黄连",
+        "山楂",
+        "银花",
+        "滑石",
+        "莲子",
+        "栀子",
+        "桔梗"
+      ]
     },
     {
       "case_id": "hc_032",
@@ -558,7 +742,18 @@
       "entry_id": "hc_032",
       "entry_type": "huichunlu_case",
       "rag_key": "痢疾",
-      "name": "hc_032 痢疾·邪入厥阴"
+      "name": "hc_032 痢疾·邪入厥阴",
+      "herbs": [
+        "鸡内金",
+        "羚羊角",
+        "桑叶",
+        "黄芩",
+        "银花",
+        "白芍",
+        "栀子",
+        "牡蛎",
+        "鳖甲"
+      ]
     },
     {
       "case_id": "hc_033",
@@ -575,7 +770,17 @@
       "entry_id": "hc_033",
       "entry_type": "huichunlu_case",
       "rag_key": "惊悸怔忡",
-      "name": "hc_033 惊悸·惊后气乱"
+      "name": "hc_033 惊悸·惊后气乱",
+      "herbs": [
+        "代赭石",
+        "五味子",
+        "黄连",
+        "乌梅",
+        "木瓜",
+        "牡蛎",
+        "半夏",
+        "龙骨"
+      ]
     },
     {
       "case_id": "hc_034",
@@ -592,7 +797,16 @@
       "entry_id": "hc_034",
       "entry_type": "huichunlu_case",
       "rag_key": "惊悸怔忡",
-      "name": "hc_034 惊悸·误补成痉厥"
+      "name": "hc_034 惊悸·误补成痉厥",
+      "herbs": [
+        "羚羊角",
+        "连翘",
+        "知母",
+        "竹茹",
+        "鳖甲",
+        "贝母",
+        "玄参"
+      ]
     },
     {
       "case_id": "hc_035",
@@ -609,7 +823,18 @@
       "entry_id": "hc_035",
       "entry_type": "huichunlu_case",
       "rag_key": "月经不调",
-      "name": "hc_035 月经·误补成胀"
+      "name": "hc_035 月经·误补成胀",
+      "herbs": [
+        "鸡内金",
+        "黄连",
+        "山楂",
+        "栀子",
+        "茯苓",
+        "紫菀",
+        "枳实",
+        "杏仁",
+        "厚朴"
+      ]
     },
     {
       "case_id": "hc_036",
@@ -626,7 +851,19 @@
       "entry_id": "hc_036",
       "entry_type": "huichunlu_case",
       "rag_key": "月经不调",
-      "name": "hc_036 月经·土燥水涸"
+      "name": "hc_036 月经·土燥水涸",
+      "herbs": [
+        "丹皮",
+        "知母",
+        "白芍",
+        "栀子",
+        "茯苓",
+        "石膏",
+        "生地",
+        "黄柏",
+        "麦冬",
+        "木通"
+      ]
     },
     {
       "case_id": "hc_037",
@@ -660,7 +897,15 @@
       "entry_id": "hc_038",
       "entry_type": "huichunlu_case",
       "rag_key": "产后发热",
-      "name": "hc_038 产后·伏暑蕴毒"
+      "name": "hc_038 产后·伏暑蕴毒",
+      "herbs": [
+        "桑叶",
+        "银花",
+        "滑石",
+        "知母",
+        "栀子",
+        "贝母"
+      ]
     },
     {
       "case_id": "hc_039",
@@ -677,7 +922,14 @@
       "entry_id": "hc_039",
       "entry_type": "huichunlu_case",
       "rag_key": "产后发热",
-      "name": "hc_039 产后·热证洞泻"
+      "name": "hc_039 产后·热证洞泻",
+      "herbs": [
+        "桑叶",
+        "银花",
+        "知母",
+        "栀子",
+        "石膏"
+      ]
     },
     {
       "case_id": "hc_040",
@@ -694,7 +946,14 @@
       "entry_id": "hc_040",
       "entry_type": "huichunlu_case",
       "rag_key": "痘疫",
-      "name": "hc_040 痘疫·热毒流行"
+      "name": "hc_040 痘疫·热毒流行",
+      "herbs": [
+        "金银花",
+        "甘草"
+      ],
+      "formulas_referenced": [
+        "白虎汤"
+      ]
     }
   ]
 }

@@ -31,7 +31,21 @@
       "entry_id": "zyq_001",
       "entry_type": "zhangyuqing_case",
       "rag_key": "中风",
-      "name": "zyq_001 中风·气虚痰闭"
+      "name": "zyq_001 中风·气虚痰闭",
+      "herbs": [
+        "白术",
+        "人参",
+        "白芍",
+        "茯苓",
+        "橘红",
+        "菖蒲",
+        "黄芪",
+        "当归",
+        "枳实",
+        "半夏",
+        "远志",
+        "郁金"
+      ]
     },
     {
       "case_id": "zyq_002",
@@ -82,7 +96,15 @@
       "entry_id": "zyq_004",
       "entry_type": "zhangyuqing_case",
       "rag_key": "湿温",
-      "name": "zyq_004 湿温·湿阻阳气"
+      "name": "zyq_004 湿温·湿阻阳气",
+      "herbs": [
+        "滑石",
+        "桔梗",
+        "半夏",
+        "杏仁",
+        "郁金",
+        "藿香"
+      ]
     },
     {
       "case_id": "zyq_005",
@@ -99,7 +121,15 @@
       "entry_id": "zyq_005",
       "entry_type": "zhangyuqing_case",
       "rag_key": "湿温",
-      "name": "zyq_005 湿温·湿热孰胜"
+      "name": "zyq_005 湿温·湿热孰胜",
+      "herbs": [
+        "黄芩",
+        "滑石",
+        "薏仁",
+        "枳实",
+        "杏仁",
+        "郁金"
+      ]
     },
     {
       "case_id": "zyq_006",
@@ -167,7 +197,18 @@
       "entry_id": "zyq_009",
       "entry_type": "zhangyuqing_case",
       "rag_key": "咳嗽",
-      "name": "zyq_009 咳嗽·肃肺化痰"
+      "name": "zyq_009 咳嗽·肃肺化痰",
+      "herbs": [
+        "牛蒡子",
+        "枇杷叶",
+        "前胡",
+        "茯苓",
+        "橘红",
+        "桔梗",
+        "半夏",
+        "杏仁",
+        "贝母"
+      ]
     },
     {
       "case_id": "zyq_010",
@@ -184,7 +225,17 @@
       "entry_id": "zyq_010",
       "entry_type": "zhangyuqing_case",
       "rag_key": "咳嗽",
-      "name": "zyq_010 咳嗽·肺肾阴虚"
+      "name": "zyq_010 咳嗽·肺肾阴虚",
+      "herbs": [
+        "枇杷叶",
+        "前胡",
+        "桑叶",
+        "菊花",
+        "茯苓",
+        "桔梗",
+        "杏仁",
+        "贝母"
+      ]
     },
     {
       "case_id": "zyq_011",
@@ -201,7 +252,12 @@
       "entry_id": "zyq_011",
       "entry_type": "zhangyuqing_case",
       "rag_key": "吐血",
-      "name": "zyq_011 吐血·肝阳偏亢"
+      "name": "zyq_011 吐血·肝阳偏亢",
+      "herbs": [
+        "女贞子",
+        "茯苓",
+        "牡蛎"
+      ]
     },
     {
       "case_id": "zyq_012",
@@ -218,7 +274,15 @@
       "entry_id": "zyq_012",
       "entry_type": "zhangyuqing_case",
       "rag_key": "吐血",
-      "name": "zyq_012 吐血·络伤行血"
+      "name": "zyq_012 吐血·络伤行血",
+      "herbs": [
+        "代赭石",
+        "丹皮",
+        "赤芍",
+        "当归",
+        "郁金",
+        "栝蒌"
+      ]
     },
     {
       "case_id": "zyq_013",
@@ -235,7 +299,18 @@
       "entry_id": "zyq_013",
       "entry_type": "zhangyuqing_case",
       "rag_key": "吐血",
-      "name": "zyq_013 吐血·瘀血伤肺"
+      "name": "zyq_013 吐血·瘀血伤肺",
+      "herbs": [
+        "延胡索",
+        "枇杷叶",
+        "丹参",
+        "苏子",
+        "桃仁",
+        "赤芍",
+        "红花",
+        "桂枝",
+        "郁金"
+      ]
     },
     {
       "case_id": "zyq_014",
@@ -269,7 +344,15 @@
       "entry_id": "zyq_015",
       "entry_type": "zhangyuqing_case",
       "rag_key": "肝风",
-      "name": "zyq_015 肝风·和阴摄阳"
+      "name": "zyq_015 肝风·和阴摄阳",
+      "herbs": [
+        "半夏曲",
+        "地骨皮",
+        "甘草",
+        "茯苓",
+        "牡蛎",
+        "贝母"
+      ]
     },
     {
       "case_id": "zyq_016",
@@ -286,7 +369,15 @@
       "entry_id": "zyq_016",
       "entry_type": "zhangyuqing_case",
       "rag_key": "肝风",
-      "name": "zyq_016 肝风·上旋致厥"
+      "name": "zyq_016 肝风·上旋致厥",
+      "herbs": [
+        "地骨皮",
+        "菊花",
+        "白芍",
+        "牡蛎",
+        "龙骨",
+        "桂枝"
+      ]
     },
     {
       "case_id": "zyq_017",
@@ -303,7 +394,15 @@
       "entry_id": "zyq_017",
       "entry_type": "zhangyuqing_case",
       "rag_key": "眩晕",
-      "name": "zyq_017 眩晕·痰热上旋"
+      "name": "zyq_017 眩晕·痰热上旋",
+      "herbs": [
+        "栝蒌仁",
+        "天麻",
+        "橘红",
+        "半夏",
+        "杏仁",
+        "泽泻"
+      ]
     },
     {
       "case_id": "zyq_018",
@@ -354,7 +453,19 @@
       "entry_id": "zyq_020",
       "entry_type": "zhangyuqing_case",
       "rag_key": "痢",
-      "name": "zyq_020 痢·肝木乘脾"
+      "name": "zyq_020 痢·肝木乘脾",
+      "herbs": [
+        "半夏曲",
+        "乌梅",
+        "山药",
+        "白芍",
+        "茯苓",
+        "生地",
+        "黄柏",
+        "当归",
+        "青皮",
+        "阿胶"
+      ]
     },
     {
       "case_id": "zyq_021",
@@ -371,7 +482,16 @@
       "entry_id": "zyq_021",
       "entry_type": "zhangyuqing_case",
       "rag_key": "痢",
-      "name": "zyq_021 痢·疹后湿热"
+      "name": "zyq_021 痢·疹后湿热",
+      "herbs": [
+        "黄芩",
+        "甘草",
+        "茯苓",
+        "枳壳",
+        "桔梗",
+        "木香",
+        "葛根"
+      ]
     },
     {
       "case_id": "zyq_022",
@@ -456,7 +576,22 @@
       "entry_id": "zyq_026",
       "entry_type": "zhangyuqing_case",
       "rag_key": "调经",
-      "name": "zyq_026 调经·滑胎"
+      "name": "zyq_026 调经·滑胎",
+      "herbs": [
+        "菟丝子",
+        "丹参",
+        "丹皮",
+        "砂仁",
+        "山药",
+        "熟地",
+        "白芍",
+        "香附",
+        "茯苓",
+        "当归",
+        "红花",
+        "牛膝",
+        "泽泻"
+      ]
     },
     {
       "case_id": "zyq_027",
@@ -473,7 +608,18 @@
       "entry_id": "zyq_027",
       "entry_type": "zhangyuqing_case",
       "rag_key": "调经",
-      "name": "zyq_027 调经·瘀滞经闭"
+      "name": "zyq_027 调经·瘀滞经闭",
+      "herbs": [
+        "延胡索",
+        "五灵脂",
+        "桂心",
+        "桃仁",
+        "赤芍",
+        "乌药",
+        "香附",
+        "枳壳",
+        "麦芽"
+      ]
     },
     {
       "case_id": "zyq_028",
@@ -711,7 +857,18 @@
       "entry_id": "zyq_041",
       "entry_type": "zhangyuqing_case",
       "rag_key": "湿温",
-      "name": "zyq_041 湿温窒闷"
+      "name": "zyq_041 湿温窒闷",
+      "herbs": [
+        "石菖蒲",
+        "牛蒡子",
+        "黄芩",
+        "滑石",
+        "橘红",
+        "桔梗",
+        "半夏",
+        "杏仁",
+        "郁金"
+      ]
     },
     {
       "case_id": "zyq_042",
@@ -728,7 +885,20 @@
       "entry_id": "zyq_042",
       "entry_type": "zhangyuqing_case",
       "rag_key": "湿温",
-      "name": "zyq_042 湿温泄化"
+      "name": "zyq_042 湿温泄化",
+      "herbs": [
+        "黄芩",
+        "滑石",
+        "猪苓",
+        "连翘",
+        "桔梗",
+        "薏仁",
+        "枳实",
+        "半夏",
+        "杏仁",
+        "郁金",
+        "泽泻"
+      ]
     },
     {
       "case_id": "zyq_043",
@@ -745,7 +915,15 @@
       "entry_id": "zyq_043",
       "entry_type": "zhangyuqing_case",
       "rag_key": "湿温",
-      "name": "zyq_043 湿痰弥漫"
+      "name": "zyq_043 湿痰弥漫",
+      "herbs": [
+        "滑石",
+        "猪苓",
+        "薏仁",
+        "郁金",
+        "泽泻",
+        "藿香"
+      ]
     },
     {
       "case_id": "zyq_044",
@@ -762,7 +940,15 @@
       "entry_id": "zyq_044",
       "entry_type": "zhangyuqing_case",
       "rag_key": "湿温",
-      "name": "zyq_044 湿阻阳气"
+      "name": "zyq_044 湿阻阳气",
+      "herbs": [
+        "滑石",
+        "桔梗",
+        "半夏",
+        "杏仁",
+        "郁金",
+        "藿香"
+      ]
     },
     {
       "case_id": "zyq_046",
@@ -779,7 +965,17 @@
       "entry_id": "zyq_046",
       "entry_type": "zhangyuqing_case",
       "rag_key": "咳嗽",
-      "name": "zyq_046 咳嗽治本"
+      "name": "zyq_046 咳嗽治本",
+      "herbs": [
+        "枇杷叶",
+        "前胡",
+        "桑叶",
+        "菊花",
+        "茯苓",
+        "桔梗",
+        "杏仁",
+        "贝母"
+      ]
     },
     {
       "case_id": "zyq_047",
@@ -796,7 +992,14 @@
       "entry_id": "zyq_047",
       "entry_type": "zhangyuqing_case",
       "rag_key": "痰饮",
-      "name": "zyq_047 停饮痞阻"
+      "name": "zyq_047 停饮痞阻",
+      "herbs": [
+        "天麻",
+        "竹茹",
+        "枳壳",
+        "干姜",
+        "半夏"
+      ]
     },
     {
       "case_id": "zyq_048",
@@ -813,7 +1016,11 @@
       "entry_id": "zyq_048",
       "entry_type": "zhangyuqing_case",
       "rag_key": "痰饮",
-      "name": "zyq_048 胃寒停饮"
+      "name": "zyq_048 胃寒停饮",
+      "herbs": [
+        "益智仁",
+        "生姜"
+      ]
     },
     {
       "case_id": "zyq_049",
@@ -830,7 +1037,13 @@
       "entry_id": "zyq_049",
       "entry_type": "zhangyuqing_case",
       "rag_key": "痰饮",
-      "name": "zyq_049 命火不治"
+      "name": "zyq_049 命火不治",
+      "herbs": [
+        "甘草",
+        "炮姜",
+        "茯苓",
+        "木香"
+      ]
     },
     {
       "case_id": "zyq_050",
@@ -864,7 +1077,12 @@
       "entry_id": "zyq_051",
       "entry_type": "zhangyuqing_case",
       "rag_key": "吐血",
-      "name": "zyq_051 吐血养肺胃"
+      "name": "zyq_051 吐血养肺胃",
+      "herbs": [
+        "女贞子",
+        "茯苓",
+        "牡蛎"
+      ]
     },
     {
       "case_id": "zyq_052",
@@ -881,7 +1099,15 @@
       "entry_id": "zyq_052",
       "entry_type": "zhangyuqing_case",
       "rag_key": "吐血",
-      "name": "zyq_052 络伤降气"
+      "name": "zyq_052 络伤降气",
+      "herbs": [
+        "代赭石",
+        "丹皮",
+        "赤芍",
+        "当归",
+        "郁金",
+        "栝蒌"
+      ]
     },
     {
       "case_id": "zyq_053",
@@ -898,7 +1124,15 @@
       "entry_id": "zyq_053",
       "entry_type": "zhangyuqing_case",
       "rag_key": "脘痛",
-      "name": "zyq_053 脘痛停饮"
+      "name": "zyq_053 脘痛停饮",
+      "herbs": [
+        "白蔻仁",
+        "生姜",
+        "茯苓",
+        "丁香",
+        "沉香",
+        "半夏"
+      ]
     },
     {
       "case_id": "zyq_057",
@@ -915,7 +1149,14 @@
       "entry_id": "zyq_057",
       "entry_type": "zhangyuqing_case",
       "rag_key": "产后",
-      "name": "zyq_057 产后痛痢"
+      "name": "zyq_057 产后痛痢",
+      "herbs": [
+        "延胡索",
+        "砂仁",
+        "乌药",
+        "茯苓",
+        "木香"
+      ]
     },
     {
       "case_id": "zyq_060",
@@ -932,7 +1173,14 @@
       "entry_id": "zyq_060",
       "entry_type": "zhangyuqing_case",
       "rag_key": "淋浊",
-      "name": "zyq_060 浊气虚"
+      "name": "zyq_060 浊气虚",
+      "herbs": [
+        "沙苑子",
+        "升麻",
+        "柴胡",
+        "牡蛎",
+        "泽泻"
+      ]
     },
     {
       "case_id": "zyq_062",
@@ -949,7 +1197,17 @@
       "entry_id": "zyq_062",
       "entry_type": "zhangyuqing_case",
       "rag_key": "虚损",
-      "name": "zyq_062 虚损劳瘵"
+      "name": "zyq_062 虚损劳瘵",
+      "herbs": [
+        "桑白皮",
+        "地骨皮",
+        "甘草",
+        "人参",
+        "茯苓",
+        "麦冬",
+        "杏仁",
+        "贝母"
+      ]
     },
     {
       "case_id": "zyq_063",
@@ -966,7 +1224,10 @@
       "entry_id": "zyq_063",
       "entry_type": "zhangyuqing_case",
       "rag_key": "泄泻",
-      "name": "zyq_063 晨泻肝脾"
+      "name": "zyq_063 晨泻肝脾",
+      "herbs": [
+        "茯苓"
+      ]
     },
     {
       "case_id": "zyq_065",
@@ -983,7 +1244,19 @@
       "entry_id": "zyq_065",
       "entry_type": "zhangyuqing_case",
       "rag_key": "肿胀",
-      "name": "zyq_065 产后浮肿"
+      "name": "zyq_065 产后浮肿",
+      "herbs": [
+        "苏子",
+        "茯苓",
+        "枳壳",
+        "防风",
+        "羌活",
+        "沉香",
+        "杏仁"
+      ],
+      "formulas_referenced": [
+        "越鞠丸"
+      ]
     },
     {
       "case_id": "zyq_066",
@@ -1000,7 +1273,14 @@
       "entry_id": "zyq_066",
       "entry_type": "zhangyuqing_case",
       "rag_key": "眩晕",
-      "name": "zyq_066 眩晕柔肝"
+      "name": "zyq_066 眩晕柔肝",
+      "herbs": [
+        "女贞子",
+        "白芍",
+        "麦冬",
+        "牡蛎",
+        "阿胶"
+      ]
     },
     {
       "case_id": "zyq_067",
@@ -1051,7 +1331,16 @@
       "entry_id": "zyq_070",
       "entry_type": "zhangyuqing_case",
       "rag_key": "肿胀",
-      "name": "zyq_070 气胀肝木"
+      "name": "zyq_070 气胀肝木",
+      "herbs": [
+        "猪苓",
+        "砂仁",
+        "白芍",
+        "香附",
+        "川椒",
+        "当归",
+        "泽泻"
+      ]
     },
     {
       "case_id": "zyq_045",
@@ -1085,7 +1374,17 @@
       "entry_id": "zyq_054",
       "entry_type": "zhangyuqing_case",
       "rag_key": "脘痛",
-      "name": "zyq_054 脘痛厥气"
+      "name": "zyq_054 脘痛厥气",
+      "herbs": [
+        "延胡索",
+        "砂仁",
+        "乌药",
+        "白芍",
+        "香附",
+        "枳壳",
+        "沉香",
+        "郁金"
+      ]
     },
     {
       "case_id": "zyq_055",
@@ -1102,7 +1401,10 @@
       "entry_id": "zyq_055",
       "entry_type": "zhangyuqing_case",
       "rag_key": "脘痛",
-      "name": "zyq_055 脘痛寒浊"
+      "name": "zyq_055 脘痛寒浊",
+      "herbs": [
+        "茯苓"
+      ]
     },
     {
       "case_id": "zyq_056",
@@ -1119,7 +1421,14 @@
       "entry_id": "zyq_056",
       "entry_type": "zhangyuqing_case",
       "rag_key": "调经",
-      "name": "zyq_056 调经和胃"
+      "name": "zyq_056 调经和胃",
+      "herbs": [
+        "砂仁",
+        "白芍",
+        "香附",
+        "茯苓",
+        "当归"
+      ]
     },
     {
       "case_id": "zyq_058",
@@ -1136,7 +1445,16 @@
       "entry_id": "zyq_058",
       "entry_type": "zhangyuqing_case",
       "rag_key": "遗精",
-      "name": "zyq_058 固精益肾"
+      "name": "zyq_058 固精益肾",
+      "herbs": [
+        "补骨脂",
+        "菟丝子",
+        "山药",
+        "熟地",
+        "杜仲",
+        "牡蛎",
+        "龙骨"
+      ]
     },
     {
       "case_id": "zyq_059",
@@ -1153,7 +1471,10 @@
       "entry_id": "zyq_059",
       "entry_type": "zhangyuqing_case",
       "rag_key": "遗精",
-      "name": "zyq_059 精浊固肾"
+      "name": "zyq_059 精浊固肾",
+      "herbs": [
+        "山药"
+      ]
     },
     {
       "case_id": "zyq_061",
@@ -1170,7 +1491,15 @@
       "entry_id": "zyq_061",
       "entry_type": "zhangyuqing_case",
       "rag_key": "淋浊",
-      "name": "zyq_061 淋浊湿热"
+      "name": "zyq_061 淋浊湿热",
+      "herbs": [
+        "车前子",
+        "甘草",
+        "萆薢",
+        "沉香",
+        "薏仁",
+        "牛膝"
+      ]
     },
     {
       "case_id": "zyq_064",
@@ -1187,7 +1516,13 @@
       "entry_id": "zyq_064",
       "entry_type": "zhangyuqing_case",
       "rag_key": "便闭",
-      "name": "zyq_064 便闭阴亏"
+      "name": "zyq_064 便闭阴亏",
+      "herbs": [
+        "栝蒌仁",
+        "白芍",
+        "当归",
+        "杏仁"
+      ]
     },
     {
       "case_id": "zyq_069",
@@ -1204,7 +1539,17 @@
       "entry_id": "zyq_069",
       "entry_type": "zhangyuqing_case",
       "rag_key": "便闭",
-      "name": "zyq_069 便闭痰热"
+      "name": "zyq_069 便闭痰热",
+      "herbs": [
+        "枇杷叶",
+        "淡豆豉",
+        "栝蒌仁",
+        "紫菀",
+        "桔梗",
+        "半夏",
+        "杏仁",
+        "郁金"
+      ]
     },
     {
       "case_id": "zyq_071",
@@ -1221,7 +1566,15 @@
       "entry_id": "zyq_071",
       "entry_type": "zhangyuqing_case",
       "rag_key": "肝火",
-      "name": "zyq_071 肝火灼阴"
+      "name": "zyq_071 肝火灼阴",
+      "herbs": [
+        "地骨皮",
+        "女贞子",
+        "丹皮",
+        "白芍",
+        "生地",
+        "阿胶"
+      ]
     },
     {
       "case_id": "zyq_072",
@@ -1238,7 +1591,11 @@
       "entry_id": "zyq_072",
       "entry_type": "zhangyuqing_case",
       "rag_key": "肝风",
-      "name": "zyq_072 肝风脾胃虚"
+      "name": "zyq_072 肝风脾胃虚",
+      "herbs": [
+        "白芍",
+        "茯苓"
+      ]
     },
     {
       "case_id": "zyq_073",
@@ -1255,7 +1612,16 @@
       "entry_id": "zyq_073",
       "entry_type": "zhangyuqing_case",
       "rag_key": "气郁",
-      "name": "zyq_073 气郁伤肝"
+      "name": "zyq_073 气郁伤肝",
+      "herbs": [
+        "丹皮",
+        "白芍",
+        "香附",
+        "茯苓",
+        "柴胡",
+        "枳壳",
+        "当归"
+      ]
     },
     {
       "case_id": "zyq_074",
@@ -1272,7 +1638,10 @@
       "entry_id": "zyq_074",
       "entry_type": "zhangyuqing_case",
       "rag_key": "气郁",
-      "name": "zyq_074 木郁土中"
+      "name": "zyq_074 木郁土中",
+      "herbs": [
+        "乌梅"
+      ]
     },
     {
       "case_id": "zyq_075",
@@ -1289,7 +1658,13 @@
       "entry_id": "zyq_075",
       "entry_type": "zhangyuqing_case",
       "rag_key": "胸胁痛",
-      "name": "zyq_075 胸痛气郁"
+      "name": "zyq_075 胸痛气郁",
+      "herbs": [
+        "香附",
+        "木香",
+        "郁金",
+        "栝蒌"
+      ]
     },
     {
       "case_id": "zyq_076",
@@ -1306,7 +1681,16 @@
       "entry_id": "zyq_076",
       "entry_type": "zhangyuqing_case",
       "rag_key": "呕吐",
-      "name": "zyq_076 停饮呕吐"
+      "name": "zyq_076 停饮呕吐",
+      "herbs": [
+        "白蔻仁",
+        "茯苓",
+        "丁香",
+        "干姜",
+        "半夏",
+        "桂枝",
+        "藿香"
+      ]
     },
     {
       "case_id": "zyq_077",
@@ -1323,7 +1707,16 @@
       "entry_id": "zyq_077",
       "entry_type": "zhangyuqing_case",
       "rag_key": "痢",
-      "name": "zyq_077 疹后转痢"
+      "name": "zyq_077 疹后转痢",
+      "herbs": [
+        "黄芩",
+        "甘草",
+        "茯苓",
+        "枳壳",
+        "桔梗",
+        "木香",
+        "葛根"
+      ]
     },
     {
       "case_id": "zyq_078",
@@ -1340,7 +1733,14 @@
       "entry_id": "zyq_078",
       "entry_type": "zhangyuqing_case",
       "rag_key": "风痹",
-      "name": "zyq_078 风湿相搏"
+      "name": "zyq_078 风湿相搏",
+      "herbs": [
+        "天麻",
+        "茯苓",
+        "橘红",
+        "防风",
+        "半夏"
+      ]
     },
     {
       "case_id": "zyq_079",
@@ -1357,7 +1757,16 @@
       "entry_id": "zyq_079",
       "entry_type": "zhangyuqing_case",
       "rag_key": "不寐",
-      "name": "zyq_079 不寐脾虚"
+      "name": "zyq_079 不寐脾虚",
+      "herbs": [
+        "砂仁",
+        "香附",
+        "茯苓",
+        "生地",
+        "薏仁",
+        "磁石",
+        "阿胶"
+      ]
     },
     {
       "case_id": "zyq_080",
@@ -1374,7 +1783,14 @@
       "entry_id": "zyq_080",
       "entry_type": "zhangyuqing_case",
       "rag_key": "惊悸",
-      "name": "zyq_080 惊悸镇潜"
+      "name": "zyq_080 惊悸镇潜",
+      "herbs": [
+        "龟板",
+        "白芍",
+        "橘红",
+        "牡蛎",
+        "磁石"
+      ]
     },
     {
       "case_id": "zyq_081",
@@ -1391,7 +1807,13 @@
       "entry_id": "zyq_081",
       "entry_type": "zhangyuqing_case",
       "rag_key": "惊悸",
-      "name": "zyq_081 心悸滋肾"
+      "name": "zyq_081 心悸滋肾",
+      "herbs": [
+        "石决明",
+        "女贞子",
+        "丹皮",
+        "龟板"
+      ]
     },
     {
       "case_id": "zyq_082",
@@ -1425,7 +1847,20 @@
       "entry_id": "zyq_083",
       "entry_type": "zhangyuqing_case",
       "rag_key": "咽喉",
-      "name": "zyq_083 心胆火郁"
+      "name": "zyq_083 心胆火郁",
+      "herbs": [
+        "半夏曲",
+        "甘草",
+        "连翘",
+        "生地",
+        "桔梗",
+        "杏仁",
+        "元参",
+        "磁石",
+        "郁金",
+        "射干",
+        "荆芥"
+      ]
     },
     {
       "case_id": "zyq_084",
@@ -1442,7 +1877,16 @@
       "entry_id": "zyq_084",
       "entry_type": "zhangyuqing_case",
       "rag_key": "目疾",
-      "name": "zyq_084 目赤风热"
+      "name": "zyq_084 目赤风热",
+      "herbs": [
+        "石决明",
+        "黄芩",
+        "菊花",
+        "丹皮",
+        "连翘",
+        "防风",
+        "荆芥"
+      ]
     },
     {
       "case_id": "zyq_085",
@@ -1476,7 +1920,15 @@
       "entry_id": "zyq_086",
       "entry_type": "zhangyuqing_case",
       "rag_key": "疝气",
-      "name": "zyq_086 狐疝湿寒"
+      "name": "zyq_086 狐疝湿寒",
+      "herbs": [
+        "猪苓",
+        "乌药",
+        "香附",
+        "橘核",
+        "青皮",
+        "木香"
+      ]
     },
     {
       "case_id": "zyq_087",
@@ -1493,7 +1945,14 @@
       "entry_id": "zyq_087",
       "entry_type": "zhangyuqing_case",
       "rag_key": "阳痿",
-      "name": "zyq_087 阳痿湿痰"
+      "name": "zyq_087 阳痿湿痰",
+      "herbs": [
+        "萆薢",
+        "竹茹",
+        "半夏",
+        "杏仁",
+        "泽泻"
+      ]
     },
     {
       "case_id": "zyq_088",
@@ -1510,7 +1969,17 @@
       "entry_id": "zyq_088",
       "entry_type": "zhangyuqing_case",
       "rag_key": "癃闭",
-      "name": "zyq_088 癃闭湿热"
+      "name": "zyq_088 癃闭湿热",
+      "herbs": [
+        "车前子",
+        "甘草",
+        "升麻",
+        "滑石",
+        "瞿麦",
+        "柴胡",
+        "黄芪",
+        "泽泻"
+      ]
     },
     {
       "case_id": "zyq_089",
@@ -1527,7 +1996,19 @@
       "entry_id": "zyq_089",
       "entry_type": "zhangyuqing_case",
       "rag_key": "诸寒热",
-      "name": "zyq_089 痰郁身热"
+      "name": "zyq_089 痰郁身热",
+      "herbs": [
+        "砂仁",
+        "竹茹",
+        "香附",
+        "橘红",
+        "黄柏",
+        "薏仁",
+        "半夏",
+        "苍术",
+        "桂枝",
+        "泽泻"
+      ]
     },
     {
       "case_id": "zyq_090",
@@ -1544,7 +2025,14 @@
       "entry_id": "zyq_090",
       "entry_type": "zhangyuqing_case",
       "rag_key": "丹痧",
-      "name": "zyq_090 丹痧疫火"
+      "name": "zyq_090 丹痧疫火",
+      "herbs": [
+        "金银花",
+        "大青叶",
+        "桑叶",
+        "丹皮",
+        "生地"
+      ]
     },
     {
       "case_id": "zyq_091",
@@ -1561,7 +2049,18 @@
       "entry_id": "zyq_091",
       "entry_type": "zhangyuqing_case",
       "rag_key": "丹痧",
-      "name": "zyq_091 丹痧经来"
+      "name": "zyq_091 丹痧经来",
+      "herbs": [
+        "牛蒡子",
+        "前胡",
+        "丹参",
+        "桑叶",
+        "枳壳",
+        "杏仁",
+        "贝母",
+        "郁金",
+        "射干"
+      ]
     },
     {
       "case_id": "zyq_092",
@@ -1578,7 +2077,13 @@
       "entry_id": "zyq_092",
       "entry_type": "zhangyuqing_case",
       "rag_key": "喘",
-      "name": "zyq_092 肾虚喘脱"
+      "name": "zyq_092 肾虚喘脱",
+      "herbs": [
+        "丹皮",
+        "熟地",
+        "茯苓",
+        "牛膝"
+      ]
     },
     {
       "case_id": "zyq_093",
@@ -1612,7 +2117,15 @@
       "entry_id": "zyq_094",
       "entry_type": "zhangyuqing_case",
       "rag_key": "便血",
-      "name": "zyq_094 便血化瘀"
+      "name": "zyq_094 便血化瘀",
+      "herbs": [
+        "延胡索",
+        "丹皮",
+        "赤芍",
+        "当归",
+        "槐花",
+        "荆芥"
+      ]
     },
     {
       "case_id": "zyq_095",
@@ -1629,7 +2142,19 @@
       "entry_id": "zyq_095",
       "entry_type": "zhangyuqing_case",
       "rag_key": "便血",
-      "name": "zyq_095 便血肠痔"
+      "name": "zyq_095 便血肠痔",
+      "herbs": [
+        "丹皮",
+        "竹茹",
+        "枳壳",
+        "黄柏",
+        "防风",
+        "当归",
+        "半夏",
+        "槐花",
+        "荆芥",
+        "泽泻"
+      ]
     },
     {
       "case_id": "zyq_096",
@@ -1646,7 +2171,12 @@
       "entry_id": "zyq_096",
       "entry_type": "zhangyuqing_case",
       "rag_key": "黄瘅",
-      "name": "zyq_096 黄瘅湿热"
+      "name": "zyq_096 黄瘅湿热",
+      "herbs": [
+        "猪苓",
+        "半夏",
+        "泽泻"
+      ]
     },
     {
       "case_id": "zyq_097",
@@ -1663,7 +2193,13 @@
       "entry_id": "zyq_097",
       "entry_type": "zhangyuqing_case",
       "rag_key": "黄瘅",
-      "name": "zyq_097 谷瘅"
+      "name": "zyq_097 谷瘅",
+      "herbs": [
+        "瞿麦",
+        "白术",
+        "猪苓",
+        "泽泻"
+      ]
     },
     {
       "case_id": "zyq_098",
@@ -1680,7 +2216,15 @@
       "entry_id": "zyq_098",
       "entry_type": "zhangyuqing_case",
       "rag_key": "痞气",
-      "name": "zyq_098 痞气痰湿"
+      "name": "zyq_098 痞气痰湿",
+      "herbs": [
+        "砂仁",
+        "竹茹",
+        "茯苓",
+        "薏仁",
+        "枳实",
+        "半夏"
+      ]
     },
     {
       "case_id": "zyq_099",
@@ -1697,7 +2241,15 @@
       "entry_id": "zyq_099",
       "entry_type": "zhangyuqing_case",
       "rag_key": "肺痈",
-      "name": "zyq_099 肺痿虚火"
+      "name": "zyq_099 肺痿虚火",
+      "herbs": [
+        "地骨皮",
+        "知母",
+        "石膏",
+        "生地",
+        "麦冬",
+        "贝母"
+      ]
     },
     {
       "case_id": "zyq_100",
@@ -1714,7 +2266,17 @@
       "entry_id": "zyq_100",
       "entry_type": "zhangyuqing_case",
       "rag_key": "衄血",
-      "name": "zyq_100 衄血补虚"
+      "name": "zyq_100 衄血补虚",
+      "herbs": [
+        "丹皮",
+        "白芍",
+        "杜仲",
+        "生地",
+        "麦冬",
+        "当归",
+        "贝母",
+        "牛膝"
+      ]
     },
     {
       "case_id": "zyq_101",
@@ -1731,7 +2293,10 @@
       "entry_id": "zyq_101",
       "entry_type": "zhangyuqing_case",
       "rag_key": "衄血",
-      "name": "zyq_101 衄血肝火"
+      "name": "zyq_101 衄血肝火",
+      "herbs": [
+        "丹皮"
+      ]
     },
     {
       "case_id": "zyq_102",
@@ -1748,7 +2313,15 @@
       "entry_id": "zyq_102",
       "entry_type": "zhangyuqing_case",
       "rag_key": "溲血",
-      "name": "zyq_102 溲血湿热"
+      "name": "zyq_102 溲血湿热",
+      "herbs": [
+        "海金沙",
+        "丹皮",
+        "滑石",
+        "生地",
+        "当归",
+        "泽泻"
+      ]
     },
     {
       "case_id": "zyq_103",
@@ -1765,7 +2338,15 @@
       "entry_id": "zyq_103",
       "entry_type": "zhangyuqing_case",
       "rag_key": "痉厥",
-      "name": "zyq_103 痉厥潜阳"
+      "name": "zyq_103 痉厥潜阳",
+      "herbs": [
+        "女贞子",
+        "秦艽",
+        "丹皮",
+        "龟甲",
+        "远志",
+        "龙骨"
+      ]
     },
     {
       "case_id": "zyq_104",
@@ -1782,7 +2363,15 @@
       "entry_id": "zyq_104",
       "entry_type": "zhangyuqing_case",
       "rag_key": "痰火",
-      "name": "zyq_104 痰火不寐"
+      "name": "zyq_104 痰火不寐",
+      "herbs": [
+        "酸枣仁",
+        "知母",
+        "竹茹",
+        "茯苓",
+        "枳壳",
+        "半夏"
+      ]
     },
     {
       "case_id": "zyq_105",
@@ -1799,7 +2388,14 @@
       "entry_id": "zyq_105",
       "entry_type": "zhangyuqing_case",
       "rag_key": "头痛",
-      "name": "zyq_105 头痛虚风"
+      "name": "zyq_105 头痛虚风",
+      "herbs": [
+        "菊花",
+        "丹皮",
+        "白芍",
+        "生地",
+        "川芎"
+      ]
     },
     {
       "case_id": "zyq_106",
@@ -1816,7 +2412,15 @@
       "entry_id": "zyq_106",
       "entry_type": "zhangyuqing_case",
       "rag_key": "头痛",
-      "name": "zyq_106 头痛肝火"
+      "name": "zyq_106 头痛肝火",
+      "herbs": [
+        "石决明",
+        "桑叶",
+        "菊花",
+        "丹皮",
+        "防风",
+        "羌活"
+      ]
     },
     {
       "case_id": "zyq_107",
@@ -1833,7 +2437,20 @@
       "entry_id": "zyq_107",
       "entry_type": "zhangyuqing_case",
       "rag_key": "腹痛",
-      "name": "zyq_107 腹痛劫虫"
+      "name": "zyq_107 腹痛劫虫",
+      "herbs": [
+        "使君子",
+        "炮姜",
+        "砂仁",
+        "乌药",
+        "香附",
+        "沉香",
+        "枳实",
+        "青皮",
+        "木香",
+        "桂枝",
+        "郁金"
+      ]
     },
     {
       "case_id": "zyq_108",
@@ -1850,7 +2467,14 @@
       "entry_id": "zyq_108",
       "entry_type": "zhangyuqing_case",
       "rag_key": "腰痛",
-      "name": "zyq_108 腰痛熄肝"
+      "name": "zyq_108 腰痛熄肝",
+      "herbs": [
+        "白芍",
+        "茯苓",
+        "杜仲",
+        "生地",
+        "阿胶"
+      ]
     },
     {
       "case_id": "zyq_109",
@@ -1867,7 +2491,16 @@
       "entry_id": "zyq_109",
       "entry_type": "zhangyuqing_case",
       "rag_key": "蓄血",
-      "name": "zyq_109 蓄血暴决"
+      "name": "zyq_109 蓄血暴决",
+      "herbs": [
+        "五灵脂",
+        "桃仁",
+        "赤芍",
+        "乌药",
+        "香附",
+        "当归",
+        "麦芽"
+      ]
     },
     {
       "case_id": "zyq_110",
@@ -1884,7 +2517,15 @@
       "entry_id": "zyq_110",
       "entry_type": "zhangyuqing_case",
       "rag_key": "内伤劳倦",
-      "name": "zyq_110 产后肝乘"
+      "name": "zyq_110 产后肝乘",
+      "herbs": [
+        "益智仁",
+        "砂仁",
+        "白芍",
+        "木瓜",
+        "茯苓",
+        "薏仁"
+      ]
     },
     {
       "case_id": "zyq_111",
@@ -1901,7 +2542,16 @@
       "entry_id": "zyq_111",
       "entry_type": "zhangyuqing_case",
       "rag_key": "噎膈",
-      "name": "zyq_111 噎膈瘀滞"
+      "name": "zyq_111 噎膈瘀滞",
+      "herbs": [
+        "延胡索",
+        "五灵脂",
+        "苏子",
+        "桃仁",
+        "竹茹",
+        "香附",
+        "枳壳"
+      ]
     },
     {
       "case_id": "zyq_112",
@@ -1918,7 +2568,15 @@
       "entry_id": "zyq_112",
       "entry_type": "zhangyuqing_case",
       "rag_key": "噎膈",
-      "name": "zyq_112 噎膈阳不运"
+      "name": "zyq_112 噎膈阳不运",
+      "herbs": [
+        "竹茹",
+        "丁香",
+        "沉香",
+        "干姜",
+        "半夏",
+        "郁金"
+      ]
     },
     {
       "case_id": "zyq_113",
@@ -1935,7 +2593,14 @@
       "entry_id": "zyq_113",
       "entry_type": "zhangyuqing_case",
       "rag_key": "积聚",
-      "name": "zyq_113 中脘聚形"
+      "name": "zyq_113 中脘聚形",
+      "herbs": [
+        "砂仁",
+        "枳壳",
+        "橘红",
+        "干姜",
+        "半夏"
+      ]
     },
     {
       "case_id": "zyq_114",
@@ -1952,7 +2617,14 @@
       "entry_id": "zyq_114",
       "entry_type": "zhangyuqing_case",
       "rag_key": "痿",
-      "name": "zyq_114 足痿取阳明"
+      "name": "zyq_114 足痿取阳明",
+      "herbs": [
+        "白术",
+        "茯苓",
+        "薏仁",
+        "半夏",
+        "苍术"
+      ]
     },
     {
       "case_id": "zyq_115",
@@ -1969,7 +2641,13 @@
       "entry_id": "zyq_115",
       "entry_type": "zhangyuqing_case",
       "rag_key": "麻木",
-      "name": "zyq_115 麻木湿痰"
+      "name": "zyq_115 麻木湿痰",
+      "herbs": [
+        "天麻",
+        "茯苓",
+        "枳壳",
+        "半夏"
+      ]
     },
     {
       "case_id": "zyq_116",
@@ -1986,7 +2664,10 @@
       "entry_id": "zyq_116",
       "entry_type": "zhangyuqing_case",
       "rag_key": "消渴",
-      "name": "zyq_116 消渴命火"
+      "name": "zyq_116 消渴命火",
+      "formulas_referenced": [
+        "八味丸"
+      ]
     },
     {
       "case_id": "zyq_117",
@@ -2003,7 +2684,11 @@
       "entry_id": "zyq_117",
       "entry_type": "zhangyuqing_case",
       "rag_key": "消渴",
-      "name": "zyq_117 肾消湿热"
+      "name": "zyq_117 肾消湿热",
+      "herbs": [
+        "蛇床子",
+        "天花粉"
+      ]
     },
     {
       "case_id": "zyq_118",
@@ -2020,7 +2705,15 @@
       "entry_id": "zyq_118",
       "entry_type": "zhangyuqing_case",
       "rag_key": "溲数",
-      "name": "zyq_118 溲数湿压"
+      "name": "zyq_118 溲数湿压",
+      "herbs": [
+        "石菖蒲",
+        "益智仁",
+        "天麻",
+        "猪苓",
+        "半夏",
+        "泽泻"
+      ]
     },
     {
       "case_id": "zyq_119",
@@ -2037,7 +2730,16 @@
       "entry_id": "zyq_119",
       "entry_type": "zhangyuqing_case",
       "rag_key": "痔",
-      "name": "zyq_119 痔湿坠"
+      "name": "zyq_119 痔湿坠",
+      "herbs": [
+        "槐角",
+        "秦艽",
+        "丹皮",
+        "茯苓",
+        "防风",
+        "当归",
+        "槐花"
+      ]
     },
     {
       "case_id": "zyq_120",
@@ -2054,7 +2756,15 @@
       "entry_id": "zyq_120",
       "entry_type": "zhangyuqing_case",
       "rag_key": "癫痫",
-      "name": "zyq_120 癫痫痰火"
+      "name": "zyq_120 癫痫痰火",
+      "herbs": [
+        "酸枣仁",
+        "知母",
+        "橘红",
+        "枳实",
+        "半夏",
+        "朱砂"
+      ]
     },
     {
       "case_id": "zyq_121",
@@ -2071,7 +2781,15 @@
       "entry_id": "zyq_121",
       "entry_type": "zhangyuqing_case",
       "rag_key": "癫痫",
-      "name": "zyq_121 痫厥风痰"
+      "name": "zyq_121 痫厥风痰",
+      "herbs": [
+        "天麻",
+        "茯苓",
+        "橘红",
+        "菖蒲",
+        "半夏",
+        "远志"
+      ]
     },
     {
       "case_id": "zyq_122",
@@ -2088,7 +2806,15 @@
       "entry_id": "zyq_122",
       "entry_type": "zhangyuqing_case",
       "rag_key": "呃忒",
-      "name": "zyq_122 呃忒湿热"
+      "name": "zyq_122 呃忒湿热",
+      "herbs": [
+        "白蔻仁",
+        "竹茹",
+        "茯苓",
+        "枳实",
+        "半夏",
+        "杏仁"
+      ]
     },
     {
       "case_id": "zyq_123",
@@ -2105,7 +2831,13 @@
       "entry_id": "zyq_123",
       "entry_type": "zhangyuqing_case",
       "rag_key": "牙痛",
-      "name": "zyq_123 牙痛引阳"
+      "name": "zyq_123 牙痛引阳",
+      "herbs": [
+        "地骨皮",
+        "女贞子",
+        "知母",
+        "麦冬"
+      ]
     },
     {
       "case_id": "zyq_124",
@@ -2122,7 +2854,16 @@
       "entry_id": "zyq_124",
       "entry_type": "zhangyuqing_case",
       "rag_key": "耳鸣",
-      "name": "zyq_124 耳鸣痰浊"
+      "name": "zyq_124 耳鸣痰浊",
+      "herbs": [
+        "桑叶",
+        "丹皮",
+        "茯苓",
+        "枳壳",
+        "橘红",
+        "半夏",
+        "郁金"
+      ]
     },
     {
       "case_id": "zyq_125",
@@ -2139,7 +2880,14 @@
       "entry_id": "zyq_125",
       "entry_type": "zhangyuqing_case",
       "rag_key": "鼻渊",
-      "name": "zyq_125 鼻渊肝火"
+      "name": "zyq_125 鼻渊肝火",
+      "herbs": [
+        "升麻",
+        "知母",
+        "石膏",
+        "薏仁",
+        "藿香"
+      ]
     },
     {
       "case_id": "zyq_126",
@@ -2156,7 +2904,16 @@
       "entry_id": "zyq_126",
       "entry_type": "zhangyuqing_case",
       "rag_key": "腿膝痛",
-      "name": "zyq_126 腿痛痰湿"
+      "name": "zyq_126 腿痛痰湿",
+      "herbs": [
+        "威灵仙",
+        "天麻",
+        "茯苓",
+        "橘红",
+        "枳实",
+        "半夏",
+        "桂枝"
+      ]
     },
     {
       "case_id": "zyq_127",
@@ -2173,7 +2930,14 @@
       "entry_id": "zyq_127",
       "entry_type": "zhangyuqing_case",
       "rag_key": "风疹",
-      "name": "zyq_127 风疹营热"
+      "name": "zyq_127 风疹营热",
+      "herbs": [
+        "地骨皮",
+        "白茅根",
+        "菊花",
+        "丹皮",
+        "当归"
+      ]
     },
     {
       "case_id": "zyq_128",
@@ -2190,7 +2954,14 @@
       "entry_id": "zyq_128",
       "entry_type": "zhangyuqing_case",
       "rag_key": "虫",
-      "name": "zyq_128 虫痛蛔蚀"
+      "name": "zyq_128 虫痛蛔蚀",
+      "herbs": [
+        "使君子",
+        "乌梅",
+        "雷丸",
+        "川椒",
+        "槟榔"
+      ]
     },
     {
       "case_id": "zyq_129",
@@ -2207,7 +2978,14 @@
       "entry_id": "zyq_129",
       "entry_type": "zhangyuqing_case",
       "rag_key": "内痈",
-      "name": "zyq_129 内痈湿滞"
+      "name": "zyq_129 内痈湿滞",
+      "herbs": [
+        "败酱草",
+        "丹皮",
+        "乌药",
+        "香附",
+        "薏仁"
+      ]
     },
     {
       "case_id": "zyq_130",
@@ -2224,7 +3002,16 @@
       "entry_id": "zyq_130",
       "entry_type": "zhangyuqing_case",
       "rag_key": "梅毒",
-      "name": "zyq_130 梅毒湿热"
+      "name": "zyq_130 梅毒湿热",
+      "herbs": [
+        "白藓皮",
+        "土茯苓",
+        "秦艽",
+        "甘草",
+        "银花",
+        "防风",
+        "薏仁"
+      ]
     },
     {
       "case_id": "zyq_131",
@@ -2241,7 +3028,18 @@
       "entry_id": "zyq_131",
       "entry_type": "zhangyuqing_case",
       "rag_key": "瘰",
-      "name": "zyq_131 瘰疬痰核"
+      "name": "zyq_131 瘰疬痰核",
+      "herbs": [
+        "桑叶",
+        "丹皮",
+        "香附",
+        "茯苓",
+        "枳壳",
+        "桔梗",
+        "半夏",
+        "贝母",
+        "郁金"
+      ]
     },
     {
       "case_id": "zyq_132",
@@ -2258,7 +3056,16 @@
       "entry_id": "zyq_132",
       "entry_type": "zhangyuqing_case",
       "rag_key": "带下",
-      "name": "zyq_132 带下固带"
+      "name": "zyq_132 带下固带",
+      "herbs": [
+        "菟丝子",
+        "桑螵蛸",
+        "山药",
+        "杜仲",
+        "芡实",
+        "牡蛎",
+        "阿胶"
+      ]
     },
     {
       "case_id": "zyq_133",
@@ -2275,7 +3082,13 @@
       "entry_id": "zyq_133",
       "entry_type": "zhangyuqing_case",
       "rag_key": "崩漏",
-      "name": "zyq_133 崩漏理气"
+      "name": "zyq_133 崩漏理气",
+      "herbs": [
+        "砂仁",
+        "香附",
+        "枳壳",
+        "藿香"
+      ]
     },
     {
       "case_id": "zyq_134",
@@ -2292,7 +3105,13 @@
       "entry_id": "zyq_134",
       "entry_type": "zhangyuqing_case",
       "rag_key": "胎前",
-      "name": "zyq_134 恶阻肝气"
+      "name": "zyq_134 恶阻肝气",
+      "herbs": [
+        "半夏曲",
+        "竹茹",
+        "白芍",
+        "茯苓"
+      ]
     },
     {
       "case_id": "zyq_135",
@@ -2326,7 +3145,10 @@
       "entry_id": "zyq_136",
       "entry_type": "zhangyuqing_case",
       "rag_key": "脚气",
-      "name": "zyq_136 脚气湿热"
+      "name": "zyq_136 脚气湿热",
+      "herbs": [
+        "丹皮"
+      ]
     },
     {
       "case_id": "zyq_137",
@@ -2343,7 +3165,16 @@
       "entry_id": "zyq_137",
       "entry_type": "zhangyuqing_case",
       "rag_key": "岚瘴",
-      "name": "zyq_137 岚瘴弭患"
+      "name": "zyq_137 岚瘴弭患",
+      "herbs": [
+        "猪苓",
+        "白芷",
+        "薏仁",
+        "半夏",
+        "苍术",
+        "陈皮",
+        "泽泻"
+      ]
     },
     {
       "case_id": "zyq_138",
@@ -2360,7 +3191,16 @@
       "entry_id": "zyq_138",
       "entry_type": "zhangyuqing_case",
       "rag_key": "童损",
-      "name": "zyq_138 童损"
+      "name": "zyq_138 童损",
+      "herbs": [
+        "茯苓",
+        "杜仲",
+        "谷芽",
+        "橘红",
+        "生地",
+        "半夏",
+        "桂枝"
+      ]
     }
   ]
 }

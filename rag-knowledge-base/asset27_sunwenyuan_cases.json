@@ -31,7 +31,21 @@
       "entry_id": "swy_001",
       "entry_type": "sunwenyuan_case",
       "rag_key": "大头疫",
-      "name": "swy_001 大头疫"
+      "name": "swy_001 大头疫",
+      "herbs": [
+        "天花粉",
+        "黄芩",
+        "甘草",
+        "薄荷",
+        "连翘",
+        "柴胡",
+        "贯众",
+        "葛根",
+        "玄参"
+      ],
+      "formulas_referenced": [
+        "小柴胡汤"
+      ]
     },
     {
       "case_id": "swy_002",
@@ -48,7 +62,22 @@
       "entry_id": "swy_002",
       "entry_type": "sunwenyuan_case",
       "rag_key": "目疾",
-      "name": "swy_002 目疾虚实"
+      "name": "swy_002 目疾虚实",
+      "herbs": [
+        "桂心",
+        "甘草",
+        "人参",
+        "熟地",
+        "香附",
+        "茯苓",
+        "枸杞",
+        "牡蛎",
+        "当归",
+        "牛膝"
+      ],
+      "formulas_referenced": [
+        "当归龙荟丸"
+      ]
     },
     {
       "case_id": "swy_003",
@@ -116,7 +145,17 @@
       "entry_id": "swy_006",
       "entry_type": "sunwenyuan_case",
       "rag_key": "产后",
-      "name": "swy_006 产后发热"
+      "name": "swy_006 产后发热",
+      "herbs": [
+        "大附子",
+        "甘草",
+        "炮姜",
+        "茯苓",
+        "陈皮"
+      ],
+      "formulas_referenced": [
+        "十全大补汤"
+      ]
     },
     {
       "case_id": "swy_007",
@@ -133,7 +172,11 @@
       "entry_id": "swy_007",
       "entry_type": "sunwenyuan_case",
       "rag_key": "脾胃",
-      "name": "swy_007 瓜果寒湿"
+      "name": "swy_007 瓜果寒湿",
+      "herbs": [
+        "香附",
+        "肉桂"
+      ]
     },
     {
       "case_id": "swy_008",
@@ -150,7 +193,15 @@
       "entry_id": "swy_008",
       "entry_type": "sunwenyuan_case",
       "rag_key": "便血",
-      "name": "swy_008 便血探瘀"
+      "name": "swy_008 便血探瘀",
+      "herbs": [
+        "侧柏叶",
+        "地榆",
+        "阿胶"
+      ],
+      "formulas_referenced": [
+        "补中益气汤"
+      ]
     },
     {
       "case_id": "swy_009",
@@ -167,7 +218,14 @@
       "entry_id": "swy_009",
       "entry_type": "sunwenyuan_case",
       "rag_key": "胁痛",
-      "name": "swy_009 痰火胁痛"
+      "name": "swy_009 痰火胁痛",
+      "herbs": [
+        "前胡",
+        "甘草",
+        "枳实",
+        "贝母",
+        "栝蒌"
+      ]
     },
     {
       "case_id": "swy_010",
@@ -184,7 +242,20 @@
       "entry_id": "swy_010",
       "entry_type": "sunwenyuan_case",
       "rag_key": "心痹",
-      "name": "swy_010 心痹"
+      "name": "swy_010 心痹",
+      "herbs": [
+        "半夏曲",
+        "白豆蔻",
+        "甘草",
+        "滑石",
+        "竹茹",
+        "茯苓",
+        "橘红"
+      ],
+      "formulas_referenced": [
+        "温胆汤",
+        "益元散"
+      ]
     },
     {
       "case_id": "swy_011",
@@ -201,7 +272,14 @@
       "entry_id": "swy_011",
       "entry_type": "sunwenyuan_case",
       "rag_key": "肠风",
-      "name": "swy_011 肠风"
+      "name": "swy_011 肠风",
+      "herbs": [
+        "槐角",
+        "地榆",
+        "黄连",
+        "枳壳",
+        "贯众"
+      ]
     },
     {
       "case_id": "swy_012",
@@ -235,7 +313,11 @@
       "entry_id": "swy_013",
       "entry_type": "sunwenyuan_case",
       "rag_key": "目疾",
-      "name": "swy_013 兄弟目疾"
+      "name": "swy_013 兄弟目疾",
+      "herbs": [
+        "甘草",
+        "香附"
+      ]
     },
     {
       "case_id": "swy_014",
@@ -252,7 +334,21 @@
       "entry_id": "swy_014",
       "entry_type": "sunwenyuan_case",
       "rag_key": "疫证",
-      "name": "swy_014 大头疫"
+      "name": "swy_014 大头疫",
+      "herbs": [
+        "天花粉",
+        "黄芩",
+        "甘草",
+        "薄荷",
+        "连翘",
+        "柴胡",
+        "贯众",
+        "葛根",
+        "玄参"
+      ],
+      "formulas_referenced": [
+        "小柴胡汤"
+      ]
     },
     {
       "case_id": "swy_015",
@@ -269,7 +365,27 @@
       "entry_id": "swy_015",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痹证",
-      "name": "swy_015 周痹"
+      "name": "swy_015 周痹",
+      "herbs": [
+        "鹿角胶",
+        "五加皮",
+        "熟地黄",
+        "秦艽",
+        "桂心",
+        "人参",
+        "龟板",
+        "茯苓",
+        "枸杞",
+        "生地",
+        "黄柏",
+        "防风",
+        "羌活",
+        "当归",
+        "苍术",
+        "红花",
+        "牛膝",
+        "泽泻"
+      ]
     },
     {
       "case_id": "swy_016",
@@ -286,7 +402,19 @@
       "entry_id": "swy_016",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痘疹",
-      "name": "swy_016 痘先清解"
+      "name": "swy_016 痘先清解",
+      "herbs": [
+        "生地黄",
+        "黄芩",
+        "山楂",
+        "甘草",
+        "蝉蜕",
+        "赤芍",
+        "连翘",
+        "木通",
+        "贝母",
+        "紫草"
+      ]
     },
     {
       "case_id": "swy_017",
@@ -320,7 +448,13 @@
       "entry_id": "swy_018",
       "entry_type": "sunwenyuan_case",
       "rag_key": "妇科",
-      "name": "swy_018 妊腹痛下"
+      "name": "swy_018 妊腹痛下",
+      "herbs": [
+        "砂仁"
+      ],
+      "formulas_referenced": [
+        "小承气汤"
+      ]
     },
     {
       "case_id": "swy_019",
@@ -337,7 +471,11 @@
       "entry_id": "swy_019",
       "entry_type": "sunwenyuan_case",
       "rag_key": "目疾",
-      "name": "swy_019 目疼补血"
+      "name": "swy_019 目疼补血",
+      "herbs": [
+        "甘草",
+        "香附"
+      ]
     },
     {
       "case_id": "swy_020",
@@ -354,7 +492,13 @@
       "entry_id": "swy_020",
       "entry_type": "sunwenyuan_case",
       "rag_key": "外感",
-      "name": "swy_020 冒风小柴胡"
+      "name": "swy_020 冒风小柴胡",
+      "herbs": [
+        "柴胡"
+      ],
+      "formulas_referenced": [
+        "小柴胡汤"
+      ]
     },
     {
       "case_id": "swy_021",
@@ -388,7 +532,20 @@
       "entry_id": "swy_022",
       "entry_type": "sunwenyuan_case",
       "rag_key": "便血",
-      "name": "swy_022 便血攻瘀"
+      "name": "swy_022 便血攻瘀",
+      "herbs": [
+        "侧柏叶",
+        "五灵脂",
+        "丹参",
+        "地榆",
+        "白术",
+        "桃仁",
+        "阿胶"
+      ],
+      "formulas_referenced": [
+        "补中益气汤",
+        "参苓白术散"
+      ]
     },
     {
       "case_id": "swy_023",
@@ -405,7 +562,17 @@
       "entry_id": "swy_023",
       "entry_type": "sunwenyuan_case",
       "rag_key": "疟痢",
-      "name": "swy_023 疟痢并发"
+      "name": "swy_023 疟痢并发",
+      "herbs": [
+        "大附子",
+        "甘草",
+        "炮姜",
+        "滑石",
+        "白术",
+        "人参",
+        "知母",
+        "石膏"
+      ]
     },
     {
       "case_id": "swy_024",
@@ -422,7 +589,13 @@
       "entry_id": "swy_024",
       "entry_type": "sunwenyuan_case",
       "rag_key": "疰夏",
-      "name": "swy_024 疰夏建中"
+      "name": "swy_024 疰夏建中",
+      "herbs": [
+        "甘草",
+        "白芍",
+        "黄芪",
+        "桂枝"
+      ]
     },
     {
       "case_id": "swy_025",
@@ -439,7 +612,13 @@
       "entry_id": "swy_025",
       "entry_type": "sunwenyuan_case",
       "rag_key": "外感",
-      "name": "swy_025 寒热饱闷"
+      "name": "swy_025 寒热饱闷",
+      "herbs": [
+        "柴胡"
+      ],
+      "formulas_referenced": [
+        "平胃散"
+      ]
     },
     {
       "case_id": "swy_026",
@@ -456,7 +635,14 @@
       "entry_id": "swy_026",
       "entry_type": "sunwenyuan_case",
       "rag_key": "胁痛",
-      "name": "swy_026 痰火胁痛"
+      "name": "swy_026 痰火胁痛",
+      "herbs": [
+        "前胡",
+        "甘草",
+        "枳实",
+        "贝母",
+        "栝蒌"
+      ]
     },
     {
       "case_id": "swy_028",
@@ -473,7 +659,14 @@
       "entry_id": "swy_028",
       "entry_type": "sunwenyuan_case",
       "rag_key": "肠风",
-      "name": "swy_028 肠风"
+      "name": "swy_028 肠风",
+      "herbs": [
+        "槐角",
+        "地榆",
+        "黄连",
+        "枳壳",
+        "贯众"
+      ]
     },
     {
       "case_id": "swy_029",
@@ -490,7 +683,12 @@
       "entry_id": "swy_029",
       "entry_type": "sunwenyuan_case",
       "rag_key": "妇科",
-      "name": "swy_029 子户湿痰"
+      "name": "swy_029 子户湿痰",
+      "herbs": [
+        "甘草",
+        "柴胡",
+        "半夏"
+      ]
     },
     {
       "case_id": "swy_030",
@@ -507,7 +705,20 @@
       "entry_id": "swy_030",
       "entry_type": "sunwenyuan_case",
       "rag_key": "鼓胀",
-      "name": "swy_030 气虚中满"
+      "name": "swy_030 气虚中满",
+      "herbs": [
+        "升麻",
+        "炮姜",
+        "白术",
+        "人参",
+        "茯苓",
+        "防风",
+        "黄芪",
+        "苍术",
+        "陈皮",
+        "肉桂",
+        "泽泻"
+      ]
     },
     {
       "case_id": "swy_031",
@@ -524,7 +735,16 @@
       "entry_id": "swy_031",
       "entry_type": "sunwenyuan_case",
       "rag_key": "疫证",
-      "name": "swy_031 老人大头疫"
+      "name": "swy_031 老人大头疫",
+      "herbs": [
+        "天花粉",
+        "甘草",
+        "赤芍",
+        "石膏",
+        "柴胡",
+        "贯众",
+        "葛根"
+      ]
     },
     {
       "case_id": "swy_032",
@@ -558,7 +778,15 @@
       "entry_id": "swy_033",
       "entry_type": "sunwenyuan_case",
       "rag_key": "白浊",
-      "name": "swy_033 白浊端本丸"
+      "name": "swy_033 白浊端本丸",
+      "herbs": [
+        "柴胡",
+        "黄柏",
+        "牡蛎",
+        "半夏",
+        "葛根",
+        "苦参"
+      ]
     },
     {
       "case_id": "swy_034",
@@ -575,7 +803,17 @@
       "entry_id": "swy_034",
       "entry_type": "sunwenyuan_case",
       "rag_key": "妇科",
-      "name": "swy_034 孕脉辨"
+      "name": "swy_034 孕脉辨",
+      "herbs": [
+        "甘草",
+        "白术",
+        "人参",
+        "白芍",
+        "香附",
+        "柴胡",
+        "当归",
+        "川芎"
+      ]
     },
     {
       "case_id": "swy_035",
@@ -592,7 +830,19 @@
       "entry_id": "swy_035",
       "entry_type": "sunwenyuan_case",
       "rag_key": "产后",
-      "name": "swy_035 产后痢温补"
+      "name": "swy_035 产后痢温补",
+      "herbs": [
+        "桂心",
+        "甘草",
+        "炮姜",
+        "白术",
+        "人参",
+        "砂仁",
+        "白芍",
+        "当归",
+        "肉桂",
+        "川芎"
+      ]
     },
     {
       "case_id": "swy_036",
@@ -609,7 +859,17 @@
       "entry_id": "swy_036",
       "entry_type": "sunwenyuan_case",
       "rag_key": "产后",
-      "name": "swy_036 产后虚热"
+      "name": "swy_036 产后虚热",
+      "herbs": [
+        "大附子",
+        "甘草",
+        "炮姜",
+        "白术",
+        "人参"
+      ],
+      "formulas_referenced": [
+        "十全大补汤"
+      ]
     },
     {
       "case_id": "swy_037",
@@ -626,7 +886,17 @@
       "entry_id": "swy_037",
       "entry_type": "sunwenyuan_case",
       "rag_key": "带下",
-      "name": "swy_037 白带双丸"
+      "name": "swy_037 白带双丸",
+      "herbs": [
+        "石菖蒲",
+        "鹿角霜",
+        "益智仁",
+        "山药",
+        "茯苓",
+        "当归",
+        "远志",
+        "龙骨"
+      ]
     },
     {
       "case_id": "swy_038",
@@ -643,7 +913,20 @@
       "entry_id": "swy_038",
       "entry_type": "sunwenyuan_case",
       "rag_key": "月经",
-      "name": "swy_038 经行郁火"
+      "name": "swy_038 经行郁火",
+      "herbs": [
+        "玄胡索",
+        "山栀子",
+        "丹参",
+        "黄连",
+        "乌药",
+        "白芍",
+        "香附",
+        "柴胡",
+        "青皮",
+        "郁金",
+        "川芎"
+      ]
     },
     {
       "case_id": "swy_039",
@@ -660,7 +943,17 @@
       "entry_id": "swy_039",
       "entry_type": "sunwenyuan_case",
       "rag_key": "白浊",
-      "name": "swy_039 白浊端本"
+      "name": "swy_039 白浊端本",
+      "herbs": [
+        "甘草",
+        "茯苓",
+        "黄柏",
+        "牡蛎",
+        "半夏",
+        "陈皮",
+        "葛根",
+        "苦参"
+      ]
     },
     {
       "case_id": "swy_040",
@@ -677,7 +970,10 @@
       "entry_id": "swy_040",
       "entry_type": "sunwenyuan_case",
       "rag_key": "妊娠",
-      "name": "swy_040 妊吐安胎"
+      "name": "swy_040 妊吐安胎",
+      "formulas_referenced": [
+        "益元散"
+      ]
     },
     {
       "case_id": "swy_041",
@@ -711,7 +1007,13 @@
       "entry_id": "swy_042",
       "entry_type": "sunwenyuan_case",
       "rag_key": "疫证",
-      "name": "swy_042 时疫小白汤"
+      "name": "swy_042 时疫小白汤",
+      "herbs": [
+        "柴胡"
+      ],
+      "formulas_referenced": [
+        "白虎汤"
+      ]
     },
     {
       "case_id": "swy_043",
@@ -745,7 +1047,23 @@
       "entry_id": "swy_044",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痹证",
-      "name": "swy_044 行痹补虚"
+      "name": "swy_044 行痹补虚",
+      "herbs": [
+        "大附子",
+        "丹参",
+        "秦艽",
+        "甘草",
+        "白术",
+        "人参",
+        "龟板",
+        "杜仲",
+        "枸杞",
+        "黄柏",
+        "防风",
+        "当归",
+        "红花",
+        "桂枝"
+      ]
     },
     {
       "case_id": "swy_045",
@@ -762,7 +1080,27 @@
       "entry_id": "swy_045",
       "entry_type": "sunwenyuan_case",
       "rag_key": "三阳合病",
-      "name": "swy_045 三阳合病"
+      "name": "swy_045 三阳合病",
+      "herbs": [
+        "黄芩",
+        "甘草",
+        "滑石",
+        "知母",
+        "白芍",
+        "石膏",
+        "柴胡",
+        "白芷",
+        "防风",
+        "麦冬",
+        "当归",
+        "枳实",
+        "苍术",
+        "陈皮",
+        "葛根",
+        "麻黄",
+        "麦芽",
+        "藿香"
+      ]
     },
     {
       "case_id": "swy_046",
@@ -779,7 +1117,19 @@
       "entry_id": "swy_046",
       "entry_type": "sunwenyuan_case",
       "rag_key": "合病",
-      "name": "swy_046 阳明少阳合病"
+      "name": "swy_046 阳明少阳合病",
+      "herbs": [
+        "半夏曲",
+        "黄芩",
+        "黄连",
+        "人参",
+        "竹茹",
+        "石膏",
+        "柴胡",
+        "橘红",
+        "枳实",
+        "葛根"
+      ]
     },
     {
       "case_id": "swy_047",
@@ -796,7 +1146,13 @@
       "entry_id": "swy_047",
       "entry_type": "sunwenyuan_case",
       "rag_key": "泄泻",
-      "name": "swy_047 晨泻攻积"
+      "name": "swy_047 晨泻攻积",
+      "herbs": [
+        "木香"
+      ],
+      "formulas_referenced": [
+        "保和丸"
+      ]
     },
     {
       "case_id": "swy_048",
@@ -813,7 +1169,24 @@
       "entry_id": "swy_048",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痹证",
-      "name": "swy_048 膝肿湿热"
+      "name": "swy_048 膝肿湿热",
+      "herbs": [
+        "薏苡仁",
+        "枸杞子",
+        "五加皮",
+        "丹参",
+        "甘草",
+        "猪苓",
+        "乌药",
+        "杜仲",
+        "黄柏",
+        "防风",
+        "木通",
+        "当归",
+        "苍术",
+        "桂枝",
+        "泽泻"
+      ]
     },
     {
       "case_id": "swy_049",
@@ -830,7 +1203,18 @@
       "entry_id": "swy_049",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痢疾",
-      "name": "swy_049 下痢脱肛"
+      "name": "swy_049 下痢脱肛",
+      "herbs": [
+        "秦艽",
+        "黄芩",
+        "黄连",
+        "山楂",
+        "白芍",
+        "枳实",
+        "木香",
+        "槟榔",
+        "川芎"
+      ]
     },
     {
       "case_id": "swy_050",
@@ -847,7 +1231,22 @@
       "entry_id": "swy_050",
       "entry_type": "sunwenyuan_case",
       "rag_key": "霍乱",
-      "name": "swy_050 干霍乱"
+      "name": "swy_050 干霍乱",
+      "herbs": [
+        "甘草",
+        "滑石",
+        "白术",
+        "木瓜",
+        "石膏",
+        "橘红",
+        "桔梗",
+        "槟榔",
+        "葛根",
+        "藿香"
+      ],
+      "formulas_referenced": [
+        "藿香正气散"
+      ]
     },
     {
       "case_id": "swy_051",
@@ -864,7 +1263,23 @@
       "entry_id": "swy_051",
       "entry_type": "sunwenyuan_case",
       "rag_key": "耳鸣",
-      "name": "swy_051 耳鸣痰火"
+      "name": "swy_051 耳鸣痰火",
+      "herbs": [
+        "天花粉",
+        "黄连",
+        "滑石",
+        "天麻",
+        "竹茹",
+        "当归",
+        "枳实",
+        "藿香"
+      ],
+      "formulas_referenced": [
+        "当归龙荟丸",
+        "藿香正气散",
+        "二陈汤",
+        "温胆汤"
+      ]
     },
     {
       "case_id": "swy_052",
@@ -881,7 +1296,17 @@
       "entry_id": "swy_052",
       "entry_type": "sunwenyuan_case",
       "rag_key": "头痛",
-      "name": "swy_052 头痛脾虚火"
+      "name": "swy_052 头痛脾虚火",
+      "herbs": [
+        "秦艽",
+        "滑石",
+        "白芍",
+        "柴胡",
+        "黄柏",
+        "黄芪",
+        "当归",
+        "泽泻"
+      ]
     },
     {
       "case_id": "swy_053",
@@ -898,7 +1323,21 @@
       "entry_id": "swy_053",
       "entry_type": "sunwenyuan_case",
       "rag_key": "血症",
-      "name": "swy_053 吐泻血辨"
+      "name": "swy_053 吐泻血辨",
+      "herbs": [
+        "丹参",
+        "黄连",
+        "山楂",
+        "丹皮",
+        "滑石",
+        "茅根",
+        "桃仁",
+        "香附",
+        "枳实"
+      ],
+      "formulas_referenced": [
+        "保和丸"
+      ]
     },
     {
       "case_id": "swy_054",
@@ -915,7 +1354,22 @@
       "entry_id": "swy_054",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痢疾",
-      "name": "swy_054 痢下调气"
+      "name": "swy_054 痢下调气",
+      "herbs": [
+        "山楂",
+        "甘草",
+        "滑石",
+        "桃仁",
+        "白芍",
+        "枳壳",
+        "当归",
+        "木香",
+        "槟榔"
+      ],
+      "formulas_referenced": [
+        "小建中汤",
+        "保和丸"
+      ]
     },
     {
       "case_id": "swy_055",
@@ -949,7 +1403,23 @@
       "entry_id": "swy_056",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痰厥",
-      "name": "swy_056 晕厥痰积"
+      "name": "swy_056 晕厥痰积",
+      "herbs": [
+        "黄芩",
+        "山楂",
+        "滑石",
+        "知母",
+        "白芍",
+        "黄柏",
+        "苍术",
+        "牛膝",
+        "泽泻",
+        "麦芽"
+      ],
+      "formulas_referenced": [
+        "六味地黄丸",
+        "二陈汤"
+      ]
     },
     {
       "case_id": "swy_057",
@@ -966,7 +1436,22 @@
       "entry_id": "swy_057",
       "entry_type": "sunwenyuan_case",
       "rag_key": "血症",
-      "name": "swy_057 咳红肝木"
+      "name": "swy_057 咳红肝木",
+      "herbs": [
+        "牡丹皮",
+        "甘草",
+        "白术",
+        "人参",
+        "白芍",
+        "茯苓",
+        "桔梗",
+        "陈皮",
+        "鳖甲",
+        "贝母"
+      ],
+      "formulas_referenced": [
+        "大造丸"
+      ]
     },
     {
       "case_id": "swy_058",
@@ -983,7 +1468,24 @@
       "entry_id": "swy_058",
       "entry_type": "sunwenyuan_case",
       "rag_key": "中风",
-      "name": "swy_058 中风后遗"
+      "name": "swy_058 中风后遗",
+      "herbs": [
+        "石菖蒲",
+        "天花粉",
+        "薏苡仁",
+        "麦门冬",
+        "五加皮",
+        "滑石",
+        "薄荷",
+        "天麻",
+        "麦冬",
+        "当归",
+        "远志",
+        "红花"
+      ],
+      "formulas_referenced": [
+        "六君子汤"
+      ]
     },
     {
       "case_id": "swy_059",
@@ -1000,7 +1502,23 @@
       "entry_id": "swy_059",
       "entry_type": "sunwenyuan_case",
       "rag_key": "内伤",
-      "name": "swy_059 怒后伤食"
+      "name": "swy_059 怒后伤食",
+      "herbs": [
+        "山楂",
+        "乌梅",
+        "白术",
+        "砂仁",
+        "香附",
+        "枳实",
+        "木香",
+        "川芎",
+        "麦芽"
+      ],
+      "formulas_referenced": [
+        "补中益气汤",
+        "参苓白术散",
+        "平胃散"
+      ]
     },
     {
       "case_id": "swy_060",
@@ -1017,7 +1535,17 @@
       "entry_id": "swy_060",
       "entry_type": "sunwenyuan_case",
       "rag_key": "滞下",
-      "name": "swy_060 滞下攻积"
+      "name": "swy_060 滞下攻积",
+      "herbs": [
+        "小茴香",
+        "五灵脂",
+        "柴胡",
+        "白芷",
+        "当归"
+      ],
+      "formulas_referenced": [
+        "当归龙荟丸"
+      ]
     },
     {
       "case_id": "swy_061",
@@ -1034,7 +1562,26 @@
       "entry_id": "swy_061",
       "entry_type": "sunwenyuan_case",
       "rag_key": "咳嗽",
-      "name": "swy_061 咳先健脾"
+      "name": "swy_061 咳先健脾",
+      "herbs": [
+        "桑白皮",
+        "栝蒌仁",
+        "地骨皮",
+        "山楂",
+        "甘草",
+        "白术",
+        "香附",
+        "紫菀",
+        "桔梗",
+        "枳实",
+        "陈皮",
+        "贝母",
+        "川芎",
+        "麦芽"
+      ],
+      "formulas_referenced": [
+        "二陈汤"
+      ]
     },
     {
       "case_id": "swy_062",
@@ -1051,7 +1598,22 @@
       "entry_id": "swy_062",
       "entry_type": "sunwenyuan_case",
       "rag_key": "产后",
-      "name": "swy_062 产后瘀脓"
+      "name": "swy_062 产后瘀脓",
+      "herbs": [
+        "益母草",
+        "五灵脂",
+        "山楂",
+        "香附",
+        "茯苓",
+        "白芷",
+        "当归",
+        "青皮",
+        "川芎"
+      ],
+      "formulas_referenced": [
+        "当归龙荟丸",
+        "保和丸"
+      ]
     },
     {
       "case_id": "swy_063",
@@ -1068,7 +1630,17 @@
       "entry_id": "swy_063",
       "entry_type": "sunwenyuan_case",
       "rag_key": "血症",
-      "name": "swy_063 误散吐血"
+      "name": "swy_063 误散吐血",
+      "herbs": [
+        "薏苡仁",
+        "五味子",
+        "山药",
+        "白芍",
+        "茯苓",
+        "桔梗",
+        "陈皮",
+        "贝母"
+      ]
     },
     {
       "case_id": "swy_064",
@@ -1085,7 +1657,19 @@
       "entry_id": "swy_064",
       "entry_type": "sunwenyuan_case",
       "rag_key": "妊娠",
-      "name": "swy_064 孕吐金花丸"
+      "name": "swy_064 孕吐金花丸",
+      "herbs": [
+        "前胡",
+        "黄芩",
+        "甘草",
+        "生姜",
+        "竹茹",
+        "茯苓",
+        "枳壳",
+        "紫菀",
+        "半夏",
+        "陈皮"
+      ]
     },
     {
       "case_id": "swy_065",
@@ -1102,7 +1686,20 @@
       "entry_id": "swy_065",
       "entry_type": "sunwenyuan_case",
       "rag_key": "咳嗽",
-      "name": "swy_065 痰嗽腹胀"
+      "name": "swy_065 痰嗽腹胀",
+      "herbs": [
+        "益智仁",
+        "秦艽",
+        "山楂",
+        "白芍",
+        "柴胡",
+        "川芎",
+        "麦芽"
+      ],
+      "formulas_referenced": [
+        "六君子汤",
+        "香连丸"
+      ]
     },
     {
       "case_id": "swy_066",
@@ -1119,7 +1716,18 @@
       "entry_id": "swy_066",
       "entry_type": "sunwenyuan_case",
       "rag_key": "便秘",
-      "name": "swy_066 便秘痰火"
+      "name": "swy_066 便秘痰火",
+      "herbs": [
+        "萝卜子",
+        "滑石",
+        "当归",
+        "枳实",
+        "半夏",
+        "栝蒌"
+      ],
+      "formulas_referenced": [
+        "当归龙荟丸"
+      ]
     },
     {
       "case_id": "swy_067",
@@ -1136,7 +1744,16 @@
       "entry_id": "swy_067",
       "entry_type": "sunwenyuan_case",
       "rag_key": "疳痢",
-      "name": "swy_067 丁奚疳痢"
+      "name": "swy_067 丁奚疳痢",
+      "herbs": [
+        "石菖蒲",
+        "炮姜",
+        "白术",
+        "藿香"
+      ],
+      "formulas_referenced": [
+        "参苓白术散"
+      ]
     },
     {
       "case_id": "swy_068",
@@ -1153,7 +1770,17 @@
       "entry_id": "swy_068",
       "entry_type": "sunwenyuan_case",
       "rag_key": "妇科",
-      "name": "swy_068 浊痰血海"
+      "name": "swy_068 浊痰血海",
+      "herbs": [
+        "酸枣仁",
+        "石菖蒲",
+        "丹参",
+        "天麻",
+        "竹茹"
+      ],
+      "formulas_referenced": [
+        "温胆汤"
+      ]
     },
     {
       "case_id": "swy_069",
@@ -1170,7 +1797,16 @@
       "entry_id": "swy_069",
       "entry_type": "sunwenyuan_case",
       "rag_key": "泄泻",
-      "name": "swy_069 晨泻虚寒"
+      "name": "swy_069 晨泻虚寒",
+      "herbs": [
+        "肉豆蔻",
+        "益智仁",
+        "桂心",
+        "杜仲"
+      ],
+      "formulas_referenced": [
+        "六君子汤"
+      ]
     },
     {
       "case_id": "swy_070",
@@ -1187,7 +1823,20 @@
       "entry_id": "swy_070",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痢疾",
-      "name": "swy_070 痢后虚热"
+      "name": "swy_070 痢后虚热",
+      "herbs": [
+        "神曲",
+        "黄连",
+        "乌梅",
+        "白芍",
+        "桔梗",
+        "陈皮",
+        "葛根",
+        "麦芽"
+      ],
+      "formulas_referenced": [
+        "四君子汤"
+      ]
     },
     {
       "case_id": "swy_071",
@@ -1204,7 +1853,27 @@
       "entry_id": "swy_071",
       "entry_type": "sunwenyuan_case",
       "rag_key": "头痛",
-      "name": "swy_071 痰厥头痛"
+      "name": "swy_071 痰厥头痛",
+      "herbs": [
+        "石菖蒲",
+        "前胡",
+        "黄芩",
+        "薄荷",
+        "天麻",
+        "生姜",
+        "藁本",
+        "石膏",
+        "白芷",
+        "枳壳",
+        "半夏",
+        "陈皮",
+        "麻黄",
+        "藿香"
+      ],
+      "formulas_referenced": [
+        "藿香正气散",
+        "二陈汤"
+      ]
     },
     {
       "case_id": "swy_072",
@@ -1221,7 +1890,15 @@
       "entry_id": "swy_072",
       "entry_type": "sunwenyuan_case",
       "rag_key": "胃痛",
-      "name": "swy_072 胃脘痰积"
+      "name": "swy_072 胃脘痰积",
+      "herbs": [
+        "黄连",
+        "香附",
+        "枳实"
+      ],
+      "formulas_referenced": [
+        "二陈汤"
+      ]
     },
     {
       "case_id": "swy_073",
@@ -1238,7 +1915,10 @@
       "entry_id": "swy_073",
       "entry_type": "sunwenyuan_case",
       "rag_key": "黄疸",
-      "name": "swy_073 发黄食积"
+      "name": "swy_073 发黄食积",
+      "formulas_referenced": [
+        "保和丸"
+      ]
     },
     {
       "case_id": "swy_074",
@@ -1255,7 +1935,19 @@
       "entry_id": "swy_074",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痰火",
-      "name": "swy_074 痰火昏愦"
+      "name": "swy_074 痰火昏愦",
+      "herbs": [
+        "前胡",
+        "黄芩",
+        "滑石",
+        "薄荷",
+        "生姜",
+        "竹茹",
+        "郁金"
+      ],
+      "formulas_referenced": [
+        "二陈汤"
+      ]
     },
     {
       "case_id": "swy_075",
@@ -1272,7 +1964,15 @@
       "entry_id": "swy_075",
       "entry_type": "sunwenyuan_case",
       "rag_key": "产后",
-      "name": "swy_075 产后昏愦"
+      "name": "swy_075 产后昏愦",
+      "herbs": [
+        "五味子",
+        "甘草",
+        "炮姜",
+        "白术",
+        "人参",
+        "阿胶"
+      ]
     },
     {
       "case_id": "swy_076",
@@ -1289,7 +1989,17 @@
       "entry_id": "swy_076",
       "entry_type": "sunwenyuan_case",
       "rag_key": "产后",
-      "name": "swy_076 产后作泻"
+      "name": "swy_076 产后作泻",
+      "herbs": [
+        "砂仁",
+        "香附",
+        "苍术",
+        "泽泻",
+        "藿香"
+      ],
+      "formulas_referenced": [
+        "六君子汤"
+      ]
     },
     {
       "case_id": "swy_077",
@@ -1306,7 +2016,23 @@
       "entry_id": "swy_077",
       "entry_type": "sunwenyuan_case",
       "rag_key": "伤寒",
-      "name": "swy_077 谵语合病"
+      "name": "swy_077 谵语合病",
+      "herbs": [
+        "五味子",
+        "升麻",
+        "滑石",
+        "白术",
+        "白芍",
+        "茯苓",
+        "柴胡",
+        "牡蛎",
+        "陈皮",
+        "葛根",
+        "泽泻"
+      ],
+      "formulas_referenced": [
+        "葛根汤"
+      ]
     },
     {
       "case_id": "swy_078",
@@ -1323,7 +2049,17 @@
       "entry_id": "swy_078",
       "entry_type": "sunwenyuan_case",
       "rag_key": "耳痒",
-      "name": "swy_078 耳痒痰火"
+      "name": "swy_078 耳痒痰火",
+      "herbs": [
+        "天花粉",
+        "黄连",
+        "甘草",
+        "蝉蜕",
+        "薄荷",
+        "连翘",
+        "葛根",
+        "郁金"
+      ]
     },
     {
       "case_id": "swy_079",
@@ -1340,7 +2076,18 @@
       "entry_id": "swy_079",
       "entry_type": "sunwenyuan_case",
       "rag_key": "咳嗽",
-      "name": "swy_079 咳涌先补"
+      "name": "swy_079 咳涌先补",
+      "herbs": [
+        "五味子",
+        "黄连",
+        "白术",
+        "人参",
+        "白芍",
+        "柴胡",
+        "桔梗",
+        "半夏",
+        "陈皮"
+      ]
     },
     {
       "case_id": "swy_080",
@@ -1357,7 +2104,16 @@
       "entry_id": "swy_080",
       "entry_type": "sunwenyuan_case",
       "rag_key": "产后",
-      "name": "swy_080 小产脐痛"
+      "name": "swy_080 小产脐痛",
+      "herbs": [
+        "熟地黄",
+        "甘草",
+        "萆薢",
+        "瞿麦",
+        "乌药",
+        "黄柏",
+        "泽泻"
+      ]
     },
     {
       "case_id": "swy_081",
@@ -1374,7 +2130,21 @@
       "entry_id": "swy_081",
       "entry_type": "sunwenyuan_case",
       "rag_key": "胸膈",
-      "name": "swy_081 五更饱胀"
+      "name": "swy_081 五更饱胀",
+      "herbs": [
+        "补骨脂",
+        "山茱萸",
+        "御米壳",
+        "车前子",
+        "鹿角霜",
+        "鹿角胶",
+        "人参",
+        "山药",
+        "茯苓",
+        "杜仲",
+        "诃子",
+        "陈皮"
+      ]
     },
     {
       "case_id": "swy_082",
@@ -1391,7 +2161,19 @@
       "entry_id": "swy_082",
       "entry_type": "sunwenyuan_case",
       "rag_key": "泄泻",
-      "name": "swy_082 倒饱食积"
+      "name": "swy_082 倒饱食积",
+      "herbs": [
+        "山楂",
+        "甘草",
+        "滑石",
+        "生姜",
+        "白芍",
+        "枳壳",
+        "木香"
+      ],
+      "formulas_referenced": [
+        "香连丸"
+      ]
     },
     {
       "case_id": "swy_083",
@@ -1408,7 +2190,15 @@
       "entry_id": "swy_083",
       "entry_type": "sunwenyuan_case",
       "rag_key": "热入血室",
-      "name": "swy_083 热入血室"
+      "name": "swy_083 热入血室",
+      "herbs": [
+        "丹皮",
+        "桃仁",
+        "柴胡"
+      ],
+      "formulas_referenced": [
+        "小柴胡汤"
+      ]
     },
     {
       "case_id": "swy_084",
@@ -1425,7 +2215,21 @@
       "entry_id": "swy_084",
       "entry_type": "sunwenyuan_case",
       "rag_key": "泄泻",
-      "name": "swy_084 脾泄温补"
+      "name": "swy_084 脾泄温补",
+      "herbs": [
+        "大附子",
+        "益智仁",
+        "甘草",
+        "升麻",
+        "炮姜",
+        "白术",
+        "人参",
+        "茯苓",
+        "防风",
+        "黄芪",
+        "苍术",
+        "泽泻"
+      ]
     },
     {
       "case_id": "swy_085",
@@ -1442,7 +2246,18 @@
       "entry_id": "swy_085",
       "entry_type": "sunwenyuan_case",
       "rag_key": "疮疥",
-      "name": "swy_085 疮疥分消"
+      "name": "swy_085 疮疥分消",
+      "herbs": [
+        "桑白皮",
+        "薏苡仁",
+        "五加皮",
+        "升麻",
+        "茯苓",
+        "柴胡",
+        "防风",
+        "苍术",
+        "泽泻"
+      ]
     },
     {
       "case_id": "swy_086",
@@ -1459,7 +2274,20 @@
       "entry_id": "swy_086",
       "entry_type": "sunwenyuan_case",
       "rag_key": "喘嗽",
-      "name": "swy_086 喘嗽平肺"
+      "name": "swy_086 喘嗽平肺",
+      "herbs": [
+        "桑白皮",
+        "地骨皮",
+        "五味子",
+        "甘草",
+        "滑石",
+        "人参",
+        "天麻",
+        "知母",
+        "茯苓",
+        "青皮",
+        "麦芽"
+      ]
     },
     {
       "case_id": "swy_087",
@@ -1476,7 +2304,32 @@
       "entry_id": "swy_087",
       "entry_type": "sunwenyuan_case",
       "rag_key": "脊痛",
-      "name": "swy_087 脊痛下痰"
+      "name": "swy_087 脊痛下痰",
+      "herbs": [
+        "甘草",
+        "白术",
+        "人参",
+        "白芍",
+        "香附",
+        "茯苓",
+        "藁本",
+        "柴胡",
+        "枳壳",
+        "防风",
+        "桔梗",
+        "羌活",
+        "当归",
+        "青皮",
+        "木香",
+        "苍术",
+        "槟榔",
+        "陈皮",
+        "川芎",
+        "栝蒌"
+      ],
+      "formulas_referenced": [
+        "木香槟榔丸"
+      ]
     },
     {
       "case_id": "swy_088",
@@ -1493,7 +2346,18 @@
       "entry_id": "swy_088",
       "entry_type": "sunwenyuan_case",
       "rag_key": "疫泻",
-      "name": "swy_088 时疫泻"
+      "name": "swy_088 时疫泻",
+      "herbs": [
+        "滑石",
+        "白术",
+        "猪苓",
+        "白芍",
+        "葛根",
+        "泽泻"
+      ],
+      "formulas_referenced": [
+        "二陈汤"
+      ]
     },
     {
       "case_id": "swy_089",
@@ -1510,7 +2374,13 @@
       "entry_id": "swy_089",
       "entry_type": "sunwenyuan_case",
       "rag_key": "胃痛",
-      "name": "swy_089 胃脘补敛"
+      "name": "swy_089 胃脘补敛",
+      "herbs": [
+        "甘草",
+        "白芍",
+        "香附",
+        "桂枝"
+      ]
     },
     {
       "case_id": "swy_090",
@@ -1527,7 +2397,18 @@
       "entry_id": "swy_090",
       "entry_type": "sunwenyuan_case",
       "rag_key": "肛痈",
-      "name": "swy_090 肛痈升提"
+      "name": "swy_090 肛痈升提",
+      "herbs": [
+        "荆芥穗",
+        "秦艽",
+        "地榆",
+        "甘草",
+        "升麻",
+        "连翘",
+        "枳壳",
+        "黄芪",
+        "槐花"
+      ]
     },
     {
       "case_id": "swy_091",
@@ -1544,7 +2425,18 @@
       "entry_id": "swy_091",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痰积",
-      "name": "swy_091 涌吐痰积"
+      "name": "swy_091 涌吐痰积",
+      "herbs": [
+        "萝卜子",
+        "白术",
+        "生姜",
+        "橘红",
+        "川芎",
+        "麦芽"
+      ],
+      "formulas_referenced": [
+        "二陈汤"
+      ]
     },
     {
       "case_id": "swy_092",
@@ -1561,7 +2453,19 @@
       "entry_id": "swy_092",
       "entry_type": "sunwenyuan_case",
       "rag_key": "泄泻",
-      "name": "swy_092 夜泻温补"
+      "name": "swy_092 夜泻温补",
+      "herbs": [
+        "补骨脂",
+        "大附子",
+        "升麻",
+        "白术",
+        "人参",
+        "白芍",
+        "杜仲",
+        "防风",
+        "黄芪",
+        "肉桂"
+      ]
     },
     {
       "case_id": "swy_093",
@@ -1578,7 +2482,14 @@
       "entry_id": "swy_093",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痹证",
-      "name": "swy_093 手疼湿痰"
+      "name": "swy_093 手疼湿痰",
+      "herbs": [
+        "威灵仙",
+        "秦艽"
+      ],
+      "formulas_referenced": [
+        "二陈汤"
+      ]
     },
     {
       "case_id": "swy_094",
@@ -1595,7 +2506,18 @@
       "entry_id": "swy_094",
       "entry_type": "sunwenyuan_case",
       "rag_key": "疫证",
-      "name": "swy_094 时疫发热"
+      "name": "swy_094 时疫发热",
+      "herbs": [
+        "薏苡仁",
+        "甘草",
+        "升麻",
+        "滑石",
+        "白芷",
+        "葛根"
+      ],
+      "formulas_referenced": [
+        "四物汤"
+      ]
     },
     {
       "case_id": "swy_095",
@@ -1612,7 +2534,20 @@
       "entry_id": "swy_095",
       "entry_type": "sunwenyuan_case",
       "rag_key": "疫证",
-      "name": "swy_095 疫头痛如破"
+      "name": "swy_095 疫头痛如破",
+      "herbs": [
+        "薏苡仁",
+        "知母",
+        "木瓜",
+        "石膏",
+        "白芷",
+        "枳壳",
+        "葛根"
+      ],
+      "formulas_referenced": [
+        "竹叶石膏汤",
+        "四物汤"
+      ]
     },
     {
       "case_id": "swy_096",
@@ -1629,7 +2564,17 @@
       "entry_id": "swy_096",
       "entry_type": "sunwenyuan_case",
       "rag_key": "疫证",
-      "name": "swy_096 疫呕吐误治"
+      "name": "swy_096 疫呕吐误治",
+      "herbs": [
+        "升麻",
+        "人参",
+        "竹茹",
+        "葛根"
+      ],
+      "formulas_referenced": [
+        "四物汤",
+        "白虎汤"
+      ]
     },
     {
       "case_id": "swy_097",
@@ -1646,7 +2591,25 @@
       "entry_id": "swy_097",
       "entry_type": "sunwenyuan_case",
       "rag_key": "咳嗽",
-      "name": "swy_097 咳内热"
+      "name": "swy_097 咳内热",
+      "herbs": [
+        "天花粉",
+        "桑白皮",
+        "五味子",
+        "甘草",
+        "白术",
+        "人参",
+        "知母",
+        "白芍",
+        "茯苓",
+        "石膏",
+        "柴胡",
+        "麦冬",
+        "黄芪",
+        "陈皮",
+        "桂枝",
+        "贝母"
+      ]
     },
     {
       "case_id": "swy_098",
@@ -1663,7 +2626,19 @@
       "entry_id": "swy_098",
       "entry_type": "sunwenyuan_case",
       "rag_key": "遗溺",
-      "name": "swy_098 遗溺心肾"
+      "name": "swy_098 遗溺心肾",
+      "herbs": [
+        "山茱萸",
+        "益智仁",
+        "牡丹皮",
+        "桑螵蛸",
+        "丹参",
+        "人参",
+        "知母",
+        "黄柏",
+        "当归",
+        "远志"
+      ]
     },
     {
       "case_id": "swy_099",
@@ -1680,7 +2655,24 @@
       "entry_id": "swy_099",
       "entry_type": "sunwenyuan_case",
       "rag_key": "腹痛",
-      "name": "swy_099 腹块补消"
+      "name": "swy_099 腹块补消",
+      "herbs": [
+        "桂心",
+        "甘草",
+        "升麻",
+        "白术",
+        "人参",
+        "白芍",
+        "茯苓",
+        "柴胡",
+        "黄芪",
+        "半夏",
+        "木香",
+        "苍术",
+        "陈皮",
+        "葛根",
+        "泽泻"
+      ]
     },
     {
       "case_id": "swy_100",
@@ -1697,7 +2689,16 @@
       "entry_id": "swy_100",
       "entry_type": "sunwenyuan_case",
       "rag_key": "肠风",
-      "name": "swy_100 肠风药裹丸"
+      "name": "swy_100 肠风药裹丸",
+      "herbs": [
+        "荆芥穗",
+        "升麻",
+        "蒲黄",
+        "槐花"
+      ],
+      "formulas_referenced": [
+        "四物汤"
+      ]
     },
     {
       "case_id": "swy_101",
@@ -1714,7 +2715,22 @@
       "entry_id": "swy_101",
       "entry_type": "sunwenyuan_case",
       "rag_key": "腹痛",
-      "name": "swy_101 忤气腹痛"
+      "name": "swy_101 忤气腹痛",
+      "herbs": [
+        "吴茱萸",
+        "山楂",
+        "乌药",
+        "香附",
+        "茯苓",
+        "柴胡",
+        "枳壳",
+        "当归",
+        "青皮",
+        "木香",
+        "杏仁",
+        "槟榔",
+        "泽泻"
+      ]
     },
     {
       "case_id": "swy_102",
@@ -1731,7 +2747,13 @@
       "entry_id": "swy_102",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痰饮",
-      "name": "swy_102 痰痞恶心"
+      "name": "swy_102 痰痞恶心",
+      "herbs": [
+        "麦芽"
+      ],
+      "formulas_referenced": [
+        "六君子汤"
+      ]
     },
     {
       "case_id": "swy_103",
@@ -1748,7 +2770,17 @@
       "entry_id": "swy_103",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痰证",
-      "name": "swy_103 奇痰症"
+      "name": "swy_103 奇痰症",
+      "herbs": [
+        "萝卜子",
+        "前胡",
+        "白术",
+        "白芍",
+        "当归"
+      ],
+      "formulas_referenced": [
+        "二陈汤"
+      ]
     },
     {
       "case_id": "swy_104",
@@ -1765,7 +2797,23 @@
       "entry_id": "swy_104",
       "entry_type": "sunwenyuan_case",
       "rag_key": "眩晕",
-      "name": "swy_104 眩晕平木"
+      "name": "swy_104 眩晕平木",
+      "herbs": [
+        "麦门冬",
+        "神曲",
+        "白术",
+        "人参",
+        "天麻",
+        "白芍",
+        "黄柏",
+        "枳实",
+        "半夏",
+        "苍术",
+        "麦芽"
+      ],
+      "formulas_referenced": [
+        "六君子汤"
+      ]
     },
     {
       "case_id": "swy_105",
@@ -1782,7 +2830,18 @@
       "entry_id": "swy_105",
       "entry_type": "sunwenyuan_case",
       "rag_key": "呃逆",
-      "name": "swy_105 恶寒发呃"
+      "name": "swy_105 恶寒发呃",
+      "herbs": [
+        "萝卜子",
+        "白蔻仁",
+        "香附",
+        "杏仁",
+        "藿香"
+      ],
+      "formulas_referenced": [
+        "二陈汤",
+        "肾气丸"
+      ]
     },
     {
       "case_id": "swy_106",
@@ -1799,7 +2858,21 @@
       "entry_id": "swy_106",
       "entry_type": "sunwenyuan_case",
       "rag_key": "胸痞",
-      "name": "swy_106 误下胸痞"
+      "name": "swy_106 误下胸痞",
+      "herbs": [
+        "吴茱萸",
+        "萝卜子",
+        "白蔻仁",
+        "白芷",
+        "防风",
+        "桔梗",
+        "干姜",
+        "木香",
+        "苍术",
+        "桂枝",
+        "川芎",
+        "麦芽"
+      ]
     },
     {
       "case_id": "swy_107",
@@ -1816,7 +2889,21 @@
       "entry_id": "swy_107",
       "entry_type": "sunwenyuan_case",
       "rag_key": "泄泻",
-      "name": "swy_107 虚泻补养"
+      "name": "swy_107 虚泻补养",
+      "herbs": [
+        "石菖蒲",
+        "大附子",
+        "甘草",
+        "白术",
+        "人参",
+        "白芍",
+        "茯苓",
+        "柴胡",
+        "黄芪",
+        "陈皮",
+        "桂枝",
+        "泽泻"
+      ]
     },
     {
       "case_id": "swy_108",
@@ -1833,7 +2920,19 @@
       "entry_id": "swy_108",
       "entry_type": "sunwenyuan_case",
       "rag_key": "胁痛",
-      "name": "swy_108 胁痛痰气"
+      "name": "swy_108 胁痛痰气",
+      "herbs": [
+        "栝蒌仁",
+        "甘草",
+        "柴胡",
+        "枳壳",
+        "牡蛎",
+        "当归",
+        "半夏"
+      ],
+      "formulas_referenced": [
+        "当归龙荟丸"
+      ]
     },
     {
       "case_id": "swy_109",
@@ -1850,7 +2949,18 @@
       "entry_id": "swy_109",
       "entry_type": "sunwenyuan_case",
       "rag_key": "妊娠",
-      "name": "swy_109 妊咳条芩"
+      "name": "swy_109 妊咳条芩",
+      "herbs": [
+        "桑白皮",
+        "栝蒌仁",
+        "甘草",
+        "知母",
+        "白芍",
+        "枳壳",
+        "紫菀",
+        "陈皮",
+        "贝母"
+      ]
     },
     {
       "case_id": "swy_110",
@@ -1867,7 +2977,16 @@
       "entry_id": "swy_110",
       "entry_type": "sunwenyuan_case",
       "rag_key": "虫痛",
-      "name": "swy_110 虫痛"
+      "name": "swy_110 虫痛",
+      "herbs": [
+        "石菖蒲",
+        "乌梅",
+        "炮姜",
+        "川椒",
+        "杏仁",
+        "槟榔",
+        "陈皮"
+      ]
     },
     {
       "case_id": "swy_111",
@@ -1884,7 +3003,18 @@
       "entry_id": "swy_111",
       "entry_type": "sunwenyuan_case",
       "rag_key": "产后",
-      "name": "swy_111 小产恶露"
+      "name": "swy_111 小产恶露",
+      "herbs": [
+        "益母草",
+        "荆芥穗",
+        "丹参",
+        "山楂",
+        "人参",
+        "香附",
+        "当归",
+        "桂皮",
+        "川芎"
+      ]
     },
     {
       "case_id": "swy_112",
@@ -1901,7 +3031,20 @@
       "entry_id": "swy_112",
       "entry_type": "sunwenyuan_case",
       "rag_key": "颊车痛",
-      "name": "swy_112 颊车风热"
+      "name": "swy_112 颊车风热",
+      "herbs": [
+        "天花粉",
+        "牡丹皮",
+        "山栀子",
+        "甘草",
+        "升麻",
+        "薄荷",
+        "连翘",
+        "石膏",
+        "白芷",
+        "贯众",
+        "葛根"
+      ]
     },
     {
       "case_id": "swy_113",
@@ -1918,7 +3061,15 @@
       "entry_id": "swy_113",
       "entry_type": "sunwenyuan_case",
       "rag_key": "崩漏",
-      "name": "swy_113 经崩益气"
+      "name": "swy_113 经崩益气",
+      "herbs": [
+        "侧柏叶",
+        "荆芥穗",
+        "白术",
+        "人参",
+        "蒲黄",
+        "黄芪"
+      ]
     },
     {
       "case_id": "swy_114",
@@ -1935,7 +3086,17 @@
       "entry_id": "swy_114",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痔血",
-      "name": "swy_114 痔血脾虚"
+      "name": "swy_114 痔血脾虚",
+      "herbs": [
+        "何首乌",
+        "荆芥穗",
+        "秦艽",
+        "炮姜",
+        "陈皮"
+      ],
+      "formulas_referenced": [
+        "四君子汤"
+      ]
     },
     {
       "case_id": "swy_115",
@@ -1952,7 +3113,17 @@
       "entry_id": "swy_115",
       "entry_type": "sunwenyuan_case",
       "rag_key": "腹痛",
-      "name": "swy_115 崩后腹痛"
+      "name": "swy_115 崩后腹痛",
+      "herbs": [
+        "荆芥穗",
+        "白术",
+        "人参",
+        "白芍",
+        "茯苓",
+        "贯众",
+        "黄芪",
+        "陈皮"
+      ]
     },
     {
       "case_id": "swy_116",
@@ -1969,7 +3140,20 @@
       "entry_id": "swy_116",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痰喘",
-      "name": "swy_116 痰喘伏枕"
+      "name": "swy_116 痰喘伏枕",
+      "herbs": [
+        "桑白皮",
+        "萝卜子",
+        "葶苈子",
+        "紫苏子",
+        "茯苓",
+        "半夏",
+        "陈皮",
+        "桂皮"
+      ],
+      "formulas_referenced": [
+        "旋复花汤"
+      ]
     },
     {
       "case_id": "swy_117",
@@ -1986,7 +3170,18 @@
       "entry_id": "swy_117",
       "entry_type": "sunwenyuan_case",
       "rag_key": "胁痛",
-      "name": "swy_117 胁痛泻肝"
+      "name": "swy_117 胁痛泻肝",
+      "herbs": [
+        "半夏曲",
+        "前胡",
+        "黄连",
+        "当归",
+        "青皮",
+        "栝蒌"
+      ],
+      "formulas_referenced": [
+        "当归龙荟丸"
+      ]
     },
     {
       "case_id": "swy_118",
@@ -2003,7 +3198,15 @@
       "entry_id": "swy_118",
       "entry_type": "sunwenyuan_case",
       "rag_key": "外感",
-      "name": "swy_118 遍身痛汗"
+      "name": "swy_118 遍身痛汗",
+      "herbs": [
+        "黄芩",
+        "甘草",
+        "白术",
+        "白芍",
+        "当归",
+        "桂皮"
+      ]
     },
     {
       "case_id": "swy_119",
@@ -2020,7 +3223,10 @@
       "entry_id": "swy_119",
       "entry_type": "sunwenyuan_case",
       "rag_key": "妊娠",
-      "name": "swy_119 子悬痰喘"
+      "name": "swy_119 子悬痰喘",
+      "formulas_referenced": [
+        "七制化痰丸"
+      ]
     },
     {
       "case_id": "swy_120",
@@ -2037,7 +3243,22 @@
       "entry_id": "swy_120",
       "entry_type": "sunwenyuan_case",
       "rag_key": "妊娠",
-      "name": "swy_120 孕子淋"
+      "name": "swy_120 孕子淋",
+      "herbs": [
+        "前胡",
+        "黄连",
+        "香附",
+        "茯苓",
+        "枳壳",
+        "橘红",
+        "当归",
+        "陈皮",
+        "贝母",
+        "泽泻"
+      ],
+      "formulas_referenced": [
+        "四君子汤"
+      ]
     },
     {
       "case_id": "swy_121",
@@ -2054,7 +3275,15 @@
       "entry_id": "swy_121",
       "entry_type": "sunwenyuan_case",
       "rag_key": "汗证",
-      "name": "swy_121 劳倦汗出"
+      "name": "swy_121 劳倦汗出",
+      "herbs": [
+        "人参",
+        "白芍",
+        "黄芪",
+        "当归",
+        "陈皮",
+        "桂皮"
+      ]
     },
     {
       "case_id": "swy_122",
@@ -2071,7 +3300,20 @@
       "entry_id": "swy_122",
       "entry_type": "sunwenyuan_case",
       "rag_key": "咳嗽",
-      "name": "swy_122 经前咳血"
+      "name": "swy_122 经前咳血",
+      "herbs": [
+        "牡丹皮",
+        "山栀子",
+        "甘草",
+        "滑石",
+        "茅根",
+        "桃仁",
+        "白芍",
+        "香附",
+        "柴胡",
+        "当归",
+        "川芎"
+      ]
     },
     {
       "case_id": "swy_123",
@@ -2088,7 +3330,20 @@
       "entry_id": "swy_123",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痹证",
-      "name": "swy_123 湿痰补塞"
+      "name": "swy_123 湿痰补塞",
+      "herbs": [
+        "生地黄",
+        "薏苡仁",
+        "五加皮",
+        "威灵仙",
+        "白芍",
+        "黄柏",
+        "当归",
+        "苍术"
+      ],
+      "formulas_referenced": [
+        "二陈汤"
+      ]
     },
     {
       "case_id": "swy_124",
@@ -2105,7 +3360,17 @@
       "entry_id": "swy_124",
       "entry_type": "sunwenyuan_case",
       "rag_key": "虚热",
-      "name": "swy_124 火热似疟"
+      "name": "swy_124 火热似疟",
+      "herbs": [
+        "何首乌",
+        "乌梅",
+        "白芍",
+        "牡蛎",
+        "黄芪",
+        "鳖甲",
+        "桂枝",
+        "阿胶"
+      ]
     },
     {
       "case_id": "swy_125",
@@ -2122,7 +3387,21 @@
       "entry_id": "swy_125",
       "entry_type": "sunwenyuan_case",
       "rag_key": "血症",
-      "name": "swy_125 咯血痰火"
+      "name": "swy_125 咯血痰火",
+      "herbs": [
+        "山栀子",
+        "山楂",
+        "小蓟",
+        "丹皮",
+        "滑石",
+        "茅根",
+        "桃仁",
+        "栀子",
+        "枳壳",
+        "紫菀",
+        "红花",
+        "贝母"
+      ]
     },
     {
       "case_id": "swy_126",
@@ -2139,7 +3418,19 @@
       "entry_id": "swy_126",
       "entry_type": "sunwenyuan_case",
       "rag_key": "腰膝",
-      "name": "swy_126 腰膝痰湿"
+      "name": "swy_126 腰膝痰湿",
+      "herbs": [
+        "五加皮",
+        "威灵仙",
+        "甘草",
+        "白芍",
+        "木瓜",
+        "生地",
+        "黄柏",
+        "当归",
+        "陈皮",
+        "牛膝"
+      ]
     },
     {
       "case_id": "swy_127",
@@ -2156,7 +3447,18 @@
       "entry_id": "swy_127",
       "entry_type": "sunwenyuan_case",
       "rag_key": "头痛",
-      "name": "swy_127 头痛内热"
+      "name": "swy_127 头痛内热",
+      "herbs": [
+        "栝蒌仁",
+        "黄连",
+        "当归",
+        "枳实",
+        "桂枝"
+      ],
+      "formulas_referenced": [
+        "当归龙荟丸",
+        "白虎汤"
+      ]
     },
     {
       "case_id": "swy_128",
@@ -2173,7 +3475,19 @@
       "entry_id": "swy_128",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痰火",
-      "name": "swy_128 胸痞痰火"
+      "name": "swy_128 胸痞痰火",
+      "herbs": [
+        "前胡",
+        "薄荷",
+        "香附",
+        "枳壳",
+        "苍术",
+        "郁金",
+        "川芎"
+      ],
+      "formulas_referenced": [
+        "二陈汤"
+      ]
     },
     {
       "case_id": "swy_129",
@@ -2207,7 +3521,16 @@
       "entry_id": "swy_130",
       "entry_type": "sunwenyuan_case",
       "rag_key": "产后",
-      "name": "swy_130 小产血下"
+      "name": "swy_130 小产血下",
+      "herbs": [
+        "丹参",
+        "白术",
+        "人参",
+        "香附",
+        "茯苓",
+        "蒲黄",
+        "黄芪"
+      ]
     },
     {
       "case_id": "swy_131",
@@ -2224,7 +3547,11 @@
       "entry_id": "swy_131",
       "entry_type": "sunwenyuan_case",
       "rag_key": "梅核气",
-      "name": "swy_131 梅核气"
+      "name": "swy_131 梅核气",
+      "herbs": [
+        "茯苓",
+        "半夏"
+      ]
     },
     {
       "case_id": "swy_132",
@@ -2241,7 +3568,18 @@
       "entry_id": "swy_132",
       "entry_type": "sunwenyuan_case",
       "rag_key": "妊娠",
-      "name": "swy_132 惊胎骤补"
+      "name": "swy_132 惊胎骤补",
+      "herbs": [
+        "白术",
+        "人参",
+        "砂仁",
+        "白芍",
+        "香附",
+        "杜仲",
+        "黄芪",
+        "当归",
+        "阿胶"
+      ]
     },
     {
       "case_id": "swy_133",
@@ -2258,7 +3596,32 @@
       "entry_id": "swy_133",
       "entry_type": "sunwenyuan_case",
       "rag_key": "伤寒",
-      "name": "swy_133 色欲伤寒"
+      "name": "swy_133 色欲伤寒",
+      "herbs": [
+        "五味子",
+        "黄芩",
+        "甘草",
+        "乌梅",
+        "升麻",
+        "滑石",
+        "人参",
+        "猪苓",
+        "竹茹",
+        "白芍",
+        "茯苓",
+        "柴胡",
+        "枳壳",
+        "麦冬",
+        "桔梗",
+        "木通",
+        "葛根",
+        "泽泻"
+      ],
+      "formulas_referenced": [
+        "小柴胡汤",
+        "葛根汤",
+        "生脉散"
+      ]
     },
     {
       "case_id": "swy_134",
@@ -2275,7 +3638,24 @@
       "entry_id": "swy_134",
       "entry_type": "sunwenyuan_case",
       "rag_key": "胃痛",
-      "name": "swy_134 脘痛郁火"
+      "name": "swy_134 脘痛郁火",
+      "herbs": [
+        "萝卜子",
+        "山栀子",
+        "前胡",
+        "甘草",
+        "茯苓",
+        "橘红",
+        "桔梗",
+        "枳实",
+        "青皮",
+        "陈皮",
+        "贝母",
+        "栝蒌"
+      ],
+      "formulas_referenced": [
+        "二陈汤"
+      ]
     },
     {
       "case_id": "swy_135",
@@ -2292,7 +3672,13 @@
       "entry_id": "swy_135",
       "entry_type": "sunwenyuan_case",
       "rag_key": "酒积",
-      "name": "swy_135 酒积丸"
+      "name": "swy_135 酒积丸",
+      "herbs": [
+        "神曲",
+        "滑石",
+        "白芍",
+        "木香"
+      ]
     },
     {
       "case_id": "swy_136",
@@ -2309,7 +3695,16 @@
       "entry_id": "swy_136",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痞满",
-      "name": "swy_136 痰饮痞满"
+      "name": "swy_136 痰饮痞满",
+      "herbs": [
+        "山楂",
+        "滑石",
+        "枳实",
+        "木香"
+      ],
+      "formulas_referenced": [
+        "二陈汤"
+      ]
     },
     {
       "case_id": "swy_137",
@@ -2326,7 +3721,20 @@
       "entry_id": "swy_137",
       "entry_type": "sunwenyuan_case",
       "rag_key": "眩晕",
-      "name": "swy_137 痰晕木火"
+      "name": "swy_137 痰晕木火",
+      "herbs": [
+        "吴茱萸",
+        "枇杷叶",
+        "黄芩",
+        "黄连",
+        "竹茹",
+        "柴胡",
+        "丁香",
+        "槟榔"
+      ],
+      "formulas_referenced": [
+        "二陈汤"
+      ]
     },
     {
       "case_id": "swy_138",
@@ -2343,7 +3751,27 @@
       "entry_id": "swy_138",
       "entry_type": "sunwenyuan_case",
       "rag_key": "伤寒",
-      "name": "swy_138 伤寒二经"
+      "name": "swy_138 伤寒二经",
+      "herbs": [
+        "天花粉",
+        "麦门冬",
+        "山栀子",
+        "前胡",
+        "升麻",
+        "薄荷",
+        "白芍",
+        "柴胡",
+        "枳实",
+        "葛根",
+        "麦芽"
+      ],
+      "formulas_referenced": [
+        "大柴胡汤",
+        "小柴胡汤",
+        "白虎汤",
+        "生脉散",
+        "益元散"
+      ]
     },
     {
       "case_id": "swy_139",
@@ -2360,7 +3788,16 @@
       "entry_id": "swy_139",
       "entry_type": "sunwenyuan_case",
       "rag_key": "产后",
-      "name": "swy_139 产后蓄血"
+      "name": "swy_139 产后蓄血",
+      "herbs": [
+        "山楂",
+        "滑石",
+        "香附",
+        "茯苓",
+        "半夏",
+        "陈皮",
+        "川芎"
+      ]
     },
     {
       "case_id": "swy_140",
@@ -2377,7 +3814,20 @@
       "entry_id": "swy_140",
       "entry_type": "sunwenyuan_case",
       "rag_key": "疟痢",
-      "name": "swy_140 疟后作痢"
+      "name": "swy_140 疟后作痢",
+      "herbs": [
+        "黄连",
+        "山楂",
+        "滑石",
+        "白芍",
+        "木香",
+        "桂皮",
+        "泽泻"
+      ],
+      "formulas_referenced": [
+        "补中益气汤",
+        "香连丸"
+      ]
     },
     {
       "case_id": "swy_141",
@@ -2394,7 +3844,17 @@
       "entry_id": "swy_141",
       "entry_type": "sunwenyuan_case",
       "rag_key": "妊娠",
-      "name": "swy_141 孕疟子悬"
+      "name": "swy_141 孕疟子悬",
+      "herbs": [
+        "黄芩",
+        "甘草",
+        "砂仁",
+        "知母",
+        "柴胡",
+        "枳壳",
+        "橘红",
+        "川芎"
+      ]
     },
     {
       "case_id": "swy_142",
@@ -2411,7 +3871,17 @@
       "entry_id": "swy_142",
       "entry_type": "sunwenyuan_case",
       "rag_key": "妇科",
-      "name": "swy_142 补心血孕"
+      "name": "swy_142 补心血孕",
+      "herbs": [
+        "酸枣仁",
+        "生地黄",
+        "枸杞子",
+        "甘草",
+        "白术",
+        "白芍",
+        "当归",
+        "远志"
+      ]
     },
     {
       "case_id": "swy_144",
@@ -2445,7 +3915,23 @@
       "entry_id": "swy_145",
       "entry_type": "sunwenyuan_case",
       "rag_key": "消渴",
-      "name": "swy_145 下消温补"
+      "name": "swy_145 下消温补",
+      "herbs": [
+        "山茱萸",
+        "枸杞子",
+        "大附子",
+        "鹿角霜",
+        "益智仁",
+        "鹿角胶",
+        "熟地黄",
+        "菟丝子",
+        "桑螵蛸",
+        "桂心",
+        "人参",
+        "山药",
+        "茯苓",
+        "远志"
+      ]
     },
     {
       "case_id": "swy_146",
@@ -2462,7 +3948,14 @@
       "entry_id": "swy_146",
       "entry_type": "sunwenyuan_case",
       "rag_key": "肝郁",
-      "name": "swy_146 怒后郁火"
+      "name": "swy_146 怒后郁火",
+      "herbs": [
+        "桃仁",
+        "枳壳",
+        "青皮",
+        "杏仁",
+        "槟榔"
+      ]
     },
     {
       "case_id": "swy_147",
@@ -2479,7 +3972,23 @@
       "entry_id": "swy_147",
       "entry_type": "sunwenyuan_case",
       "rag_key": "腹痛",
-      "name": "swy_147 上盛下虚"
+      "name": "swy_147 上盛下虚",
+      "herbs": [
+        "补骨脂",
+        "枸杞子",
+        "鹿角霜",
+        "鹿角胶",
+        "蔓荆子",
+        "薄荷",
+        "天麻",
+        "香附",
+        "茯苓",
+        "柴胡",
+        "橘红",
+        "半夏",
+        "远志",
+        "川芎"
+      ]
     },
     {
       "case_id": "swy_148",
@@ -2496,7 +4005,17 @@
       "entry_id": "swy_148",
       "entry_type": "sunwenyuan_case",
       "rag_key": "疟母",
-      "name": "swy_148 婴疟母"
+      "name": "swy_148 婴疟母",
+      "herbs": [
+        "甘草",
+        "乌梅",
+        "白术",
+        "知母",
+        "陈皮",
+        "鳖甲",
+        "贝母",
+        "麦芽"
+      ]
     },
     {
       "case_id": "swy_149",
@@ -2530,7 +4049,17 @@
       "entry_id": "swy_150",
       "entry_type": "sunwenyuan_case",
       "rag_key": "杨梅疮",
-      "name": "swy_150 杨梅风毒"
+      "name": "swy_150 杨梅风毒",
+      "herbs": [
+        "白藓皮",
+        "土茯苓",
+        "钩藤",
+        "甘草",
+        "白芍",
+        "木通",
+        "当归",
+        "牛膝"
+      ]
     },
     {
       "case_id": "swy_151",
@@ -2564,7 +4093,17 @@
       "entry_id": "swy_152",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痰火",
-      "name": "swy_152 痰火吐红"
+      "name": "swy_152 痰火吐红",
+      "herbs": [
+        "半夏曲",
+        "桑白皮",
+        "紫苏子",
+        "前胡",
+        "石膏",
+        "橘红",
+        "杏仁",
+        "栝蒌"
+      ]
     },
     {
       "case_id": "swy_153",
@@ -2581,7 +4120,18 @@
       "entry_id": "swy_153",
       "entry_type": "sunwenyuan_case",
       "rag_key": "湿热",
-      "name": "swy_153 湿热清肃"
+      "name": "swy_153 湿热清肃",
+      "herbs": [
+        "薏苡仁",
+        "黄连",
+        "白芍",
+        "枳实",
+        "葛根",
+        "麦芽"
+      ],
+      "formulas_referenced": [
+        "二陈汤"
+      ]
     },
     {
       "case_id": "swy_154",
@@ -2598,7 +4148,22 @@
       "entry_id": "swy_154",
       "entry_type": "sunwenyuan_case",
       "rag_key": "湿热",
-      "name": "swy_154 湿热痰痞"
+      "name": "swy_154 湿热痰痞",
+      "herbs": [
+        "萝卜子",
+        "栝蒌仁",
+        "黄芩",
+        "黄连",
+        "山楂",
+        "白术",
+        "橘红",
+        "青黛",
+        "牡蛎",
+        "枳实",
+        "半夏",
+        "苦参",
+        "麦芽"
+      ]
     },
     {
       "case_id": "swy_155",
@@ -2615,7 +4180,20 @@
       "entry_id": "swy_155",
       "entry_type": "sunwenyuan_case",
       "rag_key": "儿科",
-      "name": "swy_155 命门骨肿"
+      "name": "swy_155 命门骨肿",
+      "herbs": [
+        "薏苡仁",
+        "五加皮",
+        "威灵仙",
+        "人参",
+        "独活",
+        "乌药",
+        "杜仲",
+        "防风",
+        "当归",
+        "红花",
+        "牛膝"
+      ]
     },
     {
       "case_id": "swy_156",
@@ -2632,7 +4210,20 @@
       "entry_id": "swy_156",
       "entry_type": "sunwenyuan_case",
       "rag_key": "虚损",
-      "name": "swy_156 虚损痛风"
+      "name": "swy_156 虚损痛风",
+      "herbs": [
+        "酸枣仁",
+        "桑白皮",
+        "麦门冬",
+        "丹参",
+        "黄芩",
+        "甘草",
+        "枳壳",
+        "麦冬",
+        "桔梗",
+        "远志",
+        "贝母"
+      ]
     },
     {
       "case_id": "swy_157",
@@ -2649,7 +4240,19 @@
       "entry_id": "swy_157",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痢疾",
-      "name": "swy_157 痢胸膨胀"
+      "name": "swy_157 痢胸膨胀",
+      "herbs": [
+        "甘草",
+        "生姜",
+        "竹茹",
+        "茯苓",
+        "橘红",
+        "枳实",
+        "半夏"
+      ],
+      "formulas_referenced": [
+        "温胆汤"
+      ]
     },
     {
       "case_id": "swy_158",
@@ -2666,7 +4269,26 @@
       "entry_id": "swy_158",
       "entry_type": "sunwenyuan_case",
       "rag_key": "瘀血",
-      "name": "swy_158 胸痛瘀血"
+      "name": "swy_158 胸痛瘀血",
+      "herbs": [
+        "酸枣仁",
+        "玄胡索",
+        "丹参",
+        "乌梅",
+        "丹皮",
+        "人参",
+        "桃仁",
+        "赤芍",
+        "白芍",
+        "香附",
+        "当归",
+        "青皮",
+        "桂枝",
+        "贝母"
+      ],
+      "formulas_referenced": [
+        "苏合香丸"
+      ]
     },
     {
       "case_id": "swy_159",
@@ -2683,7 +4305,22 @@
       "entry_id": "swy_159",
       "entry_type": "sunwenyuan_case",
       "rag_key": "妊娠",
-      "name": "swy_159 孕痢保胎"
+      "name": "swy_159 孕痢保胎",
+      "herbs": [
+        "黄芩",
+        "黄连",
+        "白芍",
+        "香附",
+        "当归",
+        "木香",
+        "陈皮",
+        "阿胶",
+        "桂皮"
+      ],
+      "formulas_referenced": [
+        "香连丸",
+        "八珍汤"
+      ]
     },
     {
       "case_id": "swy_160",
@@ -2700,7 +4337,30 @@
       "entry_id": "swy_160",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痢疾",
-      "name": "swy_160 痢先补后攻"
+      "name": "swy_160 痢先补后攻",
+      "herbs": [
+        "山楂",
+        "升麻",
+        "炮姜",
+        "白术",
+        "人参",
+        "砂仁",
+        "桃仁",
+        "白芍",
+        "茯苓",
+        "枳壳",
+        "防风",
+        "黄芪",
+        "当归",
+        "木香",
+        "槟榔",
+        "桂枝",
+        "藿香"
+      ],
+      "formulas_referenced": [
+        "木香槟榔丸",
+        "小建中汤"
+      ]
     },
     {
       "case_id": "swy_161",
@@ -2717,7 +4377,25 @@
       "entry_id": "swy_161",
       "entry_type": "sunwenyuan_case",
       "rag_key": "疟痢",
-      "name": "swy_161 疟痢交作"
+      "name": "swy_161 疟痢交作",
+      "herbs": [
+        "地榆",
+        "炮姜",
+        "白术",
+        "人参",
+        "白芍",
+        "茯苓",
+        "柴胡",
+        "枳壳",
+        "防风",
+        "当归",
+        "桂枝",
+        "桂皮",
+        "川芎"
+      ],
+      "formulas_referenced": [
+        "补中益气汤"
+      ]
     },
     {
       "case_id": "swy_162",
@@ -2734,7 +4412,21 @@
       "entry_id": "swy_162",
       "entry_type": "sunwenyuan_case",
       "rag_key": "虚损",
-      "name": "swy_162 梦遗养神"
+      "name": "swy_162 梦遗养神",
+      "herbs": [
+        "酸枣仁",
+        "石菖蒲",
+        "麦门冬",
+        "五味子",
+        "甘草",
+        "白术",
+        "人参",
+        "莲子",
+        "黄柏",
+        "黄芪",
+        "当归",
+        "远志"
+      ]
     },
     {
       "case_id": "swy_163",
@@ -2751,7 +4443,10 @@
       "entry_id": "swy_163",
       "entry_type": "sunwenyuan_case",
       "rag_key": "妇科",
-      "name": "swy_163 阴挺湿热"
+      "name": "swy_163 阴挺湿热",
+      "formulas_referenced": [
+        "龙胆泻肝汤"
+      ]
     },
     {
       "case_id": "swy_164",
@@ -2768,7 +4463,10 @@
       "entry_id": "swy_164",
       "entry_type": "sunwenyuan_case",
       "rag_key": "肠痈",
-      "name": "swy_164 肠痈返魂汤"
+      "name": "swy_164 肠痈返魂汤",
+      "herbs": [
+        "金银花"
+      ]
     },
     {
       "case_id": "swy_165",
@@ -2785,7 +4483,10 @@
       "entry_id": "swy_165",
       "entry_type": "sunwenyuan_case",
       "rag_key": "脏毒",
-      "name": "swy_165 脏毒樗皮散"
+      "name": "swy_165 脏毒樗皮散",
+      "herbs": [
+        "人参"
+      ]
     },
     {
       "case_id": "swy_166",
@@ -2802,7 +4503,10 @@
       "entry_id": "swy_166",
       "entry_type": "sunwenyuan_case",
       "rag_key": "湿热",
-      "name": "swy_166 湿热下部"
+      "name": "swy_166 湿热下部",
+      "formulas_referenced": [
+        "益元散"
+      ]
     },
     {
       "case_id": "swy_167",
@@ -2819,7 +4523,21 @@
       "entry_id": "swy_167",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痹证",
-      "name": "swy_167 痹湿痰风热"
+      "name": "swy_167 痹湿痰风热",
+      "herbs": [
+        "薏苡仁",
+        "五加皮",
+        "威灵仙",
+        "钩藤",
+        "秦艽",
+        "黄芩",
+        "红花",
+        "郁金",
+        "川芎"
+      ],
+      "formulas_referenced": [
+        "二陈汤"
+      ]
     },
     {
       "case_id": "swy_168",
@@ -2836,7 +4554,24 @@
       "entry_id": "swy_168",
       "entry_type": "sunwenyuan_case",
       "rag_key": "伤寒",
-      "name": "swy_168 合病随证"
+      "name": "swy_168 合病随证",
+      "herbs": [
+        "黄连",
+        "甘草",
+        "人参",
+        "知母",
+        "竹茹",
+        "栀子",
+        "石膏",
+        "柴胡",
+        "豆豉",
+        "麦冬"
+      ],
+      "formulas_referenced": [
+        "竹叶石膏汤",
+        "小柴胡汤",
+        "白虎汤"
+      ]
     },
     {
       "case_id": "swy_169",
@@ -2853,7 +4588,19 @@
       "entry_id": "swy_169",
       "entry_type": "sunwenyuan_case",
       "rag_key": "湿热",
-      "name": "swy_169 行动发热"
+      "name": "swy_169 行动发热",
+      "herbs": [
+        "威灵仙",
+        "龟板",
+        "乌药",
+        "杜仲",
+        "鹿茸",
+        "黄柏",
+        "苍术",
+        "红花",
+        "牛膝",
+        "桂皮"
+      ]
     },
     {
       "case_id": "swy_170",
@@ -2870,7 +4617,27 @@
       "entry_id": "swy_170",
       "entry_type": "sunwenyuan_case",
       "rag_key": "血症",
-      "name": "swy_170 酒伤咯血"
+      "name": "swy_170 酒伤咯血",
+      "herbs": [
+        "桑白皮",
+        "侧柏叶",
+        "牡丹皮",
+        "寒水石",
+        "甘草",
+        "滑石",
+        "茅根",
+        "人参",
+        "桃仁",
+        "知母",
+        "白芍",
+        "香附",
+        "紫菀",
+        "麦冬",
+        "当归",
+        "青皮",
+        "红花",
+        "贝母"
+      ]
     },
     {
       "case_id": "swy_171",
@@ -2887,7 +4654,16 @@
       "entry_id": "swy_171",
       "entry_type": "sunwenyuan_case",
       "rag_key": "呕吐",
-      "name": "swy_171 经闭吐食"
+      "name": "swy_171 经闭吐食",
+      "herbs": [
+        "丹参",
+        "砂仁",
+        "香附"
+      ],
+      "formulas_referenced": [
+        "二陈汤",
+        "温胆汤"
+      ]
     },
     {
       "case_id": "swy_172",
@@ -2904,7 +4680,20 @@
       "entry_id": "swy_172",
       "entry_type": "sunwenyuan_case",
       "rag_key": "喉肿",
-      "name": "swy_172 喉肿痰火"
+      "name": "swy_172 喉肿痰火",
+      "herbs": [
+        "天花粉",
+        "大力子",
+        "甘草",
+        "升麻",
+        "薄荷",
+        "连翘",
+        "石膏",
+        "白芷",
+        "枳壳",
+        "桔梗",
+        "玄参"
+      ]
     },
     {
       "case_id": "swy_173",
@@ -2921,7 +4710,19 @@
       "entry_id": "swy_173",
       "entry_type": "sunwenyuan_case",
       "rag_key": "咯血",
-      "name": "swy_173 咯血痰火"
+      "name": "swy_173 咯血痰火",
+      "herbs": [
+        "牡丹皮",
+        "丹参",
+        "甘草",
+        "滑石",
+        "桃仁",
+        "白芍",
+        "紫菀",
+        "麦冬",
+        "当归",
+        "贝母"
+      ]
     },
     {
       "case_id": "swy_174",
@@ -2938,7 +4739,20 @@
       "entry_id": "swy_174",
       "entry_type": "sunwenyuan_case",
       "rag_key": "黄疸",
-      "name": "swy_174 湿热发黄"
+      "name": "swy_174 湿热发黄",
+      "herbs": [
+        "天花粉",
+        "麦门冬",
+        "人参",
+        "知母",
+        "竹茹",
+        "白芍",
+        "柴胡",
+        "葛根"
+      ],
+      "formulas_referenced": [
+        "补中益气汤"
+      ]
     },
     {
       "case_id": "swy_175",
@@ -2955,7 +4769,13 @@
       "entry_id": "swy_175",
       "entry_type": "sunwenyuan_case",
       "rag_key": "呕血",
-      "name": "swy_175 呕血暑逼"
+      "name": "swy_175 呕血暑逼",
+      "herbs": [
+        "黄连",
+        "甘草",
+        "滑石",
+        "白芍"
+      ]
     },
     {
       "case_id": "swy_176",
@@ -2972,7 +4792,17 @@
       "entry_id": "swy_176",
       "entry_type": "sunwenyuan_case",
       "rag_key": "肺痈",
-      "name": "swy_176 肺痈白芨"
+      "name": "swy_176 肺痈白芨",
+      "herbs": [
+        "薏苡仁",
+        "葶苈子",
+        "牡丹皮",
+        "山栀子",
+        "甘草",
+        "白芍",
+        "桔梗",
+        "贝母"
+      ]
     },
     {
       "case_id": "swy_177",
@@ -2989,7 +4819,15 @@
       "entry_id": "swy_177",
       "entry_type": "sunwenyuan_case",
       "rag_key": "水肿",
-      "name": "swy_177 气滞水胀"
+      "name": "swy_177 气滞水胀",
+      "herbs": [
+        "乌药",
+        "茯苓",
+        "木香",
+        "苍术",
+        "陈皮",
+        "泽泻"
+      ]
     },
     {
       "case_id": "swy_178",
@@ -3006,7 +4844,31 @@
       "entry_id": "swy_178",
       "entry_type": "sunwenyuan_case",
       "rag_key": "血淋",
-      "name": "swy_178 血淋善饮"
+      "name": "swy_178 血淋善饮",
+      "herbs": [
+        "生地黄",
+        "海金沙",
+        "五灵脂",
+        "山栀子",
+        "甘草",
+        "小蓟",
+        "升麻",
+        "滑石",
+        "茅根",
+        "瞿麦",
+        "白术",
+        "人参",
+        "琥珀",
+        "知母",
+        "白芍",
+        "茯苓",
+        "柴胡",
+        "蒲黄",
+        "黄柏",
+        "木通",
+        "葛根",
+        "牛膝"
+      ]
     },
     {
       "case_id": "swy_179",
@@ -3023,7 +4885,15 @@
       "entry_id": "swy_179",
       "entry_type": "sunwenyuan_case",
       "rag_key": "血症",
-      "name": "swy_179 吐红经频"
+      "name": "swy_179 吐红经频",
+      "herbs": [
+        "鹿角胶",
+        "山栀子",
+        "丹参",
+        "小蓟",
+        "白芍",
+        "生地"
+      ]
     },
     {
       "case_id": "swy_180",
@@ -3040,7 +4910,11 @@
       "entry_id": "swy_180",
       "entry_type": "sunwenyuan_case",
       "rag_key": "目疾",
-      "name": "swy_180 目肿疳积"
+      "name": "swy_180 目肿疳积",
+      "herbs": [
+        "甘草",
+        "香附"
+      ]
     },
     {
       "case_id": "swy_181",
@@ -3057,7 +4931,14 @@
       "entry_id": "swy_181",
       "entry_type": "sunwenyuan_case",
       "rag_key": "目疾",
-      "name": "swy_181 目肿苦寒误"
+      "name": "swy_181 目肿苦寒误",
+      "herbs": [
+        "桑白皮",
+        "蔓荆子",
+        "甘草",
+        "香附",
+        "柴胡"
+      ]
     },
     {
       "case_id": "swy_182",
@@ -3074,7 +4955,15 @@
       "entry_id": "swy_182",
       "entry_type": "sunwenyuan_case",
       "rag_key": "产后",
-      "name": "swy_182 产后恶露"
+      "name": "swy_182 产后恶露",
+      "herbs": [
+        "玄胡索",
+        "五灵脂",
+        "乌药",
+        "茯苓",
+        "当归",
+        "川芎"
+      ]
     },
     {
       "case_id": "swy_183",
@@ -3091,7 +4980,16 @@
       "entry_id": "swy_183",
       "entry_type": "sunwenyuan_case",
       "rag_key": "外科",
-      "name": "swy_183 耳后生毒"
+      "name": "swy_183 耳后生毒",
+      "herbs": [
+        "金银花",
+        "大力子",
+        "甘草",
+        "赤芍",
+        "连翘",
+        "当归",
+        "玄参"
+      ]
     },
     {
       "case_id": "swy_184",
@@ -3108,7 +5006,22 @@
       "entry_id": "swy_184",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痹证",
-      "name": "swy_184 湿热痛痹"
+      "name": "swy_184 湿热痛痹",
+      "herbs": [
+        "黄连",
+        "甘草",
+        "升麻",
+        "猪苓",
+        "桃仁",
+        "独活",
+        "知母",
+        "黄柏",
+        "防风",
+        "羌活",
+        "当归",
+        "红花",
+        "麻黄"
+      ]
     },
     {
       "case_id": "swy_185",
@@ -3125,7 +5038,20 @@
       "entry_id": "swy_185",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痢疾",
-      "name": "swy_185 血痢温胆"
+      "name": "swy_185 血痢温胆",
+      "herbs": [
+        "甘草",
+        "滑石",
+        "桃仁",
+        "竹茹",
+        "枳壳",
+        "橘红",
+        "生地",
+        "当归"
+      ],
+      "formulas_referenced": [
+        "温胆汤"
+      ]
     },
     {
       "case_id": "swy_186",
@@ -3142,7 +5068,21 @@
       "entry_id": "swy_186",
       "entry_type": "sunwenyuan_case",
       "rag_key": "腹痛",
-      "name": "swy_186 痰格气闭"
+      "name": "swy_186 痰格气闭",
+      "herbs": [
+        "玄胡索",
+        "甘草",
+        "滑石",
+        "桃仁",
+        "黄柏",
+        "枳实",
+        "青皮",
+        "槟榔",
+        "陈皮"
+      ],
+      "formulas_referenced": [
+        "生脉散"
+      ]
     },
     {
       "case_id": "swy_187",
@@ -3159,7 +5099,20 @@
       "entry_id": "swy_187",
       "entry_type": "sunwenyuan_case",
       "rag_key": "胃痛",
-      "name": "swy_187 胃痛蛔厥"
+      "name": "swy_187 胃痛蛔厥",
+      "herbs": [
+        "五灵脂",
+        "桂心",
+        "山楂",
+        "乌梅",
+        "炮姜",
+        "茯苓",
+        "川椒",
+        "半夏",
+        "苍术",
+        "陈皮",
+        "藿香"
+      ]
     },
     {
       "case_id": "swy_188",
@@ -3176,7 +5129,20 @@
       "entry_id": "swy_188",
       "entry_type": "sunwenyuan_case",
       "rag_key": "胁痛",
-      "name": "swy_188 胁痛咳嗽"
+      "name": "swy_188 胁痛咳嗽",
+      "herbs": [
+        "山栀子",
+        "甘草",
+        "滑石",
+        "人参",
+        "桃仁",
+        "香附",
+        "茯苓",
+        "柴胡",
+        "青皮",
+        "诃子",
+        "贝母"
+      ]
     },
     {
       "case_id": "swy_189",
@@ -3193,7 +5159,20 @@
       "entry_id": "swy_189",
       "entry_type": "sunwenyuan_case",
       "rag_key": "产后",
-      "name": "swy_189 产后胁痛"
+      "name": "swy_189 产后胁痛",
+      "herbs": [
+        "桑白皮",
+        "栝蒌仁",
+        "紫苏子",
+        "枳壳",
+        "桔梗",
+        "半夏",
+        "杏仁"
+      ],
+      "formulas_referenced": [
+        "七制化痰丸",
+        "保和丸"
+      ]
     },
     {
       "case_id": "swy_190",
@@ -3210,7 +5189,21 @@
       "entry_id": "swy_190",
       "entry_type": "sunwenyuan_case",
       "rag_key": "中风",
-      "name": "swy_190 中风先兆"
+      "name": "swy_190 中风先兆",
+      "herbs": [
+        "酸枣仁",
+        "石菖蒲",
+        "神曲",
+        "黄连",
+        "天麻",
+        "生姜",
+        "茯苓",
+        "柴胡",
+        "橘红",
+        "青黛",
+        "半夏",
+        "木香"
+      ]
     },
     {
       "case_id": "swy_191",
@@ -3227,7 +5220,22 @@
       "entry_id": "swy_191",
       "entry_type": "sunwenyuan_case",
       "rag_key": "热入血室",
-      "name": "swy_191 血室见鬼"
+      "name": "swy_191 血室见鬼",
+      "herbs": [
+        "何首乌",
+        "生地黄",
+        "乌梅",
+        "丹皮",
+        "白术",
+        "生姜",
+        "桃仁",
+        "柴胡",
+        "陈皮",
+        "麦芽"
+      ],
+      "formulas_referenced": [
+        "小柴胡汤"
+      ]
     },
     {
       "case_id": "swy_192",
@@ -3244,7 +5252,23 @@
       "entry_id": "swy_192",
       "entry_type": "sunwenyuan_case",
       "rag_key": "虚损",
-      "name": "swy_192 梦鬼补敛"
+      "name": "swy_192 梦鬼补敛",
+      "herbs": [
+        "枸杞子",
+        "麦门冬",
+        "五味子",
+        "甘草",
+        "白术",
+        "人参",
+        "白芍",
+        "木瓜",
+        "茯苓",
+        "黄芪",
+        "当归",
+        "远志",
+        "陈皮",
+        "桂枝"
+      ]
     },
     {
       "case_id": "swy_193",
@@ -3261,7 +5285,29 @@
       "entry_id": "swy_193",
       "entry_type": "sunwenyuan_case",
       "rag_key": "咳嗽",
-      "name": "swy_193 声哑忧思"
+      "name": "swy_193 声哑忧思",
+      "herbs": [
+        "桑白皮",
+        "山楂",
+        "甘草",
+        "乌梅",
+        "白术",
+        "山药",
+        "白芍",
+        "茯苓",
+        "柴胡",
+        "桔梗",
+        "木通",
+        "诃子",
+        "陈皮",
+        "玄参",
+        "荆芥",
+        "泽泻",
+        "麦芽"
+      ],
+      "formulas_referenced": [
+        "参苓白术散"
+      ]
     },
     {
       "case_id": "swy_194",
@@ -3278,7 +5324,33 @@
       "entry_id": "swy_194",
       "entry_type": "sunwenyuan_case",
       "rag_key": "妊娠",
-      "name": "swy_194 孕血虚火"
+      "name": "swy_194 孕血虚火",
+      "herbs": [
+        "荆芥穗",
+        "五味子",
+        "桂心",
+        "地榆",
+        "甘草",
+        "乌梅",
+        "炮姜",
+        "白术",
+        "人参",
+        "莲子",
+        "白芍",
+        "香附",
+        "茯苓",
+        "柴胡",
+        "生地",
+        "蒲黄",
+        "麦冬",
+        "陈皮",
+        "桂枝",
+        "阿胶"
+      ],
+      "formulas_referenced": [
+        "补中益气汤",
+        "独参汤"
+      ]
     },
     {
       "case_id": "swy_195",
@@ -3295,7 +5367,22 @@
       "entry_id": "swy_195",
       "entry_type": "sunwenyuan_case",
       "rag_key": "胃痛",
-      "name": "swy_195 胃痛舌麻"
+      "name": "swy_195 胃痛舌麻",
+      "herbs": [
+        "桑白皮",
+        "萝卜子",
+        "山楂",
+        "香附",
+        "枳壳",
+        "桔梗",
+        "枳实",
+        "青皮",
+        "杏仁",
+        "川芎"
+      ],
+      "formulas_referenced": [
+        "二陈汤"
+      ]
     },
     {
       "case_id": "swy_196",
@@ -3312,7 +5399,21 @@
       "entry_id": "swy_196",
       "entry_type": "sunwenyuan_case",
       "rag_key": "胁痛",
-      "name": "swy_196 胁痛吐虫"
+      "name": "swy_196 胁痛吐虫",
+      "herbs": [
+        "玄胡索",
+        "五灵脂",
+        "山楂",
+        "乌梅",
+        "白芍",
+        "香附",
+        "花椒",
+        "茯苓",
+        "枳实",
+        "苍术",
+        "杏仁",
+        "桂枝"
+      ]
     },
     {
       "case_id": "swy_197",
@@ -3329,7 +5430,21 @@
       "entry_id": "swy_197",
       "entry_type": "sunwenyuan_case",
       "rag_key": "产后",
-      "name": "swy_197 产后痢血"
+      "name": "swy_197 产后痢血",
+      "herbs": [
+        "山楂",
+        "白术",
+        "人参",
+        "白芍",
+        "香附",
+        "茯苓",
+        "干姜",
+        "当归",
+        "陈皮",
+        "桂枝",
+        "肉桂",
+        "川芎"
+      ]
     },
     {
       "case_id": "swy_198",
@@ -3346,7 +5461,18 @@
       "entry_id": "swy_198",
       "entry_type": "sunwenyuan_case",
       "rag_key": "虚损",
-      "name": "swy_198 八旬下元虚"
+      "name": "swy_198 八旬下元虚",
+      "herbs": [
+        "山茱萸",
+        "薏苡仁",
+        "白术",
+        "人参",
+        "山药",
+        "茯苓",
+        "杜仲",
+        "黄芪",
+        "陈皮"
+      ]
     },
     {
       "case_id": "swy_199",
@@ -3363,7 +5489,22 @@
       "entry_id": "swy_199",
       "entry_type": "sunwenyuan_case",
       "rag_key": "传尸",
-      "name": "swy_199 传尸瘵夜魇"
+      "name": "swy_199 传尸瘵夜魇",
+      "herbs": [
+        "石菖蒲",
+        "柏子仁",
+        "鹿角胶",
+        "丹参",
+        "甘草",
+        "人参",
+        "茯苓",
+        "紫菀",
+        "当归",
+        "远志",
+        "陈皮",
+        "鳖甲",
+        "贝母"
+      ]
     },
     {
       "case_id": "swy_200",
@@ -3380,7 +5521,25 @@
       "entry_id": "swy_200",
       "entry_type": "sunwenyuan_case",
       "rag_key": "瘟疫",
-      "name": "swy_200 瘟疫劳食复"
+      "name": "swy_200 瘟疫劳食复",
+      "herbs": [
+        "天花粉",
+        "麦门冬",
+        "前胡",
+        "黄芩",
+        "黄连",
+        "甘草",
+        "白芍",
+        "茯苓",
+        "石膏",
+        "柴胡",
+        "枳壳",
+        "桔梗",
+        "栝蒌"
+      ],
+      "formulas_referenced": [
+        "大柴胡汤"
+      ]
     },
     {
       "case_id": "swy_201",
@@ -3397,7 +5556,10 @@
       "entry_id": "swy_201",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痹证",
-      "name": "swy_201 风瘫湿热"
+      "name": "swy_201 风瘫湿热",
+      "herbs": [
+        "威灵仙"
+      ]
     },
     {
       "case_id": "swy_202",
@@ -3414,7 +5576,27 @@
       "entry_id": "swy_202",
       "entry_type": "sunwenyuan_case",
       "rag_key": "疟疾",
-      "name": "swy_202 三日疟夜发"
+      "name": "swy_202 三日疟夜发",
+      "herbs": [
+        "何首乌",
+        "五味子",
+        "乌梅",
+        "白术",
+        "人参",
+        "生姜",
+        "知母",
+        "白芍",
+        "柴胡",
+        "草果",
+        "黄芪",
+        "陈皮",
+        "桂枝",
+        "贝母",
+        "麻黄"
+      ],
+      "formulas_referenced": [
+        "六君子汤"
+      ]
     },
     {
       "case_id": "swy_203",
@@ -3431,7 +5613,14 @@
       "entry_id": "swy_203",
       "entry_type": "sunwenyuan_case",
       "rag_key": "口疮",
-      "name": "swy_203 虚阳口疮"
+      "name": "swy_203 虚阳口疮",
+      "herbs": [
+        "附子"
+      ],
+      "formulas_referenced": [
+        "附子理中汤",
+        "理中汤"
+      ]
     },
     {
       "case_id": "swy_204",
@@ -3448,7 +5637,18 @@
       "entry_id": "swy_204",
       "entry_type": "sunwenyuan_case",
       "rag_key": "妊娠",
-      "name": "swy_204 妊中咳嗽"
+      "name": "swy_204 妊中咳嗽",
+      "herbs": [
+        "桑白皮",
+        "前胡",
+        "黄芩",
+        "白术",
+        "人参",
+        "茯苓",
+        "桔梗",
+        "陈皮",
+        "贝母"
+      ]
     },
     {
       "case_id": "swy_205",
@@ -3465,7 +5665,21 @@
       "entry_id": "swy_205",
       "entry_type": "sunwenyuan_case",
       "rag_key": "虚损",
-      "name": "swy_205 疟后虚惫"
+      "name": "swy_205 疟后虚惫",
+      "herbs": [
+        "白术",
+        "人参",
+        "山药",
+        "白芍",
+        "茯苓",
+        "半夏",
+        "木香",
+        "葛根",
+        "藿香"
+      ],
+      "formulas_referenced": [
+        "六君子汤"
+      ]
     },
     {
       "case_id": "swy_206",
@@ -3482,7 +5696,18 @@
       "entry_id": "swy_206",
       "entry_type": "sunwenyuan_case",
       "rag_key": "郁证",
-      "name": "swy_206 郁火生疮"
+      "name": "swy_206 郁火生疮",
+      "herbs": [
+        "桑白皮",
+        "萝卜子",
+        "葶苈子",
+        "栝蒌仁",
+        "前胡",
+        "黄芩",
+        "甘草",
+        "枳壳",
+        "贝母"
+      ]
     },
     {
       "case_id": "swy_207",
@@ -3499,7 +5724,24 @@
       "entry_id": "swy_207",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痹证",
-      "name": "swy_207 环跳肿痛"
+      "name": "swy_207 环跳肿痛",
+      "herbs": [
+        "五加皮",
+        "甘草",
+        "桃仁",
+        "赤芍",
+        "柴胡",
+        "枳壳",
+        "黄柏",
+        "防风",
+        "桔梗",
+        "木通",
+        "苍术",
+        "桂枝"
+      ],
+      "formulas_referenced": [
+        "小柴胡汤"
+      ]
     },
     {
       "case_id": "swy_208",
@@ -3516,7 +5758,17 @@
       "entry_id": "swy_208",
       "entry_type": "sunwenyuan_case",
       "rag_key": "跌损",
-      "name": "swy_208 环跳瘀血"
+      "name": "swy_208 环跳瘀血",
+      "herbs": [
+        "骨碎补",
+        "车前子",
+        "丹参",
+        "赤芍",
+        "生地",
+        "蒲黄",
+        "红花",
+        "牛膝"
+      ]
     },
     {
       "case_id": "swy_209",
@@ -3533,7 +5785,19 @@
       "entry_id": "swy_209",
       "entry_type": "sunwenyuan_case",
       "rag_key": "儿科",
-      "name": "swy_209 慢惊参姜"
+      "name": "swy_209 慢惊参姜",
+      "herbs": [
+        "石菖蒲",
+        "薄荷",
+        "人参",
+        "天麻",
+        "生姜",
+        "泽泻"
+      ],
+      "formulas_referenced": [
+        "六君子汤",
+        "益元散"
+      ]
     },
     {
       "case_id": "swy_210",
@@ -3550,7 +5814,19 @@
       "entry_id": "swy_210",
       "entry_type": "sunwenyuan_case",
       "rag_key": "水肿",
-      "name": "swy_210 酒湿浮肿"
+      "name": "swy_210 酒湿浮肿",
+      "herbs": [
+        "半夏曲",
+        "桑白皮",
+        "萝卜子",
+        "大附子",
+        "人参",
+        "茯苓",
+        "枳实",
+        "苍术",
+        "陈皮",
+        "葛根"
+      ]
     },
     {
       "case_id": "swy_211",
@@ -3567,7 +5843,21 @@
       "entry_id": "swy_211",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痢疾",
-      "name": "swy_211 肠风感风痢"
+      "name": "swy_211 肠风感风痢",
+      "herbs": [
+        "山楂",
+        "白芍",
+        "柴胡",
+        "枳壳",
+        "桔梗",
+        "当归",
+        "木香",
+        "槐花"
+      ],
+      "formulas_referenced": [
+        "保和丸",
+        "益元散"
+      ]
     },
     {
       "case_id": "swy_212",
@@ -3584,7 +5874,19 @@
       "entry_id": "swy_212",
       "entry_type": "sunwenyuan_case",
       "rag_key": "胁痛",
-      "name": "swy_212 胁痛膜外"
+      "name": "swy_212 胁痛膜外",
+      "herbs": [
+        "甘草",
+        "柴胡",
+        "桔梗",
+        "青皮",
+        "木香",
+        "桂枝",
+        "川芎"
+      ],
+      "formulas_referenced": [
+        "八珍汤"
+      ]
     },
     {
       "case_id": "swy_213",
@@ -3601,7 +5903,24 @@
       "entry_id": "swy_213",
       "entry_type": "sunwenyuan_case",
       "rag_key": "疝气",
-      "name": "swy_213 偏坠囊痈"
+      "name": "swy_213 偏坠囊痈",
+      "herbs": [
+        "荔枝核",
+        "金银花",
+        "益智仁",
+        "小茴香",
+        "黄连",
+        "山楂",
+        "甘草",
+        "连翘",
+        "柴胡",
+        "防风",
+        "橘核",
+        "当归",
+        "青皮",
+        "苍术",
+        "栝蒌"
+      ]
     },
     {
       "case_id": "swy_214",
@@ -3618,7 +5937,17 @@
       "entry_id": "swy_214",
       "entry_type": "sunwenyuan_case",
       "rag_key": "鼻渊",
-      "name": "swy_214 鼻渊表虚"
+      "name": "swy_214 鼻渊表虚",
+      "herbs": [
+        "桑白皮",
+        "蔓荆子",
+        "秦艽",
+        "甘草",
+        "滑石",
+        "白芍",
+        "石膏",
+        "枳壳"
+      ]
     },
     {
       "case_id": "swy_215",
@@ -3652,7 +5981,21 @@
       "entry_id": "swy_216",
       "entry_type": "sunwenyuan_case",
       "rag_key": "产后",
-      "name": "swy_216 小产晕厥"
+      "name": "swy_216 小产晕厥",
+      "herbs": [
+        "益母草",
+        "荆芥穗",
+        "甘草",
+        "炮姜",
+        "人参",
+        "香附",
+        "黄芪",
+        "当归",
+        "川芎"
+      ],
+      "formulas_referenced": [
+        "四君子汤"
+      ]
     },
     {
       "case_id": "swy_217",
@@ -3669,7 +6012,21 @@
       "entry_id": "swy_217",
       "entry_type": "sunwenyuan_case",
       "rag_key": "伤寒",
-      "name": "swy_217 伤寒漏底"
+      "name": "swy_217 伤寒漏底",
+      "herbs": [
+        "天花粉",
+        "麦门冬",
+        "五味子",
+        "黄芩",
+        "甘草",
+        "人参",
+        "知母",
+        "白芍",
+        "石膏",
+        "柴胡",
+        "枳壳",
+        "桔梗"
+      ]
     },
     {
       "case_id": "swy_218",
@@ -3686,7 +6043,12 @@
       "entry_id": "swy_218",
       "entry_type": "sunwenyuan_case",
       "rag_key": "黄疸",
-      "name": "swy_218 酒疸四苓"
+      "name": "swy_218 酒疸四苓",
+      "herbs": [
+        "陈皮",
+        "葛根",
+        "麦芽"
+      ]
     },
     {
       "case_id": "swy_219",
@@ -3703,7 +6065,10 @@
       "entry_id": "swy_219",
       "entry_type": "sunwenyuan_case",
       "rag_key": "外科",
-      "name": "swy_219 跨马痈大补"
+      "name": "swy_219 跨马痈大补",
+      "formulas_referenced": [
+        "十全大补汤"
+      ]
     },
     {
       "case_id": "swy_220",
@@ -3720,7 +6085,20 @@
       "entry_id": "swy_220",
       "entry_type": "sunwenyuan_case",
       "rag_key": "咳嗽",
-      "name": "swy_220 咳血便溏"
+      "name": "swy_220 咳血便溏",
+      "herbs": [
+        "山茱萸",
+        "菟丝子",
+        "桂心",
+        "白术",
+        "人参",
+        "砂仁",
+        "山药",
+        "茯苓",
+        "杜仲",
+        "木香",
+        "泽泻"
+      ]
     },
     {
       "case_id": "swy_221",
@@ -3737,7 +6115,24 @@
       "entry_id": "swy_221",
       "entry_type": "sunwenyuan_case",
       "rag_key": "春温",
-      "name": "swy_221 春温鼻衄"
+      "name": "swy_221 春温鼻衄",
+      "herbs": [
+        "生地黄",
+        "天花粉",
+        "麦门冬",
+        "牡丹皮",
+        "五味子",
+        "黄芩",
+        "甘草",
+        "升麻",
+        "滑石",
+        "人参",
+        "赤芍",
+        "知母",
+        "白芍",
+        "石膏",
+        "柴胡"
+      ]
     },
     {
       "case_id": "swy_222",
@@ -3754,7 +6149,10 @@
       "entry_id": "swy_222",
       "entry_type": "sunwenyuan_case",
       "rag_key": "鼓胀",
-      "name": "swy_222 腹胀积块丸"
+      "name": "swy_222 腹胀积块丸",
+      "formulas_referenced": [
+        "保和丸"
+      ]
     },
     {
       "case_id": "swy_223",
@@ -3771,7 +6169,14 @@
       "entry_id": "swy_223",
       "entry_type": "sunwenyuan_case",
       "rag_key": "伤寒",
-      "name": "swy_223 阳症似阴"
+      "name": "swy_223 阳症似阴",
+      "herbs": [
+        "黄连",
+        "柴胡"
+      ],
+      "formulas_referenced": [
+        "温胆汤"
+      ]
     },
     {
       "case_id": "swy_224",
@@ -3788,7 +6193,16 @@
       "entry_id": "swy_224",
       "entry_type": "sunwenyuan_case",
       "rag_key": "血症",
-      "name": "swy_224 吐红釜底抽薪"
+      "name": "swy_224 吐红釜底抽薪",
+      "herbs": [
+        "旱莲草",
+        "牡丹皮",
+        "黄连",
+        "甘草",
+        "滑石",
+        "石膏",
+        "贝母"
+      ]
     },
     {
       "case_id": "swy_225",
@@ -3805,7 +6219,25 @@
       "entry_id": "swy_225",
       "entry_type": "sunwenyuan_case",
       "rag_key": "虚损",
-      "name": "swy_225 潮热防疟"
+      "name": "swy_225 潮热防疟",
+      "herbs": [
+        "桑白皮",
+        "麦门冬",
+        "栝蒌仁",
+        "五味子",
+        "前胡",
+        "黄连",
+        "甘草",
+        "乌梅",
+        "知母",
+        "柴胡",
+        "枳壳",
+        "桔梗",
+        "贝母"
+      ],
+      "formulas_referenced": [
+        "七制化痰丸"
+      ]
     },
     {
       "case_id": "swy_226",
@@ -3822,7 +6254,17 @@
       "entry_id": "swy_226",
       "entry_type": "sunwenyuan_case",
       "rag_key": "伤寒",
-      "name": "swy_226 八旬少阳"
+      "name": "swy_226 八旬少阳",
+      "herbs": [
+        "半夏曲",
+        "天花粉",
+        "甘草",
+        "知母",
+        "竹茹",
+        "柴胡",
+        "枳壳",
+        "桔梗"
+      ]
     },
     {
       "case_id": "swy_227",
@@ -3839,7 +6281,19 @@
       "entry_id": "swy_227",
       "entry_type": "sunwenyuan_case",
       "rag_key": "妇科",
-      "name": "swy_227 血瘕化瘀"
+      "name": "swy_227 血瘕化瘀",
+      "herbs": [
+        "益母草",
+        "玄胡索",
+        "五灵脂",
+        "丹参",
+        "香附",
+        "蒲黄",
+        "当归",
+        "青皮",
+        "川芎",
+        "麦芽"
+      ]
     },
     {
       "case_id": "swy_228",
@@ -3856,7 +6310,27 @@
       "entry_id": "swy_228",
       "entry_type": "sunwenyuan_case",
       "rag_key": "妊娠",
-      "name": "swy_228 妊子悬夺命丹"
+      "name": "swy_228 妊子悬夺命丹",
+      "herbs": [
+        "牡丹皮",
+        "甘草",
+        "白术",
+        "人参",
+        "桃仁",
+        "白芍",
+        "茯苓",
+        "柴胡",
+        "防风",
+        "羌活",
+        "当归",
+        "陈皮",
+        "葛根",
+        "桂枝",
+        "川芎"
+      ],
+      "formulas_referenced": [
+        "小柴胡汤"
+      ]
     },
     {
       "case_id": "swy_229",
@@ -3873,7 +6347,31 @@
       "entry_id": "swy_229",
       "entry_type": "sunwenyuan_case",
       "rag_key": "血症",
-      "name": "swy_229 壮年咳红"
+      "name": "swy_229 壮年咳红",
+      "herbs": [
+        "半夏曲",
+        "麦门冬",
+        "栝蒌仁",
+        "牡丹皮",
+        "五味子",
+        "丹参",
+        "黄芩",
+        "黄连",
+        "甘草",
+        "人参",
+        "知母",
+        "白芍",
+        "茯苓",
+        "橘红",
+        "紫菀",
+        "当归",
+        "杏仁",
+        "贝母"
+      ],
+      "formulas_referenced": [
+        "保和丸",
+        "益元散"
+      ]
     },
     {
       "case_id": "swy_230",
@@ -3890,7 +6388,25 @@
       "entry_id": "swy_230",
       "entry_type": "sunwenyuan_case",
       "rag_key": "伤寒",
-      "name": "swy_230 经浴误补"
+      "name": "swy_230 经浴误补",
+      "herbs": [
+        "麦门冬",
+        "甘草",
+        "薄荷",
+        "生姜",
+        "竹茹",
+        "茯苓",
+        "柴胡",
+        "枳壳",
+        "橘红",
+        "桔梗",
+        "枳实",
+        "半夏"
+      ],
+      "formulas_referenced": [
+        "温胆汤",
+        "益元散"
+      ]
     },
     {
       "case_id": "swy_231",
@@ -3907,7 +6423,28 @@
       "entry_id": "swy_231",
       "entry_type": "sunwenyuan_case",
       "rag_key": "水肿",
-      "name": "swy_231 崩后浮肿"
+      "name": "swy_231 崩后浮肿",
+      "herbs": [
+        "吴茱萸",
+        "桑白皮",
+        "薏苡仁",
+        "山栀子",
+        "砂仁",
+        "知母",
+        "香附",
+        "柴胡",
+        "枳壳",
+        "桔梗",
+        "枳实",
+        "郁金",
+        "麻黄",
+        "泽泻"
+      ],
+      "formulas_referenced": [
+        "六君子汤",
+        "二陈汤",
+        "益元散"
+      ]
     },
     {
       "case_id": "swy_232",
@@ -3924,7 +6461,23 @@
       "entry_id": "swy_232",
       "entry_type": "sunwenyuan_case",
       "rag_key": "外科",
-      "name": "swy_232 胁痛囊痈"
+      "name": "swy_232 胁痛囊痈",
+      "herbs": [
+        "白芍",
+        "柴胡",
+        "桔梗",
+        "牡蛎",
+        "当归",
+        "枳实",
+        "半夏",
+        "鳖甲",
+        "川芎",
+        "栝蒌"
+      ],
+      "formulas_referenced": [
+        "当归龙荟丸",
+        "小柴胡汤"
+      ]
     },
     {
       "case_id": "swy_233",
@@ -3941,7 +6494,13 @@
       "entry_id": "swy_233",
       "entry_type": "sunwenyuan_case",
       "rag_key": "妊娠",
-      "name": "swy_233 子悬温胆"
+      "name": "swy_233 子悬温胆",
+      "herbs": [
+        "黄连"
+      ],
+      "formulas_referenced": [
+        "温胆汤"
+      ]
     },
     {
       "case_id": "swy_234",
@@ -3958,7 +6517,32 @@
       "entry_id": "swy_234",
       "entry_type": "sunwenyuan_case",
       "rag_key": "吐血",
-      "name": "swy_234 吐血消瘀"
+      "name": "swy_234 吐血消瘀",
+      "herbs": [
+        "半夏曲",
+        "牡丹皮",
+        "山栀子",
+        "前胡",
+        "丹参",
+        "黄连",
+        "甘草",
+        "丹皮",
+        "滑石",
+        "桃仁",
+        "竹茹",
+        "白芍",
+        "香附",
+        "茯苓",
+        "石膏",
+        "枳壳",
+        "橘红",
+        "红花",
+        "贝母"
+      ],
+      "formulas_referenced": [
+        "二陈汤",
+        "益元散"
+      ]
     },
     {
       "case_id": "swy_235",
@@ -3975,7 +6559,18 @@
       "entry_id": "swy_235",
       "entry_type": "sunwenyuan_case",
       "rag_key": "晕厥",
-      "name": "swy_235 怒厥苏合"
+      "name": "swy_235 怒厥苏合",
+      "herbs": [
+        "石菖蒲",
+        "薏苡仁",
+        "五加皮",
+        "秦艽",
+        "防风"
+      ],
+      "formulas_referenced": [
+        "苏合香丸",
+        "二陈汤"
+      ]
     },
     {
       "case_id": "swy_236",
@@ -3992,7 +6587,20 @@
       "entry_id": "swy_236",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痹证",
-      "name": "swy_236 周痹虎啮"
+      "name": "swy_236 周痹虎啮",
+      "herbs": [
+        "生地黄",
+        "薏苡仁",
+        "威灵仙",
+        "秦艽",
+        "甘草",
+        "独活",
+        "赤芍",
+        "防风",
+        "羌活",
+        "当归",
+        "红花"
+      ]
     },
     {
       "case_id": "swy_237",
@@ -4009,7 +6617,18 @@
       "entry_id": "swy_237",
       "entry_type": "sunwenyuan_case",
       "rag_key": "虚损",
-      "name": "swy_237 疫后虚惫"
+      "name": "swy_237 疫后虚惫",
+      "herbs": [
+        "麦门冬",
+        "五味子",
+        "山药",
+        "远志",
+        "桂枝"
+      ],
+      "formulas_referenced": [
+        "六君子汤",
+        "生脉汤"
+      ]
     },
     {
       "case_id": "swy_238",
@@ -4026,7 +6645,19 @@
       "entry_id": "swy_238",
       "entry_type": "sunwenyuan_case",
       "rag_key": "目疾",
-      "name": "swy_238 眼白泡痰火"
+      "name": "swy_238 眼白泡痰火",
+      "herbs": [
+        "吴茱萸",
+        "薏苡仁",
+        "滑石",
+        "天麻",
+        "竹茹",
+        "香附",
+        "枳实"
+      ],
+      "formulas_referenced": [
+        "二陈汤"
+      ]
     },
     {
       "case_id": "swy_239",
@@ -4043,7 +6674,17 @@
       "entry_id": "swy_239",
       "entry_type": "sunwenyuan_case",
       "rag_key": "腹痛",
-      "name": "swy_239 腹痛建中"
+      "name": "swy_239 腹痛建中",
+      "herbs": [
+        "桂心",
+        "甘草",
+        "生姜",
+        "白芍",
+        "香附"
+      ],
+      "formulas_referenced": [
+        "小建中汤"
+      ]
     },
     {
       "case_id": "swy_240",
@@ -4060,7 +6701,21 @@
       "entry_id": "swy_240",
       "entry_type": "sunwenyuan_case",
       "rag_key": "产后",
-      "name": "swy_240 产未月血崩"
+      "name": "swy_240 产未月血崩",
+      "herbs": [
+        "侧柏叶",
+        "甘草",
+        "炮姜",
+        "人参",
+        "竹茹",
+        "白芍",
+        "香附",
+        "茯苓",
+        "蒲黄",
+        "当归",
+        "陈皮",
+        "川芎"
+      ]
     },
     {
       "case_id": "swy_241",
@@ -4077,7 +6732,16 @@
       "entry_id": "swy_241",
       "entry_type": "sunwenyuan_case",
       "rag_key": "温病",
-      "name": "swy_241 鸬鹚瘟"
+      "name": "swy_241 鸬鹚瘟",
+      "herbs": [
+        "半夏曲",
+        "黄连",
+        "甘草",
+        "竹茹",
+        "柴胡",
+        "枳壳",
+        "贯众"
+      ]
     },
     {
       "case_id": "swy_242",
@@ -4094,7 +6758,21 @@
       "entry_id": "swy_242",
       "entry_type": "sunwenyuan_case",
       "rag_key": "喘肿",
-      "name": "swy_242 喘后发肿"
+      "name": "swy_242 喘后发肿",
+      "herbs": [
+        "桑白皮",
+        "薏苡仁",
+        "桂心",
+        "甘草",
+        "人参",
+        "生姜",
+        "茯苓",
+        "橘红",
+        "半夏"
+      ],
+      "formulas_referenced": [
+        "旋复花汤"
+      ]
     },
     {
       "case_id": "swy_243",
@@ -4111,7 +6789,23 @@
       "entry_id": "swy_243",
       "entry_type": "sunwenyuan_case",
       "rag_key": "积聚",
-      "name": "swy_243 伏梁积块"
+      "name": "swy_243 伏梁积块",
+      "herbs": [
+        "山楂",
+        "升麻",
+        "滑石",
+        "桃仁",
+        "白芍",
+        "香附",
+        "当归",
+        "枳实",
+        "木香",
+        "川芎"
+      ],
+      "formulas_referenced": [
+        "六君子汤",
+        "保和丸"
+      ]
     },
     {
       "case_id": "swy_244",
@@ -4128,7 +6822,19 @@
       "entry_id": "swy_244",
       "entry_type": "sunwenyuan_case",
       "rag_key": "春温",
-      "name": "swy_244 春温误治"
+      "name": "swy_244 春温误治",
+      "herbs": [
+        "薏苡仁",
+        "黄连",
+        "甘草",
+        "生姜",
+        "知母",
+        "竹茹",
+        "白芍",
+        "茯苓",
+        "石膏",
+        "麦冬"
+      ]
     },
     {
       "case_id": "swy_245",
@@ -4145,7 +6851,20 @@
       "entry_id": "swy_245",
       "entry_type": "sunwenyuan_case",
       "rag_key": "崩漏",
-      "name": "swy_245 月汛不止"
+      "name": "swy_245 月汛不止",
+      "herbs": [
+        "侧柏叶",
+        "五灵脂",
+        "黄连",
+        "甘草",
+        "升麻",
+        "人参",
+        "白芍",
+        "石膏",
+        "白芷",
+        "蒲黄",
+        "当归"
+      ]
     },
     {
       "case_id": "swy_246",
@@ -4162,7 +6881,21 @@
       "entry_id": "swy_246",
       "entry_type": "sunwenyuan_case",
       "rag_key": "胸痛",
-      "name": "swy_246 胸胀通则不痛"
+      "name": "swy_246 胸胀通则不痛",
+      "herbs": [
+        "薏苡仁",
+        "山楂",
+        "滑石",
+        "茯苓",
+        "当归",
+        "青皮",
+        "半夏",
+        "槟榔",
+        "葛根"
+      ],
+      "formulas_referenced": [
+        "当归龙荟丸"
+      ]
     },
     {
       "case_id": "swy_247",
@@ -4179,7 +6912,19 @@
       "entry_id": "swy_247",
       "entry_type": "sunwenyuan_case",
       "rag_key": "喘证",
-      "name": "swy_247 吐血泻喘"
+      "name": "swy_247 吐血泻喘",
+      "herbs": [
+        "桑白皮",
+        "栝蒌仁",
+        "牡丹皮",
+        "桃仁",
+        "茯苓",
+        "紫菀",
+        "桔梗"
+      ],
+      "formulas_referenced": [
+        "益元散"
+      ]
     },
     {
       "case_id": "swy_248",
@@ -4196,7 +6941,15 @@
       "entry_id": "swy_248",
       "entry_type": "sunwenyuan_case",
       "rag_key": "呃逆",
-      "name": "swy_248 八旬呃汗"
+      "name": "swy_248 八旬呃汗",
+      "herbs": [
+        "酸枣仁",
+        "竹茹",
+        "当归"
+      ],
+      "formulas_referenced": [
+        "六君子汤"
+      ]
     },
     {
       "case_id": "swy_249",
@@ -4213,7 +6966,12 @@
       "entry_id": "swy_249",
       "entry_type": "sunwenyuan_case",
       "rag_key": "胀满",
-      "name": "swy_249 胀满化滞"
+      "name": "swy_249 胀满化滞",
+      "herbs": [
+        "人参",
+        "琥珀",
+        "木香"
+      ]
     },
     {
       "case_id": "swy_250",
@@ -4247,7 +7005,21 @@
       "entry_id": "swy_251",
       "entry_type": "sunwenyuan_case",
       "rag_key": "瘟疫",
-      "name": "swy_251 疫漏底谵语"
+      "name": "swy_251 疫漏底谵语",
+      "herbs": [
+        "黄芩",
+        "甘草",
+        "生姜",
+        "知母",
+        "竹茹",
+        "栀子",
+        "石膏",
+        "柴胡",
+        "枳壳",
+        "桔梗",
+        "枳实",
+        "葛根"
+      ]
     },
     {
       "case_id": "swy_252",
@@ -4298,7 +7070,16 @@
       "entry_id": "swy_254",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痰饮",
-      "name": "swy_254 痰饮积块"
+      "name": "swy_254 痰饮积块",
+      "herbs": [
+        "白术",
+        "生姜",
+        "茯苓",
+        "半夏",
+        "陈皮",
+        "肉桂",
+        "泽泻"
+      ]
     },
     {
       "case_id": "swy_255",
@@ -4315,7 +7096,26 @@
       "entry_id": "swy_255",
       "entry_type": "sunwenyuan_case",
       "rag_key": "水肿",
-      "name": "swy_255 疮后浮肿"
+      "name": "swy_255 疮后浮肿",
+      "herbs": [
+        "麦门冬",
+        "山栀子",
+        "五味子",
+        "黄芩",
+        "甘草",
+        "升麻",
+        "滑石",
+        "白术",
+        "知母",
+        "白芍",
+        "茯苓",
+        "木通",
+        "当归",
+        "葛根",
+        "郁金",
+        "玄参",
+        "泽泻"
+      ]
     },
     {
       "case_id": "swy_256",
@@ -4332,7 +7132,13 @@
       "entry_id": "swy_256",
       "entry_type": "sunwenyuan_case",
       "rag_key": "肠痈",
-      "name": "swy_256 痰瘀下部"
+      "name": "swy_256 痰瘀下部",
+      "herbs": [
+        "金银花",
+        "牡丹皮",
+        "五灵脂",
+        "栝蒌"
+      ]
     },
     {
       "case_id": "swy_257",
@@ -4349,7 +7155,20 @@
       "entry_id": "swy_257",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痹证",
-      "name": "swy_257 肩筋搐肿"
+      "name": "swy_257 肩筋搐肿",
+      "herbs": [
+        "威灵仙",
+        "秦艽",
+        "甘草",
+        "白芍",
+        "防风",
+        "羌活",
+        "当归",
+        "川芎"
+      ],
+      "formulas_referenced": [
+        "二陈汤"
+      ]
     },
     {
       "case_id": "swy_258",
@@ -4366,7 +7185,27 @@
       "entry_id": "swy_258",
       "entry_type": "sunwenyuan_case",
       "rag_key": "肺痈",
-      "name": "swy_258 肺痈将成"
+      "name": "swy_258 肺痈将成",
+      "herbs": [
+        "生地黄",
+        "桑白皮",
+        "麦门冬",
+        "牡丹皮",
+        "山栀子",
+        "甘草",
+        "滑石",
+        "知母",
+        "竹茹",
+        "枳壳",
+        "紫菀",
+        "麦冬",
+        "桔梗",
+        "当归",
+        "贝母"
+      ],
+      "formulas_referenced": [
+        "二陈汤"
+      ]
     },
     {
       "case_id": "swy_259",
@@ -4383,7 +7222,20 @@
       "entry_id": "swy_259",
       "entry_type": "sunwenyuan_case",
       "rag_key": "妇科",
-      "name": "swy_259 三小产固胎"
+      "name": "swy_259 三小产固胎",
+      "herbs": [
+        "桑寄生",
+        "侧柏叶",
+        "地榆",
+        "甘草",
+        "升麻",
+        "白术",
+        "白芍",
+        "生地",
+        "黄柏",
+        "防风",
+        "续断"
+      ]
     },
     {
       "case_id": "swy_260",
@@ -4400,7 +7252,23 @@
       "entry_id": "swy_260",
       "entry_type": "sunwenyuan_case",
       "rag_key": "咳嗽",
-      "name": "swy_260 咳唾红痰"
+      "name": "swy_260 咳唾红痰",
+      "herbs": [
+        "天花粉",
+        "枇杷叶",
+        "麦门冬",
+        "牡丹皮",
+        "山栀子",
+        "黄连",
+        "甘草",
+        "小蓟",
+        "滑石",
+        "白芍",
+        "生地",
+        "紫菀",
+        "青皮",
+        "栝蒌"
+      ]
     },
     {
       "case_id": "swy_261",
@@ -4417,7 +7285,32 @@
       "entry_id": "swy_261",
       "entry_type": "sunwenyuan_case",
       "rag_key": "中风",
-      "name": "swy_261 中痰手不动"
+      "name": "swy_261 中痰手不动",
+      "herbs": [
+        "石菖蒲",
+        "麦门冬",
+        "蔓荆子",
+        "山栀子",
+        "五味子",
+        "黄连",
+        "甘草",
+        "薄荷",
+        "天麻",
+        "连翘",
+        "白芍",
+        "茯苓",
+        "柴胡",
+        "枳壳",
+        "黄柏",
+        "桔梗",
+        "木通",
+        "杏仁",
+        "远志",
+        "陈皮",
+        "玄参",
+        "荆芥",
+        "川芎"
+      ]
     },
     {
       "case_id": "swy_262",
@@ -4434,7 +7327,21 @@
       "entry_id": "swy_262",
       "entry_type": "sunwenyuan_case",
       "rag_key": "肝郁",
-      "name": "swy_262 怒挟暑热"
+      "name": "swy_262 怒挟暑热",
+      "herbs": [
+        "半夏曲",
+        "黄芩",
+        "甘草",
+        "石膏",
+        "柴胡",
+        "枳壳",
+        "桔梗",
+        "当归",
+        "青皮"
+      ],
+      "formulas_referenced": [
+        "当归龙荟丸"
+      ]
     },
     {
       "case_id": "swy_263",
@@ -4451,7 +7358,17 @@
       "entry_id": "swy_263",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痹证",
-      "name": "swy_263 脾虚停湿"
+      "name": "swy_263 脾虚停湿",
+      "herbs": [
+        "石菖蒲",
+        "薏苡仁",
+        "大附子",
+        "苍术",
+        "远志"
+      ],
+      "formulas_referenced": [
+        "六君子汤"
+      ]
     },
     {
       "case_id": "swy_264",
@@ -4468,7 +7385,28 @@
       "entry_id": "swy_264",
       "entry_type": "sunwenyuan_case",
       "rag_key": "经闭",
-      "name": "swy_264 经闭非孕"
+      "name": "swy_264 经闭非孕",
+      "herbs": [
+        "吴茱萸",
+        "牡丹皮",
+        "丹参",
+        "山楂",
+        "滑石",
+        "白术",
+        "猪苓",
+        "桃仁",
+        "香附",
+        "木通",
+        "当归",
+        "红花",
+        "川芎",
+        "泽泻",
+        "麦芽"
+      ],
+      "formulas_referenced": [
+        "二陈汤",
+        "四物汤"
+      ]
     },
     {
       "case_id": "swy_265",
@@ -4485,7 +7423,25 @@
       "entry_id": "swy_265",
       "entry_type": "sunwenyuan_case",
       "rag_key": "喉痛",
-      "name": "swy_265 喉痛痰厥"
+      "name": "swy_265 喉痛痰厥",
+      "herbs": [
+        "半夏曲",
+        "天花粉",
+        "桑白皮",
+        "地骨皮",
+        "前胡",
+        "黄芩",
+        "甘草",
+        "薄荷",
+        "竹茹",
+        "柴胡",
+        "枳壳",
+        "橘红",
+        "桔梗",
+        "贝母",
+        "玄参",
+        "荆芥"
+      ]
     },
     {
       "case_id": "swy_266",
@@ -4502,7 +7458,19 @@
       "entry_id": "swy_266",
       "entry_type": "sunwenyuan_case",
       "rag_key": "瘟疫",
-      "name": "swy_266 时疫汗不止"
+      "name": "swy_266 时疫汗不止",
+      "herbs": [
+        "麦门冬",
+        "五味子",
+        "甘草",
+        "人参",
+        "知母",
+        "白芍",
+        "石膏"
+      ],
+      "formulas_referenced": [
+        "生脉汤"
+      ]
     },
     {
       "case_id": "swy_267",
@@ -4519,7 +7487,20 @@
       "entry_id": "swy_267",
       "entry_type": "sunwenyuan_case",
       "rag_key": "瘟疫",
-      "name": "swy_267 疫复心包"
+      "name": "swy_267 疫复心包",
+      "herbs": [
+        "酸枣仁",
+        "半夏曲",
+        "天花粉",
+        "甘草",
+        "知母",
+        "竹茹",
+        "石膏",
+        "麦冬",
+        "枳实",
+        "陈皮",
+        "麦芽"
+      ]
     },
     {
       "case_id": "swy_268",
@@ -4536,7 +7517,17 @@
       "entry_id": "swy_268",
       "entry_type": "sunwenyuan_case",
       "rag_key": "春温",
-      "name": "swy_268 春温发斑"
+      "name": "swy_268 春温发斑",
+      "herbs": [
+        "白芍",
+        "石膏",
+        "柴胡",
+        "枳实",
+        "鳖甲"
+      ],
+      "formulas_referenced": [
+        "小柴胡汤"
+      ]
     },
     {
       "case_id": "swy_269",
@@ -4553,7 +7544,27 @@
       "entry_id": "swy_269",
       "entry_type": "sunwenyuan_case",
       "rag_key": "瘟疫",
-      "name": "swy_269 疫误下发斑"
+      "name": "swy_269 疫误下发斑",
+      "herbs": [
+        "天花粉",
+        "山栀子",
+        "黄芩",
+        "黄连",
+        "甘草",
+        "升麻",
+        "人参",
+        "竹茹",
+        "白芍",
+        "石膏",
+        "柴胡",
+        "枳实",
+        "苍术",
+        "葛根",
+        "玄参"
+      ],
+      "formulas_referenced": [
+        "白虎汤"
+      ]
     },
     {
       "case_id": "swy_270",
@@ -4570,7 +7581,22 @@
       "entry_id": "swy_270",
       "entry_type": "sunwenyuan_case",
       "rag_key": "水肿",
-      "name": "swy_270 喉壅浮肿"
+      "name": "swy_270 喉壅浮肿",
+      "herbs": [
+        "桑白皮",
+        "薏苡仁",
+        "萝卜子",
+        "款冬花",
+        "五加皮",
+        "前胡",
+        "甘草",
+        "生姜",
+        "木瓜",
+        "茯苓",
+        "桔梗",
+        "陈皮",
+        "贝母"
+      ]
     },
     {
       "case_id": "swy_271",
@@ -4587,7 +7613,17 @@
       "entry_id": "swy_271",
       "entry_type": "sunwenyuan_case",
       "rag_key": "泄泻",
-      "name": "swy_271 虚寒肾泄"
+      "name": "swy_271 虚寒肾泄",
+      "herbs": [
+        "补骨脂",
+        "山茱萸",
+        "菟丝子",
+        "人参",
+        "山药",
+        "茯苓",
+        "杜仲",
+        "泽泻"
+      ]
     },
     {
       "case_id": "swy_272",
@@ -4604,7 +7640,18 @@
       "entry_id": "swy_272",
       "entry_type": "sunwenyuan_case",
       "rag_key": "眩晕",
-      "name": "swy_272 衄后眩晕"
+      "name": "swy_272 衄后眩晕",
+      "herbs": [
+        "黄连",
+        "甘草",
+        "白术",
+        "人参",
+        "竹茹",
+        "茯苓",
+        "石膏",
+        "半夏",
+        "陈皮"
+      ]
     },
     {
       "case_id": "swy_273",
@@ -4621,7 +7668,24 @@
       "entry_id": "swy_273",
       "entry_type": "sunwenyuan_case",
       "rag_key": "春温",
-      "name": "swy_273 春温误阴虚"
+      "name": "swy_273 春温误阴虚",
+      "herbs": [
+        "薏苡仁",
+        "黄连",
+        "山楂",
+        "人参",
+        "白芍",
+        "柴胡",
+        "防风",
+        "羌活",
+        "青皮",
+        "葛根",
+        "麦芽"
+      ],
+      "formulas_referenced": [
+        "小柴胡汤",
+        "二陈汤"
+      ]
     },
     {
       "case_id": "swy_274",
@@ -4638,7 +7702,25 @@
       "entry_id": "swy_274",
       "entry_type": "sunwenyuan_case",
       "rag_key": "咳嗽",
-      "name": "swy_274 少阳痰火"
+      "name": "swy_274 少阳痰火",
+      "herbs": [
+        "天花粉",
+        "桑白皮",
+        "五味子",
+        "黄芩",
+        "甘草",
+        "滑石",
+        "知母",
+        "竹茹",
+        "白芍",
+        "柴胡",
+        "橘红",
+        "麦冬",
+        "桔梗",
+        "半夏",
+        "葛根",
+        "贝母"
+      ]
     },
     {
       "case_id": "swy_275",
@@ -4655,7 +7737,23 @@
       "entry_id": "swy_275",
       "entry_type": "sunwenyuan_case",
       "rag_key": "乳痈",
-      "name": "swy_275 乳痈脓成"
+      "name": "swy_275 乳痈脓成",
+      "herbs": [
+        "金银花",
+        "蒲公英",
+        "甘草",
+        "赤芍",
+        "连翘",
+        "柴胡",
+        "白芷",
+        "当归",
+        "青皮",
+        "贝母",
+        "栝蒌"
+      ],
+      "formulas_referenced": [
+        "十宣散"
+      ]
     },
     {
       "case_id": "swy_276",
@@ -4672,7 +7770,16 @@
       "entry_id": "swy_276",
       "entry_type": "sunwenyuan_case",
       "rag_key": "妊娠",
-      "name": "swy_276 孕血痢安胎"
+      "name": "swy_276 孕血痢安胎",
+      "herbs": [
+        "地榆",
+        "甘草",
+        "白术",
+        "白芍",
+        "当归",
+        "阿胶",
+        "川芎"
+      ]
     },
     {
       "case_id": "swy_277",
@@ -4689,7 +7796,23 @@
       "entry_id": "swy_277",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痢疾",
-      "name": "swy_277 小产后痢"
+      "name": "swy_277 小产后痢",
+      "herbs": [
+        "滑石",
+        "人参",
+        "桃仁",
+        "白芍",
+        "当归",
+        "青皮",
+        "木香",
+        "槟榔",
+        "陈皮",
+        "桂皮",
+        "川芎"
+      ],
+      "formulas_referenced": [
+        "四君子汤"
+      ]
     },
     {
       "case_id": "swy_278",
@@ -4706,7 +7829,17 @@
       "entry_id": "swy_278",
       "entry_type": "sunwenyuan_case",
       "rag_key": "黄疸",
-      "name": "swy_278 暑酒发疸"
+      "name": "swy_278 暑酒发疸",
+      "herbs": [
+        "麦门冬",
+        "黄连",
+        "滑石",
+        "枳实",
+        "葛根"
+      ],
+      "formulas_referenced": [
+        "温胆汤"
+      ]
     },
     {
       "case_id": "swy_279",
@@ -4723,7 +7856,26 @@
       "entry_id": "swy_279",
       "entry_type": "sunwenyuan_case",
       "rag_key": "喘嗽",
-      "name": "swy_279 暑月喘嗽"
+      "name": "swy_279 暑月喘嗽",
+      "herbs": [
+        "半夏曲",
+        "桑白皮",
+        "薏苡仁",
+        "葶苈子",
+        "麦门冬",
+        "紫苏子",
+        "款冬花",
+        "五味子",
+        "人参",
+        "知母",
+        "石膏",
+        "枳壳",
+        "桔梗",
+        "杏仁",
+        "陈皮",
+        "贝母",
+        "麻黄"
+      ]
     },
     {
       "case_id": "swy_280",
@@ -4740,7 +7892,24 @@
       "entry_id": "swy_280",
       "entry_type": "sunwenyuan_case",
       "rag_key": "血症",
-      "name": "swy_280 红痰老痰瘀血"
+      "name": "swy_280 红痰老痰瘀血",
+      "herbs": [
+        "半夏曲",
+        "桑白皮",
+        "牡丹皮",
+        "五灵脂",
+        "丹参",
+        "甘草",
+        "滑石",
+        "桃仁",
+        "赤芍",
+        "白芍",
+        "枳壳",
+        "当归",
+        "青皮",
+        "陈皮",
+        "贝母"
+      ]
     },
     {
       "case_id": "swy_281",
@@ -4757,7 +7926,18 @@
       "entry_id": "swy_281",
       "entry_type": "sunwenyuan_case",
       "rag_key": "胁痛",
-      "name": "swy_281 胁痛龙荟丸"
+      "name": "swy_281 胁痛龙荟丸",
+      "herbs": [
+        "甘草",
+        "白芍",
+        "香附",
+        "茯苓",
+        "柴胡",
+        "桔梗",
+        "杏仁",
+        "陈皮",
+        "贝母"
+      ]
     },
     {
       "case_id": "swy_282",
@@ -4774,7 +7954,20 @@
       "entry_id": "swy_282",
       "entry_type": "sunwenyuan_case",
       "rag_key": "淋证",
-      "name": "swy_282 暑淋玉户肿"
+      "name": "swy_282 暑淋玉户肿",
+      "herbs": [
+        "黄连",
+        "甘草",
+        "滑石",
+        "人参",
+        "桃仁",
+        "白芍",
+        "柴胡",
+        "白芷",
+        "当归",
+        "桂皮",
+        "川芎"
+      ]
     },
     {
       "case_id": "swy_283",
@@ -4791,7 +7984,27 @@
       "entry_id": "swy_283",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痢疾",
-      "name": "swy_283 带下痢赤白"
+      "name": "swy_283 带下痢赤白",
+      "herbs": [
+        "桂心",
+        "黄芩",
+        "黄连",
+        "甘草",
+        "滑石",
+        "白术",
+        "桃仁",
+        "白芍",
+        "茯苓",
+        "柴胡",
+        "黄柏",
+        "桔梗",
+        "木通",
+        "当归",
+        "木香",
+        "槟榔",
+        "陈皮",
+        "桂皮"
+      ]
     },
     {
       "case_id": "swy_284",
@@ -4808,7 +8021,18 @@
       "entry_id": "swy_284",
       "entry_type": "sunwenyuan_case",
       "rag_key": "胃痛",
-      "name": "swy_284 胃痛瘀血"
+      "name": "swy_284 胃痛瘀血",
+      "herbs": [
+        "牡丹皮",
+        "五灵脂",
+        "甘草",
+        "滑石",
+        "桃仁",
+        "香附",
+        "桔梗",
+        "当归",
+        "川芎"
+      ]
     },
     {
       "case_id": "swy_285",
@@ -4825,7 +8049,20 @@
       "entry_id": "swy_285",
       "entry_type": "sunwenyuan_case",
       "rag_key": "暑病",
-      "name": "swy_285 三阳暑症"
+      "name": "swy_285 三阳暑症",
+      "herbs": [
+        "山栀子",
+        "生姜",
+        "竹茹",
+        "藁本",
+        "石膏",
+        "柴胡",
+        "白芷",
+        "桂枝"
+      ],
+      "formulas_referenced": [
+        "小柴胡汤"
+      ]
     },
     {
       "case_id": "swy_286",
@@ -4842,7 +8079,17 @@
       "entry_id": "swy_286",
       "entry_type": "sunwenyuan_case",
       "rag_key": "转脬",
-      "name": "swy_286 转脬提清降浊"
+      "name": "swy_286 转脬提清降浊",
+      "herbs": [
+        "玄胡索",
+        "升麻",
+        "滑石",
+        "瞿麦",
+        "桃仁",
+        "枳壳",
+        "桔梗",
+        "当归"
+      ]
     },
     {
       "case_id": "swy_287",
@@ -4859,7 +8106,14 @@
       "entry_id": "swy_287",
       "entry_type": "sunwenyuan_case",
       "rag_key": "胃痛",
-      "name": "swy_287 八旬胃痛"
+      "name": "swy_287 八旬胃痛",
+      "herbs": [
+        "五灵脂",
+        "山栀子",
+        "山楂",
+        "白芍",
+        "香附"
+      ]
     },
     {
       "case_id": "swy_288",
@@ -4876,7 +8130,22 @@
       "entry_id": "swy_288",
       "entry_type": "sunwenyuan_case",
       "rag_key": "疟疾",
-      "name": "swy_288 三阴疟截"
+      "name": "swy_288 三阴疟截",
+      "herbs": [
+        "何首乌",
+        "黄连",
+        "乌梅",
+        "白术",
+        "柴胡",
+        "黄柏",
+        "当归",
+        "青皮",
+        "鳖甲",
+        "川芎"
+      ],
+      "formulas_referenced": [
+        "二陈汤"
+      ]
     },
     {
       "case_id": "swy_289",
@@ -4893,7 +8162,21 @@
       "entry_id": "swy_289",
       "entry_type": "sunwenyuan_case",
       "rag_key": "春温",
-      "name": "swy_289 春温水泻"
+      "name": "swy_289 春温水泻",
+      "herbs": [
+        "半夏曲",
+        "薏苡仁",
+        "前胡",
+        "黄芩",
+        "甘草",
+        "知母",
+        "白芍",
+        "石膏",
+        "柴胡",
+        "桔梗",
+        "青皮",
+        "葛根"
+      ]
     },
     {
       "case_id": "swy_290",
@@ -4910,7 +8193,27 @@
       "entry_id": "swy_290",
       "entry_type": "sunwenyuan_case",
       "rag_key": "妇科",
-      "name": "swy_290 屁从子户出"
+      "name": "swy_290 屁从子户出",
+      "herbs": [
+        "黄连",
+        "山楂",
+        "乌梅",
+        "白术",
+        "白芍",
+        "香附",
+        "茯苓",
+        "蒲黄",
+        "防风",
+        "桔梗",
+        "黄芪",
+        "阿胶",
+        "荆芥",
+        "川芎",
+        "麦芽"
+      ],
+      "formulas_referenced": [
+        "补中益气汤"
+      ]
     },
     {
       "case_id": "swy_291",
@@ -4927,7 +8230,22 @@
       "entry_id": "swy_291",
       "entry_type": "sunwenyuan_case",
       "rag_key": "疟疾",
-      "name": "swy_291 三阴疟盗汗"
+      "name": "swy_291 三阴疟盗汗",
+      "herbs": [
+        "何首乌",
+        "甘草",
+        "乌梅",
+        "白术",
+        "生姜",
+        "砂仁",
+        "白芍",
+        "柴胡",
+        "当归",
+        "青皮",
+        "鳖甲",
+        "桂枝",
+        "川芎"
+      ]
     },
     {
       "case_id": "swy_292",
@@ -4944,7 +8262,24 @@
       "entry_id": "swy_292",
       "entry_type": "sunwenyuan_case",
       "rag_key": "瘟疫",
-      "name": "swy_292 疫后坏症"
+      "name": "swy_292 疫后坏症",
+      "herbs": [
+        "生地黄",
+        "天花粉",
+        "山栀子",
+        "黄芩",
+        "人参",
+        "生姜",
+        "知母",
+        "白芍",
+        "石膏",
+        "柴胡",
+        "麦冬",
+        "枳实"
+      ],
+      "formulas_referenced": [
+        "七制化痰丸"
+      ]
     },
     {
       "case_id": "swy_293",
@@ -4961,7 +8296,22 @@
       "entry_id": "swy_293",
       "entry_type": "sunwenyuan_case",
       "rag_key": "瘟疫",
-      "name": "swy_293 疫聋泻呃"
+      "name": "swy_293 疫聋泻呃",
+      "herbs": [
+        "半夏曲",
+        "天花粉",
+        "黄芩",
+        "黄连",
+        "甘草",
+        "人参",
+        "知母",
+        "竹茹",
+        "石膏",
+        "柴胡",
+        "枳壳",
+        "橘红",
+        "麦冬"
+      ]
     },
     {
       "case_id": "swy_294",
@@ -4978,7 +8328,22 @@
       "entry_id": "swy_294",
       "entry_type": "sunwenyuan_case",
       "rag_key": "麻疹",
-      "name": "swy_294 麻后咳嗽"
+      "name": "swy_294 麻后咳嗽",
+      "herbs": [
+        "生地黄",
+        "桑白皮",
+        "薏苡仁",
+        "麦门冬",
+        "栝蒌仁",
+        "地骨皮",
+        "五味子",
+        "甘草",
+        "知母",
+        "白芍",
+        "枳壳",
+        "当归",
+        "栝蒌"
+      ]
     },
     {
       "case_id": "swy_295",
@@ -4995,7 +8360,26 @@
       "entry_id": "swy_295",
       "entry_type": "sunwenyuan_case",
       "rag_key": "春温",
-      "name": "swy_295 春温鼻衄"
+      "name": "swy_295 春温鼻衄",
+      "herbs": [
+        "生地黄",
+        "天花粉",
+        "牡丹皮",
+        "山栀子",
+        "黄芩",
+        "甘草",
+        "升麻",
+        "赤芍",
+        "知母",
+        "白芍",
+        "石膏",
+        "柴胡",
+        "葛根"
+      ],
+      "formulas_referenced": [
+        "大柴胡汤",
+        "小承气汤"
+      ]
     },
     {
       "case_id": "swy_296",
@@ -5012,7 +8396,25 @@
       "entry_id": "swy_296",
       "entry_type": "sunwenyuan_case",
       "rag_key": "春温",
-      "name": "swy_296 春温经止余热"
+      "name": "swy_296 春温经止余热",
+      "herbs": [
+        "半夏曲",
+        "天花粉",
+        "牡丹皮",
+        "黄芩",
+        "甘草",
+        "人参",
+        "知母",
+        "白芍",
+        "石膏",
+        "柴胡",
+        "枳壳",
+        "桔梗",
+        "当归",
+        "红花",
+        "葛根",
+        "栝蒌"
+      ]
     },
     {
       "case_id": "swy_297",
@@ -5029,7 +8431,23 @@
       "entry_id": "swy_297",
       "entry_type": "sunwenyuan_case",
       "rag_key": "瘟疫",
-      "name": "swy_297 燔炭紫斑"
+      "name": "swy_297 燔炭紫斑",
+      "herbs": [
+        "半夏曲",
+        "麦门冬",
+        "黄芩",
+        "黄连",
+        "甘草",
+        "人参",
+        "知母",
+        "竹茹",
+        "白芍",
+        "石膏",
+        "柴胡",
+        "橘红",
+        "枳实",
+        "葛根"
+      ]
     },
     {
       "case_id": "swy_298",
@@ -5046,7 +8464,14 @@
       "entry_id": "swy_298",
       "entry_type": "sunwenyuan_case",
       "rag_key": "胃痛",
-      "name": "swy_298 胃痛梦遗"
+      "name": "swy_298 胃痛梦遗",
+      "herbs": [
+        "五倍子",
+        "莲子"
+      ],
+      "formulas_referenced": [
+        "逍遥散"
+      ]
     },
     {
       "case_id": "swy_299",
@@ -5063,7 +8488,20 @@
       "entry_id": "swy_299",
       "entry_type": "sunwenyuan_case",
       "rag_key": "瘀血",
-      "name": "swy_299 旧伤瘀血"
+      "name": "swy_299 旧伤瘀血",
+      "herbs": [
+        "牡丹皮",
+        "没药",
+        "丹参",
+        "黄连",
+        "滑石",
+        "桃仁",
+        "赤芍",
+        "乳香",
+        "当归",
+        "青皮",
+        "红花"
+      ]
     },
     {
       "case_id": "swy_300",
@@ -5080,7 +8518,26 @@
       "entry_id": "swy_300",
       "entry_type": "sunwenyuan_case",
       "rag_key": "瘟疫",
-      "name": "swy_300 疫复舌黑"
+      "name": "swy_300 疫复舌黑",
+      "herbs": [
+        "天花粉",
+        "山栀子",
+        "黄芩",
+        "甘草",
+        "滑石",
+        "人参",
+        "知母",
+        "石膏",
+        "柴胡",
+        "豆豉",
+        "桔梗",
+        "当归",
+        "枳实",
+        "半夏"
+      ],
+      "formulas_referenced": [
+        "小柴胡汤"
+      ]
     },
     {
       "case_id": "swy_301",
@@ -5097,7 +8554,22 @@
       "entry_id": "swy_301",
       "entry_type": "sunwenyuan_case",
       "rag_key": "咳嗽",
-      "name": "swy_301 咳红上盛下虚"
+      "name": "swy_301 咳红上盛下虚",
+      "herbs": [
+        "桑白皮",
+        "牡丹皮",
+        "山栀子",
+        "黄芩",
+        "甘草",
+        "小蓟",
+        "滑石",
+        "桃仁",
+        "白芍",
+        "枳壳",
+        "紫菀",
+        "贝母",
+        "栝蒌"
+      ]
     },
     {
       "case_id": "swy_302",
@@ -5114,7 +8586,27 @@
       "entry_id": "swy_302",
       "entry_type": "sunwenyuan_case",
       "rag_key": "瘟疫",
-      "name": "swy_302 六旬瘟疫昏愦"
+      "name": "swy_302 六旬瘟疫昏愦",
+      "herbs": [
+        "天花粉",
+        "淡豆豉",
+        "山栀子",
+        "黄连",
+        "甘草",
+        "知母",
+        "竹茹",
+        "石膏",
+        "柴胡",
+        "枳壳",
+        "麦冬",
+        "桔梗",
+        "枳实",
+        "鳖甲"
+      ],
+      "formulas_referenced": [
+        "小柴胡汤",
+        "生脉汤"
+      ]
     },
     {
       "case_id": "swy_303",
@@ -5131,7 +8623,18 @@
       "entry_id": "swy_303",
       "entry_type": "sunwenyuan_case",
       "rag_key": "瘟疫",
-      "name": "swy_303 阴阳易"
+      "name": "swy_303 阴阳易",
+      "herbs": [
+        "酸枣仁",
+        "黄芩",
+        "甘草",
+        "竹茹",
+        "柴胡",
+        "桂枝"
+      ],
+      "formulas_referenced": [
+        "生脉汤"
+      ]
     },
     {
       "case_id": "swy_304",
@@ -5148,7 +8651,11 @@
       "entry_id": "swy_304",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痢疾",
-      "name": "swy_304 滞下纯血"
+      "name": "swy_304 滞下纯血",
+      "herbs": [
+        "黄芩",
+        "黄连"
+      ]
     },
     {
       "case_id": "swy_305",
@@ -5182,7 +8689,25 @@
       "entry_id": "swy_306",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痹证",
-      "name": "swy_306 行痹湿热"
+      "name": "swy_306 行痹湿热",
+      "herbs": [
+        "天花粉",
+        "桑白皮",
+        "五加皮",
+        "威灵仙",
+        "前胡",
+        "秦艽",
+        "甘草",
+        "知母",
+        "枳壳",
+        "黄柏",
+        "当归",
+        "苍术",
+        "麻黄"
+      ],
+      "formulas_referenced": [
+        "七制化痰丸"
+      ]
     },
     {
       "case_id": "swy_307",
@@ -5199,7 +8724,22 @@
       "entry_id": "swy_307",
       "entry_type": "sunwenyuan_case",
       "rag_key": "肺痈",
-      "name": "swy_307 肺痈桃花脓"
+      "name": "swy_307 肺痈桃花脓",
+      "herbs": [
+        "桑白皮",
+        "薏苡仁",
+        "葶苈子",
+        "麦门冬",
+        "牡丹皮",
+        "山栀子",
+        "甘草",
+        "知母",
+        "白芍",
+        "紫菀",
+        "当归",
+        "杏仁",
+        "贝母"
+      ]
     },
     {
       "case_id": "swy_308",
@@ -5216,7 +8756,19 @@
       "entry_id": "swy_308",
       "entry_type": "sunwenyuan_case",
       "rag_key": "喘胀",
-      "name": "swy_308 气郁喘胀"
+      "name": "swy_308 气郁喘胀",
+      "herbs": [
+        "半夏曲",
+        "桑白皮",
+        "萝卜子",
+        "人参",
+        "香附",
+        "茯苓",
+        "橘红",
+        "木香",
+        "杏仁",
+        "郁金"
+      ]
     },
     {
       "case_id": "swy_309",
@@ -5233,7 +8785,15 @@
       "entry_id": "swy_309",
       "entry_type": "sunwenyuan_case",
       "rag_key": "儿科",
-      "name": "swy_309 脱肛疳积"
+      "name": "swy_309 脱肛疳积",
+      "herbs": [
+        "神曲",
+        "山楂",
+        "甘草",
+        "升麻",
+        "滑石",
+        "枳实"
+      ]
     },
     {
       "case_id": "swy_310",
@@ -5250,7 +8810,24 @@
       "entry_id": "swy_310",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痢疾",
-      "name": "swy_310 久痢喘肿"
+      "name": "swy_310 久痢喘肿",
+      "herbs": [
+        "补骨脂",
+        "薏苡仁",
+        "升麻",
+        "滑石",
+        "猪苓",
+        "白芍",
+        "防风",
+        "桔梗",
+        "泽泻",
+        "麦芽"
+      ],
+      "formulas_referenced": [
+        "六君子汤",
+        "香连丸",
+        "平胃散"
+      ]
     },
     {
       "case_id": "swy_311",
@@ -5267,7 +8844,21 @@
       "entry_id": "swy_311",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痢疾",
-      "name": "swy_311 休息痢紫血"
+      "name": "swy_311 休息痢紫血",
+      "herbs": [
+        "山楂",
+        "升麻",
+        "滑石",
+        "桃仁",
+        "桔梗",
+        "黄芪",
+        "陈皮",
+        "泽泻"
+      ],
+      "formulas_referenced": [
+        "四君子汤",
+        "六君子汤"
+      ]
     },
     {
       "case_id": "swy_312",
@@ -5284,7 +8875,19 @@
       "entry_id": "swy_312",
       "entry_type": "sunwenyuan_case",
       "rag_key": "腹痛",
-      "name": "swy_312 肠鸣潮热非虚"
+      "name": "swy_312 肠鸣潮热非虚",
+      "herbs": [
+        "半夏曲",
+        "黄连",
+        "滑石",
+        "白芍",
+        "桔梗",
+        "牡蛎",
+        "麦芽"
+      ],
+      "formulas_referenced": [
+        "四君子汤"
+      ]
     },
     {
       "case_id": "swy_313",
@@ -5301,7 +8904,30 @@
       "entry_id": "swy_313",
       "entry_type": "sunwenyuan_case",
       "rag_key": "耳鸣",
-      "name": "swy_313 耳鸣痰火"
+      "name": "swy_313 耳鸣痰火",
+      "herbs": [
+        "半夏曲",
+        "生地黄",
+        "桑白皮",
+        "麦门冬",
+        "蔓荆子",
+        "前胡",
+        "菊花",
+        "甘草",
+        "升麻",
+        "生姜",
+        "赤芍",
+        "知母",
+        "白芍",
+        "茯苓",
+        "石膏",
+        "柴胡",
+        "橘红",
+        "桔梗",
+        "木通",
+        "川芎",
+        "麻黄"
+      ]
     },
     {
       "case_id": "swy_314",
@@ -5318,7 +8944,26 @@
       "entry_id": "swy_314",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痰火",
-      "name": "swy_314 痰火上盛下虚"
+      "name": "swy_314 痰火上盛下虚",
+      "herbs": [
+        "麦门冬",
+        "五味子",
+        "前胡",
+        "钩藤",
+        "甘草",
+        "人参",
+        "天麻",
+        "茯苓",
+        "枳壳",
+        "橘红",
+        "桔梗",
+        "杏仁",
+        "贝母"
+      ],
+      "formulas_referenced": [
+        "七制化痰丸",
+        "八味丸"
+      ]
     },
     {
       "case_id": "swy_315",
@@ -5335,7 +8980,20 @@
       "entry_id": "swy_315",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痹证",
-      "name": "swy_315 鹤膝风"
+      "name": "swy_315 鹤膝风",
+      "herbs": [
+        "薏苡仁",
+        "五加皮",
+        "丹参",
+        "人参",
+        "龟板",
+        "杜仲",
+        "黄柏",
+        "黄芪",
+        "当归",
+        "苍术",
+        "红花"
+      ]
     },
     {
       "case_id": "swy_316",
@@ -5352,7 +9010,20 @@
       "entry_id": "swy_316",
       "entry_type": "sunwenyuan_case",
       "rag_key": "梅核气",
-      "name": "swy_316 梅核兼痛泻"
+      "name": "swy_316 梅核兼痛泻",
+      "herbs": [
+        "白术",
+        "人参",
+        "砂仁",
+        "香附",
+        "细辛",
+        "桂皮",
+        "泽泻",
+        "麦芽"
+      ],
+      "formulas_referenced": [
+        "二陈汤"
+      ]
     },
     {
       "case_id": "swy_317",
@@ -5369,7 +9040,15 @@
       "entry_id": "swy_317",
       "entry_type": "sunwenyuan_case",
       "rag_key": "产后",
-      "name": "swy_317 产后痰黑臭"
+      "name": "swy_317 产后痰黑臭",
+      "herbs": [
+        "紫苏子",
+        "前胡",
+        "生姜",
+        "枳壳",
+        "桔梗",
+        "栝蒌"
+      ]
     },
     {
       "case_id": "swy_318",
@@ -5386,7 +9065,19 @@
       "entry_id": "swy_318",
       "entry_type": "sunwenyuan_case",
       "rag_key": "中风",
-      "name": "swy_318 孀瘫脏躁"
+      "name": "swy_318 孀瘫脏躁",
+      "herbs": [
+        "石菖蒲",
+        "大附子",
+        "甘草",
+        "白术",
+        "人参",
+        "茯苓",
+        "黄芪",
+        "当归",
+        "远志",
+        "陈皮"
+      ]
     },
     {
       "case_id": "swy_319",
@@ -5403,7 +9094,32 @@
       "entry_id": "swy_319",
       "entry_type": "sunwenyuan_case",
       "rag_key": "跌损",
-      "name": "swy_319 坠轿腰胁"
+      "name": "swy_319 坠轿腰胁",
+      "herbs": [
+        "半夏曲",
+        "生地黄",
+        "天花粉",
+        "萝卜子",
+        "栝蒌仁",
+        "紫苏子",
+        "五加皮",
+        "威灵仙",
+        "丹参",
+        "甘草",
+        "桃仁",
+        "白芍",
+        "柴胡",
+        "枳壳",
+        "防风",
+        "羌活",
+        "当归",
+        "枳实",
+        "青皮",
+        "杏仁",
+        "红花",
+        "陈皮",
+        "川芎"
+      ]
     },
     {
       "case_id": "swy_320",
@@ -5420,7 +9136,18 @@
       "entry_id": "swy_320",
       "entry_type": "sunwenyuan_case",
       "rag_key": "血症",
-      "name": "swy_320 吐血足跟肿"
+      "name": "swy_320 吐血足跟肿",
+      "herbs": [
+        "牡丹皮",
+        "山栀子",
+        "甘草",
+        "滑石",
+        "桃仁",
+        "白芍",
+        "当归",
+        "陈皮",
+        "玄参"
+      ]
     },
     {
       "case_id": "swy_321",
@@ -5437,7 +9164,24 @@
       "entry_id": "swy_321",
       "entry_type": "sunwenyuan_case",
       "rag_key": "妊娠",
-      "name": "swy_321 孕痢足肿"
+      "name": "swy_321 孕痢足肿",
+      "herbs": [
+        "黄芩",
+        "甘草",
+        "白术",
+        "人参",
+        "砂仁",
+        "白芍",
+        "茯苓",
+        "当归",
+        "木香",
+        "槟榔",
+        "陈皮",
+        "川芎"
+      ],
+      "formulas_referenced": [
+        "补中益气汤"
+      ]
     },
     {
       "case_id": "swy_322",
@@ -5454,7 +9198,25 @@
       "entry_id": "swy_322",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痢疾",
-      "name": "swy_322 疟痢并作"
+      "name": "swy_322 疟痢并作",
+      "herbs": [
+        "甘草",
+        "白芍",
+        "柴胡",
+        "枳壳",
+        "防风",
+        "羌活",
+        "当归",
+        "木香",
+        "陈皮",
+        "葛根",
+        "桂枝",
+        "桂皮",
+        "川芎"
+      ],
+      "formulas_referenced": [
+        "香连丸"
+      ]
     },
     {
       "case_id": "swy_323",
@@ -5471,7 +9233,19 @@
       "entry_id": "swy_323",
       "entry_type": "sunwenyuan_case",
       "rag_key": "鼓胀",
-      "name": "swy_323 气虚中满"
+      "name": "swy_323 气虚中满",
+      "herbs": [
+        "桑白皮",
+        "大附子",
+        "桂心",
+        "甘草",
+        "白术",
+        "人参",
+        "砂仁",
+        "茯苓",
+        "干姜",
+        "泽泻"
+      ]
     },
     {
       "case_id": "swy_324",
@@ -5505,7 +9279,19 @@
       "entry_id": "swy_325",
       "entry_type": "sunwenyuan_case",
       "rag_key": "瘀血",
-      "name": "swy_325 食管背下"
+      "name": "swy_325 食管背下",
+      "herbs": [
+        "石菖蒲",
+        "玄胡索",
+        "牡丹皮",
+        "五灵脂",
+        "山楂",
+        "桃仁",
+        "赤芍",
+        "香附",
+        "柴胡",
+        "枳壳"
+      ]
     },
     {
       "case_id": "swy_326",
@@ -5522,7 +9308,14 @@
       "entry_id": "swy_326",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痢疾",
-      "name": "swy_326 血痢屋漏水"
+      "name": "swy_326 血痢屋漏水",
+      "herbs": [
+        "地榆",
+        "滑石",
+        "枳壳",
+        "黄柏",
+        "槟榔"
+      ]
     },
     {
       "case_id": "swy_327",
@@ -5539,7 +9332,18 @@
       "entry_id": "swy_327",
       "entry_type": "sunwenyuan_case",
       "rag_key": "胃痛",
-      "name": "swy_327 胃痛产后痢"
+      "name": "swy_327 胃痛产后痢",
+      "herbs": [
+        "御米壳",
+        "五灵脂",
+        "甘草",
+        "白芍",
+        "香附",
+        "桂皮"
+      ],
+      "formulas_referenced": [
+        "小建中汤"
+      ]
     },
     {
       "case_id": "swy_328",
@@ -5556,7 +9360,16 @@
       "entry_id": "swy_328",
       "entry_type": "sunwenyuan_case",
       "rag_key": "疟疾",
-      "name": "swy_328 疟热浊尿"
+      "name": "swy_328 疟热浊尿",
+      "herbs": [
+        "黄连",
+        "甘草",
+        "滑石",
+        "知母",
+        "柴胡",
+        "枳实",
+        "鳖甲"
+      ]
     },
     {
       "case_id": "swy_329",
@@ -5573,7 +9386,21 @@
       "entry_id": "swy_329",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痰饮",
-      "name": "swy_329 寒痰背胀"
+      "name": "swy_329 寒痰背胀",
+      "herbs": [
+        "益智仁",
+        "香附",
+        "柴胡",
+        "枳壳",
+        "桔梗",
+        "青皮",
+        "苍术",
+        "桂枝",
+        "川芎"
+      ],
+      "formulas_referenced": [
+        "二陈汤"
+      ]
     },
     {
       "case_id": "swy_330",
@@ -5590,7 +9417,16 @@
       "entry_id": "swy_330",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痿证",
-      "name": "swy_330 筋痿独取阳明"
+      "name": "swy_330 筋痿独取阳明",
+      "herbs": [
+        "枸杞子",
+        "五加皮",
+        "甘草",
+        "人参",
+        "杜仲",
+        "黄柏",
+        "黄芪"
+      ]
     },
     {
       "case_id": "swy_331",
@@ -5607,7 +9443,18 @@
       "entry_id": "swy_331",
       "entry_type": "sunwenyuan_case",
       "rag_key": "中风",
-      "name": "swy_331 手足麻无力"
+      "name": "swy_331 手足麻无力",
+      "herbs": [
+        "大附子",
+        "鹿角胶",
+        "黄芪",
+        "当归",
+        "桂枝",
+        "川芎"
+      ],
+      "formulas_referenced": [
+        "六君子汤"
+      ]
     },
     {
       "case_id": "swy_332",
@@ -5624,7 +9471,23 @@
       "entry_id": "swy_332",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痹证",
-      "name": "swy_332 痢后风大防风"
+      "name": "swy_332 痢后风大防风",
+      "herbs": [
+        "熟地黄",
+        "甘草",
+        "白术",
+        "人参",
+        "白芍",
+        "杜仲",
+        "防风",
+        "羌活",
+        "当归",
+        "牛膝",
+        "川芎"
+      ],
+      "formulas_referenced": [
+        "大防风汤"
+      ]
     },
     {
       "case_id": "swy_333",
@@ -5641,7 +9504,10 @@
       "entry_id": "swy_333",
       "entry_type": "sunwenyuan_case",
       "rag_key": "虫证",
-      "name": "swy_333 虫症好啖肉"
+      "name": "swy_333 虫症好啖肉",
+      "herbs": [
+        "使君子"
+      ]
     },
     {
       "case_id": "swy_334",
@@ -5658,7 +9524,19 @@
       "entry_id": "swy_334",
       "entry_type": "sunwenyuan_case",
       "rag_key": "妊娠",
-      "name": "swy_334 孕七月冷痢"
+      "name": "swy_334 孕七月冷痢",
+      "herbs": [
+        "益母草",
+        "甘草",
+        "滑石",
+        "白术",
+        "砂仁",
+        "白芍",
+        "枳壳",
+        "当归",
+        "木香",
+        "泽泻"
+      ]
     },
     {
       "case_id": "swy_335",
@@ -5675,7 +9553,14 @@
       "entry_id": "swy_335",
       "entry_type": "sunwenyuan_case",
       "rag_key": "中风",
-      "name": "swy_335 中风先兆"
+      "name": "swy_335 中风先兆",
+      "herbs": [
+        "滑石",
+        "天麻"
+      ],
+      "formulas_referenced": [
+        "二陈汤"
+      ]
     },
     {
       "case_id": "swy_336",
@@ -5709,7 +9594,15 @@
       "entry_id": "swy_337",
       "entry_type": "sunwenyuan_case",
       "rag_key": "瘟疫",
-      "name": "swy_337 疫后虚寒"
+      "name": "swy_337 疫后虚寒",
+      "herbs": [
+        "麦门冬",
+        "五味子",
+        "甘草",
+        "炮姜",
+        "白术",
+        "人参"
+      ]
     },
     {
       "case_id": "swy_338",
@@ -5726,7 +9619,15 @@
       "entry_id": "swy_338",
       "entry_type": "sunwenyuan_case",
       "rag_key": "儿科",
-      "name": "swy_338 痢后疳先补"
+      "name": "swy_338 痢后疳先补",
+      "herbs": [
+        "黄连",
+        "山楂"
+      ],
+      "formulas_referenced": [
+        "四君子汤",
+        "香连丸"
+      ]
     },
     {
       "case_id": "swy_339",
@@ -5743,7 +9644,20 @@
       "entry_id": "swy_339",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痢疾",
-      "name": "swy_339 痢烂鱼肠"
+      "name": "swy_339 痢烂鱼肠",
+      "herbs": [
+        "桂心",
+        "黄连",
+        "人参",
+        "白芍",
+        "附子",
+        "木香",
+        "肉桂"
+      ],
+      "formulas_referenced": [
+        "附子理中汤",
+        "理中汤"
+      ]
     },
     {
       "case_id": "swy_340",
@@ -5760,7 +9674,10 @@
       "entry_id": "swy_340",
       "entry_type": "sunwenyuan_case",
       "rag_key": "产科",
-      "name": "swy_340 双胎难产"
+      "name": "swy_340 双胎难产",
+      "formulas_referenced": [
+        "益元散"
+      ]
     },
     {
       "case_id": "swy_341",
@@ -5777,7 +9694,17 @@
       "entry_id": "swy_341",
       "entry_type": "sunwenyuan_case",
       "rag_key": "呕吐",
-      "name": "swy_341 吐烂猪肺"
+      "name": "swy_341 吐烂猪肺",
+      "herbs": [
+        "桑白皮",
+        "甘草",
+        "小蓟",
+        "滑石",
+        "桃仁",
+        "香附",
+        "枳壳",
+        "贝母"
+      ]
     },
     {
       "case_id": "swy_342",
@@ -5794,7 +9721,19 @@
       "entry_id": "swy_342",
       "entry_type": "sunwenyuan_case",
       "rag_key": "血症",
-      "name": "swy_342 吐血声哑非瘵"
+      "name": "swy_342 吐血声哑非瘵",
+      "herbs": [
+        "丹参",
+        "甘草",
+        "小蓟",
+        "丹皮",
+        "滑石",
+        "香附",
+        "桔梗",
+        "杏仁",
+        "贝母",
+        "郁金"
+      ]
     },
     {
       "case_id": "swy_343",
@@ -5811,7 +9750,15 @@
       "entry_id": "swy_343",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痢疾",
-      "name": "swy_343 痢吐两月神存"
+      "name": "swy_343 痢吐两月神存",
+      "herbs": [
+        "黄芩",
+        "黄连"
+      ],
+      "formulas_referenced": [
+        "二陈汤",
+        "益元散"
+      ]
     },
     {
       "case_id": "swy_344",
@@ -5828,7 +9775,19 @@
       "entry_id": "swy_344",
       "entry_type": "sunwenyuan_case",
       "rag_key": "肺痈",
-      "name": "swy_344 咳红桃花脓"
+      "name": "swy_344 咳红桃花脓",
+      "herbs": [
+        "桑白皮",
+        "牡丹皮",
+        "山栀子",
+        "甘草",
+        "小蓟",
+        "滑石",
+        "赤芍",
+        "枳壳",
+        "麦冬",
+        "贝母"
+      ]
     },
     {
       "case_id": "swy_345",
@@ -5845,7 +9804,30 @@
       "entry_id": "swy_345",
       "entry_type": "sunwenyuan_case",
       "rag_key": "春温",
-      "name": "swy_345 春温僵如尸"
+      "name": "swy_345 春温僵如尸",
+      "herbs": [
+        "麦门冬",
+        "山栀子",
+        "五味子",
+        "黄芩",
+        "甘草",
+        "白术",
+        "人参",
+        "知母",
+        "白芍",
+        "石膏",
+        "柴胡",
+        "黄柏",
+        "当归",
+        "枳实",
+        "陈皮",
+        "葛根",
+        "桂枝",
+        "贝母"
+      ],
+      "formulas_referenced": [
+        "四物汤"
+      ]
     },
     {
       "case_id": "swy_346",
@@ -5862,7 +9844,15 @@
       "entry_id": "swy_346",
       "entry_type": "sunwenyuan_case",
       "rag_key": "虫证",
-      "name": "swy_346 虫痛脉不齐"
+      "name": "swy_346 虫痛脉不齐",
+      "herbs": [
+        "五灵脂",
+        "乌梅",
+        "川椒",
+        "干姜",
+        "苍术",
+        "槟榔"
+      ]
     },
     {
       "case_id": "swy_347",
@@ -5879,7 +9869,17 @@
       "entry_id": "swy_347",
       "entry_type": "sunwenyuan_case",
       "rag_key": "疮疥",
-      "name": "swy_347 气虚疮疥"
+      "name": "swy_347 气虚疮疥",
+      "herbs": [
+        "砂仁",
+        "山药",
+        "黄芪",
+        "半夏",
+        "藿香"
+      ],
+      "formulas_referenced": [
+        "六君子汤"
+      ]
     },
     {
       "case_id": "swy_348",
@@ -5896,7 +9896,17 @@
       "entry_id": "swy_348",
       "entry_type": "sunwenyuan_case",
       "rag_key": "妊娠",
-      "name": "swy_348 妊内吹乳痈"
+      "name": "swy_348 妊内吹乳痈",
+      "herbs": [
+        "蒲公英",
+        "甘草",
+        "连翘",
+        "柴胡",
+        "当归",
+        "青皮",
+        "贝母",
+        "栝蒌"
+      ]
     },
     {
       "case_id": "swy_349",
@@ -5913,7 +9923,25 @@
       "entry_id": "swy_349",
       "entry_type": "sunwenyuan_case",
       "rag_key": "子痫",
-      "name": "swy_349 子痫葛根汤"
+      "name": "swy_349 子痫葛根汤",
+      "herbs": [
+        "桂心",
+        "甘草",
+        "丹皮",
+        "人参",
+        "独活",
+        "茯苓",
+        "石膏",
+        "防风",
+        "当归",
+        "葛根",
+        "贝母",
+        "川芎",
+        "泽泻"
+      ],
+      "formulas_referenced": [
+        "葛根汤"
+      ]
     },
     {
       "case_id": "swy_350",
@@ -5930,7 +9958,20 @@
       "entry_id": "swy_350",
       "entry_type": "sunwenyuan_case",
       "rag_key": "腹痛",
-      "name": "swy_350 虚痛得食止"
+      "name": "swy_350 虚痛得食止",
+      "herbs": [
+        "石菖蒲",
+        "何首乌",
+        "甘草",
+        "白芍",
+        "茯苓",
+        "黄柏",
+        "当归",
+        "桂枝"
+      ],
+      "formulas_referenced": [
+        "小建中汤"
+      ]
     },
     {
       "case_id": "swy_351",
@@ -5947,7 +9988,20 @@
       "entry_id": "swy_351",
       "entry_type": "sunwenyuan_case",
       "rag_key": "儿科",
-      "name": "swy_351 疳积启脾丸"
+      "name": "swy_351 疳积启脾丸",
+      "herbs": [
+        "使君子",
+        "薏苡仁",
+        "鸡肫皮",
+        "神曲",
+        "山楂",
+        "甘草",
+        "白术",
+        "人参",
+        "白芍",
+        "茯苓",
+        "泽泻"
+      ]
     },
     {
       "case_id": "swy_352",
@@ -5964,7 +10018,18 @@
       "entry_id": "swy_352",
       "entry_type": "sunwenyuan_case",
       "rag_key": "儿科",
-      "name": "swy_352 腹高咳喷血"
+      "name": "swy_352 腹高咳喷血",
+      "herbs": [
+        "半夏曲",
+        "枇杷叶",
+        "滑石",
+        "天麻",
+        "枳壳",
+        "防风",
+        "枳实",
+        "青皮",
+        "麦芽"
+      ]
     },
     {
       "case_id": "swy_353",
@@ -5981,7 +10046,23 @@
       "entry_id": "swy_353",
       "entry_type": "sunwenyuan_case",
       "rag_key": "胁痛",
-      "name": "swy_353 胁痛搐黑血"
+      "name": "swy_353 胁痛搐黑血",
+      "herbs": [
+        "薏苡仁",
+        "枸杞子",
+        "山栀子",
+        "钩藤",
+        "甘草",
+        "人参",
+        "白芍",
+        "木瓜",
+        "黄柏",
+        "木通",
+        "当归",
+        "红花",
+        "陈皮",
+        "牛膝"
+      ]
     },
     {
       "case_id": "swy_354",
@@ -5998,7 +10079,30 @@
       "entry_id": "swy_354",
       "entry_type": "sunwenyuan_case",
       "rag_key": "水肿",
-      "name": "swy_354 脾虚发肿后痫"
+      "name": "swy_354 脾虚发肿后痫",
+      "herbs": [
+        "桑白皮",
+        "葶苈子",
+        "紫苏子",
+        "前胡",
+        "甘草",
+        "升麻",
+        "白术",
+        "天麻",
+        "茯苓",
+        "橘红",
+        "防风",
+        "羌活",
+        "枳实",
+        "半夏",
+        "杏仁",
+        "陈皮",
+        "泽泻",
+        "麦芽"
+      ],
+      "formulas_referenced": [
+        "六君子汤"
+      ]
     },
     {
       "case_id": "swy_355",
@@ -6015,7 +10119,14 @@
       "entry_id": "swy_355",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痢疾",
-      "name": "swy_355 血痢格阳"
+      "name": "swy_355 血痢格阳",
+      "herbs": [
+        "甘草",
+        "白芍",
+        "干姜",
+        "木香",
+        "肉桂"
+      ]
     },
     {
       "case_id": "swy_356",
@@ -6032,7 +10143,34 @@
       "entry_id": "swy_356",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痰热",
-      "name": "swy_356 痰热怒吐血"
+      "name": "swy_356 痰热怒吐血",
+      "herbs": [
+        "萝卜子",
+        "栝蒌仁",
+        "牡丹皮",
+        "山栀子",
+        "甘草",
+        "乌梅",
+        "丹皮",
+        "滑石",
+        "白术",
+        "人参",
+        "桃仁",
+        "赤芍",
+        "知母",
+        "白芍",
+        "香附",
+        "柴胡",
+        "青皮",
+        "杏仁",
+        "槟榔",
+        "陈皮",
+        "桂枝",
+        "贝母"
+      ],
+      "formulas_referenced": [
+        "二陈汤"
+      ]
     },
     {
       "case_id": "swy_357",
@@ -6049,7 +10187,17 @@
       "entry_id": "swy_357",
       "entry_type": "sunwenyuan_case",
       "rag_key": "胁痛",
-      "name": "swy_357 胁痛痰血"
+      "name": "swy_357 胁痛痰血",
+      "herbs": [
+        "栝蒌仁",
+        "牡丹皮",
+        "山栀子",
+        "前胡",
+        "甘草",
+        "当归",
+        "青皮",
+        "贝母"
+      ]
     },
     {
       "case_id": "swy_358",
@@ -6066,7 +10214,21 @@
       "entry_id": "swy_358",
       "entry_type": "sunwenyuan_case",
       "rag_key": "咳嗽",
-      "name": "swy_358 吐血后咳食伤"
+      "name": "swy_358 吐血后咳食伤",
+      "herbs": [
+        "半夏曲",
+        "桑白皮",
+        "萝卜子",
+        "甘草",
+        "白术",
+        "茯苓",
+        "谷芽",
+        "枳实",
+        "杏仁"
+      ],
+      "formulas_referenced": [
+        "保和丸"
+      ]
     },
     {
       "case_id": "swy_359",
@@ -6083,7 +10245,26 @@
       "entry_id": "swy_359",
       "entry_type": "sunwenyuan_case",
       "rag_key": "虫证",
-      "name": "swy_359 咳吐蛔后肿"
+      "name": "swy_359 咳吐蛔后肿",
+      "herbs": [
+        "天花粉",
+        "桑白皮",
+        "五加皮",
+        "威灵仙",
+        "前胡",
+        "甘草",
+        "乌梅",
+        "知母",
+        "白芍",
+        "生地",
+        "黄柏",
+        "防风",
+        "桔梗",
+        "羌活",
+        "当归",
+        "红花",
+        "陈皮"
+      ]
     },
     {
       "case_id": "swy_360",
@@ -6117,7 +10298,20 @@
       "entry_id": "swy_361",
       "entry_type": "sunwenyuan_case",
       "rag_key": "咳嗽",
-      "name": "swy_361 痰火如刀刃"
+      "name": "swy_361 痰火如刀刃",
+      "herbs": [
+        "栝蒌仁",
+        "紫苏子",
+        "旋覆花",
+        "前胡",
+        "甘草",
+        "枳壳",
+        "橘红",
+        "桔梗",
+        "半夏",
+        "杏仁",
+        "麻黄"
+      ]
     },
     {
       "case_id": "swy_362",
@@ -6134,7 +10328,10 @@
       "entry_id": "swy_362",
       "entry_type": "sunwenyuan_case",
       "rag_key": "转脬",
-      "name": "swy_362 转脬提摇法"
+      "name": "swy_362 转脬提摇法",
+      "formulas_referenced": [
+        "补中益气汤"
+      ]
     },
     {
       "case_id": "swy_363",
@@ -6151,7 +10348,14 @@
       "entry_id": "swy_363",
       "entry_type": "sunwenyuan_case",
       "rag_key": "牙痛",
-      "name": "swy_363 牙痛晕厥"
+      "name": "swy_363 牙痛晕厥",
+      "herbs": [
+        "五倍子",
+        "连翘",
+        "石膏",
+        "白芷",
+        "细辛"
+      ]
     },
     {
       "case_id": "swy_364",
@@ -6185,7 +10389,17 @@
       "entry_id": "swy_365",
       "entry_type": "sunwenyuan_case",
       "rag_key": "经闭",
-      "name": "swy_365 经闭八年肥痰"
+      "name": "swy_365 经闭八年肥痰",
+      "herbs": [
+        "丹参",
+        "黄连",
+        "滑石",
+        "桃仁",
+        "半夏"
+      ],
+      "formulas_referenced": [
+        "平胃散"
+      ]
     },
     {
       "case_id": "swy_366",
@@ -6202,7 +10416,16 @@
       "entry_id": "swy_366",
       "entry_type": "sunwenyuan_case",
       "rag_key": "鼓胀",
-      "name": "swy_366 惊后胀误补"
+      "name": "swy_366 惊后胀误补",
+      "herbs": [
+        "萝卜子",
+        "琥珀",
+        "砂仁",
+        "木香"
+      ],
+      "formulas_referenced": [
+        "平胃散"
+      ]
     },
     {
       "case_id": "swy_367",
@@ -6270,7 +10493,21 @@
       "entry_id": "swy_370",
       "entry_type": "sunwenyuan_case",
       "rag_key": "鼻渊",
-      "name": "swy_370 肺痰火鼻塞"
+      "name": "swy_370 肺痰火鼻塞",
+      "herbs": [
+        "天花粉",
+        "山栀子",
+        "前胡",
+        "秦艽",
+        "甘草",
+        "丹皮",
+        "薄荷",
+        "石膏",
+        "桔梗",
+        "葛根",
+        "贝母",
+        "玄参"
+      ]
     },
     {
       "case_id": "swy_371",
@@ -6304,7 +10541,20 @@
       "entry_id": "swy_372",
       "entry_type": "sunwenyuan_case",
       "rag_key": "胃痛",
-      "name": "swy_372 酒积肢节痛"
+      "name": "swy_372 酒积肢节痛",
+      "herbs": [
+        "五加皮",
+        "威灵仙",
+        "山栀子",
+        "神曲",
+        "黄柏",
+        "枳实",
+        "苍术",
+        "葛根"
+      ],
+      "formulas_referenced": [
+        "二陈汤"
+      ]
     },
     {
       "case_id": "swy_373",
@@ -6338,7 +10588,21 @@
       "entry_id": "swy_374",
       "entry_type": "sunwenyuan_case",
       "rag_key": "胁痛",
-      "name": "swy_374 胁痛伤风伤食"
+      "name": "swy_374 胁痛伤风伤食",
+      "herbs": [
+        "萝卜子",
+        "栝蒌仁",
+        "山楂",
+        "香附",
+        "柴胡",
+        "半夏",
+        "杏仁",
+        "陈皮",
+        "桂皮"
+      ],
+      "formulas_referenced": [
+        "保和丸"
+      ]
     },
     {
       "case_id": "swy_375",
@@ -6355,7 +10619,22 @@
       "entry_id": "swy_375",
       "entry_type": "sunwenyuan_case",
       "rag_key": "疮疖",
-      "name": "swy_375 浮热疮疖"
+      "name": "swy_375 浮热疮疖",
+      "herbs": [
+        "天花粉",
+        "甘草",
+        "滑石",
+        "白术",
+        "薄荷",
+        "连翘",
+        "白芍",
+        "茯苓",
+        "贝母",
+        "玄参"
+      ],
+      "formulas_referenced": [
+        "保和丸"
+      ]
     },
     {
       "case_id": "swy_376",
@@ -6372,7 +10651,20 @@
       "entry_id": "swy_376",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痰积",
-      "name": "swy_376 痰积腹如火"
+      "name": "swy_376 痰积腹如火",
+      "herbs": [
+        "天花粉",
+        "甘草",
+        "滑石",
+        "知母",
+        "橘红",
+        "桔梗",
+        "葛根",
+        "贝母"
+      ],
+      "formulas_referenced": [
+        "保和丸"
+      ]
     },
     {
       "case_id": "swy_377",
@@ -6389,7 +10681,13 @@
       "entry_id": "swy_377",
       "entry_type": "sunwenyuan_case",
       "rag_key": "胃痛",
-      "name": "swy_377 胃痛肝脾相胜"
+      "name": "swy_377 胃痛肝脾相胜",
+      "herbs": [
+        "五灵脂",
+        "山楂",
+        "甘草",
+        "白芍"
+      ]
     },
     {
       "case_id": "swy_378",
@@ -6406,7 +10704,31 @@
       "entry_id": "swy_378",
       "entry_type": "sunwenyuan_case",
       "rag_key": "梦遗",
-      "name": "swy_378 梦遗疝气喉梗"
+      "name": "swy_378 梦遗疝气喉梗",
+      "herbs": [
+        "石菖蒲",
+        "吴茱萸",
+        "枇杷叶",
+        "枸杞子",
+        "小茴香",
+        "山栀子",
+        "黄连",
+        "山楂",
+        "滑石",
+        "白术",
+        "莲子",
+        "香附",
+        "茯苓",
+        "柴胡",
+        "川椒",
+        "橘核",
+        "远志",
+        "贝母",
+        "朱砂"
+      ],
+      "formulas_referenced": [
+        "六君子汤"
+      ]
     },
     {
       "case_id": "swy_379",
@@ -6423,7 +10745,15 @@
       "entry_id": "swy_379",
       "entry_type": "sunwenyuan_case",
       "rag_key": "疝气",
-      "name": "swy_379 疝气结核"
+      "name": "swy_379 疝气结核",
+      "herbs": [
+        "玄胡索",
+        "小茴香",
+        "山栀子",
+        "山楂",
+        "柴胡",
+        "橘核"
+      ]
     },
     {
       "case_id": "swy_380",
@@ -6440,7 +10770,20 @@
       "entry_id": "swy_380",
       "entry_type": "sunwenyuan_case",
       "rag_key": "疟疾",
-      "name": "swy_380 疟痰肺虚"
+      "name": "swy_380 疟痰肺虚",
+      "herbs": [
+        "麦门冬",
+        "甘草",
+        "白术",
+        "人参",
+        "知母",
+        "石膏",
+        "柴胡",
+        "黄芪",
+        "陈皮",
+        "葛根",
+        "鳖甲"
+      ]
     },
     {
       "case_id": "swy_381",
@@ -6457,7 +10800,18 @@
       "entry_id": "swy_381",
       "entry_type": "sunwenyuan_case",
       "rag_key": "外科",
-      "name": "swy_381 胁下红块热毒"
+      "name": "swy_381 胁下红块热毒",
+      "herbs": [
+        "金银花",
+        "甘草",
+        "连翘",
+        "白芍",
+        "柴胡",
+        "当归",
+        "红花",
+        "贝母",
+        "栝蒌"
+      ]
     },
     {
       "case_id": "swy_382",
@@ -6474,7 +10828,19 @@
       "entry_id": "swy_382",
       "entry_type": "sunwenyuan_case",
       "rag_key": "虚损",
-      "name": "swy_382 心血痰阳虚"
+      "name": "swy_382 心血痰阳虚",
+      "herbs": [
+        "山茱萸",
+        "枸杞子",
+        "益智仁",
+        "菟丝子",
+        "五味子",
+        "甘草",
+        "人参",
+        "芡实",
+        "黄柏",
+        "远志"
+      ]
     },
     {
       "case_id": "swy_383",
@@ -6491,7 +10857,24 @@
       "entry_id": "swy_383",
       "entry_type": "sunwenyuan_case",
       "rag_key": "胸痛",
-      "name": "swy_383 胸胀痰紫瘀"
+      "name": "swy_383 胸胀痰紫瘀",
+      "herbs": [
+        "半夏曲",
+        "紫苏子",
+        "牡丹皮",
+        "神曲",
+        "黄连",
+        "甘草",
+        "滑石",
+        "香附",
+        "茯苓",
+        "橘红",
+        "贝母",
+        "郁金"
+      ],
+      "formulas_referenced": [
+        "益元散"
+      ]
     },
     {
       "case_id": "swy_384",
@@ -6508,7 +10891,27 @@
       "entry_id": "swy_384",
       "entry_type": "sunwenyuan_case",
       "rag_key": "虚损",
-      "name": "swy_384 阳亢阴微"
+      "name": "swy_384 阳亢阴微",
+      "herbs": [
+        "柏子仁",
+        "枸杞子",
+        "菟丝子",
+        "神曲",
+        "黄芩",
+        "黄连",
+        "山楂",
+        "滑石",
+        "知母",
+        "茯苓",
+        "橘红",
+        "生地",
+        "黄柏",
+        "青黛",
+        "枳实",
+        "磁石",
+        "贝母",
+        "牛膝"
+      ]
     },
     {
       "case_id": "swy_385",
@@ -6525,7 +10928,26 @@
       "entry_id": "swy_385",
       "entry_type": "sunwenyuan_case",
       "rag_key": "血淋",
-      "name": "swy_385 血淋二年"
+      "name": "swy_385 血淋二年",
+      "herbs": [
+        "海金沙",
+        "小茴香",
+        "没药",
+        "桂心",
+        "滑石",
+        "茅根",
+        "琥珀",
+        "桃仁",
+        "知母",
+        "柴胡",
+        "黄柏",
+        "枳实",
+        "贝母",
+        "牛膝"
+      ],
+      "formulas_referenced": [
+        "四物汤"
+      ]
     },
     {
       "case_id": "swy_386",
@@ -6542,7 +10964,21 @@
       "entry_id": "swy_386",
       "entry_type": "sunwenyuan_case",
       "rag_key": "心痛",
-      "name": "swy_386 心痛痰饮酸水"
+      "name": "swy_386 心痛痰饮酸水",
+      "herbs": [
+        "吴茱萸",
+        "前胡",
+        "滑石",
+        "竹茹",
+        "香附",
+        "茯苓",
+        "枳壳",
+        "橘红",
+        "半夏"
+      ],
+      "formulas_referenced": [
+        "二陈汤"
+      ]
     },
     {
       "case_id": "swy_387",
@@ -6559,7 +10995,16 @@
       "entry_id": "swy_387",
       "entry_type": "sunwenyuan_case",
       "rag_key": "肠风",
-      "name": "swy_387 肠风心肾不交"
+      "name": "swy_387 肠风心肾不交",
+      "herbs": [
+        "酸枣仁",
+        "侧柏叶",
+        "连翘",
+        "槐花"
+      ],
+      "formulas_referenced": [
+        "四物汤"
+      ]
     },
     {
       "case_id": "swy_388",
@@ -6576,7 +11021,13 @@
       "entry_id": "swy_388",
       "entry_type": "sunwenyuan_case",
       "rag_key": "胃痛",
-      "name": "swy_388 胃痛彻背冷汗"
+      "name": "swy_388 胃痛彻背冷汗",
+      "herbs": [
+        "御米壳"
+      ],
+      "formulas_referenced": [
+        "小建中汤"
+      ]
     },
     {
       "case_id": "swy_389",
@@ -6593,7 +11044,23 @@
       "entry_id": "swy_389",
       "entry_type": "sunwenyuan_case",
       "rag_key": "血淋",
-      "name": "swy_389 血淋采战"
+      "name": "swy_389 血淋采战",
+      "herbs": [
+        "海金沙",
+        "丹参",
+        "甘草",
+        "滑石",
+        "茅根",
+        "琥珀",
+        "桃仁",
+        "黄柏",
+        "当归",
+        "牛膝",
+        "川芎"
+      ],
+      "formulas_referenced": [
+        "肾气丸"
+      ]
     },
     {
       "case_id": "swy_390",
@@ -6610,7 +11077,16 @@
       "entry_id": "swy_390",
       "entry_type": "sunwenyuan_case",
       "rag_key": "肠风",
-      "name": "swy_390 肠风下血微痛"
+      "name": "swy_390 肠风下血微痛",
+      "herbs": [
+        "荆芥穗",
+        "秦艽",
+        "地榆",
+        "黄连",
+        "枳壳",
+        "槐花",
+        "葛根"
+      ]
     },
     {
       "case_id": "swy_391",
@@ -6627,7 +11103,19 @@
       "entry_id": "swy_391",
       "entry_type": "sunwenyuan_case",
       "rag_key": "淋浊",
-      "name": "swy_391 淋浊痰火湿热"
+      "name": "swy_391 淋浊痰火湿热",
+      "herbs": [
+        "升麻",
+        "滑石",
+        "萆薢",
+        "柴胡",
+        "黄柏",
+        "桔梗",
+        "木通"
+      ],
+      "formulas_referenced": [
+        "二陈汤"
+      ]
     },
     {
       "case_id": "swy_392",
@@ -6644,7 +11132,13 @@
       "entry_id": "swy_392",
       "entry_type": "sunwenyuan_case",
       "rag_key": "胁痛",
-      "name": "swy_392 酒积怒胁火"
+      "name": "swy_392 酒积怒胁火",
+      "herbs": [
+        "当归"
+      ],
+      "formulas_referenced": [
+        "当归龙荟丸"
+      ]
     }
   ]
 }

@@ -36,7 +36,19 @@
       "internal_key": "heat_toxin",
       "external_manifestation": "足趾脱疽（紫肿腐烂）",
       "external_key": "脱疽",
-      "chain": "火毒内蕴→气血瘀滞→肢端失养成脱疽"
+      "chain": "火毒内蕴→气血瘀滞→肢端失养成脱疽",
+      "herbs": [
+        "金银花",
+        "黄连",
+        "人参",
+        "麦冬",
+        "牛膝"
+      ],
+      "formulas_referenced": [
+        "十全大补汤",
+        "托里消毒散",
+        "八味丸"
+      ]
     },
     {
       "case_id": "wk_002",
@@ -58,7 +70,17 @@
       "internal_key": "liver_fire",
       "external_manifestation": "颈部瘰疬成核",
       "external_key": "瘰疬",
-      "chain": "肝郁化火→气血亏虚→痰核结聚颈部成瘰疬"
+      "chain": "肝郁化火→气血亏虚→痰核结聚颈部成瘰疬",
+      "herbs": [
+        "丹皮",
+        "人参",
+        "香附",
+        "木香",
+        "贝母"
+      ],
+      "formulas_referenced": [
+        "逍遥散"
+      ]
     },
     {
       "case_id": "wk_003",
@@ -80,7 +102,11 @@
       "internal_key": "liver_fire",
       "external_manifestation": "左项瘰疬坚硬如石",
       "external_key": "瘰疬",
-      "chain": "肝火脾热→痰凝气结→项侧瘰疬硬核"
+      "chain": "肝火脾热→痰凝气结→项侧瘰疬硬核",
+      "herbs": [
+        "琥珀",
+        "栀子"
+      ]
     },
     {
       "case_id": "wk_004",
@@ -102,7 +128,14 @@
       "internal_key": "liver_damp_heat",
       "external_manifestation": "疔疮顶高红活",
       "external_key": "疔疮",
-      "chain": "肝经湿热→热毒上壅→疔疮"
+      "chain": "肝经湿热→热毒上壅→疔疮",
+      "herbs": [
+        "天花粉",
+        "栀子",
+        "柴胡",
+        "白芷",
+        "黄芪"
+      ]
     },
     {
       "case_id": "wk_005",
@@ -124,7 +157,13 @@
       "internal_key": "phlegm_stasis",
       "external_manifestation": "项核不消",
       "external_key": "项痈",
-      "chain": "痰气凝结→项部痰核"
+      "chain": "痰气凝结→项部痰核",
+      "herbs": [
+        "琥珀",
+        "香附",
+        "贝母",
+        "川芎"
+      ]
     },
     {
       "case_id": "wk_006",
@@ -146,7 +185,13 @@
       "internal_key": "wind_cold_external",
       "external_manifestation": "头面耳项俱肿",
       "external_key": "项痈",
-      "chain": "外感雾露+内伤惊恐→营卫不和→项间毒聚成痈"
+      "chain": "外感雾露+内伤惊恐→营卫不和→项间毒聚成痈",
+      "herbs": [
+        "藿香"
+      ],
+      "formulas_referenced": [
+        "藿香正气散"
+      ]
     },
     {
       "case_id": "wk_007",
@@ -168,7 +213,13 @@
       "internal_key": "exterior_pathogen",
       "external_manifestation": "疔疮肿痛",
       "external_key": "疔疮",
-      "chain": "表邪未解→热毒郁结→疔疮欲脓"
+      "chain": "表邪未解→热毒郁结→疔疮欲脓",
+      "herbs": [
+        "麦冬"
+      ],
+      "formulas_referenced": [
+        "托里消毒散"
+      ]
     },
     {
       "case_id": "wk_008",
@@ -295,7 +346,11 @@
       "entry_id": "wk_013",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "咽喉",
-      "name": "wk_013 咽喉火毒"
+      "name": "wk_013 咽喉火毒",
+      "herbs": [
+        "黄连",
+        "桔梗"
+      ]
     },
     {
       "case_id": "wk_014",
@@ -312,7 +367,11 @@
       "entry_id": "wk_014",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "咽喉",
-      "name": "wk_014 咽喉肿闭"
+      "name": "wk_014 咽喉肿闭",
+      "herbs": [
+        "天花粉",
+        "连翘"
+      ]
     },
     {
       "case_id": "wk_015",
@@ -329,7 +388,20 @@
       "entry_id": "wk_015",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "咽喉",
-      "name": "wk_015 咽喉虚火"
+      "name": "wk_015 咽喉虚火",
+      "herbs": [
+        "五味子",
+        "知母",
+        "黄柏",
+        "麦冬",
+        "桔梗",
+        "干姜",
+        "元参"
+      ],
+      "formulas_referenced": [
+        "补中益气汤",
+        "四物汤"
+      ]
     },
     {
       "case_id": "wk_016",
@@ -346,7 +418,11 @@
       "entry_id": "wk_016",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "腮项",
-      "name": "wk_016 腮项湿热"
+      "name": "wk_016 腮项湿热",
+      "herbs": [
+        "牛蒡子",
+        "石膏"
+      ]
     },
     {
       "case_id": "wk_017",
@@ -363,7 +439,10 @@
       "entry_id": "wk_017",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "耳面",
-      "name": "wk_017 耳面蕴热"
+      "name": "wk_017 耳面蕴热",
+      "herbs": [
+        "升麻"
+      ]
     },
     {
       "case_id": "wk_018",
@@ -397,7 +476,14 @@
       "entry_id": "wk_019",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "痈疽",
-      "name": "wk_019 痈疽误寒"
+      "name": "wk_019 痈疽误寒",
+      "herbs": [
+        "人参",
+        "白芷"
+      ],
+      "formulas_referenced": [
+        "十全大补汤"
+      ]
     },
     {
       "case_id": "wk_020",
@@ -414,7 +500,10 @@
       "entry_id": "wk_020",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "痈疽",
-      "name": "wk_020 痈疽表实"
+      "name": "wk_020 痈疽表实",
+      "herbs": [
+        "防风"
+      ]
     },
     {
       "case_id": "wk_021",
@@ -431,7 +520,11 @@
       "entry_id": "wk_021",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "肺痈",
-      "name": "wk_021 肺痿郁伤"
+      "name": "wk_021 肺痿郁伤",
+      "herbs": [
+        "五味子",
+        "人参"
+      ]
     },
     {
       "case_id": "wk_022",
@@ -448,7 +541,14 @@
       "entry_id": "wk_022",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "肺痈",
-      "name": "wk_022 酒客肺痈"
+      "name": "wk_022 酒客肺痈",
+      "herbs": [
+        "天花粉",
+        "紫菀"
+      ],
+      "formulas_referenced": [
+        "八味丸"
+      ]
     },
     {
       "case_id": "wk_023",
@@ -482,7 +582,18 @@
       "entry_id": "wk_024",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "瘰疬",
-      "name": "wk_024 瘰疬思虑"
+      "name": "wk_024 瘰疬思虑",
+      "herbs": [
+        "琥珀",
+        "香附",
+        "桔梗",
+        "贝母"
+      ],
+      "formulas_referenced": [
+        "十全大补汤",
+        "归脾汤",
+        "逍遥散"
+      ]
     },
     {
       "case_id": "wk_025",
@@ -499,7 +610,11 @@
       "entry_id": "wk_025",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "腿痈",
-      "name": "wk_025 腿痈急开"
+      "name": "wk_025 腿痈急开",
+      "formulas_referenced": [
+        "十全大补汤",
+        "独参汤"
+      ]
     },
     {
       "case_id": "wk_026",
@@ -516,7 +631,13 @@
       "entry_id": "wk_026",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "腿痈",
-      "name": "wk_026 房后腿痛"
+      "name": "wk_026 房后腿痛",
+      "herbs": [
+        "防风"
+      ],
+      "formulas_referenced": [
+        "大防风汤"
+      ]
     },
     {
       "case_id": "wk_027",
@@ -533,7 +654,17 @@
       "entry_id": "wk_027",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "痔漏",
-      "name": "wk_027 痔劳发肿"
+      "name": "wk_027 痔劳发肿",
+      "herbs": [
+        "秦艽",
+        "知母",
+        "枳壳",
+        "黄柏",
+        "防风"
+      ],
+      "formulas_referenced": [
+        "六味地黄丸"
+      ]
     },
     {
       "case_id": "wk_028",
@@ -550,7 +681,16 @@
       "entry_id": "wk_028",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "下疳",
-      "name": "wk_028 下疳肾伤"
+      "name": "wk_028 下疳肾伤",
+      "herbs": [
+        "牡丹皮",
+        "知母",
+        "黄柏"
+      ],
+      "formulas_referenced": [
+        "八珍汤",
+        "八味丸"
+      ]
     },
     {
       "case_id": "wk_029",
@@ -567,7 +707,14 @@
       "entry_id": "wk_029",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "下疳",
-      "name": "wk_029 下疳茎烂"
+      "name": "wk_029 下疳茎烂",
+      "herbs": [
+        "黄柏",
+        "木通"
+      ],
+      "formulas_referenced": [
+        "四物汤"
+      ]
     },
     {
       "case_id": "wk_030",
@@ -601,7 +748,16 @@
       "entry_id": "wk_031",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "肛痈",
-      "name": "wk_031 产后肛坠"
+      "name": "wk_031 产后肛坠",
+      "herbs": [
+        "升麻",
+        "丹皮",
+        "枳壳",
+        "苍术"
+      ],
+      "formulas_referenced": [
+        "四物汤"
+      ]
     },
     {
       "case_id": "wk_032",
@@ -618,7 +774,13 @@
       "entry_id": "wk_032",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "下疳",
-      "name": "wk_032 玉茎伤损"
+      "name": "wk_032 玉茎伤损",
+      "herbs": [
+        "木通"
+      ],
+      "formulas_referenced": [
+        "四物汤"
+      ]
     },
     {
       "case_id": "wk_033",
@@ -652,7 +814,10 @@
       "entry_id": "wk_034",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "横痃",
-      "name": "wk_034 横痃火针"
+      "name": "wk_034 横痃火针",
+      "formulas_referenced": [
+        "托里消毒散"
+      ]
     },
     {
       "case_id": "wk_035",
@@ -686,7 +851,10 @@
       "entry_id": "wk_036",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "囊痈",
-      "name": "wk_036 囊痈导水"
+      "name": "wk_036 囊痈导水",
+      "herbs": [
+        "木香"
+      ]
     },
     {
       "case_id": "wk_037",
@@ -703,7 +871,14 @@
       "entry_id": "wk_037",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "囊痈",
-      "name": "wk_037 囊痈脓成"
+      "name": "wk_037 囊痈脓成",
+      "herbs": [
+        "丹皮",
+        "泽泻"
+      ],
+      "formulas_referenced": [
+        "十全大补汤"
+      ]
     },
     {
       "case_id": "wk_038",
@@ -737,7 +912,15 @@
       "entry_id": "wk_039",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "臋痈",
-      "name": "wk_039 臋痈托脓"
+      "name": "wk_039 臋痈托脓",
+      "herbs": [
+        "泽泻"
+      ],
+      "formulas_referenced": [
+        "龙胆泻肝汤",
+        "十全大补汤",
+        "托里消毒散"
+      ]
     },
     {
       "case_id": "wk_040",
@@ -754,7 +937,14 @@
       "entry_id": "wk_040",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "臋痈",
-      "name": "wk_040 臋痈臭脓"
+      "name": "wk_040 臋痈臭脓",
+      "herbs": [
+        "甘草",
+        "附子"
+      ],
+      "formulas_referenced": [
+        "十全大补汤"
+      ]
     },
     {
       "case_id": "wk_041",
@@ -788,7 +978,14 @@
       "entry_id": "wk_042",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "臋痈",
-      "name": "wk_042 臋痈误寒"
+      "name": "wk_042 臋痈误寒",
+      "herbs": [
+        "丹皮",
+        "苍术"
+      ],
+      "formulas_referenced": [
+        "十全大补汤"
+      ]
     },
     {
       "case_id": "wk_043",
@@ -805,7 +1002,20 @@
       "entry_id": "wk_043",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "下疳",
-      "name": "wk_043 下疳误熏"
+      "name": "wk_043 下疳误熏",
+      "herbs": [
+        "土茯苓",
+        "五味子",
+        "黄连",
+        "甘草",
+        "知母",
+        "黄柏",
+        "麦冬"
+      ],
+      "formulas_referenced": [
+        "八珍汤",
+        "四物汤"
+      ]
     },
     {
       "case_id": "wk_044",
@@ -822,7 +1032,15 @@
       "entry_id": "wk_044",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "多骨疮",
-      "name": "wk_044 多骨疮"
+      "name": "wk_044 多骨疮",
+      "herbs": [
+        "山茱萸",
+        "木瓜",
+        "牛膝"
+      ],
+      "formulas_referenced": [
+        "十全大补汤"
+      ]
     },
     {
       "case_id": "wk_045",
@@ -839,7 +1057,11 @@
       "entry_id": "wk_045",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "痔漏",
-      "name": "wk_045 痔漏便血"
+      "name": "wk_045 痔漏便血",
+      "formulas_referenced": [
+        "补中益气汤",
+        "四君子汤"
+      ]
     },
     {
       "case_id": "wk_046",
@@ -873,7 +1095,10 @@
       "entry_id": "wk_047",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "下疳",
-      "name": "wk_047 下疳泄热"
+      "name": "wk_047 下疳泄热",
+      "formulas_referenced": [
+        "龙胆泻肝汤"
+      ]
     },
     {
       "case_id": "wk_048",
@@ -924,7 +1149,10 @@
       "entry_id": "wk_050",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "瘤",
-      "name": "wk_050 异虫瘤"
+      "name": "wk_050 异虫瘤",
+      "formulas_referenced": [
+        "补中益气汤"
+      ]
     },
     {
       "case_id": "wk_051",
@@ -941,7 +1169,10 @@
       "entry_id": "wk_051",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "肺痈",
-      "name": "wk_051 虚火咳血"
+      "name": "wk_051 虚火咳血",
+      "herbs": [
+        "紫菀"
+      ]
     },
     {
       "case_id": "wk_052",
@@ -958,7 +1189,10 @@
       "entry_id": "wk_052",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "横痃",
-      "name": "wk_052 胯痈解表"
+      "name": "wk_052 胯痈解表",
+      "herbs": [
+        "人参"
+      ]
     },
     {
       "case_id": "wk_053",
@@ -992,7 +1226,15 @@
       "entry_id": "wk_054",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "囊痈",
-      "name": "wk_054 囊痛受寒"
+      "name": "wk_054 囊痛受寒",
+      "herbs": [
+        "丹皮",
+        "肉桂",
+        "泽泻"
+      ],
+      "formulas_referenced": [
+        "八珍汤"
+      ]
     },
     {
       "case_id": "wk_055",
@@ -1009,7 +1251,14 @@
       "entry_id": "wk_055",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "便痈",
-      "name": "wk_055 便痈通利"
+      "name": "wk_055 便痈通利",
+      "herbs": [
+        "知母",
+        "黄柏"
+      ],
+      "formulas_referenced": [
+        "四物汤"
+      ]
     },
     {
       "case_id": "wk_056",
@@ -1026,7 +1275,14 @@
       "entry_id": "wk_056",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "横痃",
-      "name": "wk_056 溃口不敛"
+      "name": "wk_056 溃口不敛",
+      "herbs": [
+        "丹皮",
+        "泽泻"
+      ],
+      "formulas_referenced": [
+        "十全大补汤"
+      ]
     },
     {
       "case_id": "wk_057",
@@ -1060,7 +1316,11 @@
       "entry_id": "wk_058",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "肺痈",
-      "name": "wk_058 肺痿调摄"
+      "name": "wk_058 肺痿调摄",
+      "herbs": [
+        "五味子",
+        "人参"
+      ]
     },
     {
       "case_id": "wk_059",
@@ -1077,7 +1337,20 @@
       "entry_id": "wk_059",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "腮项",
-      "name": "wk_059 腮肿余热"
+      "name": "wk_059 腮肿余热",
+      "herbs": [
+        "牛蒡子",
+        "天花粉",
+        "黄芩",
+        "连翘",
+        "柴胡",
+        "桔梗",
+        "川芎"
+      ],
+      "formulas_referenced": [
+        "小柴胡汤",
+        "二陈汤"
+      ]
     },
     {
       "case_id": "wk_060",
@@ -1094,7 +1367,10 @@
       "entry_id": "wk_060",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "背痈",
-      "name": "wk_060 背痈受寒"
+      "name": "wk_060 背痈受寒",
+      "herbs": [
+        "琥珀"
+      ]
     },
     {
       "case_id": "wk_061",
@@ -1111,7 +1387,17 @@
       "entry_id": "wk_061",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "乳痈",
-      "name": "wk_061 乳痈忧郁"
+      "name": "wk_061 乳痈忧郁",
+      "herbs": [
+        "柴胡",
+        "青皮",
+        "远志",
+        "贝母"
+      ],
+      "formulas_referenced": [
+        "小柴胡汤",
+        "八珍汤"
+      ]
     },
     {
       "case_id": "wk_062",
@@ -1128,7 +1414,11 @@
       "entry_id": "wk_062",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "脚气",
-      "name": "wk_062 脚气化痰"
+      "name": "wk_062 脚气化痰",
+      "herbs": [
+        "附子",
+        "半夏"
+      ]
     },
     {
       "case_id": "wk_063",
@@ -1145,7 +1435,15 @@
       "entry_id": "wk_063",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "腿痈",
-      "name": "wk_063 欲后腿痛"
+      "name": "wk_063 欲后腿痛",
+      "herbs": [
+        "防风",
+        "羌活",
+        "红花"
+      ],
+      "formulas_referenced": [
+        "大防风汤"
+      ]
     },
     {
       "case_id": "wk_064",
@@ -1162,7 +1460,17 @@
       "entry_id": "wk_064",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "痔漏",
-      "name": "wk_064 脱肛湿肿"
+      "name": "wk_064 脱肛湿肿",
+      "herbs": [
+        "生地黄",
+        "天花粉",
+        "牡丹皮",
+        "黄连",
+        "苍术"
+      ],
+      "formulas_referenced": [
+        "补中益气汤"
+      ]
     },
     {
       "case_id": "wk_065",
@@ -1179,7 +1487,10 @@
       "entry_id": "wk_065",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "梅毒",
-      "name": "wk_065 结毒雷火针"
+      "name": "wk_065 结毒雷火针",
+      "formulas_referenced": [
+        "十全大补汤"
+      ]
     },
     {
       "case_id": "wk_066",
@@ -1196,7 +1507,10 @@
       "entry_id": "wk_066",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "梅毒",
-      "name": "wk_066 结毒腐烂"
+      "name": "wk_066 结毒腐烂",
+      "herbs": [
+        "萆薢"
+      ]
     },
     {
       "case_id": "wk_067",
@@ -1213,7 +1527,10 @@
       "entry_id": "wk_067",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "多骨疮",
-      "name": "wk_067 上腭多骨"
+      "name": "wk_067 上腭多骨",
+      "formulas_referenced": [
+        "十全大补汤"
+      ]
     },
     {
       "case_id": "wk_068",
@@ -1230,7 +1547,10 @@
       "entry_id": "wk_068",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "梅毒",
-      "name": "wk_068 结毒咽腐"
+      "name": "wk_068 结毒咽腐",
+      "herbs": [
+        "土茯苓"
+      ]
     },
     {
       "case_id": "wk_069",
@@ -1247,7 +1567,14 @@
       "entry_id": "wk_069",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "臋痈",
-      "name": "wk_069 臋痈温补"
+      "name": "wk_069 臋痈温补",
+      "herbs": [
+        "丹皮",
+        "苍术"
+      ],
+      "formulas_referenced": [
+        "十全大补汤"
+      ]
     },
     {
       "case_id": "wk_070",
@@ -1264,7 +1591,14 @@
       "entry_id": "wk_070",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "肺痈",
-      "name": "wk_070 肺痈喘满"
+      "name": "wk_070 肺痈喘满",
+      "herbs": [
+        "天花粉",
+        "紫菀"
+      ],
+      "formulas_referenced": [
+        "八味丸"
+      ]
     }
   ]
 }
