@@ -318,7 +318,7 @@ def generate_cards_preview(cards, data):
     <div class="seal">{seal_html}</div>
   </header>
   <main class="wall">{''.join(card_html)}</main>
-  <footer class="foot">正面为问 · 背面为思想解答 · 宣纸水墨版</footer>
+  <footer class="foot">正面为问 · 背面为思想解答 · 宣纸水墨版<br>⚠ 思想卡片仅供学习参考，临床应用须由执业中医师辨证论治</footer>
 {ink_theme.reveal_script()}
 </body></html>'''
 
