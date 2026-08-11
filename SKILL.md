@@ -81,6 +81,7 @@ description: >
 | 可导入包 | `wuyun_liuqi`（`from wuyun_liuqi import calculate, semantic_search`） |
 | HTML 报告 | `generate_html_report.py`（含知识库精确命中章节） |
 | 病机推理链 | `infer_pathogenesis.py <年份>`（岁运->司天在泉->六步->方剂五层推理） |
+| Fallback 经验库 | `case-journal/field-journal/`（联网搜索沉淀的经验条目，先查后搜） |
 | 医案关联图谱 | `case_relations.py --compare/--related`（跨医家对比+相似检索，2124条×402证型） |
 | 运气时间轴 | `visualize_timeline.py <年份>`（六步客主加临时间轴 HTML） |
 | 医案浏览器 | `generate_case_browser.py`（2124条静态HTML浏览+搜索+筛选） |

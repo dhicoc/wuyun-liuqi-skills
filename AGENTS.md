@@ -31,6 +31,15 @@
 | 这个医案还有谁治过类似的 | `python scripts/case_relations.py --related swy_174` |
 | 生成运气时间轴 | `python scripts/visualize_timeline.py 2026 --output timeline.html` |
 
+**Fallback 策略（工具未命中时）**
+
+当用户问题无法用上述工具回答时：
+1. 联网搜索 -> 总结回答用户（标注来源 + 免责声明）
+2. 沉淀经验到 `case-journal/field-journal/`（模板见 `_template.md`，索引更新 `_index.md`）
+3. 下次类似问题先查经验库，命中则直接引用
+
+查询优先级：知识库(rag_search) -> 经验库(field-journal) -> 联网搜索 -> 沉淀
+
 </always-applicable>
 
 <task-routing>
