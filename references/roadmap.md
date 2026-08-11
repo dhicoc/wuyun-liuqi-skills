@@ -94,20 +94,16 @@
 - [x] `SKILL.md` 延伸索引增加 asset33
 - [x] schema 文件 + index.json 更新
 
-### P7-3 skill 级 evals（对齐官方标准）
+### P7-3 skill 级 evals -- 不采纳
 
-> 依据：anthropics/skills 官方标准要求每个 skill 附 eval spec + golden cases
+> 经评估，本项目已有 11 个测试文件、累计 200+ 项断言（full_regression 55 项 + skill_e2e 40 项 + full_scenario 51 项 + verify_expansion 105 项 + verify_cross_check 52 项），已远超官方标准对 evals 的要求。`evals/` 目录是第三方 skill 生成工具（agent-skill-creator）的建议模式，非 Agent Skills 开放规范的硬性要求。新增 evals 只会与现有 tests/ 重复，增加维护负担，对终端用户和 Agent 均无实际价值。
 
-- [ ] 为 6 个子技能模块各增加 `evals/` 目录
-- [ ] 每个 eval 含：golden cases（正确输入 -> 期望输出）+ 触发场景测试（正确场景触发/错误场景不触发）
-- [ ] `check_skill_structure.py` 增加 evals 目录存在性校验
-- [ ] CI 增加 skill 级 eval 运行步骤
+### P7-4 Skill 可移植性增强 -- 不采纳
 
-### P7-4 Skill 可移植性增强
-
-- [ ] SKILL.md 内引用文件改用 `${CLAUDE_SKILL_DIR}` 路径变量（对齐 Claude Code 官方标准）
-- [ ] 评估 `context: fork` 子 agent 隔离模式适用场景
-- [ ] 评估 `disable-model-invocation` 对部分 skill 的适用性（手动触发 vs 自动触发）
+> 经评估，本项目三项均不适用：
+> 1. **`${CLAUDE_SKILL_DIR}`**：本项目是「仓库即 skill」模式（install.py 把整个仓库链接到 `~/.claude/skills/`），不是「目录即 skill」模式。相对路径已天然可用，加路径变量反而破坏现有路径解析。
+> 2. **`context: fork`**：适用于长时间扫描/大量文件处理的隔离场景。运气推算是一次性计算，不需要隔离。
+> 3. **`disable-model-invocation`**：适用于手动触发的 skill。本项目要 Agent 听到「五运六气」自动激活，不应禁用。
 
 ## P8：生态协作与数据导出（远期）
 
@@ -123,11 +119,9 @@
 - [ ] 参考 Pokkoa 数据集格式（HuggingFace `pokkoa/chinese-five-circuits-six-qi`）
 - [ ] `generate_rag_index.py` 增加 `--format parquet` 选项
 
-### P8-3 推算引擎第三方验证
+### P8-3 推算引擎第三方验证 -- 不采纳
 
-- [ ] 对接 `ZhuChaozheng/next-live-card` API 做长期推算结果一致性监控
-- [ ] 对接 `ccjaread/five_circuits_six_qi` 做算法对照
-- [ ] 沉淀验证结果到 `case-journal/field-journal/`
+> 经调研，`ZhuChaozheng/next-live-card` 的在线 API 返回 502 不可用，且无使用授权。`ccjaread/five_circuits_six_qi` 算法与本项目已覆盖的规则一致，无额外可验证项。P7-1 已通过《医宗金鉴·运气要诀》蒸馏的 52 项经典文献验证基线实现了本地自验证，无需依赖第三方服务。
 
 ## 不建议跟进
 
@@ -136,3 +130,6 @@
 | 改用 `-skill` 后缀命名 | modules/ 已稳定，改名破坏性大、收益低 |
 | 接入命理学说（三命通会等） | 与本项目「纯运气学」定位冲突 |
 | 强行 L0-L4 显式分层 | 扁平路由已够用，强行分层增加复杂度 |
+| P7-3 skill 级 evals | 现有 200+ 项 CI 断言已远超官方要求，evals 只会重复 |
+| P7-4 `${CLAUDE_SKILL_DIR}` / `context: fork` / `disable-model-invocation` | 「仓库即 skill」模式不适用，自动激活场景不适用 |
+| P8-3 第三方 API 验证 | 第三方 API 不可靠且无授权，P7-1 已有 52 项本地经典文献验证 |
