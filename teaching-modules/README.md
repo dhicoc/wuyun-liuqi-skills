@@ -42,3 +42,9 @@
 | 五运推移 | 推移 | `五运推移.md` |
 
 > 临床/病机层概念（六气病机、运气合病等）后续按需补充，归入 `modules/yunqi-pathogenesis/` 联动。
+
+## 相关项目
+
+本项目专注五运六气**推算与检索**，隔壁项目 [huangdi-neijing-skill](https://github.com/kangarooking/huangdi-neijing-skill) 把《黄帝内经》素问+灵枢蒸馏成 22 个**思维方法论 skill**。两者互补，形成完整的中医 Agent 能力栈。
+
+详细的 10 个教学模块 ↔ 22 个思维工具 skill 映射关系见 [`相关思维工具.md`](相关思维工具.md)。

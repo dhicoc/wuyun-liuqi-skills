@@ -342,6 +342,10 @@ git push origin feature/your-feature
 
 MIT License，详见 [LICENSE](LICENSE)。
 
+## 相关项目
+
+- [huangdi-neijing-skill](https://github.com/kangarooking/huangdi-neijing-skill) ⭐31 -- 把《黄帝内经》素问+灵枢蒸馏成 22 个思维方法论 skill，与本项目的运气推算能力互补。详见 [`teaching-modules/相关思维工具.md`](teaching-modules/相关思维工具.md)。
+
 ### 致谢
 
 - 架构参考 [reverse-skill](https://github.com/zhaoxuya520/reverse-skill)

@@ -109,9 +109,9 @@
 
 ### P8-1 内经方法论交叉引用
 
-- [ ] 在 `teaching-modules/` 中引用 `kangarooking/huangdi-neijing-skill` 的 22 个思维工具 skill
-- [ ] 形成「内经方法论 + 运气推算」完整中医 Agent 能力栈
-- [ ] README 增加「相关项目」章节
+- [x] 在 `teaching-modules/` 中引用 `kangarooking/huangdi-neijing-skill` 的 22 个思维工具 skill -- 新增 `teaching-modules/相关思维工具.md`，含 10 个教学模块 ↔ 22 个思维工具的完整映射表
+- [x] 形成「内经方法论 + 运气推算」完整中医 Agent 能力栈 -- 映射表按根观念/格局/同化/推移/通用方法论五层组织
+- [x] README 增加「相关项目」章节 -- 根 README + teaching-modules/README 均已添加
 
 ### P8-2 Parquet 数据导出
 
