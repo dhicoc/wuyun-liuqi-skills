@@ -307,20 +307,100 @@ _SYNONYM_MAP: Dict[str, List[str]] = {
 }
 
 
+# ═══════════════════════════════════════════════════════════════
+# 字形归一化：统一中医术语的异体字 / 繁简变体，提升检索召回
+# ═══════════════════════════════════════════════════════════════
+# 只收录「有明确对应、归一后不产生歧义」的常用变体，避免误改。
+# 匹配顺序：先长串后单字（如「針刺」→「针刺」先于「針」→「针」）。
+# 用法：对 entry 文本与查询词分别调用 _normalize 后做包含判断，不改 entry 原始值。
+_NORM_MAP: List[Tuple[str, str]] = [
+    # 针灸类（先长串后单字，顺序敏感）
+    ("針刺", "针刺"), ("鍼刺", "针刺"),
+    ("針灸", "针灸"), ("鍼灸", "针灸"),
+    ("針", "针"), ("鍼", "针"),
+    ("剌", "刺"),  # 異體「剌」vs「刺」
+    # 穴位/经络异体（库内以简体为难；俞/腧 不同写法统一为「腧」）
+    ("俞穴", "腧穴"),
+    # 常用繁简（异体/繁体 → 简体；中医药高频）
+    ("證", "证"), ("証", "证"),
+    ("癥瘕", "症瘕"), ("癥", "症"),
+    ("欝", "郁"), ("鬱", "郁"), ("鬰", "郁"),
+    ("裏", "里"), ("裡", "里"),
+    ("欬", "咳"), ("晝", "昼"), ("婦", "妇"),
+    ("乾", "干"), ("發", "发"), ("餘", "余"),
+    ("痺", "痹"), ("勞", "劳"), ("虛", "虚"),
+    ("脈", "脉"), ("臟", "脏"), ("膽", "胆"),
+    ("陰", "阴"), ("陽", "阳"), ("體", "体"),
+    ("氣", "气"), ("衞", "卫"), ("衛", "卫"), ("營", "营"),
+    ("風", "风"), ("熱", "热"), ("濕", "湿"), ("溼", "湿"),
+    ("瀉", "泻"), ("㵼", "泻"), ("補", "补"), ("飲", "饮"),
+    ("經", "经"), ("絡", "络"),
+    ("滯", "滞"), ("痺", "痹"),
+    ("惡", "恶"), ("嘔", "呕"), ("噁", "恶"),
+    ("煩", "烦"), ("濁", "浊"),
+    ("癰", "痈"),
+    ("溫", "温"), ("瘧", "疟"),
+    ("傷", "伤"),  # 伤寒/伤风/损伤
+    ("脅", "胁"), ("脇", "胁"),  # 胸胁痛
+    ("潰", "溃"), ("瘡", "疮"),
+    ("癲", "癫"), ("癇", "痫"), ("痙", "痉"),
+    ("瘻", "瘘"),
+    ("攣", "挛"),  # 痉挛
+    ("腫", "肿"), ("脹", "胀"), ("浮腫", "浮肿"),
+    ("眥", "眦"),  # 目眦
+]
+
+
+def _normalize(text: str) -> str:
+    """字形归一化：NFKC + 异体/繁简映射，返回归一化字符串。
+
+    用于两处：
+      1) entry 的拼接文本（score_entry_synonym / score_entry 内 text_all、title、各 val）
+      2) 查询词（_expand_synonyms 内对原词 + 同义词）
+    使「針刺」/「鍼灸」/「証」等异体与简体互通，提升检索召回。
+    """
+    if not text:
+        return text
+    s = text
+    try:
+        import unicodedata
+        s = unicodedata.normalize("NFKC", s)
+    except Exception:
+        pass
+    for a, b in _NORM_MAP:
+        if a in s:
+            s = s.replace(a, b)
+    return s
+
+
 def _expand_synonyms(terms: Sequence[str]) -> List[List[str]]:
     """将查询词扩展为同义词组列表。
 
     返回 [[原始词, 同义词1, ...], ...]
     每组内是 OR 关系（任一命中即可），组间是 AND 关系。
+    每个词额外并入其「字形归一化」形式（异体/繁简→简体），
+    使「針刺」等异体查询也能命中库内简体「针刺」。
     """
     expanded = []
     for t in terms:
         t = t.strip()
         if not t:
             continue
+        norm = _normalize(t)
         group = [t]
-        if t in _SYNONYM_MAP:
-            group.extend(_SYNONYM_MAP[t])
+        if norm != t and norm not in group:
+            group.append(norm)  # 归一化形式作为同组 OR 备选
+        # 同义词扩展：以「归一化简体」为主键查询，保证繁体/异体查询
+        # 也能享受与简体一致的同义词组（如 痹证 → 痹/痹痛/风湿/关节痛）。
+        syn_key = norm if norm != t else t
+        if syn_key in _SYNONYM_MAP:
+            for sy in _SYNONYM_MAP[syn_key]:
+                if sy not in group:
+                    group.append(sy)
+        elif t in _SYNONYM_MAP:  # 兜底：原词本身在表中
+            for sy in _SYNONYM_MAP[t]:
+                if sy not in group:
+                    group.append(sy)
         expanded.append(group)
     return expanded
 
@@ -334,13 +414,17 @@ def score_entry_synonym(entry: Dict[str, Any], expanded_terms: List[List[str]]) 
     blob_pairs = [(k, v) for k, v in fields]
     text_all = "\n".join(v for _, v in blob_pairs)
     text_lower = text_all.lower()
+    # 归一化文本（异体/繁简→简体），与 _expand_synonyms 提供的归一化查询词对齐，
+    # 使条目内异体写法（如「針灸」）也能被简体/异体查询命中。
+    text_all_norm = _normalize(text_all)
 
     # 每组内至少一个词命中（AND 组间，OR 组内）
     group_hits = []
     for group in expanded_terms:
         found = False
         for t in group:
-            if t.lower() in text_lower or t in text_all:
+            tn = _normalize(t)
+            if (t.lower() in text_lower or t in text_all) or (tn and tn in text_all_norm):
                 found = True
                 break
         if not found:
@@ -352,24 +436,33 @@ def score_entry_synonym(entry: Dict[str, Any], expanded_terms: List[List[str]]) 
     matched: List[str] = []
     eid = _entry_id(entry, 0)
     title = _entry_title(entry, eid)
+    title_norm = _normalize(title)
 
     for group in group_hits:
         best_t = None
         best_sc = 0
         for t in group:
             tl = t.lower()
+            tn = _normalize(t)
             sc = 0
-            if t in title or tl in title.lower():
+            if (t in title or tl in title.lower()) or (tn and tn in title_norm):
                 sc += 8
             for key in ("code", "key", "rag_key", "term", "pinyin", "category"):
                 val = str(entry.get(key) or "")
-                if t == val or tl == val.lower() or t in val:
+                valn = _normalize(val)
+                if (t == val or tl == val.lower() or t in val) or (tn and (tn in valn or tn == valn)):
                     sc += 10
             for k, v in blob_pairs:
                 if t in v or tl in v.lower():
                     sc += 2
                     if "quote" in k.lower() or "classics" in k.lower() or "pathogenesis" in k.lower():
                         sc += 2
+                elif tn:
+                    vn = _normalize(v)
+                    if tn in vn:
+                        sc += 2
+                        if "quote" in k.lower() or "classics" in k.lower() or "pathogenesis" in k.lower():
+                            sc += 2
             if sc > best_sc:
                 best_sc = sc
                 best_t = t
@@ -377,14 +470,16 @@ def score_entry_synonym(entry: Dict[str, Any], expanded_terms: List[List[str]]) 
         if best_t:
             # 记录命中的字段
             tl = best_t.lower()
-            if best_t in title or tl in title.lower():
+            tn = _normalize(best_t)
+            if (best_t in title or tl in title.lower()) or (tn and tn in title_norm):
                 matched.append("title")
             for key in ("category", "code", "key", "rag_key"):
                 val = str(entry.get(key) or "")
                 if best_t in val or tl in val.lower():
                     matched.append(key)
             for k, v in blob_pairs:
-                if best_t in v or tl in v.lower():
+                vn = _normalize(v)
+                if (best_t in v or tl in v.lower()) or (tn and tn in vn):
                     if k not in matched and len(matched) < 6:
                         matched.append(k)
 
@@ -406,38 +501,46 @@ def score_entry(entry: Dict[str, Any], terms: Sequence[str]) -> Tuple[int, List[
     """
     返回 (score, matched_fields_snippet, preview)。
     所有 term 都必须命中（AND）；计分：标题/ code 命中加权。
+    命中判定含字形归一化（异体/繁简→简体），见 _normalize。
     """
     fields = _flatten_strings(entry)
     blob_pairs = [(k, v) for k, v in fields]
     text_all = "\n".join(v for _, v in blob_pairs)
     text_lower = text_all.lower()
+    text_all_norm = _normalize(text_all)
     terms_norm = [t.strip() for t in terms if t and t.strip()]
     if not terms_norm:
         return 0, [], ""
 
     for t in terms_norm:
-        if t.lower() not in text_lower and t not in text_all:
+        tn = _normalize(t)
+        if not ((t.lower() in text_lower or t in text_all) or (tn and tn in text_all_norm)):
             return 0, [], ""
 
     score = 0
     matched: List[str] = []
     eid = _entry_id(entry, 0)
     title = _entry_title(entry, eid)
+    title_norm = _normalize(title)
 
     for t in terms_norm:
         tl = t.lower()
+        tn = _normalize(t)
         # 标题 / 主键加权
-        if t in title or tl in title.lower():
+        if (t in title or tl in title.lower()) or (tn and tn in title_norm):
             score += 8
             matched.append("title")
         for key in ("code", "key", "rag_key", "term", "pinyin"):
             val = str(entry.get(key) or "")
-            if t == val or tl == val.lower() or t in val:
+            valn = _normalize(val)
+            if (t == val or tl == val.lower() or t in val) or (tn and (tn == valn or tn in valn)):
                 score += 10
                 matched.append(key)
         # 字段命中
         for k, v in blob_pairs:
-            if t in v or tl in v.lower():
+            matched_here = (t in v or tl in v.lower())
+            vn = _normalize(v)
+            if matched_here or (tn and tn in vn):
                 score += 2
                 if k not in matched and len(matched) < 6:
                     matched.append(k)

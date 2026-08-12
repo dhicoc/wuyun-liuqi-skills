@@ -73,11 +73,15 @@ nihaisha 无法替代的优势集中在**检索型 Agent 的工程质量**，本
 - [ ] 在 `rag-knowledge-base` 大模块（尤其 asset18–32 医案库）上方加「入口 → guide → 是否强制加载」薄索引，避免整包载入重量级条目。
 - [ ] 为高风险类问题定义「强制联动」：如深针 / 急症 → 必读对应 safety 模块，不因主模块无命中而省略（对标 nihaisha 针灸 safety 模块强制加载）。
 
-### P1-4 检索健壮性：字形归一化 + 检索词压缩
+### P1-4 检索健壮性：字形归一化 + 检索词压缩 ✅
 
-- [ ] 在 `rag_search.py` / `rag_semantic.py` 增加**字形归一化**（NFKC + 兪/腧→俞、鍼/針→针 等异体统一），模型无关、离线可跑。
-- [ ] 借鉴 nihaisha `--show-terms`：暴露检索词如何被歧义消解（强 token 优先、去口语填充词、复合词分解），服务白话提问。
-- [ ] （可选）两段式检索：主证据命中后自动补一轮「经典/注家」检索，与你的引经据典需求同构。
+- [x] 在 `rag_search.py` 增加 **`_NORM_MAP` + `_normalize()`**（NFKC + 70 项异体/繁简映射：針/鍼→针、證/証→证、氣→气、陰→阴、傷→伤、脅→胁、痺→痹 等），模型无关、离线可跑。
+- [x] `_expand_synonyms`：查询词并入归一化形式作 OR 候选；同义词扩展改以「归一化简体」为主键，使繁体/异体查询（如 `痺證`）与简体（`痹证`）享受一致的医案同义词扩展。
+- [x] `score_entry_synonym` / `score_entry`：命中判定加入归一化比对（text_all_norm / title_norm / 各字段 val_norm），条目内异体写法也能命中。
+- [x] `rag_semantic.py` `_tokenize`：分词前先归一化，n-gram 语义检索同样支持繁简互通。
+- [x] 验证：11 组简体/异体关键词检索结果逐组一致；语义检索 4 组一致；`eval_retrieval_quality --check-golden`、`resolve_ref --selfcheck`、`test_package_and_rag`、full_regression、routing/conformance 全 PASS。
+- [ ] `--show-terms`（暴露检索词歧义消解过程）——未做，后续可选。
+- [ ] （可选）两段式检索：主证据命中后自动补一轮「经典/注家」检索——未做，后续可选。
 
 ---
 

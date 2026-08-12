@@ -38,10 +38,15 @@ _NOISE = set(" \t\n\r　，。、；：！？,.!?;:\"'（）()【】[]《》<>·
 _CACHE: Optional[List[Dict[str, Any]]] = None
 
 def _tokenize(text: str) -> List[str]:
-    """中文友好：unigram + bigram 字符特征。"""
+    """中文友好：unigram + bigram 字符特征。
+
+    先做字形归一化（异体/繁简→简体，复用 rag_search._normalize），
+    使「針刺」/「鍼灸」「証」等查询与库内简体互通。
+    """
     if not text:
         return []
-    s = re.sub(r"\s+", "", text)
+    s = rs._normalize(text)
+    s = re.sub(r"\s+", "", s)
     chars = [c for c in s if c not in _NOISE and not c.isdigit()]
     grams: List[str] = []
     for c in chars:
