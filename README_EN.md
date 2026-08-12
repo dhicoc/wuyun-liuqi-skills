@@ -44,13 +44,13 @@
 
 > **If you are an AI Agent, jump to [README_AI.md](README_AI.md) and follow the instructions strictly.**
 
-When a user says "How's this year's Yunqi?" or "How did historical physicians treat headache?" to an AI Agent (Claude, Cursor, Codex), this skill pack routes the Agent to a deterministic calculation engine, retrieves relevant pathogenesis from 2124 real case records, and explains it in plain language - instead of hallucinating from memory.
+When a user says "How's this year's Yunqi?" or "How did historical physicians treat headache?" to an AI Agent (Claude, Cursor, Codex), this skill pack routes the Agent to a deterministic calculation engine, retrieves relevant pathogenesis from 1994 real case records, and explains it in plain language - instead of hallucinating from memory.
 
 ```
 User question (natural language)
   -> routing.yaml route matching
   -> calculate_yunqi_api.py calculation engine (Dahan boundary, no hallucination)
-  -> rag_search across 32 RAG assets (2124 cases + 33 disease susceptibility)
+  -> rag_search across 32 RAG assets (1994 cases + 33 disease susceptibility)
   -> infer_pathogenesis reasoning chain
   -> plain-language explanation + disclaimer
   -> self_evolve auto-journaling
@@ -60,7 +60,7 @@ User question (natural language)
 
 | RAG assets | Case records | Public-domain texts | Distilled guides | Scripts | CI tests |
 |---:|---:|---:|---:|---:|---:|
-| 32 | 2124 | 53 | 12 | 40 | 32 passing |
+| 32 | 1994 | 51 | 12 | 41 | 33 passing |
 
 The routing core is driven by a single `routing.yaml`, auto-discovered by cross-tool shells, with calculation engine and knowledge base kept separate.
 
@@ -68,12 +68,12 @@ The routing core is driven by a single `routing.yaml`, auto-discovered by cross-
 
 ## What is this
 
-A skill pack that makes AI Agents truly "understand" WuYun-LiuQi (Five Movements and Six Qi). Once installed, just say "How's this year's Yunqi?" in Claude / Cursor / Codex - the Agent calls a deterministic calculation engine to compute the Ganzhi, Dayun, Sitian/Zaiquan, and Kezhu-Jialin, then retrieves relevant pathogenesis and treatment from 2124 real case records across 21 public-domain classics, and explains it in plain language - instead of hallucinating from memory.
+A skill pack that makes AI Agents truly "understand" WuYun-LiuQi (Five Movements and Six Qi). Once installed, just say "How's this year's Yunqi?" in Claude / Cursor / Codex - the Agent calls a deterministic calculation engine to compute the Ganzhi, Dayun, Sitian/Zaiquan, and Kezhu-Jialin, then retrieves relevant pathogenesis and treatment from 1994 real case records across 21 public-domain classics, and explains it in plain language - instead of hallucinating from memory.
 
 **Three pain points it solves:**
 
 1. **LLMs miscalculate Yunqi** - Ganzhi, Sitian/Zaiquan, and Kezhu-Jialin have strict rules that LLMs often get wrong from memory. This pack uses a Python/JS dual-engine for deterministic calculation with Dahan (Major Cold) as the year boundary; results are reproducible.
-2. **Yunqi knowledge is scattered and hard to learn** - the system is complex, data-heavy, and spread across classics. This pack distills 35 public-domain texts (616K characters) into Greppable structured guides, plus a 700-term glossary.
+2. **Yunqi knowledge is scattered and hard to learn** - the system is complex, data-heavy, and spread across classics. This pack distills 51 public-domain texts (1.77M characters) into Greppable structured guides, plus a 700-term glossary.
 3. **No reliable Agent skill pack exists** - there's almost no Yunqi skill designed for Agents. This pack provides a routing contract, ReAct workflow, and self-evolution loop out of the box.
 
 > ⚠️ Yunqi is traditional Chinese medicine theory. This pack is for learning, research, and assisted reasoning only - it is not a medical diagnosis or treatment system. Clinical decisions must be made by licensed physicians.
@@ -157,7 +157,7 @@ python scripts/calculate_yunqi_api.py today --json    # Agent / JSON interface
 python scripts/calculate_yunqi_api.py 2026-06-27 --summary
 ```
 
-### 📚 2124 real case records · 21 public-domain classics
+### 📚 1994 real case records · 21 public-domain classics
 
 Distilled verbatim from Wikisource public-domain originals - zero placeholders, zero fabrication, each case carries a `source_quote` attestation. Covers Mingyi Lei'an, Xu Mingyi Lei'an, Gujin Yi'an An, Ding Ganren, Shanghan Jiushi Lun, Linzheng Zhinan, Huichun Lu, Zhang Yuqing, Wu Jutong, Yuyi Cao, Huixi, Huayun Lou, Xingxuan (184 cases), Sun Wenyuan (390 cases), and more - 21 collections in total.
 
@@ -201,7 +201,7 @@ Liu Wansu (Cold-Cool school) and Zhang Jiebin (Warm-Tonify school) are built int
 
 ## Complete feature list
 
-> 38 scripts · 6 sub-skill modules · 10 teaching modules · 2 commentator perspectives · 31 RAG assets · 53 public-domain texts · 12 distilled guides
+> 41 scripts · 6 sub-skill modules · 10 teaching modules · 2 commentator perspectives · 32 RAG assets · 51 public-domain texts · 12 distilled guides
 
 ### Calculation engine (9)
 
@@ -236,7 +236,7 @@ Liu Wansu (Cold-Cool school) and Zhang Jiebin (Warm-Tonify school) are built int
 | Thought export | `export_thought.py` | Plain-text summary / Anki cards (TSV+MD) / printable HTML/PDF |
 | Thought map | `export_thought_map.py` | Mermaid concept map + year-structure diagram |
 | Yunqi timeline | `visualize_timeline.py` | Annual six-step timeline HTML |
-| Case browser | `generate_case_browser.py` | 2124-case visual browser HTML |
+| Case browser | `generate_case_browser.py` | 1994-case visual browser HTML |
 
 ### Learning & teaching (3)
 
@@ -252,7 +252,7 @@ Liu Wansu (Cold-Cool school) and Zhang Jiebin (Warm-Tonify school) are built int
 |---------|--------------|-------------|
 | Self-evolution engine | `self_evolve.py` | Logging / feedback / blind-spot detection / monthly report / cleanup / suggestions |
 | Health check | `health_check.py` | Dependency, path, config integrity check |
-| Knowledge-base validation | `validate_knowledge_base.py` | 31 asset JSON schema validation |
+| Knowledge-base validation | `validate_knowledge_base.py` | 32 asset JSON schema validation |
 | RAG index generation | `generate_rag_index.py` | Generate / refresh RAG search index |
 | Report quality gate | `report_quality_gate.py` | Pre-output quality validation |
 | Routing sync | `sync_routing.py` | Sync routing.yaml changes to all entry files |
@@ -285,10 +285,10 @@ Liu Wansu (Cold-Cool school) and Zhang Jiebin (Warm-Tonify school) are built int
 | Category | Count | Description |
 |----------|-------|-------------|
 | RAG key-value assets | 31 | Pathogenesis/formulas/commentaries/region/constitution/agediagram cases/epidemic/21 historical case collections |
-| Public-domain texts | 53 | ~616K characters, pre-Qin to Qing; includes Suwen seven treatises, lost chapters, Shengji agediagrams, Xuanzhu Miyu |
+| Public-domain texts | 53 | ~1.77M characters, pre-Qin to Qing; includes Suwen seven treatises, lost chapters, Shengji agediagrams, Xuanzhu Miyu |
 | Distilled guides | 12 | Five-layer commentary chain (5) + 35-text merged groups (5) + supplements; Grep+Read, zero-dep |
 | Terminology glossary | 700 | `terminology.json`, matched via rag_keys |
-| Total historical cases | 2124 | 21 public-domain case libraries, with herbs + formulas_referenced structured fields |
+| Total historical cases | 1994 | 21 public-domain case libraries, with herbs + formulas_referenced structured fields |
 
 ### Teaching modules (10 concepts)
 
@@ -336,7 +336,7 @@ Heaven-Human Oneness · Qi transformation · Moderation · Dayun-Suiyun · Five-
 ├── rag-knowledge-base/         # ★ 32 assets + distilled guides + literature
 │   ├── asset1-32 *.json        #   Pathogenesis/formula/commentary/case (21 libraries)
 │   ├── *_guide.md              #   10 public-domain distilled guides
-│   └── literature/             #   35 public-domain texts (616K chars)
+│   └── literature/             #   51 public-domain texts (1.77M chars)
 ├── modules/                    # Sub-skills (routing.yaml targets)
 │   ├── ganzhi-basics/          #   Ganzhi basics
 │   ├── yunqi-calc/             #   Yunqi calculation (core)
