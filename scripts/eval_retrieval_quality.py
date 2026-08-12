@@ -24,6 +24,12 @@
     - golden 基准可持久化（--write-golden），使评估可复现、可版本化
     - 检索与 golden 同源覆盖：golden 取自哪些 asset，检索就覆盖哪些 asset，
       避免「基准含 asset18-32，检索却用默认范围」造成的 recall 系统性低估
+
+指标口径（务必按此解读，避免误用）：
+    - precision@k / recall@k 衡量的是「评估过程选定的 asset 子集（golden 来源的资产）」
+      内的排序命中情况，即<b>体系内检索质量</b>，<b>不等于</b>对全 32 个 asset 库
+      （含未入选 golden 的资产）的全库召回率。
+    - 若某病证命中率偏高/偏低，应先确认该病证在 golden 对应 asset 是否充分，再下结论。
 """
 
 import argparse

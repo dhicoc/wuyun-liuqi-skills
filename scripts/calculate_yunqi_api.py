@@ -57,23 +57,16 @@ def _resolve_date(date_input: Optional[Union[str, date]] = None) -> str:
     UX 优化：支持 'today'、'今天'、None（默认今天）、标准 YYYY-MM-DD，
     以及裸 4 位年份（如 '2026'，兼容原单项脚本的年份入口）。
     返回标准 YYYY-MM-DD 字符串。
+
+    日期/年份归一化统一委托 `_common.resolve_year_or_date`，避免与
+    其它入口（export_thought/socratic/CLI）出现 `-07-01` vs `-07-08` 两套代表日漂移。
     """
+    from _common import resolve_year_or_date
     if date_input is None:
         return date.today().isoformat()
-    # datetime.date 及其子类（含 datetime）
     if isinstance(date_input, date):
         return date_input.isoformat()[:10]
-
-    s = str(date_input).strip().lower()
-    if s in ("today", "今天", "now", "当前", ""):
-        return date.today().isoformat()
-
-    # 兼容：裸 4 位年份（如 "2026"）视为该运气年，映射到年中以确定大寒定年
-    if s.isdigit() and len(s) == 4:
-        return f"{s}-07-01"
-
-    # 否则假定是标准日期，让下游 _parse_date 做校验
-    return str(date_input).strip()
+    return resolve_year_or_date(str(date_input))
 
 
 def calculate_yunqi_api(date_str: Optional[Union[str, date]] = None) -> Dict[str, Any]:

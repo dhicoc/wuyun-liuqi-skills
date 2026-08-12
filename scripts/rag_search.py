@@ -405,6 +405,25 @@ def _expand_synonyms(terms: Sequence[str]) -> List[List[str]]:
     return expanded
 
 
+def describe_terms(terms: Sequence[str]) -> List[Dict[str, Any]]:
+    """返回检索词的『歧义消解』过程，供 --show-terms 展示。
+
+    每个词返回：原词 / 规范化(异体繁简→简体) / 实际检索词（含同义词组的 OR 表）。
+    """
+    expanded = _expand_synonyms(terms)
+    out = []
+    for group in expanded:
+        if not group:
+            continue
+        raw = group[0]
+        out.append({
+            "raw": raw,
+            "normalized": _normalize(raw),
+            "expanded_or": group,
+        })
+    return out
+
+
 def score_entry_synonym(entry: Dict[str, Any], expanded_terms: List[List[str]]) -> Tuple[int, List[str], str]:
     """同义词感知的打分函数。每组内 OR，组间 AND。"""
     if not expanded_terms:
@@ -930,6 +949,16 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     parser.add_argument("--limit", type=int, default=10, help="关键词/语义模式最多条数（默认 10）")
     parser.add_argument("--json", action="store_true")
     parser.add_argument("--list-assets", action="store_true")
+    parser.add_argument(
+        "--show-terms",
+        action="store_true",
+        help="关键词模式：打印检索词经『开素+同义词+字形归一化』歧义消解后的实际检索词表",
+    )
+    parser.add_argument(
+        "--include-extra",
+        action="store_true",
+        help="关键词模式：主检索命中后自动补一轮更宽同义词检索追加入口（两段式，默认关，不改变现有结果）",
+    )
     args = parser.parse_args(list(argv) if argv is not None else None)
 
     if args.list_assets:
@@ -1012,15 +1041,49 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         print("\n" + list_assets())
         return 0
 
+    # --show-terms：打印检索词歧义消解（原词 → 归一化 → 同义词 OR 表）
+    if args.show_terms:
+        terms_desc = describe_terms(args.terms)
+        if args.json:
+            print(json.dumps({"mode": "show_terms", "terms": terms_desc}, ensure_ascii=False, indent=2))
+        else:
+            print("检索词歧义消解：")
+            for d in terms_desc:
+                print(f"  {d['raw']} → 归一化 {d['normalized']} | OR组 {', '.join(d['expanded_or'])}")
+        return 0
+
     hits = search(args.terms, assets=args.assets, limit=args.limit)
+    # --include-extra：两段式补检索。主检索命中不足时，再按每组归一化核心词
+    # 做一次更宽的 OR 检索，去重追加，扩大召回（不改变主检索排序）。
+    if args.include_extra and len(hits) < args.limit:
+        core_terms = []
+        for d in describe_terms(args.terms):
+            # 每组取「归一化核心词」作为宽 OR 候选（去掉多词 AND 限制）
+            core = d["normalized"] or d["expanded_or"][0]
+            if core not in core_terms:
+                core_terms.append(core)
+        extra = []
+        for t in core_terms:
+            extra.extend(search([t], assets=args.assets, limit=args.limit))
+        seen = {h["id"] + "|" + h.get("asset", "") for h in hits}
+        for h in extra:
+            if h["id"] + "|" + h.get("asset", "") not in seen:
+                seen.add(h["id"] + "|" + h.get("asset", ""))
+                hits.append(h)
+        hits = hits[:args.limit]
+
     if args.json:
-        print(json.dumps({
+        payload = {
             "terms": args.terms,
             "assets": args.assets,
             "count": len(hits),
             "hits": hits,
             "mode": "keyword",
-        }, ensure_ascii=False, indent=2))
+        }
+        # 仅当两段式补检索显式开启时才追加标记，保持默认 JSON 结构向后兼容
+        if args.include_extra:
+            payload["extra_expanded"] = True
+        print(json.dumps(payload, ensure_ascii=False, indent=2))
     else:
         print(format_text(hits, args.terms, mode="keyword"))
     return 0 if hits else 1

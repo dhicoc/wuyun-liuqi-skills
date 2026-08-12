@@ -5,6 +5,7 @@
 - 综合报告遵循 `modules/docs-generator/SKILL.md`
 - 文献引用标注出处（素问篇名 / 历代医家 / 现代文献）
 - 医案使用 `case-journal/_template.md`，患者信息脱敏
+- **引用医案/知识库条目时，摘录与稳定引用必须同时出现**：格式 `yle:<asset>:<entry_id>`（如 `yle:asset13_gujin_an_cases:gujin_001`）。asset 为知识库文件名（去 `.json`），entry_id 为条目稳定唯一键。可用 `scripts/resolve_ref.py` 反解并核验引用可访问；纯定位符（无摘录）不得单独作为医案回答。
 
 ## SHOULD
 
