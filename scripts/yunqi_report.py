@@ -11,6 +11,13 @@ import json
 from _common import setup_environment
 setup_environment()  # 处理 UTF-8 + lib 路径
 
+# 免责 / 临床安全 / 急症声明：单一权威源（见 _safety_text.py），此处统一引用。
+from _safety_text import (
+    DISCLAIMER,
+    CLINICAL_SAFETY_NOTICE,
+    EMERGENCY_NOTICE,
+)
+
 from yunqi_data import (
     get_ganzhi, get_dayun, is_taiguo, get_sitian, get_zaiquan,
     get_keqi_six_steps, get_zhuqi_six_steps, get_zhuyun_five_steps,
@@ -26,23 +33,6 @@ try:
     AUTO_SE = True
 except Exception:
     AUTO_SE = False
-
-DISCLAIMER = (
-    "\n> ⚠️ 免责声明：以上分析基于中医运气学说理论推算，仅供参考。"
-    "运气学说非现代医学诊断标准，具体诊疗须由执业中医师辨证论治。"
-    "请勿据此自行用药或针灸。\n"
-)
-
-CLINICAL_SAFETY_NOTICE = (
-    "\n> ⚠️ 临床安全提示：方药仅作传统运气学参考方向，须由执业中医师辨证加减；"
-    "请勿自行购药、配伍或服用。针灸/艾灸/穴位仅作传统理论参考，"
-    "须由执业针灸师操作；请勿自行针刺或重灸。\n"
-)
-
-EMERGENCY_NOTICE = (
-    "\n> ⚠️ 急症提醒：若出现胸痛、呼吸困难、意识障碍、大出血、剧烈腹痛、高热不退等严重症状，"
-    "请立即联系急救或前往正规医疗机构就诊。\n"
-)
 
 RAG_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'rag-knowledge-base')
 

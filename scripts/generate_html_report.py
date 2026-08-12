@@ -15,6 +15,9 @@ from types import SimpleNamespace
 from _common import setup_environment, add_scripts_dir_to_path
 setup_environment(add_lib=False, add_scripts=True)
 
+# 免责声明：单一权威源（见 _safety_text.py），HTML 正文统一引用。
+from _safety_text import CONTEXT_DISCLAIMERS
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 WUXING_COLORS = {
@@ -719,7 +722,7 @@ def generate_html(data, advanced=None, with_rag_bundle=True):
     </section>
 
     <section class="section">
-      <div class="disclaimer reveal"><strong>免责声明</strong>：以上分析基于中医运气学说理论推算，仅供参考。运气学说非现代医学诊断标准，具体诊疗须由执业中医师辨证论治，请勿据此自行用药或针灸。</div>
+      <div class="disclaimer reveal"><strong>免责声明</strong>：{CONTEXT_DISCLAIMERS['general_report']}</div>
     </section>
   </main>
 

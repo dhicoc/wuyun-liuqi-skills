@@ -35,6 +35,8 @@ from datetime import date as date_cls, datetime
 from _common import setup_environment
 setup_environment(add_lib=False, add_scripts=True)
 
+from _safety_text import CONTEXT_DISCLAIMERS  # noqa: E402
+
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 BASE_DIR = os.path.dirname(SCRIPT_DIR)
 CACHE_DIR = os.path.join(BASE_DIR, '.cache', 'weather_alignment')
@@ -222,11 +224,7 @@ SUIYUN_ATTRS = {
 
 OPPOSITES = [({'寒'}, {'火热', '暑热'}), ({'湿'}, {'燥'})]
 
-DISCLAIMER = (
-    '⚠️ 免责声明：以上分析基于中医运气学说与实时气象数据的理论对齐，'
-    '仅供参考。运气学说非现代医学诊断标准，具体诊疗须由执业中医师辨证论治。'
-    '请勿据此自行用药或针灸。'
-)
+DISCLAIMER = CONTEXT_DISCLAIMERS['weather']
 
 
 def parse_date(date_str):

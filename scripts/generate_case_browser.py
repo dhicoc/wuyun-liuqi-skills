@@ -22,6 +22,8 @@ sys.path.insert(0, str(SCRIPT_DIR))
 from _common import setup_environment, add_scripts_dir_to_path
 setup_environment(add_lib=True, add_scripts=True)
 
+from _safety_text import CONTEXT_DISCLAIMERS
+
 from generate_html_report import _STYLE, escape_html
 import ink_theme  # scripts/lib（setup_environment 已注入路径）
 
@@ -141,7 +143,7 @@ def generate_browser_html(libraries, all_entries):
     </section>
 
     <section class="section">
-      <div class="disclaimer reveal"><strong>免责声明</strong>：医案内容来自公版中医典籍蒸馏，仅供学术研究参考。临床诊疗须由执业中医师辨证论治，请勿据此自行用药或针灸。</div>
+      <div class="disclaimer reveal"><strong>免责声明</strong>：{CONTEXT_DISCLAIMERS['medical_case']}</div>
     </section>
   </main>
 

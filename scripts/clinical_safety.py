@@ -20,9 +20,12 @@ import sys
 from _common import setup_environment
 setup_environment(add_lib=False)
 
-FORMULA_NOTICE = '⚠️ 方药仅作传统运气学参考方向，须由执业中医师辨证加减；请勿自行购药、配伍或服用。'
-ACUPUNCTURE_NOTICE = '⚠️ 针灸/艾灸/穴位仅作传统理论参考，须由执业针灸师操作；请勿自行针刺或重灸。'
-GENERAL_MEDICAL_NOTICE = '⚠️ 以上内容不构成医学诊断或治疗建议；如有不适，请咨询执业医师。'
+from _safety_text import (
+    FORMULA_NOTICE,
+    ACUPUNCTURE_NOTICE,
+    GENERAL_MEDICAL_NOTICE,
+)
+
 DOSE_PLACEHOLDER = '{剂量须由执业医师辨证确定}'
 
 # 常见剂量/服用频率表达。尽量保守：只替换数字 + 明确剂量单位。

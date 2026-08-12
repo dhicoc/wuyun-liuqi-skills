@@ -22,6 +22,8 @@ sys.path.insert(0, str(SCRIPT_DIR))
 from _common import setup_environment, add_scripts_dir_to_path
 setup_environment(add_lib=False, add_scripts=True)
 
+from _safety_text import CONTEXT_DISCLAIMERS
+
 from calculate_yunqi_api import calculate_yunqi_api
 from generate_html_report import _STYLE, escape_html, LIUQI_WUXING
 import ink_theme
@@ -203,7 +205,7 @@ def generate_timeline_html(year: int) -> str:
     </section>
 
     <section class="section">
-      <div class="disclaimer reveal"><strong>免责声明</strong>：以上为运气时间轴可视化，基于中医运气学说理论推算，仅供参考。临床应用须结合个体辨证，请勿据此自行用药或针灸。</div>
+      <div class="disclaimer reveal"><strong>免责声明</strong>：{CONTEXT_DISCLAIMERS['timeline']}</div>
     </section>
   </main>
 

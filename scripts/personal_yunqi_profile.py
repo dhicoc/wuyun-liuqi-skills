@@ -20,6 +20,7 @@ setup_environment(add_lib=False, add_scripts=True)  # 需要同目录 import con
 
 from constitution_assessment import assess_constitution, extract_scores_and_metadata, parse_input_payload  # noqa: E402
 from clinical_safety import sanitize_current_adjustment  # noqa: E402
+from _safety_text import CONTEXT_DISCLAIMERS  # noqa: E402
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RAG_DIR = os.path.join(BASE_DIR, 'rag-knowledge-base')
@@ -430,9 +431,7 @@ def generate_profile(birth_date, region=None, as_json=False, today=None, constit
         lines.append("")
 
     lines.append(
-        "> ⚠️ 免责声明：以上分析基于中医运气学说与体质学说理论推算，仅供参考。"
-        "运气学说与体质学说非现代医学诊断标准，具体诊疗须由执业中医师辨证论治。"
-        "请勿据此自行用药或针灸。"
+        "> ⚠️ " + CONTEXT_DISCLAIMERS['constitution']
     )
 
     return '\n'.join(lines)

@@ -91,12 +91,17 @@ nihaisha 无法替代的优势集中在**检索型 Agent 的工程质量**，本
 - [ ] 增加 `pair_id` 鲁棒性配对：同类问题多次提问回答一致性（对标 nihaisha 62.5% 的坑，提醒规避）。
 - [ ] 能力边界通过率：故意问出域题，断言 Agent **不越界**（对标 nihaisha 边界通过率仅 8.3%，说明"收紧边界"是刻意设计而非缺陷）。
 
-### P2-2 免责声明单一权威来源
+### P2-2 免责声明单一权威来源 ✅
 
 > 依据：现 DISCLAIMER / CLINICAL_SAFETY_NOTICE / EMERGENCY_NOTICE 在 4+ 文件硬拷贝重复，易措辞漂移。
+> 状态：已完成。
 
-- [ ] 将三类声明收敛为单一权威源（如 `rules/medical-safety.md` 或 `scripts/_safety.py`），各报告模块 import / 引用，杜绝漂移。
-- [ ] 剂量脱敏：`redact_dosage` 正则对中文剂量表达（如「一两三」「二钱半」）有漏网风险，属 MUST NOT 红线，建议默认「含方药剂量即拒绝输出」而非仅正则替换（可在 `report_quality_gate` 强制）。
+- [x] 三类声明收敛为单一权威源 `scripts/_safety_text.py`（纯常量、零依赖）：三件套 DISCLAIMER / CLINICAL_SAFETY_NOTICE / EMERGENCY_NOTICE + `EMERGENCY_NOTICE_PLAIN`（门禁用）+ `CONTEXT_DISCLAIMERS`（医案/体质/气象/时间轴场景变体）+ 三个单句 NOTICE。
+- [x] `yunqi_report.py` / `clinical_safety.py` / `generate_html_report.py` / `visualize_timeline.py` / `generate_case_browser.py` / `personal_yunqi_profile.py` / `weather_alignment.py` 均改 import，删除本地硬拷贝。
+- [x] `report_quality_gate.py`：删除未使用的死代码 `EMERGENCY_NOTICE`；`demo_text()` 改由权威源拼接，保证与真实报告一致。
+- [x] 输出逐字校验：HTML 免责、case browser、timeline、practitioner 报告质量门禁（含快照比对）均与原一致，无措辞漂移、无重复拼接。
+- [x] README/README_EN 脚本数 42→43、目录注释同步。
+- [ ] 剂量脱敏：`redact_dosage` 正则对中文剂量表达（如「一两三」「二钱半」）有漏网风险（**未做**，独立于本项）。
 
 ---
 

@@ -28,7 +28,8 @@ DISCLAIMER_REQUIRED = [
 ]
 FORMULA_REQUIRED = ['方药仅作', '辨证加减', '请勿自行']
 ACUPUNCTURE_REQUIRED = ['针灸', '执业针灸师']
-EMERGENCY_NOTICE = '⚠️ 急症提醒：若出现胸痛、呼吸困难、意识障碍、大出血、剧烈腹痛、高热不退等严重症状，请立即联系急救或前往正规医疗机构就诊。'
+# 注意：急症提醒文本由 _safety_text.EMERGENCY_NOTICE_PLAIN 提供（单一权威源）；
+# 本门禁仅以关键词判定报告是否含急症提醒，不持有声明文本全文。
 EMERGENCY_KEYWORDS = ['胸痛', '呼吸困难', '意识障碍', '昏迷', '大出血', '咯血', '剧烈腹痛', '高热不退', '抽搐', '中风', '偏瘫']
 DOSE_PATTERNS = [
     re.compile(r'\d+(?:\.\d+)?\s*(?:克|g|G|钱|两|毫克|mg|MG|毫升|ml|ML|升|L)(?:\b)?'),
@@ -98,7 +99,14 @@ def snapshot_check(text, snapshot_path, update=False):
 
 
 def demo_text():
-    return '# 临床版报告\n\n方药方向：温阳化湿。\n针灸参考：关元。\n\n⚠️ 免责声明：以上分析基于中医运气学说理论推算，仅供参考。运气学说非现代医学诊断标准，具体诊疗须由执业中医师辨证论治。请勿据此自行用药或针灸。\n\n⚠️ 方药仅作传统运气学参考方向，须由执业中医师辨证加减；请勿自行购药、配伍或服用。\n⚠️ 针灸/艾灸/穴位仅作传统理论参考，须由执业针灸师操作；请勿自行针刺或重灸。\n'
+    # 演示样张：用单一权威源拼接，保证与真实报告一致、无重复，也不影响快照比对逻辑。
+    from _safety_text import DISCLAIMER, FORMULA_NOTICE, ACUPUNCTURE_NOTICE
+    return (
+        '# 临床版报告\n\n方药方向：温阳化湿。\n针灸参考：关元。\n\n'
+        + DISCLAIMER.strip() + '\n\n'
+        + FORMULA_NOTICE + '\n'
+        + ACUPUNCTURE_NOTICE + '\n'
+    )
 
 
 def main():
