@@ -30,11 +30,12 @@ python tests/verify_expansion.py
 
 `--link-global` 会自动将本仓库链接到：
 
-- `~/.claude/skills/wuyun-liuqi-skills/`
-- `~/.cursor/skills/wuyun-liuqi-skills/`
+- `~/.claude/skills/wuyun-liuqi-skills/`（Claude Code）
+- `~/.cursor/skills/wuyun-liuqi-skills/`（Cursor）
+- `~/.codex/skills/wuyun-liuqi-skills/`（Codex；若设了 `CODEX_HOME` 环境变量则链接到 `$CODEX_HOME/skills/`）
 
 用户无需手动 `mklink` / `ln -sf`。若链接已存在且指向错误路径，使用 `--link-global --force`。  
-若提示「拒绝访问」，先关闭 Claude Code / Cursor 再重试（旧目录可能是完整 git 副本且文件被占用）。
+若提示「拒绝访问」，先关闭 Claude Code / Cursor / Codex 再重试（旧目录可能是完整 git 副本且文件被占用）。
 
 仅装环境、不全局注册时：`python scripts/install.py`（场景 A：打开本文件夹使用）。
 
@@ -79,6 +80,7 @@ python scripts/install.py --link-global
 |------|----------|
 | Claude Code | `~/.claude/skills/wuyun-liuqi-skills/` |
 | Cursor | `~/.cursor/skills/wuyun-liuqi-skills/` |
+| Codex | `~/.codex/skills/wuyun-liuqi-skills/`（`CODEX_HOME` 已设则用 `$CODEX_HOME/skills/`） |
 
 ### 5. 向用户报告（必须包含）
 

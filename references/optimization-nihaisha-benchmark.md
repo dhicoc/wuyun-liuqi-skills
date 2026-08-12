@@ -8,7 +8,7 @@
 
 ## 完成度总览
 
-> 更新：2026-08-12。已落地 **7/8** 项，全部经远端 CI 确认。
+> 更新：2026-08-12。7 项完成经验证，第 8 项（P3 跨平台）已完成主体（install.py 加 Codex）。
 
 | 优先级 | 事项 | 提交 | 状态 |
 |--------|------|------|------|
@@ -19,7 +19,7 @@
 | P1-4 | 字形归一化检索 | `7ae45d6` | ✅ |
 | P1-3 | 医案渐进加载薄索引 | `c2068d6` | ✅ |
 | P2-1 | 答案层断言 | `a49891e` | ✅ |
-| P3 | 跨平台 / openai.yaml / MCP 审计 | — | ⏳ 未做 |
+| P3 | 跨平台：install.py 加 Codex 目标 | 待推送 | 🔶 主体完成（openai.yaml/轻量原则/mcps 审计可后续补） |
 
 剩余可选：**P3**（跨平台）。
 
@@ -141,9 +141,11 @@ nihaisha 无法替代的优势集中在**检索型 Agent 的工程质量**，本
 
 ## P3：跨平台与工程可移植（低优先）
 
-- [ ] 补一个 `agents/openai.yaml` 风格的结构化 agent 声明（`interface/policy/default_prompt`），供非 Claude 宿主复用；不引 MCP、不自动下载。
-- [ ] 明确把「轻量零依赖」固化为架构原则：核心仅 `lunar-python`，重依赖（若未来引向量/embedding）一律进 optional extras（对标 nihaisha `pyproject.toml` 仅 `requests` + extras）。
-- [ ] 审计 `mcps/` 7 个 MCP schema：当前**全部未接线**。若要打通「八字时间 → 干支 → 运气」可接入 `mcps/Bazi`，否则在文档标注为「休眠资产」避免误用。
+- [x] **`install.py --link-global` 增加 Codex 目标**（提交 `~/.codex/skills/`，支持 `CODEX_HOME` 环境变量优先）——「链接仓库→agent 帮忙装」从 Claude+Cursor 扩到 3 宿主。已隔离 HOME 实测三宿主链接全部创建成功。
+- [x] `one-line-install.md` 宿主表补 Codex 目标路径。
+- [ ] （可选）补 `agents/openai.yaml` 风格结构化 agent 声明——本项目已走 client-neutral（AGENTS.md 平台中立入口），openai.yaml 仅作按需可选，不强制。
+- [ ] 明确把「轻量零依赖」固化为架构原则：核心仅 `lunar-python`，重依赖（若未来引向量/embedding）一律进 optional extras。
+- [ ] 审计 `mcps/` 7 个 MCP schema：当前**全部未接线**（Bazi/浏览器/context7 等为休眠资产快照）。建议在文档标注「休眠资产」避免误用；打通「八字时间→干支→运气」可接入 `mcps/Bazi`。
 
 ---
 

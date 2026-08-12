@@ -8,7 +8,7 @@
     python scripts/install.py --link-global
     python scripts/install.py --link-global --force
 
---link-global  将本仓库链接到 ~/.claude/skills/ 与 ~/.cursor/skills/（场景 B 常驻）
+--link-global  将本仓库链接到 ~/.claude/skills/ 与 ~/.cursor/skills/、~/.codex/skills/（场景 B 常驻）
 --force        已存在且指向其他路径时，先删除再重建链接
 """
 import argparse
@@ -47,10 +47,17 @@ def run_command(cmd, shell=False):
 
 def global_skill_targets():
     home = Path.home()
-    return {
+    targets = {
         "claude": home / ".claude" / "skills" / GLOBAL_SKILL_NAME,
         "cursor": home / ".cursor" / "skills" / GLOBAL_SKILL_NAME,
     }
+    # Codex：优先 $CODEX_HOME（若设置），否则 ~/.codex（OpenAI Codex 官方默认 skills 目录）
+    codex_home = os.environ.get("CODEX_HOME")
+    if codex_home:
+        targets["codex"] = Path(codex_home) / "skills" / GLOBAL_SKILL_NAME
+    else:
+        targets["codex"] = home / ".codex" / "skills" / GLOBAL_SKILL_NAME
+    return targets
 
 
 def _normalize(path: Path) -> Path:
@@ -200,7 +207,7 @@ def parse_args():
     parser.add_argument(
         "--link-global",
         action="store_true",
-        help="链接到 ~/.claude/skills/ 与 ~/.cursor/skills/wuyun-liuqi-skills",
+        help="链接到 ~/.claude/skills/ 与 ~/.cursor/skills/、~/.codex/skills/wuyun-liuqi-skills",
     )
     parser.add_argument(
         "--force",
