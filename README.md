@@ -2,11 +2,10 @@
   <img src="wuyun-liuqi-skills.png" alt="wuyun-liuqi-skills" width="140" />
 </p>
 
-<h1 align="center">五运六气 AI Agent 技能包</h1>
+<h1 align="center">wuyun-liuqi-skills</h1>
+<h3 align="center">TCM Yunqi Skills Router · 五运六气技能路由包</h3>
 
-<p align="center"><em style="font-family: KaiTi, STKaiti, SimSun, serif; font-size: 1.3em; color: #999;">天人合一，五运六气</em></p>
-
-<p align="center">把《黄帝内经》运气学装进你的 AI Agent，让它在对话中准确推算、检索 2124 条真实医案、用通俗语言讲透思想。</p>
+<p align="center"><em style="font-family: KaiTi, STKaiti, SimSun, serif; font-size: 1.2em; color: #777;">天人合一，五运六气</em></p>
 
 <p align="center">
   <a href="https://github.com/dhicoc/wuyun-liuqi-skills/stargazers"><img src="https://img.shields.io/github/stars/dhicoc/wuyun-liuqi-skills?style=flat&logo=github" alt="stars"></a>
@@ -15,8 +14,12 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="license"></a>
 </p>
 
-<p align="center">32 个 RAG asset（含 33 条疾病易感性）· 2124 条真实医案 · 53 篇公版文献 · 12 本蒸馏指南 · 同义词检索<br/>
-支持 Claude Code / Cursor / Codex CLI / Cline / OpenClaw 等 AI 客户端</p>
+<p align="center">
+  AI 自动路由 + 确定性推算引擎 + RAG 知识库 + 自进化经验库<br/>
+  支持 Claude Code / Cursor / Codex CLI / Cline / OpenClaw 等 AI 客户端
+</p>
+
+<br/>
 
 <p align="center">
   <a href="#这是什么">这是什么</a> ·
@@ -31,17 +34,42 @@
   🌐 <a href="README_EN.md">English</a>
 </p>
 
+<br/>
+
 ---
+
+<a id="这是什么"></a>
 
 ## 这是什么
 
-一个让 AI Agent 真正「懂」五运六气的技能包。安装后，你在 Claude / Cursor / Codex 里说一句「今年运气怎么样」，Agent 会调用确定性推算引擎算出干支、大运、司天在泉、客主加临，再从 2124 条历代名家真实医案和 21 部公版典籍里检索相关病机与治法，最后用通俗中文讲给你听——而不是凭记忆胡编。
+> **如果你是 AI Agent，直接跳转到 [README_AI.md](README_AI.md)，严格按照内容要求执行。**
 
-**它解决的三个痛点：**
+当用户对 AI Agent（Claude、Cursor、Codex 等）说「今年运气怎么样」「我出生那年的体质倾向」「历代医家怎么治头痛」时，这个技能包让 Agent 调用确定性推算引擎算出干支运气格局，从 2124 条真实医案中检索相关病机与治法，再用通俗语言讲给用户听——而不是凭记忆胡编。
 
-1. **大模型容易算错运气** —— 干支、司天在泉、客主加临有严谨规则，大模型常凭记忆给出错误结果。本包用 Python/JS 双引擎做确定性推算，大寒定年，结果可复现。
-2. **运气知识分散难学** —— 思想体系复杂，数据表多，经典分散。本包把 35 篇公版文献（61.6 万字）蒸馏成可 Grep 的结构化指南，配 700 条术语库。
-3. **缺可靠的 Agent 技能包** —— 专为 Agent 设计的运气学技能几乎没有。本包提供路由契约、ReAct 工作流、自进化回路，开箱即用。
+```
+用户提问（自然语言）
+  -> routing.yaml 路由匹配
+  -> calculate_yunqi_api.py 推算引擎（大寒定年，非幻觉）
+  -> rag_search 检索 32 个 RAG asset（2124 条医案 + 33 条疾病易感性）
+  -> infer_pathogenesis 病机推理链
+  -> 通俗语言解释 + 免责声明
+  -> self_evolve 自动沉淀经验
+```
+
+### 当前状态
+
+| RAG asset | 医案条目 | 公版文献 | 蒸馏指南 | 推算脚本 | CI 测试 |
+|---:|---:|---:|---:|---:|---:|
+| 32 | 2124 | 53 篇 | 12 本 | 40 个 | 32 项全绿 |
+
+路由核心由一个 `routing.yaml` 驱动，跨工具薄壳自动发现，推算引擎与知识库分离。
+
+<p align="right">(<a href="#这是什么">返回顶部</a>)</p>
+
+**为什么需要这个项目：**
+- 大模型容易对干支、司天在泉、客主加临产生幻觉--本包用确定性推算引擎，大寒定年，结果可复现
+- 运气知识分散在经典中，普通人难以系统掌握--本包把 53 篇公版文献蒸馏成可 Grep 的结构化指南
+- 缺少专为 Agent 设计的运气学技能包--本包提供路由契约、ReAct 工作流、自进化经验库，开箱即用
 
 > ⚠️ 运气学为中医传统理论，本包用于学习研究与辅助推理，不构成医学诊断或治疗建议。临床决策须由执业医师处理。
 

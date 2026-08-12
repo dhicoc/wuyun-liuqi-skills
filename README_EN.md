@@ -2,11 +2,10 @@
   <img src="wuyun-liuqi-skills.png" alt="wuyun-liuqi-skills" width="140" />
 </p>
 
-<h1 align="center">WuYun-LiuQi AI Agent Skill Pack</h1>
+<h1 align="center">wuyun-liuqi-skills</h1>
+<h3 align="center">TCM Yunqi Skills Router</h3>
 
-<p align="center"><em style="font-family: KaiTi, STKaiti, SimSun, serif; font-size: 1.3em; color: #999;">Heaven-Human Oneness · Five Movements &amp; Six Qi</em></p>
-
-<p align="center">Install Yunqi (TCM Climate &amp; Pathology) theory into your AI Agent - accurate calculation, 2124 real case records, and plain-language explanation in natural conversation.</p>
+<p align="center"><em style="font-family: KaiTi, STKaiti, SimSun, serif; font-size: 1.2em; color: #777;">Heaven-Human Oneness · Five Movements &amp; Six Qi</em></p>
 
 <p align="center">
   <a href="https://github.com/dhicoc/wuyun-liuqi-skills/stargazers"><img src="https://img.shields.io/github/stars/dhicoc/wuyun-liuqi-skills?style=flat&logo=github" alt="stars"></a>
@@ -15,8 +14,12 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="license"></a>
 </p>
 
-<p align="center">32 RAG assets (incl. 33 disease susceptibility) · 2124 real cases · 53 public-domain texts · 12 distilled guides · synonym search<br/>
-Supports Claude Code / Cursor / Codex CLI / Cline / OpenClaw</p>
+<p align="center">
+  AI auto-routing + deterministic calculation engine + RAG knowledge base + self-evolving journal<br/>
+  Supports Claude Code / Cursor / Codex CLI / Cline / OpenClaw
+</p>
+
+<br/>
 
 <p align="center">
   <a href="#what-is-this">What</a> ·
@@ -27,7 +30,41 @@ Supports Claude Code / Cursor / Codex CLI / Cline / OpenClaw</p>
   <a href="#contributing">Contributing</a>
 </p>
 
+<p align="center">
+  🌐 <a href="README.md">中文</a>
+</p>
+
+<br/>
+
 ---
+
+<a id="what-is-this"></a>
+
+## What is this
+
+> **If you are an AI Agent, jump to [README_AI.md](README_AI.md) and follow the instructions strictly.**
+
+When a user says "How's this year's Yunqi?" or "How did historical physicians treat headache?" to an AI Agent (Claude, Cursor, Codex), this skill pack routes the Agent to a deterministic calculation engine, retrieves relevant pathogenesis from 2124 real case records, and explains it in plain language - instead of hallucinating from memory.
+
+```
+User question (natural language)
+  -> routing.yaml route matching
+  -> calculate_yunqi_api.py calculation engine (Dahan boundary, no hallucination)
+  -> rag_search across 32 RAG assets (2124 cases + 33 disease susceptibility)
+  -> infer_pathogenesis reasoning chain
+  -> plain-language explanation + disclaimer
+  -> self_evolve auto-journaling
+```
+
+### Current status
+
+| RAG assets | Case records | Public-domain texts | Distilled guides | Scripts | CI tests |
+|---:|---:|---:|---:|---:|---:|
+| 32 | 2124 | 53 | 12 | 40 | 32 passing |
+
+The routing core is driven by a single `routing.yaml`, auto-discovered by cross-tool shells, with calculation engine and knowledge base kept separate.
+
+<p align="right">(<a href="#what-is-this">back to top</a>)</p>
 
 ## What is this
 
