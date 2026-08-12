@@ -15,7 +15,7 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="license"></a>
 </p>
 
-<p align="center">32 个 RAG asset（含 33 条疾病易感性）· 2124 条真实医案 · 53 篇公版文献 · 12 本蒸馏指南 · 同义词检索 · 32 项 CI 全绿<br/>
+<p align="center">32 个 RAG asset（含 33 条疾病易感性）· 2124 条真实医案 · 53 篇公版文献 · 12 本蒸馏指南 · 同义词检索<br/>
 支持 Claude Code / Cursor / Codex CLI / Cline / OpenClaw 等 AI 客户端</p>
 
 <p align="center">

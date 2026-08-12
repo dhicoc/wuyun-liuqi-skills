@@ -15,7 +15,7 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="license"></a>
 </p>
 
-<p align="center">32 RAG assets (incl. 33 disease susceptibility) · 2124 real cases · 53 public-domain texts · 12 distilled guides · synonym search · 32 CI tests passing<br/>
+<p align="center">32 RAG assets (incl. 33 disease susceptibility) · 2124 real cases · 53 public-domain texts · 12 distilled guides · synonym search<br/>
 Supports Claude Code / Cursor / Codex CLI / Cline / OpenClaw</p>
 
 <p align="center">
