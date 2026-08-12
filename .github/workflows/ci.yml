@@ -122,6 +122,13 @@ jobs:
       - name: Lightweight semantic search smoke
         run: python scripts/rag_semantic.py 心火偏旺 --limit 3
 
+      - name: Cases progressive-load routing smoke (P1-3)
+        run: |
+          python scripts/cases_routing.py --syndrome 湿温 --json
+          python scripts/cases_routing.py --syndrome 温疫 --json
+          python scripts/cases_routing.py --rag-key water_excess --json
+          python scripts/cases_routing.py --list-assets --json
+
       - name: Node.js API smoke test
         run: node scripts/calculate_yunqi_api.js 2026-06-29 --json
 
