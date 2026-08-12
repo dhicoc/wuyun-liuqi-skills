@@ -41,23 +41,30 @@ nihaisha 无法替代的优势集中在**检索型 Agent 的工程质量**，本
 
 ## P1：检索工程质量（nihaisha 可复用的最高价值）
 
-### P1-1 黄金基准集持久化 + 修正范围错配
+### P1-1 黄金基准集持久化 + 修正范围错配 ✅
 
 > 依据：nihaisha `evals/*.jsonl` + `reference_targets` 字段。
+> 状态：已完成（提交 `ff447fa`）。
 
-- [ ] 将 `scripts/eval_retrieval_quality.py` 内联的 golden 集落成 `tests/golden/` 下**独立版本化文件**（JSONL），加入 git 追踪。
-- [ ] 修正**基准与检索范围错配**：现在 golden 用 `load_all_cases` 加载全部 `asset*_cases.json`（含 asset18–32），但 `search()` 用默认资产范围（**不含** asset18–32），导致来自 asset18–32 的 golden 必然不可命中，系统性拉低 recall / 抬高零命中。
-  - 方案二选一：① 评测显式覆盖全 asset 范围；② 把 asset18–32 纳入 `_default_asset_keys()` 默认检索范围（后者更利终端）。
-- [ ] 命中 ID 提取改为结构化字段，不再依赖 `title.split("_")`。
-- [ ] 指标注明口径：如 nihaisha 明确「`pool_hit`/`pool_ndcg` 只描述证据池内排序，≠全库召回率」，避免指标被误读。
+- [x] 将 `scripts/eval_retrieval_quality.py` 内联的 golden 集落成 `tests/golden/retrieval_golden.json`（JSON，32 类 / 1994 条医案），纳入 git 追踪。
+- [x] 修正**基准与检索范围错配**：golden 含 asset18–32，检索却用默认范围。方案①已做——`evaluate_recall` 检索范围与 golden 同源覆盖（`_assets_of`）；未改动 `_default_asset_keys()`（保留产品默认范围语义）。
+- [x] 命中 ID 提取改为结构化字段：改用 `hit['id']`（entry_id），不再从 `title.split("_")` 解析。
+- [x] 顺带修复 `rag_search._entry_id` 优先级：把 `case_id/entry_id` 提到 `code` 之前，消除「医案的 rag_key（病证名非唯一）」与「asset9 岁图的 code（非唯一）」导致的 id 撞车。命中匹配、精确 key 检索、字段检索统一命中唯一标识。
+- [x] 新增 `--write-golden`（固化基准）与 `--check-golden`（漂移校验，接入 CI）。
+- [x] 指标改善：precision@5 87.5%→94.4%、precision@10 78.1%→93.1%、recall@20 39.3%→73.6%；痹证/儿科假阴性（P@10=0%）消除。
+- [ ] （待定）指标口径加注「pool 内命中 ≠ 全库召回率」，防误读。
 
-### P1-2 分层证据引用 + stable doc_id
+### P1-2 分层证据引用 + stable doc_id ✅
 
 > 依据：nihaisha `pdf-evidence:<doc_id>#p<page>` / `text-evidence:<doc_id>#s<section>` + `source-manifest.json`。
+> 状态：已完成（提交待定 `resolve_ref` / rag_search / ci）。
 
-- [ ] 为 `rag-knowledge-base` 各 asset 引入 **stable doc_id**（`source-manifest.json` 维护 文档ID → 文件/条目 映射），供报告与检索稳定引用。
-- [ ] 制定统一引用语法并写入回答格式（如 `yle:<doc_id>#<entry_id>`），强制「摘录 + 稳定引用」同时出现。
-- [ ] 把「临床必带出处」从 prompt 约束升级为**可客观统计**的「引用可访问率」，纳入 CI 门禁（呼应你 `rules/medical-safety.md` 的 MUST 条）。
+- [x] 稳定引用语法定为 `yle:<asset文件名>:<entry_id>`（例 `yle:asset13_gujin_an_cases:gujin_001`，`yle:asset9_cases:shengji_jiazi`）。asset 文件名为稳定文档 ID；entry_id 为条目稳定唯一键。
+- [x] `rag_search` 四个组装点（search / search_by_field / lookup_key / 各自 hit）统一输出 `ref` 字段（`make_ref`）。
+- [x] 新增 `scripts/resolve_ref.py`：解析 `yle:` 引用（`resolve_ref`）、批量统计可访问率、`--list-assets`、`--selfcheck` 自测门禁。
+- [x] `_entry_id` 改为稳定唯一键（case_id/entry_id 优先），全 asset 除 terminology（语义术语表，非定位目标）外 id 唯一。
+- [x] 引用可访问率纳入 CI：`resolve_ref.py --selfcheck`（95/95=100%）。
+- [ ] （待定）把「强制摘录 + 稳定引用同时出现」写入 `rules/output.md` / `case-journal/precedent-disclaimer.md`，作为 Agent 回答格式规则。
 
 ### P1-3 按需渐进加载 + 强制联动条件
 

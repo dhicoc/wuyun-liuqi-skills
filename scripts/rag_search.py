@@ -22,6 +22,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Sequence, Tuple
 
@@ -161,9 +162,11 @@ def _flatten_strings(obj: Any, prefix: str = "") -> List[Tuple[str, str]]:
 
 
 def _entry_id(entry: Dict[str, Any], idx: int) -> str:
-    # 唯一标识字段优先于 rag_key：医案类 asset 的 rag_key 是病证名（如「中风」），非条目唯一标识，
-    # 若优先返回值会多个条目撞 id，破坏按 id 精确比对。故把 case_id/entry_id/id 提到 rag_key 之前。
-    for key in ("code", "key", "case_id", "entry_id", "id", "rag_key", "sitian_key", "name", "term", "title"):
+    # 稳定唯一标识优先级：先 case_id/entry_id（医案/岁图类条目的稳定唯一键），
+    # 次 key/id，再 code（如病机 asset 的 water_excess 等语义码），最后 rag_key/sitian_key。
+    # 若把 code 提到 case_id 之前，asset9 岁图（code 非唯一、case_id 唯一）会撞 id；
+    # 若把 rag_key 提前，医案（rag_key 是病证名「中风」，非唯一）也会撞 id。
+    for key in ("case_id", "entry_id", "key", "id", "code", "rag_key", "sitian_key", "name", "term", "title"):
         if entry.get(key):
             return str(entry[key])
     return f"entry_{idx}"
@@ -174,6 +177,78 @@ def _entry_title(entry: Dict[str, Any], eid: str) -> str:
         if entry.get(key):
             return str(entry[key])
     return eid
+
+
+# 稳定引用格式：yle:<asset文件名>:<entry_id>
+# 例：yle:asset13_gujin_an_cases:gujin_001
+# asset 文件名（如 asset13_gujin_an_cases）稳定；entry_id（gujin_001）为条目唯一标识。
+YLI_REF_PREFIX = "yle:"
+
+
+def _asset_basename(fname: str) -> str:
+    """文件名去掉目录与 .json 后缀，作为稳定 asset 名。"""
+    base = os.path.basename(fname)
+    if base.endswith(".json"):
+        base = base[:-5]
+    return base
+
+
+def make_ref(fname: str, eid: str) -> str:
+    """生成稳定引用 yle:<asset>:<entry_id>。"""
+    if not eid:
+        return ""
+    return f"{YLI_REF_PREFIX}{_asset_basename(fname)}:{eid}"
+
+
+def parse_ref(ref: str):
+    """把 yle: 引用拆成 (asset_basename, entry_id)。非 yle: 或无 ID 返回 (None, None)。"""
+    if not ref or not ref.startswith(YLI_REF_PREFIX):
+        return None, None
+    body = ref[len(YLI_REF_PREFIX):]
+    if ":" not in body:
+        return None, None
+    asset_name, eid = body.split(":", 1)
+    return asset_name, eid
+
+
+def resolve_ref(ref: str):
+    """解析 yle: 引用，返回 (hit_dict | None, error_str|None)。
+
+    hit_dict 含 asset_name/file/id/matched_fields/preview/title，供下游核验引用可访问。
+    """
+    asset_name, eid = parse_ref(ref)
+    if not asset_name or not eid:
+        return None, f"格式无效，应为 {YLI_REF_PREFIX}<asset>:<entry_id>: {ref!r}"
+    # 由 asset 名定位 json 文件
+    p = RAG_DIR / (asset_name + ".json")
+    if not p.is_file():
+        return None, f"未知 asset: {asset_name}"
+    fname = p.name
+    try:
+        _, entries = load_entries(asset_name + ".json")
+    except Exception as exc:
+        return None, f"加载 {asset_name} 失败: {exc}"
+    for i, entry in enumerate(entries):
+        if not isinstance(entry, dict):
+            continue
+        # 优先用 case_id / entry_id 精确匹配（唯一标识）；否则回退 _entry_id
+        cid = entry.get("case_id") or entry.get("entry_id")
+        if (cid == eid) or (not cid and _entry_id(entry, i) == eid):
+            preview = ""
+            for key in ("explanation", "pathogenesis", "classics_quote", "description",
+                        "treatment_principle", "summary", "source_quote", "formula"):
+                if entry.get(key) and isinstance(entry[key], str):
+                    preview = entry[key].strip().replace("\n", " ")[:180]
+                    break
+            return {
+                "ref": make_ref(fname, str(cid or eid)),
+                "asset_name": asset_name,
+                "file": fname,
+                "id": str(cid or eid),
+                "title": _entry_title(entry, str(cid or eid)),
+                "preview": preview,
+            }, None
+    return None, f"asset {asset_name} 中无 entry_id={eid}"
 
 
 def load_entries(asset_key: str) -> Tuple[str, List[Dict[str, Any]]]:
@@ -437,6 +512,7 @@ def search(
                 "asset": ak,
                 "file": fname,
                 "id": eid,
+                "ref": make_ref(fname, eid),
                 "title": _entry_title(entry, eid),
                 "matched_fields": list(dict.fromkeys(matched))[:8],
                 "preview": preview,
@@ -495,6 +571,7 @@ def search_by_field(
                 "asset": ak,
                 "file": fname,
                 "id": eid,
+                "ref": make_ref(fname, eid),
                 "title": _entry_title(entry, eid),
                 "matched_fields": [field],
                 "preview": preview,
@@ -584,6 +661,7 @@ def lookup_key(
                 "asset": ak,
                 "file": fname,
                 "id": eid,
+                "ref": make_ref(fname, eid),
                 "title": title,
                 "matched_fields": [field],
                 "preview": preview or eid,

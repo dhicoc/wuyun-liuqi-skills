@@ -90,6 +90,9 @@ jobs:
           python scripts/eval_retrieval_quality.py
           python scripts/eval_retrieval_quality.py --check-golden
 
+      - name: Stable citation (yle:) accessibility self-check
+        run: python scripts/resolve_ref.py --selfcheck
+
       - name: README numbers consistency check
         run: python scripts/check_readme_numbers.py
 
