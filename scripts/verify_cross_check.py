@@ -19,6 +19,8 @@
     4. 同天符六年（阳年，中运与在泉同气）
     5. 同岁会六年（阴年，中运与在泉同气）
     6. 六气正化对化（十二地支正化/对化判定）
+    7. 五运齐化兼化（太过齐化、不及兼化）
+    8. 平气判断（三条规则，依据 modules/yunqi-calc/references/taiguo_buji.md）
 
 依据原文：
     「司天丁巳丁亥也火運火司天戊子戊午戊寅戊申也
@@ -228,6 +230,47 @@ def verify_qihua_jianhua():
     return results
 
 
+def verify_pingqi():
+    """验证平气判断（据 modules/yunqi-calc/references/taiguo_buji.md 三条规则独立列举）
+
+    依据：《素问·五常政大论》（意引「平气之年，气正令行」）、
+          《素问·六微旨大论》（「亢则害，承乃制，制则生化」），
+          及注家（王冰承制 / 张介宾得政得地）在 taiguo_buji.md 中的三段规则与示例。
+
+    平气 = 太过/不及经司天之气调节后趋于平和：
+      规则一   太过被抑:   太过之运 被 司天所克        → 平气  例戊辰(火太过·寒水司天)
+      规则二A  不及同气相助: 不及之运 得 司天同气       → 平气  例丁巳(木不及·风木司天)
+      规则二B  不及得司天所生: 不及之运 得 司天所生     → 平气  例癸亥(火不及·风木生火)
+      反-太过同气  = 天符(同化更盛)  → 非平气  例戊午(火太过·君火司天)
+      反-不及克运  = 不及更衰         → 非平气  例丁卯(木不及·燥金克木)
+    """
+    # (干支, 预期是否平气, 依据)
+    CASES = [
+        # ── 平气正例 ──
+        ("戊辰", True,  "规则一 太过被抑：火太过·太阳寒水司天（水克火）"),
+        ("丁巳", True,  "规则二A 不及同气相助：木不及·厥阴风木司天（同气，亦即天符）"),
+        ("癸亥", True,  "规则二B 不及得司天生：火不及·厥阴风木司天（木生火）"),
+        ("辛卯", True,  "规则二B 不及得司天生：水不及·阳明燥金司天（金生水）"),
+        ("乙酉", True,  "规则二A 不及同气相助：金不及·阳明燥金司天（同气，亦即天符；历史 JS 漏判干支）"),
+        # ── 平气反例 ──
+        ("戊午", False, "反例 太过+司天同气 = 天符（同化更盛），非平气"),
+        ("丙辰", False, "反例 太过+司天同气 = 天符（同化更盛），非平气"),
+        ("丁卯", False, "反例 不及+司天克运 = 不及更衰，非平气"),
+        ("丁酉", False, "反例 不及+司天克运 = 不及更衰，非平气"),
+    ]
+    results = []
+    for gz, expected, basis in CASES:
+        year = _find_year_by_ganzhi(gz)
+        if year is None:
+            results.append({"gz": gz, "year": None, "expected": expected,
+                            "actual": None, "basis": basis, "pass": False})
+            continue
+        actual = check_pingqi(year)
+        results.append({"gz": gz, "year": year, "expected": expected,
+                        "actual": actual, "basis": basis, "pass": actual == expected})
+    return results
+
+
 def run_all():
     """运行全部验证"""
     suites = [
@@ -238,6 +281,7 @@ def run_all():
         ("同岁会六年", verify_tong_suihui),
         ("六气正化对化", verify_zhengdui),
         ("五运齐化兼化", verify_qihua_jianhua),
+        ("平气判断", verify_pingqi),
     ]
     
     all_results = {}

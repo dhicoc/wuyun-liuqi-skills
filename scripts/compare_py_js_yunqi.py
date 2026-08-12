@@ -132,6 +132,18 @@ def compare_one(date_str: str) -> Dict[str, Any]:
     }
 
 
+# 整甲子 sweep：1984（甲子）到 2043（癸亥），60 年恰好覆盖全部六十甲子各一次。
+# 每个干支年取年中固定日期（6-15，落于大寒定年之后的运气年内），
+# 对 tong_hua.pingqi 等全部关键字段做 py↔js 全字段对比，杜绝抽样日期恰好避开 bug 干支的漏检。
+SWEEP_START = 1984
+SWEEP_END = 2043
+SWEEP_MD = "-06-15"  # 每年取 6 月 15 日作为代表日
+
+
+def build_sweep_dates() -> List[str]:
+    return [f"{y}{SWEEP_MD}" for y in range(SWEEP_START, SWEEP_END + 1)]
+
+
 def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser(
         description="对比 Python / JavaScript 运气推算关键字段（以 Python 为准）",
@@ -143,10 +155,18 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         nargs="*",
         help="要对比的日期 YYYY-MM-DD；默认使用大寒边界 + 年中样例",
     )
+    parser.add_argument(
+        "--sweep",
+        action="store_true",
+        help="整甲子区间全字段对比（1984甲子–2043癸亥，60个干支各一次，覆盖平气同气相助等易漏规则）",
+    )
     parser.add_argument("--json", action="store_true", help="输出 JSON 报告")
     args = parser.parse_args(list(argv) if argv is not None else None)
 
-    dates = list(args.dates) if args.dates else list(DEFAULT_DATES)
+    if args.sweep:
+        dates = build_sweep_dates()
+    else:
+        dates = list(args.dates) if args.dates else list(DEFAULT_DATES)
     results: List[Dict[str, Any]] = []
     failed = 0
 

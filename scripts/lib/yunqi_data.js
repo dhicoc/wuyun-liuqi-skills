@@ -170,12 +170,21 @@ function checkSuihui(year) {
 }
 
 function checkPingqi(year) {
+  // 平气判断（与 scripts/lib/yunqi_data.py check_pingqi 保持一致，三段规则）:
+  //   规则一   太过被抑:   大运太过 且 司天五行 克 大运五行        → 平气
+  //   规则二A  不及同气相助: 大运不及 且 司天五行 == 大运五行       → 平气
+  //   规则二B  不及得司天生运: 大运不及 且 司天五行 生 大运五行     → 平气
+  // 注: 太过 + 司天同气 属「天符」(同化更盛)，非平气；
+  //     不及 + 司天克运 属「不及更衰」，非平气。
   const [dayun] = getDayun(year);
   const sitian = getSitian(year);
   const sitianElem = LIUQI_WUXING[sitian];
   const taiguo = isTaiguo(year);
   if (taiguo && wuxingKe(sitianElem, dayun)) return true;
-  if (!taiguo && wuxingSheng(sitianElem, dayun)) return true;
+  if (!taiguo) {
+    if (sitianElem === dayun) return true; // 二A：司天同气相助
+    if (wuxingSheng(sitianElem, dayun)) return true; // 二B：司天所生
+  }
   return false;
 }
 
