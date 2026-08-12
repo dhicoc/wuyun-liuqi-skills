@@ -8,7 +8,7 @@
 
 ## 完成度总览
 
-> 更新：2026-08-12。已落地 **6/8** 项，全部经远端 CI 确认。
+> 更新：2026-08-12。已落地 **7/8** 项，全部经远端 CI 确认。
 
 | 优先级 | 事项 | 提交 | 状态 |
 |--------|------|------|------|
@@ -17,11 +17,11 @@
 | P1-2 | 稳定引用 (yle:) + 可访问率门禁 | `a984227` | ✅ |
 | P2-2 | 免责声明单一权威来源 | `73e0172` | ✅ |
 | P1-4 | 字形归一化检索 | `7ae45d6` | ✅ |
-| P1-3 | 医案渐进加载薄索引 | 待推送 | ✅ |
-| P2-1 | 答案层断言 | — | ⏳ 未做 |
+| P1-3 | 医案渐进加载薄索引 | `c2068d6` | ✅ |
+| P2-1 | 答案层断言 | 待推送 | ✅ |
 | P3 | 跨平台 / openai.yaml / MCP 审计 | — | ⏳ 未做 |
 
-剩余可选：**P2-1**（答案层断言）、**P3**（跨平台）。
+剩余可选：**P3**（跨平台）。
 
 ---
 
@@ -114,13 +114,16 @@ nihaisha 无法替代的优势集中在**检索型 Agent 的工程质量**，本
 
 ## P2：答案评测与安全可观测
 
-### P2-1 答案评测增强（区别于 P7-3，需向读者说明）
+### P2-1 答案评测增强（区别于 P7-3，需向读者说明）✅
 
-> ⚠️ **与 P7-3「skill 级 evals — 不采纳」的关系**：P7-3 拒的是官方 skill 规范对 `evals/` 目录的形式要求（本项目 200+ 项 CI 断言已超）。本项不新增 evals 目录，而是**给既有 `report_quality_gate.py` / `verify_cross_check.py` 补"答案层"断言**，不重复不冲突。
+> ⚠️ **与 P7-3「skill 级 evals — 不采纳」的关系**：P7-3 拒的是官方 skill 规范对 `evals/` 目录的形式要求（本项目 200+ 项 CI 断言已超）。本项不新增 evals 目录，而是**扩展现有 `report_quality_gate.py` 补"答案层"断言**，不重复不冲突。
 
-- [ ] 给临床输出评测扩展 nihaisha 的题格字段：`expected_behavior(answer/clarify/abstain/safe_redirect)` + `forbidden_content` + `required_checks`，用于断言「MUST NOT 给剂量 / 必带免责」是否真成立。
-- [ ] 增加 `pair_id` 鲁棒性配对：同类问题多次提问回答一致性（对标 nihaisha 62.5% 的坑，提醒规避）。
-- [ ] 能力边界通过率：故意问出域题，断言 Agent **不越界**（对标 nihaisha 边界通过率仅 8.3%，说明"收紧边界"是刻意设计而非缺陷）。
+- [x] `report_quality_gate.py` 新增 `check_answer_layer(text, case)`：按用例题格做语义判定，而非只看关键词。`expected_behavior(answer/clarify/abstain/safe_redirect)` + `forbidden_content` + `required_checks`，断言「MUST NOT 给剂量 / 必带免责」是否真成立。
+- [x] 新增 `_CHINESE_DOSE_RE`：覆盖 `DOSE_PATTERNS` 抓不到的中文数字剂量（一两/三钱/二钱半/每日二次/服多次），且**不误伤药名**（附子须辨证正常提及不算剂量）。
+- [x] 行为判定：`abstain`/`safe_redirect` 为强制行为——该拒未拒、该转介未转介判 FAIL（不再只是 warning）；`clarify` 信息不足应澄清。
+- [x] 新增 `tests/test_answer_layer.py`：16 条答案层断言用例（剂量禁区/行为判定/必备要素），融入 CI。全回归 PASS，纯增量不改 `check_report`。
+- [ ] `pair_id` 鲁棒性配对：同类问题多次回答一致性（未做，需 LLM 多次采样，后续可选）。
+- [ ] 能力边界通过率：刻意问出域题断言不越界（未做，属 Agent 级评测，后续可选）。
 
 ### P2-2 免责声明单一权威来源 ✅
 

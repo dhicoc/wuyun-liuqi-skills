@@ -111,6 +111,9 @@ jobs:
       - name: Package API + RAG key/date + report bundle test
         run: python tests/test_package_and_rag.py
 
+      - name: Answer-layer assertion test (P2-1)
+        run: python tests/test_answer_layer.py
+
       - name: Py/JS critical-field consistency (full sexagenary sweep)
         run: python scripts/compare_py_js_yunqi.py --sweep
 
