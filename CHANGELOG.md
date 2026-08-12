@@ -5,6 +5,15 @@
 ## [Unreleased]
 
 ### Added
+- **工程优化（2026-08-12）**：对标 nihaisha-reverse 深度调研后的一轮检索/安全/正确性增强：
+  - **P0 算法正确性**：修复 JS `checkPingqi` 漏判「不及同气相助」（波及乙卯/丁巳/己丑等 6 干支）；`compare_py_js_yunqi.py` 新增 `--sweep` 整甲子区间全字段校验（接入 CI）；`verify_cross_check.py` 补平气经典基线（验证项 52→61）。两套日期归一化收敛到 `-07-08`。
+  - **P1-1 黄金基准**：`eval_retrieval_quality.py` 修正「基准含 asset18-32、检索却用默认范围」的错配，golden 落 `tests/golden/retrieval_golden.json` 持久化（`--write-golden` / `--check-golden`）；牌号修复 `rag_search._entry_id` 优先级（case_id/entry_id 提到 code 前）；指标 precision@10 78.1%→93.1%。补「体系内检索≠全库召回率」口径注释。
+  - **P1-2 稳定引用**：新增 `yle:<asset>:<entry_id>` 引用语法，`rag_search` 四组装点统一输出 `ref`；新增 `resolve_ref.py`（解析/可访问率/`--selfcheck`）；引用规则写入 `rules/output.md`。
+  - **P1-3 渐进加载**：新增 `cases_routing.py`，把病证→医案库路由固化为可编程薄索引（`--syndrome`/`--rag-key`/`--list-assets`/高风险病灶强制联动），避免整包 22 部库撑爆上下文。
+  - **P1-4 检索健壮性**：新增 `_NORM_MAP`（70 项异体/繁简映射）+ `_normalize()`，关键词与语义检索共享（針/鍼→针、証→证、痺→痹 等）；新增 `--show-terms`（歧义消解展示）+ `--include-extra`（两段式补检索，默认关向后兼容）。
+  - **P2-1 答案层断言**：`report_quality_gate` 新增 `check_answer_layer`（expected_behavior 语义判定 + 中文剂量/峻剂检测）+ `check_pair_consistency`（多轮鲁棒性）+ `check_boundary`（能力边界）；`tests/test_answer_layer.py` 扩到 22 例。
+  - **P2-2 单一权威源**：免责声明收敛到 `_safety_text.py`，消除 7+ 文件硬拷贝漂移；`redact_dosage` 补中文剂量脱敏。
+
 - **P7-1 推算算法覆盖度扩展**：`calculate_yunqi_api.py` / `.js` 新增三类运气推算字段：
   - `tong_hua` 增加 `tong_tianfu`（同天符：阳年中运与在泉同气）/ `tong_suihui`（同岁会：阴年中运与在泉同气）
   - `qi_hua`：五运齐化（太过之运，克我者来齐）/ 兼化（不及之运，克我者来兼）

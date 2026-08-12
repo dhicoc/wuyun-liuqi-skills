@@ -227,6 +227,16 @@ Liu Wansu (Cold-Cool school) and Zhang Jiebin (Warm-Tonify school) are built int
 | Structured field extraction | `extract_structured_fields.py` | Extract herbs + formulas_referenced fields |
 | Literature ingestion | `ingest_literature.py` | Ingest new literature into the RAG knowledge base |
 
+### Citation & progressive loading (new)
+
+| Feature | Entry script | Description |
+|---------|--------------|-------------|
+| Stable citation resolve | `resolve_ref.py` | `yle:<asset>:<entry_id>` reverse-lookup + accessibility gate (`--selfcheck`) |
+| Progressive case routing | `cases_routing.py` | Per-syndrome/per-yunqi primary+supplement+force checklist, load-on-demand |
+| Glyph normalization | `rag_search.py` (built-in) | Variant/traditional ↔ simplified interchange (~70 items), better vernacular recall |
+| Term ambiguity display | `rag_search.py --show-terms` | Show raw → normalized → synonym OR-group |
+| Two-stage extra search | `rag_search.py --include-extra` | Follow-up wider OR search on normalized core terms (off by default) |
+
 ### Reports & export (6)
 
 | Feature | Entry script | Description |

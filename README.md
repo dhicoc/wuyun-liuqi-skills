@@ -222,6 +222,16 @@ python scripts/calculate_yunqi_api.py 2026-06-27 --summary
 | 医案结构化字段提取 | `extract_structured_fields.py` | 提取 herbs（药味）+ formulas_referenced（方剂）字段 |
 | 文献注入 RAG | `ingest_literature.py` | 将新文献注入 RAG 知识库 |
 
+### 检索增强与引用（本轮新增）
+
+| 功能 | 入口脚本 | 说明 |
+|------|----------|------|
+| 稳定引用解析 | `resolve_ref.py` | `yle:<asset>:<entry_id>` 反解 + 可访问率门禁（`--selfcheck`） |
+| 医案渐进加载路由 | `cases_routing.py` | 按病证/运气拿首选+补充+强制联动库清单，避免整包载入 |
+| 字形归一化检索 | `rag_search.py`（内建） | 异体/繁简互通（針/鍼→针、證→证、痺→痹 等 70 项），白话语义更准 |
+| 检索词歧义消解 | `rag_search.py --show-terms` | 展示「原词→归一化→同义词 OR 表」 |
+| 两段式补检索 | `rag_search.py --include-extra` | 主检索后按归一化核心词补一轮更宽 OR 检索（默认关） |
+
 ### 报告与导出（6 个）
 
 | 功能 | 入口脚本 | 说明 |
