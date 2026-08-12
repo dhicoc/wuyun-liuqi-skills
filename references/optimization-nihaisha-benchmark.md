@@ -6,6 +6,25 @@
 
 ---
 
+## 完成度总览
+
+> 更新：2026-08-12。已落地 **5/8** 项，全部经远端 CI 确认。
+
+| 优先级 | 事项 | 提交 | 状态 |
+|--------|------|------|------|
+| P0 | 核心算法正确性（checkPingqi + sweep + 平气基线） | `5d7eb09` | ✅ |
+| P1-1 | 黄金基准持久化 + 修范围错配 | `ff447fa` | ✅ |
+| P1-2 | 稳定引用 (yle:) + 可访问率门禁 | `a984227` | ✅ |
+| P2-2 | 免责声明单一权威来源 | `73e0172` | ✅ |
+| P1-4 | 字形归一化检索 | `7ae45d6` | ✅ |
+| P1-3 | 按需渐进加载薄索引 | — | ⏳ 未做 |
+| P2-1 | 答案层断言 | — | ⏳ 未做 |
+| P3 | 跨平台 / openai.yaml / MCP 审计 | — | ⏳ 未做 |
+
+剩余可选：**P1-3**（asset18–32 大模块薄索引）、**P2-1**（答案层断言）、**P3**（跨平台）。
+
+---
+
 ## 〇、本文档要解决的问题
 
 对标外部仓库后，本项目的**相对长板**是：推算确定性、routing 单一真相源、三层临床安全、自进化数据闭环、轻量零依赖检索。
@@ -26,16 +45,17 @@ nihaisha 无法替代的优势集中在**检索型 Agent 的工程质量**，本
 
 > 非对标建议，是本地深读的**实证产出**。其余 P 级均源自 nihaisha 对标。
 
-- [ ] **修复 `scripts/lib/yunqi_data.js` 的 `checkPingqi` 漏判「不及同气相助」**
+- [x] **修复 `scripts/lib/yunqi_data.js` 的 `checkPingqi` 漏判「不及同气相助」**（提交 `5d7eb09` ✅）
   - 现象（已实测）：Python `yunqi_data.py:206-207` 含 `sitian_elem == dayun → 平气`；JS `yunqi_data.js:172-180` 只实现 `!taiguo && sheng(sitian, dayun)`，漏掉「不及之年五行同气相助」。
   - 波及干支（6 个）：`乙卯、乙酉`（金不及·阳明燥金司天）、`丁巳、丁亥`（木不及·厥阴风木司天）、`己丑、己未`（土不及·太阴湿土司天）。
   - 现状：`compare_py_js_yunqi.py` 默认 5 个日期（2025/2026 前后）恰好都不落在这 6 干支上，**CI 全绿但 bug 真实存在**。
-- [ ] **给 `compare_py_js_yunqi.py` 加整甲子区间全字段 sweep**
-  - 每个干支取代表年（或直接 1900–2200 全区间），对 `CRITICAL_PATHS` 全字段对比，property-style 一网打尽，而非抽样 5 个日期。
-- [ ] **`verify_cross_check.py` 补平气基线**
-  - 现基线只含天符/岁会/太乙天符/同天符/同岁会/正化对化/齐化兼化，`check_pingqi` 三条子规则全凭 docstring 自证，无经典案源核对。
-- [ ] （建议）收敛两套日期归一化
-  - `calculate_yunqi_api._resolve_date`（裸年份 → `-07-01`）与 `_common.resolve_year_or_date`（→ `-07-08`）行为不一致，易埋坑。
+  - 结果：JS `checkPingqi` 补「规则二A 不及同气相助」，与 Python 三条规则对齐，整甲子 sweep 60/60 通过。
+- [x] **给 `compare_py_js_yunqi.py` 加整甲子区间全字段 sweep**（提交 `5d7eb09` ✅）
+  - 新增 `--sweep` 遍历 1984—2043 全部 60 干支，对 `CRITICAL_PATHS` 全字段对比；接入 CI。实测可将 6 个 bug 干支一网打尽（修复前 sweep 精确报出 6 项 `tong_hua.pingqi` 不一致）。
+- [x] **`verify_cross_check.py` 补平气基线**（提交 `5d7eb09` ✅）
+  - 新增 `verify_pingqi()`：9 个独立于算法的经典干支基线（平气正例 5 + 反例 4），源自 `modules/yunqi-calc/references/taiguo_buji.md`（《素问·五常政大论》《素问·六微旨大论》及王冰/张介宾注家）。验证项 52→61，61/61 通过。
+- [ ] （待定）收敛两套日期归一化
+  - `calculate_yunqi_api._resolve_date`（裸年份 → `-07-01`）与 `_common.resolve_year_or_date`（→ `-07-08`）行为不一致，易埋坑。（**未做**，不影响其它）
 
 ---
 
@@ -57,7 +77,7 @@ nihaisha 无法替代的优势集中在**检索型 Agent 的工程质量**，本
 ### P1-2 分层证据引用 + stable doc_id ✅
 
 > 依据：nihaisha `pdf-evidence:<doc_id>#p<page>` / `text-evidence:<doc_id>#s<section>` + `source-manifest.json`。
-> 状态：已完成（提交待定 `resolve_ref` / rag_search / ci）。
+> 状态：已完成（提交 `a984227`）。
 
 - [x] 稳定引用语法定为 `yle:<asset文件名>:<entry_id>`（例 `yle:asset13_gujin_an_cases:gujin_001`，`yle:asset9_cases:shengji_jiazi`）。asset 文件名为稳定文档 ID；entry_id 为条目稳定唯一键。
 - [x] `rag_search` 四个组装点（search / search_by_field / lookup_key / 各自 hit）统一输出 `ref` 字段（`make_ref`）。
@@ -74,6 +94,8 @@ nihaisha 无法替代的优势集中在**检索型 Agent 的工程质量**，本
 - [ ] 为高风险类问题定义「强制联动」：如深针 / 急症 → 必读对应 safety 模块，不因主模块无命中而省略（对标 nihaisha 针灸 safety 模块强制加载）。
 
 ### P1-4 检索健壮性：字形归一化 + 检索词压缩 ✅
+
+> 状态：已完成（提交 `7ae45d6`）。
 
 - [x] 在 `rag_search.py` 增加 **`_NORM_MAP` + `_normalize()`**（NFKC + 70 项异体/繁简映射：針/鍼→针、證/証→证、氣→气、陰→阴、傷→伤、脅→胁、痺→痹 等），模型无关、离线可跑。
 - [x] `_expand_synonyms`：查询词并入归一化形式作 OR 候选；同义词扩展改以「归一化简体」为主键，使繁体/异体查询（如 `痺證`）与简体（`痹证`）享受一致的医案同义词扩展。
@@ -98,7 +120,7 @@ nihaisha 无法替代的优势集中在**检索型 Agent 的工程质量**，本
 ### P2-2 免责声明单一权威来源 ✅
 
 > 依据：现 DISCLAIMER / CLINICAL_SAFETY_NOTICE / EMERGENCY_NOTICE 在 4+ 文件硬拷贝重复，易措辞漂移。
-> 状态：已完成。
+> 状态：已完成（提交 `73e0172`）。
 
 - [x] 三类声明收敛为单一权威源 `scripts/_safety_text.py`（纯常量、零依赖）：三件套 DISCLAIMER / CLINICAL_SAFETY_NOTICE / EMERGENCY_NOTICE + `EMERGENCY_NOTICE_PLAIN`（门禁用）+ `CONTEXT_DISCLAIMERS`（医案/体质/气象/时间轴场景变体）+ 三个单句 NOTICE。
 - [x] `yunqi_report.py` / `clinical_safety.py` / `generate_html_report.py` / `visualize_timeline.py` / `generate_case_browser.py` / `personal_yunqi_profile.py` / `weather_alignment.py` 均改 import，删除本地硬拷贝。
@@ -132,16 +154,16 @@ nihaisha 无法替代的优势集中在**检索型 Agent 的工程质量**，本
 
 ## 落地优先级速览
 
-| 序 | 事项 | 对应章节 | 收益 | 成本 |
-|----|------|---------|------|------|
-| 1 | 修 `checkPingqi` JS bug + 整甲子 sweep | P0 | 高（正确性） | 低 |
-| 2 | 黄金基准持久化 + 修范围错配 | P1-1 | 高（评测可信度） | 中 |
-| 3 | stable doc_id + 引用语法 + 可访问率门禁 | P1-2 | 高（临床溯源） | 中 |
-| 4 | 免责声明单一权威来源 | P2-2 | 中（防漂移） | 低 |
-| 5 | 渐进加载薄索引 | P1-3 | 中（context 优化） | 中 |
-| 6 | 字形归一化 / 检索词压缩 | P1-4 | 中（白话提问） | 低 |
-| 7 | 答案层断言（替代 evals） | P2-1 | 中（安全可观测） | 中 |
-| 8 | openai.yaml / 跨平台 / MCP 审计 | P3 | 低（可移植） | 低 |
+| 序 | 事项 | 对应章节 | 状态 | 收益 | 成本 |
+|----|------|---------|------|------|------|
+| 1 | 修 `checkPingqi` JS bug + 整甲子 sweep | P0 | ✅ 完成（`5d7eb09`） | 高（正确性） | 低 |
+| 2 | 黄金基准持久化 + 修范围错配 | P1-1 | ✅ 完成（`ff447fa`） | 高（评测可信度） | 中 |
+| 3 | stable doc_id + 引用语法 + 可访问率门禁 | P1-2 | ✅ 完成（`a984227`） | 高（临床溯源） | 中 |
+| 4 | 免责声明单一权威来源 | P2-2 | ✅ 完成（`73e0172`） | 中（防漂移） | 低 |
+| 6 | 字形归一化 / 检索词压缩 | P1-4 | ✅ 完成（`7ae45d6`） | 中（白话提问） | 低 |
+| 5 | 渐进加载薄索引 | P1-3 | ⏳ 未做（后续） | 中（context 优化） | 中 |
+| 7 | 答案层断言（替代 evals） | P2-1 | ⏳ 未做（后续） | 中（安全可观测） | 中 |
+| 8 | openai.yaml / 跨平台 / MCP 审计 | P3 | ⏳ 未做（后续） | 低（可移植） | 低 |
 
 ---
 
