@@ -8,7 +8,7 @@
 
 ## 完成度总览
 
-> 更新：2026-08-12。7 项完成经验证，第 8 项（P3 跨平台）已完成主体（install.py 加 Codex）。
+> 更新：2026-08-12。8 项全部完成经验证。各 P 项所列「待定/可选」子项已一并收齐（提交 `99414bf`），优化文档与代码状态一致。
 
 | 优先级 | 事项 | 提交 | 状态 |
 |--------|------|------|------|
@@ -18,10 +18,13 @@
 | P2-2 | 免责声明单一权威来源 | `73e0172` | ✅ |
 | P1-4 | 字形归一化检索 | `7ae45d6` | ✅ |
 | P1-3 | 医案渐进加载薄索引 | `c2068d6` | ✅ |
-| P2-1 | 答案层断言 | `a49891e` | ✅ |
-| P3 | 跨平台：install.py 加 Codex | 待推送 | ✅ 完成（mcps 项已澄清为本地缓存，不处理） |
+| P2-1 | 答案层断言（+ pair_id / 能力边界） | `a49891e` | ✅ |
+| P3 | 跨平台：install.py 加 Codex | `18c7bb4` | ✅ 完成（mcps 已澄清为本地缓存） |
 
-剩余可选补强（非必做）：**openai.yaml**（多宿主结构化声明）、**轻量依赖原则注释**。二者均不涉及正确性/安全，可为空。（`mcps/` 已澄清为本地缓存，不处理。）
+**一并收齐的待定/可选子项**（提交 `99414bf`）：两套日期归一化收敛 · 中文剂量脱敏 · 指标口径注释 ·
+引用规则写入 rules/output.md · `--show-terms` · 两段式检索（`--include-extra`）· pair_id 鲁棒性 · 能力边界。
+
+剩余可选补强（不涉及正确性/安全，可为空）：**openai.yaml**（多宿主结构化声明）、**轻量依赖原则注释**。（`mcps/` 已澄清为本地缓存，不处理。）
 
 ---
 
@@ -54,7 +57,7 @@ nihaisha 无法替代的优势集中在**检索型 Agent 的工程质量**，本
   - 新增 `--sweep` 遍历 1984—2043 全部 60 干支，对 `CRITICAL_PATHS` 全字段对比；接入 CI。实测可将 6 个 bug 干支一网打尽（修复前 sweep 精确报出 6 项 `tong_hua.pingqi` 不一致）。
 - [x] **`verify_cross_check.py` 补平气基线**（提交 `5d7eb09` ✅）
   - 新增 `verify_pingqi()`：9 个独立于算法的经典干支基线（平气正例 5 + 反例 4），源自 `modules/yunqi-calc/references/taiguo_buji.md`（《素问·五常政大论》《素问·六微旨大论》及王冰/张介宾注家）。验证项 52→61，61/61 通过。
-- [ ] （待定）收敛两套日期归一化
+- [x] **收敛两套日期归一化**：`calculate_yunqi_api._resolve_date` 复用 `_common.resolve_year_or_date`，裸年份统一到 `-07-08`（提交 `99414bf`）。
   - `calculate_yunqi_api._resolve_date`（裸年份 → `-07-01`）与 `_common.resolve_year_or_date`（→ `-07-08`）行为不一致，易埋坑。（**未做**，不影响其它）
 
 ---
@@ -72,7 +75,7 @@ nihaisha 无法替代的优势集中在**检索型 Agent 的工程质量**，本
 - [x] 顺带修复 `rag_search._entry_id` 优先级：把 `case_id/entry_id` 提到 `code` 之前，消除「医案的 rag_key（病证名非唯一）」与「asset9 岁图的 code（非唯一）」导致的 id 撞车。命中匹配、精确 key 检索、字段检索统一命中唯一标识。
 - [x] 新增 `--write-golden`（固化基准）与 `--check-golden`（漂移校验，接入 CI）。
 - [x] 指标改善：precision@5 87.5%→94.4%、precision@10 78.1%→93.1%、recall@20 39.3%→73.6%；痹证/儿科假阴性（P@10=0%）消除。
-- [ ] （待定）指标口径加注「pool 内命中 ≠ 全库召回率」，防误读。
+- [x] 指标口径注明：`eval_retrieval_quality` 明确 precision/recall 是「体系内(eval 选定 asset 子集)检索质量」，≠ 全 32 asset 全库召回率，防误读（提交 `99414bf`）。
 
 ### P1-2 分层证据引用 + stable doc_id ✅
 
@@ -84,7 +87,7 @@ nihaisha 无法替代的优势集中在**检索型 Agent 的工程质量**，本
 - [x] 新增 `scripts/resolve_ref.py`：解析 `yle:` 引用（`resolve_ref`）、批量统计可访问率、`--list-assets`、`--selfcheck` 自测门禁。
 - [x] `_entry_id` 改为稳定唯一键（case_id/entry_id 优先），全 asset 除 terminology（语义术语表，非定位目标）外 id 唯一。
 - [x] 引用可访问率纳入 CI：`resolve_ref.py --selfcheck`（95/95=100%）。
-- [ ] （待定）把「强制摘录 + 稳定引用同时出现」写入 `rules/output.md` / `case-journal/precedent-disclaimer.md`，作为 Agent 回答格式规则。
+- [x] 「强制摘录 + 稳定引用同时出现」写入 `rules/output.md`（yle: 引用格式），作为 Agent 回答格式规则（提交 `99414bf`）。
 
 ### P1-3 按需渐进加载 + 强制联动条件 ✅
 
@@ -107,8 +110,8 @@ nihaisha 无法替代的优势集中在**检索型 Agent 的工程质量**，本
 - [x] `score_entry_synonym` / `score_entry`：命中判定加入归一化比对（text_all_norm / title_norm / 各字段 val_norm），条目内异体写法也能命中。
 - [x] `rag_semantic.py` `_tokenize`：分词前先归一化，n-gram 语义检索同样支持繁简互通。
 - [x] 验证：11 组简体/异体关键词检索结果逐组一致；语义检索 4 组一致；`eval_retrieval_quality --check-golden`、`resolve_ref --selfcheck`、`test_package_and_rag`、full_regression、routing/conformance 全 PASS。
-- [ ] `--show-terms`（暴露检索词歧义消解过程）——未做，后续可选。
-- [ ] （可选）两段式检索：主证据命中后自动补一轮「经典/注家」检索——未做，后续可选。
+- [x] `--show-terms`：打印检索词歧义消解（原词→归一化→同义词 OR 组），服务白话提问（提交 `99414bf`）。
+- [x] 两段式检索：`--include-extra` 主检索命中后自动按归一化核心词补一轮更宽 OR 检索（默认关，保持默认 JSON 向后兼容；提交 `99414bf`）。
 
 ---
 
@@ -122,8 +125,8 @@ nihaisha 无法替代的优势集中在**检索型 Agent 的工程质量**，本
 - [x] 新增 `_CHINESE_DOSE_RE`：覆盖 `DOSE_PATTERNS` 抓不到的中文数字剂量（一两/三钱/二钱半/每日二次/服多次），且**不误伤药名**（附子须辨证正常提及不算剂量）。
 - [x] 行为判定：`abstain`/`safe_redirect` 为强制行为——该拒未拒、该转介未转介判 FAIL（不再只是 warning）；`clarify` 信息不足应澄清。
 - [x] 新增 `tests/test_answer_layer.py`：16 条答案层断言用例（剂量禁区/行为判定/必备要素），融入 CI。全回归 PASS，纯增量不改 `check_report`。
-- [ ] `pair_id` 鲁棒性配对：同类问题多次回答一致性（未做，需 LLM 多次采样，后续可选）。
-- [ ] 能力边界通过率：刻意问出域题断言不越界（未做，属 Agent 级评测，后续可选）。
+- [x] `pair_id` 鲁棒性配对：`check_pair_consistency` 判断同一问题多轮是否一致遵守行为边界（提交 `99414bf`）。
+- [x] 能力边界通过率：`check_boundary` 判定出域问题「应 abstain/redirect，不越界强行答」（提交 `99414bf`）。
 
 ### P2-2 免责声明单一权威来源 ✅
 
@@ -135,7 +138,7 @@ nihaisha 无法替代的优势集中在**检索型 Agent 的工程质量**，本
 - [x] `report_quality_gate.py`：删除未使用的死代码 `EMERGENCY_NOTICE`；`demo_text()` 改由权威源拼接，保证与真实报告一致。
 - [x] 输出逐字校验：HTML 免责、case browser、timeline、practitioner 报告质量门禁（含快照比对）均与原一致，无措辞漂移、无重复拼接。
 - [x] README/README_EN 脚本数 42→43、目录注释同步。
-- [ ] 剂量脱敏：`redact_dosage` 正则对中文剂量表达（如「一两三」「二钱半」）有漏网风险（**未做**，独立于本项）。
+- [x] 剂量脱敏：`redact_dosage` 补中文数字剂量正则（一两/三钱/二钱半/每日二次），阿拉伯+中文都换占位符——安全优先宁多勿漏；纯药名（附子须辨证）不误伤（提交 `99414bf`）。
 
 ---
 
