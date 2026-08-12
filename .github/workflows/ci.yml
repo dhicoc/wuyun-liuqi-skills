@@ -85,6 +85,9 @@ jobs:
       - name: Classic literature cross-check (52 cases)
         run: python scripts/verify_cross_check.py
 
+      - name: Retrieval quality benchmark (34 queries)
+        run: python scripts/eval_retrieval_quality.py
+
       - name: Full CLI regression suite
         run: python tests/full_regression_test.py
 
