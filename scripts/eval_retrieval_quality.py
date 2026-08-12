@@ -31,7 +31,7 @@ from collections import defaultdict
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'lib'))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from rag_search import search, lookup_key
+from rag_search import search, lookup_key, _SYNONYM_MAP
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -60,24 +60,38 @@ def load_all_cases():
 
 
 def build_golden_set(cases):
-    """按病证类别构造 golden set
+    """按病证类别构造 golden set（含同义词扩展）
 
     返回：{category: [(asset_id, entry, case_id), ...]}
     """
+    # 同义词反向映射：别名 -> 标准名
+    alias_to_standard = {}
+    for standard, aliases in _SYNONYM_MAP.items():
+        alias_to_standard[standard] = standard
+        for alias in aliases:
+            alias_to_standard[alias] = standard
+
+    # 先按 category 分组
     by_category = defaultdict(list)
     for asset_id, e in cases:
         cat = e.get('category', '').strip()
         if cat:
             by_category[cat].append((asset_id, e, e.get('case_id', e.get('entry_id', ''))))
 
-    # 只保留 >= MIN_CATEGORY_COUNT 条的病证
+    # 将同义词 category 合并到标准名下
     golden = {}
     for cat, items in by_category.items():
-        if len(items) >= MIN_CATEGORY_COUNT:
-            # 取前 SAMPLES_PER_CATEGORY 条作为 golden
-            golden[cat] = items[:SAMPLES_PER_CATEGORY]
+        # 找标准名
+        standard = alias_to_standard.get(cat, cat)
+        if standard not in golden:
+            golden[standard] = []
+        golden[standard].extend(items)
 
-    return golden
+    # 只保留 >= MIN_CATEGORY_COUNT 条的病证
+    golden_all = {k: v for k, v in golden.items() if len(v) >= MIN_CATEGORY_COUNT}
+
+    # golden set 保留全部条目（recall 分母用全集，而非前 N 条）
+    return golden_all
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -88,51 +102,36 @@ def evaluate_recall(golden_set, k_values):
     """
     对每个病证类别，用病证名作为查询词，验证 recall@k。
 
-    recall@k = (前 k 条结果中属于该病证的条数) / min(k, golden_set 大小)
+    指标：
+      - precision@k：前 k 条结果中属于 golden set 的比例（查准率）
+      - recall@k：golden set 中有多少出现在搜索结果前 k 条（查全率）
     """
     results = []
 
-    for category, golden_items in golden_set.items():
-        # 用病证名作为查询词
-        hits = search([category], limit=max(k_values))
+    max_limit = max(max(k_values), max(len(v) for v in golden_set.values()))
 
-        # 从 hit 的 title 中提取 case_id（格式如 "xumingyi_050 咳嗽"）
-        hit_case_ids = set()
+    for category, golden_items in golden_set.items():
+        hits = search([category], limit=max_limit)
+
+        hit_case_ids = []
         hit_assets = set()
         for h in hits:
-            hid = h.get('id', '')
             title = h.get('title', '')
-            # title 格式: "case_id category" 或 "category"
-            # 尝试从 title 提取 case_id
-            parts = title.split()
-            for p in parts:
+            for p in title.split():
                 if '_' in p and p != category:
-                    hit_case_ids.add(p)
-            # 也加入原始 id
-            hit_case_ids.add(hid)
+                    hit_case_ids.append(p)
             hit_assets.add(h.get('asset', ''))
 
-        # golden set 的 case_id
         golden_ids = set(item[2] for item in golden_items)
 
-        # 计算 recall@k
+        precisions = {}
         recalls = {}
         for k in k_values:
-            top_k_ids = set()
-            for h in hits[:k]:
-                hid = h.get('id', '')
-                title = h.get('title', '')
-                parts = title.split()
-                for p in parts:
-                    if '_' in p and p != category:
-                        top_k_ids.add(p)
-                top_k_ids.add(hid)
-            # 命中的 golden 条目数
-            hit_count = len(top_k_ids & golden_ids)
-            # recall = 命中数 / golden 总数
-            recalls[f'recall@{k}'] = hit_count / len(golden_ids) if golden_ids else 0
+            top_k_ids = set(hit_case_ids[:k])
+            relevant_in_top_k = len(top_k_ids & golden_ids)
+            precisions[f'precision@{k}'] = relevant_in_top_k / k if k > 0 else 0
+            recalls[f'recall@{k}'] = relevant_in_top_k / len(golden_ids) if golden_ids else 0
 
-        # 库覆盖率
         asset_coverage = len(hit_assets)
 
         results.append({
@@ -141,6 +140,7 @@ def evaluate_recall(golden_set, k_values):
             'total_hits': len(hits),
             'asset_coverage': asset_coverage,
             'hit_assets': sorted(hit_assets),
+            **precisions,
             **recalls,
         })
 
@@ -233,10 +233,14 @@ def run_evaluation(limit=None):
     zero_hit_queries = sum(1 for r in recall_results if r['total_hits'] == 0)
 
     avg_recall = {}
+    avg_precision = {}
     for k in K_VALUES:
-        key = f'recall@{k}'
-        vals = [r[key] for r in recall_results if r['total_hits'] > 0]
-        avg_recall[key] = sum(vals) / len(vals) if vals else 0
+        rk = f'recall@{k}'
+        pk = f'precision@{k}'
+        vals_r = [r[rk] for r in recall_results if r['total_hits'] > 0]
+        vals_p = [r[pk] for r in recall_results if r['total_hits'] > 0]
+        avg_recall[rk] = sum(vals_r) / len(vals_r) if vals_r else 0
+        avg_precision[pk] = sum(vals_p) / len(vals_p) if vals_p else 0
 
     avg_asset_coverage = sum(r['asset_coverage'] for r in recall_results) / total_queries if total_queries else 0
 
@@ -255,7 +259,8 @@ def run_evaluation(limit=None):
             'total_queries': total_queries,
             'zero_hit_queries': zero_hit_queries,
             'zero_hit_rate': zero_hit_queries / total_queries if total_queries else 0,
-            **{f'avg_{k}': v for k, v in avg_recall.items()},
+            **avg_recall,
+            **avg_precision,
             'avg_asset_coverage': round(avg_asset_coverage, 1),
             'exact_key_total': key_total,
             'exact_key_hit': key_hit,
@@ -291,11 +296,12 @@ def main():
         print(f'查询总数: {s["total_queries"]}')
         print()
 
-        print('--- 关键词检索 recall@k ---')
+        print('--- 关键词检索质量 ---')
         for k in K_VALUES:
-            key = f'avg_recall@{k}'
-            if key in s:
-                print(f'  平均 recall@{k}: {s[key]:.1%}')
+            rk = f'recall@{k}'
+            pk = f'precision@{k}'
+            if rk in s:
+                print(f'  recall@{k}: {s[rk]:.1%}  precision@{k}: {s[pk]:.1%}')
         print(f'  零命中率: {s["zero_hit_queries"]}/{s["total_queries"]} ({s["zero_hit_rate"]:.1%})')
         print(f'  平均库覆盖: {s["avg_asset_coverage"]} 个 asset')
         print()
@@ -310,10 +316,10 @@ def main():
 
         # 低分病证详情
         print('--- 低分病证（recall@10 < 50%）---')
-        low_score = [r for r in result['recall_results'] if r.get('recall@10', 0) < 0.5 and r['total_hits'] > 0]
+        low_score = [r for r in result['recall_results'] if r.get('precision@10', 0) < 0.5 and r['total_hits'] > 0]
         if low_score:
             for r in low_score[:10]:
-                print(f'  {r["category"]}: recall@5={r["recall@5"]:.0%} recall@10={r["recall@10"]:.0%} hits={r["total_hits"]} assets={r["asset_coverage"]}')
+                print(f'  {r["category"]}: P@5={r["precision@5"]:.0%} P@10={r["precision@10"]:.0%} R@10={r["recall@10"]:.0%} hits={r["total_hits"]} assets={r["asset_coverage"]}')
         else:
             print('  无低分病证 ✅')
 
@@ -326,7 +332,7 @@ def main():
                 print(f'  ❌ {r["category"]}: 0 条命中')
 
     # 退出码：零命中率 > 20% 或平均 recall@10 < 30% 则失败
-    fail = s['zero_hit_rate'] > 0.2 or s.get('avg_recall@10', 0) < 0.3
+    fail = s['zero_hit_rate'] > 0.2 or s.get('precision@10', 0) < 0.3
     return 1 if fail else 0
 
 

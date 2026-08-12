@@ -204,6 +204,127 @@ def load_entries(asset_key: str) -> Tuple[str, List[Dict[str, Any]]]:
     return result
 
 
+# ═══════════════════════════════════════════════════════════════
+# 同义词扩展：中医病证名 -> 常见别名/近义词
+# ═══════════════════════════════════════════════════════════════
+
+_SYNONYM_MAP: Dict[str, List[str]] = {
+    "儿科": ["小儿", "幼科", "童", "婴", "孩"],
+    "妊娠": ["妊", "孕", "怀妊", "怀孕", "胎"],
+    "痹证": ["痹", "痹痛", "风湿", "关节痛"],
+    "胃痛": ["胃脘痛", "胃疼", "脘痛", "心胃痛"],
+    "疟疾": ["疟", "寒热往来", "间日疟"],
+    "中风": ["中风口眼歪斜", "卒中", "半身不遂"],
+    "伤寒": ["伤于寒", "太阳病"],
+    "咳嗽": ["咳", "嗽", "咳逆"],
+    "产后": ["产后病", "产褥"],
+    "肿胀": ["肿", "浮肿", "水肿"],
+    "痢疾": ["痢", "下痢", "赤白痢"],
+    "血症": ["血证", "出血", "吐血", "衄血"],
+    "泄泻": ["泻", "腹泻", "便溏"],
+    "湿温": ["湿热", "湿病"],
+    "痰饮": ["痰", "饮证"],
+    "胁痛": ["胁肋痛", "胸胁痛"],
+    "吐血": ["咯血", "呕血"],
+    "虚损": ["虚劳", "亏损"],
+}
+
+
+def _expand_synonyms(terms: Sequence[str]) -> List[List[str]]:
+    """将查询词扩展为同义词组列表。
+
+    返回 [[原始词, 同义词1, ...], ...]
+    每组内是 OR 关系（任一命中即可），组间是 AND 关系。
+    """
+    expanded = []
+    for t in terms:
+        t = t.strip()
+        if not t:
+            continue
+        group = [t]
+        if t in _SYNONYM_MAP:
+            group.extend(_SYNONYM_MAP[t])
+        expanded.append(group)
+    return expanded
+
+
+def score_entry_synonym(entry: Dict[str, Any], expanded_terms: List[List[str]]) -> Tuple[int, List[str], str]:
+    """同义词感知的打分函数。每组内 OR，组间 AND。"""
+    if not expanded_terms:
+        return 0, [], ""
+
+    fields = _flatten_strings(entry)
+    blob_pairs = [(k, v) for k, v in fields]
+    text_all = "\n".join(v for _, v in blob_pairs)
+    text_lower = text_all.lower()
+
+    # 每组内至少一个词命中（AND 组间，OR 组内）
+    group_hits = []
+    for group in expanded_terms:
+        found = False
+        for t in group:
+            if t.lower() in text_lower or t in text_all:
+                found = True
+                break
+        if not found:
+            return 0, [], ""
+        group_hits.append(group)
+
+    # 打分
+    score = 0
+    matched: List[str] = []
+    eid = _entry_id(entry, 0)
+    title = _entry_title(entry, eid)
+
+    for group in group_hits:
+        best_t = None
+        best_sc = 0
+        for t in group:
+            tl = t.lower()
+            sc = 0
+            if t in title or tl in title.lower():
+                sc += 8
+            for key in ("code", "key", "rag_key", "term", "pinyin", "category"):
+                val = str(entry.get(key) or "")
+                if t == val or tl == val.lower() or t in val:
+                    sc += 10
+            for k, v in blob_pairs:
+                if t in v or tl in v.lower():
+                    sc += 2
+                    if "quote" in k.lower() or "classics" in k.lower() or "pathogenesis" in k.lower():
+                        sc += 2
+            if sc > best_sc:
+                best_sc = sc
+                best_t = t
+        score += best_sc
+        if best_t:
+            # 记录命中的字段
+            tl = best_t.lower()
+            if best_t in title or tl in title.lower():
+                matched.append("title")
+            for key in ("category", "code", "key", "rag_key"):
+                val = str(entry.get(key) or "")
+                if best_t in val or tl in val.lower():
+                    matched.append(key)
+            for k, v in blob_pairs:
+                if best_t in v or tl in v.lower():
+                    if k not in matched and len(matched) < 6:
+                        matched.append(k)
+
+    # 预览
+    preview = ""
+    for key in ("explanation", "pathogenesis", "classics_quote", "description", "treatment_principle", "summary"):
+        if entry.get(key) and isinstance(entry[key], str):
+            preview = entry[key].strip().replace("\n", " ")
+            break
+    if not preview:
+        preview = text_all.strip().replace("\n", " ")[:200]
+    if len(preview) > 180:
+        preview = preview[:180] + "…"
+
+    return score, matched, preview
+
+
 def score_entry(entry: Dict[str, Any], terms: Sequence[str]) -> Tuple[int, List[str], str]:
     """
     返回 (score, matched_fields_snippet, preview)。
@@ -287,6 +408,8 @@ def search(
     assets: Optional[Sequence[str]] = None,
     limit: int = 10,
 ) -> List[Dict[str, Any]]:
+    # 同义词扩展：将用户查询词扩展为同义词组，任一命中即可
+    expanded_terms = _expand_synonyms(terms)
     keys = list(assets) if assets else _default_asset_keys()
     hits: List[Dict[str, Any]] = []
     for ak in keys:
@@ -297,12 +420,18 @@ def search(
         for i, entry in enumerate(entries):
             if not isinstance(entry, dict):
                 continue
-            sc, matched, preview = score_entry(entry, terms)
+            sc, matched, preview = score_entry_synonym(entry, expanded_terms)
             if sc <= 0:
                 continue
             eid = _entry_id(entry, i)
+            # 医案 asset 加权：case 类 asset 排序时额外加分
+            asset_bonus = 5 if any(p in ak for p in ('asset9', 'asset11', 'asset12', 'asset13', 'asset14',
+                                                       'asset15', 'asset16', 'asset17', 'asset18', 'asset19',
+                                                       'asset20', 'asset21', 'asset22', 'asset23', 'asset24',
+                                                       'asset25', 'asset26', 'asset27', 'asset28', 'asset29',
+                                                       'asset30', 'asset31', 'asset32')) else 0
             hits.append({
-                "score": sc,
+                "score": sc + asset_bonus,
                 "asset": ak,
                 "file": fname,
                 "id": eid,
