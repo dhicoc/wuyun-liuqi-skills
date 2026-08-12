@@ -161,7 +161,9 @@ def _flatten_strings(obj: Any, prefix: str = "") -> List[Tuple[str, str]]:
 
 
 def _entry_id(entry: Dict[str, Any], idx: int) -> str:
-    for key in ("code", "key", "rag_key", "entry_id", "sitian_key", "name", "term", "id", "title"):
+    # 唯一标识字段优先于 rag_key：医案类 asset 的 rag_key 是病证名（如「中风」），非条目唯一标识，
+    # 若优先返回值会多个条目撞 id，破坏按 id 精确比对。故把 case_id/entry_id/id 提到 rag_key 之前。
+    for key in ("code", "key", "case_id", "entry_id", "id", "rag_key", "sitian_key", "name", "term", "title"):
         if entry.get(key):
             return str(entry[key])
     return f"entry_{idx}"

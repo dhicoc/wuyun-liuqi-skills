@@ -86,7 +86,9 @@ jobs:
         run: python scripts/verify_cross_check.py
 
       - name: Retrieval quality benchmark (34 queries)
-        run: python scripts/eval_retrieval_quality.py
+        run: |
+          python scripts/eval_retrieval_quality.py
+          python scripts/eval_retrieval_quality.py --check-golden
 
       - name: README numbers consistency check
         run: python scripts/check_readme_numbers.py
