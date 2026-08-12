@@ -261,7 +261,7 @@ node scripts/calculate_yunqi_api.js <YYYY-MM-DD> --json
 | 临证指南医案 | `asset16_ye_cases.json` | 清·叶桂，辨证精审含华岫云按语 | `entry_id` / `category` |
 | 术语解释 | `terminology.json` | 术语解释与教学辅助 | term / entry_id |
 
-> asset11-32 共 21 部历代名家医案库 **2124 条**临证真实医案（含 herbs 药味 + formulas_referenced 方剂结构化字段）。
+> 医案库合计 **1994 条**临证真实医案（asset9 圣济岁图 + asset11-32 历代名家库，含 herbs 药味 + formulas_referenced 方剂结构化字段）。按病证检索可经渐进加载路由 `cases_routing.py` 先拿候选库清单，再 `rag_search --asset <命中的库> <病证>` 按需加载，避免整包载入。
 >
 > 扩展库：`asset17` 运气瘟疫 · `asset18` 回春录 · `asset19` 张聿青138条 · `asset20` 吴鞠通120条 · `asset21` 寓意草 · `asset22` 洄溪 · `asset23` 花韵楼 · `asset24` 诊余举隅录 · `asset25` 许氏 · `asset26` 杏轩184条 · `asset27` 孙文垣390条 · `asset28` 丛桂草堂 · `asset29` 外科正宗 · `asset30` 立斋外科 · `asset31` 醉花窗 · `asset32` 医验随笔
 
@@ -289,6 +289,8 @@ node scripts/calculate_yunqi_api.js <YYYY-MM-DD> --json
 | 医案对比 | `python scripts/case_relations.py --compare 孙一奎,叶桂 --tag 中风` | 跨医家同证型对比 |
 | 相似医案 | `python scripts/case_relations.py --related swy_174` | 查找相似医案 |
 | 运气时间轴 | `python scripts/visualize_timeline.py <年份> --output out.html` | 生成时间轴 HTML |
+| 医案渐进加载路由 | `python scripts/cases_routing.py --syndrome <病证>` | 按病证/运气查医案库前先拿候选库清单（首选/补充/强制联动），再按需加载（P1-3） |
+| 稳定引用解析 | `python scripts/resolve_ref.py <yle:引用>` | 反解 `yle:` 引用、核验出处可访问、批量可访问率门禁（P1-2） |
 
 **Fallback 策略**：工具未命中 -> 查 `case-journal/field-journal/` 经验库 -> 仍未命中 -> 联网搜索 -> 沉淀到经验库。详见 `system_prompt.md` §2.6。
 

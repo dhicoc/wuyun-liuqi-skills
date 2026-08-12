@@ -135,6 +135,15 @@ def main():
         fpath = ROOT / fname
         all_errors.extend(check_file(fpath, checks))
 
+    # README_AI.md 只校验医案条数（其中措辞为「**N 条**临证真实医案」，
+    # 现有通用正则因「临证」间隔不命中，故单独检查，避免其它数字误报）
+    _ai = ROOT / 'README_AI.md'
+    if _ai.exists():
+        _ai_case_hits = re.findall(r'(\d+)\s*条\s*(?:临证\s*)?真实\s*医案', _ai.read_text(encoding='utf-8'))
+        for m in _ai_case_hits:
+            if int(m) != ACTUAL['cases']:
+                all_errors.append(f'README_AI.md: 声明 医案条数={m}, 实际={ACTUAL["cases"]}')
+
     # 字数检查（万）
     for fname in ['README.md', 'SKILL.md']:
         fpath = ROOT / fname
