@@ -19,9 +19,9 @@
 | P1-4 | 字形归一化检索 | `7ae45d6` | ✅ |
 | P1-3 | 医案渐进加载薄索引 | `c2068d6` | ✅ |
 | P2-1 | 答案层断言 | `a49891e` | ✅ |
-| P3 | 跨平台：install.py 加 Codex 目标 | 待推送 | 🔶 主体完成（openai.yaml/轻量原则/mcps 审计可后续补） |
+| P3 | 跨平台：install.py 加 Codex | 待推送 | ✅ 完成（mcps 项已澄清为本地缓存，不处理） |
 
-剩余可选：**P3**（跨平台）。
+剩余可选补强（非必做）：**openai.yaml**（多宿主结构化声明）、**轻量依赖原则注释**。二者均不涉及正确性/安全，可为空。（`mcps/` 已澄清为本地缓存，不处理。）
 
 ---
 
@@ -145,7 +145,7 @@ nihaisha 无法替代的优势集中在**检索型 Agent 的工程质量**，本
 - [x] `one-line-install.md` 宿主表补 Codex 目标路径。
 - [ ] （可选）补 `agents/openai.yaml` 风格结构化 agent 声明——本项目已走 client-neutral（AGENTS.md 平台中立入口），openai.yaml 仅作按需可选，不强制。
 - [ ] 明确把「轻量零依赖」固化为架构原则：核心仅 `lunar-python`，重依赖（若未来引向量/embedding）一律进 optional extras。
-- [ ] 审计 `mcps/` 7 个 MCP schema：当前**全部未接线**（Bazi/浏览器/context7 等为休眠资产快照）。建议在文档标注「休眠资产」避免误用；打通「八字时间→干支→运气」可接入 `mcps/Bazi`。
+- [x] ~~审计 `mcps/`~~ **已澄清，不再处理**：`mcps/` 是**本地 Claude Code 运行时生成的 MCP 工具 schema 缓存**（浏览器自动化/Bazi/context7 等），非项目资产；已被 `.gitignore`（第 17 行 `mcps/`）排除，从不进入 git。早前「可接入 mcps/Bazi」的描述系误判，特此更正：**勿将其视为可复用资产**。用户已确认此目录不用管理。
 
 ---
 
@@ -173,7 +173,7 @@ nihaisha 无法替代的优势集中在**检索型 Agent 的工程质量**，本
 | 6 | 字形归一化 / 检索词压缩 | P1-4 | ✅ 完成（`7ae45d6`） | 中（白话提问） | 低 |
 | 5 | 渐进加载薄索引 | P1-3 | ✅ 完成（`c2068d6`） | 中（context 优化） | 中 |
 | 7 | 答案层断言（替代 evals） | P2-1 | ✅ 完成（`a49891e`） | 中（安全可观测） | 中 |
-| 8 | openai.yaml / 跨平台 / MCP 审计 | P3 | ⏳ 未做（后续） | 低（可移植） | 低 |
+| 8 | install.py 加 Codex / openai.yaml 可选 / 轻量原则 | P3 | ✅ install.py 完成（openai.yaml/轻量原则为可选补强） | 低（可移植） | 低 |
 
 ---
 
