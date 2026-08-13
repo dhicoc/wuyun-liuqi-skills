@@ -60,7 +60,7 @@
 
 | RAG asset | 医案条目 | 公版文献 | 蒸馏指南 | 推算脚本 | CI 测试 |
 |---:|---:|---:|---:|---:|---:|
-| 32 | 1994 | 51 篇 | 12 本 | 44 个 | 35 项全绿 |
+| 32 | 1994 | 51 篇 | 12 本 | 44 个 | 36 项 CI 校验全绿 |
 
 路由核心由一个 `routing.yaml` 驱动，跨工具薄壳自动发现，推算引擎与知识库分离。
 
@@ -263,7 +263,7 @@ python scripts/calculate_yunqi_api.py 2026-06-27 --summary
 | 路由同步 | `sync_routing.py` | 改 routing.yaml 后同步到各入口文件 |
 | 临床安全检查 | `clinical_safety.py` | 临床输出免责声明合规检查 |
 
-### 安装与校验（4 个）
+### 安装与校验（6 个）
 
 | 功能 | 入口脚本 | 说明 |
 |------|----------|------|
@@ -320,7 +320,7 @@ python scripts/calculate_yunqi_api.py 2026-06-27 --summary
 ### CI 持续集成
 
 - GitHub Actions 矩阵：Python 3.10/3.11/3.12 + Node 18/20/22
-- 22 项全链路测试：validate · index · conformance · routing · regression · e2e · scenario · random-chain
+- 36 项 CI 校验步骤：validate · index · conformance · routing · regression · e2e · scenario · random-chain · answer-layer · retrieval-quality · cross-check · expansion · advanced-alignment 等
 - 每次推送前本地跑通全部 CI 同款测试，全绿才推送
 
 ## 项目结构
@@ -354,7 +354,7 @@ python scripts/calculate_yunqi_api.py 2026-06-27 --summary
 ├── workflows/                  # bootstrap / routing-contract / task-closure
 ├── prompts/                    # system_prompt + expression_style
 ├── case-journal/               # 医案沉淀
-├── tests/                      # 全量回归（22 项 CI 测试）
+├── tests/                      # 全量回归（36 项 CI 校验步骤）
 └── .github/workflows/          # CI（Python 3.10/3.11/3.12 + Node 18/20/22）
 ```
 
@@ -363,7 +363,7 @@ python scripts/calculate_yunqi_api.py 2026-06-27 --summary
 ```bash
 python scripts/health_check.py
 python scripts/validate_knowledge_base.py
-python tests/full_regression_test.py   # 22 项 CI 同款测试
+python tests/full_regression_test.py   # 等效 CI 校验（55 项回归 + 105 项扩展验证）
 ```
 
 每次推送前本地跑通全部 CI 同款测试，全绿才推送。

@@ -117,7 +117,7 @@ SAG 是一个**基于图结构的下一代 RAG 系统**，专门为 LLM Agent �
 
 维持现有 7 asset JSON 架构，因为它已经：
 - 覆盖了 7 层知识（10 asset + 700 术语）
-- 75/0 (verify) + 63/0 (full_regression) 验证全部通过
+- 105/0 (verify) + 55/0 (full_regression) 验证全部通过
 - 零基础设施依赖
 - 完全确定性检索
 

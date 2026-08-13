@@ -43,7 +43,7 @@ description: 报告生成子技能。定义五运六气分析报告的标准格�
 | 完整报告（研究版） | `python scripts/calculate_yunqi_api.py 2026-06-29 --report-type researcher` |
 | 仅输出 JSON 数据 | `python scripts/calculate_yunqi_api.py 2026-06-29 --json` |
 | 年度综合报告 | `python scripts/yunqi_report.py 2026 --audience student\|practitioner\|researcher` |
-| 验证安装 | `python tests/verify_expansion.py` + `tests/full_regression_test.py`（75/0 + 63/0） |
+| 验证安装 | `python tests/verify_expansion.py` + `tests/full_regression_test.py`（105/0 + 55/0） |
 
 ## 报告模板
 

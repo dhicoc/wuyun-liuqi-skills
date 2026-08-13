@@ -60,7 +60,7 @@ User question (natural language)
 
 | RAG assets | Case records | Public-domain texts | Distilled guides | Scripts | CI tests |
 |---:|---:|---:|---:|---:|---:|
-| 32 | 1994 | 51 | 12 | 44 | 35 passing |
+| 32 | 1994 | 51 | 12 | 44 | 36 passing |
 
 The routing core is driven by a single `routing.yaml`, auto-discovered by cross-tool shells, with calculation engine and knowledge base kept separate.
 
