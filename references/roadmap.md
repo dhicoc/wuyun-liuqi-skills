@@ -30,7 +30,7 @@
 - [x] `generate_rag_index.py` 增加 `--format parquet` + `--export-mode {index,rag,calendar}`（默认 JSON 不变，向后兼容；pyarrow 懒加载，零新增硬依赖）
 - [x] 导出字段覆盖岁运 / 司天 / 在泉 / 主气 / 运气相合五维度 + `rag_key` + `source_quote` + `disease`
 - [x] 已实现增值：额外生成「year×六步、宽年份跨度（1900–2100）」结构化运气 Parquet（pokkoa 仅 311 条散文），并附 CHANGELOG 字段说明；**不重分发 pokkoa 内容**，仅互引对照（见 `research-2026-08-13.md` §3.2）
-- 实施提交见 `git log --oneline -1 -- scripts/generate_rag_index.py`；冒烟测试新增 P10 场景并接入 CI（多轮）。
+- [x] 冒烟测试新增 P10 Parquet 场景并接入 CI（多轮 `--rounds 3`：CI 步骤先 `pip install pyarrow` 再 `python tests/skill_full_feature_smoke.py`）；实施提交见 `git log --oneline -1 -- scripts/generate_rag_index.py`。
 
 ### P11：体质 / 易感性「激活」而非继续扩数据
 
