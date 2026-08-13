@@ -43,7 +43,7 @@ def run(args, timeout=120, node=False):
     exe = NODE if node else PY
     try:
         r = subprocess.run([exe] + args, capture_output=True, text=True,
-                           encoding="utf-8", cwd=ROOT, timeout=timeout)
+                           encoding="utf-8", errors="replace", cwd=ROOT, timeout=timeout)
         return r.returncode, r.stdout, r.stderr
     except subprocess.TimeoutExpired:
         return 124, "", "TIMEOUT"
@@ -225,6 +225,46 @@ def run_round(round_idx, date, city, syndrome):
     br_path = os.path.join(tmp, f"smoke_browser_{round_idx}.html")
     rc, out, err = run(["scripts/generate_case_browser.py", "--output", br_path])
     check("报告·医案浏览器 browser", rc == 0 and os.path.isfile(br_path), f"rc={rc}")
+
+    # ---- 数据导出（P10 Parquet）----
+    try:
+        import pyarrow  # noqa: F401
+        import pyarrow.parquet as _pq  # noqa: F401
+        have_pa = True
+    except Exception:
+        have_pa = False
+    if have_pa:
+        rag_pq = os.path.join(tmp, f"smoke_rag_{round_idx}.parquet")
+        rc, out, err = run(["scripts/generate_rag_index.py", "--export-mode", "rag",
+                            "--format", "parquet", "--output", rag_pq])
+        if rc == 0 and os.path.isfile(rag_pq):
+            t = _pq.read_table(rag_pq)
+            cols = set(t.column_names)
+            need = {'rag_key', 'source_quote', 'sui_yun', 'si_tian', 'zai_quan', 'yun_qi_xiang_he'}
+            n = len(t)
+            cols_ok = need.issubset(cols)
+            check("导出·P10 RAG 条目 Parquet（可读+字段齐全）", n > 0 and cols_ok,
+                  f"rows={n} cols_ok={cols_ok}")
+        else:
+            check("导出·P10 RAG 条目 Parquet", False, f"rc={rc} err={err[:120]}")
+
+        cal_pq = os.path.join(tmp, f"smoke_calendar_{round_idx}.parquet")
+        rc, out, err = run(["scripts/generate_rag_index.py", "--export-mode", "calendar",
+                            "--format", "parquet", "--year-range", "2000", "2010",
+                            "--output", cal_pq])
+        if rc == 0 and os.path.isfile(cal_pq):
+            t = _pq.read_table(cal_pq)
+            cols = set(t.column_names)
+            need = {'year', 'ganzhi', 'sui_yun_name', 'si_tian', 'zai_quan',
+                    'zhu_qi', 'ke_qi', 'yun_qi_xiang_he'}
+            n = len(t)
+            cols_ok = need.issubset(cols)
+            check("导出·P10 运气年表 Parquet（可读+字段齐全）", n > 0 and cols_ok,
+                  f"rows={n} cols_ok={cols_ok}")
+        else:
+            check("导出·P10 运气年表 Parquet", False, f"rc={rc} err={err[:120]}")
+    else:
+        check("导出·P10 Parquet（pyarrow 未装，跳过）", True, "skip: pip install pyarrow")
 
     # ---- 学习与教学（3）----
     rc, out, err = run(["scripts/socratic_learn.py", year, "--concept", "司天在泉", "--json", "--no-file"])

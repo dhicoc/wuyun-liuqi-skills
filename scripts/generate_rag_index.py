@@ -250,12 +250,227 @@ def write_index(index_path=DEFAULT_INDEX_PATH, rag_dir=RAG_DIR):
     return data
 
 
+# ---------------------------------------------------------------------------
+# Parquet 导出（P10）
+# ---------------------------------------------------------------------------
+# 设计原则（见 references/research-2026-08-13.md §3.2）：
+#   - 对齐 HuggingFace `datasets` 生态的 Parquet 容器格式，ML 研究者可直接 load_dataset 消费；
+#   - 导出「自有结构化字段」，不照搬 pokkoa 的散文单列 schema、不重分发其内容与许可证；
+#   - 默认 JSON 路径完全不变、零新增依赖（pyarrow 仅在 --format parquet 时懒加载）。
+
+def require_pyarrow():
+    try:
+        import pyarrow as pa          # noqa: F401
+        import pyarrow.parquet as pq  # noqa: F401
+    except Exception:
+        print(
+            "❌ Parquet 导出需要 pyarrow：请先 `pip install pyarrow`"
+            "（或 `pip install -e '.[parquet]'`）后重试。",
+            file=sys.stderr,
+        )
+        sys.exit(2)
+    return pa, pq
+
+
+def _rows_to_table(rows, columns):
+    """把 list[dict] 转成 pyarrow Table，按列做最小类型推断（bool/int/string）。"""
+    pa, _ = require_pyarrow()
+    cols = {c: [] for c in columns}
+    for r in rows:
+        for c in columns:
+            v = r.get(c, None)
+            if isinstance(v, (list, dict)):
+                v = json.dumps(v, ensure_ascii=False)
+            cols[c].append(v)
+    arrays = []
+    for c in columns:
+        vals = cols[c]
+        nonnull = [v for v in vals if v is not None]
+        if nonnull and all(isinstance(v, bool) for v in nonnull):
+            arrays.append(pa.array(vals, type=pa.bool_()))
+        elif nonnull and all(isinstance(v, int) for v in nonnull):
+            arrays.append(pa.array(vals, type=pa.int64()))
+        else:
+            arrays.append(pa.array(
+                [str(v) if v is not None else None for v in vals],
+                type=pa.string(),
+            ))
+    return pa.table(arrays, names=columns)
+
+
+def write_parquet(rows, columns, path):
+    _, pq = require_pyarrow()
+    os.makedirs(os.path.dirname(os.path.abspath(path)), exist_ok=True)
+    pq.write_table(_rows_to_table(rows, columns), path)
+    return len(rows)
+
+
+# ---- RAG 条目扁平化导出 ---------------------------------------------------
+RAG_COLUMNS = [
+    'asset_id', 'asset_name', 'asset_category', 'entry_id', 'rag_key',
+    'sui_yun', 'si_tian', 'zai_quan', 'zhu_qi', 'yun_qi_xiang_he',
+    'source_quote', 'title', 'text',
+    'category', 'physician', 'dynasty', 'disease', 'tags',
+]
+
+
+def _entry_text(entry):
+    for k in ('text', 'content', 'preview', 'description', 'explanation'):
+        v = entry.get(k)
+        if isinstance(v, str) and v.strip():
+            return v
+    return ''
+
+
+def _derive_yunqi_xianghe(entry, sui_yun, si_tian, zai_quan):
+    if sui_yun and si_tian and zai_quan:
+        return f'{sui_yun} + {si_tian}司天 + {zai_quan}在泉'
+    return entry.get('yunqi_xianghe') or entry.get('yun_qi_xiang_he') or ''
+
+
+def collect_rag_entries(rag_dir=RAG_DIR):
+    """扁平化全部 RAG 条目，导出字段覆盖五维度 + rag_key + source_quote。"""
+    rows = []
+    for filename in asset_files(rag_dir):
+        path = os.path.join(rag_dir, filename)
+        data = load_json(path)
+        if not isinstance(data, dict):
+            continue
+        asset_id = infer_asset_id(filename, data)
+        asset_name = infer_asset_name(filename, data)
+        category = infer_category(filename, data)
+        for entry in get_entries(data):
+            if not isinstance(entry, dict):
+                continue
+            sui_yun = entry.get('suiyun') or entry.get('suiyun_code') or entry.get('code') or ''
+            si_tian = entry.get('sitian_key') or entry.get('sitian') or ''
+            zai_quan = entry.get('zaiquan_key') or entry.get('zaiquan') or ''
+            zhu_qi = entry.get('zhuqi') or ''
+            yxh = _derive_yunqi_xianghe(entry, sui_yun, si_tian, zai_quan)
+            src = entry.get('source_quote')
+            if isinstance(src, list):
+                src = ' | '.join(str(x) for x in src)
+            rows.append({
+                'asset_id': asset_id,
+                'asset_name': asset_name,
+                'asset_category': category,
+                'entry_id': entry.get('entry_id') or entry.get('id') or '',
+                'rag_key': entry.get('rag_key') or '',
+                'sui_yun': sui_yun,
+                'si_tian': si_tian,
+                'zai_quan': zai_quan,
+                'zhu_qi': zhu_qi,
+                'yun_qi_xiang_he': yxh,
+                'source_quote': src or '',
+                'title': entry.get('title') or '',
+                'text': _entry_text(entry),
+                'category': entry.get('category') or '',
+                'physician': entry.get('physician') or '',
+                'dynasty': entry.get('dynasty') or '',
+                'disease': entry.get('disease') or '',
+                'tags': entry.get('tags') or '',
+            })
+    return rows
+
+
+# ---- 结构化运气年表导出（对齐 pokkoa 的 year+month 粒度，但全结构化）--------
+CALENDAR_COLUMNS = [
+    'year', 'ganzhi', 'yunqi_year',
+    'sui_yun_element', 'sui_yun_status', 'sui_yun_code', 'sui_yun_name',
+    'si_tian', 'zai_quan', 'tong_hua', 'yun_qi_xiang_he',
+    'step_number', 'step_name', 'zhu_qi', 'ke_qi', 'relation', 'shun_ni',
+    'keqi_is_sitian', 'keqi_is_zaiquan', 'rag_key', 'source_quote',
+]
+
+
+def build_calendar(start_year=1900, end_year=2100):
+    """生成 year × 六步 的结构化运气表（宽年份跨度，pokkoa 仅有 311 条散文）。"""
+    from _common import add_lib_to_path
+    add_lib_to_path()
+    from yunqi_data import (
+        get_ganzhi, get_dayun, get_sitian, get_zaiquan, get_suiyun_code,
+        get_kezhujialin_detail, is_taiguo,
+        check_tianfu, check_suihui, check_pingqi,
+        check_tong_tianfu, check_tong_suihui, QI_STEP_NAMES,
+    )
+    rows = []
+    for y in range(start_year, end_year + 1):
+        tg, dz = get_ganzhi(y)
+        dayun, _ = get_dayun(y)
+        taiguo = is_taiguo(y)
+        suiyun_code = get_suiyun_code(y)
+        sitian = get_sitian(y)
+        zaiquan = get_zaiquan(y)
+        tianfu = check_tianfu(y)
+        suihui = check_suihui(y)
+        tong_tianfu = check_tong_tianfu(y)
+        tong_suihui = check_tong_suihui(y)
+        pingqi = check_pingqi(y)
+        flags = []
+        if tianfu:
+            flags.append('天符')
+        if suihui:
+            flags.append('岁会')
+        if tianfu and suihui:
+            flags.append('太乙天符')
+        if tong_tianfu:
+            flags.append('同天符')
+        if tong_suihui:
+            flags.append('同岁会')
+        if pingqi:
+            flags.append('平气')
+        tong_hua = '、'.join(flags)
+        sui_name = f'{dayun}运{"太过" if taiguo else "不及"}'
+        yxh = f'{sui_name} + {sitian}司天 + {zaiquan}在泉' + (f'（{tong_hua}）' if tong_hua else '')
+        for s in range(1, 7):
+            det = get_kezhujialin_detail(y, s)
+            rows.append({
+                'year': y,
+                'ganzhi': f'{tg}{dz}',
+                'yunqi_year': y,
+                'sui_yun_element': dayun,
+                'sui_yun_status': '太过' if taiguo else '不及',
+                'sui_yun_code': suiyun_code,
+                'sui_yun_name': sui_name,
+                'si_tian': sitian,
+                'zai_quan': zaiquan,
+                'tong_hua': tong_hua,
+                'yun_qi_xiang_he': yxh,
+                'step_number': s,
+                'step_name': QI_STEP_NAMES[s],
+                'zhu_qi': det['zhu_qi'],
+                'ke_qi': det['ke_qi'],
+                'relation': det['relation'],
+                'shun_ni': det['shun_ni'],
+                'keqi_is_sitian': det['keqi_is_sitian'],
+                'keqi_is_zaiquan': det['keqi_is_zaiquan'],
+                'rag_key': f'{suiyun_code}|{sitian}_sitian|{zaiquan}_zaiquan',
+                'source_quote': '',
+            })
+    return rows
+
+
+INDEX_COLUMNS = [
+    'entry_id', 'entry_type', 'title', 'file', 'asset_id', 'asset_name',
+    'asset_category', 'description', 'total_entries', 'lookup_fields',
+    'example_keys', 'rag_key',
+]
+
+
 def main():
-    parser = argparse.ArgumentParser(description='生成或校验 rag-knowledge-base/index.json')
+    parser = argparse.ArgumentParser(
+        description='生成 / 校验 / 导出 rag-knowledge-base 索引与数据（支持 Parquet）')
     parser.add_argument('--rag-dir', default=RAG_DIR, help='RAG 知识库目录')
-    parser.add_argument('--output', default=DEFAULT_INDEX_PATH, help='输出 index.json 路径')
+    parser.add_argument('--output', default=None, help='输出文件路径（默认按模式/格式推断）')
     parser.add_argument('--check', action='store_true', help='只检查 index.json 是否与自动生成结果一致')
     parser.add_argument('--print', action='store_true', help='打印自动生成的 index JSON，不写入文件')
+    parser.add_argument('--format', choices=['json', 'parquet'], default='json',
+                        help='输出格式（默认 json；parquet 需 pyarrow）')
+    parser.add_argument('--export-mode', choices=['index', 'rag', 'calendar'], default='index',
+                        help='导出内容：index(资产索引,默认) / rag(全部 RAG 条目) / calendar(结构化运气年表)')
+    parser.add_argument('--year-range', nargs=2, type=int, default=[1900, 2100],
+                        metavar=('START', 'END'),
+                        help='calendar 模式的年份范围（含端点），默认 1900 2100')
     args = parser.parse_args()
 
     if args.print:
@@ -263,7 +478,7 @@ def main():
         return
 
     if args.check:
-        ok, errors, _ = check_index(args.output, args.rag_dir)
+        ok, errors, _ = check_index(args.output or DEFAULT_INDEX_PATH, args.rag_dir)
         if ok:
             print('✅ rag-knowledge-base/index.json 与自动生成结果一致')
             return
@@ -271,8 +486,46 @@ def main():
             print(f'❌ {err}')
         sys.exit(1)
 
-    data = write_index(args.output, args.rag_dir)
-    print(f"✅ RAG 索引已生成：{args.output}（{data['total_entries']} 个资产）")
+    # ---- index 模式（默认） ----
+    if args.export_mode == 'index':
+        if args.format == 'parquet':
+            path = args.output or os.path.join(args.rag_dir, 'index.parquet')
+            n = write_parquet(build_index(args.rag_dir)['entries'], INDEX_COLUMNS, path)
+            print(f"✅ RAG 索引 Parquet 已生成：{path}（{n} 个资产）")
+        else:
+            path = args.output or DEFAULT_INDEX_PATH
+            data = write_index(path, args.rag_dir)
+            print(f"✅ RAG 索引已生成：{path}（{data['total_entries']} 个资产）")
+        return
+
+    # ---- rag 模式 ----
+    if args.export_mode == 'rag':
+        rows = collect_rag_entries(args.rag_dir)
+        if args.format == 'parquet':
+            path = args.output or os.path.join(args.rag_dir, 'rag_entries.parquet')
+            n = write_parquet(rows, RAG_COLUMNS, path)
+            print(f"✅ RAG 条目 Parquet 已生成：{path}（{n} 条条目）")
+        else:
+            path = args.output or os.path.join(args.rag_dir, 'rag_entries.json')
+            os.makedirs(os.path.dirname(os.path.abspath(path)), exist_ok=True)
+            with open(path, 'w', encoding='utf-8') as f:
+                f.write(dump_json(rows))
+            print(f"✅ RAG 条目 JSON 已生成：{path}（{len(rows)} 条条目）")
+        return
+
+    # ---- calendar 模式 ----
+    start, end = args.year_range
+    rows = build_calendar(start, end)
+    if args.format == 'parquet':
+        path = args.output or os.path.join(args.rag_dir, 'yunqi_calendar.parquet')
+        n = write_parquet(rows, CALENDAR_COLUMNS, path)
+        print(f"✅ 运气年表 Parquet 已生成：{path}（{n} 行，{start}–{end}）")
+    else:
+        path = args.output or os.path.join(args.rag_dir, 'yunqi_calendar.json')
+        os.makedirs(os.path.dirname(os.path.abspath(path)), exist_ok=True)
+        with open(path, 'w', encoding='utf-8') as f:
+            f.write(dump_json(rows))
+        print(f"✅ 运气年表 JSON 已生成：{path}（{len(rows)} 行）")
 
 
 if __name__ == '__main__':

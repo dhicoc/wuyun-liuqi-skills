@@ -10,7 +10,7 @@
 ## 下一阶段路线图（0.2.0+）
 
 > 2026-08-13 评审采纳的下一阶段方向（源自 `references/research-2026-08-11.md` 生态调研 + `self-evolve/reports/report_2026-08-12.md` 盲区信号）。
-> 未采纳的提案（真·语义检索 / MCP 化 / 多宿主幂等等）移至文末「候选项 / 暂缓」。
+> 未采纳的提案（MCP 化 / 多宿主幂等等）仍在文末「候选项 / 暂缓」；**真·语义检索**经评审已明确不跟进，移入「不建议跟进」（见下表，n-gram + 字段精确匹配实为合理选型）。
 
 ### P9：发版 0.2.0 与文档去漂移
 
@@ -26,10 +26,11 @@
 > 现状：roadmap 中唯一仍 `[ ]` 的项；低成本、价值明确，服务 ML 研究者。
 > 情报（2026-08-13 调研，见 `research-2026-08-13.md` §3）：HuggingFace `pokkoa/chinese-five-circuits-six-qi` 实为**单列 `text` 散文（311 行、年+月粒度）**，非结构化运气表；其许可证**存在歧义**（HF 页「商业需授权」vs 镜像标 CC BY 4.0）。
 
-- [ ] 为 RAG asset 增加 Parquet 导出能力，对齐 Parquet **容器格式**（HF `datasets` 标准），但**导出自有结构化字段**，不照搬 pokkoa schema
-- [ ] `generate_rag_index.py` 增加 `--format parquet` 选项（默认 JSON 不变，向后兼容）
-- [ ] 导出字段覆盖岁运 / 司天 / 在泉 / 主气 / 运气相合五维度 + `rag_key` + `source_quote` + `disease`
-- [ ] 可选增值：额外生成「年+月粒度、宽年份跨度」结构化运气 Parquet（pokkoa 仅 311 条散文），并附字段说明与许可声明；**不重分发 pokkoa 内容**，仅互引对照
+- [x] 为 RAG asset 增加 Parquet 导出能力，对齐 Parquet **容器格式**（HF `datasets` 标准），但**导出自有结构化字段**，不照搬 pokkoa schema
+- [x] `generate_rag_index.py` 增加 `--format parquet` + `--export-mode {index,rag,calendar}`（默认 JSON 不变，向后兼容；pyarrow 懒加载，零新增硬依赖）
+- [x] 导出字段覆盖岁运 / 司天 / 在泉 / 主气 / 运气相合五维度 + `rag_key` + `source_quote` + `disease`
+- [x] 已实现增值：额外生成「year×六步、宽年份跨度（1900–2100）」结构化运气 Parquet（pokkoa 仅 311 条散文），并附 CHANGELOG 字段说明；**不重分发 pokkoa 内容**，仅互引对照（见 `research-2026-08-13.md` §3.2）
+- 实施提交见 `git log --oneline -1 -- scripts/generate_rag_index.py`；冒烟测试新增 P10 场景并接入 CI（多轮）。
 
 ### P11：体质 / 易感性「激活」而非继续扩数据
 
@@ -57,7 +58,6 @@
 
 ## 候选项 / 暂缓（未采纳，保留参考）
 
-- [ ] **真·语义检索**：接 `sentence-transformers` 真实 embedding，兑现「口语语义检索」。`rag_semantic.py` 现仍为字符 n-gram 退化（`pyproject.toml` 已留 `semantic` extra，`--semantic` 实际是 n-gram 匹配）。
 - [ ] **MCP / Connector 化**：将推算 / 检索 / 报告 / 医案浏览器 / 时间轴封装为 MCP tool，暴露给更多 Agent 宿主（需先核实 `mcps/` 下 JSON 为真实 server 还是 stub）。
 - [ ] **多宿主安装幂等 + 国际化英文蒸馏**（低优先）。
 
@@ -72,6 +72,7 @@
 | `${CLAUDE_SKILL_DIR}` / `context: fork` / `disable-model-invocation` | 「仓库即 skill」模式不适用，自动激活场景不适用 |
 | 第三方 API 验证 | 第三方 API 不可靠且无授权，P7-1 已有 61 项本地经典文献验证 |
 | 继续扩 RAG 数据（体质/易感性维度） | 自进化报告显示相关条目已存在但零查询，应先「激活」而非扩库（见 P11） |
+| 真·语义检索（sentence-transformers 真实 embedding） | 本域词汇（药名/方剂名/术语）要求精确匹配，dense embedding 在近义词上易漂移（如「石膏」↔「寒水石」语义相近但为两味不同药）；`--field/--key` 结构化精确检索风险更低、更可控。`rag_semantic.py` 现以字符 n-gram + 字段匹配实现「无需向量数据库」，`--semantic` 实为 n-gram 退化，这恰是匹配领域特性的合理选型，印证「技术选型要匹配领域特性，不是复杂的就是对的」，故不做真实 embedding |
 
 ---
 

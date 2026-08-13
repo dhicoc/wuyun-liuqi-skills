@@ -61,3 +61,10 @@ build/
 # 本地 Agent / IDE 数据（非项目源码，勿提交）
 .workbuddy/
 .inscode/
+
+# P10 Parquet / JSON 数据导出产物（由 generate_rag_index.py 生成，非源码）
+rag-knowledge-base/index.parquet
+rag-knowledge-base/rag_entries.json
+rag-knowledge-base/rag_entries.parquet
+rag-knowledge-base/yunqi_calendar.json
+rag-knowledge-base/yunqi_calendar.parquet

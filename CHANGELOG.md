@@ -2,6 +2,14 @@
 
 本文件记录五运六气技能包的重要变更，遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
 
+## [0.3.0] - 2026-08-13
+
+### Added
+- **P10 Parquet 数据导出**：`generate_rag_index.py` 新增 `--format parquet` 与 `--export-mode {index,rag,calendar}`。
+  - `rag`：扁平化全部 RAG 条目为结构化表，字段覆盖岁运/司天/在泉/主气/运气相合五维度 + `rag_key` + `source_quote`（对齐 HF `datasets` 容器格式，导出**自有**结构化字段，不照搬/不重分发 pokkoa 散文 schema）。
+  - `calendar`：生成 year×六步 的**全结构化**运气年表（1900–2100，宽年份跨度），比 pokkoa 的 311 条散文更有分析价值。
+  - `index`：资产索引亦支持 Parquet。默认 JSON 路径零新增依赖（pyarrow 仅在 `--format parquet` 时懒加载）；新增 `parquet` extra（`pip install -e '.[parquet]'`）。
+
 ## [0.2.0] - 2026-08-13
 
 ### Added
