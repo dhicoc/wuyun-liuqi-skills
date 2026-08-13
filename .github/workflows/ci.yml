@@ -160,3 +160,6 @@ jobs:
 
       - name: Advanced HTML report integration test
         run: python scripts/generate_html_report.py 2026-06-29 reports/test-results/advanced-ci.html --with-advanced-alignment --birth-date 2003-04-19 --city 杭州 --constitution-demo --mock
+
+      - name: Full-feature skill smoke (all scenarios, 3 rounds)
+        run: python tests/skill_full_feature_smoke.py --rounds 3

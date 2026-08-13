@@ -364,6 +364,7 @@ python scripts/calculate_yunqi_api.py 2026-06-27 --summary
 python scripts/health_check.py
 python scripts/validate_knowledge_base.py
 python tests/full_regression_test.py   # 等效 CI 校验（55 项回归 + 105 项扩展验证）
+python tests/skill_full_feature_smoke.py --rounds 3   # 全功能全场景多轮冒烟（触发所有入口脚本 + 模块/教学/人格结构）
 ```
 
 每次推送前本地跑通全部 CI 同款测试，全绿才推送。
