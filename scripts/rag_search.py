@@ -918,6 +918,15 @@ def list_assets() -> str:
     return "\n".join(lines)
 
 
+# 轻量免责声明：仅追加在「人类可读（非 JSON）」文献检索输出末尾。
+# JSON 模式保持纯净（供程序消费），不混入文案。
+RAG_DISCLAIMER = (
+    "\n⚠️ 以上文献内容由知识库检索直接返回，仅供学习参考。"
+    "涉及临床辨证、方药使用、体质调养，须由执业中医师四诊合参、辨证论治，"
+    "本工具不提供医疗建议。"
+)
+
+
 def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser(
         description="RAG 知识库检索：关键词 AND / rag_key 精确直取 / 按日打包",
@@ -988,6 +997,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             }, ensure_ascii=False, indent=2))
         else:
             print(fmt_sem(hits, q))
+            print(RAG_DISCLAIMER)
         return 0 if hits else 1
 
     # 模式 1：按日打包
@@ -998,6 +1008,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             print(json.dumps(bundle, ensure_ascii=False, indent=2))
         else:
             print(format_date_bundle(bundle))
+            print(RAG_DISCLAIMER)
         return 0 if not bundle.get("missing") else 1
 
     # 模式 2：精确 key
@@ -1014,6 +1025,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             }, ensure_ascii=False, indent=2))
         else:
             print(format_text(all_hits, args.keys, mode="exact_key"))
+            print(RAG_DISCLAIMER)
         return 0 if all_hits else 1
 
     # 模式 2.5：按字段检索
@@ -1033,6 +1045,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             }, ensure_ascii=False, indent=2))
         else:
             print(format_text(hits, args.terms, mode="field"))
+            print(RAG_DISCLAIMER)
         return 0 if hits else 1
 
     # 模式 3：关键词
@@ -1086,6 +1099,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         print(json.dumps(payload, ensure_ascii=False, indent=2))
     else:
         print(format_text(hits, args.terms, mode="keyword"))
+        print(RAG_DISCLAIMER)
     return 0 if hits else 1
 
 

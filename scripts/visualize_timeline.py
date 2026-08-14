@@ -218,9 +218,12 @@ def generate_timeline_html(year: int) -> str:
 
 def main(argv=None):
     import argparse
+    import os
+    import tempfile
     parser = argparse.ArgumentParser(description="生成运气时间轴 HTML（复用报告 UI）")
     parser.add_argument("year", help="年份（如 2026）或 today")
-    parser.add_argument("--output", "-o", default=None, help="输出文件路径")
+    parser.add_argument("--output", "-o", default=None,
+                        help="输出文件路径（默认打印到 stdout；Windows 下 /tmp/... 会自动归一到系统临时目录）")
     args = parser.parse_args(argv if argv is not None else None)
 
     if args.year.lower() == "today":
@@ -232,9 +235,17 @@ def main(argv=None):
     html = generate_timeline_html(year)
 
     if args.output:
-        Path(args.output).parent.mkdir(parents=True, exist_ok=True)
-        Path(args.output).write_text(html, encoding="utf-8")
-        print(f"✅ 已生成: {args.output} ({len(html)} bytes)")
+        out = args.output
+        # Windows 下 `/tmp/x.html` 会被 Path 误解析为 `<盘符>:/tmp/x.html`，
+        # 将 Unix 风格 /tmp 归一到系统临时目录，避免文件落到盘根。
+        if os.name == "nt" and (out.startswith("/tmp/") or out == "/tmp"):
+            rest = out[len("/tmp"):].lstrip("/")
+            out_path = Path(tempfile.gettempdir()) / rest
+        else:
+            out_path = Path(out)
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        out_path.write_text(html, encoding="utf-8")
+        print(f"✅ 已生成: {out_path} ({len(html)} bytes)")
     else:
         print(html)
 

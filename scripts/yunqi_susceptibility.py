@@ -255,7 +255,19 @@ def congenital_susceptibility(birth_date: str) -> Dict:
 
 
 if __name__ == "__main__":
-    import sys
-    bd = sys.argv[1] if len(sys.argv) > 1 else "1990-05-20"
+    import argparse
+    parser = argparse.ArgumentParser(
+        prog='yunqi_susceptibility.py',
+        description='计算先天运气·疾病易感性（出生 + 胎孕 -280d），主动召回 asset33。')
+    parser.add_argument('birth_date', nargs='?', help='出生日期 YYYY-MM-DD')
+    parser.add_argument('--year', help='仅给出生年份（如 1980），将用年中代表日期 1980-06-15')
+    args = parser.parse_args()
+    if args.year and not args.birth_date:
+        bd = f"{args.year}-06-15"
+    elif args.birth_date:
+        bd = args.birth_date
+    else:
+        parser.print_help()
+        sys.exit(1)
     out = congenital_susceptibility(bd)
     print(json.dumps(out, ensure_ascii=False, indent=2))

@@ -28,6 +28,8 @@ skill_sync:
     - export-thought
     - case-journal
     - claude-plugin-install
+    - timeline
+    - ops-selfcheck
 
 protocol:
   must_route_before_act: true
@@ -81,7 +83,7 @@ tasks:
       - 运气病机
       - 五运病机
     route: modules/yunqi-pathogenesis/SKILL.md
-    script: python scripts/calculate_yunqi_api.py <日期> --json
+    script: python scripts/infer_pathogenesis.py <年份>
 
   - id: clinical
     labels: { zh: 运气治法/方药/养生, en: Clinical guidance }
@@ -124,6 +126,24 @@ tasks:
       - 我1990年出生
     route: scripts/personal_yunqi_profile.py → rag-knowledge-base/asset7_constitution.json
     script: python scripts/personal_yunqi_profile.py <出生日期> [地区]
+
+  - id: timeline
+    labels: { zh: 运气时间轴可视化, en: Yunqi timeline visualization }
+    trigger_examples:
+      - 画个运气时间轴
+      - 六步客气时间轴
+      - 可视化全年客气
+    route: scripts/visualize_timeline.py
+    script: python scripts/visualize_timeline.py <年份> --output reports/generated/timeline_<年份>.html
+
+  - id: ops-selfcheck
+    labels: { zh: 安装/一致性自检, en: Ops self-check }
+    trigger_examples:
+      - 检查装得对不对
+      - 数字对不对得上
+      - 自检
+    route: scripts/health_check.py / scripts/check_readme_numbers.py / scripts/check_conformance.py / scripts/validate_knowledge_base.py
+    script: python scripts/health_check.py
 
   - id: weather-alignment
     labels: { zh: 天气对齐, en: Weather alignment }

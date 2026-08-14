@@ -500,34 +500,33 @@ def load_constitution_assessment_from_args(args):
 def main(argv=None):
     if argv is None:
         argv = sys.argv[1:]
-    if len(argv) < 1:
-        print("用法: python scripts/personal_yunqi_profile.py <出生日期YYYY-MM-DD> [地区] [--json] [--constitution-demo|--constitution-file <file>|--constitution-scores <json>]")
-        print("示例: python scripts/personal_yunqi_profile.py 1990-05-20 北京")
+    import argparse
+    parser = argparse.ArgumentParser(
+        prog='personal_yunqi_profile.py',
+        description='根据出生日期（及可选地区）生成个人运气/体质档案，含先天运气·疾病易感性倾向。')
+    parser.add_argument('birth_date', nargs='?', help='出生日期 YYYY-MM-DD')
+    parser.add_argument('region', nargs='?', help='地区（可选，用于地域修正）')
+    parser.add_argument('--year', help='仅给出生年份（如 1980），将用年中代表日期 1980-06-15 并声明假设')
+    parser.add_argument('--json', action='store_true', help='以 JSON 输出')
+    args, extra = parser.parse_known_args(argv)
+
+    if args.year and not args.birth_date:
+        birth_date = f"{args.year}-06-15"
+        year_assumed = True
+    elif args.birth_date:
+        birth_date = args.birth_date
+        year_assumed = False
+    else:
+        parser.print_help()
         sys.exit(1)
 
-    birth_date = argv[0]
-    region = None
-    as_json = False
-    constitution_assessment = load_constitution_assessment_from_args(argv[1:])
-    skip_next = False
-    option_with_value = {'--constitution-file', '--constitution-scores'}
-    for arg in argv[1:]:
-        if skip_next:
-            skip_next = False
-            continue
-        if arg == '--json':
-            as_json = True
-        elif arg == '--constitution-demo':
-            continue
-        elif arg in option_with_value:
-            skip_next = True
-            continue
-        elif arg.startswith('--'):
-            continue
-        elif not region:
-            region = arg
-
+    region = args.region
+    as_json = args.json
+    constitution_assessment = load_constitution_assessment_from_args(extra) if extra else None
     output = generate_profile(birth_date, region, as_json, today=None, constitution_assessment=constitution_assessment)
+    if year_assumed and not as_json:
+        output += ("\n> ⚠️ 仅提供出生年份，已按年中代表日期 "
+                   f"{birth_date} 推算；先天运气与易感性随实际出生月日可能变化。\n")
     sys.stdout.write(output)
     if not output.endswith('\n'):
         sys.stdout.write('\n')

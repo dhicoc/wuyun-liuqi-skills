@@ -27,7 +27,7 @@
       "prompt": "今年容易发什么病",
       "task_id": "pathogenesis",
       "expect_route": "modules/yunqi-pathogenesis/SKILL.md",
-      "expect_script_contains": "calculate_yunqi_api.py"
+      "expect_script_contains": "infer_pathogenesis.py"
     },
     {
       "name": "临床治法须先病机",

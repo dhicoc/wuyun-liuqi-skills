@@ -40,6 +40,8 @@
 | export-thought | 导出思想材料 | `export_thought.py` |
 | case-journal | 写医案/查岁图医案 | `case-journal/_template.md` |
 | claude-plugin-install | Claude Code 插件安装 | `workflows/claude-plugin-install.md` |
+| timeline | 运气时间轴可视化 | `scripts/visualize_timeline.py --output report...` |
+| ops-selfcheck | 安装/一致性自检 | `scripts/health_check.py` |
 
 完整列表与触发词见 `routing.yaml` → `tasks`。Agent 路由场景证明见 `tests/routing_scenarios.json`。
 <!-- SYNC:TASKS_SUMMARY_END -->

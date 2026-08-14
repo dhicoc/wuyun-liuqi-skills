@@ -147,6 +147,13 @@ def cmd_build():
     print(f"   可对比证型: {len(rel['cross_compare'])} 类")
 
 
+# 轻量免责声明：仅追加在「人类可读」医案对比/相似检索输出末尾。
+CASE_DISCLAIMER = (
+    "\n⚠️ 以上医案与方药信息仅供学习参考。涉及临床辨证、方药使用，"
+    "须由执业中医师四诊合参、辨证论治，本工具不提供医疗建议。"
+)
+
+
 def cmd_compare(physicians, tag):
     """对比检索：跨医家同证型。"""
     if not RELATIONS_FILE.exists():
@@ -180,6 +187,7 @@ def cmd_compare(physicians, tag):
             if formulas_str:
                 print(f"    方剂: {formulas_str}")
 
+    print(CASE_DISCLAIMER)
     return 0
 
 
@@ -240,6 +248,7 @@ def cmd_related(case_id):
         for cid, phys, cat, name, formula in list(shared_f)[:8]:
             print(f"  {cid} | {phys} | {cat} | {name} (共引{formula})")
 
+    print(CASE_DISCLAIMER)
     return 0
 
 

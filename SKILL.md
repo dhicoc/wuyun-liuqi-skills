@@ -51,6 +51,8 @@ description: >
 | 导出摘要/卡片 | `tasks/export-thought` → `export_thought.py` |
 | 写医案 | `tasks/case-journal` → `case-journal/_template.md` |
 | Claude Code 插件 | `tasks/claude-plugin-install` → `workflows/claude-plugin-install.md` |
+| 画个运气时间轴 | `tasks/timeline` → `scripts/visualize_timeline.py --output reports/generated/timeline_<年份>.html` |
+| 安装/一致性自检 | `tasks/ops-selfcheck` → `scripts/health_check.py` |
 <!-- SYNC:COMMON_TASKS_END -->
 
 未命中 → 查 `routing.yaml` 的 `axes` 与 `on_miss`，不得强行匹配。

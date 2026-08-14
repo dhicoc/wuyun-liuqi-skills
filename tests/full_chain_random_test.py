@@ -225,8 +225,11 @@ def test_html_report(dates: list[str]):
             fail(name, "missing RAG section in HTML")
             continue
         ok(name)
-        # 清理
-        html_file.unlink(missing_ok=True)
+        # 清理（best-effort：沙箱 safe-delete 拒绝删除时不影响判定结果）
+        try:
+            html_file.unlink(missing_ok=True)
+        except OSError:
+            pass
 
 
 def test_package_api(dates: list[str]):
