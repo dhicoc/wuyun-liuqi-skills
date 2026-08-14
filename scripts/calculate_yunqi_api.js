@@ -49,6 +49,9 @@ function calculateYunqiApi(dateStr) {
   // 7. 运气同化
   const tianfu = D.checkTianfu(yqYear);
   const suihui = D.checkSuihui(yqYear);
+  // 太乙天符 = 天符 ∩ 岁会（即《素问》原字「太一天符」，《素问·六微旨大论》
+  // 「太一天符为贵人」；《素问·六元正纪大论》枚举太一天符四年：乙酉、己丑、己未、戊午）。
+  // 此为经典定义，非缺失底层算法。
   const taiyiTianfu = tianfu && suihui;
   const pingqi = D.checkPingqi(yqYear);
   const tongTianfu = D.checkTongTianfu(yqYear);

@@ -2,6 +2,16 @@
 
 本文件记录五运六气技能包的重要变更，遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
 
+## [0.3.2] - 2026-08-14
+
+### Added
+- **《素问》独立文献交叉校验**：新增 `tests/verify_against_suwen.py`，以《黄帝内经·素问》运气七篇**原文枚举**（《六元正纪大论》《六微旨大论》含 file:line 出处）为唯一权威源，对全甲子（1984–2043）跑算法输出做五类（天符/岁会/太乙天符即素问原字「太一天符」/同天符/同岁会）全量逆向断言，证明算法与《素问》逐类恰好相等（无多无少）。
+  - 与 `scripts/verify_cross_check.py`（权威源为《医宗金鉴·运气要诀》注本）相互独立，构成「算法 == 素问 == 医宗金鉴」三重互证，已接入 CI（步骤 `Suwen (素问) independent literature cross-check`）。
+  - 5/5 类通过：天符 12 / 岁会 8 / 太一天符 4 / 同天符 6 / 同岁会 6。
+
+### Docs
+- `scripts/lib/yunqi_data.py` 的 `check_tianfu`、`calculate_yunqi_api.py` 的 `taiyi_tianfu` 布尔拼装处补《素问》六元正纪大论 / 六微旨大论出处注释，并注明素问原字「太一天符」（一）与后世注本「太乙天符」（乙）之异；`yunqi_data.js` / `calculate_yunqi_api.js` 同步。
+
 ## [0.3.1] - 2026-08-14
 
 ### Fixed

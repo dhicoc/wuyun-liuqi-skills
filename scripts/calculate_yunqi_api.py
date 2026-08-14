@@ -121,6 +121,9 @@ def calculate_yunqi_api(date_str: Optional[Union[str, date]] = None) -> Dict[str
     # 7. 运气同化
     tianfu = check_tianfu(yq_year)
     suihui = check_suihui(yq_year)
+    # 太乙天符 = 天符 ∩ 岁会（即《素问》原字「太一天符」，见《素问·六微旨大论》
+    # 「天符为执法，岁位为行令，太一天符为贵人」；《素问·六元正纪大论》明文
+    # 枚举太一天符四年：乙酉、己丑、己未、戊午）。此为经典定义，非缺失底层算法。
     taiyi_tianfu = tianfu and suihui
     pingqi = check_pingqi(yq_year)
     tong_tianfu = check_tong_tianfu(yq_year)

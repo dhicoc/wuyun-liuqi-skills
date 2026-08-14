@@ -168,7 +168,11 @@ def kezhujialin_relation(keqi, zhuqi):
     return "未知关系", "未知"
 
 def check_tianfu(year):
-    """天符: 大运五行 == 司天五行"""
+    """天符: 大运五行 == 司天五行
+
+    依据《素问·六元正纪大论》天符十二年枚举（丙辰丙戌/乙卯乙酉/戊寅戊申/
+    己丑己未/戊子戊午/丁巳丁亥），凡中运与司天五行同气者十二年。
+    """
     dayun, _ = get_dayun(year)
     sitian = get_sitian(year)
     sitian_elem = LIUQI_WUXING[sitian]

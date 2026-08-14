@@ -158,6 +158,7 @@ function kezhujialinRelation(keqi, zhuqi) {
 }
 
 function checkTianfu(year) {
+  // 天符：大运五行 == 司天五行。依据《素问·六元正纪大论》天符十二年枚举。
   const [dayun] = getDayun(year);
   const sitian = getSitian(year);
   return dayun === LIUQI_WUXING[sitian];

@@ -85,6 +85,9 @@ jobs:
       - name: Classic literature cross-check (61 cases)
         run: python scripts/verify_cross_check.py
 
+      - name: Suwen (素问) independent literature cross-check
+        run: python tests/verify_against_suwen.py
+
       - name: Retrieval quality benchmark (34 queries)
         run: |
           python scripts/eval_retrieval_quality.py
