@@ -451,11 +451,13 @@ def load_advanced_alignment(path):
     return None
 
 
-def generate_report(year, audience='student', advanced=None, with_rag_bundle=True, rag_ref_date=None):
+def generate_report(year, audience='student', advanced=None, with_rag_bundle=True,
+                     rag_ref_date=None, with_neijing_methodology=True):
     """生成综合报告。
 
     with_rag_bundle: 是否附加按日 rag_keys 精确命中章节（默认开启）。
     rag_ref_date: 代表日 YYYY-MM-DD；默认 year-07-08。
+    with_neijing_methodology: 是否附加「内经方法论」章节（P12；外部仓库不可用时自动跳过）。
     """
     # 获取全部推算数据
     tg, dz = get_ganzhi(year)
@@ -615,6 +617,25 @@ def generate_report(year, audience='student', advanced=None, with_rag_bundle=Tru
     if advanced_section:
         sections.append(advanced_section)
 
+    # 内经方法论章节（P12：可选依赖；不可用时优雅降级，绝不阻断主流程）
+    if with_neijing_methodology:
+        try:
+            from neijing_bridge import (
+                build_methodology_for_ctx, neijing_available, yunqi_context_from_parts,
+            )
+            if neijing_available():
+                _ctx = yunqi_context_from_parts(
+                    get_dayun(year)[0], is_taiguo(year), get_sitian(year), get_zaiquan(year),
+                )
+                # practitioner 由报告尾部统一包三件套；其余受众由本桥接按需补充
+                _with_safety = (audience != 'practitioner')
+                _neijing_sec = build_methodology_for_ctx(_ctx, top_n=3, with_safety=_with_safety)
+                if _neijing_sec:
+                    sections.append(_neijing_sec)
+        except Exception:
+            # 任何异常都不应影响运气主报告
+            pass
+
     # 临床版强化安全与急症提醒
     if audience == 'practitioner':
         sections.append(CLINICAL_SAFETY_NOTICE)
@@ -636,9 +657,10 @@ def generate_report(year, audience='student', advanced=None, with_rag_bundle=Tru
 def main():
     if len(sys.argv) < 2:
         print(
-            "用法: python yunqi_report.py <年份> "
-            "[--audience student|practitioner|researcher] [--json] "
-            "[--advanced-json <文件>] [--no-rag-bundle] [--rag-date YYYY-MM-DD]"
+        "用法: python yunqi_report.py <年份> "
+        "[--audience student|practitioner|researcher] [--json] "
+        "[--advanced-json <文件>] [--no-rag-bundle] [--rag-date YYYY-MM-DD] "
+        "[--neijing|--no-neijing]"
         )
         sys.exit(1)
 
@@ -647,6 +669,7 @@ def main():
     advanced = None
     with_rag_bundle = True
     rag_ref_date = None
+    with_neijing_methodology = True
     if '--audience' in sys.argv:
         idx = sys.argv.index('--audience')
         if idx + 1 < len(sys.argv):
@@ -661,6 +684,10 @@ def main():
         idx = sys.argv.index('--rag-date')
         if idx + 1 < len(sys.argv):
             rag_ref_date = sys.argv[idx + 1]
+    if '--no-neijing' in sys.argv:
+        with_neijing_methodology = False
+    if '--neijing' in sys.argv:
+        with_neijing_methodology = True
 
     if audience not in ('student', 'practitioner', 'researcher'):
         print(f"audience 必须是 student/practitioner/researcher，当前: {audience}")
@@ -672,6 +699,7 @@ def main():
         advanced=advanced,
         with_rag_bundle=with_rag_bundle,
         rag_ref_date=rag_ref_date,
+        with_neijing_methodology=with_neijing_methodology,
     )
 
     if '--json' in sys.argv:

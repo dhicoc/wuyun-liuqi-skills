@@ -201,7 +201,7 @@ Liu Wansu (Cold-Cool school) and Zhang Jiebin (Warm-Tonify school) are built int
 
 ## Complete feature list
 
-> 45 scripts · 6 sub-skill modules · 10 teaching modules · 2 commentator perspectives · 32 RAG assets · 51 public-domain texts · 12 distilled guides
+> 46 scripts · 6 sub-skill modules · 10 teaching modules · 2 commentator perspectives · 32 RAG assets · 51 public-domain texts · 12 distilled guides
 
 ### Calculation engine (9)
 
@@ -335,7 +335,7 @@ Heaven-Human Oneness · Qi transformation · Moderation · Dayun-Suiyun · Five-
 ├── SKILL.md                    # ★ Master routing entry (AI must-read)
 ├── routing.yaml / routing.md   # ★ Routing source of truth / human index
 ├── AGENTS.md / CLAUDE.md       # Cross-tool thin shell (Codex / Claude)
-├── scripts/                    # 45 Python scripts + JS interface
+├── scripts/                    # 46 Python scripts + JS interface
 │   ├── calculate_yunqi_api.py  #   ★ Main path (Dahan boundary + rag_keys)
 │   ├── rag_search.py           #   ★ RAG search
 │   ├── case_relations.py       #   Case compare / similar discovery

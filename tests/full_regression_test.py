@@ -107,6 +107,23 @@ def main():
     run('visualize_yunqi', [PY, 'scripts/visualize_yunqi.py', '2026-06-29'], has('六气步位推移'))
     run('generate_html_report', [PY, 'scripts/generate_html_report.py', '2026-06-29', 'reports/test-results/test-full.html'], has('HTML 报告已生成'))
 
+    # P12 内经方法论章节（可选依赖；CI 含 vendored 快照故默认运行；缺失则跳过）
+    _nb = subprocess.run([PY, 'scripts/neijing_bridge.py'], cwd=ROOT, env=ENV,
+                         capture_output=True, text=True, encoding='utf-8', timeout=60)
+    _has_neijing = _nb.returncode == 0 and '不可用' not in (_nb.stdout or '')
+    if _has_neijing:
+        run('yunqi_report practitioner with neijing methodology',
+            [PY, 'scripts/yunqi_report.py', '2026', '--audience', 'practitioner'],
+            has('## 内经方法论'))
+        run('personal profile with neijing methodology',
+            [PY, 'scripts/personal_yunqi_profile.py', '1990-05-20', '北京'],
+            has('## 内经方法论'))
+        run('yunqi_report --no-neijing omits chapter',
+            [PY, 'scripts/yunqi_report.py', '2026', '--audience', 'practitioner', '--no-neijing'],
+            lambda r, o: '## 内经方法论' not in o)
+    else:
+        print('[SKIP] neijing methodology（外部仓库不可用，已优雅降级）')
+
     # 个人体质
     run('personal profile text', [PY, 'scripts/personal_yunqi_profile.py', '1990-05-20', '北京'], has('个人运气体质分析报告'))
     run('personal profile json', [PY, 'scripts/personal_yunqi_profile.py', '1990-05-20', '北京', '--json'], json_has(['birth_suiyun', 'code']))

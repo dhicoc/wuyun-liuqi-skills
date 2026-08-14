@@ -55,13 +55,17 @@
 ### P12：与 huangdi-neijing-skill 功能级集成
 
 > 现状仅交叉引用（`teaching-modules/相关思维工具.md` 的 10 教学模块 ↔ 22 思维工具映射）。目标是在 runtime 层打通，形成「内经方法论 + 运气推算」完整中医 Agent 能力栈。>   
-> 情报（2026-08-13 调研，见 `research-2026-08-13.md` §4）：`kangarooking/huangdi-neijing-skill` 为 **MIT、22 skills（素问12+灵枢10）**，结构清晰、`SKILL.md` 带 `related_skills` 组合关系、可 `npx skills add --skill <name>` 单装。与运气链可组合者：`personalize-by-constitution`(因人施术)、`seasonal-regimen`(四时调养)、`emotion-organ-proxy`(情志脏腑)、`cascade-prediction`(传变预测)、`context-adaptation`(因地制宜)、`timing-opportunity`(时机)、`observation-inference`(以外测内)、`yin-yang-balance`/`five-elements-network`(运气太少/生克)。
+> 情报（2026-08-13 调研，见 `research-2026-08-13.md` §4）：`kangarooking/huangdi-neijing-skill` 为 **MIT、22 skills（素问12+灵枢10）**，默认分支 `main`、仅 1 commit（2026-04-18，cangjie-skill AI 蒸馏，无后续维护）；每个 `SKILL.md` 带**机器可读 `related_skills` YAML frontmatter**（`depends-on`/`composes-with`/`contrasts-with`），正文为 **R/I/A1/A2/E/B 六维**（原文/方法论/书内案例/触发场景/可执行步骤/边界）；**无 `npx skills add` 机制**，采用路径检测 + glob（详见 PRD）。与运气链可组合者：`personalize-by-constitution`(因人施术)、`seasonal-regimen`(四时调养)、`emotion-organ-proxy`(情志脏腑)、`cascade-prediction`(传变预测)、`context-adaptation`(因地制宜)、`timing-opportunity`(时机)、`observation-inference`(以外测内)、`yin-yang-balance`/`five-elements-network`(运气太少/生克)。
 
-- [ ] 在推算 / 推理链中按语境主动调用内经方法论思维工具（映射上列 ★ skill）
-- [ ] 新增 `neijing_bridge.py`：输入运气格局 + 体质/病证 → 选 top-N 内经 skill，拼装其 R/I/A/E 步骤为报告「内经方法论」章节
-- [ ] 安装 / 校验脚本增加跨 skill **可选依赖检测与优雅降级**（`huangdi-neijing-skill` 未装时回退到本包自有情志/四时/因地建议，不阻塞）
+- [ ] 新增 `scripts/neijing_bridge.py`：只读解析器（glob `**/SKILL.md` + 解析 YAML frontmatter + **R/I/A1/A2/E/B 六维**）+ `neijing_available()` 路径检测；`yunqi→neijing` 映射表 `YUNQI_NEIJING_MAP` + `select_skills()`（按运气维度加权 + `related_skills` 多级展开，默认 top-N=3）
+- [ ] `build_methodology_section()`：输入运气格局 + 体质/病证 → 选 top-N 内经 skill → 拼装其 **I(框架)/E(步骤)/B(边界)** 为报告「内经方法论」章节，保留《内经》原文章节出处引用
+- [ ] **临床安全红线（MUST）**：复用 `_safety_text` 三件套（DISCLAIMER / CLINICAL_SAFETY_NOTICE / EMERGENCY_NOTICE）；灵枢临床/针刺类 skill（`qi-regulation`/`excess-deficiency-decision`/`root-cause-priority`/`observe-infer` 等）默认不进映射，若显式触发仅保留框架层、剥离 E 段可执行步骤、强制拒诊拒方，绝不输出具体穴位/方剂
+- [ ] **供应方式**：仓库**无 `npx skills add` 机制**，采用**路径检测 + glob**——`neijing_available()` 读 `HUANGDI_NEIJING_SKILL_DIR` 或默认目录；所需 `SKILL.md` **vendored 快照**于 `scripts/lib/neijing_snapshot/`（锁定 commit `17106a2`），CI 零网络依赖；缺失时优雅降级（主流程零报错、仅少一章）
 - [ ] 利用 `related_skills` 的 `composes-with` / `depends-on` 做多级联动（如 `personalize-by-constitution` ← `observe-infer` ← `context-adaptation`）
-- [ ] 补充联动回归测试，验证运气结论可回链到内经方法论条目
+- [ ] 集成 `yunqi_report.py` / `personal_yunqi_profile.py`：在「知识库/RAG 章节」之后、「临床安全提示」之前追加「内经方法论」章节；CLI `--neijing` / `--no-neijing` 开关
+- [ ] 补充联动回归测试（`tests/test_neijing_bridge.py` 用 vendored 快照、不依赖网络；`full_regression_test` 条件用例），验证运气结论可回链到内经方法论条目且临床类含三件套、无操作指令
+
+> 完整实施设计见 `references/p12-implementation-prd.md`（2026-08-14 起草，已批准）。
 
 ---
 

@@ -282,7 +282,8 @@ def synthesize_innate_acquired(birth_constitutions, safe_current_adjustment, con
     }
 
 
-def generate_profile(birth_date, region=None, as_json=False, today=None, constitution_assessment=None):
+def generate_profile(birth_date, region=None, as_json=False, today=None, constitution_assessment=None,
+                     with_neijing_methodology=True):
     birth_year, birth_suiyun_code, birth_suiyun_name = get_yunqi_year(birth_date)
     if today is None:
         today = date.today().isoformat()
@@ -465,6 +466,35 @@ def generate_profile(birth_date, region=None, as_json=False, today=None, constit
     lines.append("> ⚠️ 先天运气 → 体质 → 疾病易感性为**统计性/关联性**证据，非因果，不替代临床诊断。")
     lines.append("")
 
+    # P12：内经方法论章节（可选依赖；不可用时优雅降级，绝不阻断主流程）
+    if with_neijing_methodology:
+        try:
+            from neijing_bridge import (
+                build_methodology_for_ctx, neijing_available, yunqi_context_from_parts,
+            )
+            from yunqi_data import get_dayun, get_sitian, get_zaiquan, is_taiguo
+            if neijing_available():
+                _element = get_dayun(current_year)[0]
+                _taiguo = is_taiguo(current_year)
+                _sitian = get_sitian(current_year)
+                _zaiquan = get_zaiquan(current_year)
+                _constitution = []
+                for _t in (congenital.get('tendency') or []):
+                    _constitution.append(_t.get('name', ''))
+                for _c in birth_constitutions:
+                    _constitution.append(_c.get('constitution_name', ''))
+                _ctx = yunqi_context_from_parts(
+                    _element, _taiguo, _sitian, _zaiquan,
+                    constitution=_constitution, personalize=True,
+                )
+                _neijing_sec = build_methodology_for_ctx(_ctx, top_n=3, with_safety=True)
+                if _neijing_sec:
+                    lines.append(_neijing_sec)
+                    lines.append("")
+        except Exception:
+            # 任何异常都不应影响体质主报告
+            pass
+
     lines.append(
         "> ⚠️ " + CONTEXT_DISCLAIMERS['constitution']
     )
@@ -508,6 +538,7 @@ def main(argv=None):
     parser.add_argument('region', nargs='?', help='地区（可选，用于地域修正）')
     parser.add_argument('--year', help='仅给出生年份（如 1980），将用年中代表日期 1980-06-15 并声明假设')
     parser.add_argument('--json', action='store_true', help='以 JSON 输出')
+    parser.add_argument('--no-neijing', action='store_true', help='关闭「内经方法论」章节（P12）')
     args, extra = parser.parse_known_args(argv)
 
     if args.year and not args.birth_date:
@@ -523,7 +554,11 @@ def main(argv=None):
     region = args.region
     as_json = args.json
     constitution_assessment = load_constitution_assessment_from_args(extra) if extra else None
-    output = generate_profile(birth_date, region, as_json, today=None, constitution_assessment=constitution_assessment)
+    with_neijing_methodology = not args.no_neijing
+    output = generate_profile(
+        birth_date, region, as_json, today=None, constitution_assessment=constitution_assessment,
+        with_neijing_methodology=with_neijing_methodology,
+    )
     if year_assumed and not as_json:
         output += ("\n> ⚠️ 仅提供出生年份，已按年中代表日期 "
                    f"{birth_date} 推算；先天运气与易感性随实际出生月日可能变化。\n")
