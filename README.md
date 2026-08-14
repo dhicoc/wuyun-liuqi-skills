@@ -236,7 +236,7 @@ python scripts/calculate_yunqi_api.py 2026-06-27 --summary
 
 | 功能 | 入口脚本 | 说明 |
 |------|----------|------|
-| 综合年度报告 | `yunqi_report.py` | 学生/临床/研究版 Markdown 报告，可选注入高级对齐章节 |
+| 综合年度报告 | `yunqi_report.py` | 学生/临床/研究版 Markdown 报告，可选注入高级对齐章节与「内经方法论」章节（`--no-neijing` 关闭） |
 | HTML 可视化报告 | `generate_html_report.py` | 宣纸水墨设计体系，深色屏幕/浅色打印双态 |
 | 思想导出 | `export_thought.py` | 纯文本摘要 / Anki 卡片（TSV+MD）/ 可打印 HTML/PDF |
 | 思想地图 | `export_thought_map.py` | Mermaid 概念图 + 年结构图 |
@@ -386,7 +386,7 @@ MIT License，详见 [LICENSE](LICENSE)。
 
 ## 相关项目
 
-- [huangdi-neijing-skill](https://github.com/kangarooking/huangdi-neijing-skill) ⭐31 -- 把《黄帝内经》素问+灵枢蒸馏成 22 个思维方法论 skill，与本项目的运气推算能力互补。详见 [`teaching-modules/相关思维工具.md`](teaching-modules/相关思维工具.md)。
+- [huangdi-neijing-skill](https://github.com/kangarooking/huangdi-neijing-skill) ⭐31 -- 把《黄帝内经》素问+灵枢蒸馏成 22 个思维方法论 skill，与本项目的运气推算能力互补；其方法论已 **vendored 快照**集成进报告「内经方法论」章节（详见 [`teaching-modules/相关思维工具.md`](teaching-modules/相关思维工具.md)）。
 
 ### 致谢
 

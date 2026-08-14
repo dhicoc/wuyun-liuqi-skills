@@ -102,7 +102,7 @@ AI 会自动帮你安装依赖（主要是 `lunar-python`）。
 
 - 快速了解今天/某天 + 思想解读：`python scripts/calculate_yunqi_api.py today --summary --level deep`
 - 概念哲学 + 导出复习：`python scripts/calculate_yunqi_api.py today --explain-concept "天人合一"` 或 `export_thought.py today --format all`（思想摘要 + 卡片 + PDF/HTML）
-- 完整报告：`python scripts/yunqi_report.py 2026 --audience student`
+- 完整报告：`python scripts/yunqi_report.py 2026 --audience student`（默认含「内经方法论」章节，`--no-neijing` 可关闭）
 - 个人分析：`python scripts/personal_yunqi_profile.py 1990-05-20 北京`
 - 查看自进化理解进展：`python scripts/self_evolve.py report` / `stats`
 

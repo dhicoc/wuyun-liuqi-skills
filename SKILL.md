@@ -82,7 +82,7 @@ description: >
 | 医案渐进加载（P1-3） | 按病证/运气查医案库前**先调 `cases_routing.py`** 拿首选+补充+强制库清单，再只开命中库，避免整包 22 部撑爆上下文——`cases_routing.py --syndrome 湿温` · `--rag-key water_excess` · `--list-assets`。瘟疫/痈疽等高风险病证自动附加强制联动库 |
 | 讲解人格/教学模块/注家 | `expression_style.md` + `teaching-modules/` + `perspectives/`（刘完素/张介宾） |
 | 可导入包 | `wuyun_liuqi`（`from wuyun_liuqi import calculate, semantic_search`） |
-| HTML 报告 | `generate_html_report.py`（含知识库精确命中章节） |
+| HTML 报告 | `generate_html_report.py`（含知识库精确命中章节） | 综合 Markdown 报告见 `yunqi_report.py`（含「内经方法论」章节，`--no-neijing` 可关） |
 | 病机推理链 | `infer_pathogenesis.py <年份>`（岁运->司天在泉->六步->方剂五层推理） |
 | Fallback 经验库 | `case-journal/field-journal/`（联网搜索沉淀，非原文存证；含 source_quote + confidence 字段；知识库未命中才查） |
 | 医案关联图谱 | `case_relations.py --compare/--related`（跨医家对比+相似检索，1994条×402证型） |
