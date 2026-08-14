@@ -174,12 +174,28 @@ def check_tianfu(year):
     sitian_elem = LIUQI_WUXING[sitian]
     return dayun == sitian_elem
 
+# 岁会「运临本辰之位」判定表：大运五行 → 其本气所临地支（本辰）集合
+# 依据《素问·六微旨大论》《医宗金鉴·运气要诀》：
+#   木运临卯、火运临午、金运临酉、水运临子、土运临辰戌丑未（四季），共八年。
+# 注意：岁会 ≠ 「大运五行 == 地支五行」的朴素判等——后者会把寅/巳/申/亥
+#       等非本辰支多算进来（壬寅/癸巳/庚申/辛亥），误报 4 年。
+DAYUN_BENCHEN = {
+    '木': {'卯'},
+    '火': {'午'},
+    '土': {'辰', '戌', '丑', '未'},
+    '金': {'酉'},
+    '水': {'子'},
+}
+
 def check_suihui(year):
-    """岁会: 大运五行 == 地支五行"""
+    """岁会: 大运五行临本辰之位（运临本辰）
+
+    经典定义要求「运临本辰」，而非「大运五行 == 地支五行」的朴素判等：
+    木运临卯、火运临午、金运临酉、水运临子、土运临辰戌丑未（四季），共八年。
+    """
     dayun, _ = get_dayun(year)
     _, dz = get_ganzhi(year)
-    dz_elem = DIZHI_WUXING[dz]
-    return dayun == dz_elem
+    return dz in DAYUN_BENCHEN.get(dayun, set())
 
 def check_pingqi(year):
     """

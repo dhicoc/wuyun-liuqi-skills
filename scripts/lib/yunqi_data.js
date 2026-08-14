@@ -163,10 +163,23 @@ function checkTianfu(year) {
   return dayun === LIUQI_WUXING[sitian];
 }
 
+// 岁会「运临本辰之位」判定表：大运五行 → 其本气所临地支（本辰）集合
+// 木运临卯、火运临午、金运临酉、水运临子、土运临辰戌丑未（四季），共八年。
+const DAYUN_BENCHEN = {
+  '木': new Set(['卯']),
+  '火': new Set(['午']),
+  '土': new Set(['辰', '戌', '丑', '未']),
+  '金': new Set(['酉']),
+  '水': new Set(['子']),
+};
+
 function checkSuihui(year) {
+  // 岁会是大运五行「临本辰之位」，非「大运五行 == 地支五行」的朴素判等
+  // （后者会把寅/巳/申/亥等非本辰支多算进来，误报壬寅/癸巳/庚申/辛亥）。
   const [dayun] = getDayun(year);
   const [, dz] = getGanzhi(year);
-  return dayun === DIZHI_WUXING[dz];
+  const bench = DAYUN_BENCHEN[dayun];
+  return bench ? bench.has(dz) : false;
 }
 
 function checkPingqi(year) {

@@ -2,6 +2,16 @@
 
 本文件记录五运六气技能包的重要变更，遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
 
+## [0.3.1] - 2026-08-14
+
+### Fixed
+- **算法正确性·岁会（P0 级）**：`check_suihui`（`scripts/lib/yunqi_data.py` / `yunqi_data.js`）原用朴素判等「大运五行 == 地支五行」，误将寅/巳/申/亥 4 年（壬寅/癸巳/庚申/辛亥）收为岁会，实际命中 12 年而非经典 8 年。
+  - 改为经典「运临本辰之位」判定（`DAYUN_BENCHEN` 表：木临卯、火临午、金临酉、水临子、土临辰戌丑未），岁会恰为 **8 年**。
+  - 太乙天符 `taiyi_tianfu = check_tianfu and check_suihui` 经核实即为《医宗金鉴》经典定义（天符∩岁会，命中恰为经典四年：己丑/己未/乙酉/戊午），**保持布尔组合不变**，未被岁会 bug 带歪。
+  - Py / JS 双引擎同步修复，`compare_py_js_yunqi.py` 一致性校验通过。
+- **CI 盲区补齐**：`verify_cross_check.py` 的 `verify_suihui` / `verify_taiyi_tianfu` 由「仅正向遍历已知年」改为**全甲子（1984–2043）逆向断言**，要求命中集合恰好等于经典 8/4 年（无多无少），可接住此类朴素判等回归。验证基线 61 → **63** 项。
+- **文档/术语对齐**：`yunqi_tonghua.md`、`modules/ganzhi-basics/references/jieqi.md`、`teaching-modules/天符岁会.md`、`rag-knowledge-base/terminology.json`（2 条）中的朴素「岁运五行 == 年支五行」定义统一修正为「运临本辰」，消除反向带偏 agent 检索输出的风险。
+
 ## [0.3.0] - 2026-08-13
 
 ### Added

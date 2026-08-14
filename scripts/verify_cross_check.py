@@ -71,7 +71,7 @@ TIANFU_YEARS = {
     '丙辰', '丙戌',           # 水运，太阳寒水司天
 }
 
-# 岁会八年：中运五行 == 地支五行（本运临本支之位）
+# 岁会八年：大运五行临本辰之位（木临卯/火临午/金临酉/水临子/土临辰戌丑未）
 # 四正：丁卯（木/卯木）、戊午（火/午火）、乙酉（金/酉金）、丙子（水/子水）
 # 四维：甲辰甲戌（土/辰戌土）、己丑己未（土/丑未土）
 SUIHUI_YEARS = {
@@ -138,19 +138,32 @@ def verify_tianfu():
 
 
 def verify_suihui():
-    """验证岁会八年"""
+    """验证岁会八年（正向全命中 + 全甲子逆向无多报/无漏报）"""
     results = []
+    # 正向：经典八年必须全部命中
     for gz in sorted(SUIHUI_YEARS):
         year = _find_year_by_ganzhi(gz)
         if year is None:
             continue
         actual = check_suihui(year)
         results.append({"gz": gz, "year": year, "expected": True, "actual": actual, "pass": actual == True})
+    # 逆向：全甲子（1984-2043）扫描，凡命中的干支必须恰好等于经典八年集合
+    # 此断言可接住「朴素判等把寅/巳/申/亥多算进来」这类回归（如壬寅/癸巳/庚申/辛亥）
+    flagged = set()
+    for year in range(1984, 2044):
+        if check_suihui(year):
+            flagged.add(_year_to_ganzhi(year))
+    results.append({
+        "gz": "全甲子逆向扫描", "year": None,
+        "expected": "恰好 %d 年（%s）" % (len(SUIHUI_YEARS), "、".join(sorted(SUIHUI_YEARS))),
+        "actual": "命中 %d 年（%s）" % (len(flagged), "、".join(sorted(flagged)) or "无"),
+        "pass": (flagged == SUIHUI_YEARS),
+    })
     return results
 
 
 def verify_taiyi_tianfu():
-    """验证太乙天符四年"""
+    """验证太乙天符四年（正向全命中 + 全甲子逆向无多报）"""
     results = []
     for gz in sorted(TAIYI_TIANFU_YEARS):
         year = _find_year_by_ganzhi(gz)
@@ -158,6 +171,17 @@ def verify_taiyi_tianfu():
             continue
         actual = check_tianfu(year) and check_suihui(year)
         results.append({"gz": gz, "year": year, "expected": True, "actual": actual, "pass": actual == True})
+    # 逆向：全甲子扫描，太乙天符命中集合必须恰好等于经典四年集合
+    flagged = set()
+    for year in range(1984, 2044):
+        if check_tianfu(year) and check_suihui(year):
+            flagged.add(_year_to_ganzhi(year))
+    results.append({
+        "gz": "全甲子逆向扫描", "year": None,
+        "expected": "恰好 %d 年（%s）" % (len(TAIYI_TIANFU_YEARS), "、".join(sorted(TAIYI_TIANFU_YEARS))),
+        "actual": "命中 %d 年（%s）" % (len(flagged), "、".join(sorted(flagged)) or "无"),
+        "pass": (flagged == TAIYI_TIANFU_YEARS),
+    })
     return results
 
 
