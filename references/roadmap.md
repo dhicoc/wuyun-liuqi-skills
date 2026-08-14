@@ -44,11 +44,13 @@
 > 反直觉信号（来自自进化报告）：asset33 的 earth/fire 体质·易感性条目**存在但从未被查**（低覆盖）——根因是路由未激活，不是缺数据。下一步应在推理链主动联动这些维度，而非再扩库。>   
 > 情报（2026-08-13 调研，见 `research-2026-08-13.md` §5）：**学术依据充分**——出生/胎孕运气→体质→疾病易感性有多项统计研究（胎孕运气发病倾向符合率 79.1%；王琦九体 40 万+ 流调对应 313 病种；RA 2306 例运气禀赋 P<0.05）。具体映射可编码（火运不及+阳明燥金司天→阴虚质倾向；厥阴风木司天+少阳相火在泉→阳虚质倾向）。
 
-- [ ] 在 `personal_yunqi_profile.py` 计算**先天运气**（出生年干支 → 岁运/司天/在泉 + 胎孕期运气，权重参考「胎孕期前 3 个月」），作为一等输入喂给 `infer_pathogenesis` 与体质评估
-- [ ] 把 §5 的具体映射规则编码进 asset33 推理，使 earth/fire 维度在个人档案场景被**主动召回**
-- [ ] `cases_routing.py` / `infer_pathogenesis.py` 增加「体质 → 易感性 → 病证」激活分支
-- [ ] 增加联动的回归 / 快照测试，验证 earth/fire 覆盖度回升；复盘自进化 `misses/` 确认其它「存在但零查询」维度
-- [ ] 保留现有免责声明与「不替代临床诊断」红线（关联为统计性，非因果）
+- [x] 在 `personal_yunqi_profile.py` 计算**先天运气**（出生年干支 → 岁运/司天/在泉 + 胎孕期运气 `birth-280d`，权重参考「胎孕期前 3 个月」），作为一等输入喂给 `infer_pathogenesis` 与体质评估
+- [x] 把 §5 的具体映射规则编码进 asset33 推理，使 earth/fire 维度在个人档案场景被**主动召回**（新增 `scripts/yunqi_susceptibility.py`：`compute_congenital_yunqi` / `recall_disease_susceptibility` / `eval_constitution_tendency`，含阴虚/阳虚/土运防五脏规则 + source）
+- [x] `cases_routing.py` / `infer_pathogenesis.py` 增加「体质 → 易感性 → 病证」激活分支（`--congenital` 路由；`infer_pathogenesis(..., congenital_keys=None)` 可选注入，默认行为不变快照安全）
+- [x] 增加联动的回归 / 快照测试，验证 earth/fire 覆盖度回升；复盘自进化 `misses/` 确认其它「存在但零查询」维度 → 新增 `tests/verify_p11_congenital_activation.py`（6/6：earth/fire 覆盖回升、earth_excess 命中、阳虚质规则对「厥阴风木司天+少阳相火在泉」触发）
+- [x] 保留现有免责声明与「不替代临床诊断」红线（关联为统计性，非因果；`yunqi_susceptibility.py` 结论附免责声明）
+
+> **完成说明（2026-08-14）**：P11 已「激活」而非扩数据——接线已存在的「先天运气 → 体质 → 易感性」链路（asset7 `birth_yunqi_mapping` 岁运 code 即 asset33 `sui_yun` rag_key，此前链路断开）。实施提交 `27efa98`（feat(P11)）+ `98e2fba`（fix(ci)：README 脚本数 44→45 对齐新增脚本）。CI run `31791246883` 全绿。未打版本 tag（用户确认保持提交即可）。
 
 ### P12：与 huangdi-neijing-skill 功能级集成
 
