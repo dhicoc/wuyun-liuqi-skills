@@ -214,12 +214,37 @@ def list_assets() -> Dict:
     return {"assets": ASSETS, "kind": "list"}
 
 
+def route_congenital(keys: List[str]) -> Dict:
+    """「体质 → 易感性 → 病证」激活分支（P11）。
+
+    按个人「先天运气」key（出生/胎孕 岁运·司天·在泉，来自 yunqi_susceptibility
+    的 congenital_recall_keys）主动召回 asset33 易感性条目，并映射推荐医案库，
+    使 asset33 的 earth/fire 等维度从「零查询」变为「按出生运气触发」。
+    不新增任何知识库数据，仅做既有条目的关联路由。
+    """
+    from yunqi_susceptibility import recall_disease_susceptibility  # 延迟 import，避免循环依赖
+    susc = recall_disease_susceptibility(keys)
+    assets: List[str] = []
+    for k in keys:
+        if k in RAGKEY_ROUTE:
+            assets.extend(RAGKEY_ROUTE[k]["assets"])
+    return {
+        "keys": keys,
+        "susceptibility": susc,
+        "primary_assets": _unique(assets[:2]),
+        "supplement_assets": _unique([a for a in assets[2:] if a not in assets[:2]]),
+        "force_load_assets": [],
+        "kind": "congenital",
+    }
+
+
 def main(argv=None) -> int:
     p = argparse.ArgumentParser(description="医案库渐进加载路由哨兵（P1-3 薄索引）")
     p.add_argument("--list-assets", action="store_true", help="列出全部医案库及特色")
     g = p.add_mutually_exclusive_group()
     g.add_argument("--syndrome", help="病证名（如 湿温/霍乱/中风），返回首选+补充+强制库")
     g.add_argument("--rag-key", help="运气 rag_key（如 water_excess/shaoyin_junhuo_sitian），翻译成病证+库")
+    g.add_argument("--congenital", help="先天运气 key 列表（逗号分隔，如 fire_deficient,yangming_zaojin_sitian），触发 asset33 易感性+医案库路由（P11 激活）")
     p.add_argument("--json", action="store_true", help="JSON 输出")
     p.add_argument("--force-load", action="store_true",
                    help="把常被忽略的大库（如 asset26/27/28/29/30）也纳入候选，供彻底检索")
@@ -231,6 +256,9 @@ def main(argv=None) -> int:
         result = route_syndrome(args.syndrome)
     elif args.rag_key:
         result = route_rag_key(args.rag_key)
+    elif args.congenital:
+        keys = [k.strip() for k in args.congenital.split(",") if k.strip()]
+        result = route_congenital(keys)
     else:
         p.print_help()
         return 2
@@ -258,6 +286,19 @@ def _print_human(r: Dict) -> None:
     print(f"查询: {q}")
     if r.get("error"):
         print(f"  ⚠️ {r['error']}")
+        return
+    if r.get("kind") == "congenital":
+        print(f"  先天运气 key: {', '.join(r.get('keys', []))}")
+        susc = r.get("susceptibility", [])
+        if susc:
+            print(f"  主动召回 asset33 易感性（{len(susc)} 条）:")
+            for s in susc:
+                diseases = '、'.join(s.get('susceptible_diseases', [])) or '—'
+                print(f"    [{s['dimension']}·{s['rag_key']}] 易感: {diseases}")
+        else:
+            print("  asset33 中无直接对应条目。")
+        print(f"  首选库: {', '.join(r['primary_assets']) or '—'}")
+        print(f"  补充库: {', '.join(r['supplement_assets']) or '—'}")
         return
     if r.get("matched_syndromes"):
         print(f"  命中病证: {', '.join(r['matched_syndromes'])}")

@@ -88,6 +88,9 @@ jobs:
       - name: Suwen (素问) independent literature cross-check
         run: python tests/verify_against_suwen.py
 
+      - name: P11 congenital susceptibility activation (earth/fire 覆盖度回升)
+        run: python tests/verify_p11_congenital_activation.py
+
       - name: Retrieval quality benchmark (34 queries)
         run: |
           python scripts/eval_retrieval_quality.py

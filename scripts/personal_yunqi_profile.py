@@ -21,6 +21,7 @@ setup_environment(add_lib=False, add_scripts=True)  # 需要同目录 import con
 from constitution_assessment import assess_constitution, extract_scores_and_metadata, parse_input_payload  # noqa: E402
 from clinical_safety import sanitize_current_adjustment  # noqa: E402
 from _safety_text import CONTEXT_DISCLAIMERS  # noqa: E402
+from yunqi_susceptibility import congenital_susceptibility  # noqa: E402  # P11 激活：先天运气→易感性主动召回
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RAG_DIR = os.path.join(BASE_DIR, 'rag-knowledge-base')
@@ -287,6 +288,10 @@ def generate_profile(birth_date, region=None, as_json=False, today=None, constit
         today = date.today().isoformat()
     current_year, current_suiyun_code, current_suiyun_name = get_yunqi_year(today)
 
+    # P11 激活：把先天运气（出生年 + 胎孕期）作为一等输入，主动召回 asset33 易感性
+    # 并套用 §5 文献映射规则产出体质倾向。不新增任何知识库数据。
+    congenital = congenital_susceptibility(birth_date)
+
     birth_constitutions = match_birth_constitution(birth_suiyun_code)
     safe_current_adjustment = match_current_adjustment(current_suiyun_code)
     safe_current_adjustment, clinical_safety = sanitize_current_adjustment(safe_current_adjustment)
@@ -342,6 +347,12 @@ def generate_profile(birth_date, region=None, as_json=False, today=None, constit
         'regional_explainable_modifier': regional_explainable,
         'constitution_assessment': constitution_assessment,
         'innate_acquired_synthesis': innate_acquired,
+        'congenital_yunqi': congenital['congenital'],
+        'congenital_susceptibility': {
+            'recall_keys': congenital['recall_keys'],
+            'susceptibility': congenital['susceptibility'],
+            'tendency': congenital['tendency'],
+        },
     }
 
     # 提供了地区但未匹配到内置区域时，给出明确提示（供用户 / AI Agent 决策）
@@ -429,6 +440,30 @@ def generate_profile(birth_date, region=None, as_json=False, today=None, constit
         lines.append("可改为传入省份名（如 浙江）、区域名（如 华东/华南），")
         lines.append("或由 AI Agent 联网搜索确认该城市所属气候区域后重试。")
         lines.append("")
+
+    # P11 激活：先天运气 · 疾病易感性倾向（主动召回 asset33 + §5 体质倾向映射）
+    cb = congenital['congenital']['birth']
+    cf = congenital['congenital']['fetal']
+    lines.append("## 五、先天运气 · 疾病易感性倾向")
+    lines.append(f"**出生年运气**：{cb['suiyun_name']}（{cb['suiyun_code']}），{cb['sitian_name']}司天 / {cb['zaiquan_name']}在泉")
+    lines.append(f"**胎孕期运气**（受孕日 {congenital['congenital']['fetal_reference']}）：{cf['suiyun_name']}（{cf['suiyun_code']}），{cf['sitian_name']}司天 / {cf['zaiquan_name']}在泉")
+    lines.append("")
+    if congenital['tendency']:
+        lines.append("**体质倾向**（§5 文献映射，统计性关联，非因果）：")
+        for t in congenital['tendency']:
+            lines.append(f"- **{t['name']}**：{t['note']}（来源：{t['source']}）")
+        lines.append("")
+    susc = congenital['susceptibility']
+    if susc:
+        lines.append(f"**疾病易感性提示**（按先天运气维度主动召回 asset33，{len(susc)} 条）：")
+        for s in susc:
+            diseases = '、'.join(s.get('susceptible_diseases', [])) or '—'
+            lines.append(f"- [{s['dimension']}·{s['rag_key']}] 易感：{diseases}；调护方向：{s.get('regulation_direction', '')}")
+    else:
+        lines.append("**疾病易感性提示**：当前先天运气维度在 asset33 中无直接对应条目。")
+    lines.append("")
+    lines.append("> ⚠️ 先天运气 → 体质 → 疾病易感性为**统计性/关联性**证据，非因果，不替代临床诊断。")
+    lines.append("")
 
     lines.append(
         "> ⚠️ " + CONTEXT_DISCLAIMERS['constitution']
