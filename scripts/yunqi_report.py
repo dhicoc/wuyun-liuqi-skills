@@ -498,7 +498,7 @@ def generate_report(year, audience='student', advanced=None, with_rag_bundle=Tru
     sections.append(f"- **大运**: {dayun}运{status}")
     if pingqi:
         sections.append(f"- **平气**: 是（太过被抑或不及得助）")
-    sections.append(f"- **天符**: {'是' if tianfu else '否'} | **岁会**: {'是' if suihui else '否'} | **太乙天符**: {'是' if (tianfu and suihui) else '否'}\n")
+    sections.append(f"- **天符**: {'是' if tianfu else '否'} | **岁会**: {'是' if suihui else '否'} | **太一天符**: {'是' if (tianfu and suihui) else '否'}\n")
 
     # 六气
     sections.append("## 二、六气格局\n")

@@ -270,7 +270,7 @@ def format_text(result: Dict[str, Any]) -> str:
     if th['suihui']:
         th_parts.append('岁会')
     if th['taiyi_tianfu']:
-        th_parts.append('太乙天符')
+        th_parts.append('太一天符')
     if th['tong_tianfu']:
         th_parts.append('同天符')
     if th['tong_suihui']:

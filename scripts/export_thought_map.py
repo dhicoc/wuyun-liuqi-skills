@@ -55,7 +55,7 @@ def generate_concept_mermaid() -> str:
         "  subgraph HE[合化与加临]",
         "    TF[天符]",
         "    SH[岁会]",
-        "    TY[太乙天符]",
+        "    TY[太一天符]",
         "    KJ[客主加临]",
         "  end",
         "  TH --> DY",
@@ -102,7 +102,7 @@ def generate_year_structure_mermaid(result: Dict[str, Any]) -> str:
     if th.get("suihui"):
         tong_parts.append("岁会")
     if th.get("taiyi_tianfu"):
-        tong_parts.append("太乙天符")
+        tong_parts.append("太一天符")
     if th.get("pingqi"):
         tong_parts.append("平气")
     tong_label = "、".join(tong_parts) if tong_parts else "无特殊同化"

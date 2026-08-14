@@ -2,6 +2,16 @@
 
 本文件记录五运六气技能包的重要变更，遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
 
+## [0.3.3] - 2026-08-14
+
+### Changed
+- **术语统一为《素问》原字「太一天符」**：代码输出展示名（推算 API、报告、RAG 索引 flag、思想图、苏格拉底提问）、对外术语与自撰文档（teaching module、SKILL.md、yunqi_tonghua.md / yunqi_hebing.md / jieqi.md / taiguo_bingji.md 及蒸馏指南自有表述）统一改用《素问》原字「太一天符」（一）；变量名 `TAIYI_TIANFU_YEARS` 等保持不变。
+- **修正引文硬错**：`yunqi_hebing.md` 原误将《素问·六微旨大论》"太一天符为贵人" 写作「太乙天符」（注本用字），已改回《素问》原字；`teaching-modules/天符岁会.md` 引文补正——「三合为治」出自《素问·天元纪大论》（转引六微旨），「太一天符为贵人」明确归《六微旨大论》。
+- **保留项**：历史文献原文（literature/）、以《医宗金鉴》为权威源的 `verify_cross_check.py`、张介宾/王旭高等注家原文引述，仍忠实保留「太乙天符」（乙），不改动原典；`terminology.json` 同时保留 `太乙天符`/`太一天符` 双检索入口；`routing.yaml` 增加「太一天符」短语且保留「太乙天符」以匹配用户习惯输入。
+
+### Docs
+- `tests/verify_against_suwen.py` 的类别键统一为「太一天符（素问原字，后世注本作太乙天符）」，与《素问》口径一致。
+
 ## [0.3.2] - 2026-08-14
 
 ### Added

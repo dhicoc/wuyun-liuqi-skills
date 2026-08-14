@@ -265,7 +265,7 @@ axes:
       route: modules/yunqi-calc/references/sitian_zaiquan.md
     - phrases: [客主加临, 顺逆]
       route: modules/yunqi-calc/references/kezhujialin.md
-    - phrases: [天符岁会, 运气同化, 太乙天符]
+    - phrases: [天符岁会, 运气同化, 太乙天符, 太一天符]
       route: modules/yunqi-calc/references/yunqi_tonghua.md
     - phrases: [太过不及, 平气]
       route: modules/yunqi-calc/references/taiguo_buji.md

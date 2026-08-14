@@ -66,7 +66,7 @@ def build_session(result: Dict[str, Any], focus_concept: Optional[str] = None) -
     if th.get("suihui"):
         tong_bits.append("岁会")
     if th.get("taiyi_tianfu"):
-        tong_bits.append("太乙天符")
+        tong_bits.append("太一天符")
     if th.get("pingqi"):
         tong_bits.append("平气")
     tong = "、".join(tong_bits) if tong_bits else "无特殊同化"
@@ -119,7 +119,7 @@ def build_session(result: Dict[str, Any], focus_concept: Optional[str] = None) -
             id="tonghua",
             question=(
                 f"本年运气同化情况：{tong}。"
-                f"天符、岁会、太乙天符分别强调「运」与「气」怎样的相遇？"
+                f"天符、岁会、太一天符分别强调「运」与「气」怎样的相遇？"
                 f"偏盛之年在思想上为何既是机遇也是考验？"
             ),
             hint="运与气同调曰符会；顺势易成，亦易太过。",

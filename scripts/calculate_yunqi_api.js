@@ -162,7 +162,7 @@ function formatText(result) {
   const thParts = [];
   if (th.tianfu) thParts.push('天符');
   if (th.suihui) thParts.push('岁会');
-  if (th.taiyi_tianfu) thParts.push('太乙天符');
+  if (th.taiyi_tianfu) thParts.push('太一天符');
   if (th.tong_tianfu) thParts.push('同天符');
   if (th.tong_suihui) thParts.push('同岁会');
   if (th.pingqi) thParts.push('平气');

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "wuyun-liuqi"
-version = "0.3.2"
+version = "0.3.3"
 description = "五运六气 AI Agent 技能包 — 干支推算 + 32 RAG asset + 1994 条医案 + 同义词检索 + 自进化引擎"
 readme = "README.md"
 requires-python = ">=3.8"

@@ -412,7 +412,7 @@ def build_calendar(start_year=1900, end_year=2100):
         if suihui:
             flags.append('岁会')
         if tianfu and suihui:
-            flags.append('太乙天符')
+            flags.append('太一天符')
         if tong_tianfu:
             flags.append('同天符')
         if tong_suihui:
