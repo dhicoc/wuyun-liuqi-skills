@@ -2,7 +2,7 @@
   "asset_name": "wuyun-liuqi-rag-index",
   "asset_type": "knowledge_base_index",
   "description": "五运六气 RAG 知识库资产索引。用于说明各 asset 的用途、检索键和维护状态。",
-  "total_entries": 33,
+  "total_entries": 38,
   "primary_api": "scripts/calculate_yunqi_api.py",
   "entries": [
     {
@@ -695,6 +695,111 @@
         "ds_001"
       ],
       "rag_key": "asset33_disease_susceptibility"
+    },
+    {
+      "entry_id": "rag_index_asset34_yunqi_zhengzhi_gejue",
+      "entry_type": "asset_index",
+      "title": "运气证治歌诀（王旭高）蒸馏研读框架",
+      "file": "asset34_yunqi_zhengzhi_gejue.json",
+      "asset_id": "asset34_yunqi_zhengzhi_gejue",
+      "asset_name": "运气证治歌诀（王旭高）蒸馏研读框架",
+      "asset_category": "custom_asset",
+      "description": "从《运气证治歌诀》（清·王旭高/王泰林，辑自陈无择《三因方》司天运气诸方）经 book-to-skill 风格蒸馏出的单书研读框架：五运十方、六气六方、运气推算歌诀、六淫治例，含歌诀原文与王旭高按语。与 asset4_formula（三因司天方现代化数据库）互补——本资产重『单书框架/歌诀/按语』，asset4 重『现代化病机/临床加减/现代研究』。",
+      "total_entries": 5,
+      "lookup_fields": [
+        "rag_key",
+        "entry_id"
+      ],
+      "example_keys": [
+        "gejue_cjk",
+        "gejue_sitian",
+        "gejue_liuyin"
+      ],
+      "rag_key": "asset34_yunqi_zhengzhi_gejue"
+    },
+    {
+      "entry_id": "rag_index_asset35_yizong_jinjian_yunqi_yaojue",
+      "entry_type": "asset_index",
+      "title": "医宗金鉴·运气要诀（清·吴谦）蒸馏研读框架",
+      "file": "asset35_yizong_jinjian_yunqi_yaojue.json",
+      "asset_id": "asset35_yizong_jinjian_yunqi_yaojue",
+      "asset_name": "医宗金鉴·运气要诀（清·吴谦）蒸馏研读框架",
+      "asset_category": "custom_asset",
+      "description": "从《医宗金鉴》卷三十五「编辑运气要诀」（清·吴谦等编纂，奉敕编，源出《内经》运气要语）经 book-to-skill 风格蒸馏出的单书研读框架：太极阴阳、五行生克、五运六气、脏腑经络映射、天符岁会南北政、运气为病。重「运气推算全框架」——基本不载方剂，与王旭高《运气证治歌诀》（重方）互补：本书讲「推算框架广度」，王旭高讲「证治用方」。",
+      "total_entries": 5,
+      "lookup_fields": [
+        "rag_key",
+        "entry_id"
+      ],
+      "example_keys": [
+        "yaojue_tiangan",
+        "yaojue_dizhi",
+        "yaojue_tianfu"
+      ],
+      "rag_key": "asset35_yizong_jinjian_yunqi_yaojue"
+    },
+    {
+      "entry_id": "rag_index_asset36_sanyin_sitiansi_yunqi_fang",
+      "entry_type": "asset_index",
+      "title": "三因极一病证方论·卷五运气诸方（宋·陈无择）蒸馏研读框架",
+      "file": "asset36_sanyin_sitiansi_yunqi_fang.json",
+      "asset_id": "asset36_sanyin_sitiansi_yunqi_fang",
+      "asset_name": "三因极一病证方论·卷五运气诸方（宋·陈无择）蒸馏研读框架",
+      "asset_category": "custom_asset",
+      "description": "从宋·陈言（陈无择）《三因极一病证方论》卷之五「五运时气民病证治」「六气时行民病证治」经 book-to-skill 风格蒸馏出的运气用方「方源」层框架：十六方（五运十方 + 六气六岁方）的药物组成、炮制分量、主治、煎服法与随气加减，逐字照宋本底本。本书是运气用方的经典源流——明代王旭高《运气证治歌诀》（歌诀/证治层）重述其方，清代《医宗金鉴·运气要诀》（推算框架层）重推算；三者互补，本书为「方源」上游。",
+      "total_entries": 5,
+      "lookup_fields": [
+        "rag_key",
+        "entry_id"
+      ],
+      "example_keys": [
+        "sanyin_yunfang",
+        "sanyin_qifang",
+        "sanyin_fanli"
+      ],
+      "rag_key": "asset36_sanyin_sitiansi_yunqi_fang"
+    },
+    {
+      "entry_id": "rag_index_asset37_liejing_tuyi_yunqi",
+      "entry_type": "asset_index",
+      "title": "类经图翼·运气（明·张介宾）蒸馏研读框架",
+      "file": "asset37_liejing_tuyi_yunqi.json",
+      "asset_id": "asset37_liejing_tuyi_yunqi",
+      "asset_name": "类经图翼·运气（明·张介宾）蒸馏研读框架",
+      "asset_category": "custom_asset",
+      "description": "从明·张介宾（张景岳）《类经图翼》卷一「运气上」、卷二「运气下」经 book-to-skill 风格蒸馏出的运气「图翼·象数基础」层框架：卷一立太极—阴阳—五行—气数之哲学地基（医道开卷第一义），卷二以图翼（图解+图说）展开五运六气推算全框架（五天五运、五音建运太少相生、主客运、正化对化、主客气、司天在泉、天符岁会、南北政脉不应），逐字照明本底本。本书补全医宗金鉴《运气要诀》（推算框架广度层，asset35）所缺的象数根基，并加五音建运、南北政脉不应等深度；与三因《运气诸方》(asset36·方源层)、王旭高《运气证治歌诀》(asset34·歌诀层) 四书互补，非替代。",
+      "total_entries": 6,
+      "lookup_fields": [
+        "rag_key",
+        "entry_id"
+      ],
+      "example_keys": [
+        "liejing_xiangshu",
+        "liejing_wuyun",
+        "liejing_liuqi"
+      ],
+      "rag_key": "asset37_liejing_tuyi_yunqi"
+    },
+    {
+      "entry_id": "rag_index_asset38_suwen_rushi_yunqi_lunao",
+      "entry_type": "asset_index",
+      "title": "素问入式运气论奥（宋·刘温舒）蒸馏研读框架",
+      "file": "asset38_suwen_rushi_yunqi_lunao.json",
+      "asset_id": "asset38_suwen_rushi_yunqi_lunao",
+      "asset_name": "素问入式运气论奥（宋·刘温舒）蒸馏研读框架",
+      "asset_category": "custom_asset",
+      "description": "从宋·刘温舒《素问入式运气论奥》（成书1099，入《正统道藏》太玄部，公有领域）经 book-to-skill 风格蒸馏出的运气「专论·机制纵深层」框架：运气学史上第一本独立运气专著（承《素问》七篇、王冰注、《玄珠密语》之绪），独有纵深在卷上象数（纳音／六化／五行本义／日刻／标本）与卷下机制（胜复·五郁·六病·六脉·治法·五行胜复论＝亢害承制机制化），把运气格局接到临床病机→治法。与三因《运气诸方》(asset36·方源)、王旭高《运气证治歌诀》(asset34·歌诀)、医宗金鉴《运气要诀》(asset35·推算框架广度)、类经图翼·运气(asset37·象数基础) 五书互补，非替代。",
+      "total_entries": 7,
+      "lookup_fields": [
+        "rag_key",
+        "entry_id"
+      ],
+      "example_keys": [
+        "lunao_zonglun",
+        "lunao_xiangshu",
+        "lunao_wuyun"
+      ],
+      "rag_key": "asset38_suwen_rushi_yunqi_lunao"
     },
     {
       "entry_id": "rag_index_asset15_shanghan90_cases",

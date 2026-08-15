@@ -186,7 +186,93 @@ tasks:
     # 按日: python scripts/yunqi_cli.py search --date today --json
     # 口语: python scripts/yunqi_cli.py search --semantic 心火偏旺
 
-  - id: agent-rag
+  - id: yunqi-gejue-distilled
+    labels: { zh: 运气证治歌诀研读, en: Yunqi Zhengzhi Gejue study }
+    trigger_examples:
+      - 运气证治歌诀
+      - 王旭高歌诀
+      - 十干运气方
+      - 六气六方
+      - 司天在泉方
+      - 运气推算歌诀
+    route: rag-knowledge-base/distilled/yunqi-zhengzhi-gejue/SKILL.md → scripts/rag_search.py（跨书出处/医案走 RAG）
+    # 单书框架优先读 distilled；跨书取证/医案走 rag_search（asset1岁运/asset2司天在泉/asset4方剂/asset10治法/asset14医案）
+    # 若已 index_distilled.py，框架亦入 asset34_yunqi_zhengzhi_gejue，可 rag_search --key gejue_*
+
+  - id: yizong-jinjian-yunqi-yaojue
+    labels: { zh: 医宗金鉴运气要诀研读, en: Yizong Jinjian Yunqi Yaojue study }
+    trigger_examples:
+      - 医宗金鉴运气要诀
+      - 运气要诀
+      - 吴谦运气
+      - 天干化运
+      - 天干配脏腑
+      - 地支司天在泉
+      - 天符岁会
+      - 南北政
+      - 运气为病
+    route: rag-knowledge-base/distilled/yizong-jinjian-yunqi-yaojue/SKILL.md → scripts/rag_search.py（跨书出处/医案走 RAG）
+    # 单书框架优先读 distilled；跨书取证/医案走 rag_search（asset1岁运/asset2司天在泉/asset4方剂/asset10治法/asset14医案）
+    # 若已 index_distilled_yaojue.py，框架亦入 asset35_yizong_jinjian_yunqi_yaojue，可 rag_search --key yaojue_*
+
+  - id: sanyin-sitiansi-yunqi-fang
+    labels: { zh: 三因运气诸方研读, en: Sanyin Yunqi Formulas study }
+    trigger_examples:
+      - 三因运气诸方
+      - 三因司天方
+      - 陈无择运气方
+      - 五运十方
+      - 六气六岁方
+      - 静顺汤
+      - 审平汤
+      - 升明汤
+      - 备化汤
+      - 正阳汤
+      - 敷和汤
+      - 苓术汤
+      - 附子山茱萸汤
+      - 按年干支取运气方
+    route: rag-knowledge-base/distilled/sanyin-sitiansi-yunqi-fang/SKILL.md → scripts/rag_search.py（跨书出处/医案走 RAG）
+    # 单书方源框架优先读 distilled；跨书取证/医案走 rag_search（asset1岁运/asset2司天在泉/asset4方剂/asset10治法/asset14医案）
+    # 若已 index_distilled_sanyin.py，框架亦入 asset36_sanyin_sitiansi_yunqi_fang，可 rag_search --key sanyin_*
+
+- id: liejing-tuyi-yunqi
+    labels: { zh: 类经图翼运气研读, en: Liejing Tuyi Yunqi study }
+    trigger_examples:
+      - 类经图翼
+      - 张景岳运气
+      - 运气象数
+      - 太极阴阳五行气数
+      - 五天五运
+      - 五音建运
+      - 太少相生
+      - 正化对化
+      - 南北政
+      - 脉不应
+      - 天符岁会
+    route: rag-knowledge-base/distilled/liejing-tuyi-yunqi/SKILL.md → scripts/rag_search.py（跨书出处/医案走 RAG）
+    # 单书象数基础/推算框架优先读 distilled；跨书取证/医案走 rag_search（asset1岁运/asset2司天在泉/asset4方剂/asset5注家/asset10治法/asset14医案）
+    # 已 index_distilled_liejing.py，框架入 asset37_liejing_tuyi_yunqi，可 rag_search --key liejing_*
+- id: suwen-rushi-yunqi-lunao
+    labels: { zh: 素问入式运气论奥研读, en: Suwen Rushi Yunqi Lunao study }
+    trigger_examples:
+      - 素问入式运气论奥
+      - 刘温舒运气
+      - 运气论奥
+      - 亢害承制
+      - 五行胜复
+      - 胜复
+      - 五郁
+      - 木郁达之
+      - 必先岁气无伐天和
+      - 六气为病
+      - 纳音
+      - 六化
+      - 资取化源
+    route: rag-knowledge-base/distilled/suwen-rushi-yunqi-lunao/SKILL.md → scripts/rag_search.py（跨书出处/医案走 RAG）
+    # 单书专论/机制纵深优先读 distilled；跨书取证/医案/病机走 rag_search（asset1岁运/asset2司天在泉/asset4方剂/asset5注家/asset10治法/asset14医案）
+    # 已 index_distilled_lunao.py，框架入 asset38_suwen_rushi_yunqi_lunao，可 rag_search --key lunao_*
+- id: agent-rag
     labels: { zh: Agent/RAG 集成, en: Agent RAG integration }
     trigger_examples:
       - Agent集成

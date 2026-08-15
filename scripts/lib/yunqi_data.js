@@ -438,12 +438,26 @@ function cmpDate(a, b) {
   return 0;
 }
 
+// 日干支（干支纪日）纯算法，不依赖 lunar-javascript。
+// 日干支是连续 60 天一循环的纪日法；以 2000-01-07（甲子，index 0）为锚点，
+// 任意日期的日干支 = (锚点序号 + 距锚点天数) mod 60。
+// 锚点序号已对照 lunar_python.getDayInGanZhi() 校准（2000-01-07 = 甲子），
+// 从而 JS 端在不安装 lunar-javascript 时仍能给出与 Python 真相源一致的日干支。
+const _DAY_GZ_ANCHOR = { y: 2000, m: 1, d: 7, idx: 0 };
+
+function _utcDays(y, m, d) {
+  // m：1-based；JS Date.UTC 月份 0-based。用 UTC 午夜避免时区/夏令时误差。
+  return Math.floor(Date.UTC(y, m - 1, d) / 86400000);
+}
+
 function getDayGanzhi(dateStr) {
-  const Solar = getSolarClass();
-  if (!Solar) return null;
   const parts = dateStr.split('-');
-  const solar = Solar.fromYmd(parseInt(parts[0]), parseInt(parts[1]), parseInt(parts[2]));
-  return solar.getLunar().getDayInGanZhi();
+  const y = parseInt(parts[0], 10);
+  const m = parseInt(parts[1], 10);
+  const d = parseInt(parts[2], 10);
+  const delta = _utcDays(y, m, d) - _utcDays(_DAY_GZ_ANCHOR.y, _DAY_GZ_ANCHOR.m, _DAY_GZ_ANCHOR.d);
+  const idx = (((delta + _DAY_GZ_ANCHOR.idx) % 60) + 60) % 60; // 0 = 甲子
+  return TIANGAN[idx % 10] + DIZHI[idx % 12];
 }
 
 function getKezhujialinDetail(year, stepNum) {

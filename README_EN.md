@@ -50,7 +50,7 @@ When a user says "How's this year's Yunqi?" or "How did historical physicians tr
 User question (natural language)
   -> routing.yaml route matching
   -> calculate_yunqi_api.py calculation engine (Dahan boundary, no hallucination)
-  -> rag_search across 32 RAG assets (1994 cases + 33 disease susceptibility)
+  -> rag_search across 37 RAG assets (1994 cases + 33 disease susceptibility)
   -> infer_pathogenesis reasoning chain
   -> plain-language explanation + disclaimer
   -> self_evolve auto-journaling
@@ -60,7 +60,7 @@ User question (natural language)
 
 | RAG assets | Case records | Public-domain texts | Distilled guides | Scripts | CI tests |
 |---:|---:|---:|---:|---:|---:|
-| 32 | 1994 | 51 | 12 | 45 | 36 passing |
+| 37 | 1994 | 51 | 12 | 52 | 39 passing |
 
 The routing core is driven by a single `routing.yaml`, auto-discovered by cross-tool shells, with calculation engine and knowledge base kept separate.
 
@@ -201,7 +201,7 @@ Liu Wansu (Cold-Cool school) and Zhang Jiebin (Warm-Tonify school) are built int
 
 ## Complete feature list
 
-> 46 scripts · 6 sub-skill modules · 10 teaching modules · 2 commentator perspectives · 32 RAG assets · 51 public-domain texts · 12 distilled guides
+> 52 scripts · 6 sub-skill modules · 10 teaching modules · 2 commentator perspectives · 37 RAG assets · 51 public-domain texts · 12 distilled guides
 
 ### Calculation engine (9)
 
@@ -262,7 +262,7 @@ Liu Wansu (Cold-Cool school) and Zhang Jiebin (Warm-Tonify school) are built int
 |---------|--------------|-------------|
 | Self-evolution engine | `self_evolve.py` | Logging / feedback / blind-spot detection / monthly report / cleanup / suggestions |
 | Health check | `health_check.py` | Dependency, path, config integrity check |
-| Knowledge-base validation | `validate_knowledge_base.py` | 32 asset JSON schema validation |
+| Knowledge-base validation | `validate_knowledge_base.py` | 37 asset JSON schema validation |
 | RAG index generation | `generate_rag_index.py` | Generate / refresh RAG search index |
 | Report quality gate | `report_quality_gate.py` | Pre-output quality validation |
 | Routing sync | `sync_routing.py` | Sync routing.yaml changes to all entry files |
@@ -294,8 +294,8 @@ Liu Wansu (Cold-Cool school) and Zhang Jiebin (Warm-Tonify school) are built int
 
 | Category | Count | Description |
 |----------|-------|-------------|
-| RAG key-value assets | 31 | Pathogenesis/formulas/commentaries/region/constitution/agediagram cases/epidemic/21 historical case collections |
-| Public-domain texts | 53 | ~1.77M characters, pre-Qin to Qing; includes Suwen seven treatises, lost chapters, Shengji agediagrams, Xuanzhu Miyu |
+| RAG key-value assets | 37 | Pathogenesis/formulas/commentaries/region/constitution/agediagram cases/epidemic/21 historical case collections |
+| Public-domain texts | 51 | ~1.77M characters, pre-Qin to Qing; includes Suwen seven treatises, lost chapters, Shengji agediagrams, Xuanzhu Miyu |
 | Distilled guides | 12 | Five-layer commentary chain (5) + 35-text merged groups (5) + supplements; Grep+Read, zero-dep |
 | Terminology glossary | 700 | `terminology.json`, matched via rag_keys |
 | Total historical cases | 1994 | 21 public-domain case libraries, with herbs + formulas_referenced structured fields |
@@ -335,7 +335,7 @@ Heaven-Human Oneness · Qi transformation · Moderation · Dayun-Suiyun · Five-
 ├── SKILL.md                    # ★ Master routing entry (AI must-read)
 ├── routing.yaml / routing.md   # ★ Routing source of truth / human index
 ├── AGENTS.md / CLAUDE.md       # Cross-tool thin shell (Codex / Claude)
-├── scripts/                    # 46 Python scripts + JS interface
+├── scripts/                    # 52 Python scripts + JS interface
 │   ├── calculate_yunqi_api.py  #   ★ Main path (Dahan boundary + rag_keys)
 │   ├── rag_search.py           #   ★ RAG search
 │   ├── case_relations.py       #   Case compare / similar discovery
@@ -343,8 +343,8 @@ Heaven-Human Oneness · Qi transformation · Moderation · Dayun-Suiyun · Five-
 │   ├── self_evolve.py          #   Self-evolution engine
 │   └── …                       #   Report/export/validation/etc.
 ├── wuyun_liuqi/                # Importable Python package
-├── rag-knowledge-base/         # ★ 32 assets + distilled guides + literature
-│   ├── asset1-32 *.json        #   Pathogenesis/formula/commentary/case (21 libraries)
+├── rag-knowledge-base/         # ★ 37 assets + distilled guides + literature
+│   ├── asset1-37 *.json        #   Pathogenesis/formula/commentary/case (21 libraries)
 │   ├── *_guide.md              #   10 public-domain distilled guides
 │   └── literature/             #   51 public-domain texts (1.77M chars)
 ├── modules/                    # Sub-skills (routing.yaml targets)

@@ -132,6 +132,39 @@ ASSET_FILES = {
     "terminology": "terminology.json",
     "term": "terminology.json",
     "index": "index.json",
+    # 蒸馏研读框架（book-to-skill 风格，源自《运气证治歌诀》王旭高）
+    "asset34": "asset34_yunqi_zhengzhi_gejue.json",
+    "asset34_yunqi_zhengzhi_gejue": "asset34_yunqi_zhengzhi_gejue.json",
+    "yunqi_zhengzhi_gejue": "asset34_yunqi_zhengzhi_gejue.json",
+    "gejue": "asset34_yunqi_zhengzhi_gejue.json",
+    "yunqi_gejue": "asset34_yunqi_zhengzhi_gejue.json",
+    "wuyun_shifang": "asset34_yunqi_zhengzhi_gejue.json",
+    "liuqi_liufang": "asset34_yunqi_zhengzhi_gejue.json",
+    # 蒸馏研读框架（book-to-skill 风格，源自《医宗金鉴·运气要诀》吴谦）
+    "asset35": "asset35_yizong_jinjian_yunqi_yaojue.json",
+    "asset35_yizong_jinjian_yunqi_yaojue": "asset35_yizong_jinjian_yunqi_yaojue.json",
+    "yizong_jinjian_yunqi_yaojue": "asset35_yizong_jinjian_yunqi_yaojue.json",
+    "yaojue": "asset35_yizong_jinjian_yunqi_yaojue.json",
+    "yunqi_yaojue": "asset35_yizong_jinjian_yunqi_yaojue.json",
+    # 蒸馏研读框架（book-to-skill 风格，源自《三因》卷五运气诸方·陈无择）
+    "asset36": "asset36_sanyin_sitiansi_yunqi_fang.json",
+    "asset36_sanyin_sitiansi_yunqi_fang": "asset36_sanyin_sitiansi_yunqi_fang.json",
+    "sanyin_sitiansi_yunqi_fang": "asset36_sanyin_sitiansi_yunqi_fang.json",
+    "sanyin": "asset36_sanyin_sitiansi_yunqi_fang.json",
+    "sanyin_yunqi_fang": "asset36_sanyin_sitiansi_yunqi_fang.json",
+    # 蒸馏研读框架（book-to-skill 风格，源自《类经图翼》卷一·卷二运气·张介宾）
+    "asset37": "asset37_liejing_tuyi_yunqi.json",
+    "asset37_liejing_tuyi_yunqi": "asset37_liejing_tuyi_yunqi.json",
+    "liejing_tuyi_yunqi": "asset37_liejing_tuyi_yunqi.json",
+    "liejing": "asset37_liejing_tuyi_yunqi.json",
+    "liejing_tuyi": "asset37_liejing_tuyi_yunqi.json",
+    "tuyi": "asset37_liejing_tuyi_yunqi.json",
+    # —— 蒸馏研读框架 #5：宋·刘温舒《素问入式运气论奥》（专论·机制纵深层）——
+    "asset38": "asset38_suwen_rushi_yunqi_lunao.json",
+    "asset38_suwen_rushi_yunqi_lunao": "asset38_suwen_rushi_yunqi_lunao.json",
+    "suwen_rushi_yunqi_lunao": "asset38_suwen_rushi_yunqi_lunao.json",
+    "yunqi_lunao": "asset38_suwen_rushi_yunqi_lunao.json",
+    "lunao": "asset38_suwen_rushi_yunqi_lunao.json",
 }
 
 # 模块级缓存：避免重复 open + json.load
@@ -595,6 +628,11 @@ def _default_asset_keys() -> List[str]:
             "asset9", "asset10",
             "asset11", "asset12", "asset13", "asset14", "asset15", "asset16",
             "asset33",
+            "asset34",  # 蒸馏研读框架（book-to-skill 风格，源自《运气证治歌诀》）
+            "asset35",  # 蒸馏研读框架（book-to-skill 风格，源自《医宗金鉴·运气要诀》）
+            "asset36",  # 蒸馏研读框架（book-to-skill 风格，源自《三因》卷五运气诸方·陈无择）
+            "asset37",  # 蒸馏研读框架（book-to-skill 风格，源自《类经图翼》卷一·卷二运气·张介宾）
+            "asset38",  # 蒸馏研读框架（book-to-skill 风格，源自《素问入式运气论奥》·刘温舒）
             "terminology",
         ):
             seen_files.add(f)
