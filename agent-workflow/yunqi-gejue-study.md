@@ -1,25 +1,26 @@
-# 五运六气五书研读工作流（蒸馏框架 × RAG 双轨）
+# 五运六气六书研读工作流（蒸馏框架 × RAG 双轨）
 
-> 本文档定义「五运六气五书（王旭高《运气证治歌诀》、吴谦《医宗金鉴·运气要诀》、陈无择《三因》卷五运气诸方、张介宾《类经图翼》卷一·卷二运气、刘温舒《素问入式运气论奥》）专题研读」的 Agent 工作流。
+> 本文档定义「五运六气六书（王旭高《运气证治歌诀》、吴谦《医宗金鉴·运气要诀》、陈无择《三因》卷五运气诸方、张介宾《类经图翼》卷一·卷二运气、刘温舒《素问入式运气论奥》、王肯堂/殷宅心《医学穷源集·卷二》运气专论）专题研读」的 Agent 工作流。
 >
 > **核心主张：蒸馏框架与 RAG 不是替代关系，而是互补。**
-> - **蒸馏框架（distilled / asset34·35·36·37·38）** 负责「单书框架、歌诀原文、方源原文、象数基础、专论机制、一跳表查」——结构清晰、零歧义、适合讲清「这本书怎么讲」。五书互补：王旭高（歌诀层）、医宗金鉴（推算框架层）、三因（方源层）、类经图翼（图翼·象数基础层）、刘温舒（专论·机制纵深层）。
-> - **RAG（asset1/2/4/10/14 等 68 书）** 负责「跨书出处、现代化病机、临床加减、真实医案实证」——适合回答「这本书之外，其他人/后世怎么用、有没有临床证据」。
+> - **蒸馏框架（distilled / asset34·35·36·37·38·39）** 负责「单书框架、歌诀原文、方源原文、象数基础、专论机制、专论灾变、一跳表查」——结构清晰、零歧义、适合讲清「这本书怎么讲」。六书互补：王旭高（歌诀层）、医宗金鉴（推算框架层）、三因（方源层）、类经图翼（图翼·象数基础层）、刘温舒（专论·机制纵深层）、王肯堂/殷宅心（专论·灾变纵深层）。
+> - **RAG（asset1/2/4/5/6/10/14/17 等数十部文献）** 负责「跨书出处、现代化病机、临床加减、真实医案实证、温疫运气、地域」——适合回答「这本书之外，其他人/后世怎么用、有没有临床证据」。
 >
-> 配套路由：`routing.yaml → id: yunqi-gejue-distilled`（王旭高）/ `yizong-jinjian-yunqi-yaojue`（医宗金鉴）/ `sanyin-sitiansi-yunqi-fang`（三因）/ `liejing-tuyi-yunqi`（类经图翼）/ `suwen-rushi-yunqi-lunao`（刘温舒）。
-> 配套蒸馏资产：`rag-knowledge-base/distilled/yunqi-zhengzhi-gejue/`（asset34）、`distilled/yizong-jinjian-yunqi-yaojue/`（asset35）、`distilled/sanyin-sitiansi-yunqi-fang/`（asset36）、`distilled/liejing-tuyi-yunqi/`（asset37）、`distilled/suwen-rushi-yunqi-lunao/`（asset38）。
-> 配套 RAG 索引：已注册为 `asset34_yunqi_zhengzhi_gejue`（`--key gejue_*`）、`asset35_yizong_jinjian_yunqi_yaojue`（`--key yaojue_*`）、`asset36_sanyin_sitiansi_yunqi_fang`（`--key sanyin_*`）、`asset37_liejing_tuyi_yunqi`（`--key liejing_*`）、`asset38_suwen_rushi_yunqi_lunao`（`--key lunao_*`）。
+> 配套路由：`routing.yaml → id: yunqi-gejue-distilled`（王旭高）/ `yizong-jinjian-yunqi-yaojue`（医宗金鉴）/ `sanyin-sitiansi-yunqi-fang`（三因）/ `liejing-tuyi-yunqi`（类经图翼）/ `suwen-rushi-yunqi-lunao`（刘温舒）/ `yixue-qiongyuanji-yunqi`（医学穷源集）。
+> 配套蒸馏资产：`rag-knowledge-base/distilled/yunqi-zhengzhi-gejue/`（asset34）、`distilled/yizong-jinjian-yunqi-yaojue/`（asset35）、`distilled/sanyin-sitiansi-yunqi-fang/`（asset36）、`distilled/liejing-tuyi-yunqi/`（asset37）、`distilled/suwen-rushi-yunqi-lunao/`（asset38）、`distilled/yixue-qiongyuanji-yunqi/`（asset39）。
+> 配套 RAG 索引：已注册为 `asset34_yunqi_zhengzhi_gejue`（`--key gejue_*`）、`asset35_yizong_jinjian_yunqi_yaojue`（`--key yaojue_*`）、`asset36_sanyin_sitiansi_yunqi_fang`（`--key sanyin_*`）、`asset37_liejing_tuyi_yunqi`（`--key liejing_*`）、`asset38_suwen_rushi_yunqi_lunao`（`--key lunao_*`）、`asset39_yixue_qiongyuanji_yunqi`（`--key qiongyuanji_*`）。
 
 ---
 
 ## 一、何时走本工作流（路由判定）
 
-命中 `routing.yaml` 中 `yunqi-gejue-distilled` / `yizong-jinjian-yunqi-yaojue` / `sanyin-sitiansi-yunqi-fang` / `liejing-tuyi-yunqi` 任一任务的 `trigger_examples` 即走本流：
+命中 `routing.yaml` 中 `yunqi-gejue-distilled` / `yizong-jinjian-yunqi-yaojue` / `sanyin-sitiansi-yunqi-fang` / `liejing-tuyi-yunqi` / `suwen-rushi-yunqi-lunao` / `yixue-qiongyuanji-yunqi` 任一任务的 `trigger_examples` 即走本流：
 
 - 运气证治歌诀 / 王旭高歌诀 / 王泰林
 - 十干运气方 / 六气六方 / 司天在泉方 / 运气推算歌诀
 - 三因司天方（陈无择原方，王旭高辑订）
 - 类经图翼 / 张景岳运气 / 运气象数 / 太极阴阳五行气数 / 五天五运 / 五音建运 / 正化对化 / 南北政 / 天符岁会
+- 医学穷源集 / 王肯堂运气 / 太乙移宫 / 升降不前 / 三年化疫 / 刚柔失守 / 疫由人事 / 人定胜天 / 灾宫 / 方月图说 / 运气不验 / 六气本标中 / 药法补泻正味 / 十二经配天干
 
 > 若用户问题属于「泛运气学框架」（非特指上述五书之一），仍走主 `react_workflow.md`；本流是「该书专题研读」的子流。
 
@@ -27,12 +28,12 @@
 
 ## 二、双轨分工（必读）
 
-| 维度 | 蒸馏框架（distilled / asset34·35·36·37·38） | RAG（asset1/2/4/10/14…） |
+| 维度 | 蒸馏框架（distilled / asset34·35·36·37·38·39） | RAG（asset1/2/4/5/6/10/14/17…） |
 |------|-------------------------------|--------------------------|
-| 知识边界 | 单书（五书之一：歌诀/推算框架/方源/象数基础/专论机制） | 全库 68 书（含后世临床） |
-| 最擅长 | 框架/歌诀/方源/象数基础/专论机制一跳直取 | 跨书出处、病机现代化、临床加减、真实医案 |
-| 典型问法 | 「壬年用什么方」「六气六方是哪六个」「甲己为何化土」「南北政脉不应」「纳音为何金先」「胜复如何闭环」「六气为病有哪些」 | 「这方后世怎么用」「有没有临床医案佐证」 |
-| 取数命令 | `rag_search --key gejue_*` / `yaojue_*` / `sanyin_*` / `liejing_*` / `lunao_*` 或直接读 chapters | `rag_search --key <rag_key>` / 关键词检索 |
+| 知识边界 | 单书（六书之一：歌诀/推算框架/方源/象数基础/专论机制/专论灾变） | 全库数十部文献（含后世临床/温疫/地域） |
+| 最擅长 | 框架/歌诀/方源/象数基础/专论机制/专论灾变一跳直取 | 跨书出处、病机现代化、临床加减、真实医案、温疫运气、地域 |
+| 典型问法 | 「壬年用什么方」「六气六方是哪六个」「甲己为何化土」「南北政脉不应」「纳音为何金先」「胜复如何闭环」「三年化疫怎么推」「运气为什么不验」「人定胜天」「药法补泻正味」「十二经配天干」 | 「这方后世怎么用」「有没有临床医案佐证」「瘟疫运气怎么讲」 |
+| 取数命令 | `rag_search --key gejue_*` / `yaojue_*` / `sanyin_*` / `liejing_*` / `lunao_*` / `qiongyuanji_*` 或直接读 chapters | `rag_search --key <rag_key>` / 关键词检索 |
 | 安全定位 | 框架整理，禁开方 | 文献实证，禁开方 |
 
 **黄金法则**：先用蒸馏框架把「这本书的框架与歌诀」讲准讲全，再用 RAG 补「外部佐证与临床延伸」。两者结论冲突时，标注来源让用户判断，不替用户二选一。
@@ -253,10 +254,11 @@ python scripts/rag_search.py --key liejing_zonglun   # 总论与源流定位（�
 - 历代注家运气学说（含张景岳本人条目）：`--asset asset5`
 - 真实医案实证：`--asset asset14`
 
-### 五书五层互补（必读定位）
+### 六书六层互补（必读定位）
 
 | 层 | 书 | 蒸馏资产 | 重什么 | 典型问法 |
 |----|----|----------|--------|----------|
+| 专论·灾变纵深层 | 王肯堂/殷宅心《医学穷源集·卷二》运气专论 | asset39 | 系统讲刚柔失守三年化疫（甲子/丙寅/庚辰/壬午/戊申五年详例＋先补脏次泄气）、疫由人事（人定胜天）、太乙移宫九宫八风、升降不前/不迁正不退位、化数生成、流年灾宫、方月图说（运气不验之由）、山川方隅、六气本标中从化、药法摘录、十二经配天干 | 「三年化疫怎么推」「甲子什么疫」「运气为什么不验」「灾宫怎么算」「疫由人事/人定胜天」「六气本标中怎么分」「药法补泻正味」「十二经配天干」 |
 | 专论·机制纵深层 | 刘温舒《素问入式运气论奥》 | asset38 | 第一本独立运气专著；卷上象数纵深（纳音/六化/五行本义/日刻/标本）+ 卷下机制纵深（胜复·五郁·六病·六脉·治法·五行胜复论＝亢害承制机制化） | 「纳音为何金先」「胜复如何闭环」「五郁如何治」「六气为病有哪些」「五行胜复论怎么讲」 |
 | 图翼·象数基础层 | 张介宾《类经图翼》卷一·卷二 | asset37 | 太极—阴阳—五行生成数—气数根基 + 图翼推算细节（五音建运/南北政脉不应） | 「天一生水怎么解」「甲己为何化土」「五音太少相生链」「南北政脉不应怎么定上下」 |
 | 方源层 | 陈无择《三因》卷五 | asset36 | 十六方原文（组成/分量/煎服/加减） | 「壬年用哪方、组成是什么」「辰戌年司天在泉与方名」 |
@@ -273,7 +275,7 @@ python scripts/rag_search.py --key liejing_zonglun   # 总论与源流定位（�
 | "天符岁会六十年共多少年" | ✅ `liejing_tianfu` + ch05（28年+总歌） | `asset5`/`asset36` 关联方源/注家 |
 | "运气为病五藏归属原文" | ✅（在 asset35 ch07） | `asset1` 现代化阐释 |
 
-> 五书共同构成运气学的「专论机制 + 象数基础 + 方源 + 歌诀 + 框架」五层研读体系，均由 `routing.yaml` 路由（`yunqi-gejue-distilled` / `yizong-jinjian-yunqi-yaojue` / `sanyin-sitiansi-yunqi-fang` / `liejing-tuyi-yunqi` / `suwen-rushi-yunqi-lunao`），且已并入 `rag_search.py` 默认检索范围（asset34 + asset35 + asset36 + asset37 + asset38），一次关键词检索即可同时命中五书与既有 RAG。
+> 六书共同构成运气学的「专论灾变 + 专论机制 + 象数基础 + 方源 + 歌诀 + 框架」六层研读体系，均由 `routing.yaml` 路由（`yunqi-gejue-distilled` / `yizong-jinjian-yunqi-yaojue` / `sanyin-sitiansi-yunqi-fang` / `liejing-tuyi-yunqi` / `suwen-rushi-yunqi-lunao` / `yixue-qiongyuanji-yunqi`），且已并入 `rag_search.py` 默认检索范围（asset34 + asset35 + asset36 + asset37 + asset38 + asset39），一次关键词检索即可同时命中六书与既有 RAG。
 
 ---
 
@@ -316,4 +318,46 @@ python scripts/rag_search.py --key lunao_tu               # 诸图图解（枢�
 | "必先岁气无伐天和 / 六脉" | ✅ `lunao_bingji_zhiliao`（论六脉第二十九） | `asset14` 补医案 |
 | "南北政推理本书与图翼之异" | ✅ ch04 诚实标注（甲己土运居中 vs 十干之首象君） | `asset37` 对观 |
 
-> 本书与既有四书共同构成运气学的「专论机制 + 图翼象数 + 方源 + 歌诀 + 框架」**五层研读体系**，整体定位见第十节「五书五层互补（必读定位）」表。五书均由 `routing.yaml` 路由（`yunqi-gejue-distilled` / `yizong-jinjian-yunqi-yaojue` / `sanyin-sitiansi-yunqi-fang` / `liejing-tuyi-yunqi` / `suwen-rushi-yunqi-lunao`），且已并入 `rag_search.py` 默认检索范围（asset34 + asset35 + asset36 + asset37 + asset38），一次关键词检索即可同时命中五书与既有 RAG。，均由 `routing.yaml` 路由（`yunqi-gejue-distilled` / `yizong-jinjian-yunqi-yaojue` / `sanyin-sitiansi-yunqi-fang` / `liejing-tuyi-yunqi` / `suwen-rushi-yunqi-lunao`），且已并入 `rag_search.py` 默认检索范围（asset34 + asset35 + asset36 + asset37 + asset38），一次关键词检索即可同时命中五书与既有 RAG。
+> 本书与既有五书共同构成运气学的「专论灾变 + 专论机制 + 图翼象数 + 方源 + 歌诀 + 框架」**六层研读体系**，整体定位见第十节「六书六层互补（必读定位）」表。六书均由 `routing.yaml` 路由（`yunqi-gejue-distilled` / `yizong-jinjian-yunqi-yaojue` / `sanyin-sitiansi-yunqi-fang` / `liejing-tuyi-yunqi` / `suwen-rushi-yunqi-lunao` / `yixue-qiongyuanji-yunqi`），且已并入 `rag_search.py` 默认检索范围（asset34 + asset35 + asset36 + asset37 + asset38 + asset39），一次关键词检索即可同时命中六书与既有 RAG。
+
+---
+
+## 十二、医学穷源集·卷二 运气专论研读（asset39，专论·灾变纵深层）
+
+明·王肯堂 撰、殷宅心 辑释《医学穷源集·卷二》运气专论，是运气学史上系统讲「刚柔失守三年化疫」与「运气不验因方月」及「疫由人事/人定胜天」的关键文献，定位为「专论·灾变纵深层」。其独有纵深在：太乙移宫九宫八风、左右升降不前/司天不迁正不退位、五年化疫详例（甲子土疫/丙寅水疫/庚辰金疫/壬午木疫/戊申火疫，各先补所胜脏次泄本运气）、疫由人事论（人定胜天）、化数生成、流年灾宫、方月图说（运气不验之由）、山川方隅气候不同论、六气本标中从化解、药法摘录（五味补泻/脏腑苦欲/六气客主补泻正味）、十二经配天干歌。它与三因（方源）、王旭高（歌诀）、医宗金鉴（推算框架）、类经图翼（象数基础）、刘温舒（专论机制）**互补而非替代**；尤其「灾变纵深」填补五书在「刚柔失守→三年化疫」与「运气不验之由」上的空白。
+
+### 取数速查（asset39，统一入口 key）
+
+```bash
+python scripts/rag_search.py --key qiongyuanji_zonglun          # 运气总论（太过/不及/平气·亢害承制·六气各归不胜而为化·胜复郁发·验法四端）
+python scripts/rag_search.py --key qiongyuanji_taiyi_shengjiang # 太乙移宫九宫八风（实风虚风/三虚）＋ 升降不前·不迁正·不退位
+python scripts/rag_search.py --key qiongyuanji_sanshinian_huayi # 五运失守三年化疫（甲子/丙寅/庚辰/壬午/戊申五年详例）＋ 疫由人事论（人定胜天）
+python scripts/rag_search.py --key qiongyuanji_huashu_zai      # 化数生成说（成数/生数·戊寅戊申例外）＋ 流年灾宫说
+python scripts/rag_search.py --key qiongyuanji_fangyue         # 方月图说（运气不验之由）＋ 山川方隅气候不同论
+python scripts/rag_search.py --key qiongyuanji_benbiaozhong    # 六气本标中从化解（从本/从本从标/从中）＋ 治病标本说
+python scripts/rag_search.py --key qiongyuanji_yaofa           # 药法摘录（🛑 最强警告章）＋ 十二经配天干歌
+# 或直接读 chapters/（更细的逐字专论原文）
+```
+
+### 跨书取证（RAG，按需）
+
+- 岁运病机/岁运治法：`--asset asset1` / `--asset asset10`
+- 司天在泉病机：`--asset asset2`
+- 三因司天方现代化数据库（含临床加减/现代研究）：`--asset asset4`
+- 历代注家运气学说（含王肯堂/殷宅心条目）：`--asset asset5`
+- 真实医案实证：`--asset asset14`
+- 温疫运气（补「三年化疫/木疫」后世发挥）：`--asset asset17`
+- 地域运气（补山川方隅气候）：`--asset asset6`
+
+### 双轨分工再强调
+
+| 问法 | 走蒸馏（asset39） | 走 RAG |
+|------|------------------|--------|
+| "三年化疫怎么推（甲子什么疫）" | ✅ 1 跳 `qiongyuanji_sanshinian_huayi` + ch03（五年详例） | `asset17` 补温疫发挥、`asset5` 补注家 |
+| "运气为什么不验" | ✅ `qiongyuanji_fangyue`（方月图说）＋ ch05 | `asset6` 补地域气候 |
+| "灾宫怎么算（己年灾几宫）" | ✅ `qiongyuanji_huashu_zai` + ch04 | `asset37` 对观生成数 |
+| "疫由人事/人定胜天" | ✅ `qiongyuanji_sanshinian_huayi`（疫由人事论） | `asset17` 补温疫学史 |
+| "六气本标中怎么分" | ✅ `qiongyuanji_benbiaozhong` + ch06 | `asset38` 对观标本中见 |
+| "药法补泻正味/十二经配天干" | ✅ `qiongyuanji_yaofa` + ch07（🛑 最强警告） | `asset4`/`asset10` 补方药剂法 |
+
+> 本书与既有五书共同构成运气学的「专论灾变 + 专论机制 + 象数基础 + 方源 + 歌诀 + 框架」**六层研读体系**，整体定位见第十节「六书六层互补（必读定位）」表。六书均由 `routing.yaml` 路由（`yunqi-gejue-distilled` / `yizong-jinjian-yunqi-yaojue` / `sanyin-sitiansi-yunqi-fang` / `liejing-tuyi-yunqi` / `suwen-rushi-yunqi-lunao` / `yixue-qiongyuanji-yunqi`），且已并入 `rag_search.py` 默认检索范围（asset34 + asset35 + asset36 + asset37 + asset38 + asset39），一次关键词检索即可同时命中六书与既有 RAG。

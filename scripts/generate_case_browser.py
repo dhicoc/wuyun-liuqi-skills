@@ -4,7 +4,7 @@
 医案知识库浏览器 - OPT-09
 
 复用 generate_html_report.py 的 _STYLE + ink_theme 宣纸水墨设计体系，
-生成静态 HTML 浏览器：按医家/朝代/病证分类浏览 1994 条医案 + 全文搜索。
+生成静态 HTML 浏览器：按医家/朝代/病证分类浏览 2124 条医案 + 全文搜索。
 
 用法:
   python scripts/generate_case_browser.py

@@ -3,7 +3,7 @@
 """
 检索质量基准测试
 
-从全部医案库（asset9 + asset11-32，共 1994 条）按病证类别构造 golden set，
+从全部医案库（共 2124 条真实医案，asset_type=case_library）按病证类别构造 golden set，
 验证 rag_search 的检索质量。
 
 指标：
@@ -66,9 +66,13 @@ def load_all_cases():
     用于把它转成 rag_search 可接收的 assets 参数（'.json' 结尾的文件名）。
     """
     cases = []
-    for f in sorted(glob.glob(os.path.join(RAG_DIR, 'asset*_cases.json'))):
-        asset_id = os.path.basename(f).replace('.json', '')
+    for f in sorted(glob.glob(os.path.join(RAG_DIR, 'asset*.json'))):
+        if 'schema' in f:
+            continue
         d = json.load(open(f, encoding='utf-8'))
+        if d.get('asset_type') != 'case_library':
+            continue
+        asset_id = os.path.basename(f).replace('.json', '')
         for e in d.get('entries', []):
             cases.append((asset_id, e))
     return cases

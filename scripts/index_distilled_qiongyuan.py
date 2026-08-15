@@ -1,0 +1,246 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+index_distilled_qiongyuan.py — 把《医学穷源集·卷二》（明·王肯堂 撰，殷宅心 辑释）蒸馏稿索引进项目 RAG。
+
+作用：
+  1. 将 rag-knowledge-base/distilled/yixue-qiongyuanji-yunqi/ 下的蒸馏 skill
+     抽取为结构化检索资产 asset39_yixue_qiongyuanji_yunqi.json（统一入口）。
+  2. 在 rag-knowledge-base/index.json 注册该资产 entry（category=distilled_study）。
+  3. 打印下一步：需手动在 scripts/rag_search.py 的 ASSET_FILES 字典 + _default_asset_keys()
+     白名单加 asset39 映射（脚本不改动源码）。
+
+设计说明：
+  - 与 asset34（王旭高歌诀层）/asset35（医宗金鉴推算框架广度层）/asset36（三因方源层）/
+    asset37（类经图翼象数基础层）/asset38（刘温舒专论机制纵深层）并列：
+    本书 = 「专论·灾变纵深层」——运气学史上系统讲"刚柔失守三年化疫"与"运气不验因方月"
+    及"疫由人事/人定胜天"的关键文献，独有纵深在：太乙移宫九宫八风、升降不前/不迁正不退位、
+    五年化疫详例、疫由人事双因论、化数生成、流年灾宫、方月图说、六气本标中从化、药法摘录、十二经配天干歌。
+    六书互补，非替代。
+  - 每条 entry 均带 disclaimer（禁止据以开方/诊断），与蒸馏 skill 三件套一致。
+  - entry 的 summary 显式收录关键古文与术语，保证关键词检索（如「三年化疫」「刚柔失守」
+    「人定胜天」「方月图说」「灾宫」「本标中」「药法补泻正味」「十二经配天干」）可命中融合。
+
+用法（从仓库根执行）：
+  python scripts/index_distilled_qiongyuan.py
+"""
+import json
+import os
+import sys
+
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+RAG_DIR = os.path.join(REPO_ROOT, "rag-knowledge-base")
+DISTILL_SLUG = "yixue_qiongyuanji_yunqi"
+ASSET_ID = "asset39_yixue_qiongyuanji_yunqi"
+ASSET_FILE = f"{ASSET_ID}.json"
+
+DISCLAIMER = "⚠️ 仅供中医运气学文献研读与学术框架整理，禁止据此自行诊断、开方或用药；临床须咨询执业中医师。"
+
+# ---------------------------------------------------------------------------
+# 内嵌抽取事实（源自蒸馏稿 chapters，已逐字校核 herbtcm 转录本）
+# ---------------------------------------------------------------------------
+# 运气总论（框架地基）
+ZONGLUN = {
+    "本书定位": "《医学穷源集·卷二》运气专论（明·王肯堂撰，殷宅心辑释）定位为「专论·灾变纵深层」：系统讲刚柔失守三年化疫、疫由人事（人定胜天）、运气不验因方月、太乙移宫、升降不前、化数、灾宫、六气本标中、药法。与 asset34-38 五书互补非替代。",
+    "活法红线": "总论引「得其要者一言而终；不知其要流散无穷」「未至而至此谓太过（薄所不胜乘所胜，气淫）；至而不至此谓不及（所胜妄行所生受病所不胜薄之，气迫）」；反对机械套用，与全书方月/人定胜天一脉相承。",
+    "亢害承制": "「惟亢则害斯承乃制」为全书病机自稳总纲，与 asset38 刘温舒《论胜复》/五行胜复论机制化互证。",
+    "六气各归不胜而为化": "太阴雨化施太阳、太阳寒化施少阴、少阴热化施阳明、阳明燥化施厥阴、厥阴风化施太阴；各命所在方月征之；主胜逆客脏从，同者逆之异者从之。",
+    "胜复郁发": "胜复之作动不当位；五郁之发皆有先兆（土郁云横天山、金郁山泽焦枯、水郁太虚深玄、木郁长川草偃、火郁华发水凝）；木发无时水随火。",
+    "验法四端": "运气相临验法无过天星（水辰星火荧惑木岁星金太白土镇星）、脉应（六气之脉厥阴弦少阴钩太阴沉少阳大而浮阳明短涩太阳大而长）、物产、气候。少阴不司岁运之气化（君火为万化之本）。",
+}
+
+# 太乙移宫 + 升降不前/不迁正/不退位
+TAIYI_SHENGJIANG = {
+    "太乙移宫九宫": "太一（北极）游宫：叶蛰(46日)→天留(46)→仓门(46)→阴洛(45)→天宫(46)→玄委(46)→仓果(46)→新洛(45)→复叶蛰；干(西北)巽(东南)二宫各少一日（天地门户、不足之方）；九宫含中宫（每季末十八日）。太一移日天应以风雨，风雨调和则岁美民安少病。",
+    "实风虚风": "风从所居宫来为实风主生长万物；从冲后来为虚风伤人应藏：大弱风舍心、谋风舍脾、刚风舍肺、折风舍小肠、大刚风舍肾、凶风舍大肠、婴儿风舍肝、弱风舍胃。圣人避风如避矢石。",
+    "三虚致疫": "乘年之衰（五少岁运不及＋司天失守）＋逢月之空（望后血虚气去）＋失时之和（主客相犯时令失正）＝三虚，平居亦病之由，是三年化疫的人体易感性前提。",
+    "升之不前": "旧岁在泉右间→新岁司天左间：辰戌木欲升金窒病肝、巳亥君火丑未相火欲升水窒病心肺、子午土欲升木抑病脾、寅申金欲升火抑病肺、卯酉水欲升土抑病肾；病未发即刺以舒之。",
+    "降之不下": "旧岁司天右间→新岁在泉左间：折其所胜以舒本经之郁（如木欲降金窒则克金以扶木，治手太阴手阳明；水欲降土抑则克土以扶水，治足太阴足阳明等）。",
+    "不迁正不退位": "不迁正＝新司天有郁，当泻新司天之郁以通之；不退位＝旧司天有余，当折旧司天之余以退之。二法相反，各有精义。天尊地卑在泉权重不及司天。",
+}
+
+# 五运失守三年化疫 + 疫由人事
+SANSHINIAN_HUAYI = {
+    "刚柔失守总纲": "五运失守即不退位不迁正之义；不退位不迁正见本年、调之即已则五运不为失守。唯刚（上干）柔（下干）孤立、岁运气衰、郁极而发，三年化为疫疠。一经上下失守反为大虚敌得乘之郁为疫疠。五太如此五少可知。刚柔失位则律吕异音，刚柔将合则音律先同。",
+    "五年化疫详例": "甲子土疫（晚丁卯早丙寅，先补肾次泄脾）/丙寅水疫（晚己巳蚤戊辰，先补心次泄肾）/庚辰金疫（先补肝次泄肺）/壬午木疫（先补脾次泄肝）/戊申火疫（先补肺次泄心）。机理：阳年太过因上年司天在泉有余致本年刚柔失守反受所不胜之胜郁极三年化疫。第二种情形（至子合司天已交而下地未迁正）化疠，治同疫。",
+    "防疫次第": "先补被疫所克之脏（所胜），次泄本运之气（折其胜气资其化气）。即「折其胜气，资其化气，乃克有济」。",
+    "疫由人事论": "天时人事恒相附丽如影随响；刚柔失守三年来复为天运之戾气，血气耗越召殃招尤为人事之失调，二者并重。金末元兵南下汴京大疫，李东垣普济消毒饮全活甚众，得天时人事之全。避疫无过塞精固气寡欲清心。灵魂句：「盖人定胜天，而五行之戾气，罔敢干焉。」",
+}
+
+# 化数生成 + 灾宫
+HUASHU_ZAI = {
+    "化数生成": "太过者其数成、不及者其数生；惟戊寅戊申二太征年用生数（火太过用生数）；土言生数不言成数（土即地）。逐年：辰戌（司天成数惟二庚生、在泉皆生）/卯酉（司天成数惟二乙生、在泉乙癸四生丁己辛六成）/寅申（司天生数惟二庚成、在泉戊庚丙生壬甲成）/丑未（司天皆生、在泉生惟二乙成）/子午（壬甲丙六生戊庚四成）/巳亥（丁己辛六上生下成癸乙四上成下生）。生数化微成数化甚，然应成反生变化错综。",
+    "流年灾宫": "五少灾正宫：己灾五宫、乙灾七宫、丁灾三宫、辛灾一宫、癸灾九宫（本年气弱所胜者灾之）。五太推法：木太过灾二五八宫、火太过灾六七宫、土太过灾一宫、金太过灾三四宫、水太过灾九宫；制则灾其本宫。不及之年胜则灾本宫复则灾胜己之宫。⚠️ 本书明言「灾宫之说往往不验」，元运盛衰/三年郁发/六气偏胜皆能改其方。",
+}
+
+# 方月图说 + 山川方隅
+FANGYUE = {
+    "方月图说": "回答「运气为什么不验」：天下万余里南旱北水西热东寒气候不齐；六气各归不胜而为化各命其所在以征之（如子午年少阴司天则太阳初气在东北、阳明在泉在正北；客气之太阳寒化归所不胜施于正南少阴/西北少阳之位候在初气六十日内）。天灾有司天/在泉/间气/中运/三年郁发之灾，所灾之方各归所不胜而为化。言理而不言数，数有不应而理无或息；气变则无方不可灾无时不可灾。即理以征数，如拘执经文按年豫决是刻舟求剑守株待兔。",
+    "山川方隅气候不同论": "天不足西北左寒右凉，地不满东南右热左温；高者气寒下者气热，崇高阴治污下阳治。西北多山多燥多寒、东南多水多湿多热；高山多雪多寒平川多雨多热。东方鱼盐嗜咸、西方沙石多风、北方高寒乳食、南方地下雾露嗜酸，赋禀各别疾病因之。斥「足不出州郡以一概百以近概远」之拘墟之医；学运气者惟即方隅之不同以求其与运气之相合。与 asset6 地域互补。",
+}
+
+# 六气本标中 + 治病标本
+BENBIAOZHONG = {
+    "六气本标中从化": "风赛热湿火燥为本、三阴三阳为标、表里相络为中气（义出六微旨）。少阳太阴从本（标本同气，燥从湿化不从中）；少阴太阳从本从标（标本异气）；阳明厥阴从中（燥从湿化、木从火化）。总括「归六气于火湿，总万像于阴阳」。与 asset38 标本中见互证。",
+    "治病标本": "总以治本为急务；惟中满及大小便不利不论标本先治之。病发有余先治其本（固脏气之虚），不足先治其标（客邪易退脏气可复）；间者并行甚者独行。明斥俗谚「急则治其标」之滥用，正本清源。与 asset10 岁运治法互补。",
+}
+
+# 药法摘录 + 十二经配天干歌（🛑 最强警告章）
+YAIFA = {
+    "气味阴阳五味入胃": "阴味出下窍阳气出上窍；味厚则泄薄则通，气薄发泄厚则发热；辛甘发散为阳酸苦涌泄为阴。五味入胃各归所喜攻：酸先入肝苦先入心甘先入脾辛先入肺咸先入肾；久而增气夭之由也。补上治上制以缓补下治下制以急。",
+    "脏腑苦欲补泻": "肝苦急甘缓、欲散辛补酸泻；心苦缓酸收、欲软咸补甘泻；脾苦湿苦燥、欲缓甘补苦泻；肺苦气逆苦泄、欲收酸补辛泻；肾苦燥辛润、欲坚苦补咸泻。",
+    "五禁五味过伤": "辛走气咸走血苦走骨甘走肉酸走筋（各病所走者无多食）。五味过伤：酸伤筋(辛胜酸)、苦伤气(咸胜苦)、甘伤脾(酸胜甘)、辛伤皮毛(苦胜辛)、咸伤血(甘胜咸)；肥令人内热甘令人中满。",
+    "在泉化与六位之主": "在泉化：厥阴酸化、少阴苦化、太阴甘化、少阳苦化、阳明辛化、太阳咸化。六位之主：木位泻酸补辛、火位泻甘补咸、土位泻苦补甘、金位泻辛补酸、水位泻咸补苦。",
+    "六气之客补泻正味": "厥阴客辛补酸泻甘缓、少阴客咸补甘泻酸收、太阴客甘补苦泻甘缓、少阳客咸补甘泻咸软、阳明客酸补辛泻苦泄、太阳客苦补咸泻苦坚辛润。⚠️ 脏腑苦欲与六气客主补泻正味是两套体系不可混同。",
+    "十二经配天干歌": "甲胆乙肝丙小肠，丁心戊胃己脾乡，庚属大肠辛属肺，壬属膀胱癸肾藏，三焦阳腑须归丙，包络从阴丁火旁。五脏(阴)：肾癸水心丁火肝乙木肺辛金脾己土心包亦丁；六腑(阳)：胃戊胆甲大肠庚小肠丙膀胱壬三焦亦丙。与 asset35 天干配脏腑同源。",
+}
+
+
+def build_entries():
+    return [
+        {
+            "entry_id": "qiongyuanji_zonglun",
+            "rag_key": "qiongyuanji_zonglun",
+            "category": "qiongyuanji_zonglun",
+            "name": "运气总论（太过/不及/平气·亢害承制·六气各归不胜而为化·胜复郁发·验法四端）",
+            "summary": "运气总论（本书框架地基）：" + "；".join(f"{k}：{v}" for k, v in ZONGLUN.items()),
+            "mapping": [{"item": k, "value": v} for k, v in ZONGLUN.items()],
+            "source_quote": "distilled/yixue-qiongyuanji-yunqi/chapters/ch01-yunqi-zonglun.md ; literature/医学穷源集卷二运气总论等.md（运气总论段）",
+            "disclaimer": DISCLAIMER,
+        },
+        {
+            "entry_id": "qiongyuanji_taiyi_shengjiang",
+            "rag_key": "qiongyuanji_taiyi_shengjiang",
+            "category": "qiongyuanji_taiyi_shengjiang",
+            "name": "太乙移宫九宫八风（实风虚风/三虚）＋ 左右升降不前·司天不迁正·不退位",
+            "summary": "太乙移宫说（九宫/八风/实风虚风/三虚）＋ 左右升降不前·司天不迁正·不退位解：" + "；".join(f"{k}：{v}" for k, v in TAIYI_SHENGJIANG.items()),
+            "mapping": [{"item": k, "value": v} for k, v in TAIYI_SHENGJIANG.items()],
+            "source_quote": "distilled/yixue-qiongyuanji-yunqi/chapters/ch02-taiyi-shengjiang.md ; literature/医学穷源集卷二运气总论等.md（太乙移宫说/升降不前段）",
+            "disclaimer": DISCLAIMER,
+        },
+        {
+            "entry_id": "qiongyuanji_sanshinian_huayi",
+            "rag_key": "qiongyuanji_sanshinian_huayi",
+            "category": "qiongyuanji_sanshinian_huayi",
+            "name": "五运失守之说（刚柔失守三年化疫·甲子/丙寅/庚辰/壬午/戊申五年详例＋防疫次第）＋ 疫由人事论（人定胜天）",
+            "summary": "五运失守三年化疫（刚柔失守）＋ 疫由人事论（人定胜天）：" + "；".join(f"{k}：{v}" for k, v in SANSHINIAN_HUAYI.items()),
+            "mapping": [{"item": k, "value": v} for k, v in SANSHINIAN_HUAYI.items()],
+            "source_quote": "distilled/yixue-qiongyuanji-yunqi/chapters/ch03-sanshinian-huayi.md ; literature/医学穷源集卷二运气总论等.md（五运失守之说/疫由人事论段）",
+            "disclaimer": DISCLAIMER,
+        },
+        {
+            "entry_id": "qiongyuanji_huashu_zai",
+            "rag_key": "qiongyuanji_huashu_zai",
+            "category": "qiongyuanji_huashu_zai",
+            "name": "附化数生成说（成数/生数·戊寅戊申例外）＋ 流年灾宫说（己乙丁辛癸各灾何宫·五太推法）",
+            "summary": "化数生成说（与 asset37/38 同源互证）＋ 流年灾宫说：" + "；".join(f"{k}：{v}" for k, v in HUASHU_ZAI.items()),
+            "mapping": [{"item": k, "value": v} for k, v in HUASHU_ZAI.items()],
+            "source_quote": "distilled/yixue-qiongyuanji-yunqi/chapters/ch04-huashu-zai.md ; literature/医学穷源集卷二运气总论等.md（化数生成说/流年灾宫说段）",
+            "disclaimer": DISCLAIMER,
+        },
+        {
+            "entry_id": "qiongyuanji_fangyue",
+            "rag_key": "qiongyuanji_fangyue",
+            "category": "qiongyuanji_fangyue",
+            "name": "方月图说（运气不验因方月）＋ 附山川方隅气候不同论（西北燥寒/东南湿热·与 asset6 互补）",
+            "summary": "方月图说（运气不验之由）＋ 山川方隅气候不同论：" + "；".join(f"{k}：{v}" for k, v in FANGYUE.items()),
+            "mapping": [{"item": k, "value": v} for k, v in FANGYUE.items()],
+            "source_quote": "distilled/yixue-qiongyuanji-yunqi/chapters/ch05-fangyue-shanyuan.md ; literature/医学穷源集卷二运气总论等.md（方月图说/山川方隅段）",
+            "disclaimer": DISCLAIMER,
+        },
+        {
+            "entry_id": "qiongyuanji_benbiaozhong",
+            "rag_key": "qiongyuanji_benbiaozhong",
+            "category": "qiongyuanji_benbiaozhong",
+            "name": "六气本标中从化解（从本/从本从标/从中）＋ 附治病标本说（治本为急务·与 asset38/asset10 互补）",
+            "summary": "六气本标中从化解（与 asset38 标本中见互证）＋ 治病标本说：" + "；".join(f"{k}：{v}" for k, v in BENBIAOZHONG.items()),
+            "mapping": [{"item": k, "value": v} for k, v in BENBIAOZHONG.items()],
+            "source_quote": "distilled/yixue-qiongyuanji-yunqi/chapters/ch06-benbiaozhong.md ; literature/医学穷源集卷二运气总论等.md（六气本标中从化解段）",
+            "disclaimer": DISCLAIMER,
+        },
+        {
+            "entry_id": "qiongyuanji_yaofa",
+            "rag_key": "qiongyuanji_yaofa",
+            "category": "qiongyuanji_yaofa",
+            "name": "药法摘录（气味阴阳/脏腑苦欲/五禁/在泉化/六位之主/六气客主补泻正味/五味过伤）＋ 十二经配天干歌（🛑 最强警告章）",
+            "summary": "药法摘录（🛑 最强警告章，仅供文献研读非处方）＋ 十二经配天干歌：" + "；".join(f"{k}：{v}" for k, v in YAIFA.items()),
+            "mapping": [{"item": k, "value": v} for k, v in YAIFA.items()],
+            "source_quote": "distilled/yixue-qiongyuanji-yunqi/chapters/ch07-yaofa-zuiqiang.md ; literature/医学穷源集卷二运气总论等.md（药法摘录/十二经配天干歌段）",
+            "disclaimer": DISCLAIMER,
+        },
+    ]
+
+
+def write_asset():
+    asset = {
+        "asset_id": ASSET_ID,
+        "asset_name": "医学穷源集·卷二 运气专论（明·王肯堂 撰，殷宅心 辑释）蒸馏研读框架",
+        "asset_description": (
+            "从《医学穷源集·卷二》运气专论（明·王肯堂 撰，殷宅心 辑释；herbtcm.com 逐字转录本，公有领域）"
+            "经 book-to-skill 风格蒸馏出的运气「专论·灾变纵深层」框架："
+            "系统讲刚柔失守三年化疫（甲子/丙寅/庚辰/壬午/戊申五年详例＋先补脏次泄气次第）、"
+            "疫由人事论（人定胜天）、太乙移宫九宫八风、升降不前/不迁正不退位、化数生成、流年灾宫、"
+            "方月图说（运气不验因方月）、山川方隅气候不同论、六气本标中从化解、药法摘录、十二经配天干歌。"
+            "与三因《运气诸方》(asset36·方源)/王旭高《运气证治歌诀》(asset34·歌诀)/"
+            "医宗金鉴《运气要诀》(asset35·推算框架广度)/类经图翼·运气(asset37·象数基础)/"
+            "刘温舒《素问入式运气论奥》(asset38·专论机制纵深) 六书互补，非替代。"
+        ),
+        "data_source": "明·王肯堂 撰，殷宅心 辑释《医学穷源集·卷二》运气专论（herbtcm.com 逐字转录本，公有领域）",
+        "entries": build_entries(),
+        "disclaimer": DISCLAIMER,
+    }
+    out = os.path.join(RAG_DIR, ASSET_FILE)
+    with open(out, "w", encoding="utf-8") as f:
+        json.dump(asset, f, ensure_ascii=False, indent=2)
+    return out
+
+
+def register_index():
+    idx_path = os.path.join(RAG_DIR, "index.json")
+    with open(idx_path, encoding="utf-8") as f:
+        index = json.load(f)
+    index["entries"] = [e for e in index["entries"] if e.get("asset_id") != ASSET_ID]
+    index["entries"].append({
+        "entry_id": f"rag_index_{ASSET_ID}",
+        "entry_type": "asset_index",
+        "title": "医学穷源集·卷二 运气专论（王肯堂/殷宅心）蒸馏框架",
+        "file": ASSET_FILE,
+        "asset_id": ASSET_ID,
+        "asset_name": "医学穷源集·卷二 运气专论（明·王肯堂 撰，殷宅心 辑释）蒸馏研读框架",
+        "asset_category": "distilled_study",
+        "description": "从《医学穷源集·卷二》蒸馏出的运气「专论·灾变纵深层」框架：刚柔失守三年化疫（五年详例）、疫由人事（人定胜天）、太乙移宫、升降不前/不迁正不退位、化数生成、流年灾宫、方月图说（运气不验之由）、山川方隅、六气本标中、药法摘录、十二经配天干歌。与三因(asset36·方源)/王旭高(asset34·歌诀)/医宗金鉴(asset35·推算框架广度)/类经图翼(asset37·象数基础)/刘温舒(asset38·专论机制纵深)六书互补。",
+        "total_entries": len(build_entries()),
+        "lookup_fields": ["rag_key"],
+        "example_keys": ["qiongyuanji_zonglun", "qiongyuanji_taiyi_shengjiang", "qiongyuanji_sanshinian_huayi", "qiongyuanji_huashu_zai", "qiongyuanji_fangyue", "qiongyuanji_benbiaozhong", "qiongyuanji_yaofa"],
+        "rag_key": ASSET_ID,
+    })
+    index["total_entries"] = index.get("total_entries", 0) + 1
+    with open(idx_path, "w", encoding="utf-8") as f:
+        json.dump(index, f, ensure_ascii=False, indent=2)
+    return idx_path
+
+
+def main():
+    try:
+        asset_out = write_asset()
+        idx_out = register_index()
+    except Exception as e:
+        print(f"[ERROR] {e}", file=sys.stderr)
+        return 1
+    print(f"[OK] 生成资产: {asset_out}")
+    print(f"[OK] 注册索引: {idx_out} (total_assets={json.load(open(idx_out, encoding='utf-8')).get('total_entries')})")
+    print("[NEXT] 还需手动在 scripts/rag_search.py 做两处改动：")
+    print("  1) ASSET_FILES 字典加（接在 asset38 之后）：")
+    print(f'     "asset39": "{ASSET_FILE}",')
+    print(f'     "asset39_yixue_qiongyuanji_yunqi": "{ASSET_FILE}",')
+    print(f'     "yixue_qiongyuanji_yunqi": "{ASSET_FILE}",')
+    print(f'     "qiongyuanji": "{ASSET_FILE}",')
+    print(f'     "qiongyuanji_yunqi": "{ASSET_FILE}",')
+    print("  2) _default_asset_keys() 白名单元组加：")
+    print('     "asset39",')
+    print("然后即可：python scripts/rag_search.py --key qiongyuanji_zonglun")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

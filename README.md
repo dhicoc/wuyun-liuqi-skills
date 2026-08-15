@@ -50,7 +50,7 @@
 用户提问（自然语言）
   -> routing.yaml 路由匹配
   -> calculate_yunqi_api.py 推算引擎（大寒定年，非幻觉）
-  -> rag_search 检索 37 个 RAG asset（2124 条医案 + 33 条疾病易感性）
+  -> rag_search 检索 38 个 RAG asset（2124 条医案 + 33 条疾病易感性）
   -> infer_pathogenesis 病机推理链
   -> 通俗语言解释 + 免责声明
   -> self_evolve 自动沉淀经验
@@ -60,7 +60,7 @@
 
 | RAG asset | 医案条目 | 公版文献 | 蒸馏指南 | 推算脚本 | CI 测试 |
 |---:|---:|---:|---:|---:|---:|
-| 37 | 2124 | 51 篇 | 12 本 | 53 个 | 40 项 CI 校验全绿 |
+| 38 | 2124 | 51 篇 | 12 本 | 53 个 | 39 项 CI 校验全绿 |
 
 路由核心由一个 `routing.yaml` 驱动，跨工具薄壳自动发现，推算引擎与知识库分离。
 
@@ -196,7 +196,7 @@ python scripts/calculate_yunqi_api.py 2026-06-27 --summary
 
 ## 完整功能清单
 
-> 共 53 个脚本 · 6 个子技能模块 · 10 个教学模块 · 2 个注家人格 · 37 个 RAG asset · 51 篇公版文献 · 12 本蒸馏指南
+> 共 54 个脚本 · 6 个子技能模块 · 10 个教学模块 · 2 个注家人格 · 38 个 RAG asset · 51 篇公版文献 · 12 本蒸馏指南
 
 ### 推算引擎（9 个）
 
@@ -257,7 +257,7 @@ python scripts/calculate_yunqi_api.py 2026-06-27 --summary
 |------|----------|------|
 | 自进化引擎 | `self_evolve.py` | 日志 / 反馈 / 盲区检测 / 月报 / 清理 / 自动建议 |
 | 环境检查 | `health_check.py` | 依赖、路径、配置完整性检查 |
-| 知识库校验 | `validate_knowledge_base.py` | 37 个 asset JSON schema 校验 |
+| 知识库校验 | `validate_knowledge_base.py` | 38 个 asset JSON schema 校验 |
 | RAG 索引生成 | `generate_rag_index.py` | 生成 / 刷新 RAG 检索索引 |
 | 报告质量门禁 | `report_quality_gate.py` | 报告输出前的质量校验 |
 | 路由同步 | `sync_routing.py` | 改 routing.yaml 后同步到各入口文件 |
@@ -289,7 +289,7 @@ python scripts/calculate_yunqi_api.py 2026-06-27 --summary
 
 | 类别 | 数量 | 说明 |
 |------|------|------|
-| RAG 键值 asset | 37 个 | 病机/方剂/注家/地域/体质/岁图医案/瘟疫防治/历代名家医案 21 部 |
+| RAG 键值 asset | 38 个 | 病机/方剂/注家/地域/体质/岁图医案/瘟疫防治/历代名家医案 21 部 |
 | 公版文献原文 | 51 篇 | 约 177.4 万字，先秦至清代，含素问七篇大论、遗篇、圣济岁图、玄珠密语等 |
 | 公版蒸馏指南 | 12 本 | 五层注释链 5 本 + 35 篇分组合并 5 本 + 补充指南，Grep+Read 零依赖 |
 | 术语库 | 700 条 | `terminology.json`，通过 rag_keys 精确匹配 |
@@ -330,7 +330,7 @@ python scripts/calculate_yunqi_api.py 2026-06-27 --summary
 ├── SKILL.md                    # ★ 总控路由入口（AI 必读）
 ├── routing.yaml / routing.md   # ★ 路由真相源 / 人类索引
 ├── AGENTS.md / CLAUDE.md       # 跨工具薄壳（Codex / Claude）
-├── scripts/                    # 53 个 Python 脚本 + JS 接口
+├── scripts/                    # 54 个 Python 脚本 + JS 接口
 │   ├── calculate_yunqi_api.py  #   ★ 主链路（大寒定年 + rag_keys）
 │   ├── rag_search.py           #   ★ RAG 检索
 │   ├── case_relations.py       #   医案对比 / 相似发现
@@ -338,8 +338,8 @@ python scripts/calculate_yunqi_api.py 2026-06-27 --summary
 │   ├── self_evolve.py          #   自进化引擎
 │   └── …                       #   报告/导出/校验等
 ├── wuyun_liuqi/                # 可导入 Python 包
-├── rag-knowledge-base/         # ★ 37 个 asset + 蒸馏指南 + 文献原文
-│   ├── asset1-37 *.json        #   病机/方/注家/体质/医案（含 21 部医案库）
+├── rag-knowledge-base/         # ★ 38 个 asset + 蒸馏指南 + 文献原文
+│   ├── asset1-39 *.json        #   病机/方/注家/体质/医案（含 21 部医案库）
 │   ├── *_guide.md              #   10 本公版蒸馏指南
 │   └── literature/             #   51 篇公版文献原文（177.4 万字）
 ├── modules/                    # 子技能（routing.yaml 路由目标）
