@@ -39,15 +39,15 @@ RAG asset 是精炼键值（回答"是什么"）；下列五本公版古籍蒸�
 | 本体论层 | `rag-knowledge-base/leijing_tuyi_yunqi_philosophy_guide.md` | 《类经图翼》张介宾 | 明 | 太极阴阳五行本体、生克互藏 |
 | 治法层 | `rag-knowledge-base/baoming_zhifa_guide.md` | 《素问病机气宜保命集》刘完素 | 金 | 病机十九条治则、六气岁宜治法 |
 
-### 五运六气文献库（公版原文，35 篇）
+### 五运六气文献库（公版原文，51 篇）
 
 | 目录 | 内容 | 检索 |
 |------|------|------|
-| `rag-knowledge-base/literature/` | 35 篇公版原文（61.6 万字，先秦至清代）含素问七篇大论全文、遗篇、圣济总录六十甲子岁图、玄珠密语等 | Grep+Read 零依赖，开箱即用 |
+| `rag-knowledge-base/literature/` | 51 篇公版原文（177.0 万字，先秦至清代）含素问七篇大论全文、遗篇、圣济总录六十甲子岁图、玄珠密语等 | Grep+Read 零依赖，开箱即用 |
 
-### 35 篇文献蒸馏指南（结构化速查，零依赖）
+### 蒸馏指南（结构化速查，零依赖，共 12 本）
 
-从 35 篇文献蒸馏出的 5 个结构化指南（合并分组），Agent 可 Grep 关键词定位要点，不必通读长文原文：
+从 51 篇文献蒸馏出的 12 本指南（五层注释链 5 本 + 文献分组结构化速查 5 本 + 专科导航 2 本），Agent 可 Grep 关键词定位要点，不必通读长文原文：
 
 | 指南 | 覆盖文献 | 用途 |
 |------|---------|------|
@@ -56,6 +56,15 @@ RAG asset 是精炼键值（回答"是什么"）；下列五本公版古籍蒸�
 | `rag-knowledge-base/mingqing_yunqi_zhuanzhu_guide.md` | 运气易览/松峰说疫/医学穷源集/运气证治歌诀/类经运气类/素问入式运气论奥/元和纪用经/本草纲目用药式 8 篇 | 明清运气推演与证治（含王旭高反刻板按语、李时珍五运六淫用药式） |
 | `rag-knowledge-base/jinyuan_yijia_yunqi_guide.md` | 玄机原病式节录/医学启源/脾胃论/格致余论 4 篇 | 金元四家运气观（河间寒凉/易水/补土/养阴） |
 | `rag-knowledge-base/xianqin_cunmu_yuanliu_guide.md` | 太始天元册/管子/月令/周礼/周易/王冰说明/天元玉册/昭明隐旨/已佚待考/时疫温病 10 篇 | 运学渊源（先秦思想源头）+ 已佚书目 + 晚清温病运气 |
+
+**专科导航指南（2 本）**：
+
+| 指南 | 覆盖文献/库 | 用途 |
+|------|-----------|------|
+| `rag-knowledge-base/yunqi_medical_cases_guide.md` | 医案库 asset9 / asset11-32 等全部 case_library | 运气语境 → 病证 → 医案库路由导航（打通推算→病证→佐证检索链） |
+| `rag-knowledge-base/yunqi_internal_external_guide.md` | asset29 内因 → 外候（外科/外证） | 内因病机联动外部症候检索（肝郁化火→瘰疬、湿热内蕴→疔疮痈肿等） |
+| `rag-knowledge-base/yunqi_medical_cases_guide.md` | 医案库 asset9 / asset11-32 等全部 case_library | 运气语境 → 病证 → 医案库路由导航（打通推算→病证→佐证检索链） |
+| `rag-knowledge-base/yunqi_internal_external_guide.md` | asset29 内因 → 外候（外科/外证） | 内因病机联动外部症候检索（肝郁化火→瘰疬、湿热内蕴→疔疮痈肿等） |
 
 详见 `rag-knowledge-base/literature/检索说明.md`。五本蒸馏指南是从这套文献中提炼的结构化产物；本目录是完整原文，供 Agent 引经据典、逐年详查。
 

@@ -1,7 +1,7 @@
 {
   "name": "wuyun-liuqi",
   "version": "1.0.0",
-  "description": "五运六气 AI Agent 技能包 — 干支推算 + 六气步移 + 32 RAG asset + 1994 条医案 + 疾病易感性 + 同义词检索 + 自进化引擎",
+  "description": "五运六气 AI Agent 技能包 — 干支推算 + 六气步移 + 38 RAG asset + 2124 条医案 + 疾病易感性 + 同义词检索 + 自进化引擎",
   "license": "MIT",
   "private": true,
   "main": "server.js",
