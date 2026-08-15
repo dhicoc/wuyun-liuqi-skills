@@ -802,6 +802,27 @@
       "rag_key": "asset38_suwen_rushi_yunqi_lunao"
     },
     {
+      "entry_id": "rag_index_asset39_yixue_qiongyuanji_yunqi",
+      "entry_type": "asset_index",
+      "title": "医学穷源集·卷二 运气专论（明·王肯堂 撰，殷宅心 辑释）蒸馏研读框架",
+      "file": "asset39_yixue_qiongyuanji_yunqi.json",
+      "asset_id": "asset39_yixue_qiongyuanji_yunqi",
+      "asset_name": "医学穷源集·卷二 运气专论（明·王肯堂 撰，殷宅心 辑释）蒸馏研读框架",
+      "asset_category": "custom_asset",
+      "description": "从《医学穷源集·卷二》运气专论（明·王肯堂 撰，殷宅心 辑释；herbtcm.com 逐字转录本，公有领域）经 book-to-skill 风格蒸馏出的运气「专论·灾变纵深层」框架：系统讲刚柔失守三年化疫（甲子/丙寅/庚辰/壬午/戊申五年详例＋先补脏次泄气次第）、疫由人事论（人定胜天）、太乙移宫九宫八风、升降不前/不迁正不退位、化数生成、流年灾宫、方月图说（运气不验因方月）、山川方隅气候不同论、六气本标中从化解、药法摘录、十二经配天干歌。与三因《运气诸方》(asset36·方源)/王旭高《运气证治歌诀》(asset34·歌诀)/医宗金鉴《运气要诀》(asset35·推算框架广度)/类经图翼·运气(asset37·象数基础)/刘温舒《素问入式运气论奥》(asset38·专论机制纵深) 六书互补，非替代。",
+      "total_entries": 7,
+      "lookup_fields": [
+        "rag_key",
+        "entry_id"
+      ],
+      "example_keys": [
+        "qiongyuanji_zonglun",
+        "qiongyuanji_taiyi_shengjiang",
+        "qiongyuanji_sanshinian_huayi"
+      ],
+      "rag_key": "asset39_yixue_qiongyuanji_yunqi"
+    },
+    {
       "entry_id": "rag_index_asset15_shanghan90_cases",
       "entry_type": "asset_index",
       "title": "伤寒九十论 — 经方病证真实医案库",
@@ -843,30 +864,6 @@
         "term_wuyun_liuqi"
       ],
       "rag_key": "terminology"
-    },
-    {
-      "entry_id": "rag_index_asset39_yixue_qiongyuanji_yunqi",
-      "entry_type": "asset_index",
-      "title": "医学穷源集·卷二 运气专论（王肯堂/殷宅心）蒸馏框架",
-      "file": "asset39_yixue_qiongyuanji_yunqi.json",
-      "asset_id": "asset39_yixue_qiongyuanji_yunqi",
-      "asset_name": "医学穷源集·卷二 运气专论（明·王肯堂 撰，殷宅心 辑释）蒸馏研读框架",
-      "asset_category": "distilled_study",
-      "description": "从《医学穷源集·卷二》蒸馏出的运气「专论·灾变纵深层」框架：刚柔失守三年化疫（五年详例）、疫由人事（人定胜天）、太乙移宫、升降不前/不迁正不退位、化数生成、流年灾宫、方月图说（运气不验之由）、山川方隅、六气本标中、药法摘录、十二经配天干歌。与三因(asset36·方源)/王旭高(asset34·歌诀)/医宗金鉴(asset35·推算框架广度)/类经图翼(asset37·象数基础)/刘温舒(asset38·专论机制纵深)六书互补。",
-      "total_entries": 7,
-      "lookup_fields": [
-        "rag_key"
-      ],
-      "example_keys": [
-        "qiongyuanji_zonglun",
-        "qiongyuanji_taiyi_shengjiang",
-        "qiongyuanji_sanshinian_huayi",
-        "qiongyuanji_huashu_zai",
-        "qiongyuanji_fangyue",
-        "qiongyuanji_benbiaozhong",
-        "qiongyuanji_yaofa"
-      ],
-      "rag_key": "asset39_yixue_qiongyuanji_yunqi"
     }
   ],
   "maintenance": {
