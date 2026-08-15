@@ -18,6 +18,7 @@
 - MUST NOT 凭记忆推算 → 必须调用 `scripts/` 下 Python 脚本
 - 临床/方药/针灸 → 必须附加免责声明
 - 意图模糊 → 先读 `prompts/onboarding_prompt.md`
+- 生成/手写任何视觉产物（HTML/UI/卡片/时间轴）→ 必须复用 `scripts/lib/ink_theme.py`（宣纸水墨），不得擅自换肤或现场手写配色
 
 **工具速查（按用户问题类型，agent 首读即可见）**
 

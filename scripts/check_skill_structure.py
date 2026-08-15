@@ -174,6 +174,7 @@ def main() -> int:
         "sync_routing.py",
         "check_conformance.py",
         "audit_orphans.py",
+        "check_visual_consistency.py",
     ]:
         checker = ROOT / "scripts" / script_name
         if not checker.is_file():

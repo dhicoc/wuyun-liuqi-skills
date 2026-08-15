@@ -76,6 +76,9 @@ jobs:
       - name: Conformance check
         run: python scripts/check_conformance.py
 
+      - name: Visual consistency check (宣纸水墨 ink_theme)
+        run: python scripts/check_visual_consistency.py
+
       - name: Content tier orphan audit
         run: python scripts/audit_orphans.py
 

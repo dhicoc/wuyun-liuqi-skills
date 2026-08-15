@@ -46,6 +46,17 @@ required_sections:
     must_contain:
       - "routing.yaml"
       - "rules/calculation.md"
+      - "ink_theme"
+
+  - file: rules/output.md
+    must_contain:
+      - "ink_theme"
+      - "宣纸水墨"
+
+  - file: modules/docs-generator/SKILL.md
+    must_contain:
+      - "ink_theme"
+      - "宣纸水墨"
 
 required_files:
   - path: routing.yaml
@@ -54,6 +65,7 @@ required_files:
   - path: scripts/sync_routing.py
   - path: scripts/check_conformance.py
   - path: scripts/audit_orphans.py
+  - path: scripts/check_visual_consistency.py
   - path: references/gotchas.md
   - path: workflows/task-closure.md
   - path: .claude-plugin/plugin.json

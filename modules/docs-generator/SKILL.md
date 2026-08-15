@@ -264,6 +264,18 @@ description: 报告生成子技能。定义五运六气分析报告的标准格�
 | 标注格式 | "推算脚本：[脚本名]" |
 | 不可省略 | 所有报告类型均须标注推算脚本来源 |
 
+## 视觉规范（宣纸水墨）
+
+任何面向读者的视觉产物（HTML 报告 / PDF / 卡片 / 时间轴 / Anki，含 agent 现场手写的 HTML/UI）必须复用 `scripts/lib/ink_theme.py` 的宣纸水墨设计 token，**禁止 agent 现场自由发挥视觉风格**（如深色霓虹配色）。
+
+要点：
+
+- 统一引用 ink_theme 导出的 CSS 变量：`--paper`（纸色）、`--ink`（墨色阶）、`--vermilion`（朱砂）、`--wx-*`（五行正色）、`--gold`（落款金）；字体用 `ink_theme.SERIF`（宋体）。
+- 脚本侧已复用：本报告经 `generate_html_report.py` 生成时即套用 ink_theme；`export_thought.py` / `visualize_timeline.py` 同理。**agent 不得擅自换肤或另起一套配色。**
+- 校验：可用 `scripts/check_visual_consistency.py` 对 `reports/**` 与 `scripts/**` 做一致性关卡——视觉产物未引用 ink_theme token 即报错。
+
+> 设计原则见项目根 `.impeccable.md`：墨分五色、五行正色、留白即气、宋体为骨、屏印双态、装饰有意图。
+
 ## 常见误区
 
 | 问题 | 原因 | 解决方案 |
@@ -285,12 +297,12 @@ description: 报告生成子技能。定义五运六气分析报告的标准格�
 - 临床版报告须包含病机分析与治法方向，但不得给出具体方剂处方
 - 研究版报告须包含文献引用与理论讨论，现代研究部分须标注为概述性引用
 - 所有术语须使用标准中医运气学说术语
-- 报告输出为Markdown格式
+- 报告默认输出为 Markdown 格式；若输出 HTML / 可视化报告（含 agent 手写的任何视觉产物），必须复用 `scripts/lib/ink_theme.py` 宣纸水墨设计体系（统一引用 `--paper` / `--ink` / `--vermilion` / `--wx-*` 等 CSS 变量），禁止现场手写配色
 
 ## 路由上下文
 
 - **上游入口**：接收 `ganzhi-basics` 的干支推算结果（干支、甲子序号、大运、六气格局、节气运气交司）和 `yunqi-classics` 的文献引用与理论验证结论
-- **下游出口**：输出完整的五运六气分析报告（Markdown格式），交付给用户
+- **下游出口**：输出完整的五运六气分析报告（Markdown 为主；HTML/可视化报告须复用 `ink_theme` 宣纸水墨体系），交付给用户
 - **同级关联**：与 `ganzhi-basics` 和 `yunqi-classics` 同级。`ganzhi-basics` 提供推算数据，`yunqi-classics` 提供文献支撑，本子技能负责整合为最终报告
 
 ---
@@ -315,5 +327,6 @@ description: 报告生成子技能。定义五运六气分析报告的标准格�
 - [ ] 报告中所有推算数据与上游子技能输出一致
 - [ ] 临床版报告未给出具体方剂处方（仅方剂方向）
 - [ ] 研究版报告现代研究部分标注为概述性引用
-- [ ] 报告输出为Markdown格式
+- [ ] 报告输出为 Markdown 格式（HTML/可视化产物须复用 ink_theme 宣纸水墨体系）
 - [ ] 所有术语使用标准中医运气学说术语
+- [ ] 若含 HTML/可视化产物，已复用 ink_theme（`--paper`/`--ink`/`--vermilion`/`--wx-*`），未现场换肤

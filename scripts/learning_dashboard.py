@@ -20,6 +20,7 @@ import argparse
 import json
 import os
 import re
+import sys
 from collections import Counter
 from datetime import datetime
 from pathlib import Path
@@ -28,6 +29,9 @@ from typing import Any, Dict, List, Optional, Sequence, Tuple
 from _common import setup_environment, add_scripts_dir_to_path, PROJECT_ROOT
 
 setup_environment(add_lib=False, add_scripts=True)
+# 宣纸水墨设计 token：所有视觉产物统一复用 ink_theme，禁止现场手写配色。
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'lib'))
+import ink_theme  # scripts/lib（唯一设计源）
 add_scripts_dir_to_path()
 
 ROOT = PROJECT_ROOT
@@ -254,7 +258,7 @@ def to_markdown(data: Dict[str, Any]) -> str:
 
 
 def to_html(data: Dict[str, Any]) -> str:
-    """轻量 HTML，便于浏览器打开。"""
+    """轻量 HTML，便于浏览器打开。视觉风格统一复用 ink_theme 宣纸水墨体系。"""
     md_like = to_markdown(data)
     # 极简：转义后 pre 展示 + 基础样式（避免依赖 markdown 库）
     escaped = (
@@ -262,22 +266,32 @@ def to_html(data: Dict[str, Any]) -> str:
         .replace("<", "&lt;")
         .replace(">", "&gt;")
     )
+    # 宣纸水墨 token（light 态）：纸色 / 墨色阶 / 朱砂 / 宋体
+    paper = ink_theme.PAPER['light']['bg']
+    paper_card = ink_theme.PAPER['light']['card']
+    ink = ink_theme.INK['light']['900']
+    ink_soft = ink_theme.INK['light']['400']
+    border = ink_theme.INK['light']['300']
+    vermilion = ink_theme.VERMILION['light']
+    serif = ink_theme.SERIF
     return f"""<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8"/>
 <title>五运六气学习路径仪表盘</title>
 <style>
-  body {{ font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-         max-width: 820px; margin: 2rem auto; padding: 0 1.2rem; line-height: 1.65; color: #1f2937; }}
-  pre {{ white-space: pre-wrap; background: #f8fafc; border: 1px solid #e5e7eb;
-        border-radius: 8px; padding: 1.25rem; font-size: 14px; }}
-  h1 {{ font-size: 1.4rem; }}
+  :root {{ --paper:{paper}; --paper-card:{paper_card}; --ink:{ink}; --vermilion:{vermilion}; }}
+  body {{ font-family: {serif};
+         max-width: 820px; margin: 2rem auto; padding: 0 1.2rem; line-height: 1.65;
+         color: {ink}; background: {paper}; }}
+  pre {{ white-space: pre-wrap; background: {paper_card}; border: 1px solid {border};
+        border-radius: 8px; padding: 1.25rem; font-size: 14px; color: {ink}; }}
+  h1 {{ font-size: 1.4rem; color: {vermilion}; }}
 </style>
 </head>
 <body>
 <h1>五运六气 · 学习路径仪表盘</h1>
-<p style="color:#6b7280">生成：{data.get('generated_at','')}</p>
+<p style="color:{ink_soft}">生成：{data.get('generated_at','')}</p>
 <pre>{escaped}</pre>
 </body>
 </html>

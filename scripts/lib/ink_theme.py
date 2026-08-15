@@ -2,9 +2,14 @@
 """
 ink_theme —— 古典雅致·宣纸水墨 设计 token 与共享片段（唯一设计源）
 
-供 generate_html_report.py / export_thought.py 复用，保证报告、PDF、Anki 三处产物
-视觉一致。设计原则见项目根 .impeccable.md：墨分五色、五行正色、留白即气、
-宋体为骨、屏印双态、装饰有意图。
+供 generate_html_report.py / export_thought.py / visualize_timeline.py 复用，**并
+保证脚本产物与 agent 手写视觉产物视觉一致**。设计原则见项目根 .impeccable.md：
+墨分五色、五行正色、留白即气、宋体为骨、屏印双态、装饰有意图。
+
+⚠️ 强制（见 rules/output.md R6、AGENTS.md Red Flags）：任何面向读者的视觉产物
+（HTML 报告 / PDF / 卡片 / 时间轴 / Anki，含 agent 现场手写的 HTML/UI）都必须
+复用本模块的 token，禁止另起一套配色（如深色霓虹）。校验见
+scripts/check_visual_consistency.py。
 """
 from __future__ import annotations
 
