@@ -38,10 +38,14 @@ def count_guides():
 
 
 def count_cases():
-    """医案总条目数"""
+    """医案总条目数（仅统计 asset_type=case_library 的库，排除 schema/岁图/易感性）"""
     total = 0
-    for f in ROOT.glob('rag-knowledge-base/asset*_cases.json'):
+    for f in ROOT.glob('rag-knowledge-base/asset*.json'):
+        if 'schema' in f.name:
+            continue
         d = json.load(open(f, encoding='utf-8'))
+        if d.get('asset_type') != 'case_library':
+            continue
         total += len(d.get('entries', []))
     return total
 

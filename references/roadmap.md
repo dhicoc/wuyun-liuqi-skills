@@ -9,7 +9,8 @@
 
 ## 下一阶段路线图（0.2.0+）
 
-> 2026-08-13 评审采纳的下一阶段方向（源自 `references/research-2026-08-11.md` 生态调研 + `self-evolve/reports/report_2026-08-12.md` 盲区信号）。>   
+> 2026-08-13 评审采纳的下一阶段方向（源自 `references/research-2026-08-11.md` 生态调研 + `self-evolve/reports/report_2026-08-12.md` 盲区信号）。
+>   
 > 未采纳的提案（MCP 化 / 多宿主幂等等）仍在文末「候选项 / 暂缓」；**真·语义检索**经评审已明确不跟进，移入「不建议跟进」（见下表，n-gram + 字段精确匹配实为合理选型）。
 
 ### P9：发版 0.2.0 与文档去漂移
@@ -17,13 +18,14 @@
 > 目标：把已落地但尚未固化的 2026-08-12 工程批次正式发布，并消除各文档间的计数 / 口径漂移。
 
 - [x] 将 CHANGELOG `[Unreleased]` 的 2026-08-12 工程优化批次固化，发布 `0.2.0`（`pyproject.toml` 版本 `0.1.0` → `0.2.0` + 打 git tag `0.2.0`）
-- [x] 消除文档漂移：统一到 CI 强制校验的权威值（原本 README 写 35 项、roadmap 写 63/0 + 75/0 verify；实际 36 项 CI 步骤 / 55/0 回归 / 105/0 扩展验证 / 1994 医案）
+- [x] 消除文档漂移：统一到 CI 强制校验的权威值（原本 README 写 35 项、roadmap 写 63/0 + 75/0 verify；实际 36 项 CI 步骤 / 55/0 回归 / 105/0 扩展验证 / 1994 医案（后扩至 2124 条））
 - [x] 同步 SKILL.md / README 的能力版图到实际计数（推算 9 / 检索 5 / 检索增强 5 / 报告导出 6 / 学习教学 3 / 自进化运维 7 / 安装校验 6）
-- [x] 发布说明补「面向 AI Agent 的唯一形态」差异化定位 + 1994 条逐字医案 `source_quote` 存证
+- [x] 发布说明补「面向 AI Agent 的唯一形态」差异化定位 + 2124 条逐字医案 `source_quote` 存证
 
 ### P10：Parquet 数据导出
 
-> 现状：roadmap 中唯一仍 `[ ]` 的项；低成本、价值明确，服务 ML 研究者。>   
+> 现状：roadmap 中唯一仍 `[ ]` 的项；低成本、价值明确，服务 ML 研究者。
+>   
 > 情报（2026-08-13 调研，见 `research-2026-08-13.md` §3）：HuggingFace `pokkoa/chinese-five-circuits-six-qi` 实为**单列 `text` 散文（311 行、年+月粒度）**，非结构化运气表；其许可证**存在歧义**（HF 页「商业需授权」vs 镜像标 CC BY 4.0）。
 
 - [x] 为 RAG asset 增加 Parquet 导出能力，对齐 Parquet **容器格式**（HF `datasets` 标准），但**导出自有结构化字段**，不照搬 pokkoa schema
@@ -41,7 +43,8 @@
 
 ### P11：体质 / 易感性「激活」而非继续扩数据
 
-> 反直觉信号（来自自进化报告）：asset33 的 earth/fire 体质·易感性条目**存在但从未被查**（低覆盖）——根因是路由未激活，不是缺数据。下一步应在推理链主动联动这些维度，而非再扩库。>   
+> 反直觉信号（来自自进化报告）：asset33 的 earth/fire 体质·易感性条目**存在但从未被查**（低覆盖）——根因是路由未激活，不是缺数据。下一步应在推理链主动联动这些维度，而非再扩库。
+>   
 > 情报（2026-08-13 调研，见 `research-2026-08-13.md` §5）：**学术依据充分**——出生/胎孕运气→体质→疾病易感性有多项统计研究（胎孕运气发病倾向符合率 79.1%；王琦九体 40 万+ 流调对应 313 病种；RA 2306 例运气禀赋 P<0.05）。具体映射可编码（火运不及+阳明燥金司天→阴虚质倾向；厥阴风木司天+少阳相火在泉→阳虚质倾向）。
 
 - [x] 在 `personal_yunqi_profile.py` 计算**先天运气**（出生年干支 → 岁运/司天/在泉 + 胎孕期运气 `birth-280d`，权重参考「胎孕期前 3 个月」），作为一等输入喂给 `infer_pathogenesis` 与体质评估
@@ -54,7 +57,8 @@
 
 ### P12：与 huangdi-neijing-skill 功能级集成（已完成）
 
-> 现状仅交叉引用（`teaching-modules/相关思维工具.md` 的 10 教学模块 ↔ 22 思维工具映射）。目标是在 runtime 层打通，形成「内经方法论 + 运气推算」完整中医 Agent 能力栈。>   
+> 现状仅交叉引用（`teaching-modules/相关思维工具.md` 的 10 教学模块 ↔ 22 思维工具映射）。目标是在 runtime 层打通，形成「内经方法论 + 运气推算」完整中医 Agent 能力栈。
+>   
 > 情报（2026-08-13 调研，见 `research-2026-08-13.md` §4）：`kangarooking/huangdi-neijing-skill` 为 **MIT、22 skills（素问12+灵枢10）**，默认分支 `main`、仅 1 commit（2026-04-18，cangjie-skill AI 蒸馏，无后续维护）；每个 `SKILL.md` 带**机器可读 `related_skills` YAML frontmatter**（`depends-on`/`composes-with`/`contrasts-with`），正文为 **R/I/A1/A2/E/B 六维**（原文/方法论/书内案例/触发场景/可执行步骤/边界）；**无 `npx skills add` 机制**，采用路径检测 + glob（详见 PRD）。与运气链可组合者：`personalize-by-constitution`(因人施术)、`seasonal-regimen`(四时调养)、`emotion-organ-proxy`(情志脏腑)、`cascade-prediction`(传变预测)、`context-adaptation`(因地制宜)、`timing-opportunity`(时机)、`observation-inference`(以外测内)、`yin-yang-balance`/`five-elements-network`(运气太少/生克)。
 
 - [x] 新增 `scripts/neijing_bridge.py`：只读解析器（glob `**/SKILL.md` + 解析 YAML frontmatter + **R/I/A1/A2/E/B 六维**）+ `neijing_available()` 路径检测；`yunqi→neijing` 映射表 `YUNQI_NEIJING_MAP` + `select_skills()`（按运气维度加权 + `related_skills` 多级展开，默认 top-N=3）
