@@ -60,7 +60,7 @@
 
 | RAG asset | 医案条目 | 公版文献 | 蒸馏指南 | 推算脚本 | CI 测试 |
 |---:|---:|---:|---:|---:|---:|
-| 37 | 1994 | 51 篇 | 12 本 | 52 个 | 39 项 CI 校验全绿 |
+| 37 | 1994 | 51 篇 | 12 本 | 53 个 | 40 项 CI 校验全绿 |
 
 路由核心由一个 `routing.yaml` 驱动，跨工具薄壳自动发现，推算引擎与知识库分离。
 
@@ -196,7 +196,7 @@ python scripts/calculate_yunqi_api.py 2026-06-27 --summary
 
 ## 完整功能清单
 
-> 共 52 个脚本 · 6 个子技能模块 · 10 个教学模块 · 2 个注家人格 · 37 个 RAG asset · 51 篇公版文献 · 12 本蒸馏指南
+> 共 53 个脚本 · 6 个子技能模块 · 10 个教学模块 · 2 个注家人格 · 37 个 RAG asset · 51 篇公版文献 · 12 本蒸馏指南
 
 ### 推算引擎（9 个）
 
@@ -330,7 +330,7 @@ python scripts/calculate_yunqi_api.py 2026-06-27 --summary
 ├── SKILL.md                    # ★ 总控路由入口（AI 必读）
 ├── routing.yaml / routing.md   # ★ 路由真相源 / 人类索引
 ├── AGENTS.md / CLAUDE.md       # 跨工具薄壳（Codex / Claude）
-├── scripts/                    # 52 个 Python 脚本 + JS 接口
+├── scripts/                    # 53 个 Python 脚本 + JS 接口
 │   ├── calculate_yunqi_api.py  #   ★ 主链路（大寒定年 + rag_keys）
 │   ├── rag_search.py           #   ★ RAG 检索
 │   ├── case_relations.py       #   医案对比 / 相似发现

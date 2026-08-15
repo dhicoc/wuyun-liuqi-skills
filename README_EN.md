@@ -60,7 +60,7 @@ User question (natural language)
 
 | RAG assets | Case records | Public-domain texts | Distilled guides | Scripts | CI tests |
 |---:|---:|---:|---:|---:|---:|
-| 37 | 1994 | 51 | 12 | 52 | 39 passing |
+| 37 | 1994 | 51 | 12 | 53 | 40 passing |
 
 The routing core is driven by a single `routing.yaml`, auto-discovered by cross-tool shells, with calculation engine and knowledge base kept separate.
 
@@ -201,7 +201,7 @@ Liu Wansu (Cold-Cool school) and Zhang Jiebin (Warm-Tonify school) are built int
 
 ## Complete feature list
 
-> 52 scripts · 6 sub-skill modules · 10 teaching modules · 2 commentator perspectives · 37 RAG assets · 51 public-domain texts · 12 distilled guides
+> 53 scripts · 6 sub-skill modules · 10 teaching modules · 2 commentator perspectives · 37 RAG assets · 51 public-domain texts · 12 distilled guides
 
 ### Calculation engine (9)
 
@@ -335,7 +335,7 @@ Heaven-Human Oneness · Qi transformation · Moderation · Dayun-Suiyun · Five-
 ├── SKILL.md                    # ★ Master routing entry (AI must-read)
 ├── routing.yaml / routing.md   # ★ Routing source of truth / human index
 ├── AGENTS.md / CLAUDE.md       # Cross-tool thin shell (Codex / Claude)
-├── scripts/                    # 52 Python scripts + JS interface
+├── scripts/                    # 53 Python scripts + JS interface
 │   ├── calculate_yunqi_api.py  #   ★ Main path (Dahan boundary + rag_keys)
 │   ├── rag_search.py           #   ★ RAG search
 │   ├── case_relations.py       #   Case compare / similar discovery
