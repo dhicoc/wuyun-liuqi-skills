@@ -46,7 +46,7 @@
 | `infer_pathogenesis.py` | 运气病机推理链（岁运->司天在泉->六步->方剂） | `python scripts/infer_pathogenesis.py 2026` |
 | `case_relations.py` | 医案关联图谱（跨医家对比+相似检索） | `--compare 孙一奎,叶桂 --tag 中风` · `--related swy_174` |
 | `visualize_timeline.py` | 运气时间轴 HTML（复用报告 UI） | `python scripts/visualize_timeline.py 2026 --output timeline.html` |
-| `generate_case_browser.py` | 医案知识库浏览器（2162条 HTML） | `python scripts/generate_case_browser.py --output browser.html` |
+| `generate_case_browser.py` | 医案知识库浏览器（2182条 HTML） | `python scripts/generate_case_browser.py --output browser.html` |
 | `extract_structured_fields.py` | 医案结构化字段提取（herbs+formulas） | `python scripts/extract_structured_fields.py` |
 | `rag_semantic.py` | 轻量语义检索（字符 n-gram） | `python scripts/rag_semantic.py 气候干燥 咳嗽` |
 | `compare_py_js_yunqi.py` | Py/JS 关键字段一致性 | `python scripts/compare_py_js_yunqi.py` |
