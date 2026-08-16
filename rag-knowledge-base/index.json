@@ -472,7 +472,7 @@
       "asset_name": "诊余举隅录医案库",
       "asset_category": "case_library",
       "description": "清·陈廷儒（匊生）《诊余举隅录》蒸馏。陈廷儒辨证精审，善辨阴阳寒热虚实、表里气血，治疑难杂证每举一隅而反三。本库按病证分节蒸馏，覆盖四时感冒、春温、冬月伤寒、咳嗽吐血、霍乱、痢疾、泄泻、中风、水肿、自汗、厥逆、眩晕、妇科经闭、痛经、崩漏、胎前、产后、小儿惊风等内伤外感与妇儿杂病。",
-      "total_entries": 14,
+      "total_entries": 34,
       "lookup_fields": [
         "category",
         "physician",
