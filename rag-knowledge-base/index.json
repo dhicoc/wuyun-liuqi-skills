@@ -449,7 +449,7 @@
       "asset_name": "花韵楼医案库",
       "asset_category": "case_library",
       "description": "清·顾德华（顾云女士）《花韵楼医案》蒸馏。顾德华为清代女医、妇科名医，专治妇人杂症，辨证透彻、立方平善。以妇科（崩漏、月经不调、产后、胎产、乳癖）为主，兼内科杂病（痢疾、疟疾、温病、咳嗽、肝风、痹痛）。",
-      "total_entries": 20,
+      "total_entries": 30,
       "lookup_fields": [
         "category",
         "physician",
