@@ -44,13 +44,13 @@
 
 > **If you are an AI Agent, jump to [README_AI.md](README_AI.md) and follow the instructions strictly.**
 
-When a user says "How's this year's Yunqi?" or "How did historical physicians treat headache?" to an AI Agent (Claude, Cursor, Codex), this skill pack routes the Agent to a deterministic calculation engine, retrieves relevant pathogenesis from 2196 real case records, and explains it in plain language - instead of hallucinating from memory.
+When a user says "How's this year's Yunqi?" or "How did historical physicians treat headache?" to an AI Agent (Claude, Cursor, Codex), this skill pack routes the Agent to a deterministic calculation engine, retrieves relevant pathogenesis from 2632 real case records, and explains it in plain language - instead of hallucinating from memory.
 
 ```
 User question (natural language)
   -> routing.yaml route matching
   -> calculate_yunqi_api.py calculation engine (Dahan boundary, no hallucination)
-  -> rag_search across 38 RAG assets (2196 cases + 33 disease susceptibility)
+  -> rag_search across 38 RAG assets (2632 cases + 33 disease susceptibility)
   -> infer_pathogenesis reasoning chain
   -> plain-language explanation + disclaimer
   -> self_evolve auto-journaling
@@ -60,7 +60,7 @@ User question (natural language)
 
 | RAG assets | Case records | Public-domain texts | Distilled guides | Scripts | CI tests |
 |---:|---:|---:|---:|---:|---:|
-| 38 | 2196 | 51 | 12 | 53 | 39 passing |
+| 38 | 2632 | 51 | 12 | 53 | 39 passing |
 
 The routing core is driven by a single `routing.yaml`, auto-discovered by cross-tool shells, with calculation engine and knowledge base kept separate.
 
@@ -68,7 +68,7 @@ The routing core is driven by a single `routing.yaml`, auto-discovered by cross-
 
 ## What is this
 
-A skill pack that makes AI Agents truly "understand" WuYun-LiuQi (Five Movements and Six Qi). Once installed, just say "How's this year's Yunqi?" in Claude / Cursor / Codex - the Agent calls a deterministic calculation engine to compute the Ganzhi, Dayun, Sitian/Zaiquan, and Kezhu-Jialin, then retrieves relevant pathogenesis and treatment from 2196 real case records across 21 public-domain classics, and explains it in plain language - instead of hallucinating from memory.
+A skill pack that makes AI Agents truly "understand" WuYun-LiuQi (Five Movements and Six Qi). Once installed, just say "How's this year's Yunqi?" in Claude / Cursor / Codex - the Agent calls a deterministic calculation engine to compute the Ganzhi, Dayun, Sitian/Zaiquan, and Kezhu-Jialin, then retrieves relevant pathogenesis and treatment from 2632 real case records across 21 public-domain classics, and explains it in plain language - instead of hallucinating from memory.
 
 **Three pain points it solves:**
 
@@ -157,7 +157,7 @@ python scripts/calculate_yunqi_api.py today --json    # Agent / JSON interface
 python scripts/calculate_yunqi_api.py 2026-06-27 --summary
 ```
 
-### 📚 2196 real case records · 21 public-domain classics
+### 📚 2632 real case records · 21 public-domain classics
 
 Distilled verbatim from Wikisource public-domain originals - zero placeholders, zero fabrication, each case carries a `source_quote` attestation. Covers Mingyi Lei'an, Xu Mingyi Lei'an, Gujin Yi'an An, Ding Ganren, Shanghan Jiushi Lun, Linzheng Zhinan, Huichun Lu, Zhang Yuqing, Wu Jutong, Yuyi Cao, Huixi, Huayun Lou, Xingxuan (184 cases), Sun Wenyuan (390 cases), and more - 21 collections in total.
 
@@ -246,7 +246,7 @@ Liu Wansu (Cold-Cool school) and Zhang Jiebin (Warm-Tonify school) are built int
 | Thought export | `export_thought.py` | Plain-text summary / Anki cards (TSV+MD) / printable HTML/PDF |
 | Thought map | `export_thought_map.py` | Mermaid concept map + year-structure diagram |
 | Yunqi timeline | `visualize_timeline.py` | Annual six-step timeline HTML |
-| Case browser | `generate_case_browser.py` | 2196-case visual browser HTML |
+| Case browser | `generate_case_browser.py` | 2632-case visual browser HTML |
 
 ### Learning & teaching (3)
 
@@ -298,7 +298,7 @@ Liu Wansu (Cold-Cool school) and Zhang Jiebin (Warm-Tonify school) are built int
 | Public-domain texts | 51 | ~1.77M characters, pre-Qin to Qing; includes Suwen seven treatises, lost chapters, Shengji agediagrams, Xuanzhu Miyu |
 | Distilled guides | 12 | Five-layer commentary chain (5) + 35-text merged groups (5) + supplements; Grep+Read, zero-dep |
 | Terminology glossary | 700 | `terminology.json`, matched via rag_keys |
-| Total historical cases | 2196 | 21 public-domain case libraries, with herbs + formulas_referenced structured fields |
+| Total historical cases | 2632 | 21 public-domain case libraries, with herbs + formulas_referenced structured fields |
 
 ### Teaching modules (10 concepts)
 

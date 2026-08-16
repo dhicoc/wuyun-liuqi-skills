@@ -224,7 +224,7 @@
 - `--compare 孙一奎,叶桂 --tag 中风`：跨医家同证型对比（药味/方剂差异）
 - `--related swy_174`：查找相似医案（同证型+共享药味+共享方剂）
 - 用户问"孙一奎和叶天士治中风有什么不同""这个医案还有谁治过类似的"时调用
-- 数据源 `rag-knowledge-base/case_relations.json`（2196条×402证型×120医家×217药味×67方剂）
+- 数据源 `rag-knowledge-base/case_relations.json`（2632条×402证型×120医家×217药味×67方剂）
 
 **⑤ 运气时间轴可视化** `python scripts/visualize_timeline.py <年份> --output <路径>`
 - 生成全年六步客主加临时间轴 HTML（复用报告 UI 体系）

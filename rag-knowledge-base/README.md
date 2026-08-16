@@ -83,7 +83,7 @@ rag-knowledge-base/schemas/
 | asset32 | `asset32_yiyan_suibi.json` | 医验随笔 | 近代·沈奉江（孟河马培之高足）《医验随笔》：温病痰喘便秘、温毒发痘、疙瘩瘟，内外兼治 | `category`, `physician`, `rag_key`, `case_id` |
 | terminology | `terminology.json` | 术语库 | 学习解释、报告术语扩展 | term / pinyin / entry_id |
 
-> asset11-16 六部历代名家医案库共 **901 条**临证真实医案，按 `entry_id` / `category` 可检索；**asset17-32（含 asset17 松峰说疫·瘟疫运气）十六库亦已并入 `rag_search.py` 默认检索范围**，全库医案合计 2196 条（见数字校验）。
+> asset11-16 六部历代名家医案库共 **901 条**临证真实医案，按 `entry_id` / `category` 可检索；**asset17-32（含 asset17 松峰说疫·瘟疫运气）十六库亦已并入 `rag_search.py` 默认检索范围**，全库医案合计 2632 条（见数字校验）。
 
 ## 推荐检索顺序
 
