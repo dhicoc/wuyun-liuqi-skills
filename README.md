@@ -44,13 +44,13 @@
 
 > **如果你是 AI Agent，直接跳转到 [README_AI.md](README_AI.md)，严格按照内容要求执行。**
 
-当用户对 AI Agent（Claude、Cursor、Codex 等）说「今年运气怎么样」「我出生那年的体质倾向」「历代医家怎么治头痛」时，这个技能包让 Agent 调用确定性推算引擎算出干支运气格局，从 2124 条真实医案中检索相关病机与治法，再用通俗语言讲给用户听——而不是凭记忆胡编。
+当用户对 AI Agent（Claude、Cursor、Codex 等）说「今年运气怎么样」「我出生那年的体质倾向」「历代医家怎么治头痛」时，这个技能包让 Agent 调用确定性推算引擎算出干支运气格局，从 2142 条真实医案中检索相关病机与治法，再用通俗语言讲给用户听——而不是凭记忆胡编。
 
 ```
 用户提问（自然语言）
   -> routing.yaml 路由匹配
   -> calculate_yunqi_api.py 推算引擎（大寒定年，非幻觉）
-  -> rag_search 检索 38 个 RAG asset（2124 条医案 + 33 条疾病易感性）
+  -> rag_search 检索 38 个 RAG asset（2142 条医案 + 33 条疾病易感性）
   -> infer_pathogenesis 病机推理链
   -> 通俗语言解释 + 免责声明
   -> self_evolve 自动沉淀经验
@@ -60,7 +60,7 @@
 
 | RAG asset | 医案条目 | 公版文献 | 蒸馏指南 | 推算脚本 | CI 测试 |
 |---:|---:|---:|---:|---:|---:|
-| 38 | 2124 | 51 篇 | 12 本 | 53 个 | 39 项 CI 校验全绿 |
+| 38 | 2142 | 51 篇 | 12 本 | 53 个 | 39 项 CI 校验全绿 |
 
 路由核心由一个 `routing.yaml` 驱动，跨工具薄壳自动发现，推算引擎与知识库分离。
 
@@ -152,7 +152,7 @@ python scripts/calculate_yunqi_api.py today --json    # Agent / JSON 接口
 python scripts/calculate_yunqi_api.py 2026-06-27 --summary
 ```
 
-### 📚 2124 条真实医案 · 21 部公版典籍
+### 📚 2142 条真实医案 · 21 部公版典籍
 
 从维基文库公版原文逐字蒸馏，零占位、零编造，每条医案附 `source_quote` 原文存证。覆盖名医类案、续名医类案、古今医案按、丁甘仁、伤寒九十论、临证指南、回春录、张聿青、吴鞠通、寓意草、洄溪、花韵楼、杏轩（184 条）、孙文垣（390 条）等 21 部。
 
@@ -241,7 +241,7 @@ python scripts/calculate_yunqi_api.py 2026-06-27 --summary
 | 思想导出 | `export_thought.py` | 纯文本摘要 / Anki 卡片（TSV+MD）/ 可打印 HTML/PDF |
 | 思想地图 | `export_thought_map.py` | Mermaid 概念图 + 年结构图 |
 | 运气时间轴 | `visualize_timeline.py` | 年度六步时间轴 HTML |
-| 医案浏览器 | `generate_case_browser.py` | 2124 条医案可视化浏览 HTML |
+| 医案浏览器 | `generate_case_browser.py` | 2142 条医案可视化浏览 HTML |
 
 ### 学习与教学（3 个）
 
@@ -293,7 +293,7 @@ python scripts/calculate_yunqi_api.py 2026-06-27 --summary
 | 公版文献原文 | 51 篇 | 约 177.4 万字，先秦至清代，含素问七篇大论、遗篇、圣济岁图、玄珠密语等 |
 | 公版蒸馏指南 | 12 本 | 五层注释链 5 本 + 35 篇分组合并 5 本 + 补充指南，Grep+Read 零依赖 |
 | 术语库 | 700 条 | `terminology.json`，通过 rag_keys 精确匹配 |
-| 历代医案总数 | 2124 条 | 21 部公版医案库，含 herbs + formulas_referenced 结构化字段 |
+| 历代医案总数 | 2142 条 | 21 部公版医案库，含 herbs + formulas_referenced 结构化字段 |
 
 ### 教学模块（10 个概念）
 
