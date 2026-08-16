@@ -120,4 +120,4 @@ RAG asset 是精炼键值（回答"是什么"）；下列五本公版古籍蒸�
 | 医验随笔 | `asset32_yiyan_suibi.json` | 12 | 近代·沈奉江《医验随笔》：温病痰喘、温毒发痘、疙瘩瘟，内外兼治 |
 | 术语 | `terminology.json` | 700 | 运气学术语白话解释 |
 
-检索流程：`calculate_yunqi_api.py --json` → 取 `rag_keys` → 按 key 检索对应 asset。asset11-16 六部历代名家医案库（共 901 条）可按病证分类检索临证真实医案。
+检索流程：`calculate_yunqi_api.py --json` → 取 `rag_keys` → 按 key 检索对应 asset。asset11-16 六部历代名家医案库（共 901 条）可按病证分类检索临证真实医案；**asset17-32（含 asset17 松峰说疫瘟疫运气）十六库亦已并入 `rag_search.py` 默认检索范围**，全库医案合计 2124 条。

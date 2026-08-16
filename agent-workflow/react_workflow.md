@@ -140,7 +140,7 @@ INPUT: {
     {"asset": "asset2", "query": "少阴君火司天"},              // 司天层
     {"asset": "asset2", "query": "阳明燥金在泉"},              // 在泉层
     {"asset": "asset3", "query": "四之气_太阴湿土_客主同气"},    // 客主加临层
-    {"asset": "asset16", "query": "诸痛"}                    // 医案佐证层（asset11-16 按病证检索）
+    {"asset": "asset16", "query": "诸痛"}                    // 医案佐证层（asset11-32 按病证检索，已并入默认范围）
   ]
 }
 ```

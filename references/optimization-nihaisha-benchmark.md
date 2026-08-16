@@ -71,6 +71,7 @@ nihaisha 无法替代的优势集中在**检索型 Agent 的工程质量**，本
 
 - [x] 将 `scripts/eval_retrieval_quality.py` 内联的 golden 集落成 `tests/golden/retrieval_golden.json`（JSON，32 类 / 2124 条医案），纳入 git 追踪。
 - [x] 修正**基准与检索范围错配**：golden 含 asset18–32，检索却用默认范围。方案①已做——`evaluate_recall` 检索范围与 golden 同源覆盖（`_assets_of`）；未改动 `_default_asset_keys()`（保留产品默认范围语义）。
+  - **2026-08-16 更新**：已将 asset17-32 并入 `_default_asset_keys()` 默认检索范围（此前默认范围仅含 asset1-7/9/10/11-16/33/34-39/terminology，导致约 57% 医案内容默认摸不到）。现默认检索与 golden 同源覆盖 asset18-32，recall 不再系统性低估；`eval_retrieval_quality.py` 自身的 `_assets_of` scope 不受影响。
 - [x] 命中 ID 提取改为结构化字段：改用 `hit['id']`（entry_id），不再从 `title.split("_")` 解析。
 - [x] 顺带修复 `rag_search._entry_id` 优先级：把 `case_id/entry_id` 提到 `code` 之前，消除「医案的 rag_key（病证名非唯一）」与「asset9 岁图的 code（非唯一）」导致的 id 撞车。命中匹配、精确 key 检索、字段检索统一命中唯一标识。
 - [x] 新增 `--write-golden`（固化基准）与 `--check-golden`（漂移校验，接入 CI）。
