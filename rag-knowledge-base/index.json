@@ -2,7 +2,7 @@
   "asset_name": "wuyun-liuqi-rag-index",
   "asset_type": "knowledge_base_index",
   "description": "五运六气 RAG 知识库资产索引。用于说明各 asset 的用途、检索键和维护状态。",
-  "total_entries": 39,
+  "total_entries": 40,
   "primary_api": "scripts/calculate_yunqi_api.py",
   "entries": [
     {
@@ -821,6 +821,27 @@
         "qiongyuanji_sanshinian_huayi"
       ],
       "rag_key": "asset39_yixue_qiongyuanji_yunqi"
+    },
+    {
+      "entry_id": "rag_index_asset40_shiyi_wenbing_yunqi",
+      "entry_type": "asset_index",
+      "title": "《时疫温病气运徵验论》瘟疫运气专库",
+      "file": "asset40_shiyi_wenbing_yunqi.json",
+      "asset_id": "asset40",
+      "asset_name": "《时疫温病气运徵验论》瘟疫运气专库",
+      "asset_category": "custom_asset",
+      "description": "清·李兆贞《时疫温病气运徵验论》逐字蒸馏专库：论五运六气与瘟疫温病起止、十二岁气运生瘟疫温病之时序，及世道兴衰影响疫病盛衰。纯 RAG 检索，不计入医案总数。",
+      "total_entries": 9,
+      "lookup_fields": [
+        "rag_key",
+        "entry_id"
+      ],
+      "example_keys": [
+        "五季五运",
+        "shiyi_001",
+        "六气时序"
+      ],
+      "rag_key": "asset40_shiyi_wenbing_yunqi"
     },
     {
       "entry_id": "rag_index_asset15_shanghan90_cases",

@@ -171,6 +171,12 @@ ASSET_FILES = {
     "yixue_qiongyuanji_yunqi": "asset39_yixue_qiongyuanji_yunqi.json",
     "qiongyuanji": "asset39_yixue_qiongyuanji_yunqi.json",
     "qiongyuanji_yunqi": "asset39_yixue_qiongyuanji_yunqi.json",
+    # —— 瘟疫运气专库：清·李兆贞《时疫温病气运徵验论》（逐字蒸馏，custom_asset）——
+    "asset40": "asset40_shiyi_wenbing_yunqi.json",
+    "asset40_shiyi_wenbing_yunqi": "asset40_shiyi_wenbing_yunqi.json",
+    "shiyi": "asset40_shiyi_wenbing_yunqi.json",
+    "shiyiwenbing": "asset40_shiyi_wenbing_yunqi.json",
+    "shiyiwenbing_yunqi": "asset40_shiyi_wenbing_yunqi.json",
 }
 
 # 模块级缓存：避免重复 open + json.load
@@ -645,6 +651,7 @@ def _default_asset_keys() -> List[str]:
             "asset37",  # 蒸馏研读框架（book-to-skill 风格，源自《类经图翼》卷一·卷二运气·张介宾）
             "asset38",  # 蒸馏研读框架（book-to-skill 风格，源自《素问入式运气论奥》·刘温舒）
             "asset39",  # 蒸馏研读框架（book-to-skill 风格，源自《医学穷源集·卷二》运气专论·王肯堂/殷宅心）
+            "asset40",  # 瘟疫运气专库（清·李兆贞《时疫温病气运徵验论》逐字蒸馏，custom_asset）
             "terminology",
         ):
             seen_files.add(f)
