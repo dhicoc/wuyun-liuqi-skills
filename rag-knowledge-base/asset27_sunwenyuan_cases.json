@@ -45,7 +45,8 @@
       ],
       "formulas_referenced": [
         "小柴胡汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_002",
@@ -77,7 +78,8 @@
       ],
       "formulas_referenced": [
         "当归龙荟丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_003",
@@ -94,7 +96,8 @@
       "entry_id": "swy_003",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痛风",
-      "name": "swy_003 痛风阴虚"
+      "name": "swy_003 痛风阴虚",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_004",
@@ -111,7 +114,8 @@
       "entry_id": "swy_004",
       "entry_type": "sunwenyuan_case",
       "rag_key": "疟痢",
-      "name": "swy_004 疟痢并发"
+      "name": "swy_004 疟痢并发",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_005",
@@ -128,7 +132,8 @@
       "entry_id": "swy_005",
       "entry_type": "sunwenyuan_case",
       "rag_key": "中风",
-      "name": "swy_005 半身不遂"
+      "name": "swy_005 半身不遂",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_006",
@@ -155,7 +160,8 @@
       ],
       "formulas_referenced": [
         "十全大补汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_007",
@@ -176,7 +182,8 @@
       "herbs": [
         "香附",
         "肉桂"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_008",
@@ -201,7 +208,8 @@
       ],
       "formulas_referenced": [
         "补中益气汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_009",
@@ -225,7 +233,8 @@
         "枳实",
         "贝母",
         "栝蒌"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_010",
@@ -255,7 +264,8 @@
       "formulas_referenced": [
         "温胆汤",
         "益元散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_011",
@@ -279,7 +289,8 @@
         "黄连",
         "枳壳",
         "贯众"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_012",
@@ -296,7 +307,8 @@
       "entry_id": "swy_012",
       "entry_type": "sunwenyuan_case",
       "rag_key": "淋浊",
-      "name": "swy_012 白浊顺时"
+      "name": "swy_012 白浊顺时",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_013",
@@ -317,7 +329,8 @@
       "herbs": [
         "甘草",
         "香附"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_014",
@@ -348,7 +361,8 @@
       ],
       "formulas_referenced": [
         "小柴胡汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_015",
@@ -385,7 +399,8 @@
         "红花",
         "牛膝",
         "泽泻"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_016",
@@ -414,7 +429,8 @@
         "木通",
         "贝母",
         "紫草"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_017",
@@ -431,7 +447,8 @@
       "entry_id": "swy_017",
       "entry_type": "sunwenyuan_case",
       "rag_key": "心病",
-      "name": "swy_017 心病辨瘵"
+      "name": "swy_017 心病辨瘵",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_018",
@@ -454,7 +471,8 @@
       ],
       "formulas_referenced": [
         "小承气汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_019",
@@ -475,7 +493,8 @@
       "herbs": [
         "甘草",
         "香附"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_020",
@@ -498,7 +517,8 @@
       ],
       "formulas_referenced": [
         "小柴胡汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_021",
@@ -515,7 +535,8 @@
       "entry_id": "swy_021",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痘疹",
-      "name": "swy_021 痘斑紫"
+      "name": "swy_021 痘斑紫",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_022",
@@ -545,7 +566,8 @@
       "formulas_referenced": [
         "补中益气汤",
         "参苓白术散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_023",
@@ -572,7 +594,8 @@
         "人参",
         "知母",
         "石膏"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_024",
@@ -595,7 +618,8 @@
         "白芍",
         "黄芪",
         "桂枝"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_025",
@@ -618,7 +642,8 @@
       ],
       "formulas_referenced": [
         "平胃散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_026",
@@ -642,7 +667,8 @@
         "枳实",
         "贝母",
         "栝蒌"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_028",
@@ -666,7 +692,8 @@
         "黄连",
         "枳壳",
         "贯众"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_029",
@@ -688,7 +715,8 @@
         "甘草",
         "柴胡",
         "半夏"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_030",
@@ -718,7 +746,8 @@
         "陈皮",
         "肉桂",
         "泽泻"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_031",
@@ -744,7 +773,8 @@
         "柴胡",
         "贯众",
         "葛根"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_032",
@@ -761,7 +791,8 @@
       "entry_id": "swy_032",
       "entry_type": "sunwenyuan_case",
       "rag_key": "中风",
-      "name": "swy_032 中风预知"
+      "name": "swy_032 中风预知",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_033",
@@ -786,7 +817,8 @@
         "半夏",
         "葛根",
         "苦参"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_034",
@@ -813,7 +845,8 @@
         "柴胡",
         "当归",
         "川芎"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_035",
@@ -842,7 +875,8 @@
         "当归",
         "肉桂",
         "川芎"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_036",
@@ -869,7 +903,8 @@
       ],
       "formulas_referenced": [
         "十全大补汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_037",
@@ -896,7 +931,8 @@
         "当归",
         "远志",
         "龙骨"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_038",
@@ -926,7 +962,8 @@
         "青皮",
         "郁金",
         "川芎"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_039",
@@ -953,7 +990,8 @@
         "陈皮",
         "葛根",
         "苦参"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_040",
@@ -973,7 +1011,8 @@
       "name": "swy_040 妊吐安胎",
       "formulas_referenced": [
         "益元散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_041",
@@ -990,7 +1029,8 @@
       "entry_id": "swy_041",
       "entry_type": "sunwenyuan_case",
       "rag_key": "虚损",
-      "name": "swy_041 梦遗辨死"
+      "name": "swy_041 梦遗辨死",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_042",
@@ -1013,7 +1053,8 @@
       ],
       "formulas_referenced": [
         "白虎汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_043",
@@ -1030,7 +1071,8 @@
       "entry_id": "swy_043",
       "entry_type": "sunwenyuan_case",
       "rag_key": "脉诊",
-      "name": "swy_043 溢脉辨死"
+      "name": "swy_043 溢脉辨死",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_044",
@@ -1063,7 +1105,8 @@
         "当归",
         "红花",
         "桂枝"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_045",
@@ -1100,7 +1143,8 @@
         "麻黄",
         "麦芽",
         "藿香"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_046",
@@ -1129,7 +1173,8 @@
         "橘红",
         "枳实",
         "葛根"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_047",
@@ -1152,7 +1197,8 @@
       ],
       "formulas_referenced": [
         "保和丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_048",
@@ -1186,7 +1232,8 @@
         "苍术",
         "桂枝",
         "泽泻"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_049",
@@ -1214,7 +1261,8 @@
         "木香",
         "槟榔",
         "川芎"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_050",
@@ -1246,7 +1294,8 @@
       ],
       "formulas_referenced": [
         "藿香正气散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_051",
@@ -1279,7 +1328,8 @@
         "藿香正气散",
         "二陈汤",
         "温胆汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_052",
@@ -1306,7 +1356,8 @@
         "黄芪",
         "当归",
         "泽泻"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_053",
@@ -1337,7 +1388,8 @@
       ],
       "formulas_referenced": [
         "保和丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_054",
@@ -1369,7 +1421,8 @@
       "formulas_referenced": [
         "小建中汤",
         "保和丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_055",
@@ -1386,7 +1439,8 @@
       "entry_id": "swy_055",
       "entry_type": "sunwenyuan_case",
       "rag_key": "妇科",
-      "name": "swy_055 七情互痛"
+      "name": "swy_055 七情互痛",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_056",
@@ -1419,7 +1473,8 @@
       "formulas_referenced": [
         "六味地黄丸",
         "二陈汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_057",
@@ -1451,7 +1506,8 @@
       ],
       "formulas_referenced": [
         "大造丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_058",
@@ -1485,7 +1541,8 @@
       ],
       "formulas_referenced": [
         "六君子汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_059",
@@ -1518,7 +1575,8 @@
         "补中益气汤",
         "参苓白术散",
         "平胃散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_060",
@@ -1545,7 +1603,8 @@
       ],
       "formulas_referenced": [
         "当归龙荟丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_061",
@@ -1581,7 +1640,8 @@
       ],
       "formulas_referenced": [
         "二陈汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_062",
@@ -1613,7 +1673,8 @@
       "formulas_referenced": [
         "当归龙荟丸",
         "保和丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_063",
@@ -1640,7 +1701,8 @@
         "桔梗",
         "陈皮",
         "贝母"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_064",
@@ -1669,7 +1731,8 @@
         "紫菀",
         "半夏",
         "陈皮"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_065",
@@ -1699,7 +1762,8 @@
       "formulas_referenced": [
         "六君子汤",
         "香连丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_066",
@@ -1727,7 +1791,8 @@
       ],
       "formulas_referenced": [
         "当归龙荟丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_067",
@@ -1753,7 +1818,8 @@
       ],
       "formulas_referenced": [
         "参苓白术散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_068",
@@ -1780,7 +1846,8 @@
       ],
       "formulas_referenced": [
         "温胆汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_069",
@@ -1806,7 +1873,8 @@
       ],
       "formulas_referenced": [
         "六君子汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_070",
@@ -1836,7 +1904,8 @@
       ],
       "formulas_referenced": [
         "四君子汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_071",
@@ -1873,7 +1942,8 @@
       "formulas_referenced": [
         "藿香正气散",
         "二陈汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_072",
@@ -1898,7 +1968,8 @@
       ],
       "formulas_referenced": [
         "二陈汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_073",
@@ -1918,7 +1989,8 @@
       "name": "swy_073 发黄食积",
       "formulas_referenced": [
         "保和丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_074",
@@ -1947,7 +2019,8 @@
       ],
       "formulas_referenced": [
         "二陈汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_075",
@@ -1972,7 +2045,8 @@
         "白术",
         "人参",
         "阿胶"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_076",
@@ -1999,7 +2073,8 @@
       ],
       "formulas_referenced": [
         "六君子汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_077",
@@ -2032,7 +2107,8 @@
       ],
       "formulas_referenced": [
         "葛根汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_078",
@@ -2059,7 +2135,8 @@
         "连翘",
         "葛根",
         "郁金"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_079",
@@ -2087,7 +2164,8 @@
         "桔梗",
         "半夏",
         "陈皮"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_080",
@@ -2113,7 +2191,8 @@
         "乌药",
         "黄柏",
         "泽泻"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_081",
@@ -2144,7 +2223,8 @@
         "杜仲",
         "诃子",
         "陈皮"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_082",
@@ -2173,7 +2253,8 @@
       ],
       "formulas_referenced": [
         "香连丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_083",
@@ -2198,7 +2279,8 @@
       ],
       "formulas_referenced": [
         "小柴胡汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_084",
@@ -2229,7 +2311,8 @@
         "黄芪",
         "苍术",
         "泽泻"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_085",
@@ -2257,7 +2340,8 @@
         "防风",
         "苍术",
         "泽泻"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_086",
@@ -2287,7 +2371,8 @@
         "茯苓",
         "青皮",
         "麦芽"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_087",
@@ -2329,7 +2414,8 @@
       ],
       "formulas_referenced": [
         "木香槟榔丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_088",
@@ -2357,7 +2443,8 @@
       ],
       "formulas_referenced": [
         "二陈汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_089",
@@ -2380,7 +2467,8 @@
         "白芍",
         "香附",
         "桂枝"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_090",
@@ -2408,7 +2496,8 @@
         "枳壳",
         "黄芪",
         "槐花"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_091",
@@ -2436,7 +2525,8 @@
       ],
       "formulas_referenced": [
         "二陈汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_092",
@@ -2465,7 +2555,8 @@
         "防风",
         "黄芪",
         "肉桂"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_093",
@@ -2489,7 +2580,8 @@
       ],
       "formulas_referenced": [
         "二陈汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_094",
@@ -2517,7 +2609,8 @@
       ],
       "formulas_referenced": [
         "四物汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_095",
@@ -2547,7 +2640,8 @@
       "formulas_referenced": [
         "竹叶石膏汤",
         "四物汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_096",
@@ -2574,7 +2668,8 @@
       "formulas_referenced": [
         "四物汤",
         "白虎汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_097",
@@ -2609,7 +2704,8 @@
         "陈皮",
         "桂枝",
         "贝母"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_098",
@@ -2638,7 +2734,8 @@
         "黄柏",
         "当归",
         "远志"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_099",
@@ -2672,7 +2769,8 @@
         "陈皮",
         "葛根",
         "泽泻"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_100",
@@ -2698,7 +2796,8 @@
       ],
       "formulas_referenced": [
         "四物汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_101",
@@ -2730,7 +2829,8 @@
         "杏仁",
         "槟榔",
         "泽泻"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_102",
@@ -2753,7 +2853,8 @@
       ],
       "formulas_referenced": [
         "六君子汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_103",
@@ -2780,7 +2881,8 @@
       ],
       "formulas_referenced": [
         "二陈汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_104",
@@ -2813,7 +2915,8 @@
       ],
       "formulas_referenced": [
         "六君子汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_105",
@@ -2841,7 +2944,8 @@
       "formulas_referenced": [
         "二陈汤",
         "肾气丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_106",
@@ -2872,7 +2976,8 @@
         "桂枝",
         "川芎",
         "麦芽"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_107",
@@ -2903,7 +3008,8 @@
         "陈皮",
         "桂枝",
         "泽泻"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_108",
@@ -2932,7 +3038,8 @@
       ],
       "formulas_referenced": [
         "当归龙荟丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_109",
@@ -2960,7 +3067,8 @@
         "紫菀",
         "陈皮",
         "贝母"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_110",
@@ -2986,7 +3094,8 @@
         "杏仁",
         "槟榔",
         "陈皮"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_111",
@@ -3014,7 +3123,8 @@
         "当归",
         "桂皮",
         "川芎"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_112",
@@ -3044,7 +3154,8 @@
         "白芷",
         "贯众",
         "葛根"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_113",
@@ -3069,7 +3180,8 @@
         "人参",
         "蒲黄",
         "黄芪"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_114",
@@ -3096,7 +3208,8 @@
       ],
       "formulas_referenced": [
         "四君子汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_115",
@@ -3153,7 +3266,8 @@
       ],
       "formulas_referenced": [
         "旋复花汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_117",
@@ -3181,7 +3295,8 @@
       ],
       "formulas_referenced": [
         "当归龙荟丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_118",
@@ -3206,7 +3321,8 @@
         "白芍",
         "当归",
         "桂皮"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_119",
@@ -3226,7 +3342,8 @@
       "name": "swy_119 子悬痰喘",
       "formulas_referenced": [
         "七制化痰丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_120",
@@ -3258,7 +3375,8 @@
       ],
       "formulas_referenced": [
         "四君子汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_121",
@@ -3283,7 +3401,8 @@
         "当归",
         "陈皮",
         "桂皮"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_122",
@@ -3313,7 +3432,8 @@
         "柴胡",
         "当归",
         "川芎"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_123",
@@ -3343,7 +3463,8 @@
       ],
       "formulas_referenced": [
         "二陈汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_124",
@@ -3370,7 +3491,8 @@
         "鳖甲",
         "桂枝",
         "阿胶"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_125",
@@ -3401,7 +3523,8 @@
         "紫菀",
         "红花",
         "贝母"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_126",
@@ -3430,7 +3553,8 @@
         "当归",
         "陈皮",
         "牛膝"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_127",
@@ -3458,7 +3582,8 @@
       "formulas_referenced": [
         "当归龙荟丸",
         "白虎汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_128",
@@ -3487,7 +3612,8 @@
       ],
       "formulas_referenced": [
         "二陈汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_129",
@@ -3504,7 +3630,8 @@
       "entry_id": "swy_129",
       "entry_type": "sunwenyuan_case",
       "rag_key": "虚劳",
-      "name": "swy_129 阳病极下"
+      "name": "swy_129 阳病极下",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_130",
@@ -3530,7 +3657,8 @@
         "茯苓",
         "蒲黄",
         "黄芪"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_131",
@@ -3551,7 +3679,8 @@
       "herbs": [
         "茯苓",
         "半夏"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_132",
@@ -3579,7 +3708,8 @@
         "黄芪",
         "当归",
         "阿胶"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_133",
@@ -3621,7 +3751,8 @@
         "小柴胡汤",
         "葛根汤",
         "生脉散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_134",
@@ -3655,7 +3786,8 @@
       ],
       "formulas_referenced": [
         "二陈汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_135",
@@ -3678,7 +3810,8 @@
         "滑石",
         "白芍",
         "木香"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_136",
@@ -3704,7 +3837,8 @@
       ],
       "formulas_referenced": [
         "二陈汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_137",
@@ -3734,7 +3868,8 @@
       ],
       "formulas_referenced": [
         "二陈汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_138",
@@ -3771,7 +3906,8 @@
         "白虎汤",
         "生脉散",
         "益元散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_139",
@@ -3797,7 +3933,8 @@
         "半夏",
         "陈皮",
         "川芎"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_140",
@@ -3827,7 +3964,8 @@
       "formulas_referenced": [
         "补中益气汤",
         "香连丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_141",
@@ -3854,7 +3992,8 @@
         "枳壳",
         "橘红",
         "川芎"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_142",
@@ -3881,7 +4020,8 @@
         "白芍",
         "当归",
         "远志"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_144",
@@ -3898,7 +4038,8 @@
       "entry_id": "swy_144",
       "entry_type": "sunwenyuan_case",
       "rag_key": "痿证",
-      "name": "swy_144 筋痿勿风治"
+      "name": "swy_144 筋痿勿风治",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_145",
@@ -3931,7 +4072,8 @@
         "山药",
         "茯苓",
         "远志"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_146",
@@ -3955,7 +4097,8 @@
         "青皮",
         "杏仁",
         "槟榔"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_147",
@@ -3988,7 +4131,8 @@
         "半夏",
         "远志",
         "川芎"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_148",
@@ -4015,7 +4159,8 @@
         "鳖甲",
         "贝母",
         "麦芽"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_149",
@@ -4032,7 +4177,8 @@
       "entry_id": "swy_149",
       "entry_type": "sunwenyuan_case",
       "rag_key": "产后",
-      "name": "swy_149 产后误补"
+      "name": "swy_149 产后误补",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_150",
@@ -4059,7 +4205,8 @@
         "木通",
         "当归",
         "牛膝"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_151",
@@ -4076,7 +4223,8 @@
       "entry_id": "swy_151",
       "entry_type": "sunwenyuan_case",
       "rag_key": "疳积",
-      "name": "swy_151 疳积误补"
+      "name": "swy_151 疳积误补",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_152",
@@ -4103,7 +4251,8 @@
         "橘红",
         "杏仁",
         "栝蒌"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_153",
@@ -4131,7 +4280,8 @@
       ],
       "formulas_referenced": [
         "二陈汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_154",
@@ -4163,7 +4313,8 @@
         "半夏",
         "苦参",
         "麦芽"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_155",
@@ -4193,7 +4344,8 @@
         "当归",
         "红花",
         "牛膝"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_156",
@@ -4223,7 +4375,8 @@
         "桔梗",
         "远志",
         "贝母"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_157",
@@ -4252,7 +4405,8 @@
       ],
       "formulas_referenced": [
         "温胆汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_158",
@@ -4288,7 +4442,8 @@
       ],
       "formulas_referenced": [
         "苏合香丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_159",
@@ -4320,7 +4475,8 @@
       "formulas_referenced": [
         "香连丸",
         "八珍汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_160",
@@ -4360,7 +4516,8 @@
       "formulas_referenced": [
         "木香槟榔丸",
         "小建中汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_161",
@@ -4395,7 +4552,8 @@
       ],
       "formulas_referenced": [
         "补中益气汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_162",
@@ -4426,7 +4584,8 @@
         "黄芪",
         "当归",
         "远志"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_163",
@@ -4446,7 +4605,8 @@
       "name": "swy_163 阴挺湿热",
       "formulas_referenced": [
         "龙胆泻肝汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_164",
@@ -4466,7 +4626,8 @@
       "name": "swy_164 肠痈返魂汤",
       "herbs": [
         "金银花"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_165",
@@ -4486,7 +4647,8 @@
       "name": "swy_165 脏毒樗皮散",
       "herbs": [
         "人参"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_166",
@@ -4506,7 +4668,8 @@
       "name": "swy_166 湿热下部",
       "formulas_referenced": [
         "益元散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_167",
@@ -4537,7 +4700,8 @@
       ],
       "formulas_referenced": [
         "二陈汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_168",
@@ -4571,7 +4735,8 @@
         "竹叶石膏汤",
         "小柴胡汤",
         "白虎汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_169",
@@ -4600,7 +4765,8 @@
         "红花",
         "牛膝",
         "桂皮"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_170",
@@ -4637,7 +4803,8 @@
         "青皮",
         "红花",
         "贝母"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_171",
@@ -4663,7 +4830,8 @@
       "formulas_referenced": [
         "二陈汤",
         "温胆汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_172",
@@ -4693,7 +4861,8 @@
         "枳壳",
         "桔梗",
         "玄参"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_173",
@@ -4722,7 +4891,8 @@
         "麦冬",
         "当归",
         "贝母"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_174",
@@ -4752,7 +4922,8 @@
       ],
       "formulas_referenced": [
         "补中益气汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_175",
@@ -4775,7 +4946,8 @@
         "甘草",
         "滑石",
         "白芍"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_176",
@@ -4802,7 +4974,8 @@
         "白芍",
         "桔梗",
         "贝母"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_177",
@@ -4827,7 +5000,8 @@
         "苍术",
         "陈皮",
         "泽泻"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_178",
@@ -4868,7 +5042,8 @@
         "木通",
         "葛根",
         "牛膝"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_179",
@@ -4893,7 +5068,8 @@
         "小蓟",
         "白芍",
         "生地"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_180",
@@ -4914,7 +5090,8 @@
       "herbs": [
         "甘草",
         "香附"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_181",
@@ -4938,7 +5115,8 @@
         "甘草",
         "香附",
         "柴胡"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_182",
@@ -4963,7 +5141,8 @@
         "茯苓",
         "当归",
         "川芎"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_183",
@@ -4989,7 +5168,8 @@
         "连翘",
         "当归",
         "玄参"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_184",
@@ -5021,7 +5201,8 @@
         "当归",
         "红花",
         "麻黄"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_185",
@@ -5051,7 +5232,8 @@
       ],
       "formulas_referenced": [
         "温胆汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_186",
@@ -5082,7 +5264,8 @@
       ],
       "formulas_referenced": [
         "生脉散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_187",
@@ -5112,7 +5295,8 @@
         "苍术",
         "陈皮",
         "藿香"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_188",
@@ -5142,7 +5326,8 @@
         "青皮",
         "诃子",
         "贝母"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_189",
@@ -5172,7 +5357,8 @@
       "formulas_referenced": [
         "七制化痰丸",
         "保和丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_190",
@@ -5203,7 +5389,8 @@
         "青黛",
         "半夏",
         "木香"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_191",
@@ -5235,7 +5422,8 @@
       ],
       "formulas_referenced": [
         "小柴胡汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_192",
@@ -5268,7 +5456,8 @@
         "远志",
         "陈皮",
         "桂枝"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_193",
@@ -5307,7 +5496,8 @@
       ],
       "formulas_referenced": [
         "参苓白术散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_194",
@@ -5350,7 +5540,8 @@
       "formulas_referenced": [
         "补中益气汤",
         "独参汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_195",
@@ -5382,7 +5573,8 @@
       ],
       "formulas_referenced": [
         "二陈汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_196",
@@ -5413,7 +5605,8 @@
         "苍术",
         "杏仁",
         "桂枝"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_197",
@@ -5444,7 +5637,8 @@
         "桂枝",
         "肉桂",
         "川芎"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_198",
@@ -5472,7 +5666,8 @@
         "杜仲",
         "黄芪",
         "陈皮"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_199",
@@ -5504,7 +5699,8 @@
         "陈皮",
         "鳖甲",
         "贝母"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_200",
@@ -5539,7 +5735,8 @@
       ],
       "formulas_referenced": [
         "大柴胡汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_201",
@@ -5559,7 +5756,8 @@
       "name": "swy_201 风瘫湿热",
       "herbs": [
         "威灵仙"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_202",
@@ -5596,7 +5794,8 @@
       ],
       "formulas_referenced": [
         "六君子汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_203",
@@ -5620,7 +5819,8 @@
       "formulas_referenced": [
         "附子理中汤",
         "理中汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_204",
@@ -5648,7 +5848,8 @@
         "桔梗",
         "陈皮",
         "贝母"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_205",
@@ -5679,7 +5880,8 @@
       ],
       "formulas_referenced": [
         "六君子汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_206",
@@ -5707,7 +5909,8 @@
         "甘草",
         "枳壳",
         "贝母"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_207",
@@ -5741,7 +5944,8 @@
       ],
       "formulas_referenced": [
         "小柴胡汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_208",
@@ -5768,7 +5972,8 @@
         "蒲黄",
         "红花",
         "牛膝"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_209",
@@ -5797,7 +6002,8 @@
       "formulas_referenced": [
         "六君子汤",
         "益元散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_210",
@@ -5826,7 +6032,8 @@
         "苍术",
         "陈皮",
         "葛根"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_211",
@@ -5857,7 +6064,8 @@
       "formulas_referenced": [
         "保和丸",
         "益元散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_212",
@@ -5886,7 +6094,8 @@
       ],
       "formulas_referenced": [
         "八珍汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_213",
@@ -5920,7 +6129,8 @@
         "青皮",
         "苍术",
         "栝蒌"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_214",
@@ -5947,7 +6157,8 @@
         "白芍",
         "石膏",
         "枳壳"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_215",
@@ -5964,7 +6175,8 @@
       "entry_id": "swy_215",
       "entry_type": "sunwenyuan_case",
       "rag_key": "瘀血",
-      "name": "swy_215 瘀血发黄"
+      "name": "swy_215 瘀血发黄",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_216",
@@ -5995,7 +6207,8 @@
       ],
       "formulas_referenced": [
         "四君子汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_217",
@@ -6026,7 +6239,8 @@
         "柴胡",
         "枳壳",
         "桔梗"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_218",
@@ -6048,7 +6262,8 @@
         "陈皮",
         "葛根",
         "麦芽"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_219",
@@ -6068,7 +6283,8 @@
       "name": "swy_219 跨马痈大补",
       "formulas_referenced": [
         "十全大补汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_220",
@@ -6098,7 +6314,8 @@
         "杜仲",
         "木香",
         "泽泻"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_221",
@@ -6132,7 +6349,8 @@
         "白芍",
         "石膏",
         "柴胡"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_222",
@@ -6152,7 +6370,8 @@
       "name": "swy_222 腹胀积块丸",
       "formulas_referenced": [
         "保和丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_223",
@@ -6176,7 +6395,8 @@
       ],
       "formulas_referenced": [
         "温胆汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_224",
@@ -6202,7 +6422,8 @@
         "滑石",
         "石膏",
         "贝母"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_225",
@@ -6237,7 +6458,8 @@
       ],
       "formulas_referenced": [
         "七制化痰丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_226",
@@ -6264,7 +6486,8 @@
         "柴胡",
         "枳壳",
         "桔梗"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_227",
@@ -6293,7 +6516,8 @@
         "青皮",
         "川芎",
         "麦芽"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_228",
@@ -6330,7 +6554,8 @@
       ],
       "formulas_referenced": [
         "小柴胡汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_229",
@@ -6371,7 +6596,8 @@
       "formulas_referenced": [
         "保和丸",
         "益元散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_230",
@@ -6406,7 +6632,8 @@
       "formulas_referenced": [
         "温胆汤",
         "益元散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_231",
@@ -6444,7 +6671,8 @@
         "六君子汤",
         "二陈汤",
         "益元散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_232",
@@ -6477,7 +6705,8 @@
       "formulas_referenced": [
         "当归龙荟丸",
         "小柴胡汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_233",
@@ -6500,7 +6729,8 @@
       ],
       "formulas_referenced": [
         "温胆汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_234",
@@ -6542,7 +6772,8 @@
       "formulas_referenced": [
         "二陈汤",
         "益元散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_235",
@@ -6570,7 +6801,8 @@
       "formulas_referenced": [
         "苏合香丸",
         "二陈汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_236",
@@ -6600,7 +6832,8 @@
         "羌活",
         "当归",
         "红花"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_237",
@@ -6628,7 +6861,8 @@
       "formulas_referenced": [
         "六君子汤",
         "生脉汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_238",
@@ -6657,7 +6891,8 @@
       ],
       "formulas_referenced": [
         "二陈汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_239",
@@ -6684,7 +6919,8 @@
       ],
       "formulas_referenced": [
         "小建中汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_240",
@@ -6715,7 +6951,8 @@
         "当归",
         "陈皮",
         "川芎"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_241",
@@ -6741,7 +6978,8 @@
         "柴胡",
         "枳壳",
         "贯众"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_242",
@@ -6772,7 +7010,8 @@
       ],
       "formulas_referenced": [
         "旋复花汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_243",
@@ -6805,7 +7044,8 @@
       "formulas_referenced": [
         "六君子汤",
         "保和丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_244",
@@ -6834,7 +7074,8 @@
         "茯苓",
         "石膏",
         "麦冬"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_245",
@@ -6864,7 +7105,8 @@
         "白芷",
         "蒲黄",
         "当归"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_246",
@@ -6895,7 +7137,8 @@
       ],
       "formulas_referenced": [
         "当归龙荟丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_247",
@@ -6924,7 +7167,8 @@
       ],
       "formulas_referenced": [
         "益元散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_248",
@@ -6949,7 +7193,8 @@
       ],
       "formulas_referenced": [
         "六君子汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_249",
@@ -6971,7 +7216,8 @@
         "人参",
         "琥珀",
         "木香"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_250",
@@ -6988,7 +7234,8 @@
       "entry_id": "swy_250",
       "entry_type": "sunwenyuan_case",
       "rag_key": "外科",
-      "name": "swy_250 便痈瘀血"
+      "name": "swy_250 便痈瘀血",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_251",
@@ -7019,7 +7266,8 @@
         "桔梗",
         "枳实",
         "葛根"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_252",
@@ -7036,7 +7284,8 @@
       "entry_id": "swy_252",
       "entry_type": "sunwenyuan_case",
       "rag_key": "郁证",
-      "name": "swy_252 哭子寒热"
+      "name": "swy_252 哭子寒热",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_253",
@@ -7053,7 +7302,8 @@
       "entry_id": "swy_253",
       "entry_type": "sunwenyuan_case",
       "rag_key": "鼓胀",
-      "name": "swy_253 蛊胀先表"
+      "name": "swy_253 蛊胀先表",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_254",
@@ -7079,7 +7329,8 @@
         "陈皮",
         "肉桂",
         "泽泻"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_255",
@@ -7115,7 +7366,8 @@
         "郁金",
         "玄参",
         "泽泻"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_256",
@@ -7138,7 +7390,8 @@
         "牡丹皮",
         "五灵脂",
         "栝蒌"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_257",
@@ -7168,7 +7421,8 @@
       ],
       "formulas_referenced": [
         "二陈汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_258",
@@ -7205,7 +7459,8 @@
       ],
       "formulas_referenced": [
         "二陈汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_259",
@@ -7235,7 +7490,8 @@
         "黄柏",
         "防风",
         "续断"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_260",
@@ -7268,7 +7524,8 @@
         "紫菀",
         "青皮",
         "栝蒌"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_261",
@@ -7310,7 +7567,8 @@
         "玄参",
         "荆芥",
         "川芎"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_262",
@@ -7341,7 +7599,8 @@
       ],
       "formulas_referenced": [
         "当归龙荟丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_263",
@@ -7368,7 +7627,8 @@
       ],
       "formulas_referenced": [
         "六君子汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_264",
@@ -7406,7 +7666,8 @@
       "formulas_referenced": [
         "二陈汤",
         "四物汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_265",
@@ -7441,7 +7702,8 @@
         "贝母",
         "玄参",
         "荆芥"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_266",
@@ -7470,7 +7732,8 @@
       ],
       "formulas_referenced": [
         "生脉汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_267",
@@ -7500,7 +7763,8 @@
         "枳实",
         "陈皮",
         "麦芽"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_268",
@@ -7527,7 +7791,8 @@
       ],
       "formulas_referenced": [
         "小柴胡汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_269",
@@ -7564,7 +7829,8 @@
       ],
       "formulas_referenced": [
         "白虎汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_270",
@@ -7596,7 +7862,8 @@
         "桔梗",
         "陈皮",
         "贝母"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_271",
@@ -7623,7 +7890,8 @@
         "茯苓",
         "杜仲",
         "泽泻"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_272",
@@ -7651,7 +7919,8 @@
         "石膏",
         "半夏",
         "陈皮"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_273",
@@ -7685,7 +7954,8 @@
       "formulas_referenced": [
         "小柴胡汤",
         "二陈汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_274",
@@ -7720,7 +7990,8 @@
         "半夏",
         "葛根",
         "贝母"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_275",
@@ -7753,7 +8024,8 @@
       ],
       "formulas_referenced": [
         "十宣散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_276",
@@ -7779,7 +8051,8 @@
         "当归",
         "阿胶",
         "川芎"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_277",
@@ -7812,7 +8085,8 @@
       ],
       "formulas_referenced": [
         "四君子汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_278",
@@ -7839,7 +8113,8 @@
       ],
       "formulas_referenced": [
         "温胆汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_279",
@@ -7875,7 +8150,8 @@
         "陈皮",
         "贝母",
         "麻黄"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_280",
@@ -7909,7 +8185,8 @@
         "青皮",
         "陈皮",
         "贝母"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_281",
@@ -7937,7 +8214,8 @@
         "杏仁",
         "陈皮",
         "贝母"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_282",
@@ -7967,7 +8245,8 @@
         "当归",
         "桂皮",
         "川芎"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_283",
@@ -8004,7 +8283,8 @@
         "槟榔",
         "陈皮",
         "桂皮"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_284",
@@ -8032,7 +8312,8 @@
         "桔梗",
         "当归",
         "川芎"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_285",
@@ -8062,7 +8343,8 @@
       ],
       "formulas_referenced": [
         "小柴胡汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_286",
@@ -8089,7 +8371,8 @@
         "枳壳",
         "桔梗",
         "当归"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_287",
@@ -8113,7 +8396,8 @@
         "山楂",
         "白芍",
         "香附"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_288",
@@ -8145,7 +8429,8 @@
       ],
       "formulas_referenced": [
         "二陈汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_289",
@@ -8176,7 +8461,8 @@
         "桔梗",
         "青皮",
         "葛根"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_290",
@@ -8213,7 +8499,8 @@
       ],
       "formulas_referenced": [
         "补中益气汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_291",
@@ -8245,7 +8532,8 @@
         "鳖甲",
         "桂枝",
         "川芎"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_292",
@@ -8279,7 +8567,8 @@
       ],
       "formulas_referenced": [
         "七制化痰丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_293",
@@ -8311,7 +8600,8 @@
         "枳壳",
         "橘红",
         "麦冬"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_294",
@@ -8343,7 +8633,8 @@
         "枳壳",
         "当归",
         "栝蒌"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_295",
@@ -8379,7 +8670,8 @@
       "formulas_referenced": [
         "大柴胡汤",
         "小承气汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_296",
@@ -8414,7 +8706,8 @@
         "红花",
         "葛根",
         "栝蒌"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_297",
@@ -8447,7 +8740,8 @@
         "橘红",
         "枳实",
         "葛根"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_298",
@@ -8471,7 +8765,8 @@
       ],
       "formulas_referenced": [
         "逍遥散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_299",
@@ -8501,7 +8796,8 @@
         "当归",
         "青皮",
         "红花"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_300",
@@ -8537,7 +8833,8 @@
       ],
       "formulas_referenced": [
         "小柴胡汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_301",
@@ -8569,7 +8866,8 @@
         "紫菀",
         "贝母",
         "栝蒌"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_302",
@@ -8606,7 +8904,8 @@
       "formulas_referenced": [
         "小柴胡汤",
         "生脉汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_303",
@@ -8634,7 +8933,8 @@
       ],
       "formulas_referenced": [
         "生脉汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_304",
@@ -8655,7 +8955,8 @@
       "herbs": [
         "黄芩",
         "黄连"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_305",
@@ -8672,7 +8973,8 @@
       "entry_id": "swy_305",
       "entry_type": "sunwenyuan_case",
       "rag_key": "喘肿",
-      "name": "swy_305 五虎汤伤胃"
+      "name": "swy_305 五虎汤伤胃",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_306",
@@ -8707,7 +9009,8 @@
       ],
       "formulas_referenced": [
         "七制化痰丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_307",
@@ -8739,7 +9042,8 @@
         "当归",
         "杏仁",
         "贝母"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_308",
@@ -8768,7 +9072,8 @@
         "木香",
         "杏仁",
         "郁金"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_309",
@@ -8793,7 +9098,8 @@
         "升麻",
         "滑石",
         "枳实"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_310",
@@ -8827,7 +9133,8 @@
         "六君子汤",
         "香连丸",
         "平胃散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_311",
@@ -8858,7 +9165,8 @@
       "formulas_referenced": [
         "四君子汤",
         "六君子汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_312",
@@ -8887,7 +9195,8 @@
       ],
       "formulas_referenced": [
         "四君子汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_313",
@@ -8927,7 +9236,8 @@
         "木通",
         "川芎",
         "麻黄"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_314",
@@ -8963,7 +9273,8 @@
       "formulas_referenced": [
         "七制化痰丸",
         "八味丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_315",
@@ -8993,7 +9304,8 @@
         "当归",
         "苍术",
         "红花"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_316",
@@ -9023,7 +9335,8 @@
       ],
       "formulas_referenced": [
         "二陈汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_317",
@@ -9048,7 +9361,8 @@
         "枳壳",
         "桔梗",
         "栝蒌"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_318",
@@ -9077,7 +9391,8 @@
         "当归",
         "远志",
         "陈皮"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_319",
@@ -9119,7 +9434,8 @@
         "红花",
         "陈皮",
         "川芎"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_320",
@@ -9147,7 +9463,8 @@
         "当归",
         "陈皮",
         "玄参"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_321",
@@ -9181,7 +9498,8 @@
       ],
       "formulas_referenced": [
         "补中益气汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_322",
@@ -9216,7 +9534,8 @@
       ],
       "formulas_referenced": [
         "香连丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_323",
@@ -9245,7 +9564,8 @@
         "茯苓",
         "干姜",
         "泽泻"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_324",
@@ -9262,7 +9582,8 @@
       "entry_id": "swy_324",
       "entry_type": "sunwenyuan_case",
       "rag_key": "杨梅疮",
-      "name": "swy_324 杨梅毒内攻"
+      "name": "swy_324 杨梅毒内攻",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_325",
@@ -9291,7 +9612,8 @@
         "香附",
         "柴胡",
         "枳壳"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_326",
@@ -9315,7 +9637,8 @@
         "枳壳",
         "黄柏",
         "槟榔"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_327",
@@ -9343,7 +9666,8 @@
       ],
       "formulas_referenced": [
         "小建中汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_328",
@@ -9369,7 +9693,8 @@
         "柴胡",
         "枳实",
         "鳖甲"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_329",
@@ -9400,7 +9725,8 @@
       ],
       "formulas_referenced": [
         "二陈汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_330",
@@ -9426,7 +9752,8 @@
         "杜仲",
         "黄柏",
         "黄芪"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_331",
@@ -9454,7 +9781,8 @@
       ],
       "formulas_referenced": [
         "六君子汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_332",
@@ -9487,7 +9815,8 @@
       ],
       "formulas_referenced": [
         "大防风汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_333",
@@ -9507,7 +9836,8 @@
       "name": "swy_333 虫症好啖肉",
       "herbs": [
         "使君子"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_334",
@@ -9536,7 +9866,8 @@
         "当归",
         "木香",
         "泽泻"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_335",
@@ -9560,7 +9891,8 @@
       ],
       "formulas_referenced": [
         "二陈汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_336",
@@ -9577,7 +9909,8 @@
       "entry_id": "swy_336",
       "entry_type": "sunwenyuan_case",
       "rag_key": "儿科",
-      "name": "swy_336 麻后疳"
+      "name": "swy_336 麻后疳",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_337",
@@ -9602,7 +9935,8 @@
         "炮姜",
         "白术",
         "人参"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_338",
@@ -9627,7 +9961,8 @@
       "formulas_referenced": [
         "四君子汤",
         "香连丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_339",
@@ -9657,7 +9992,8 @@
       "formulas_referenced": [
         "附子理中汤",
         "理中汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_340",
@@ -9677,7 +10013,8 @@
       "name": "swy_340 双胎难产",
       "formulas_referenced": [
         "益元散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_341",
@@ -9704,7 +10041,8 @@
         "香附",
         "枳壳",
         "贝母"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_342",
@@ -9733,7 +10071,8 @@
         "杏仁",
         "贝母",
         "郁金"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_343",
@@ -9758,7 +10097,8 @@
       "formulas_referenced": [
         "二陈汤",
         "益元散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_344",
@@ -9787,7 +10127,8 @@
         "枳壳",
         "麦冬",
         "贝母"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_345",
@@ -9827,7 +10168,8 @@
       ],
       "formulas_referenced": [
         "四物汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_346",
@@ -9852,7 +10194,8 @@
         "干姜",
         "苍术",
         "槟榔"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_347",
@@ -9879,7 +10222,8 @@
       ],
       "formulas_referenced": [
         "六君子汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_348",
@@ -9906,7 +10250,8 @@
         "青皮",
         "贝母",
         "栝蒌"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_349",
@@ -9941,7 +10286,8 @@
       ],
       "formulas_referenced": [
         "葛根汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_350",
@@ -9971,7 +10317,8 @@
       ],
       "formulas_referenced": [
         "小建中汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_351",
@@ -10001,7 +10348,8 @@
         "白芍",
         "茯苓",
         "泽泻"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_352",
@@ -10029,7 +10377,8 @@
         "枳实",
         "青皮",
         "麦芽"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_353",
@@ -10062,7 +10411,8 @@
         "红花",
         "陈皮",
         "牛膝"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_354",
@@ -10102,7 +10452,8 @@
       ],
       "formulas_referenced": [
         "六君子汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_355",
@@ -10126,7 +10477,8 @@
         "干姜",
         "木香",
         "肉桂"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_356",
@@ -10170,7 +10522,8 @@
       ],
       "formulas_referenced": [
         "二陈汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_357",
@@ -10197,7 +10550,8 @@
         "当归",
         "青皮",
         "贝母"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_358",
@@ -10228,7 +10582,8 @@
       ],
       "formulas_referenced": [
         "保和丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_359",
@@ -10264,7 +10619,8 @@
         "当归",
         "红花",
         "陈皮"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_360",
@@ -10281,7 +10637,8 @@
       "entry_id": "swy_360",
       "entry_type": "sunwenyuan_case",
       "rag_key": "心痛",
-      "name": "swy_360 心痛十七年"
+      "name": "swy_360 心痛十七年",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_361",
@@ -10311,7 +10668,8 @@
         "半夏",
         "杏仁",
         "麻黄"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_362",
@@ -10331,7 +10689,8 @@
       "name": "swy_362 转脬提摇法",
       "formulas_referenced": [
         "补中益气汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_363",
@@ -10355,7 +10714,8 @@
         "石膏",
         "白芷",
         "细辛"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_364",
@@ -10372,7 +10732,8 @@
       "entry_id": "swy_364",
       "entry_type": "sunwenyuan_case",
       "rag_key": "产科",
-      "name": "swy_364 子宫脱石灰韭汤"
+      "name": "swy_364 子宫脱石灰韭汤",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_365",
@@ -10399,7 +10760,8 @@
       ],
       "formulas_referenced": [
         "平胃散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_366",
@@ -10425,7 +10787,8 @@
       ],
       "formulas_referenced": [
         "平胃散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_367",
@@ -10442,7 +10805,8 @@
       "entry_id": "swy_367",
       "entry_type": "sunwenyuan_case",
       "rag_key": "鼻渊",
-      "name": "swy_367 饮鼻出辨经络"
+      "name": "swy_367 饮鼻出辨经络",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_368",
@@ -10459,7 +10823,8 @@
       "entry_id": "swy_368",
       "entry_type": "sunwenyuan_case",
       "rag_key": "产后",
-      "name": "swy_368 产后腿疼败血"
+      "name": "swy_368 产后腿疼败血",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_369",
@@ -10476,7 +10841,8 @@
       "entry_id": "swy_369",
       "entry_type": "sunwenyuan_case",
       "rag_key": "胁痛",
-      "name": "swy_369 肠风胁痛汗"
+      "name": "swy_369 肠风胁痛汗",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_370",
@@ -10507,7 +10873,8 @@
         "葛根",
         "贝母",
         "玄参"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_371",
@@ -10524,7 +10891,8 @@
       "entry_id": "swy_371",
       "entry_type": "sunwenyuan_case",
       "rag_key": "脉诊",
-      "name": "swy_371 脉散乱不治"
+      "name": "swy_371 脉散乱不治",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_372",
@@ -10554,7 +10922,8 @@
       ],
       "formulas_referenced": [
         "二陈汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_373",
@@ -10571,7 +10940,8 @@
       "entry_id": "swy_373",
       "entry_type": "sunwenyuan_case",
       "rag_key": "泄泻",
-      "name": "swy_373 脾泄十五年加吐红"
+      "name": "swy_373 脾泄十五年加吐红",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_374",
@@ -10602,7 +10972,8 @@
       ],
       "formulas_referenced": [
         "保和丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_375",
@@ -10634,7 +11005,8 @@
       ],
       "formulas_referenced": [
         "保和丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_376",
@@ -10664,7 +11036,8 @@
       ],
       "formulas_referenced": [
         "保和丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_377",
@@ -10687,7 +11060,8 @@
         "山楂",
         "甘草",
         "白芍"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_378",
@@ -10728,7 +11102,8 @@
       ],
       "formulas_referenced": [
         "六君子汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_379",
@@ -10753,7 +11128,8 @@
         "山楂",
         "柴胡",
         "橘核"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_380",
@@ -10783,7 +11159,8 @@
         "陈皮",
         "葛根",
         "鳖甲"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_381",
@@ -10811,7 +11188,8 @@
         "红花",
         "贝母",
         "栝蒌"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_382",
@@ -10840,7 +11218,8 @@
         "芡实",
         "黄柏",
         "远志"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_383",
@@ -10874,7 +11253,8 @@
       ],
       "formulas_referenced": [
         "益元散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_384",
@@ -10911,7 +11291,8 @@
         "磁石",
         "贝母",
         "牛膝"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_385",
@@ -10947,7 +11328,8 @@
       ],
       "formulas_referenced": [
         "四物汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_386",
@@ -10978,7 +11360,8 @@
       ],
       "formulas_referenced": [
         "二陈汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_387",
@@ -11004,7 +11387,8 @@
       ],
       "formulas_referenced": [
         "四物汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_388",
@@ -11027,7 +11411,8 @@
       ],
       "formulas_referenced": [
         "小建中汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_389",
@@ -11060,7 +11445,8 @@
       ],
       "formulas_referenced": [
         "肾气丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_390",
@@ -11086,7 +11472,8 @@
         "枳壳",
         "槐花",
         "葛根"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_391",
@@ -11115,7 +11502,8 @@
       ],
       "formulas_referenced": [
         "二陈汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "swy_392",
@@ -11138,7 +11526,8 @@
       ],
       "formulas_referenced": [
         "当归龙荟丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     }
   ]
 }

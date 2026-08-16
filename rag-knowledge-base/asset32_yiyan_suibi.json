@@ -34,7 +34,8 @@
       "name": "ysb_001 高年气虚",
       "formulas_referenced": [
         "补中益气汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "ysb_002",
@@ -54,7 +55,8 @@
       "name": "ysb_002 实证昏厥",
       "herbs": [
         "枳实"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "ysb_003",
@@ -75,7 +77,8 @@
       "herbs": [
         "羚羊角",
         "人参"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "ysb_004",
@@ -95,7 +98,8 @@
       "name": "ysb_004 肝阴不足",
       "herbs": [
         "阿胶"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "ysb_005",
@@ -120,7 +124,8 @@
         "茅根",
         "连翘",
         "生地"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "ysb_006",
@@ -145,7 +150,8 @@
         "猪苓",
         "佩兰",
         "郁金"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "ysb_007",
@@ -170,7 +176,8 @@
         "茯苓",
         "牡蛎",
         "半夏"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "ysb_008",
@@ -187,7 +194,8 @@
       "entry_id": "ysb_008",
       "entry_type": "yiyan_suibi_case",
       "rag_key": "便秘",
-      "name": "ysb_008 燥结便秘"
+      "name": "ysb_008 燥结便秘",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "ysb_009",
@@ -212,7 +220,8 @@
         "连翘",
         "生地",
         "紫草"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "ysb_010",
@@ -234,7 +243,8 @@
         "薄荷",
         "连翘",
         "豆豉"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "ysb_011",
@@ -251,7 +261,8 @@
       "entry_id": "ysb_011",
       "entry_type": "yiyan_suibi_case",
       "rag_key": "温病",
-      "name": "ysb_011 温热挟湿"
+      "name": "ysb_011 温热挟湿",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "ysb_012",
@@ -274,7 +285,8 @@
         "附子",
         "干姜",
         "半夏"
-      ]
+      ],
+      "grounding": "cross-edition"
     }
   ]
 }

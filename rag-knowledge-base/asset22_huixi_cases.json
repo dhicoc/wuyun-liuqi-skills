@@ -31,7 +31,8 @@
       "entry_id": "hx_001",
       "entry_type": "huixi_case",
       "rag_key": "中风",
-      "name": "hx_001 中风·辛凉甘温"
+      "name": "hx_001 中风·辛凉甘温",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_002",
@@ -48,7 +49,8 @@
       "entry_id": "hx_002",
       "entry_type": "huixi_case",
       "rag_key": "中风",
-      "name": "hx_002 中风·痰火窍闭"
+      "name": "hx_002 中风·痰火窍闭",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_004",
@@ -68,7 +70,8 @@
       "name": "hx_004 伤寒失下",
       "formulas_referenced": [
         "大承气汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_005",
@@ -85,7 +88,8 @@
       "entry_id": "hx_005",
       "entry_type": "huixi_case",
       "rag_key": "外感停食",
-      "name": "hx_005 外感停食"
+      "name": "hx_005 外感停食",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_006",
@@ -102,7 +106,8 @@
       "entry_id": "hx_006",
       "entry_type": "huixi_case",
       "rag_key": "时证",
-      "name": "hx_006 时证热痰"
+      "name": "hx_006 时证热痰",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_007",
@@ -124,7 +129,8 @@
         "茅根",
         "薄荷",
         "菖蒲"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_008",
@@ -141,7 +147,8 @@
       "entry_id": "hx_008",
       "entry_type": "huixi_case",
       "rag_key": "暑邪",
-      "name": "hx_008 暑邪窍闭"
+      "name": "hx_008 暑邪窍闭",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_009",
@@ -158,7 +165,8 @@
       "entry_id": "hx_009",
       "entry_type": "huixi_case",
       "rag_key": "疟痢",
-      "name": "hx_009 疟痢分治"
+      "name": "hx_009 疟痢分治",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_010",
@@ -175,7 +183,8 @@
       "entry_id": "hx_010",
       "entry_type": "huixi_case",
       "rag_key": "痰喘",
-      "name": "hx_010 痰喘小青龙"
+      "name": "hx_010 痰喘小青龙",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_012",
@@ -195,7 +204,8 @@
       "name": "hx_012 翻胃痰火",
       "herbs": [
         "半夏"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_013",
@@ -212,7 +222,8 @@
       "entry_id": "hx_013",
       "entry_type": "huixi_case",
       "rag_key": "水肿",
-      "name": "hx_013 水肿辨"
+      "name": "hx_013 水肿辨",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_014",
@@ -229,7 +240,8 @@
       "entry_id": "hx_014",
       "entry_type": "huixi_case",
       "rag_key": "消证",
-      "name": "hx_014 消证热痰"
+      "name": "hx_014 消证热痰",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_015",
@@ -246,7 +258,8 @@
       "entry_id": "hx_015",
       "entry_type": "huixi_case",
       "rag_key": "虫痛",
-      "name": "hx_015 虫痛"
+      "name": "hx_015 虫痛",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_016",
@@ -263,7 +276,8 @@
       "entry_id": "hx_016",
       "entry_type": "huixi_case",
       "rag_key": "怔忡",
-      "name": "hx_016 怔忡痰冲心"
+      "name": "hx_016 怔忡痰冲心",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_017",
@@ -284,7 +298,8 @@
       "herbs": [
         "知母",
         "黄柏"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_018",
@@ -301,7 +316,8 @@
       "entry_id": "hx_018",
       "entry_type": "huixi_case",
       "rag_key": "血痢",
-      "name": "hx_018 久痢漏管"
+      "name": "hx_018 久痢漏管",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_019",
@@ -318,7 +334,8 @@
       "entry_id": "hx_019",
       "entry_type": "huixi_case",
       "rag_key": "瘀血冲厥",
-      "name": "hx_019 瘀血冲心"
+      "name": "hx_019 瘀血冲心",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_020",
@@ -341,7 +358,8 @@
         "黄连",
         "人参",
         "肉桂"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_021",
@@ -361,7 +379,8 @@
       "name": "hx_021 产后风热",
       "herbs": [
         "石膏"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_022",
@@ -378,7 +397,8 @@
       "entry_id": "hx_022",
       "entry_type": "huixi_case",
       "rag_key": "肠痈",
-      "name": "hx_022 产后肠痈"
+      "name": "hx_022 产后肠痈",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_023",
@@ -395,7 +415,8 @@
       "entry_id": "hx_023",
       "entry_type": "huixi_case",
       "rag_key": "流注",
-      "name": "hx_023 流注通络"
+      "name": "hx_023 流注通络",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_024",
@@ -412,7 +433,8 @@
       "entry_id": "hx_024",
       "entry_type": "huixi_case",
       "rag_key": "下疳",
-      "name": "hx_024 下疳"
+      "name": "hx_024 下疳",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_025",
@@ -429,7 +451,8 @@
       "entry_id": "hx_025",
       "entry_type": "huixi_case",
       "rag_key": "筋瘤",
-      "name": "hx_025 筋瘤"
+      "name": "hx_025 筋瘤",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_026",
@@ -446,7 +469,8 @@
       "entry_id": "hx_026",
       "entry_type": "huixi_case",
       "rag_key": "恶风",
-      "name": "hx_026 恶风颊皮"
+      "name": "hx_026 恶风颊皮",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_027",
@@ -463,7 +487,8 @@
       "entry_id": "hx_027",
       "entry_type": "huixi_case",
       "rag_key": "周痹",
-      "name": "hx_027 周痹外治"
+      "name": "hx_027 周痹外治",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_028",
@@ -480,7 +505,8 @@
       "entry_id": "hx_028",
       "entry_type": "huixi_case",
       "rag_key": "痱",
-      "name": "hx_028 痱证温补"
+      "name": "hx_028 痱证温补",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_029",
@@ -497,7 +523,8 @@
       "entry_id": "hx_029",
       "entry_type": "huixi_case",
       "rag_key": "刖足伤寒",
-      "name": "hx_029 刖足伤寒"
+      "name": "hx_029 刖足伤寒",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_030",
@@ -514,7 +541,8 @@
       "entry_id": "hx_030",
       "entry_type": "huixi_case",
       "rag_key": "游魂",
-      "name": "hx_030 游魂安神"
+      "name": "hx_030 游魂安神",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_031",
@@ -531,7 +559,8 @@
       "entry_id": "hx_031",
       "entry_type": "huixi_case",
       "rag_key": "失魂",
-      "name": "hx_031 失魂"
+      "name": "hx_031 失魂",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_032",
@@ -548,7 +577,8 @@
       "entry_id": "hx_032",
       "entry_type": "huixi_case",
       "rag_key": "祟病",
-      "name": "hx_032 祟病"
+      "name": "hx_032 祟病",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_033",
@@ -568,7 +598,8 @@
       "entry_id": "hx_033",
       "entry_type": "huixi_case",
       "rag_key": "暑",
-      "name": "hx_033 暑阳越西瓜"
+      "name": "hx_033 暑阳越西瓜",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_034",
@@ -589,7 +620,8 @@
       "entry_id": "hx_034",
       "entry_type": "huixi_case",
       "rag_key": "暑",
-      "name": "hx_034 暑亡阳参附"
+      "name": "hx_034 暑亡阳参附",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_035",
@@ -610,7 +642,8 @@
       "entry_id": "hx_035",
       "entry_type": "huixi_case",
       "rag_key": "暑",
-      "name": "hx_035 暑热津烁"
+      "name": "hx_035 暑热津烁",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_036",
@@ -631,7 +664,8 @@
       "entry_id": "hx_036",
       "entry_type": "huixi_case",
       "rag_key": "疟",
-      "name": "hx_036 久疟亡阳"
+      "name": "hx_036 久疟亡阳",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_037",
@@ -652,7 +686,8 @@
       "entry_id": "hx_037",
       "entry_type": "huixi_case",
       "rag_key": "痢",
-      "name": "hx_037 暑毒血痢"
+      "name": "hx_037 暑毒血痢",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_038",
@@ -669,7 +704,8 @@
       "entry_id": "hx_038",
       "entry_type": "huixi_case",
       "rag_key": "痢",
-      "name": "hx_038 五色痢积癖"
+      "name": "hx_038 五色痢积癖",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_039",
@@ -686,7 +722,8 @@
       "entry_id": "hx_039",
       "entry_type": "huixi_case",
       "rag_key": "畏寒",
-      "name": "hx_039 畏寒热深厥"
+      "name": "hx_039 畏寒热深厥",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_040",
@@ -703,7 +740,8 @@
       "entry_id": "hx_040",
       "entry_type": "huixi_case",
       "rag_key": "畏风",
-      "name": "hx_040 畏风卫闭"
+      "name": "hx_040 畏风卫闭",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_041",
@@ -723,7 +761,8 @@
       "entry_id": "hx_041",
       "entry_type": "huixi_case",
       "rag_key": "痰",
-      "name": "hx_041 痰肝肾双实"
+      "name": "hx_041 痰肝肾双实",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_042",
@@ -740,7 +779,8 @@
       "entry_id": "hx_042",
       "entry_type": "huixi_case",
       "rag_key": "痰",
-      "name": "hx_042 痰核补住"
+      "name": "hx_042 痰核补住",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_043",
@@ -761,7 +801,8 @@
       "entry_id": "hx_043",
       "entry_type": "huixi_case",
       "rag_key": "亡阴",
-      "name": "hx_043 亡阴大汗"
+      "name": "hx_043 亡阴大汗",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_044",
@@ -781,7 +822,8 @@
       "entry_id": "hx_044",
       "entry_type": "huixi_case",
       "rag_key": "痰喘",
-      "name": "hx_044 痰喘上实下虚"
+      "name": "hx_044 痰喘上实下虚",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hx_045",
@@ -798,7 +840,8 @@
       "entry_id": "hx_045",
       "entry_type": "huixi_case",
       "rag_key": "饮癖",
-      "name": "hx_045 饮癖蒸法"
+      "name": "hx_045 饮癖蒸法",
+      "grounding": "cross-edition"
     }
   ]
 }

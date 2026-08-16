@@ -35,7 +35,8 @@
       "herbs": [
         "枳实",
         "厚朴"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hc_002",
@@ -59,7 +60,8 @@
         "牡蛎",
         "鳖甲",
         "阿胶"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hc_003",
@@ -86,7 +88,8 @@
         "竹茹",
         "栀子",
         "贝母"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hc_004",
@@ -180,7 +183,8 @@
       ],
       "formulas_referenced": [
         "温胆汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hc_008",
@@ -207,7 +211,8 @@
       ],
       "formulas_referenced": [
         "白虎汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hc_009",
@@ -224,7 +229,8 @@
       "entry_id": "hc_009",
       "entry_type": "huichunlu_case",
       "rag_key": "伏暑",
-      "name": "hc_009 伏暑·真热假寒"
+      "name": "hc_009 伏暑·真热假寒",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hc_010",
@@ -262,7 +268,8 @@
       "entry_id": "hc_011",
       "entry_type": "huichunlu_case",
       "rag_key": "冬温",
-      "name": "hc_011 冬温·挟痰"
+      "name": "hc_011 冬温·挟痰",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hc_012",
@@ -279,7 +286,8 @@
       "entry_id": "hc_012",
       "entry_type": "huichunlu_case",
       "rag_key": "咳嗽",
-      "name": "hc_012 咳嗽·余热逗留"
+      "name": "hc_012 咳嗽·余热逗留",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hc_013",
@@ -308,7 +316,8 @@
         "清燥救肺汤",
         "苇茎汤",
         "白虎汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hc_014",
@@ -333,7 +342,8 @@
         "知母",
         "杏仁",
         "贝母"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hc_015",
@@ -359,7 +369,8 @@
         "木瓜",
         "茯苓",
         "黄芪"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hc_016",
@@ -426,7 +437,8 @@
       ],
       "formulas_referenced": [
         "苇茎汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hc_019",
@@ -448,7 +460,8 @@
         "枇杷叶",
         "桑叶",
         "知母"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hc_020",
@@ -465,7 +478,8 @@
       "entry_id": "hc_020",
       "entry_type": "huichunlu_case",
       "rag_key": "胃脘痛",
-      "name": "hc_020 胃脘痛·肝阳侮胃"
+      "name": "hc_020 胃脘痛·肝阳侮胃",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hc_021",
@@ -488,7 +502,8 @@
       ],
       "formulas_referenced": [
         "白虎汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hc_022",
@@ -516,7 +531,8 @@
         "茯苓",
         "半夏",
         "泽泻"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hc_023",
@@ -533,7 +549,8 @@
       "entry_id": "hc_023",
       "entry_type": "huichunlu_case",
       "rag_key": "疟疾",
-      "name": "hc_023 疟疾·暑湿误补"
+      "name": "hc_023 疟疾·暑湿误补",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hc_024",
@@ -557,7 +574,8 @@
       ],
       "formulas_referenced": [
         "白虎汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hc_025",
@@ -591,7 +609,8 @@
       "entry_id": "hc_026",
       "entry_type": "huichunlu_case",
       "rag_key": "霍乱",
-      "name": "hc_026 霍乱·燃照汤"
+      "name": "hc_026 霍乱·燃照汤",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hc_027",
@@ -620,7 +639,8 @@
       ],
       "formulas_referenced": [
         "紫雪丹"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hc_028",
@@ -649,7 +669,8 @@
       ],
       "formulas_referenced": [
         "白虎汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hc_029",
@@ -672,7 +693,8 @@
         "莲子",
         "山药",
         "木瓜"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hc_030",
@@ -696,7 +718,8 @@
         "木瓜",
         "茯苓",
         "桂枝"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hc_031",
@@ -725,7 +748,8 @@
         "莲子",
         "栀子",
         "桔梗"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hc_032",
@@ -753,7 +777,8 @@
         "栀子",
         "牡蛎",
         "鳖甲"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hc_033",
@@ -780,7 +805,8 @@
         "牡蛎",
         "半夏",
         "龙骨"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hc_034",
@@ -806,7 +832,8 @@
         "鳖甲",
         "贝母",
         "玄参"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hc_035",
@@ -834,7 +861,8 @@
         "枳实",
         "杏仁",
         "厚朴"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hc_036",
@@ -863,7 +891,8 @@
         "黄柏",
         "麦冬",
         "木通"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hc_037",
@@ -880,7 +909,8 @@
       "entry_id": "hc_037",
       "entry_type": "huichunlu_case",
       "rag_key": "月经不调",
-      "name": "hc_037 月经·痰气凝滞"
+      "name": "hc_037 月经·痰气凝滞",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hc_038",
@@ -905,7 +935,8 @@
         "知母",
         "栀子",
         "贝母"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hc_039",
@@ -929,7 +960,8 @@
         "知母",
         "栀子",
         "石膏"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hc_040",
@@ -953,7 +985,8 @@
       ],
       "formulas_referenced": [
         "白虎汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hc_041",

@@ -41,7 +41,8 @@
         "牡蛎",
         "黄芪",
         "阿胶"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hyl_002",
@@ -61,7 +62,8 @@
       "name": "hyl_002 脾肾阳衰",
       "herbs": [
         "肉桂"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hyl_003",
@@ -78,7 +80,8 @@
       "entry_id": "hyl_003",
       "entry_type": "huayunlou_case",
       "rag_key": "怔忡",
-      "name": "hyl_003 崩后怔忡"
+      "name": "hyl_003 崩后怔忡",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hyl_004",
@@ -95,7 +98,8 @@
       "entry_id": "hyl_004",
       "entry_type": "huayunlou_case",
       "rag_key": "产后",
-      "name": "hyl_004 新产瘀闭"
+      "name": "hyl_004 新产瘀闭",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hyl_005",
@@ -112,7 +116,8 @@
       "entry_id": "hyl_005",
       "entry_type": "huayunlou_case",
       "rag_key": "厥证",
-      "name": "hyl_005 郁火冲厥"
+      "name": "hyl_005 郁火冲厥",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hyl_006",
@@ -129,7 +134,8 @@
       "entry_id": "hyl_006",
       "entry_type": "huayunlou_case",
       "rag_key": "温病",
-      "name": "hyl_006 经期冬温"
+      "name": "hyl_006 经期冬温",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hyl_007",
@@ -146,7 +152,8 @@
       "entry_id": "hyl_007",
       "entry_type": "huayunlou_case",
       "rag_key": "温病",
-      "name": "hyl_007 温邪入营"
+      "name": "hyl_007 温邪入营",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hyl_008",
@@ -163,7 +170,8 @@
       "entry_id": "hyl_008",
       "entry_type": "huayunlou_case",
       "rag_key": "痢疾",
-      "name": "hyl_008 痢症"
+      "name": "hyl_008 痢症",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hyl_009",
@@ -180,7 +188,8 @@
       "entry_id": "hyl_009",
       "entry_type": "huayunlou_case",
       "rag_key": "痹痛",
-      "name": "hyl_009 内伤虚痹"
+      "name": "hyl_009 内伤虚痹",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hyl_010",
@@ -200,7 +209,8 @@
       "name": "hyl_010 大疟太阴",
       "herbs": [
         "人参"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hyl_011",
@@ -221,7 +231,8 @@
       "herbs": [
         "人参",
         "贝母"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hyl_012",
@@ -238,7 +249,8 @@
       "entry_id": "hyl_012",
       "entry_type": "huayunlou_case",
       "rag_key": "痢疾",
-      "name": "hyl_012 赤白痢"
+      "name": "hyl_012 赤白痢",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hyl_013",
@@ -255,7 +267,8 @@
       "entry_id": "hyl_013",
       "entry_type": "huayunlou_case",
       "rag_key": "肝风",
-      "name": "hyl_013 血热生风"
+      "name": "hyl_013 血热生风",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hyl_014",
@@ -278,7 +291,8 @@
         "白芍",
         "茯苓",
         "牡蛎"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hyl_015",
@@ -298,7 +312,8 @@
       "name": "hyl_015 临经腹痛",
       "herbs": [
         "郁金"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hyl_016",
@@ -315,7 +330,8 @@
       "entry_id": "hyl_016",
       "entry_type": "huayunlou_case",
       "rag_key": "乳房",
-      "name": "hyl_016 乳癖"
+      "name": "hyl_016 乳癖",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hyl_017",
@@ -337,7 +353,8 @@
         "天麻",
         "黄芪",
         "半夏"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hyl_018",
@@ -357,7 +374,8 @@
       "name": "hyl_018 暑风犯胃",
       "herbs": [
         "生地"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hyl_019",
@@ -377,7 +395,8 @@
       "name": "hyl_019 胎堕防崩",
       "herbs": [
         "人参"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hyl_020",
@@ -399,7 +418,8 @@
         "人参",
         "天冬",
         "牡蛎"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hyl_021",
@@ -424,7 +444,8 @@
         "白术",
         "青蒿",
         "当归"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hyl_022",
@@ -448,7 +469,8 @@
         "羚羊角",
         "首乌",
         "郁金"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hyl_023",
@@ -472,7 +494,8 @@
         "川楝子",
         "瓦楞子",
         "半夏"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hyl_024",
@@ -496,7 +519,8 @@
         "白芍",
         "五味",
         "杜仲"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hyl_025",
@@ -520,7 +544,8 @@
         "丹皮",
         "麦冬",
         "牡蛎"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hyl_026",
@@ -544,7 +569,8 @@
         "杏仁",
         "银杏",
         "生地"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hyl_027",
@@ -568,7 +594,8 @@
         "黄芪",
         "首乌",
         "郁金"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hyl_028",
@@ -592,7 +619,8 @@
         "黄柏",
         "当归",
         "白术"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hyl_029",
@@ -616,7 +644,8 @@
         "白芍",
         "丹皮",
         "茯苓"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "hyl_030",
@@ -640,7 +669,8 @@
         "半夏",
         "贝母",
         "郁金"
-      ]
+      ],
+      "grounding": "cross-edition"
     }
   ]
 }

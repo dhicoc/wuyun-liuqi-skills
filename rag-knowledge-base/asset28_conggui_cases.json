@@ -39,7 +39,8 @@
       ],
       "formulas_referenced": [
         "二陈汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "cg_002",
@@ -68,7 +69,8 @@
         "阿胶",
         "肉桂",
         "川芎"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "cg_003",
@@ -85,7 +87,8 @@
       "entry_id": "cg_003",
       "entry_type": "conggui_case",
       "rag_key": "温病",
-      "name": "cg_003 温病伤津"
+      "name": "cg_003 温病伤津",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "cg_004",
@@ -114,7 +117,8 @@
       ],
       "formulas_referenced": [
         "增液汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "cg_005",
@@ -165,7 +169,8 @@
       "formulas_referenced": [
         "四君子汤",
         "增液汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "cg_007",
@@ -191,7 +196,8 @@
         "麦冬",
         "黄芪",
         "桂枝"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "cg_008",
@@ -208,7 +214,8 @@
       "entry_id": "cg_008",
       "entry_type": "conggui_case",
       "rag_key": "喉症",
-      "name": "cg_008 悲哭喉症"
+      "name": "cg_008 悲哭喉症",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "cg_009",
@@ -242,7 +249,8 @@
         "茯苓",
         "百合"
       ],
-      "formulas_referenced": []
+      "formulas_referenced": [],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "cg_010",
@@ -425,7 +433,8 @@
       "formulas_referenced": [
         "黄连香薷饮",
         "附子理中汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "cg_015",
@@ -552,7 +561,8 @@
       "formulas_referenced": [
         "附子理中汤",
         "归芍六君子汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "cg_019",
@@ -582,7 +592,8 @@
       ],
       "formulas_referenced": [
         "阿胶鸡子黄汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "cg_020",
@@ -649,7 +660,8 @@
       "formulas_referenced": [
         "四逆汤",
         "归芍六君子汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "cg_022",
@@ -790,7 +802,8 @@
       ],
       "formulas_referenced": [
         "集灵膏"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "cg_026",

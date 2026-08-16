@@ -38,7 +38,8 @@
       ],
       "formulas_referenced": [
         "竹叶石膏汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xs_002",
@@ -58,7 +59,8 @@
       "name": "xs_002 产后血晕",
       "herbs": [
         "当归"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xs_003",
@@ -84,7 +86,8 @@
       "formulas_referenced": [
         "十全大补汤",
         "生脉散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xs_004",
@@ -104,7 +107,8 @@
       "name": "xs_004 小产胎不下",
       "formulas_referenced": [
         "十全大补汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xs_005",
@@ -124,7 +128,8 @@
       "name": "xs_005 痢疾清热",
       "herbs": [
         "黄芩"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xs_006",
@@ -144,7 +149,8 @@
       "name": "xs_006 卒中痰闭",
       "herbs": [
         "乌梅"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xs_007",
@@ -161,7 +167,8 @@
       "entry_id": "xs_007",
       "entry_type": "xushi_case",
       "rag_key": "疟疾",
-      "name": "xs_007 瘅疟"
+      "name": "xs_007 瘅疟",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xs_008",
@@ -181,7 +188,8 @@
       "name": "xs_008 风寒咳嗽",
       "herbs": [
         "麻黄"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xs_009",
@@ -198,7 +206,8 @@
       "entry_id": "xs_009",
       "entry_type": "xushi_case",
       "rag_key": "黄疸",
-      "name": "xs_009 虚黄秘结"
+      "name": "xs_009 虚黄秘结",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xs_010",
@@ -215,7 +224,8 @@
       "entry_id": "xs_010",
       "entry_type": "xushi_case",
       "rag_key": "喉痹",
-      "name": "xs_010 喉痹"
+      "name": "xs_010 喉痹",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xs_011",
@@ -232,7 +242,8 @@
       "entry_id": "xs_011",
       "entry_type": "xushi_case",
       "rag_key": "伤寒",
-      "name": "xs_011 伤寒痰喘"
+      "name": "xs_011 伤寒痰喘",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xs_012",
@@ -249,7 +260,8 @@
       "entry_id": "xs_012",
       "entry_type": "xushi_case",
       "rag_key": "虫痛",
-      "name": "xs_012 虫痛"
+      "name": "xs_012 虫痛",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xs_013",
@@ -266,7 +278,8 @@
       "entry_id": "xs_013",
       "entry_type": "xushi_case",
       "rag_key": "目疾",
-      "name": "xs_013 目昏气虚"
+      "name": "xs_013 目昏气虚",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xs_014",
@@ -283,7 +296,8 @@
       "entry_id": "xs_014",
       "entry_type": "xushi_case",
       "rag_key": "脱肛",
-      "name": "xs_014 脱肛"
+      "name": "xs_014 脱肛",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xs_015",
@@ -300,7 +314,8 @@
       "entry_id": "xs_015",
       "entry_type": "xushi_case",
       "rag_key": "气厥",
-      "name": "xs_015 气厥"
+      "name": "xs_015 气厥",
+      "grounding": "cross-edition"
     }
   ]
 }

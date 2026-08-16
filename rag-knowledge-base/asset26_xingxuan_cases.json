@@ -38,7 +38,8 @@
       "formulas_referenced": [
         "白虎汤",
         "玉女煎"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_002",
@@ -59,7 +60,8 @@
       "formulas_referenced": [
         "归脾汤",
         "生脉散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_003",
@@ -79,7 +81,8 @@
       "name": "xx_003 大头时疫",
       "herbs": [
         "黄连"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_004",
@@ -96,7 +99,8 @@
       "entry_id": "xx_004",
       "entry_type": "xingxuan_case",
       "rag_key": "伤寒",
-      "name": "xx_004 格阳证"
+      "name": "xx_004 格阳证",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_005",
@@ -119,7 +123,8 @@
       ],
       "formulas_referenced": [
         "归脾汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_014",
@@ -139,7 +144,8 @@
       "name": "xx_014 偏中便闭",
       "formulas_referenced": [
         "补中益气汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_015",
@@ -163,7 +169,8 @@
       ],
       "formulas_referenced": [
         "六君子汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_020",
@@ -180,7 +187,8 @@
       "entry_id": "xx_020",
       "entry_type": "xingxuan_case",
       "rag_key": "咳嗽",
-      "name": "xx_020 子嗽"
+      "name": "xx_020 子嗽",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_006",
@@ -200,7 +208,8 @@
       "name": "xx_006 中脏再生",
       "herbs": [
         "鹿茸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_007",
@@ -227,7 +236,8 @@
         "远志",
         "龙骨",
         "泽泻"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_008",
@@ -252,7 +262,8 @@
       "formulas_referenced": [
         "参苓白术散",
         "归脾汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_009",
@@ -273,7 +284,8 @@
       "formulas_referenced": [
         "归脾汤",
         "八珍汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_010",
@@ -294,7 +306,8 @@
       "herbs": [
         "茯苓",
         "麦冬"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_011",
@@ -311,7 +324,8 @@
       "entry_id": "xx_011",
       "entry_type": "xingxuan_case",
       "rag_key": "暑风惊证",
-      "name": "xx_011 暑风惊证"
+      "name": "xx_011 暑风惊证",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_012",
@@ -332,7 +346,8 @@
       "formulas_referenced": [
         "归脾汤",
         "生脉散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_013",
@@ -349,7 +364,8 @@
       "entry_id": "xx_013",
       "entry_type": "xingxuan_case",
       "rag_key": "郁证",
-      "name": "xx_013 郁伤心脾"
+      "name": "xx_013 郁伤心脾",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_153",
@@ -369,7 +385,8 @@
       "name": "xx_153 中脏再生",
       "herbs": [
         "鹿茸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_154",
@@ -448,7 +465,8 @@
         "防风",
         "菖蒲",
         "木通"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_019",
@@ -468,7 +486,8 @@
       "name": "xx_019 大头时疫",
       "herbs": [
         "黄连"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_155",
@@ -515,7 +534,8 @@
       ],
       "formulas_referenced": [
         "补中益气汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_022",
@@ -552,7 +572,8 @@
       "name": "xx_024 食复",
       "herbs": [
         "枳实"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_025",
@@ -572,7 +593,8 @@
       "name": "xx_025 春温两感",
       "formulas_referenced": [
         "左归饮"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_026",
@@ -589,7 +611,8 @@
       "entry_id": "xx_026",
       "entry_type": "xingxuan_case",
       "rag_key": "儿科",
-      "name": "xx_026 痳闭石甘"
+      "name": "xx_026 痳闭石甘",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_027",
@@ -636,7 +659,8 @@
       "formulas_referenced": [
         "右归饮",
         "理中汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_030",
@@ -661,7 +685,8 @@
       "formulas_referenced": [
         "参苓白术散",
         "归脾汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_031",
@@ -682,7 +707,8 @@
       "formulas_referenced": [
         "归脾汤",
         "八珍汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_032",
@@ -724,7 +750,8 @@
       "name": "xx_033 肝郁外感",
       "formulas_referenced": [
         "逍遥散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_034",
@@ -745,7 +772,8 @@
       "herbs": [
         "鹿角胶",
         "附子"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_036",
@@ -762,7 +790,8 @@
       "entry_id": "xx_036",
       "entry_type": "xingxuan_case",
       "rag_key": "伤寒",
-      "name": "xx_036 肿腮陷阴"
+      "name": "xx_036 肿腮陷阴",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_037",
@@ -822,7 +851,8 @@
         "补中益气汤",
         "香薷饮",
         "八味丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_040",
@@ -862,7 +892,8 @@
       ],
       "formulas_referenced": [
         "归脾汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_043",
@@ -886,7 +917,8 @@
       ],
       "formulas_referenced": [
         "六君子汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_044",
@@ -932,7 +964,8 @@
       ],
       "formulas_referenced": [
         "右归饮"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_046",
@@ -952,7 +985,8 @@
       "name": "xx_046 虚闭寓攻",
       "formulas_referenced": [
         "补中益气汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_048",
@@ -998,7 +1032,8 @@
         "麦冬",
         "当归",
         "半夏"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_050",
@@ -1028,7 +1063,8 @@
       "formulas_referenced": [
         "越鞠丸",
         "逍遥散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_051",
@@ -1079,7 +1115,8 @@
         "丹皮",
         "赤芍",
         "生地"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_053",
@@ -1122,7 +1159,8 @@
         "枸杞",
         "鹿茸",
         "当归"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_055",
@@ -1139,7 +1177,8 @@
       "entry_id": "xx_055",
       "entry_type": "xingxuan_case",
       "rag_key": "单腹胀",
-      "name": "xx_055 单腹胀"
+      "name": "xx_055 单腹胀",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_056",
@@ -1164,7 +1203,8 @@
       "formulas_referenced": [
         "大承气汤",
         "甘露饮"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_057",
@@ -1188,7 +1228,8 @@
       ],
       "formulas_referenced": [
         "白虎汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_058",
@@ -1212,7 +1253,8 @@
       "formulas_referenced": [
         "附子理中汤",
         "理中汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_059",
@@ -1238,7 +1280,8 @@
       ],
       "formulas_referenced": [
         "白虎汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_060",
@@ -1302,7 +1345,8 @@
         "牡蛎",
         "磁石",
         "阿胶"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_063",
@@ -1319,7 +1363,8 @@
       "entry_id": "xx_063",
       "entry_type": "xingxuan_case",
       "rag_key": "脉诊",
-      "name": "xx_063 真脏脉"
+      "name": "xx_063 真脏脉",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_064",
@@ -1339,7 +1384,8 @@
       "name": "xx_064 目疾误治",
       "formulas_referenced": [
         "左归饮"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_065",
@@ -1359,7 +1405,8 @@
       "name": "xx_065 虚脘痛",
       "formulas_referenced": [
         "归脾汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_066",
@@ -1376,7 +1423,8 @@
       "entry_id": "xx_066",
       "entry_type": "xingxuan_case",
       "rag_key": "食厥",
-      "name": "xx_066 食厥备急丸"
+      "name": "xx_066 食厥备急丸",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_067",
@@ -1415,7 +1463,8 @@
         "龟板",
         "白芍",
         "阿胶"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_069",
@@ -1459,7 +1508,8 @@
       "name": "xx_070 胞衣误药",
       "formulas_referenced": [
         "十全大补汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_071",
@@ -1502,7 +1552,8 @@
       ],
       "formulas_referenced": [
         "参苓白术散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_073",
@@ -1519,7 +1570,8 @@
       "entry_id": "xx_073",
       "entry_type": "xingxuan_case",
       "rag_key": "痉病",
-      "name": "xx_073 痉病补元"
+      "name": "xx_073 痉病补元",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_074",
@@ -1536,7 +1588,8 @@
       "entry_id": "xx_074",
       "entry_type": "xingxuan_case",
       "rag_key": "脉诊",
-      "name": "xx_074 反关脉"
+      "name": "xx_074 反关脉",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_075",
@@ -1553,7 +1606,8 @@
       "entry_id": "xx_075",
       "entry_type": "xingxuan_case",
       "rag_key": "血症",
-      "name": "xx_075 血证丸"
+      "name": "xx_075 血证丸",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_076",
@@ -1570,7 +1624,8 @@
       "entry_id": "xx_076",
       "entry_type": "xingxuan_case",
       "rag_key": "石淋",
-      "name": "xx_076 石淋奇证"
+      "name": "xx_076 石淋奇证",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_077",
@@ -1591,7 +1646,8 @@
       "herbs": [
         "川楝子",
         "牛膝"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_078",
@@ -1636,7 +1692,8 @@
         "桂枝",
         "细辛",
         "麻黄"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_080",
@@ -1659,7 +1716,8 @@
       ],
       "formulas_referenced": [
         "甘麦大枣汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_081",
@@ -1688,7 +1746,8 @@
         "橘红",
         "麦冬",
         "远志"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_082",
@@ -1711,7 +1770,8 @@
       ],
       "formulas_referenced": [
         "竹叶石膏汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_083",
@@ -1731,7 +1791,8 @@
       "name": "xx_083 虚脱急补",
       "formulas_referenced": [
         "归脾汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_084",
@@ -1755,7 +1816,8 @@
         "牡蛎",
         "磁石",
         "阿胶"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_085",
@@ -1775,7 +1837,8 @@
       "name": "xx_085 胎动血晕",
       "formulas_referenced": [
         "独参汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_086",
@@ -1836,7 +1899,8 @@
       "entry_id": "xx_088",
       "entry_type": "xingxuan_case",
       "rag_key": "泄泻",
-      "name": "xx_088 久泻滑脱"
+      "name": "xx_088 久泻滑脱",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_089",
@@ -1861,7 +1925,8 @@
       ],
       "formulas_referenced": [
         "逍遥散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_090",
@@ -1886,7 +1951,8 @@
         "木瓜",
         "茯苓",
         "半夏"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_091",
@@ -1918,7 +1984,8 @@
       ],
       "formulas_referenced": [
         "白虎汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_092",
@@ -1935,7 +2002,8 @@
       "entry_id": "xx_092",
       "entry_type": "xingxuan_case",
       "rag_key": "咳嗽",
-      "name": "xx_092 嗽久食养"
+      "name": "xx_092 嗽久食养",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_093",
@@ -1970,7 +2038,8 @@
       ],
       "formulas_referenced": [
         "至宝丹"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_094",
@@ -2013,7 +2082,8 @@
       "formulas_referenced": [
         "生脉散",
         "左归饮"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_096",
@@ -2030,7 +2100,8 @@
       "entry_id": "xx_096",
       "entry_type": "xingxuan_case",
       "rag_key": "吐证",
-      "name": "xx_096 情志吐证"
+      "name": "xx_096 情志吐证",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_097",
@@ -2050,7 +2121,8 @@
       "name": "xx_097 药伤胃气",
       "herbs": [
         "人参"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_098",
@@ -2075,7 +2147,8 @@
       ],
       "formulas_referenced": [
         "十全大补汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_099",
@@ -2092,7 +2165,8 @@
       "entry_id": "xx_099",
       "entry_type": "xingxuan_case",
       "rag_key": "单腹胀",
-      "name": "xx_099 单腹胀奇验"
+      "name": "xx_099 单腹胀奇验",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_100",
@@ -2119,7 +2193,8 @@
         "羌活",
         "元参",
         "紫草"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_101",
@@ -2136,7 +2211,8 @@
       "entry_id": "xx_101",
       "entry_type": "xingxuan_case",
       "rag_key": "饮证",
-      "name": "xx_101 饮证三阳"
+      "name": "xx_101 饮证三阳",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_102",
@@ -2156,7 +2232,8 @@
       "name": "xx_102 腹痛庞杂",
       "formulas_referenced": [
         "真武汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_103",
@@ -2183,7 +2260,8 @@
         "附子",
         "川椒",
         "肉桂"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_104",
@@ -2204,7 +2282,8 @@
       "herbs": [
         "人参",
         "附子"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_105",
@@ -2224,7 +2303,8 @@
       "name": "xx_105 齿痛虚寒",
       "herbs": [
         "骨碎补"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_106",
@@ -2248,7 +2328,8 @@
         "枸杞",
         "鹿茸",
         "附子"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_107",
@@ -2300,7 +2381,8 @@
       "formulas_referenced": [
         "归脾汤",
         "逍遥散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_109",
@@ -2323,7 +2405,8 @@
       ],
       "formulas_referenced": [
         "独参汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_110",
@@ -2348,7 +2431,8 @@
         "杏仁",
         "桂枝",
         "麻黄"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_111",
@@ -2374,7 +2458,8 @@
         "麦冬",
         "牡蛎",
         "阿胶"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_112",
@@ -2391,7 +2476,8 @@
       "entry_id": "xx_112",
       "entry_type": "xingxuan_case",
       "rag_key": "肝郁",
-      "name": "xx_112 肝郁伤胃"
+      "name": "xx_112 肝郁伤胃",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_113",
@@ -2416,7 +2502,8 @@
         "当归",
         "木香",
         "杏仁"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_114",
@@ -2433,7 +2520,8 @@
       "entry_id": "xx_114",
       "entry_type": "xingxuan_case",
       "rag_key": "噎膈",
-      "name": "xx_114 噎隔三发"
+      "name": "xx_114 噎隔三发",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_115",
@@ -2460,7 +2548,8 @@
       ],
       "formulas_referenced": [
         "六君子汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_116",
@@ -2485,7 +2574,8 @@
         "当归",
         "半夏",
         "陈皮"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_117",
@@ -2510,7 +2600,8 @@
         "桔梗",
         "杏仁",
         "贝母"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_118",
@@ -2536,7 +2627,8 @@
         "甘草",
         "丹皮",
         "生地"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_119",
@@ -2563,7 +2655,8 @@
         "牡蛎",
         "当归",
         "阿胶"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_120",
@@ -2585,7 +2678,8 @@
         "人参",
         "山药",
         "白芍"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_121",
@@ -2635,7 +2729,8 @@
       ],
       "formulas_referenced": [
         "生脉散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_123",
@@ -2652,7 +2747,8 @@
       "entry_id": "xx_123",
       "entry_type": "xingxuan_case",
       "rag_key": "瘵证",
-      "name": "xx_123 传尸虫异"
+      "name": "xx_123 传尸虫异",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_124",
@@ -2678,7 +2774,8 @@
       ],
       "formulas_referenced": [
         "生脉散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_125",
@@ -2706,7 +2803,8 @@
         "附子",
         "当归",
         "狗脊"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_126",
@@ -2744,7 +2842,8 @@
       "entry_id": "xx_127",
       "entry_type": "xingxuan_case",
       "rag_key": "耳鸣",
-      "name": "xx_127 耳鸣潜阳"
+      "name": "xx_127 耳鸣潜阳",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_128",
@@ -2764,7 +2863,8 @@
       "name": "xx_128 痘证养浆",
       "herbs": [
         "鹿茸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_129",
@@ -2781,7 +2881,8 @@
       "entry_id": "xx_129",
       "entry_type": "xingxuan_case",
       "rag_key": "胁痛",
-      "name": "xx_129 胁痛升降"
+      "name": "xx_129 胁痛升降",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_130",
@@ -2801,7 +2902,8 @@
       "name": "xx_130 哮嗽窠囊",
       "formulas_referenced": [
         "肾气丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_131",
@@ -2842,7 +2944,8 @@
       "herbs": [
         "龟板",
         "琥珀"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_133",
@@ -2863,7 +2966,8 @@
       "herbs": [
         "人参",
         "附子"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_134",
@@ -2880,7 +2984,8 @@
       "entry_id": "xx_134",
       "entry_type": "xingxuan_case",
       "rag_key": "饮伤",
-      "name": "xx_134 饮伤脾胃"
+      "name": "xx_134 饮伤脾胃",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_135",
@@ -2897,7 +3002,8 @@
       "entry_id": "xx_135",
       "entry_type": "xingxuan_case",
       "rag_key": "咳嗽",
-      "name": "xx_135 温肺涤邪"
+      "name": "xx_135 温肺涤邪",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_136",
@@ -2920,7 +3026,8 @@
       ],
       "formulas_referenced": [
         "补中益气汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_137",
@@ -2942,7 +3049,8 @@
         "金银花",
         "茯苓",
         "谷芽"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_138",
@@ -2962,7 +3070,8 @@
       "name": "xx_138 经期不调",
       "formulas_referenced": [
         "归脾汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_139",
@@ -2979,7 +3088,8 @@
       "entry_id": "xx_139",
       "entry_type": "xingxuan_case",
       "rag_key": "瘵证",
-      "name": "xx_139 瘵证水亏"
+      "name": "xx_139 瘵证水亏",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_140",
@@ -2996,7 +3106,8 @@
       "entry_id": "xx_140",
       "entry_type": "xingxuan_case",
       "rag_key": "不寐",
-      "name": "xx_140 不寐水火"
+      "name": "xx_140 不寐水火",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_141",
@@ -3013,7 +3124,8 @@
       "entry_id": "xx_141",
       "entry_type": "xingxuan_case",
       "rag_key": "水火失济",
-      "name": "xx_141 水火失济"
+      "name": "xx_141 水火失济",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_142",
@@ -3030,7 +3142,8 @@
       "entry_id": "xx_142",
       "entry_type": "xingxuan_case",
       "rag_key": "疝证",
-      "name": "xx_142 疝证奇经"
+      "name": "xx_142 疝证奇经",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_143",
@@ -3047,7 +3160,8 @@
       "entry_id": "xx_143",
       "entry_type": "xingxuan_case",
       "rag_key": "疟疾",
-      "name": "xx_143 疟疾挟湿"
+      "name": "xx_143 疟疾挟湿",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_144",
@@ -3064,7 +3178,8 @@
       "entry_id": "xx_144",
       "entry_type": "xingxuan_case",
       "rag_key": "奇经",
-      "name": "xx_144 血枯伤奇经"
+      "name": "xx_144 血枯伤奇经",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_145",
@@ -3102,7 +3217,8 @@
       "entry_id": "xx_146",
       "entry_type": "xingxuan_case",
       "rag_key": "积聚",
-      "name": "xx_146 积聚久痛"
+      "name": "xx_146 积聚久痛",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_147",
@@ -3125,7 +3241,8 @@
       ],
       "formulas_referenced": [
         "甘露饮"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_156",
@@ -3142,7 +3259,8 @@
       "entry_id": "xx_156",
       "entry_type": "xingxuan_case",
       "rag_key": "虚损",
-      "name": "xx_156 精气内亏"
+      "name": "xx_156 精气内亏",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_157",
@@ -3162,7 +3280,8 @@
       "name": "xx_157 筋挛便浊",
       "herbs": [
         "人参"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_158",
@@ -3182,7 +3301,8 @@
       "name": "xx_158 肝肾两亏",
       "herbs": [
         "人参"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_148",
@@ -3199,7 +3319,8 @@
       "entry_id": "xx_148",
       "entry_type": "xingxuan_case",
       "rag_key": "咳嗽",
-      "name": "xx_148 肝阳逆肺"
+      "name": "xx_148 肝阳逆肺",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_149",
@@ -3220,7 +3341,8 @@
       "formulas_referenced": [
         "补中益气汤",
         "肾气丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_150",
@@ -3240,7 +3362,8 @@
       "name": "xx_150 产后心脾亏",
       "formulas_referenced": [
         "归脾汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_151",
@@ -3257,7 +3380,8 @@
       "entry_id": "xx_151",
       "entry_type": "xingxuan_case",
       "rag_key": "厥证",
-      "name": "xx_151 厥证气厥"
+      "name": "xx_151 厥证气厥",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_152",
@@ -3277,7 +3401,8 @@
       "name": "xx_152 息贲喘嗽",
       "formulas_referenced": [
         "苇茎汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_159",
@@ -3294,7 +3419,8 @@
       "entry_id": "xx_159",
       "entry_type": "xingxuan_case",
       "rag_key": "头痛",
-      "name": "xx_159 内伤头痛"
+      "name": "xx_159 内伤头痛",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_160",
@@ -3314,7 +3440,8 @@
       "name": "xx_160 脾阳虚寒湿",
       "formulas_referenced": [
         "理中汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_161",
@@ -3335,7 +3462,8 @@
       "herbs": [
         "乌梅",
         "牡蛎"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_162",
@@ -3352,7 +3480,8 @@
       "entry_id": "xx_162",
       "entry_type": "xingxuan_case",
       "rag_key": "噎膈",
-      "name": "xx_162 似隔非隔"
+      "name": "xx_162 似隔非隔",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_163",
@@ -3372,7 +3501,8 @@
       "name": "xx_163 吐血归脾",
       "formulas_referenced": [
         "归脾汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_164",
@@ -3389,7 +3519,8 @@
       "entry_id": "xx_164",
       "entry_type": "xingxuan_case",
       "rag_key": "咳血",
-      "name": "xx_164 咳血纳冲"
+      "name": "xx_164 咳血纳冲",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_165",
@@ -3409,7 +3540,8 @@
       "name": "xx_165 痉厥泻心",
       "herbs": [
         "半夏"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_166",
@@ -3426,7 +3558,8 @@
       "entry_id": "xx_166",
       "entry_type": "xingxuan_case",
       "rag_key": "肝风",
-      "name": "xx_166 肝风涵木"
+      "name": "xx_166 肝风涵木",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_167",
@@ -3443,7 +3576,8 @@
       "entry_id": "xx_167",
       "entry_type": "xingxuan_case",
       "rag_key": "目疾",
-      "name": "xx_167 幼女目疾"
+      "name": "xx_167 幼女目疾",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_168",
@@ -3460,7 +3594,8 @@
       "entry_id": "xx_168",
       "entry_type": "xingxuan_case",
       "rag_key": "阴暑",
-      "name": "xx_168 阴暑转阳"
+      "name": "xx_168 阴暑转阳",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_169",
@@ -3477,7 +3612,8 @@
       "entry_id": "xx_169",
       "entry_type": "xingxuan_case",
       "rag_key": "喉痛",
-      "name": "xx_169 喉痛误清"
+      "name": "xx_169 喉痛误清",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_170",
@@ -3497,7 +3633,8 @@
       "name": "xx_170 伏暑危证",
       "formulas_referenced": [
         "甘露饮"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_171",
@@ -3517,7 +3654,8 @@
       "name": "xx_171 血崩辨治",
       "formulas_referenced": [
         "归脾汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_172",
@@ -3534,7 +3672,8 @@
       "entry_id": "xx_172",
       "entry_type": "xingxuan_case",
       "rag_key": "经闭",
-      "name": "xx_172 经闭非孕"
+      "name": "xx_172 经闭非孕",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_173",
@@ -3551,7 +3690,8 @@
       "entry_id": "xx_173",
       "entry_type": "xingxuan_case",
       "rag_key": "暑风",
-      "name": "xx_173 暑风惊反复"
+      "name": "xx_173 暑风惊反复",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_174",
@@ -3568,7 +3708,8 @@
       "entry_id": "xx_174",
       "entry_type": "xingxuan_case",
       "rag_key": "咳血",
-      "name": "xx_174 咳血误阳药"
+      "name": "xx_174 咳血误阳药",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_175",
@@ -3585,7 +3726,8 @@
       "entry_id": "xx_175",
       "entry_type": "xingxuan_case",
       "rag_key": "伤寒",
-      "name": "xx_175 坏病救人"
+      "name": "xx_175 坏病救人",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_176",
@@ -3605,7 +3747,8 @@
       "name": "xx_176 麻木培土",
       "formulas_referenced": [
         "肾气丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_177",
@@ -3625,7 +3768,8 @@
       "name": "xx_177 脾虚泻血",
       "herbs": [
         "乌梅"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_178",
@@ -3646,7 +3790,8 @@
       "formulas_referenced": [
         "清暑益气汤",
         "玉女煎"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_179",
@@ -3663,7 +3808,8 @@
       "entry_id": "xx_179",
       "entry_type": "xingxuan_case",
       "rag_key": "瘰疬",
-      "name": "xx_179 痳后瘰三法"
+      "name": "xx_179 痳后瘰三法",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_180",
@@ -3683,7 +3829,8 @@
       "name": "xx_180 胁痛肝著",
       "formulas_referenced": [
         "旋复花汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_181",
@@ -3700,7 +3847,8 @@
       "entry_id": "xx_181",
       "entry_type": "xingxuan_case",
       "rag_key": "呕吐",
-      "name": "xx_181 呕吐经闭"
+      "name": "xx_181 呕吐经闭",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_182",
@@ -3720,7 +3868,8 @@
       "name": "xx_182 半产崩晕",
       "herbs": [
         "人参"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_183",
@@ -3737,7 +3886,8 @@
       "entry_id": "xx_183",
       "entry_type": "xingxuan_case",
       "rag_key": "妊娠",
-      "name": "xx_183 妊娠二便闭"
+      "name": "xx_183 妊娠二便闭",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_184",
@@ -3754,7 +3904,8 @@
       "entry_id": "xx_184",
       "entry_type": "xingxuan_case",
       "rag_key": "鼻渊",
-      "name": "xx_184 鼻渊孔溃"
+      "name": "xx_184 鼻渊孔溃",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_185",
@@ -3774,7 +3925,8 @@
       "name": "xx_185 背疡余毒",
       "formulas_referenced": [
         "玉女煎"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_186",
@@ -3791,7 +3943,8 @@
       "entry_id": "xx_186",
       "entry_type": "xingxuan_case",
       "rag_key": "喘证",
-      "name": "xx_186 虚喘畏补致脱"
+      "name": "xx_186 虚喘畏补致脱",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_187",
@@ -3808,7 +3961,8 @@
       "entry_id": "xx_187",
       "entry_type": "xingxuan_case",
       "rag_key": "伏暑",
-      "name": "xx_187 施妇伏暑"
+      "name": "xx_187 施妇伏暑",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_188",
@@ -3825,7 +3979,8 @@
       "entry_id": "xx_188",
       "entry_type": "xingxuan_case",
       "rag_key": "血崩",
-      "name": "xx_188 江妇崩证"
+      "name": "xx_188 江妇崩证",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_189",
@@ -3842,7 +3997,8 @@
       "entry_id": "xx_189",
       "entry_type": "xingxuan_case",
       "rag_key": "痹证",
-      "name": "xx_189 足痹成废"
+      "name": "xx_189 足痹成废",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "xx_190",
@@ -3859,7 +4015,8 @@
       "entry_id": "xx_190",
       "entry_type": "xingxuan_case",
       "rag_key": "感证",
-      "name": "xx_190 感证反复"
+      "name": "xx_190 感证反复",
+      "grounding": "cross-edition"
     }
   ]
 }

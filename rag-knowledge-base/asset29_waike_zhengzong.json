@@ -48,7 +48,8 @@
         "十全大补汤",
         "托里消毒散",
         "八味丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_002",
@@ -80,7 +81,8 @@
       ],
       "formulas_referenced": [
         "逍遥散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_003",
@@ -106,7 +108,8 @@
       "herbs": [
         "琥珀",
         "栀子"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_004",
@@ -191,7 +194,8 @@
       ],
       "formulas_referenced": [
         "藿香正气散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_007",
@@ -241,7 +245,8 @@
       "internal_key": "kidney_yin_exhausted",
       "external_manifestation": "疔疮色暗紫黑",
       "external_key": "疔疮",
-      "chain": "肾水竭→虚火无制→疔疮形色紫黑（死证）"
+      "chain": "肾水竭→虚火无制→疔疮形色紫黑（死证）",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_009",
@@ -263,7 +268,8 @@
       "internal_key": "kidney_deficiency",
       "external_manifestation": "足趾脱疽（紫色阴疼）",
       "external_key": "脱疽",
-      "chain": "肾精耗竭→肢末失养→脱疽"
+      "chain": "肾精耗竭→肢末失养→脱疽",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_010",
@@ -285,7 +291,8 @@
       "internal_key": "liver_qi_stagnation",
       "external_manifestation": "项生数核坚硬如石",
       "external_key": "瘰疬",
-      "chain": "情志郁结→肝经筋缩→项核瘰疬"
+      "chain": "情志郁结→肝经筋缩→项核瘰疬",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_011",
@@ -307,7 +314,8 @@
       "internal_key": "liver_kidney_toxin",
       "external_manifestation": "足趾紫泡、甲紫骨黑",
       "external_key": "脱疽",
-      "chain": "肝肾毒盛→循经达趾→甲紫骨黑"
+      "chain": "肝肾毒盛→循经达趾→甲紫骨黑",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_012",
@@ -329,7 +337,8 @@
       "internal_key": "qi_blood_deficiency",
       "external_manifestation": "项生数核",
       "external_key": "项痈",
-      "chain": "元气亏→正虚不托→项核难消"
+      "chain": "元气亏→正虚不托→项核难消",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_013",
@@ -350,7 +359,8 @@
       "herbs": [
         "黄连",
         "桔梗"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_014",
@@ -371,7 +381,8 @@
       "herbs": [
         "天花粉",
         "连翘"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_015",
@@ -401,7 +412,8 @@
       "formulas_referenced": [
         "补中益气汤",
         "四物汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_016",
@@ -422,7 +434,8 @@
       "herbs": [
         "牛蒡子",
         "石膏"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_017",
@@ -442,7 +455,8 @@
       "name": "wk_017 耳面蕴热",
       "herbs": [
         "升麻"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_018",
@@ -459,7 +473,8 @@
       "entry_id": "wk_018",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "腮项",
-      "name": "wk_018 劳伤湿痰"
+      "name": "wk_018 劳伤湿痰",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_019",
@@ -483,7 +498,8 @@
       ],
       "formulas_referenced": [
         "十全大补汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_020",
@@ -503,7 +519,8 @@
       "name": "wk_020 痈疽表实",
       "herbs": [
         "防风"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_021",
@@ -524,7 +541,8 @@
       "herbs": [
         "五味子",
         "人参"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_022",
@@ -548,7 +566,8 @@
       ],
       "formulas_referenced": [
         "八味丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_023",
@@ -565,7 +584,8 @@
       "entry_id": "wk_023",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "肺痈",
-      "name": "wk_023 肺痈忌症"
+      "name": "wk_023 肺痈忌症",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_024",
@@ -593,7 +613,8 @@
         "十全大补汤",
         "归脾汤",
         "逍遥散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_025",
@@ -614,7 +635,8 @@
       "formulas_referenced": [
         "十全大补汤",
         "独参汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_026",
@@ -637,7 +659,8 @@
       ],
       "formulas_referenced": [
         "大防风汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_027",
@@ -664,7 +687,8 @@
       ],
       "formulas_referenced": [
         "六味地黄丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_028",
@@ -690,7 +714,8 @@
       "formulas_referenced": [
         "八珍汤",
         "八味丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_029",
@@ -714,7 +739,8 @@
       ],
       "formulas_referenced": [
         "四物汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_030",
@@ -731,7 +757,8 @@
       "entry_id": "wk_030",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "肛痈",
-      "name": "wk_030 肛痈红紫"
+      "name": "wk_030 肛痈红紫",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_031",
@@ -757,7 +784,8 @@
       ],
       "formulas_referenced": [
         "四物汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_032",
@@ -780,7 +808,8 @@
       ],
       "formulas_referenced": [
         "四物汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_033",
@@ -797,7 +826,8 @@
       "entry_id": "wk_033",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "横痃",
-      "name": "wk_033 横痃通利"
+      "name": "wk_033 横痃通利",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_034",
@@ -817,7 +847,8 @@
       "name": "wk_034 横痃火针",
       "formulas_referenced": [
         "托里消毒散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_035",
@@ -834,7 +865,8 @@
       "entry_id": "wk_035",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "横痃",
-      "name": "wk_035 横痃误消"
+      "name": "wk_035 横痃误消",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_036",
@@ -854,7 +886,8 @@
       "name": "wk_036 囊痈导水",
       "herbs": [
         "木香"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_037",
@@ -878,7 +911,8 @@
       ],
       "formulas_referenced": [
         "十全大补汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_038",
@@ -895,7 +929,8 @@
       "entry_id": "wk_038",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "囊痈",
-      "name": "wk_038 疝气误治"
+      "name": "wk_038 疝气误治",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_039",
@@ -920,7 +955,8 @@
         "龙胆泻肝汤",
         "十全大补汤",
         "托里消毒散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_040",
@@ -944,7 +980,8 @@
       ],
       "formulas_referenced": [
         "十全大补汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_041",
@@ -961,7 +998,8 @@
       "entry_id": "wk_041",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "臋痈",
-      "name": "wk_041 臋痈阴虚"
+      "name": "wk_041 臋痈阴虚",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_042",
@@ -985,7 +1023,8 @@
       ],
       "formulas_referenced": [
         "十全大补汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_043",
@@ -1015,7 +1054,8 @@
       "formulas_referenced": [
         "八珍汤",
         "四物汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_044",
@@ -1040,7 +1080,8 @@
       ],
       "formulas_referenced": [
         "十全大补汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_045",
@@ -1061,7 +1102,8 @@
       "formulas_referenced": [
         "补中益气汤",
         "四君子汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_046",
@@ -1078,7 +1120,8 @@
       "entry_id": "wk_046",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "痔漏",
-      "name": "wk_046 痔漏追蚀"
+      "name": "wk_046 痔漏追蚀",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_047",
@@ -1098,7 +1141,8 @@
       "name": "wk_047 下疳泄热",
       "formulas_referenced": [
         "龙胆泻肝汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_048",
@@ -1115,7 +1159,8 @@
       "entry_id": "wk_048",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "疔疮",
-      "name": "wk_048 疔疮作痒"
+      "name": "wk_048 疔疮作痒",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_049",
@@ -1152,7 +1197,8 @@
       "name": "wk_050 异虫瘤",
       "formulas_referenced": [
         "补中益气汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_051",
@@ -1172,7 +1218,8 @@
       "name": "wk_051 虚火咳血",
       "herbs": [
         "紫菀"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_052",
@@ -1192,7 +1239,8 @@
       "name": "wk_052 胯痈解表",
       "herbs": [
         "人参"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_053",
@@ -1209,7 +1257,8 @@
       "entry_id": "wk_053",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "囊痈",
-      "name": "wk_053 囊痈化腐"
+      "name": "wk_053 囊痈化腐",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_054",
@@ -1234,7 +1283,8 @@
       ],
       "formulas_referenced": [
         "八珍汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_055",
@@ -1258,7 +1308,8 @@
       ],
       "formulas_referenced": [
         "四物汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_056",
@@ -1282,7 +1333,8 @@
       ],
       "formulas_referenced": [
         "十全大补汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_057",
@@ -1299,7 +1351,8 @@
       "entry_id": "wk_057",
       "entry_type": "waike_zhengzong_case",
       "rag_key": "瘤",
-      "name": "wk_057 粉瘤头发"
+      "name": "wk_057 粉瘤头发",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_058",
@@ -1320,7 +1373,8 @@
       "herbs": [
         "五味子",
         "人参"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_059",
@@ -1350,7 +1404,8 @@
       "formulas_referenced": [
         "小柴胡汤",
         "二陈汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_060",
@@ -1370,7 +1425,8 @@
       "name": "wk_060 背痈受寒",
       "herbs": [
         "琥珀"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_061",
@@ -1397,7 +1453,8 @@
       "formulas_referenced": [
         "小柴胡汤",
         "八珍汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_062",
@@ -1418,7 +1475,8 @@
       "herbs": [
         "附子",
         "半夏"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_063",
@@ -1443,7 +1501,8 @@
       ],
       "formulas_referenced": [
         "大防风汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_064",
@@ -1470,7 +1529,8 @@
       ],
       "formulas_referenced": [
         "补中益气汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_065",
@@ -1490,7 +1550,8 @@
       "name": "wk_065 结毒雷火针",
       "formulas_referenced": [
         "十全大补汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_066",
@@ -1510,7 +1571,8 @@
       "name": "wk_066 结毒腐烂",
       "herbs": [
         "萆薢"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_067",
@@ -1530,7 +1592,8 @@
       "name": "wk_067 上腭多骨",
       "formulas_referenced": [
         "十全大补汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_068",
@@ -1550,7 +1613,8 @@
       "name": "wk_068 结毒咽腐",
       "herbs": [
         "土茯苓"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_069",
@@ -1574,7 +1638,8 @@
       ],
       "formulas_referenced": [
         "十全大补汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_070",
@@ -1598,7 +1663,8 @@
       ],
       "formulas_referenced": [
         "八味丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "wk_071",

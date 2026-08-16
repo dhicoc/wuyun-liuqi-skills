@@ -31,7 +31,8 @@
       "entry_id": "yyc_001",
       "entry_type": "yuyicao_case",
       "rag_key": "真阳上脱",
-      "name": "yyc_001 真阳上脱"
+      "name": "yyc_001 真阳上脱",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "yyc_002",
@@ -51,7 +52,8 @@
       "name": "yyc_002 小儿惊风误治",
       "formulas_referenced": [
         "理中汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "yyc_003",
@@ -74,7 +76,8 @@
       ],
       "formulas_referenced": [
         "调胃承气汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "yyc_004",
@@ -94,7 +97,8 @@
       "name": "yyc_004 痢疾误治安胃",
       "formulas_referenced": [
         "四君子汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "yyc_005",
@@ -115,7 +119,8 @@
       "herbs": [
         "人参",
         "附子"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "yyc_006",
@@ -138,7 +143,8 @@
       ],
       "formulas_referenced": [
         "补中益气汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "yyc_007",
@@ -155,7 +161,8 @@
       "entry_id": "yyc_007",
       "entry_type": "yuyicao_case",
       "rag_key": "痢疾",
-      "name": "yyc_007 火毒痢"
+      "name": "yyc_007 火毒痢",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "yyc_008",
@@ -180,7 +187,8 @@
       ],
       "formulas_referenced": [
         "四君子汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "yyc_009",
@@ -200,7 +208,8 @@
       "name": "yyc_009 肺痈燥金",
       "herbs": [
         "阿胶"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "yyc_010",
@@ -217,7 +226,8 @@
       "entry_id": "yyc_010",
       "entry_type": "yuyicao_case",
       "rag_key": "痰病",
-      "name": "yyc_010 痰病根源"
+      "name": "yyc_010 痰病根源",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "yyc_011",
@@ -234,7 +244,8 @@
       "entry_id": "yyc_011",
       "entry_type": "yuyicao_case",
       "rag_key": "血症",
-      "name": "yyc_011 失血辨胃"
+      "name": "yyc_011 失血辨胃",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "yyc_012",
@@ -257,7 +268,8 @@
       ],
       "formulas_referenced": [
         "理中汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "yyc_013",
@@ -277,7 +289,8 @@
       "name": "yyc_013 伤寒津干",
       "formulas_referenced": [
         "白虎汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "yyc_014",
@@ -294,7 +307,8 @@
       "entry_id": "yyc_014",
       "entry_type": "yuyicao_case",
       "rag_key": "伤寒",
-      "name": "yyc_014 内伤外感辨"
+      "name": "yyc_014 内伤外感辨",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "yyc_015",
@@ -314,7 +328,8 @@
       "name": "yyc_015 截疟成胀",
       "formulas_referenced": [
         "理中汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "yyc_016",
@@ -335,7 +350,8 @@
       "herbs": [
         "人参",
         "附子"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "yyc_017",
@@ -355,7 +371,8 @@
       "name": "yyc_017 肠阴久泻",
       "herbs": [
         "阿胶"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "yyc_018",
@@ -377,7 +394,8 @@
       ],
       "formulas_referenced": [
         "四君子汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "yyc_019",
@@ -401,7 +419,8 @@
       "formulas_referenced": [
         "麻黄附子细辛汤",
         "理中汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "yyc_020",
@@ -421,7 +440,8 @@
       "formulas_referenced": [
         "理中汤",
         "补中益气汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "yyc_021",

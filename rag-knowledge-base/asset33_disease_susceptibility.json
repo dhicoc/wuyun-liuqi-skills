@@ -189,7 +189,8 @@
       "constitution_tendency": "肝旺脾虚体质",
       "regulation_direction": "平肝潜阳，健脾和胃。饮食宜酸甘化阴以柔肝，少食辛散助风之物。",
       "source_quote": "木运太过……发生之纪，生气乃物，土气受邪。",
-      "source": "素问·气交变大论 / 素问·五常政大论"
+      "source": "素问·气交变大论 / 素问·五常政大论",
+      "grounding": "cross-edition"
     },
     {
       "entry_id": "ds_010",
@@ -210,7 +211,8 @@
       "constitution_tendency": "心火偏亢体质",
       "regulation_direction": "清心泻火，滋阴降火。饮食宜苦寒清心，少食辛温助火之物。",
       "source_quote": "火运太过……赫曦之纪，火乃大行，金且覆。",
-      "source": "素问·气交变大论 / 素问·五常政大论"
+      "source": "素问·气交变大论 / 素问·五常政大论",
+      "grounding": "cross-edition"
     },
     {
       "entry_id": "ds_011",
@@ -231,7 +233,8 @@
       "constitution_tendency": "肾虚体质，阴或阳不足",
       "regulation_direction": "补肾益精，温阳或滋阴视证而定。饮食宜黑色入肾之品。",
       "source_quote": "水运不及……涸流之纪，是谓反阳，肾乃客邪。",
-      "source": "素问·气交变大论 / 素问·五常政大论"
+      "source": "素问·气交变大论 / 素问·五常政大论",
+      "grounding": "cross-edition"
     },
     {
       "entry_id": "ds_012",
@@ -272,7 +275,8 @@
       "constitution_tendency": "肝虚气郁体质",
       "regulation_direction": "养血柔肝，疏肝理气。饮食宜酸甘化阴，避免过劳伤肝。",
       "source_quote": "木运不及……委和之纪，木不及，金来乘之，肝乃受伤。",
-      "source": "素问·气交变大论 / 素问·五常政大论"
+      "source": "素问·气交变大论 / 素问·五常政大论",
+      "grounding": "cross-edition"
     },
     {
       "entry_id": "ds_014",
@@ -293,7 +297,8 @@
       "constitution_tendency": "心阳不足体质",
       "regulation_direction": "温补心阳，益气活血。饮食宜温补，少食寒凉。",
       "source_quote": "火运不及……伏明之纪，火不及，水来乘之，心乃受伤。",
-      "source": "素问·气交变大论 / 素问·五常政大论"
+      "source": "素问·气交变大论 / 素问·五常政大论",
+      "grounding": "cross-edition"
     },
     {
       "entry_id": "ds_015",
@@ -314,7 +319,8 @@
       "constitution_tendency": "湿盛脾亢体质",
       "regulation_direction": "健脾化湿，温肾利水。饮食宜清淡燥湿，少食肥甘厚味。",
       "source_quote": "岁土太过，雨湿流行，肾水受邪。",
-      "source": "素问·气交变大论 / 素问·五常政大论"
+      "source": "素问·气交变大论 / 素问·五常政大论",
+      "grounding": "cross-edition"
     },
     {
       "entry_id": "ds_016",
@@ -335,7 +341,8 @@
       "constitution_tendency": "脾虚气弱体质",
       "regulation_direction": "健脾益气，调和肝脾。饮食宜温补脾胃，少食生冷。",
       "source_quote": "土运不及……卑监之纪，土不及，木来乘之，脾乃受伤。",
-      "source": "素问·气交变大论 / 素问·五常政大论"
+      "source": "素问·气交变大论 / 素问·五常政大论",
+      "grounding": "cross-edition"
     },
     {
       "entry_id": "ds_017",
@@ -356,7 +363,8 @@
       "constitution_tendency": "燥盛肝郁体质",
       "regulation_direction": "润肺养阴，柔肝理气。饮食宜滋润，少食辛燥。",
       "source_quote": "岁金太过，燥气流行，肝木受邪。",
-      "source": "素问·气交变大论 / 素问·五常政大论"
+      "source": "素问·气交变大论 / 素问·五常政大论",
+      "grounding": "cross-edition"
     },
     {
       "entry_id": "ds_018",
@@ -377,7 +385,8 @@
       "constitution_tendency": "寒盛水偏体质",
       "regulation_direction": "温阳利水，交通心肾。饮食宜温热，少食寒凉。",
       "source_quote": "岁水太过，寒气流行，邪害心火。",
-      "source": "素问·气交变大论 / 素问·五常政大论"
+      "source": "素问·气交变大论 / 素问·五常政大论",
+      "grounding": "cross-edition"
     },
     {
       "entry_id": "ds_019",
@@ -398,7 +407,8 @@
       "constitution_tendency": "肝风偏盛体质",
       "regulation_direction": "平肝息风，健脾和胃。饮食宜酸甘柔肝，少食辛散助风。",
       "source_quote": "厥阴司天，风淫所胜……民病胃脘当心而痛，上支两胁，膈咽不通，饮食不下。",
-      "source": "素问·至真要大论"
+      "source": "素问·至真要大论",
+      "grounding": "cross-edition"
     },
     {
       "entry_id": "ds_020",
@@ -419,7 +429,8 @@
       "constitution_tendency": "火盛体质",
       "regulation_direction": "清热泻火，疏利肝胆。饮食宜苦寒清热，少食辛温助火。",
       "source_quote": "少阳司天，火淫所胜……民病头痛发热恶寒而疟，热上皮肤痛，色变黄赤。",
-      "source": "素问·至真要大论"
+      "source": "素问·至真要大论",
+      "grounding": "cross-edition"
     },
     {
       "entry_id": "ds_021",
@@ -440,7 +451,8 @@
       "constitution_tendency": "燥盛体质",
       "regulation_direction": "润燥养阴，柔肝益肺。饮食宜滋润，少食辛燥。",
       "source_quote": "阳明司天，燥淫所胜……民病左胠胁痛，寒清于中，感而疟，咳。",
-      "source": "素问·至真要大论"
+      "source": "素问·至真要大论",
+      "grounding": "cross-edition"
     },
     {
       "entry_id": "ds_022",
@@ -461,7 +473,8 @@
       "constitution_tendency": "寒盛体质",
       "regulation_direction": "温阳散寒，交通心肾。饮食宜温热，避寒就温。",
       "source_quote": "太阳司天，寒淫所胜……民病血变于中，发为痈疡，心痛痞满。",
-      "source": "素问·至真要大论"
+      "source": "素问·至真要大论",
+      "grounding": "cross-edition"
     },
     {
       "entry_id": "ds_023",
@@ -482,7 +495,8 @@
       "constitution_tendency": "肝风偏盛体质",
       "regulation_direction": "平肝息风，健脾止泻。下半年注意养肝柔筋。",
       "source_quote": "厥阴在泉，风淫所胜……民病洒洒振寒，善伸数欠，心痛支满。",
-      "source": "素问·至真要大论"
+      "source": "素问·至真要大论",
+      "grounding": "cross-edition"
     },
     {
       "entry_id": "ds_024",
@@ -503,7 +517,8 @@
       "constitution_tendency": "心火偏盛体质",
       "regulation_direction": "清心降火，养阴安神。下半年注意清心降火。",
       "source_quote": "少阴在泉，热淫所胜……民病腹中常鸣，气上冲胸，喘不能久立。",
-      "source": "素问·至真要大论"
+      "source": "素问·至真要大论",
+      "grounding": "cross-edition"
     },
     {
       "entry_id": "ds_025",
@@ -524,7 +539,8 @@
       "constitution_tendency": "湿盛体质",
       "regulation_direction": "健脾化湿，利水消肿。下半年注意避湿健脾。",
       "source_quote": "太阴在泉，湿淫所胜……民病饮积，心痛，耳聋浑浑焞焞。",
-      "source": "素问·至真要大论"
+      "source": "素问·至真要大论",
+      "grounding": "cross-edition"
     },
     {
       "entry_id": "ds_026",
@@ -545,7 +561,8 @@
       "constitution_tendency": "火盛体质",
       "regulation_direction": "清热泻火，疏利肝胆。下半年注意清相火。",
       "source_quote": "少阳在泉，火淫所胜……民病注泄赤白，少腹痛，溺赤。",
-      "source": "素问·至真要大论"
+      "source": "素问·至真要大论",
+      "grounding": "cross-edition"
     },
     {
       "entry_id": "ds_027",
@@ -566,7 +583,8 @@
       "constitution_tendency": "燥盛体质",
       "regulation_direction": "润燥养阴，益肺润肠。下半年注意滋阴润燥。",
       "source_quote": "阳明在泉，燥淫所胜……民病喜呕，呕有苦，善太息，心胁痛不能反侧。",
-      "source": "素问·至真要大论"
+      "source": "素问·至真要大论",
+      "grounding": "cross-edition"
     },
     {
       "entry_id": "ds_028",
@@ -587,7 +605,8 @@
       "constitution_tendency": "寒盛体质",
       "regulation_direction": "温阳散寒，补肾固本。下半年注意避寒就温。",
       "source_quote": "太阳在泉，寒淫所胜……民病少腹控睾，引腰脊，上冲心痛。",
-      "source": "素问·至真要大论"
+      "source": "素问·至真要大论",
+      "grounding": "cross-edition"
     },
     {
       "entry_id": "ds_029",
@@ -609,7 +628,8 @@
       "constitution_tendency": "风火偏盛体质",
       "regulation_direction": "平肝泻火，清热息风。饮食宜清凉，少食辛温助火。",
       "source_quote": "厥阴司天，少阳在泉，风火相煽，民病眩晕目赤，胁痛口苦。",
-      "source": "素问·至真要大论（组合推演）"
+      "source": "素问·至真要大论（组合推演）",
+      "grounding": "cross-edition"
     },
     {
       "entry_id": "ds_030",
@@ -631,7 +651,8 @@
       "constitution_tendency": "燥热体质",
       "regulation_direction": "清心润肺，养阴润燥。饮食宜清润，少食辛燥助火。",
       "source_quote": "少阴司天，阳明在泉，火燥合邪，民病心烦失眠，咳逆便秘。",
-      "source": "素问·至真要大论（组合推演）"
+      "source": "素问·至真要大论（组合推演）",
+      "grounding": "cross-edition"
     },
     {
       "entry_id": "ds_031",
@@ -653,7 +674,8 @@
       "constitution_tendency": "寒湿体质",
       "regulation_direction": "温阳散寒，健脾化湿。饮食宜温热燥湿，避寒湿。",
       "source_quote": "太阴司天，太阳在泉，寒湿合邪，民病水肿痹证，脘腹冷痛。",
-      "source": "素问·至真要大论（组合推演）"
+      "source": "素问·至真要大论（组合推演）",
+      "grounding": "cross-edition"
     },
     {
       "entry_id": "ds_032",
@@ -675,7 +697,8 @@
       "constitution_tendency": "风火体质",
       "regulation_direction": "清泻肝胆，息风降火。饮食宜清凉泻火，少食辛温助风。",
       "source_quote": "少阳司天，厥阴在泉，风火相煽，民病惊悸眩晕，胁痛口苦。",
-      "source": "素问·至真要大论（组合推演）"
+      "source": "素问·至真要大论（组合推演）",
+      "grounding": "cross-edition"
     },
     {
       "entry_id": "ds_033",
@@ -697,7 +720,8 @@
       "constitution_tendency": "燥热体质",
       "regulation_direction": "润肺清心，养阴润燥。饮食宜清润，少食辛燥。",
       "source_quote": "阳明司天，少阴在泉，金火相克，民病干咳心烦，皮肤燥裂。",
-      "source": "素问·至真要大论（组合推演）"
+      "source": "素问·至真要大论（组合推演）",
+      "grounding": "cross-edition"
     }
   ]
 }

@@ -37,7 +37,8 @@
         "归脾汤",
         "八珍汤",
         "独参汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zj_002",
@@ -54,7 +55,8 @@
       "entry_id": "zj_002",
       "entry_type": "zhenyujuji_case",
       "rag_key": "春温",
-      "name": "zj_002 春温夹滞"
+      "name": "zj_002 春温夹滞",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zj_003",
@@ -76,7 +78,8 @@
         "生姜",
         "白芍",
         "桂枝"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zj_004",
@@ -100,7 +103,8 @@
         "附子",
         "干姜",
         "陈皮"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zj_005",
@@ -123,7 +127,8 @@
       ],
       "formulas_referenced": [
         "橘皮竹茹汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zj_006",
@@ -143,7 +148,8 @@
       "name": "zj_006 久痢正虚",
       "formulas_referenced": [
         "补中益气汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zj_007",
@@ -163,7 +169,8 @@
       "name": "zj_007 湿热痢",
       "herbs": [
         "葛根"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zj_008",
@@ -180,7 +187,8 @@
       "entry_id": "zj_008",
       "entry_type": "zhenyujuji_case",
       "rag_key": "痢疾",
-      "name": "zj_008 七年血痢"
+      "name": "zj_008 七年血痢",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zj_009",
@@ -203,7 +211,8 @@
       ],
       "formulas_referenced": [
         "理中汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zj_010",
@@ -225,7 +234,8 @@
         "白术",
         "砂仁",
         "陈皮"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zj_011",
@@ -250,7 +260,8 @@
       ],
       "formulas_referenced": [
         "黄芪建中汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zj_012",
@@ -267,7 +278,8 @@
       "entry_id": "zj_012",
       "entry_type": "zhenyujuji_case",
       "rag_key": "中风",
-      "name": "zj_012 阴虚中风"
+      "name": "zj_012 阴虚中风",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zj_015",
@@ -284,7 +296,8 @@
       "entry_id": "zj_015",
       "entry_type": "zhenyujuji_case",
       "rag_key": "经闭",
-      "name": "zj_015 热闭经"
+      "name": "zj_015 热闭经",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zj_016",
@@ -301,7 +314,8 @@
       "entry_id": "zj_016",
       "entry_type": "zhenyujuji_case",
       "rag_key": "经闭",
-      "name": "zj_016 寒闭经"
+      "name": "zj_016 寒闭经",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zj_017",
@@ -332,7 +346,8 @@
       "formulas_referenced": [
         "白虎汤",
         "承气汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zj_018",
@@ -355,7 +370,8 @@
       ],
       "formulas_referenced": [
         "补中益气汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zj_019",
@@ -387,7 +403,8 @@
       ],
       "formulas_referenced": [
         "大羌活汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zj_020",
@@ -409,7 +426,8 @@
         "鹿茸",
         "人参"
       ],
-      "formulas_referenced": []
+      "formulas_referenced": [],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zj_021",
@@ -436,7 +454,8 @@
         "生脉散",
         "香砂六君丸",
         "金匮肾气丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zj_022",
@@ -509,7 +528,8 @@
       "formulas_referenced": [
         "润气汤",
         "白虎汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zj_025",
@@ -565,7 +585,8 @@
       ],
       "formulas_referenced": [
         "二陈汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zj_027",
@@ -594,7 +615,8 @@
       ],
       "formulas_referenced": [
         "十全大补汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zj_028",
@@ -628,7 +650,8 @@
       "formulas_referenced": [
         "六味地黄汤",
         "补中益气汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zj_029",
@@ -653,7 +676,8 @@
         "四逆汤",
         "四神丸",
         "半硫丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zj_030",
@@ -688,7 +712,8 @@
       ],
       "formulas_referenced": [
         "清燥汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zj_031",
@@ -759,7 +784,8 @@
       "name": "zj_033 湿热痿",
       "formulas_referenced": [
         "清燥汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zj_034",
@@ -803,7 +829,8 @@
         "舟车丸",
         "五皮饮",
         "麦门冬汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zj_036",

@@ -28,7 +28,7 @@
       "treatment": "大补气血托里，忌攻伐；误服攻毒药致胃气竭",
       "formula": "（宜大补托里之剂）；彼误服太乙锭子至四次，饮食不进疮色黑陷吃逆不绝胃气虚极不治",
       "outcome": "误服攻毒药四次致饮食不进疮色黑陷吃逆不绝，强投温中健脾不应急而死；对照近胁患者投大补之剂溃而已愈",
-      "source_quote": "凡大癰疽，借氣血爲主，若患而不起，或潰而不腐，或不收斂，及膿少或清，皆氣血之虛也，宜大補之。最忌攻伐之劑。",
+      "source_quote": "凡大癰疽，借氣\n血爲主，若患而不起，或潰而不腐，或不收斂，及膿少或清，皆氣\n血之虛也，宜大補之。最忌攻伐之劑。",
       "note": "痈疽不起发为气血虚不能为脓，大补托里最忌攻伐，误攻致胃气竭死",
       "entry_id": "lz_001",
       "entry_type": "lizhai_waike_case",
@@ -50,7 +50,7 @@
       "treatment": "益气健脾托里",
       "formula": "六君子汤加黄芪川芎当归四剂，更以托里散月余而敛",
       "outcome": "四剂而愈，更以托里散月余而敛",
-      "source_quote": "一男子患毒，潰後作痛，肢體倦怠，瘡口不合，飲食不甘。以六君子湯加黃、川芎、當歸，四劑而愈。更以托裏散月余而斂。",
+      "source_quote": "一男子患毒，潰後作痛，肢體倦怠，瘡口不合，飲食不甘。以六君子湯加黃、川芎、\n當歸，四劑而愈。更以托裏散月余而斂。",
       "note": "溃后作痛倦怠疮口不合，气血虚当益气健脾托里",
       "entry_id": "lz_002",
       "entry_type": "lizhai_waike_case",
@@ -115,7 +115,8 @@
       "external_manifestation": "溃后反痛",
       "external_key": "溃疡",
       "chain": "脓出正虚→溃后反痛→大补气血",
-      "name": "lz_004 溃后反痛"
+      "name": "lz_004 溃后反痛",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_005",
@@ -137,7 +138,8 @@
       "external_manifestation": "发背肿软脓稀或肿坚脓稠",
       "external_key": "发背",
       "chain": "气血虚实→发背肿势脓质之辨",
-      "name": "lz_005 发背辨虚实"
+      "name": "lz_005 发背辨虚实",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_006",
@@ -149,7 +151,7 @@
       "treatment": "（依原案，滋阴降火内外兼治）",
       "formula": "（薛氏原案，滋阴托里之剂）",
       "outcome": "（依方获效）",
-      "source_quote": "脱疽（謂疔生於足趾，或足潰而自脱，故名脱疽。亦有发於手指者，名曰蛀節疔，重者腐去本節，輕者筋挛。）",
+      "source_quote": "脱疽（謂疔生於足趾，或足潰而自脱，故名脱疽。 亦有发於手指者，名曰蛀節疔，重者腐去本節，輕者筋挛。）",
       "note": "脱疽阴血亏虚虚火致，滋阴降火托里",
       "entry_id": "lz_006",
       "entry_type": "lizhai_waike_case",
@@ -171,7 +173,7 @@
       "treatment": "（依原案，补益为主）",
       "formula": "（薛氏原案，补益气血之剂）",
       "outcome": "（依方获效）",
-      "source_quote": "及患後當調養，若瘰流注之證，尤當補益也。否則更患他證，必難措治，慎之。",
+      "source_quote": "及患後當調養，若瘰流注之證，尤當補益也。否則更患他證\n，必難措治，慎之。",
       "note": "瘰疬流注尤当补益，忌攻伐",
       "entry_id": "lz_007",
       "entry_type": "lizhai_waike_case",
@@ -203,7 +205,8 @@
       "external_manifestation": "肩患毒肿硬作痛",
       "external_key": "疔疮",
       "chain": "热毒盛→血气不亏→痈肿可攻",
-      "name": "lz_011 疔疮热毒"
+      "name": "lz_011 疔疮热毒",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_013",
@@ -225,7 +228,8 @@
       "external_manifestation": "痈疽发而不溃脓清",
       "external_key": "痈疽",
       "chain": "气血虚→不能培养为脓→痈疽不溃脓清",
-      "name": "lz_013 痈疽脓清"
+      "name": "lz_013 痈疽脓清",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_014",
@@ -254,7 +258,8 @@
       ],
       "formulas_referenced": [
         "托里消毒散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_015",
@@ -308,7 +313,8 @@
       ],
       "formulas_referenced": [
         "八珍汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_017",
@@ -330,7 +336,8 @@
       "external_manifestation": "溃后反痛脉软涩",
       "external_key": "溃疡",
       "chain": "脓出正虚→溃后反痛→大补气血",
-      "name": "lz_017 溃后反痛补"
+      "name": "lz_017 溃后反痛补",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_018",
@@ -352,7 +359,8 @@
       "external_manifestation": "疔疮作痒欲饮水",
       "external_key": "疔疮",
       "chain": "肝脾湿热→疔疮作痒",
-      "name": "lz_018 疔疮湿热"
+      "name": "lz_018 疔疮湿热",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_019",
@@ -381,7 +389,8 @@
       ],
       "formulas_referenced": [
         "四物汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_020",
@@ -408,7 +417,8 @@
         "地骨皮",
         "人参",
         "柴胡"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_021",
@@ -436,7 +446,8 @@
       ],
       "formulas_referenced": [
         "十全大补汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_022",
@@ -461,7 +472,8 @@
       "name": "lz_022 肿疡透脓",
       "formulas_referenced": [
         "仙方活命饮"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_023",
@@ -489,7 +501,8 @@
       ],
       "formulas_referenced": [
         "仙方活命饮"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_024",
@@ -536,7 +549,8 @@
       "external_manifestation": "痈肿大痛赤晕势炽",
       "external_key": "痈疽",
       "chain": "毒盛脉弱→忌峻攻→砭刺泄毒",
-      "name": "lz_025 痈毒脉弱"
+      "name": "lz_025 痈毒脉弱",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_026",
@@ -548,7 +562,7 @@
       "treatment": "隔蒜灸散毒托里",
       "formula": "隔蒜灸二十余壮而止，托里药渐溃，大补药桑柴灸腐肉取之而寻愈",
       "outcome": "取之而寻愈",
-      "source_quote": "常治一日至四五日未成膿而痛者，灸至不痛，不痛者灸至痛。若灸而不痛，或麻木者，明灸之，毒氣自然隨火而散。",
+      "source_quote": "常治一日至四五日未成膿而痛\n者，灸至不痛，不痛者灸至痛。若灸而不痛，或麻木者，明灸之，毒氣自然隨火而散。",
       "note": "痈疽不脓痛甚隔蒜灸散毒，不痛灸至痛",
       "entry_id": "lz_026",
       "entry_type": "lizhai_waike_case",
@@ -591,7 +605,8 @@
         "参苓白术散",
         "十全大补汤",
         "托里消毒散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_028",
@@ -617,7 +632,8 @@
       "herbs": [
         "黄连",
         "莲子"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_029",
@@ -649,7 +665,8 @@
       ],
       "formulas_referenced": [
         "十宣散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_030",
@@ -674,7 +691,8 @@
       "name": "lz_030 翻肉如菌",
       "herbs": [
         "乌梅"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_031",
@@ -699,7 +717,8 @@
       "name": "lz_031 痈肿硬出水",
       "formulas_referenced": [
         "仙方活命饮"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_032",
@@ -721,7 +740,8 @@
       "external_manifestation": "脓将成微痛兼渴尺脉大无力",
       "external_key": "痈疽",
       "chain": "阴虚火动→脓成渴→滋阴托里",
-      "name": "lz_032 痈阴虚火动"
+      "name": "lz_032 痈阴虚火动",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_033",
@@ -743,7 +763,8 @@
       "external_manifestation": "肿痛发热脓清作渴脉软涩",
       "external_key": "痈疽",
       "chain": "气血虚→脓清作渴→托里为主",
-      "name": "lz_033 痈脓清虚"
+      "name": "lz_033 痈脓清虚",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_034",
@@ -774,7 +795,8 @@
       "formulas_referenced": [
         "十全大补汤",
         "六君子汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_035",
@@ -786,7 +808,7 @@
       "treatment": "补气血托脓",
       "formula": "十全大补汤数剂始托起乃针之又二十余剂而愈",
       "outcome": "又二十余剂而愈",
-      "source_quote": "夫臀居僻位，氣血罕到，老弱人患之，尤宜補其氣血，庶可保痊。",
+      "source_quote": "夫\n臀居僻位，氣血罕到，老弱人患之，尤宜補其氣血，庶可保痊。",
       "note": "臀痈脓成不溃尤宜补气血",
       "entry_id": "lz_035",
       "entry_type": "lizhai_waike_case",
@@ -824,7 +846,8 @@
       "name": "lz_036 附骨疽",
       "herbs": [
         "当归"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_037",
@@ -854,7 +877,8 @@
       ],
       "formulas_referenced": [
         "二陈汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_038",
@@ -889,7 +913,8 @@
       ],
       "formulas_referenced": [
         "四物汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_039",
@@ -933,7 +958,8 @@
       "external_manifestation": "劳咳项强痛肺痈未成脓",
       "external_key": "肺痈",
       "chain": "肺虚→劳咳项痛→托里益气",
-      "name": "lz_040 肺痈托里"
+      "name": "lz_040 肺痈托里",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_041",
@@ -958,7 +984,8 @@
       "name": "lz_041 肠痈排脓",
       "herbs": [
         "栝蒌"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_042",
@@ -980,7 +1007,8 @@
       "external_manifestation": "经后腹痛产后恶露腹痛",
       "external_key": "肠痈",
       "chain": "瘀血停滞→腹痛→失笑瓜子仁汤",
-      "name": "lz_042 瘀血腹痛"
+      "name": "lz_042 瘀血腹痛",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_043",
@@ -1002,7 +1030,8 @@
       "external_manifestation": "面肿硬不消不作脓",
       "external_key": "瘰疬",
       "chain": "气血虚→痰凝肿硬→灸法养荣",
-      "name": "lz_043 瘰疬灸法"
+      "name": "lz_043 瘰疬灸法",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_044",
@@ -1014,7 +1043,7 @@
       "treatment": "实者先下后补，虚者先补后下",
       "formula": "神效散下之，益气养荣汤三十余剂而消",
       "outcome": "三十余剂而消",
-      "source_quote": "常治此證，虛者先用益氣養榮湯，待其氣血稍充，乃用神效散，取去其毒，仍進前藥，無不效者。",
+      "source_quote": "常治此證，虛者先用益\n氣養榮湯，待其氣血稍充，乃用神效散，取去其毒，仍進前藥，無不效者。",
       "note": "瘰疬辨虚实，虚者先补后攻",
       "entry_id": "lz_044",
       "entry_type": "lizhai_waike_case",
@@ -1049,7 +1078,8 @@
       "name": "lz_045 流注固元",
       "herbs": [
         "附子"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_046",
@@ -1078,7 +1108,8 @@
       ],
       "formulas_referenced": [
         "补中益气汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_047",
@@ -1103,7 +1134,8 @@
       "name": "lz_047 杨梅疮",
       "herbs": [
         "萆薢"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_048",
@@ -1128,7 +1160,8 @@
       "name": "lz_048 便痈通利",
       "formulas_referenced": [
         "龙胆泻肝汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_049",
@@ -1153,7 +1186,8 @@
       "name": "lz_049 便痈毒未解",
       "formulas_referenced": [
         "仙方活命饮"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_050",
@@ -1179,7 +1213,8 @@
       "herbs": [
         "白术",
         "茯苓"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_051",
@@ -1210,7 +1245,8 @@
       "formulas_referenced": [
         "仙方活命饮",
         "八珍汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_052",
@@ -1232,7 +1268,8 @@
       "external_manifestation": "脓熟胀痛便秘",
       "external_key": "悬痈",
       "chain": "湿热→脓熟→急针排脓",
-      "name": "lz_052 悬痈急针"
+      "name": "lz_052 悬痈急针",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_053",
@@ -1257,7 +1294,8 @@
       "name": "lz_053 茎痒清心",
       "herbs": [
         "莲子"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_054",
@@ -1283,7 +1321,8 @@
       "formulas_referenced": [
         "补中益气汤",
         "逍遥散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_055",
@@ -1305,7 +1344,8 @@
       "external_manifestation": "乳少通药致乳房肿胀",
       "external_key": "乳痈",
       "chain": "气血虚→乳少→误通致肿→玉露补",
-      "name": "lz_055 乳痈乳少"
+      "name": "lz_055 乳痈乳少",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_056",
@@ -1332,7 +1372,8 @@
         "人参",
         "当归",
         "荆芥"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_057",
@@ -1357,7 +1398,8 @@
       "name": "lz_057 疮疥刺血",
       "formulas_referenced": [
         "四物汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_058",
@@ -1369,7 +1411,7 @@
       "treatment": "针毒血隔蒜灸",
       "formula": "急针患处出毒血，隔蒜灸良久而醒，太乙膏进汤药",
       "outcome": "良久而醒",
-      "source_quote": "一男子風犬所傷，牙關緊急，不省人事，急針患處出毒血；更隔蒜灸，良久而醒，用太乙膏進湯藥。",
+      "source_quote": "一男子風犬所傷，牙關緊急，不省人事，急針患處出毒血；更隔蒜灸，良久而醒，用太\n乙膏\n進湯藥。",
       "note": "风犬伤急针毒血隔蒜灸救",
       "entry_id": "lz_058",
       "entry_type": "lizhai_waike_case",
@@ -1409,7 +1451,8 @@
       ],
       "formulas_referenced": [
         "二陈汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_060",
@@ -1431,7 +1474,8 @@
       "external_manifestation": "脚气附骨痈作痛",
       "external_key": "脚气",
       "chain": "湿毒深伏→脚气骨痈→活络丹",
-      "name": "lz_060 脚气活络"
+      "name": "lz_060 脚气活络",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_061",
@@ -1453,7 +1497,8 @@
       "external_manifestation": "咽喉肿闭牙关紧急",
       "external_key": "咽喉",
       "chain": "热毒→咽肿闭→刺少商",
-      "name": "lz_061 咽喉肿闭"
+      "name": "lz_061 咽喉肿闭",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_062",
@@ -1475,7 +1520,8 @@
       "external_manifestation": "乳蛾肿痛脉浮数",
       "external_key": "咽喉",
       "chain": "风热→乳蛾肿痛→刺血败毒散",
-      "name": "lz_062 乳蛾刺血"
+      "name": "lz_062 乳蛾刺血",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_063",
@@ -1522,7 +1568,8 @@
       "name": "lz_064 便血湿热",
       "herbs": [
         "黄连"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_065",
@@ -1544,7 +1591,8 @@
       "external_manifestation": "脏毒下血食少肢倦",
       "external_key": "便血",
       "chain": "脾虚→不摄血→补中六君",
-      "name": "lz_065 便血脾虚"
+      "name": "lz_065 便血脾虚",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_066",
@@ -1604,7 +1652,8 @@
       ],
       "formulas_referenced": [
         "小柴胡汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_068",
@@ -1635,7 +1684,8 @@
       ],
       "formulas_referenced": [
         "四物汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_069",
@@ -1657,7 +1707,8 @@
       "external_manifestation": "乳岩结核如粟",
       "external_key": "乳岩",
       "chain": "郁结→乳岩→解郁养气血",
-      "name": "lz_069 乳岩戒伐"
+      "name": "lz_069 乳岩戒伐",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_070",
@@ -1686,7 +1737,8 @@
       ],
       "formulas_referenced": [
         "逍遥散"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_071",
@@ -1715,7 +1767,8 @@
       ],
       "formulas_referenced": [
         "补中益气汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_072",
@@ -1744,7 +1797,8 @@
       ],
       "formulas_referenced": [
         "小柴胡汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_073",
@@ -1756,7 +1810,7 @@
       "treatment": "隔蒜灸解表清毒",
       "formula": "隔蒜灸之，人参败毒散去桔梗加金银花白芷大黄二剂痛止，十宣散去桔梗官桂加天花粉金银花数剂而痊",
       "outcome": "数剂而痊",
-      "source_quote": "一男子足趾患之，痛色赤發熱，隔蒜灸之，更以人參敗毒散去桔梗，加金銀花、白芷、大黃，二劑痛止。",
+      "source_quote": "一男子足趾患之，痛色赤發熱，隔蒜灸之，更以人參敗毒散去桔梗，加金銀花、白芷\n、大黃，二劑痛止。",
       "note": "足趾脱疽色赤尚可，隔蒜灸清毒",
       "entry_id": "lz_073",
       "entry_type": "lizhai_waike_case",
@@ -1801,7 +1855,8 @@
       "name": "lz_074 肺痿平肺",
       "herbs": [
         "人参"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_075",
@@ -1826,7 +1881,8 @@
       "name": "lz_075 肺痿阴虚",
       "herbs": [
         "地骨皮"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_076",
@@ -1838,7 +1894,7 @@
       "treatment": "砭血泄毒通便",
       "formula": "砭患处去恶血，防风通圣散即愈",
       "outcome": "砭血后即愈",
-      "source_quote": "一男子患丹毒，痛便秘，脈數而實，服防風通聖散不應，令砭患處，去惡血，仍用前藥即愈。",
+      "source_quote": "一男子患丹毒，痛便秘，脈數而實，服防風通聖散不應，令砭患處，去惡血，仍用前\n藥即愈。",
       "note": "丹毒便秘砭血泄毒",
       "entry_id": "lz_076",
       "entry_type": "lizhai_waike_case",
@@ -1873,7 +1929,8 @@
       "external_manifestation": "小儿遍身赤丹毒",
       "external_key": "丹毒",
       "chain": "恶毒→丹毒遍身赤→砭泄毒",
-      "name": "lz_077 小儿丹毒"
+      "name": "lz_077 小儿丹毒",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_078",
@@ -1901,7 +1958,8 @@
       ],
       "formulas_referenced": [
         "小柴胡汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_079",
@@ -1933,7 +1991,8 @@
       ],
       "formulas_referenced": [
         "小柴胡汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_080",
@@ -1958,7 +2017,8 @@
       "name": "lz_080 破伤风",
       "herbs": [
         "当归"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_081",
@@ -1984,7 +2044,8 @@
       "herbs": [
         "人参",
         "荆芥"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_082",
@@ -2011,7 +2072,8 @@
         "桃仁",
         "柴胡",
         "红花"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_083",
@@ -2061,7 +2123,8 @@
       ],
       "formulas_referenced": [
         "仙方活命饮"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_085",
@@ -2089,7 +2152,8 @@
       ],
       "formulas_referenced": [
         "补中益气汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_086",
@@ -2111,7 +2175,8 @@
       "external_manifestation": "面患毒痛发热作渴",
       "external_key": "面毒",
       "chain": "热毒→面毒作渴→凉膈散",
-      "name": "lz_086 面毒凉膈"
+      "name": "lz_086 面毒凉膈",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_087",
@@ -2144,7 +2209,8 @@
       ],
       "formulas_referenced": [
         "小柴胡汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_088",
@@ -2166,7 +2232,8 @@
       "external_manifestation": "患而不溃既溃不敛发热口干",
       "external_key": "瘰疬",
       "chain": "久郁→气血虚→不溃不敛→养荣",
-      "name": "lz_088 瘰疬久郁"
+      "name": "lz_088 瘰疬久郁",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_089",
@@ -2195,7 +2262,8 @@
       "formulas_referenced": [
         "十全大补汤",
         "六君子汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_090",
@@ -2222,7 +2290,8 @@
         "十全大补汤",
         "六君子汤",
         "理中汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_091",
@@ -2244,7 +2313,8 @@
       "external_manifestation": "咽喉肿闭痰涎壅甚",
       "external_key": "咽喉",
       "chain": "痰热→咽闭痰壅→胆矾吐痰",
-      "name": "lz_091 咽喉胆矾"
+      "name": "lz_091 咽喉胆矾",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_092",
@@ -2266,7 +2336,8 @@
       "external_manifestation": "咽喉肿痛药不能下",
       "external_key": "咽喉",
       "chain": "热毒→咽肿药不下→针毒破棺丹",
-      "name": "lz_092 咽喉破棺丹"
+      "name": "lz_092 咽喉破棺丹",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_093",
@@ -2278,7 +2349,7 @@
       "treatment": "实者通下虚者补中",
       "formula": "承气汤一剂即止；补中益气汤加黄连生地黄石膏",
       "outcome": "不复作",
-      "source_quote": "一男子齿痛甚，胃脈數實，以承氣湯一劑即止。一男子齿痛，脈浮無力，以補中益氣湯，加黃連、生地黃、石膏治之，不復作。",
+      "source_quote": "一男子齿痛甚，胃脈數實，以承氣湯一劑即止。\n一男子齿痛，脈浮無力，以補中益氣湯，加黃連、生地黃、石膏治之，不復作。",
       "note": "齿痛辨胃实热承气与中气不足补中",
       "entry_id": "lz_093",
       "entry_type": "lizhai_waike_case",
@@ -2308,7 +2379,7 @@
       "treatment": "养血清热化瘀",
       "formula": "四物汤加芩连红花桃仁牡丹皮数剂稍止又数剂而愈",
       "outcome": "又数剂而愈",
-      "source_quote": "一婦人患痔，腫痛甚，以四物湯加芩、連、紅花、桃仁、牡丹皮，數劑稍止，又數劑而愈。",
+      "source_quote": "一婦人患痔，腫痛甚，以四物湯加芩、連、紅花、桃仁、牡丹皮，數劑稍止，又數劑\n而愈。",
       "note": "痔肿痛四物清瘀",
       "entry_id": "lz_094",
       "entry_type": "lizhai_waike_case",
@@ -2355,7 +2426,8 @@
       ],
       "formulas_referenced": [
         "补中益气汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_096",
@@ -2380,7 +2452,8 @@
       "name": "lz_096 便血湿热和血",
       "herbs": [
         "槐花"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_097",
@@ -2392,7 +2465,7 @@
       "treatment": "解郁结补气血",
       "formula": "龙荟丸二服诸证稍退（宜解郁结）",
       "outcome": "不从解郁杂用攻伐辞不治果死",
-      "source_quote": "膿成不潰，陽氣虛不能鼓舞也，便秘發熱，陰血竭不能濡潤也。",
+      "source_quote": "膿成不潰，陽\n氣虛不能鼓舞也，便秘發熱，陰血竭不能濡潤也。",
       "note": "乳岩脓成不溃阳气虚，忌攻伐",
       "entry_id": "lz_097",
       "entry_type": "lizhai_waike_case",
@@ -2430,7 +2503,8 @@
         "人参",
         "防风",
         "当归"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_099",
@@ -2452,7 +2526,8 @@
       "external_manifestation": "跌仆两胁作胀口干自汗",
       "external_key": "跌扑",
       "chain": "跌仆→瘀血归肝→童便破血",
-      "name": "lz_099 跌仆瘀肝"
+      "name": "lz_099 跌仆瘀肝",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_100",
@@ -2477,7 +2552,8 @@
       "name": "lz_100 痈毒活命饮",
       "formulas_referenced": [
         "仙方活命饮"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_101",
@@ -2506,7 +2582,8 @@
       "formulas_referenced": [
         "十全大补汤",
         "大防风汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_102",
@@ -2534,7 +2611,8 @@
       ],
       "formulas_referenced": [
         "大防风汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_103",
@@ -2556,7 +2634,8 @@
       "external_manifestation": "腿肿筋挛不能动履",
       "external_key": "腿痈",
       "chain": "寒湿→腿肿筋挛→交加活络丹",
-      "name": "lz_103 腿挛通络"
+      "name": "lz_103 腿挛通络",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_104",
@@ -2581,7 +2660,8 @@
       "name": "lz_104 咳喘葶苈",
       "herbs": [
         "桔梗"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_105",
@@ -2636,7 +2716,8 @@
       ],
       "formulas_referenced": [
         "四物汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_107",
@@ -2668,7 +2749,8 @@
       ],
       "formulas_referenced": [
         "八珍汤"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_108",
@@ -2680,7 +2762,7 @@
       "treatment": "解表疏肝",
       "formula": "人参败毒散二剂表证已退，小柴胡汤加芎归枳壳桔梗四剂而消",
       "outcome": "四剂而消",
-      "source_quote": "一婦人因怒，兩乳腫，兼頭痛、寒熱，以人參敗毒散，二劑表證已退；以小柴胡湯加芎、歸、枳殼、桔梗，四劑而消。",
+      "source_quote": "一婦人因怒，兩乳腫，兼頭痛、寒熱，以人參敗毒散，二劑表證已退；以小柴胡湯加芎\n、歸、枳殼、桔梗，四劑而消。",
       "note": "怒乳肿兼表证，败毒散解表小柴胡疏肝",
       "entry_id": "lz_108",
       "entry_type": "lizhai_waike_case",
@@ -2721,7 +2803,8 @@
       "external_manifestation": "肿痛发寒热",
       "external_key": "便痈",
       "chain": "湿热兼表→便痈寒热→败毒双解",
-      "name": "lz_109 便痈寒热"
+      "name": "lz_109 便痈寒热",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_110",
@@ -2768,7 +2851,8 @@
       "name": "lz_111 脑疽八味丸",
       "formulas_referenced": [
         "八味丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "lz_112",
@@ -2790,7 +2874,8 @@
       "external_manifestation": "小儿疹作痛发热烦渴",
       "external_key": "疹",
       "chain": "风热在络→疹痛热→禁下透表",
-      "name": "lz_112 疹禁下"
+      "name": "lz_112 疹禁下",
+      "grounding": "cross-edition"
     }
   ]
 }

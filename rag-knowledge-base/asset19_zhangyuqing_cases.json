@@ -45,7 +45,8 @@
         "半夏",
         "远志",
         "郁金"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_002",
@@ -79,7 +80,8 @@
       "entry_id": "zyq_003",
       "entry_type": "zhangyuqing_case",
       "rag_key": "风温",
-      "name": "zyq_003 风温·清肃肺卫"
+      "name": "zyq_003 风温·清肃肺卫",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_004",
@@ -104,7 +106,8 @@
         "杏仁",
         "郁金",
         "藿香"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_005",
@@ -146,7 +149,8 @@
       "entry_id": "zyq_006",
       "entry_type": "zhangyuqing_case",
       "rag_key": "伏暑",
-      "name": "zyq_006 伏暑·清暑化湿"
+      "name": "zyq_006 伏暑·清暑化湿",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_007",
@@ -163,7 +167,8 @@
       "entry_id": "zyq_007",
       "entry_type": "zhangyuqing_case",
       "rag_key": "疟",
-      "name": "zyq_007 疟·辨证施治"
+      "name": "zyq_007 疟·辨证施治",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_008",
@@ -180,7 +185,8 @@
       "entry_id": "zyq_008",
       "entry_type": "zhangyuqing_case",
       "rag_key": "霍乱",
-      "name": "zyq_008 霍乱·辨寒热"
+      "name": "zyq_008 霍乱·辨寒热",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_009",
@@ -235,7 +241,8 @@
         "桔梗",
         "杏仁",
         "贝母"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_011",
@@ -257,7 +264,8 @@
         "女贞子",
         "茯苓",
         "牡蛎"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_012",
@@ -327,7 +335,8 @@
       "entry_id": "zyq_014",
       "entry_type": "zhangyuqing_case",
       "rag_key": "痰饮",
-      "name": "zyq_014 痰饮·温化蠲饮"
+      "name": "zyq_014 痰饮·温化蠲饮",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_015",
@@ -419,7 +428,8 @@
       "entry_id": "zyq_018",
       "entry_type": "zhangyuqing_case",
       "rag_key": "脘痛",
-      "name": "zyq_018 脘痛·调肝和胃"
+      "name": "zyq_018 脘痛·调肝和胃",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_019",
@@ -436,7 +446,8 @@
       "entry_id": "zyq_019",
       "entry_type": "zhangyuqing_case",
       "rag_key": "泄泻",
-      "name": "zyq_019 泄泻·扶土抑木"
+      "name": "zyq_019 泄泻·扶土抑木",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_020",
@@ -465,7 +476,8 @@
         "当归",
         "青皮",
         "阿胶"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_021",
@@ -508,7 +520,8 @@
       "entry_id": "zyq_022",
       "entry_type": "zhangyuqing_case",
       "rag_key": "肿胀",
-      "name": "zyq_022 肿胀·辨水湿"
+      "name": "zyq_022 肿胀·辨水湿",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_023",
@@ -525,7 +538,8 @@
       "entry_id": "zyq_023",
       "entry_type": "zhangyuqing_case",
       "rag_key": "风痹",
-      "name": "zyq_023 风痹·祛风通络"
+      "name": "zyq_023 风痹·祛风通络",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_024",
@@ -542,7 +556,8 @@
       "entry_id": "zyq_024",
       "entry_type": "zhangyuqing_case",
       "rag_key": "遗精",
-      "name": "zyq_024 遗精·辨虚实"
+      "name": "zyq_024 遗精·辨虚实",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_025",
@@ -559,7 +574,8 @@
       "entry_id": "zyq_025",
       "entry_type": "zhangyuqing_case",
       "rag_key": "不寐",
-      "name": "zyq_025 不寐·辨痰热"
+      "name": "zyq_025 不寐·辨痰热",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_026",
@@ -636,7 +652,8 @@
       "entry_id": "zyq_028",
       "entry_type": "zhangyuqing_case",
       "rag_key": "产后",
-      "name": "zyq_028 产后·辨虚实"
+      "name": "zyq_028 产后·辨虚实",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_029",
@@ -653,7 +670,8 @@
       "entry_id": "zyq_029",
       "entry_type": "zhangyuqing_case",
       "rag_key": "虚损",
-      "name": "zyq_029 虚损·辨脏亏"
+      "name": "zyq_029 虚损·辨脏亏",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_030",
@@ -670,7 +688,8 @@
       "entry_id": "zyq_030",
       "entry_type": "zhangyuqing_case",
       "rag_key": "痰湿痰气",
-      "name": "zyq_030 痰湿·化痰理气"
+      "name": "zyq_030 痰湿·化痰理气",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_031",
@@ -687,7 +706,8 @@
       "entry_id": "zyq_031",
       "entry_type": "zhangyuqing_case",
       "rag_key": "肝火肝阳",
-      "name": "zyq_031 肝火·清肝平阳"
+      "name": "zyq_031 肝火·清肝平阳",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_032",
@@ -704,7 +724,8 @@
       "entry_id": "zyq_032",
       "entry_type": "zhangyuqing_case",
       "rag_key": "头痛",
-      "name": "zyq_032 头痛·辨证"
+      "name": "zyq_032 头痛·辨证",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_033",
@@ -721,7 +742,8 @@
       "entry_id": "zyq_033",
       "entry_type": "zhangyuqing_case",
       "rag_key": "呕吐",
-      "name": "zyq_033 呕吐·和胃降逆"
+      "name": "zyq_033 呕吐·和胃降逆",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_034",
@@ -738,7 +760,8 @@
       "entry_id": "zyq_034",
       "entry_type": "zhangyuqing_case",
       "rag_key": "便闭",
-      "name": "zyq_034 便闭·辨证"
+      "name": "zyq_034 便闭·辨证",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_035",
@@ -755,7 +778,8 @@
       "entry_id": "zyq_035",
       "entry_type": "zhangyuqing_case",
       "rag_key": "消渴",
-      "name": "zyq_035 消渴·辨三消"
+      "name": "zyq_035 消渴·辨三消",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_036",
@@ -772,7 +796,8 @@
       "entry_id": "zyq_036",
       "entry_type": "zhangyuqing_case",
       "rag_key": "淋浊",
-      "name": "zyq_036 淋浊·辨湿热"
+      "name": "zyq_036 淋浊·辨湿热",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_037",
@@ -789,7 +814,8 @@
       "entry_id": "zyq_037",
       "entry_type": "zhangyuqing_case",
       "rag_key": "惊悸",
-      "name": "zyq_037 惊悸·辨痰火"
+      "name": "zyq_037 惊悸·辨痰火",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_038",
@@ -806,7 +832,8 @@
       "entry_id": "zyq_038",
       "entry_type": "zhangyuqing_case",
       "rag_key": "咽喉",
-      "name": "zyq_038 咽喉·辨风热"
+      "name": "zyq_038 咽喉·辨风热",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_039",
@@ -823,7 +850,8 @@
       "entry_id": "zyq_039",
       "entry_type": "zhangyuqing_case",
       "rag_key": "目疾",
-      "name": "zyq_039 目疾·清肝明目"
+      "name": "zyq_039 目疾·清肝明目",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_040",
@@ -840,7 +868,8 @@
       "entry_id": "zyq_040",
       "entry_type": "zhangyuqing_case",
       "rag_key": "带下",
-      "name": "zyq_040 带下·辨湿"
+      "name": "zyq_040 带下·辨湿",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_041",
@@ -868,7 +897,8 @@
         "半夏",
         "杏仁",
         "郁金"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_042",
@@ -898,7 +928,8 @@
         "杏仁",
         "郁金",
         "泽泻"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_043",
@@ -923,7 +954,8 @@
         "郁金",
         "泽泻",
         "藿香"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_044",
@@ -948,7 +980,8 @@
         "杏仁",
         "郁金",
         "藿香"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_046",
@@ -975,7 +1008,8 @@
         "桔梗",
         "杏仁",
         "贝母"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_047",
@@ -999,7 +1033,8 @@
         "枳壳",
         "干姜",
         "半夏"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_048",
@@ -1020,7 +1055,8 @@
       "herbs": [
         "益智仁",
         "生姜"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_049",
@@ -1043,7 +1079,8 @@
         "炮姜",
         "茯苓",
         "木香"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_050",
@@ -1060,7 +1097,8 @@
       "entry_id": "zyq_050",
       "entry_type": "zhangyuqing_case",
       "rag_key": "咳嗽",
-      "name": "zyq_050 童咳风温"
+      "name": "zyq_050 童咳风温",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_051",
@@ -1082,7 +1120,8 @@
         "女贞子",
         "茯苓",
         "牡蛎"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_052",
@@ -1107,7 +1146,8 @@
         "当归",
         "郁金",
         "栝蒌"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_053",
@@ -1132,7 +1172,8 @@
         "丁香",
         "沉香",
         "半夏"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_057",
@@ -1156,7 +1197,8 @@
         "乌药",
         "茯苓",
         "木香"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_060",
@@ -1180,7 +1222,8 @@
         "柴胡",
         "牡蛎",
         "泽泻"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_062",
@@ -1207,7 +1250,8 @@
         "麦冬",
         "杏仁",
         "贝母"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_063",
@@ -1227,7 +1271,8 @@
       "name": "zyq_063 晨泻肝脾",
       "herbs": [
         "茯苓"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_065",
@@ -1256,7 +1301,8 @@
       ],
       "formulas_referenced": [
         "越鞠丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_066",
@@ -1280,7 +1326,8 @@
         "麦冬",
         "牡蛎",
         "阿胶"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_067",
@@ -1297,7 +1344,8 @@
       "entry_id": "zyq_067",
       "entry_type": "zhangyuqing_case",
       "rag_key": "虚损",
-      "name": "zyq_067 伏饮阻肺"
+      "name": "zyq_067 伏饮阻肺",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_068",
@@ -1314,7 +1362,8 @@
       "entry_id": "zyq_068",
       "entry_type": "zhangyuqing_case",
       "rag_key": "中风",
-      "name": "zyq_068 中风痰火"
+      "name": "zyq_068 中风痰火",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_070",
@@ -1340,7 +1389,8 @@
         "川椒",
         "当归",
         "泽泻"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_045",
@@ -1357,7 +1407,8 @@
       "entry_id": "zyq_045",
       "entry_type": "zhangyuqing_case",
       "rag_key": "伏暑",
-      "name": "zyq_045 伏暑"
+      "name": "zyq_045 伏暑",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_054",
@@ -1384,7 +1435,8 @@
         "枳壳",
         "沉香",
         "郁金"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_055",
@@ -1404,7 +1456,8 @@
       "name": "zyq_055 脘痛寒浊",
       "herbs": [
         "茯苓"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_056",
@@ -1428,7 +1481,8 @@
         "香附",
         "茯苓",
         "当归"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_058",
@@ -1454,7 +1508,8 @@
         "杜仲",
         "牡蛎",
         "龙骨"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_059",
@@ -1474,7 +1529,8 @@
       "name": "zyq_059 精浊固肾",
       "herbs": [
         "山药"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_061",
@@ -1499,7 +1555,8 @@
         "沉香",
         "薏仁",
         "牛膝"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_064",
@@ -1522,7 +1579,8 @@
         "白芍",
         "当归",
         "杏仁"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_069",
@@ -1549,7 +1607,8 @@
         "半夏",
         "杏仁",
         "郁金"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_071",
@@ -1574,7 +1633,8 @@
         "白芍",
         "生地",
         "阿胶"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_072",
@@ -1595,7 +1655,8 @@
       "herbs": [
         "白芍",
         "茯苓"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_073",
@@ -1621,7 +1682,8 @@
         "柴胡",
         "枳壳",
         "当归"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_074",
@@ -1641,7 +1703,8 @@
       "name": "zyq_074 木郁土中",
       "herbs": [
         "乌梅"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_075",
@@ -1664,7 +1727,8 @@
         "木香",
         "郁金",
         "栝蒌"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_076",
@@ -1690,7 +1754,8 @@
         "半夏",
         "桂枝",
         "藿香"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_077",
@@ -1716,7 +1781,8 @@
         "桔梗",
         "木香",
         "葛根"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_078",
@@ -1740,7 +1806,8 @@
         "橘红",
         "防风",
         "半夏"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_079",
@@ -1766,7 +1833,8 @@
         "薏仁",
         "磁石",
         "阿胶"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_080",
@@ -1790,7 +1858,8 @@
         "橘红",
         "牡蛎",
         "磁石"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_081",
@@ -1813,7 +1882,8 @@
         "女贞子",
         "丹皮",
         "龟板"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_082",
@@ -1830,7 +1900,8 @@
       "entry_id": "zyq_082",
       "entry_type": "zhangyuqing_case",
       "rag_key": "汗",
-      "name": "zyq_082 湿热汗出"
+      "name": "zyq_082 湿热汗出",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_083",
@@ -1860,7 +1931,8 @@
         "郁金",
         "射干",
         "荆芥"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_084",
@@ -1886,7 +1958,8 @@
         "连翘",
         "防风",
         "荆芥"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_085",
@@ -1903,7 +1976,8 @@
       "entry_id": "zyq_085",
       "entry_type": "zhangyuqing_case",
       "rag_key": "疝气",
-      "name": "zyq_085 疝气气陷"
+      "name": "zyq_085 疝气气陷",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_086",
@@ -1928,7 +2002,8 @@
         "橘核",
         "青皮",
         "木香"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_087",
@@ -1952,7 +2027,8 @@
         "半夏",
         "杏仁",
         "泽泻"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_088",
@@ -1979,7 +2055,8 @@
         "柴胡",
         "黄芪",
         "泽泻"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_089",
@@ -2008,7 +2085,8 @@
         "苍术",
         "桂枝",
         "泽泻"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_090",
@@ -2032,7 +2110,8 @@
         "桑叶",
         "丹皮",
         "生地"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_091",
@@ -2060,7 +2139,8 @@
         "贝母",
         "郁金",
         "射干"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_092",
@@ -2083,7 +2163,8 @@
         "熟地",
         "茯苓",
         "牛膝"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_093",
@@ -2100,7 +2181,8 @@
       "entry_id": "zyq_093",
       "entry_type": "zhangyuqing_case",
       "rag_key": "喘",
-      "name": "zyq_093 喘肾不纳"
+      "name": "zyq_093 喘肾不纳",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_094",
@@ -2125,7 +2207,8 @@
         "当归",
         "槐花",
         "荆芥"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_095",
@@ -2154,7 +2237,8 @@
         "槐花",
         "荆芥",
         "泽泻"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_096",
@@ -2176,7 +2260,8 @@
         "猪苓",
         "半夏",
         "泽泻"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_097",
@@ -2199,7 +2284,8 @@
         "白术",
         "猪苓",
         "泽泻"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_098",
@@ -2224,7 +2310,8 @@
         "薏仁",
         "枳实",
         "半夏"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_099",
@@ -2249,7 +2336,8 @@
         "生地",
         "麦冬",
         "贝母"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_100",
@@ -2276,7 +2364,8 @@
         "当归",
         "贝母",
         "牛膝"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_101",
@@ -2296,7 +2385,8 @@
       "name": "zyq_101 衄血肝火",
       "herbs": [
         "丹皮"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_102",
@@ -2321,7 +2411,8 @@
         "生地",
         "当归",
         "泽泻"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_103",
@@ -2346,7 +2437,8 @@
         "龟甲",
         "远志",
         "龙骨"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_104",
@@ -2371,7 +2463,8 @@
         "茯苓",
         "枳壳",
         "半夏"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_105",
@@ -2395,7 +2488,8 @@
         "白芍",
         "生地",
         "川芎"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_106",
@@ -2420,7 +2514,8 @@
         "丹皮",
         "防风",
         "羌活"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_107",
@@ -2450,7 +2545,8 @@
         "木香",
         "桂枝",
         "郁金"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_108",
@@ -2474,7 +2570,8 @@
         "杜仲",
         "生地",
         "阿胶"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_109",
@@ -2500,7 +2597,8 @@
         "香附",
         "当归",
         "麦芽"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_110",
@@ -2525,7 +2623,8 @@
         "木瓜",
         "茯苓",
         "薏仁"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_111",
@@ -2551,7 +2650,8 @@
         "竹茹",
         "香附",
         "枳壳"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_112",
@@ -2576,7 +2676,8 @@
         "干姜",
         "半夏",
         "郁金"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_113",
@@ -2600,7 +2701,8 @@
         "橘红",
         "干姜",
         "半夏"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_114",
@@ -2624,7 +2726,8 @@
         "薏仁",
         "半夏",
         "苍术"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_115",
@@ -2647,7 +2750,8 @@
         "茯苓",
         "枳壳",
         "半夏"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_116",
@@ -2667,7 +2771,8 @@
       "name": "zyq_116 消渴命火",
       "formulas_referenced": [
         "八味丸"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_117",
@@ -2688,7 +2793,8 @@
       "herbs": [
         "蛇床子",
         "天花粉"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_118",
@@ -2713,7 +2819,8 @@
         "猪苓",
         "半夏",
         "泽泻"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_119",
@@ -2739,7 +2846,8 @@
         "防风",
         "当归",
         "槐花"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_120",
@@ -2764,7 +2872,8 @@
         "枳实",
         "半夏",
         "朱砂"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_121",
@@ -2789,7 +2898,8 @@
         "菖蒲",
         "半夏",
         "远志"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_122",
@@ -2814,7 +2924,8 @@
         "枳实",
         "半夏",
         "杏仁"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_123",
@@ -2837,7 +2948,8 @@
         "女贞子",
         "知母",
         "麦冬"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_124",
@@ -2863,7 +2975,8 @@
         "橘红",
         "半夏",
         "郁金"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_125",
@@ -2887,7 +3000,8 @@
         "石膏",
         "薏仁",
         "藿香"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_126",
@@ -2913,7 +3027,8 @@
         "枳实",
         "半夏",
         "桂枝"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_127",
@@ -2937,7 +3052,8 @@
         "菊花",
         "丹皮",
         "当归"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_128",
@@ -2961,7 +3077,8 @@
         "雷丸",
         "川椒",
         "槟榔"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_129",
@@ -2985,7 +3102,8 @@
         "乌药",
         "香附",
         "薏仁"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_130",
@@ -3011,7 +3129,8 @@
         "银花",
         "防风",
         "薏仁"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_131",
@@ -3039,7 +3158,8 @@
         "半夏",
         "贝母",
         "郁金"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_132",
@@ -3065,7 +3185,8 @@
         "芡实",
         "牡蛎",
         "阿胶"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_133",
@@ -3088,7 +3209,8 @@
         "香附",
         "枳壳",
         "藿香"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_134",
@@ -3111,7 +3233,8 @@
         "竹茹",
         "白芍",
         "茯苓"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_135",
@@ -3128,7 +3251,8 @@
       "entry_id": "zyq_135",
       "entry_type": "zhangyuqing_case",
       "rag_key": "乳症",
-      "name": "zyq_135 乳结核气"
+      "name": "zyq_135 乳结核气",
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_136",
@@ -3148,7 +3272,8 @@
       "name": "zyq_136 脚气湿热",
       "herbs": [
         "丹皮"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_137",
@@ -3174,7 +3299,8 @@
         "苍术",
         "陈皮",
         "泽泻"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_138",
@@ -3200,7 +3326,8 @@
         "生地",
         "半夏",
         "桂枝"
-      ]
+      ],
+      "grounding": "cross-edition"
     },
     {
       "case_id": "zyq_139",
